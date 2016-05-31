@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Voltage Reference Control
-        using Addr = Register::Address<0x40039010,0x7ffffffc,0,unsigned>;
+    namespace Vref0Control{    ///<Voltage Reference Control
+        using Addr = Register::Address<0x40039010,0x7ffffffc,0x00000000,unsigned>;
         ///Voltage Reference Doubler. 
         enum class Vref2xVal {
             disabled=0x00000000,     ///<VREF output is nominally 1.2 V

@@ -1,48 +1,24 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Timer 0.
-    namespace NonetasksStart{    ///<Start Timer.
-        using Addr = Register::Address<0x40008000,0xffffffff,0,unsigned>;
+    namespace Timer0TasksStart{    ///<Start Timer.
+        using Addr = Register::Address<0x40008000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop Timer.
-        using Addr = Register::Address<0x40008004,0xffffffff,0,unsigned>;
+    namespace Timer0TasksStop{    ///<Stop Timer.
+        using Addr = Register::Address<0x40008004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksCount{    ///<Increment Timer (In counter mode).
-        using Addr = Register::Address<0x40008008,0xffffffff,0,unsigned>;
+    namespace Timer0TasksCount{    ///<Increment Timer (In counter mode).
+        using Addr = Register::Address<0x40008008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksClear{    ///<Clear timer.
-        using Addr = Register::Address<0x4000800c,0xffffffff,0,unsigned>;
+    namespace Timer0TasksClear{    ///<Clear timer.
+        using Addr = Register::Address<0x4000800c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksShutdown{    ///<Shutdown timer.
-        using Addr = Register::Address<0x40008010,0xffffffff,0,unsigned>;
+    namespace Timer0TasksShutdown{    ///<Shutdown timer.
+        using Addr = Register::Address<0x40008010,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksCapture0{    ///<Capture Timer value to CC[n] registers.
-        using Addr = Register::Address<0x40008040,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksCapture1{    ///<Capture Timer value to CC[n] registers.
-        using Addr = Register::Address<0x40008044,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksCapture2{    ///<Capture Timer value to CC[n] registers.
-        using Addr = Register::Address<0x40008048,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksCapture3{    ///<Capture Timer value to CC[n] registers.
-        using Addr = Register::Address<0x4000804c,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare0{    ///<Compare event on CC[n] match.
-        using Addr = Register::Address<0x40008140,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare1{    ///<Compare event on CC[n] match.
-        using Addr = Register::Address<0x40008144,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare2{    ///<Compare event on CC[n] match.
-        using Addr = Register::Address<0x40008148,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare3{    ///<Compare event on CC[n] match.
-        using Addr = Register::Address<0x4000814c,0xffffffff,0,unsigned>;
-    }
-    namespace Noneshorts{    ///<Shortcuts for Timer.
-        using Addr = Register::Address<0x40008200,0xfffff0f0,0,unsigned>;
+    namespace Timer0Shorts{    ///<Shortcuts for Timer.
+        using Addr = Register::Address<0x40008200,0xfffff0f0,0x00000000,unsigned>;
         ///Shortcut between CC[0] event and the CLEAR task.
         enum class Compare0clearVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -124,8 +100,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3Stop)::Type,Compare3stopVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Interrupt enable set register.
-        using Addr = Register::Address<0x40008304,0xfff0ffff,0,unsigned>;
+    namespace Timer0Intenset{    ///<Interrupt enable set register.
+        using Addr = Register::Address<0x40008304,0xfff0ffff,0x00000000,unsigned>;
         ///Enable interrupt on COMPARE[0]
         enum class Compare0Val {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -175,8 +151,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register.
-        using Addr = Register::Address<0x40008308,0xfff0ffff,0,unsigned>;
+    namespace Timer0Intenclr{    ///<Interrupt enable clear register.
+        using Addr = Register::Address<0x40008308,0xfff0ffff,0x00000000,unsigned>;
         ///Disable interrupt on COMPARE[0]
         enum class Compare0Val {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -226,8 +202,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::clear> clear{};
         }
     }
-    namespace Nonemode{    ///<Timer Mode selection.
-        using Addr = Register::Address<0x40008504,0xfffffffe,0,unsigned>;
+    namespace Timer0Mode{    ///<Timer Mode selection.
+        using Addr = Register::Address<0x40008504,0xfffffffe,0x00000000,unsigned>;
         ///Select Normal or Counter mode.
         enum class ModeVal {
             counter=0x00000001,     ///<Timer in Counter mode.
@@ -239,8 +215,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::timer> timer{};
         }
     }
-    namespace Nonebitmode{    ///<Sets timer behaviour.
-        using Addr = Register::Address<0x40008508,0xfffffffc,0,unsigned>;
+    namespace Timer0Bitmode{    ///<Sets timer behaviour.
+        using Addr = Register::Address<0x40008508,0xfffffffc,0x00000000,unsigned>;
         ///Sets timer behaviour ro be like the implementation of a timer with width as indicated.
         enum class BitmodeVal {
             v16bit=0x00000000,     ///<16-bit timer behaviour.
@@ -256,25 +232,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bitmode)::Type,BitmodeVal::v32bit> v32bit{};
         }
     }
-    namespace Noneprescaler{    ///<4-bit prescaler to source clock frequency (max value 9). Source clock frequency is divided by 2^SCALE.
-        using Addr = Register::Address<0x40008510,0xfffffff0,0,unsigned>;
+    namespace Timer0Prescaler{    ///<4-bit prescaler to source clock frequency (max value 9). Source clock frequency is divided by 2^SCALE.
+        using Addr = Register::Address<0x40008510,0xfffffff0,0x00000000,unsigned>;
         ///Timer PRESCALER value. Max value is 9.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> prescaler{}; 
     }
-    namespace Nonecc0{    ///<Capture/compare registers.
-        using Addr = Register::Address<0x40008540,0xffffffff,0,unsigned>;
-    }
-    namespace Nonecc1{    ///<Capture/compare registers.
-        using Addr = Register::Address<0x40008544,0xffffffff,0,unsigned>;
-    }
-    namespace Nonecc2{    ///<Capture/compare registers.
-        using Addr = Register::Address<0x40008548,0xffffffff,0,unsigned>;
-    }
-    namespace Nonecc3{    ///<Capture/compare registers.
-        using Addr = Register::Address<0x4000854c,0xffffffff,0,unsigned>;
-    }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x40008ffc,0xfffffffe,0,unsigned>;
+    namespace Timer0Power{    ///<Peripheral power control.
+        using Addr = Register::Address<0x40008ffc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.
@@ -285,5 +249,41 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
         }
+    }
+    namespace Timer0TasksCapture0{    ///<Capture Timer value to CC[n] registers.
+        using Addr = Register::Address<0x40008040,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0TasksCapture1{    ///<Capture Timer value to CC[n] registers.
+        using Addr = Register::Address<0x40008044,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0TasksCapture2{    ///<Capture Timer value to CC[n] registers.
+        using Addr = Register::Address<0x40008048,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0TasksCapture3{    ///<Capture Timer value to CC[n] registers.
+        using Addr = Register::Address<0x4000804c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0EventsCompare0{    ///<Compare event on CC[n] match.
+        using Addr = Register::Address<0x40008140,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0EventsCompare1{    ///<Compare event on CC[n] match.
+        using Addr = Register::Address<0x40008144,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0EventsCompare2{    ///<Compare event on CC[n] match.
+        using Addr = Register::Address<0x40008148,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0EventsCompare3{    ///<Compare event on CC[n] match.
+        using Addr = Register::Address<0x4000814c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0Cc0{    ///<Capture/compare registers.
+        using Addr = Register::Address<0x40008540,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0Cc1{    ///<Capture/compare registers.
+        using Addr = Register::Address<0x40008544,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0Cc2{    ///<Capture/compare registers.
+        using Addr = Register::Address<0x40008548,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0Cc3{    ///<Capture/compare registers.
+        using Addr = Register::Address<0x4000854c,0xffffffff,0x00000000,unsigned>;
     }
 }

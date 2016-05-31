@@ -1,42 +1,24 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Pulse Width Modulation Unit 0
-    namespace NonetasksStop{    ///<Stops PWM pulse generation on all channels at the end of current PWM period, and stops sequence playback
-        using Addr = Register::Address<0x4001c004,0xffffffff,0,unsigned>;
+    namespace Pwm0TasksStop{    ///<Stops PWM pulse generation on all channels at the end of current PWM period, and stops sequence playback
+        using Addr = Register::Address<0x4001c004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksSeqstart0{    ///<Description collection[0]:  Loads the first PWM value on all enabled channels from sequence 0, and starts playing that sequence at the rate defined in SEQ[0]REFRESH and/or DECODER.MODE. Causes PWM generation to start it was not running.
-        using Addr = Register::Address<0x4001c008,0xffffffff,0,unsigned>;
+    namespace Pwm0TasksNextstep{    ///<Steps by one value in the current sequence on all enabled channels if DECODER.MODE=NextStep. Does not cause PWM generation to start it was not running.
+        using Addr = Register::Address<0x4001c010,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksSeqstart1{    ///<Description collection[0]:  Loads the first PWM value on all enabled channels from sequence 0, and starts playing that sequence at the rate defined in SEQ[0]REFRESH and/or DECODER.MODE. Causes PWM generation to start it was not running.
-        using Addr = Register::Address<0x4001c00c,0xffffffff,0,unsigned>;
+    namespace Pwm0EventsStopped{    ///<Response to STOP task, emitted when PWM pulses are no longer generated
+        using Addr = Register::Address<0x4001c104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksNextstep{    ///<Steps by one value in the current sequence on all enabled channels if DECODER.MODE=NextStep. Does not cause PWM generation to start it was not running.
-        using Addr = Register::Address<0x4001c010,0xffffffff,0,unsigned>;
+    namespace Pwm0EventsPwmperiodend{    ///<Emitted at the end of each PWM period
+        using Addr = Register::Address<0x4001c118,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStopped{    ///<Response to STOP task, emitted when PWM pulses are no longer generated
-        using Addr = Register::Address<0x4001c104,0xffffffff,0,unsigned>;
+    namespace Pwm0EventsLoopsdone{    ///<Concatenated sequences have been played the amount of times defined in LOOP.CNT
+        using Addr = Register::Address<0x4001c11c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsSeqstarted0{    ///<Description collection[0]:  First PWM period started on sequence 0
-        using Addr = Register::Address<0x4001c108,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsSeqstarted1{    ///<Description collection[0]:  First PWM period started on sequence 0
-        using Addr = Register::Address<0x4001c10c,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsSeqend0{    ///<Description collection[0]:  Emitted at end of every sequence 0, when last value from RAM has been applied to wave counter
-        using Addr = Register::Address<0x4001c110,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsSeqend1{    ///<Description collection[0]:  Emitted at end of every sequence 0, when last value from RAM has been applied to wave counter
-        using Addr = Register::Address<0x4001c114,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsPwmperiodend{    ///<Emitted at the end of each PWM period
-        using Addr = Register::Address<0x4001c118,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsLoopsdone{    ///<Concatenated sequences have been played the amount of times defined in LOOP.CNT
-        using Addr = Register::Address<0x4001c11c,0xffffffff,0,unsigned>;
-    }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x4001c200,0xffffffe0,0,unsigned>;
+    namespace Pwm0Shorts{    ///<Shortcut register
+        using Addr = Register::Address<0x4001c200,0xffffffe0,0x00000000,unsigned>;
         ///Shortcut between EVENTS_SEQEND[0] event and TASKS_STOP task
         enum class Seqend0stopVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -88,8 +70,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loopsdoneStop)::Type,LoopsdonestopVal::enabled> enabled{};
         }
     }
-    namespace Noneinten{    ///<Enable or disable interrupt
-        using Addr = Register::Address<0x4001c300,0xffffff01,0,unsigned>;
+    namespace Pwm0Inten{    ///<Enable or disable interrupt
+        using Addr = Register::Address<0x4001c300,0xffffff01,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Disable
@@ -161,8 +143,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loopsdone)::Type,LoopsdoneVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x4001c304,0xffffff01,0,unsigned>;
+    namespace Pwm0Intenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x4001c304,0xffffff01,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -248,8 +230,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loopsdone)::Type,LoopsdoneVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x4001c308,0xffffff01,0,unsigned>;
+    namespace Pwm0Intenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x4001c308,0xffffff01,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -335,8 +317,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loopsdone)::Type,LoopsdoneVal::clear> clear{};
         }
     }
-    namespace Noneenable{    ///<PWM module enable register
-        using Addr = Register::Address<0x4001c500,0xfffffffe,0,unsigned>;
+    namespace Pwm0Enable{    ///<PWM module enable register
+        using Addr = Register::Address<0x4001c500,0xfffffffe,0x00000000,unsigned>;
         ///Enable or disable PWM module
         enum class EnableVal {
             disabled=0x00000000,     ///<Disabled
@@ -348,8 +330,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
-    namespace Nonemode{    ///<Selects operating mode of the wave counter
-        using Addr = Register::Address<0x4001c504,0xfffffffe,0,unsigned>;
+    namespace Pwm0Mode{    ///<Selects operating mode of the wave counter
+        using Addr = Register::Address<0x4001c504,0xfffffffe,0x00000000,unsigned>;
         ///Selects up or up and down as wave counter mode
         enum class UpdownVal {
             up=0x00000000,     ///<Up counter - edge aligned PWM duty-cycle
@@ -361,13 +343,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(updown)::Type,UpdownVal::upanddown> upanddown{};
         }
     }
-    namespace Nonecountertop{    ///<Value up to which the pulse generator counter counts
-        using Addr = Register::Address<0x4001c508,0xffff8000,0,unsigned>;
+    namespace Pwm0Countertop{    ///<Value up to which the pulse generator counter counts
+        using Addr = Register::Address<0x4001c508,0xffff8000,0x00000000,unsigned>;
         ///Value up to which the pulse generator counter counts. This register is ignored when DECODER.MODE=WaveForm and only values from RAM will be used.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> countertop{}; 
     }
-    namespace Noneprescaler{    ///<Configuration for PWM_CLK
-        using Addr = Register::Address<0x4001c50c,0xfffffff8,0,unsigned>;
+    namespace Pwm0Prescaler{    ///<Configuration for PWM_CLK
+        using Addr = Register::Address<0x4001c50c,0xfffffff8,0x00000000,unsigned>;
         ///Pre-scaler of PWM_CLK
         enum class PrescalerVal {
             div1=0x00000000,     ///<Divide by   1 (16MHz)
@@ -391,8 +373,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prescaler)::Type,PrescalerVal::div128> div128{};
         }
     }
-    namespace Nonedecoder{    ///<Configuration of the decoder
-        using Addr = Register::Address<0x4001c510,0xfffffef8,0,unsigned>;
+    namespace Pwm0Decoder{    ///<Configuration of the decoder
+        using Addr = Register::Address<0x4001c510,0xfffffef8,0x00000000,unsigned>;
         ///How a sequence is read from RAM and spread to the compare register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> load{}; 
         ///Selects source for advancing the active sequence
@@ -406,9 +388,27 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::nextstep> nextstep{};
         }
     }
-    namespace Noneloop{    ///<Amount of playback of a loop
-        using Addr = Register::Address<0x4001c514,0xffff0000,0,unsigned>;
+    namespace Pwm0Loop{    ///<Amount of playback of a loop
+        using Addr = Register::Address<0x4001c514,0xffff0000,0x00000000,unsigned>;
         ///Amount of playback of pattern cycles
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+    }
+    namespace Pwm0TasksSeqstart0{    ///<Description collection[0]:  Loads the first PWM value on all enabled channels from sequence 0, and starts playing that sequence at the rate defined in SEQ[0]REFRESH and/or DECODER.MODE. Causes PWM generation to start it was not running.
+        using Addr = Register::Address<0x4001c008,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Pwm0TasksSeqstart1{    ///<Description collection[0]:  Loads the first PWM value on all enabled channels from sequence 0, and starts playing that sequence at the rate defined in SEQ[0]REFRESH and/or DECODER.MODE. Causes PWM generation to start it was not running.
+        using Addr = Register::Address<0x4001c00c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Pwm0EventsSeqstarted0{    ///<Description collection[0]:  First PWM period started on sequence 0
+        using Addr = Register::Address<0x4001c108,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Pwm0EventsSeqstarted1{    ///<Description collection[0]:  First PWM period started on sequence 0
+        using Addr = Register::Address<0x4001c10c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Pwm0EventsSeqend0{    ///<Description collection[0]:  Emitted at end of every sequence 0, when last value from RAM has been applied to wave counter
+        using Addr = Register::Address<0x4001c110,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Pwm0EventsSeqend1{    ///<Description collection[0]:  Emitted at end of every sequence 0, when last value from RAM has been applied to wave counter
+        using Addr = Register::Address<0x4001c114,0xffffffff,0x00000000,unsigned>;
     }
 }

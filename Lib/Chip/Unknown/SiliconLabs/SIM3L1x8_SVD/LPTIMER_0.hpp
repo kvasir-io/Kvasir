@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40038000,0x1c80c00c,0,unsigned>;
+    namespace Lptimer0Control{    ///<Module Control
+        using Addr = Register::Address<0x40038000,0x1c80c00c,0x00000000,unsigned>;
         ///Count Mode. 
         enum class CmdVal {
             free=0x00000000,     ///<The timer is free running mode on the RTC timer clock (RTC0TCLK).
@@ -84,8 +84,8 @@ namespace Kvasir {
         }
         ///Timer Compare 0 Threshold Enable. 
         enum class Cmp0enVal {
-            disabled=0x00000000,     ///<None
-            enabled=0x00000001,     ///<None
+            disabled=0x00000000,     ///<
+            enabled=0x00000001,     ///<
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Cmp0enVal> cmp0en{}; 
         namespace Cmp0enValC{
@@ -94,8 +94,8 @@ namespace Kvasir {
         }
         ///Timer Compare 1 Threshold Enable. 
         enum class Cmp1enVal {
-            disabled=0x00000000,     ///<None
-            enabled=0x00000001,     ///<None
+            disabled=0x00000000,     ///<
+            enabled=0x00000001,     ///<
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Cmp1enVal> cmp1en{}; 
         namespace Cmp1enValC{
@@ -233,20 +233,20 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::start> start{};
         }
     }
-    namespace Nonecount{    ///<Timer Value
-        using Addr = Register::Address<0x40038010,0xffff0000,0,unsigned>;
+    namespace Lptimer0Count{    ///<Timer Value
+        using Addr = Register::Address<0x40038010,0xffff0000,0x00000000,unsigned>;
         ///Timer Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timer{}; 
     }
-    namespace Nonethreshold{    ///<Threshold Values
-        using Addr = Register::Address<0x40038020,0x00000000,0,unsigned>;
+    namespace Lptimer0Threshold{    ///<Threshold Values
+        using Addr = Register::Address<0x40038020,0x00000000,0x00000000,unsigned>;
         ///Timer Compare 0 Threshold Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> compare0{}; 
         ///Timer Compare 1 Threshold Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> compare1{}; 
     }
-    namespace Nonestatus{    ///<Module Status
-        using Addr = Register::Address<0x40038030,0xfffffff8,0,unsigned>;
+    namespace Lptimer0Status{    ///<Module Status
+        using Addr = Register::Address<0x40038030,0xfffffff8,0x00000000,unsigned>;
         ///Timer Overflow Interrupt Flag. 
         enum class OvfiVal {
             notSet=0x00000000,     ///<A timer overflow has not occurred.

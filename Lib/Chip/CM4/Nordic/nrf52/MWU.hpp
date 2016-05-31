@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Memory Watch Unit
-    namespace Noneinten{    ///<Enable or disable interrupt
-        using Addr = Register::Address<0x40020300,0xf0ffff00,0,unsigned>;
+    namespace MwuInten{    ///<Enable or disable interrupt
+        using Addr = Register::Address<0x40020300,0xf0ffff00,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_REGION[0].WA event
         enum class Region0waVal {
             disabled=0x00000000,     ///<Disable
@@ -125,8 +125,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1ra)::Type,Pregion1raVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40020304,0xf0ffff00,0,unsigned>;
+    namespace MwuIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40020304,0xf0ffff00,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_REGION[0].WA event
         enum class Region0waVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -272,8 +272,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1ra)::Type,Pregion1raVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40020308,0xf0ffff00,0,unsigned>;
+    namespace MwuIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40020308,0xf0ffff00,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_REGION[0].WA event
         enum class Region0waVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -419,8 +419,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1ra)::Type,Pregion1raVal::clear> clear{};
         }
     }
-    namespace Nonenmien{    ///<Enable or disable non-maskable interrupt
-        using Addr = Register::Address<0x40020320,0xf0ffff00,0,unsigned>;
+    namespace MwuNmien{    ///<Enable or disable non-maskable interrupt
+        using Addr = Register::Address<0x40020320,0xf0ffff00,0x00000000,unsigned>;
         ///Enable or disable non-maskable interrupt on EVENTS_REGION[0].WA event
         enum class Region0waVal {
             disabled=0x00000000,     ///<Disable
@@ -542,8 +542,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1ra)::Type,Pregion1raVal::enabled> enabled{};
         }
     }
-    namespace Nonenmienset{    ///<Enable non-maskable interrupt
-        using Addr = Register::Address<0x40020324,0xf0ffff00,0,unsigned>;
+    namespace MwuNmienset{    ///<Enable non-maskable interrupt
+        using Addr = Register::Address<0x40020324,0xf0ffff00,0x00000000,unsigned>;
         ///Write '1' to Enable non-maskable interrupt on EVENTS_REGION[0].WA event
         enum class Region0waVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -689,8 +689,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1ra)::Type,Pregion1raVal::set> set{};
         }
     }
-    namespace Nonenmienclr{    ///<Disable non-maskable interrupt
-        using Addr = Register::Address<0x40020328,0xf0ffff00,0,unsigned>;
+    namespace MwuNmienclr{    ///<Disable non-maskable interrupt
+        using Addr = Register::Address<0x40020328,0xf0ffff00,0x00000000,unsigned>;
         ///Write '1' to Clear non-maskable interrupt on EVENTS_REGION[0].WA event
         enum class Region0waVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -836,8 +836,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1ra)::Type,Pregion1raVal::clear> clear{};
         }
     }
-    namespace Noneregionen{    ///<Enable/disable regions watch
-        using Addr = Register::Address<0x40020510,0xf0ffff00,0,unsigned>;
+    namespace MwuRegionen{    ///<Enable/disable regions watch
+        using Addr = Register::Address<0x40020510,0xf0ffff00,0x00000000,unsigned>;
         ///Enable/disable write access watch in region[0]
         enum class Rgn0waVal {
             disable=0x00000000,     ///<Disable write access watch in this region
@@ -959,8 +959,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn1ra)::Type,Prgn1raVal::enable> enable{};
         }
     }
-    namespace Noneregionenset{    ///<Enable regions watch
-        using Addr = Register::Address<0x40020514,0xf0ffff00,0,unsigned>;
+    namespace MwuRegionenset{    ///<Enable regions watch
+        using Addr = Register::Address<0x40020514,0xf0ffff00,0x00000000,unsigned>;
         ///Enable write access watch in region[0]
         enum class Rgn0waVal {
             disabled=0x00000000,     ///<Write access watch in this region is disabled
@@ -1106,8 +1106,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn1ra)::Type,Prgn1raVal::set> set{};
         }
     }
-    namespace Noneregionenclr{    ///<Disable regions watch
-        using Addr = Register::Address<0x40020518,0xf0ffff00,0,unsigned>;
+    namespace MwuRegionenclr{    ///<Disable regions watch
+        using Addr = Register::Address<0x40020518,0xf0ffff00,0x00000000,unsigned>;
         ///Disable write access watch in region[0]
         enum class Rgn0waVal {
             disabled=0x00000000,     ///<Write access watch in this region is disabled

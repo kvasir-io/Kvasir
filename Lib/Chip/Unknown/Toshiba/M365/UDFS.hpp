@@ -1,25 +1,25 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //UDC2 AHB Bridge
-    namespace Noneintsts{    ///<Interrupt Status Register
-        using Addr = Register::Address<0x40008000,0xcc01f800,0,unsigned>;
+    namespace UdfsIntsts{    ///<Interrupt Status Register
+        using Addr = Register::Address<0x40008000,0xcc01f800,0x00000000,unsigned>;
         ///SETUP
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> setup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> setup{}; 
         ///STATUS_NAK
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> statusNak{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> statusNak{}; 
         ///STATUS
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> status{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> status{}; 
         ///RX_ZERO
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxZero{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxZero{}; 
         ///SOF
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> sof{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sof{}; 
         ///EP0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ep0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ep0{}; 
         ///EP
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ep{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ep{}; 
         ///NAK
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> nak{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nak{}; 
         ///SUSPEND_RESUME
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> suspendResume{}; 
         ///USB_RESET
@@ -49,8 +49,8 @@ namespace Kvasir {
         ///MW_RERR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> mwRerr{}; 
     }
-    namespace Noneintenb{    ///<Interrupt Enable Register
-        using Addr = Register::Address<0x40008004,0xcc01f8ff,0,unsigned>;
+    namespace UdfsIntenb{    ///<Interrupt Enable Register
+        using Addr = Register::Address<0x40008004,0xcc01f8ff,0x00000000,unsigned>;
         ///SUSPEND_RESUME_EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> suspendResumeEn{}; 
         ///RESET_EN
@@ -80,39 +80,39 @@ namespace Kvasir {
         ///MW_RERROR_EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> mwRerrorEn{}; 
     }
-    namespace Nonemwtout{    ///<Master Write Timeout Register
-        using Addr = Register::Address<0x40008008,0x00000000,0,unsigned>;
+    namespace UdfsMwtout{    ///<Master Write Timeout Register
+        using Addr = Register::Address<0x40008008,0x00000000,0x00000000,unsigned>;
         ///TIMEOUT_EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> timeoutEn{}; 
         ///TIMEOUTSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> timeoutset{}; 
     }
-    namespace Nonec2stset{    ///<UDC2 setting
-        using Addr = Register::Address<0x4000800c,0xffffffee,0,unsigned>;
+    namespace UdfsC2stset{    ///<UDC2 setting
+        using Addr = Register::Address<0x4000800c,0xffffffee,0x00000000,unsigned>;
         ///TX0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tx0{}; 
         ///EOPB_ENABLE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> eopbEnable{}; 
     }
-    namespace Nonemstset{    ///<DMAC setting
-        using Addr = Register::Address<0x40008010,0xfffffe88,0,unsigned>;
+    namespace UdfsMstset{    ///<DMAC setting
+        using Addr = Register::Address<0x40008010,0xfffffe88,0x00000000,unsigned>;
         ///MW_ENABLE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mwEnable{}; 
         ///MW_ABORT
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mwAbort{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mwAbort{}; 
         ///MW_RESET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mwReset{}; 
         ///MR_ENABLE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mrEnable{}; 
         ///MR_ABORT
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> mrAbort{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mrAbort{}; 
         ///MR_RESET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mrReset{}; 
         ///M_BURST_TYPE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mBurstType{}; 
     }
-    namespace Nonedmacrdreq{    ///<DMAC Read request
-        using Addr = Register::Address<0x40008014,0x3fffff03,0,unsigned>;
+    namespace UdfsDmacrdreq{    ///<DMAC Read request
+        using Addr = Register::Address<0x40008014,0x3fffff03,0x00000000,unsigned>;
         ///DMARDADR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,2),Register::ReadWriteAccess,unsigned> dmardadr{}; 
         ///DMARDCLR
@@ -120,13 +120,13 @@ namespace Kvasir {
         ///DMARDREQ
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dmardreq{}; 
     }
-    namespace Nonedmacrdvl{    ///<DMAC Read Value
-        using Addr = Register::Address<0x40008018,0x00000000,0,unsigned>;
+    namespace UdfsDmacrdvl{    ///<DMAC Read Value
+        using Addr = Register::Address<0x40008018,0x00000000,0x00000000,unsigned>;
         ///DMARDDATA
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dmarddata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dmarddata{}; 
     }
-    namespace Noneudc2rdreq{    ///<UDC2 Read Request
-        using Addr = Register::Address<0x4000801c,0x3ffffc03,0,unsigned>;
+    namespace UdfsUdc2rdreq{    ///<UDC2 Read Request
+        using Addr = Register::Address<0x4000801c,0x3ffffc03,0x00000000,unsigned>;
         ///UDC2RDADR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,2),Register::ReadWriteAccess,unsigned> udc2rdadr{}; 
         ///UDC2RDCLR
@@ -134,13 +134,13 @@ namespace Kvasir {
         ///UDC2RDREQ
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> udc2rdreq{}; 
     }
-    namespace Noneudc2rdvl{    ///<UDC2 Read Value
-        using Addr = Register::Address<0x40008020,0x00000000,0,unsigned>;
+    namespace UdfsUdc2rdvl{    ///<UDC2 Read Value
+        using Addr = Register::Address<0x40008020,0x00000000,0x00000000,unsigned>;
         ///UDC2RDATA
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> udc2rdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> udc2rdata{}; 
     }
-    namespace Nonearbtset{    ///<Arbiter Setting
-        using Addr = Register::Address<0x4000803c,0x6fffcccc,0,unsigned>;
+    namespace UdfsArbtset{    ///<Arbiter Setting
+        using Addr = Register::Address<0x4000803c,0x6fffcccc,0x00000000,unsigned>;
         ///ABTPRI_R0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> abtpriR0{}; 
         ///ABTPRI_R1
@@ -154,58 +154,58 @@ namespace Kvasir {
         ///ABT_EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> abtEn{}; 
     }
-    namespace Nonemwsadr{    ///<Master Write Start Address
-        using Addr = Register::Address<0x40008040,0x00000000,0,unsigned>;
+    namespace UdfsMwsadr{    ///<Master Write Start Address
+        using Addr = Register::Address<0x40008040,0x00000000,0x00000000,unsigned>;
         ///MWSADR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mwsadr{}; 
     }
-    namespace Nonemweadr{    ///<Master Write End Address
-        using Addr = Register::Address<0x40008044,0x00000000,0,unsigned>;
+    namespace UdfsMweadr{    ///<Master Write End Address
+        using Addr = Register::Address<0x40008044,0x00000000,0x00000000,unsigned>;
         ///MWEADR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mweadr{}; 
     }
-    namespace Nonemwcadr{    ///<Master Write Current Address
-        using Addr = Register::Address<0x40008048,0x00000000,0,unsigned>;
+    namespace UdfsMwcadr{    ///<Master Write Current Address
+        using Addr = Register::Address<0x40008048,0x00000000,0x00000000,unsigned>;
         ///MWCADR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mwcadr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mwcadr{}; 
     }
-    namespace Nonemwahbadr{    ///<Master Write AHB Address
-        using Addr = Register::Address<0x4000804c,0x00000000,0,unsigned>;
+    namespace UdfsMwahbadr{    ///<Master Write AHB Address
+        using Addr = Register::Address<0x4000804c,0x00000000,0x00000000,unsigned>;
         ///MWAHBADR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mwahbadr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mwahbadr{}; 
     }
-    namespace Nonemrsadr{    ///<Master Read Start Address
-        using Addr = Register::Address<0x40008050,0x00000000,0,unsigned>;
+    namespace UdfsMrsadr{    ///<Master Read Start Address
+        using Addr = Register::Address<0x40008050,0x00000000,0x00000000,unsigned>;
         ///MRSADR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mrsadr{}; 
     }
-    namespace Nonemreadr{    ///<Master Read End Address
-        using Addr = Register::Address<0x40008054,0x00000000,0,unsigned>;
+    namespace UdfsMreadr{    ///<Master Read End Address
+        using Addr = Register::Address<0x40008054,0x00000000,0x00000000,unsigned>;
         ///MREADR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mreadr{}; 
     }
-    namespace Nonemrcadr{    ///<Master Read Current Address
-        using Addr = Register::Address<0x40008058,0x00000000,0,unsigned>;
+    namespace UdfsMrcadr{    ///<Master Read Current Address
+        using Addr = Register::Address<0x40008058,0x00000000,0x00000000,unsigned>;
         ///MRCADR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mrcadr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mrcadr{}; 
     }
-    namespace Nonemrahbadr{    ///<Master Read AHB Address
-        using Addr = Register::Address<0x4000805c,0x00000000,0,unsigned>;
+    namespace UdfsMrahbadr{    ///<Master Read AHB Address
+        using Addr = Register::Address<0x4000805c,0x00000000,0x00000000,unsigned>;
         ///MRAHBADR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mrahbadr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mrahbadr{}; 
     }
-    namespace Nonepwctl{    ///<Power Detect Control
-        using Addr = Register::Address<0x40008080,0xffffff00,0,unsigned>;
+    namespace UdfsPwctl{    ///<Power Detect Control
+        using Addr = Register::Address<0x40008080,0xffffff00,0x00000000,unsigned>;
         ///USB_RESET
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usbReset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> usbReset{}; 
         ///PW_RESETB
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pwResetb{}; 
         ///PW_DETECT
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pwDetect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pwDetect{}; 
         ///PHY_SUSPEND
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> phySuspend{}; 
         ///SUSPEND_X
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> suspendX{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> suspendX{}; 
         ///PHY_RESETB
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> phyResetb{}; 
         ///PHY_REMOTE_WKUP
@@ -213,22 +213,22 @@ namespace Kvasir {
         ///WAKEUP_EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wakeupEn{}; 
     }
-    namespace Nonemststs{    ///<Master Status
-        using Addr = Register::Address<0x40008084,0xffffffe0,0,unsigned>;
+    namespace UdfsMststs{    ///<Master Status
+        using Addr = Register::Address<0x40008084,0xffffffe0,0x00000000,unsigned>;
         ///MWEPDSET
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mwepdset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mwepdset{}; 
         ///MREPDSET
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mrepdset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mrepdset{}; 
         ///MWBFEMP
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mwbfemp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mwbfemp{}; 
         ///MRBFEMP
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mrbfemp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mrbfemp{}; 
         ///MREPEMPTY
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mrepempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mrepempty{}; 
     }
-    namespace Nonetoutcnt{    ///<Timeout Count
-        using Addr = Register::Address<0x40008088,0x00000000,0,unsigned>;
+    namespace UdfsToutcnt{    ///<Timeout Count
+        using Addr = Register::Address<0x40008088,0x00000000,0x00000000,unsigned>;
         ///TMOUTCNT
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tmoutcnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tmoutcnt{}; 
     }
 }

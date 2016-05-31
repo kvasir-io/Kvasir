@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonemode{    ///<Module Operating Mode
-        using Addr = Register::Address<0x40010180,0xffffe000,0,unsigned>;
+    namespace Pca1Mode{    ///<Module Operating Mode
+        using Addr = Register::Address<0x40010180,0xffffe000,0x00000000,unsigned>;
         ///Input Clock Divisor. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
         ///Input Clock (F<subscript>CLKIN</subscript>) Select. 
@@ -23,8 +23,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::eci> eci{};
         }
     }
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40010190,0x001fffbe,0,unsigned>;
+    namespace Pca1Control{    ///<Module Control
+        using Addr = Register::Address<0x40010190,0x001fffbe,0x00000000,unsigned>;
         ///PCA Counter Overflow/Limit Interrupt Enable. 
         enum class OvfienVal {
             disabled=0x00000000,     ///<Disable the PCA counter overflow/limit event interrupt.
@@ -58,8 +58,8 @@ namespace Kvasir {
         ///Current Clock Divider Count. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> div{}; 
     }
-    namespace Nonestatus{    ///<Module Status
-        using Addr = Register::Address<0x400101a0,0xfffff33c,0,unsigned>;
+    namespace Pca1Status{    ///<Module Status
+        using Addr = Register::Address<0x400101a0,0xfffff33c,0x00000000,unsigned>;
         ///Channel 0 Capture/Compare Interrupt Flag. 
         enum class C0cciVal {
             notSet=0x00000000,     ///<A Channel 0 match or capture event did not occur.
@@ -121,18 +121,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(c1iovfi)::Type,C1iovfiVal::set> set{};
         }
     }
-    namespace Nonecounter{    ///<Module Counter/Timer
-        using Addr = Register::Address<0x400101b0,0xffff0000,0,unsigned>;
+    namespace Pca1Counter{    ///<Module Counter/Timer
+        using Addr = Register::Address<0x400101b0,0xffff0000,0x00000000,unsigned>;
         ///Counter/Timer. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> counter{}; 
     }
-    namespace Nonelimit{    ///<Module Counter/Timer Upper Limit
-        using Addr = Register::Address<0x400101c0,0xffff0000,0,unsigned>;
+    namespace Pca1Limit{    ///<Module Counter/Timer Upper Limit
+        using Addr = Register::Address<0x400101c0,0xffff0000,0x00000000,unsigned>;
         ///Upper Limit. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> limit{}; 
     }
-    namespace Nonemode0{    ///<Channel Capture/Compare Mode
-        using Addr = Register::Address<0x40010000,0xfffff8c0,0,unsigned>;
+    namespace Pca1Mode0{    ///<Channel Capture/Compare Mode
+        using Addr = Register::Address<0x40010000,0xfffff8c0,0x00000000,unsigned>;
         ///Channel Output Function Select. 
         enum class CoselVal {
             toggleOutput=0x00000000,     ///<Toggle the channel output at the next capture/compare, overflow, or intermediate event.
@@ -166,8 +166,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::nBitPwm> nBitPwm{};
         }
     }
-    namespace Nonecontrol0{    ///<Channel Capture/Compare Control
-        using Addr = Register::Address<0x40010010,0xfffff6f0,0,unsigned>;
+    namespace Pca1Control0{    ///<Channel Capture/Compare Control
+        using Addr = Register::Address<0x40010010,0xfffff6f0,0x00000000,unsigned>;
         ///Channel Output State. 
         enum class CoutstVal {
             low=0x00000000,     ///<The channel output state is low.
@@ -229,18 +229,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ciovfien)::Type,CiovfienVal::enabled> enabled{};
         }
     }
-    namespace Noneccapv0{    ///<Channel Compare Value
-        using Addr = Register::Address<0x40010020,0xfffc0000,0,unsigned>;
+    namespace Pca1Ccapv0{    ///<Channel Compare Value
+        using Addr = Register::Address<0x40010020,0xfffc0000,0x00000000,unsigned>;
         ///Channel Compare Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,0),Register::ReadWriteAccess,unsigned> ccapv{}; 
     }
-    namespace Noneccapvupd0{    ///<Channel Compare Update Value
-        using Addr = Register::Address<0x40010030,0xfffc0000,0,unsigned>;
+    namespace Pca1Ccapvupd0{    ///<Channel Compare Update Value
+        using Addr = Register::Address<0x40010030,0xfffc0000,0x00000000,unsigned>;
         ///Channel Compare Update Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,0),Register::ReadWriteAccess,unsigned> ccapvupd{}; 
     }
-    namespace Nonemode1{    ///<Channel Capture/Compare Mode
-        using Addr = Register::Address<0x40010040,0xfffff8c0,0,unsigned>;
+    namespace Pca1Mode1{    ///<Channel Capture/Compare Mode
+        using Addr = Register::Address<0x40010040,0xfffff8c0,0x00000000,unsigned>;
         ///Channel Output Function Select. 
         enum class CoselVal {
             toggleOutput=0x00000000,     ///<Toggle the channel output at the next capture/compare, overflow, or intermediate event.
@@ -274,8 +274,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::nBitPwm> nBitPwm{};
         }
     }
-    namespace Nonecontrol1{    ///<Channel Capture/Compare Control
-        using Addr = Register::Address<0x40010050,0xfffff6f0,0,unsigned>;
+    namespace Pca1Control1{    ///<Channel Capture/Compare Control
+        using Addr = Register::Address<0x40010050,0xfffff6f0,0x00000000,unsigned>;
         ///Channel Output State. 
         enum class CoutstVal {
             low=0x00000000,     ///<The channel output state is low.
@@ -337,13 +337,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ciovfien)::Type,CiovfienVal::enabled> enabled{};
         }
     }
-    namespace Noneccapv1{    ///<Channel Compare Value
-        using Addr = Register::Address<0x40010060,0xfffc0000,0,unsigned>;
+    namespace Pca1Ccapv1{    ///<Channel Compare Value
+        using Addr = Register::Address<0x40010060,0xfffc0000,0x00000000,unsigned>;
         ///Channel Compare Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,0),Register::ReadWriteAccess,unsigned> ccapv{}; 
     }
-    namespace Noneccapvupd1{    ///<Channel Compare Update Value
-        using Addr = Register::Address<0x40010070,0xfffc0000,0,unsigned>;
+    namespace Pca1Ccapvupd1{    ///<Channel Compare Update Value
+        using Addr = Register::Address<0x40010070,0xfffc0000,0x00000000,unsigned>;
         ///Channel Compare Update Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,0),Register::ReadWriteAccess,unsigned> ccapvupd{}; 
     }

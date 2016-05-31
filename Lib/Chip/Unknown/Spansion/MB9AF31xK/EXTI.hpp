@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //External Interrupt and NMI Control
-    namespace Noneenir{    ///<Enable Interrupt Request Register
-        using Addr = Register::Address<0x40030000,0xffff7fb0,0,unsigned>;
+    namespace ExtiEnir{    ///<Enable Interrupt Request Register
+        using Addr = Register::Address<0x40030000,0xffff7fb0,0x00000000,unsigned>;
         ///Bit15 of ENIR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> en15{}; 
         ///Bit6 of ENIR
@@ -17,23 +17,23 @@ namespace Kvasir {
         ///Bit0 of ENIR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en0{}; 
     }
-    namespace Noneeirr{    ///<External Interrupt Request Register
-        using Addr = Register::Address<0x40030004,0xffff7fb0,0,unsigned>;
+    namespace ExtiEirr{    ///<External Interrupt Request Register
+        using Addr = Register::Address<0x40030004,0xffff7fb0,0x00000000,unsigned>;
         ///Bit15 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> er15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er15{}; 
         ///Bit6 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> er6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er6{}; 
         ///Bit3 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> er3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er3{}; 
         ///Bit2 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> er2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er2{}; 
         ///Bit1 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> er1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er1{}; 
         ///Bit0 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> er0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er0{}; 
     }
-    namespace Noneeicl{    ///<External Interrupt Clear Register
-        using Addr = Register::Address<0x40030008,0xffff7fb0,0,unsigned>;
+    namespace ExtiEicl{    ///<External Interrupt Clear Register
+        using Addr = Register::Address<0x40030008,0xffff7fb0,0x00000000,unsigned>;
         ///Bit15 of EICL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ecl15{}; 
         ///Bit6 of EICL
@@ -47,8 +47,8 @@ namespace Kvasir {
         ///Bit0 of EICL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ecl0{}; 
     }
-    namespace Noneelvr{    ///<External Interrupt Level Register
-        using Addr = Register::Address<0x4003000c,0x3fffcf00,0,unsigned>;
+    namespace ExtiElvr{    ///<External Interrupt Level Register
+        using Addr = Register::Address<0x4003000c,0x3fffcf00,0x00000000,unsigned>;
         ///Bit31 of ELVR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lb15{}; 
         ///Bit30 of ELVR
@@ -74,13 +74,13 @@ namespace Kvasir {
         ///Bit0 of ELVR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> la0{}; 
     }
-    namespace Nonenmirr{    ///<Non Maskable Interrupt Request Register
-        using Addr = Register::Address<0x40030014,0xfffffffe,0,unsigned char>;
+    namespace ExtiNmirr{    ///<Non Maskable Interrupt Request Register
+        using Addr = Register::Address<0x40030014,0xfffffffe,0x00000000,unsigned char>;
         ///NMI interrupt request detection bit 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> nr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nr{}; 
     }
-    namespace Nonenmicl{    ///<Non Maskable Interrupt Clear Register
-        using Addr = Register::Address<0x40030018,0xfffffffe,0,unsigned char>;
+    namespace ExtiNmicl{    ///<Non Maskable Interrupt Clear Register
+        using Addr = Register::Address<0x40030018,0xfffffffe,0x00000000,unsigned char>;
         ///NMI interrupt cause clear bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ncl{}; 
     }

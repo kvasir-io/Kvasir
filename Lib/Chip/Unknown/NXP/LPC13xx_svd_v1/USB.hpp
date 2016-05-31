@@ -1,10 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//Product name title=UM10375 Chapter title=LPC13xx USB device
-controller Modification date=4/20/2011 Major revision=2 Minor revision=1 
-    namespace Nonedevintst{    ///<USB Device Interrupt Status
-        using Addr = Register::Address<0x40020000,0xffffc000,0,unsigned>;
+//Product name title=UM10375 Chapter title=LPC13xx USB devicecontroller Modification date=4/20/2011 Major revision=2 Minor revision=1 
+    namespace UsbDevintst{    ///<USB Device Interrupt Status
+        using Addr = Register::Address<0x40020000,0x00000000,0x00000000,unsigned>;
         ///The frame interrupt occurs every 1 ms. This is used in isochronous packet transfers. 0 = no interrupt. 1 = interrupt pending.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frame{}; 
         ///USB core interrupt for physical endpoint 0. 0 = no interrupt. 1 = interrupt pending.
@@ -33,9 +32,11 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxendpkt{}; 
         ///The number of data bytes transferred to the endpoint buffer equals the number of bytes programmed in the TxPacket length register (USBTxPLen). 0 = no interrupt. 1 = interrupt pending.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txendpkt{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedevinten{    ///<USB Device Interrupt Enable
-        using Addr = Register::Address<0x40020004,0xffffc000,0,unsigned>;
+    namespace UsbDevinten{    ///<USB Device Interrupt Enable
+        using Addr = Register::Address<0x40020004,0x00000000,0x00000000,unsigned>;
         ///Frame interrupt . For isochronous packet transfers. 0 = no interrupt generated. 1 = interrupt generated when the corresponding bit in USBDevIntSt is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frameEn{}; 
         ///USB core interrupt for physical endpoint 0. 0 = no interrupt generated. 1 = interrupt generated when the corresponding bit in USBDevIntSt is set.
@@ -64,9 +65,11 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxendpktEn{}; 
         ///The number of data bytes transferred to the endpoint buffer equals the number of bytes programmed in the TxPacket length register (USBTxPLen). 0 = no interrupt generated. 1 = interrupt generated when the corresponding bit in USBDevIntSt is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txendpktEn{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedevintctrl{    ///<USB Device Interrupt Clear
-        using Addr = Register::Address<0x40020008,0xffffc000,0,unsigned>;
+    namespace UsbDevintctrl{    ///<USB Device Interrupt Clear
+        using Addr = Register::Address<0x40020008,0x00000000,0x00000000,unsigned>;
         ///Frame interrupt . For isochronous packet transfers. 0 = no effect. 1 = the corresponding bit in USBDevIntSt is cleared.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frameClr{}; 
         ///USB core interrupt for physical endpoint 0. 0 = no effect. 1 = the corresponding bit in USBDevIntSt is cleared.
@@ -95,9 +98,11 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxendpktClr{}; 
         ///The number of data bytes transferred to the endpoint buffer equals the number of bytes programmed in the TxPacket length register (USBTxPLen). 0 = no effect. 1 = the corresponding bit in USBDevIntSt is cleared.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txendpktClr{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedevintset{    ///<USB Device Interrupt Set
-        using Addr = Register::Address<0x4002000c,0xffffc000,0,unsigned>;
+    namespace UsbDevintset{    ///<USB Device Interrupt Set
+        using Addr = Register::Address<0x4002000c,0x00000000,0x00000000,unsigned>;
         ///Frame interrupt . For isochronous packet transfers. 0 = no effect. 1 = the corresponding bit in USBDevIntSt is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frameSet{}; 
         ///USB core interrupt for physical endpoint 0. 0 = no effect. 1 = the corresponding bit in USBDevIntSt is set.
@@ -126,31 +131,39 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxendpktSet{}; 
         ///The number of data bytes transferred to the endpoint buffer equals the number of bytes programmed in the TxPacket length register (USBTxPLen). 0 = no effect. 1 = the corresponding bit in USBDevIntSt is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txendpktSet{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecmdcode{    ///<USB Command Code
-        using Addr = Register::Address<0x40020010,0xff0000ff,0,unsigned>;
+    namespace UsbCmdcode{    ///<USB Command Code
+        using Addr = Register::Address<0x40020010,0x00000000,0x00000000,unsigned>;
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Command phase action
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cmdPhase{}; 
         ///This is a multi-purpose field. When CMD_PHASE is Command or Read, this field contains the code for the command (CMD_CODE). When CMD_PHASE is Write, this field contains the command write data (CMD_WDATA).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> codeWdata{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecmddata{    ///<USB Command Data
-        using Addr = Register::Address<0x40020014,0xffffff00,0,unsigned>;
+    namespace UsbCmddata{    ///<USB Command Data
+        using Addr = Register::Address<0x40020014,0x00000000,0x00000000,unsigned>;
         ///Command Read Data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cmdRdata{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerxdata{    ///<USB Receive Data
-        using Addr = Register::Address<0x40020018,0x00000000,0,unsigned>;
+    namespace UsbRxdata{    ///<USB Receive Data
+        using Addr = Register::Address<0x40020018,0x00000000,0x00000000,unsigned>;
         ///Data received.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxData{}; 
     }
-    namespace Nonetxdata{    ///<USB Transmit Data
-        using Addr = Register::Address<0x4002001c,0x00000000,0,unsigned>;
+    namespace UsbTxdata{    ///<USB Transmit Data
+        using Addr = Register::Address<0x4002001c,0x00000000,0x00000000,unsigned>;
         ///Transmit Data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txData{}; 
     }
-    namespace Nonerxplen{    ///<USB Receive Packet Length
-        using Addr = Register::Address<0x40020020,0xfffff800,0,unsigned>;
+    namespace UsbRxplen{    ///<USB Receive Packet Length
+        using Addr = Register::Address<0x40020020,0x00000000,0x00000000,unsigned>;
         ///The remaining number of bytes to be read from the currently selected endpoint's buffer. When this field decrements to 0, the RxENDPKT bit will be set in USBDevIntSt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> pktLngth{}; 
         ///Data valid. This bit is useful for isochronous endpoints. Non-isochronous endpoints do not raise an interrupt when an erroneous data packet is received. But invalid data packet can be produced with a bus reset. For isochronous endpoints, data transfer will happen even if an erroneous packet is received. In this case DV bit will not be set for the packet.
@@ -163,14 +176,18 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
             constexpr Register::FieldValue<decltype(dv)::Type,DvVal::dataIsInvalid> dataIsInvalid{};
             constexpr Register::FieldValue<decltype(dv)::Type,DvVal::dataIsValid> dataIsValid{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxplenn{    ///<USB Transmit Packet Length
-        using Addr = Register::Address<0x40020024,0xfffffc00,0,unsigned>;
+    namespace UsbTxplenn{    ///<USB Transmit Packet Length
+        using Addr = Register::Address<0x40020024,0x00000000,0x00000000,unsigned>;
         ///The remaining number of bytes to be written to the selected endpoint buffer. This field is decremented by 4 by hardware after each write to USBTxData. When this field decrements to 0, the TxENDPKT bit will be set in USBDevIntSt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> pktLngth{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectrl{    ///<USB Control
-        using Addr = Register::Address<0x40020028,0xffffffc0,0,unsigned>;
+    namespace UsbCtrl{    ///<USB Control
+        using Addr = Register::Address<0x40020028,0x00000000,0x00000000,unsigned>;
         ///Read mode control. Enables reading data from the OUT endpoint buffer for the endpoint specified in the LOG_ENDPOINT field using the USBRxData register. This bit is cleared by hardware when the last word of the current packet is read from USBRxData.
         enum class RdenVal {
             readModeIsDisable=0x00000000,     ///<Read mode is disabled.
@@ -193,9 +210,11 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
         }
         ///Logical Endpoint number.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> logEndpoint{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedevfiqsel{    ///<USB Device FIQ select
-        using Addr = Register::Address<0x4002002c,0xfffffff8,0,unsigned>;
+    namespace UsbDevfiqsel{    ///<USB Device FIQ select
+        using Addr = Register::Address<0x4002002c,0x00000000,0x00000000,unsigned>;
         ///This interrupt comes from a 1 KHz free running clock resynchronized on the incoming SoF tokens. This is to be used for isochronous packet transfer.
         enum class FrameVal {
             lowpriority=0x00000000,     ///<FRAME interrupt will be routed to the low-priority interrupt line IRQ.
@@ -226,5 +245,7 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
             constexpr Register::FieldValue<decltype(bulkin)::Type,BulkinVal::lowpriority> lowpriority{};
             constexpr Register::FieldValue<decltype(bulkin)::Type,BulkinVal::highpriority> highpriority{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

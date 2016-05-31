@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Non Volatile Memory Controller.
-    namespace Noneready{    ///<Ready flag.
-        using Addr = Register::Address<0x4001e400,0xfffffffe,0,unsigned>;
+    namespace NvmcReady{    ///<Ready flag.
+        using Addr = Register::Address<0x4001e400,0xfffffffe,0x00000000,unsigned>;
         ///NVMC ready.
         enum class ReadyVal {
             busy=0x00000000,     ///<NVMC is busy (on-going write or erase operation).
@@ -15,8 +15,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::ready> ready{};
         }
     }
-    namespace Noneconfig{    ///<Configuration register.
-        using Addr = Register::Address<0x4001e504,0xfffffffc,0,unsigned>;
+    namespace NvmcConfig{    ///<Configuration register.
+        using Addr = Register::Address<0x4001e504,0xfffffffc,0x00000000,unsigned>;
         ///Program write enable.
         enum class WenVal {
             ren=0x00000000,     ///<Read only access.
@@ -30,14 +30,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wen)::Type,WenVal::een> een{};
         }
     }
-    namespace Noneerasepage{    ///<Register for erasing a non-protected non-volatile memory page.
-        using Addr = Register::Address<0x4001e508,0xffffffff,0,unsigned>;
+    namespace NvmcErasepage{    ///<Register for erasing a non-protected non-volatile memory page.
+        using Addr = Register::Address<0x4001e508,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneerasepcr1{    ///<Register for erasing a non-protected non-volatile memory page.
-        using Addr = Register::Address<0x4001e508,0xffffffff,0,unsigned>;
+    namespace NvmcErasepcr1{    ///<Register for erasing a non-protected non-volatile memory page.
+        using Addr = Register::Address<0x4001e508,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneeraseall{    ///<Register for erasing all non-volatile user memory.
-        using Addr = Register::Address<0x4001e50c,0xfffffffe,0,unsigned>;
+    namespace NvmcEraseall{    ///<Register for erasing all non-volatile user memory.
+        using Addr = Register::Address<0x4001e50c,0xfffffffe,0x00000000,unsigned>;
         ///Starts the erasing of all user NVM (code region 0/1 and UICR registers).
         enum class EraseallVal {
             nooperation=0x00000000,     ///<No operation.
@@ -49,11 +49,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eraseall)::Type,EraseallVal::erase> erase{};
         }
     }
-    namespace Noneerasepcr0{    ///<Register for erasing a protected non-volatile memory page.
-        using Addr = Register::Address<0x4001e510,0xffffffff,0,unsigned>;
+    namespace NvmcErasepcr0{    ///<Register for erasing a protected non-volatile memory page.
+        using Addr = Register::Address<0x4001e510,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneeraseuicr{    ///<Register for start erasing User Information Congfiguration Registers.
-        using Addr = Register::Address<0x4001e514,0xfffffffe,0,unsigned>;
+    namespace NvmcEraseuicr{    ///<Register for start erasing User Information Congfiguration Registers.
+        using Addr = Register::Address<0x4001e514,0xfffffffe,0x00000000,unsigned>;
         ///It can only be used when all contents of code region 1 are erased.
         enum class EraseuicrVal {
             nooperation=0x00000000,     ///<No operation.

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //I2S interface
-    namespace Nonedao{    ///<I2S Digital Audio Output Register. Contains control bits for the I2S transmit channel.
-        using Addr = Register::Address<0x400a8000,0xffff0000,0,unsigned>;
+    namespace I2sDao{    ///<I2S Digital Audio Output Register. Contains control bits for the I2S transmit channel.
+        using Addr = Register::Address<0x400a8000,0x00000000,0x00000000,unsigned>;
         ///Selects the number of bytes in data as follows:
         enum class WordwidthVal {
             v8BitData=0x00000000,     ///<8-bit data
@@ -28,9 +28,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,6),Register::ReadWriteAccess,unsigned> wsHalfperiod{}; 
         ///When 1, the transmit channel sends only zeroes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> mute{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedai{    ///<I2S Digital Audio Input Register. Contains control bits for the I2S receive channel.
-        using Addr = Register::Address<0x400a8004,0xffff8000,0,unsigned>;
+    namespace I2sDai{    ///<I2S Digital Audio Input Register. Contains control bits for the I2S receive channel.
+        using Addr = Register::Address<0x400a8004,0x00000000,0x00000000,unsigned>;
         ///Selects the number of bytes in data as follows:
         enum class WordwidthVal {
             v8BitData=0x00000000,     ///<8-bit data
@@ -53,89 +55,123 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> wsSel{}; 
         ///Word select half period minus 1, i.e. WS 64clk period -> ws_halfperiod = 31.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,6),Register::ReadWriteAccess,unsigned> wsHalfperiod{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxfifo{    ///<I2S Transmit FIFO. Access register for the 8 x 32-bit transmitter FIFO.
-        using Addr = Register::Address<0x400a8008,0x00000000,0,unsigned>;
+    namespace I2sTxfifo{    ///<I2S Transmit FIFO. Access register for the 8 x 32-bit transmitter FIFO.
+        using Addr = Register::Address<0x400a8008,0x00000000,0x00000000,unsigned>;
         ///8 x 32-bit transmit FIFO.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> i2stxfifo{}; 
     }
-    namespace Nonerxfifo{    ///<I2S Receive FIFO. Access register for the 8 x 32-bit receiver FIFO.
-        using Addr = Register::Address<0x400a800c,0x00000000,0,unsigned>;
+    namespace I2sRxfifo{    ///<I2S Receive FIFO. Access register for the 8 x 32-bit receiver FIFO.
+        using Addr = Register::Address<0x400a800c,0x00000000,0x00000000,unsigned>;
         ///8 x 32-bit transmit FIFO.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> i2srxfifo{}; 
     }
-    namespace Nonestate{    ///<I2S Status Feedback Register. Contains status information about the I2S interface.
-        using Addr = Register::Address<0x400a8010,0xfff0f0f8,0,unsigned>;
+    namespace I2sState{    ///<I2S Status Feedback Register. Contains status information about the I2S interface.
+        using Addr = Register::Address<0x400a8010,0x00000000,0x00000000,unsigned>;
         ///This bit reflects the presence of Receive Interrupt or Transmit Interrupt. This is determined by comparing the current FIFO levels to the rx_depth_irq and tx_depth_irq fields in the IRQ register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> irq{}; 
         ///This bit reflects the presence of Receive or Transmit DMA Request 1. This is determined by comparing the current FIFO levels to the rx_depth_dma1 and tx_depth_dma1 fields in the DMA1 register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dmareq1{}; 
         ///This bit reflects the presence of Receive or Transmit DMA Request 2. This is determined by comparing the current FIFO levels to the rx_depth_dma2 and tx_depth_dma2 fields in the DMA2 register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dmareq2{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Reflects the current level of the Receive FIFO.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> rxLevel{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Reflects the current level of the Transmit FIFO.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> txLevel{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedma1{    ///<I2S DMA Configuration Register 1. Contains control information for DMA request 1.
-        using Addr = Register::Address<0x400a8014,0xfff0f0fc,0,unsigned>;
+    namespace I2sDma1{    ///<I2S DMA Configuration Register 1. Contains control information for DMA request 1.
+        using Addr = Register::Address<0x400a8014,0x00000000,0x00000000,unsigned>;
         ///When 1, enables DMA1 for I2S receive.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxDma1Enable{}; 
         ///When 1, enables DMA1 for I2S transmit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txDma1Enable{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Set the FIFO level that triggers a receive DMA request on DMA1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> rxDepthDma1{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Set the FIFO level that triggers a transmit DMA request on DMA1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> txDepthDma1{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedma2{    ///<I2S DMA Configuration Register 2. Contains control information for DMA request 2.
-        using Addr = Register::Address<0x400a8018,0xfff0f0fc,0,unsigned>;
+    namespace I2sDma2{    ///<I2S DMA Configuration Register 2. Contains control information for DMA request 2.
+        using Addr = Register::Address<0x400a8018,0x00000000,0x00000000,unsigned>;
         ///When 1, enables DMA1 for I2S receive.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxDma2Enable{}; 
         ///When 1, enables DMA1 for I2S transmit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txDma2Enable{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Set the FIFO level that triggers a receive DMA request on DMA2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> rxDepthDma2{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Set the FIFO level that triggers a transmit DMA request on DMA2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> txDepthDma2{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneirq{    ///<I2S Interrupt Request Control Register. Contains bits that control how the I2S interrupt request is generated.
-        using Addr = Register::Address<0x400a801c,0xfff0f0fc,0,unsigned>;
+    namespace I2sIrq{    ///<I2S Interrupt Request Control Register. Contains bits that control how the I2S interrupt request is generated.
+        using Addr = Register::Address<0x400a801c,0x00000000,0x00000000,unsigned>;
         ///When 1, enables I2S receive interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxIrqEnable{}; 
         ///When 1, enables I2S transmit interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txIrqEnable{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Set the FIFO level on which to create an irq request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> rxDepthIrq{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Set the FIFO level on which to create an irq request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> txDepthIrq{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxrate{    ///<I2S Transmit MCLK divider. This register determines the I2S TX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK.
-        using Addr = Register::Address<0x400a8020,0xffff0000,0,unsigned>;
+    namespace I2sTxrate{    ///<I2S Transmit MCLK divider. This register determines the I2S TX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK.
+        using Addr = Register::Address<0x400a8020,0x00000000,0x00000000,unsigned>;
         ///I2S transmit MCLK rate denominator. This value is used to divide PCLK to produce the transmit MCLK. Eight bits of fractional divide supports a wide range of possibilities. A value of 0 stops the clock.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> yDivider{}; 
         ///I2S transmit MCLK rate numerator. This value is used to multiply PCLK by to produce the transmit MCLK. A value of 0 stops the clock. Eight bits of fractional divide supports a wide range of possibilities. Note: the resulting ratio X/Y is divided by 2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> xDivider{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerxrate{    ///<I2S Receive MCLK divider. This register determines the I2S RX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK.
-        using Addr = Register::Address<0x400a8024,0xffff0000,0,unsigned>;
+    namespace I2sRxrate{    ///<I2S Receive MCLK divider. This register determines the I2S RX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK.
+        using Addr = Register::Address<0x400a8024,0x00000000,0x00000000,unsigned>;
         ///I2S receive MCLK rate denominator. This value is used to divide PCLK to produce the receive MCLK. Eight bits of fractional divide supports a wide range of possibilities. A value of 0 stops the clock.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> yDivider{}; 
         ///I2S receive MCLK rate numerator. This value is used to multiply PCLK by to produce the receive MCLK. A value of 0 stops the clock. Eight bits of fractional divide supports a wide range of possibilities. Note: the resulting ratio X/Y is divided by 2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> xDivider{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxbitrate{    ///<I2S Transmit bit rate divider. This register determines the I2S transmit bit rate by specifying the value to divide TX_MCLK by in order to produce the transmit bit clock.
-        using Addr = Register::Address<0x400a8028,0xffffffc0,0,unsigned>;
+    namespace I2sTxbitrate{    ///<I2S Transmit bit rate divider. This register determines the I2S transmit bit rate by specifying the value to divide TX_MCLK by in order to produce the transmit bit clock.
+        using Addr = Register::Address<0x400a8028,0x00000000,0x00000000,unsigned>;
         ///I2S transmit bit rate. This value plus one is used to divide TX_MCLK to produce the transmit bit clock.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> txBitrate{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerxbitrate{    ///<I2S Receive bit rate divider. This register determines the I2S receive bit rate by specifying the value to divide RX_MCLK by in order to produce the receive bit clock.
-        using Addr = Register::Address<0x400a802c,0xffffffc0,0,unsigned>;
+    namespace I2sRxbitrate{    ///<I2S Receive bit rate divider. This register determines the I2S receive bit rate by specifying the value to divide RX_MCLK by in order to produce the receive bit clock.
+        using Addr = Register::Address<0x400a802c,0x00000000,0x00000000,unsigned>;
         ///I2S receive bit rate. This value plus one is used to divide RX_MCLK to produce the receive bit clock.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> rxBitrate{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxmode{    ///<I2S Transmit mode control.
-        using Addr = Register::Address<0x400a8030,0xfffffff0,0,unsigned>;
+    namespace I2sTxmode{    ///<I2S Transmit mode control.
+        using Addr = Register::Address<0x400a8030,0x00000000,0x00000000,unsigned>;
         ///Clock source selection for the transmit bit clock divider.
         enum class TxclkselVal {
             selectTheTxFracti=0x00000000,     ///<Select the TX fractional rate divider clock output as the source
@@ -150,9 +186,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tx4pin{}; 
         ///Enable for the TX_MCLK output. When 0, output of TX_MCLK is not enabled. When 1, output of TX_MCLK is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txmcena{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerxmode{    ///<I2S Receive mode control.
-        using Addr = Register::Address<0x400a8034,0xfffffff0,0,unsigned>;
+    namespace I2sRxmode{    ///<I2S Receive mode control.
+        using Addr = Register::Address<0x400a8034,0x00000000,0x00000000,unsigned>;
         ///Clock source selection for the receive bit clock divider.
         enum class RxclkselVal {
             selectTheRxFracti=0x00000000,     ///<Select the RX fractional rate divider clock output as the source
@@ -167,5 +205,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rx4pin{}; 
         ///Enable for the RX_MCLK output. When 0, output of RX_MCLK is not enabled. When 1, output of RX_MCLK is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxmcena{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

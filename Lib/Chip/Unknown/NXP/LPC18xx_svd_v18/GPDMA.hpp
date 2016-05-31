@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10430 Chapter title=LPC18xx General Purpose DMA (GPDMA) controller Modification date=1/19/2011 Major revision=0 Minor revision=7 
-    namespace Noneintstat{    ///<DMA Interrupt Status Register
-        using Addr = Register::Address<0x40002000,0xffffff00,0,unsigned>;
+    namespace GpdmaIntstat{    ///<DMA Interrupt Status Register
+        using Addr = Register::Address<0x40002000,0x00000000,0x00000000,unsigned>;
         ///Status of DMA channel interrupts after masking. Each bit represents one channel: 0 - the corresponding channel has no active interrupt request. 1 - the corresponding channel does have an active interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> intstat0{}; 
         ///Status of DMA channel interrupts after masking. Each bit represents one channel: 0 - the corresponding channel has no active interrupt request. 1 - the corresponding channel does have an active interrupt request.
@@ -20,9 +20,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> intstat6{}; 
         ///Status of DMA channel interrupts after masking. Each bit represents one channel: 0 - the corresponding channel has no active interrupt request. 1 - the corresponding channel does have an active interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> intstat7{}; 
+        ///Reserved. Read undefined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneinttcstat{    ///<DMA Interrupt Terminal Count Request Status Register
-        using Addr = Register::Address<0x40002004,0xffffff00,0,unsigned>;
+    namespace GpdmaInttcstat{    ///<DMA Interrupt Terminal Count Request Status Register
+        using Addr = Register::Address<0x40002004,0x00000000,0x00000000,unsigned>;
         ///Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inttcstat0{}; 
         ///Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request.
@@ -39,9 +41,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> inttcstat6{}; 
         ///Terminal count interrupt request status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> inttcstat7{}; 
+        ///Reserved. Read undefined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneinttcclear{    ///<DMA Interrupt Terminal Count Request Clear Register
-        using Addr = Register::Address<0x40002008,0xffffff00,0,unsigned>;
+    namespace GpdmaInttcclear{    ///<DMA Interrupt Terminal Count Request Clear Register
+        using Addr = Register::Address<0x40002008,0x00000000,0x00000000,unsigned>;
         ///Allows clearing the Terminal count interrupt request (IntTCStat) for DMA channels. Each bit represents one channel: 0 - writing 0 has no effect. 1 - clears the corresponding channel terminal count interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inttcclear0{}; 
         ///Allows clearing the Terminal count interrupt request (IntTCStat) for DMA channels. Each bit represents one channel: 0 - writing 0 has no effect. 1 - clears the corresponding channel terminal count interrupt.
@@ -58,9 +62,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> inttcclear6{}; 
         ///Allows clearing the Terminal count interrupt request (IntTCStat) for DMA channels. Each bit represents one channel: 0 - writing 0 has no effect. 1 - clears the corresponding channel terminal count interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> inttcclear7{}; 
+        ///Reserved. Read undefined. Write reserved bits as zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneinterrstat{    ///<DMA Interrupt Error Status Register
-        using Addr = Register::Address<0x4000200c,0xffffff00,0,unsigned>;
+    namespace GpdmaInterrstat{    ///<DMA Interrupt Error Status Register
+        using Addr = Register::Address<0x4000200c,0x00000000,0x00000000,unsigned>;
         ///Interrupt error status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active error interrupt request. 1 - the corresponding channel does have an active error interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> interrstat0{}; 
         ///Interrupt error status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active error interrupt request. 1 - the corresponding channel does have an active error interrupt request.
@@ -77,9 +83,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> interrstat6{}; 
         ///Interrupt error status for DMA channels. Each bit represents one channel: 0 - the corresponding channel has no active error interrupt request. 1 - the corresponding channel does have an active error interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> interrstat7{}; 
+        ///Reserved. Read undefined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneinterrclr{    ///<DMA Interrupt Error Clear Register
-        using Addr = Register::Address<0x40002010,0xffffff00,0,unsigned>;
+    namespace GpdmaInterrclr{    ///<DMA Interrupt Error Clear Register
+        using Addr = Register::Address<0x40002010,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 clears the error interrupt request (IntErrStat) for DMA channels. Each bit represents one channel: 0 - writing 0 has no effect. 1 - clears the corresponding channel error interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> interrclr0{}; 
         ///Writing a 1 clears the error interrupt request (IntErrStat) for DMA channels. Each bit represents one channel: 0 - writing 0 has no effect. 1 - clears the corresponding channel error interrupt.
@@ -96,9 +104,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> interrclr6{}; 
         ///Writing a 1 clears the error interrupt request (IntErrStat) for DMA channels. Each bit represents one channel: 0 - writing 0 has no effect. 1 - clears the corresponding channel error interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> interrclr7{}; 
+        ///Reserved. Read undefined. Write reserved bits as zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerawinttcstat{    ///<DMA Raw Interrupt Terminal Count Status Register
-        using Addr = Register::Address<0x40002014,0xffffff00,0,unsigned>;
+    namespace GpdmaRawinttcstat{    ///<DMA Raw Interrupt Terminal Count Status Register
+        using Addr = Register::Address<0x40002014,0x00000000,0x00000000,unsigned>;
         ///Status of the terminal count interrupt for DMA channels prior to masking. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rawinttcstat0{}; 
         ///Status of the terminal count interrupt for DMA channels prior to masking. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request.
@@ -115,9 +125,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rawinttcstat6{}; 
         ///Status of the terminal count interrupt for DMA channels prior to masking. Each bit represents one channel: 0 - the corresponding channel has no active terminal count interrupt request. 1 - the corresponding channel does have an active terminal count interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rawinttcstat7{}; 
+        ///Reserved. Read undefined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerawinterrstat{    ///<DMA Raw Error Interrupt Status Register
-        using Addr = Register::Address<0x40002018,0xffffff00,0,unsigned>;
+    namespace GpdmaRawinterrstat{    ///<DMA Raw Error Interrupt Status Register
+        using Addr = Register::Address<0x40002018,0x00000000,0x00000000,unsigned>;
         ///Status of the error interrupt for DMA channels prior to masking. Each bit represents one channel: 0 - the corresponding channel has no active error interrupt request. 1 - the corresponding channel does have an active error interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rawinterrstat0{}; 
         ///Status of the error interrupt for DMA channels prior to masking. Each bit represents one channel: 0 - the corresponding channel has no active error interrupt request. 1 - the corresponding channel does have an active error interrupt request.
@@ -134,9 +146,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rawinterrstat6{}; 
         ///Status of the error interrupt for DMA channels prior to masking. Each bit represents one channel: 0 - the corresponding channel has no active error interrupt request. 1 - the corresponding channel does have an active error interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rawinterrstat7{}; 
+        ///Reserved. Read undefined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneenbldchns{    ///<DMA Enabled Channel Register
-        using Addr = Register::Address<0x4000201c,0xffffff00,0,unsigned>;
+    namespace GpdmaEnbldchns{    ///<DMA Enabled Channel Register
+        using Addr = Register::Address<0x4000201c,0x00000000,0x00000000,unsigned>;
         ///Enable status for DMA channels. Each bit represents one channel: 0 - DMA channel is disabled. 1 - DMA channel is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> enabledchannels0{}; 
         ///Enable status for DMA channels. Each bit represents one channel: 0 - DMA channel is disabled. 1 - DMA channel is enabled.
@@ -153,9 +167,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> enabledchannels6{}; 
         ///Enable status for DMA channels. Each bit represents one channel: 0 - DMA channel is disabled. 1 - DMA channel is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> enabledchannels7{}; 
+        ///Reserved. Read undefined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesoftbreq{    ///<DMA Software Burst Request Register
-        using Addr = Register::Address<0x40002020,0xffff0000,0,unsigned>;
+    namespace GpdmaSoftbreq{    ///<DMA Software Burst Request Register
+        using Addr = Register::Address<0x40002020,0x00000000,0x00000000,unsigned>;
         ///Software burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function (refer to Table 136 for peripheral hardware connections to the DMA controller): 0 - writing 0 has no effect. 1 - writing 1 generates a DMA burst request for the corresponding request line.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> softbreq0{}; 
         ///Software burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function (refer to Table 136 for peripheral hardware connections to the DMA controller): 0 - writing 0 has no effect. 1 - writing 1 generates a DMA burst request for the corresponding request line.
@@ -188,9 +204,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> softbreq14{}; 
         ///Software burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function (refer to Table 136 for peripheral hardware connections to the DMA controller): 0 - writing 0 has no effect. 1 - writing 1 generates a DMA burst request for the corresponding request line.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> softbreq15{}; 
+        ///Reserved. Read undefined. Write reserved bits as zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesoftsreq{    ///<DMA Software Single Request Register
-        using Addr = Register::Address<0x40002024,0xffff0000,0,unsigned>;
+    namespace GpdmaSoftsreq{    ///<DMA Software Single Request Register
+        using Addr = Register::Address<0x40002024,0x00000000,0x00000000,unsigned>;
         ///Software single transfer request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA single transfer request for the corresponding request line.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> softsreq0{}; 
         ///Software single transfer request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA single transfer request for the corresponding request line.
@@ -223,9 +241,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> softsreq14{}; 
         ///Software single transfer request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA single transfer request for the corresponding request line.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> softsreq15{}; 
+        ///Reserved. Read undefined. Write reserved bits as zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesoftlbreq{    ///<DMA Software Last Burst Request Register
-        using Addr = Register::Address<0x40002028,0xffff0000,0,unsigned>;
+    namespace GpdmaSoftlbreq{    ///<DMA Software Last Burst Request Register
+        using Addr = Register::Address<0x40002028,0x00000000,0x00000000,unsigned>;
         ///Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> softlbreq0{}; 
         ///Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line.
@@ -258,9 +278,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> softlbreq14{}; 
         ///Software last burst request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last burst request for the corresponding request line.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> softlbreq15{}; 
+        ///Reserved. Read undefined. Write reserved bits as zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesoftlsreq{    ///<DMA Software Last Single Request Register
-        using Addr = Register::Address<0x4000202c,0xffff0000,0,unsigned>;
+    namespace GpdmaSoftlsreq{    ///<DMA Software Last Single Request Register
+        using Addr = Register::Address<0x4000202c,0x00000000,0x00000000,unsigned>;
         ///Software last single transfer request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last single transfer request for the corresponding request line.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> softlsreq0{}; 
         ///Software last single transfer request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last single transfer request for the corresponding request line.
@@ -293,9 +315,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> softlsreq14{}; 
         ///Software last single transfer request flags for each of 16 possible sources. Each bit represents one DMA request line or peripheral function: 0 - writing 0 has no effect. 1 - writing 1 generates a DMA last single transfer request for the corresponding request line.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> softlsreq15{}; 
+        ///Reserved. Read undefined. Write reserved bits as zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneconfig{    ///<DMA Configuration Register
-        using Addr = Register::Address<0x40002030,0xfffffff8,0,unsigned>;
+    namespace GpdmaConfig{    ///<DMA Configuration Register
+        using Addr = Register::Address<0x40002030,0x00000000,0x00000000,unsigned>;
         ///DMA Controller enable:
         enum class EVal {
             disabledDefault=0x00000000,     ///<Disabled (default). Disabling the DMA Controller reduces power consumption.
@@ -326,9 +350,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m1)::Type,M1Val::littleEndianMode> littleEndianMode{};
             constexpr Register::FieldValue<decltype(m1)::Type,M1Val::bigEndianMode> bigEndianMode{};
         }
+        ///Reserved. Read undefined. Write reserved bits as zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesync{    ///<DMA Synchronization Register
-        using Addr = Register::Address<0x40002034,0xffff0000,0,unsigned>;
+    namespace GpdmaSync{    ///<DMA Synchronization Register
+        using Addr = Register::Address<0x40002034,0x00000000,0x00000000,unsigned>;
         ///Controls the synchronization logic for DMA request signals. Each bit represents one set of DMA request lines as described in the preceding text: 0 - synchronization logic for the corresponding DMA request signals are disabled. 1 - synchronization logic for the corresponding request line signals are enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmacsync0{}; 
         ///Controls the synchronization logic for DMA request signals. Each bit represents one set of DMA request lines as described in the preceding text: 0 - synchronization logic for the corresponding DMA request signals are disabled. 1 - synchronization logic for the corresponding request line signals are enabled.
@@ -361,89 +387,91 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dmacsync14{}; 
         ///Controls the synchronization logic for DMA request signals. Each bit represents one set of DMA request lines as described in the preceding text: 0 - synchronization logic for the corresponding DMA request signals are disabled. 1 - synchronization logic for the corresponding request line signals are enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dmacsync15{}; 
+        ///Reserved. Read undefined. Write reserved bits as zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonec0srcaddr{    ///<DMA Channel  Source Address Register
-        using Addr = Register::Address<0x40002100,0x00000000,0,unsigned>;
+    namespace GpdmaC0srcaddr{    ///<DMA Channel  Source Address Register
+        using Addr = Register::Address<0x40002100,0x00000000,0x00000000,unsigned>;
         ///DMA source address. Reading this register will return the current source address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> srcaddr{}; 
     }
-    namespace Nonec1srcaddr{    ///<DMA Channel  Source Address Register
-        using Addr = Register::Address<0x40002120,0x00000000,0,unsigned>;
+    namespace GpdmaC1srcaddr{    ///<DMA Channel  Source Address Register
+        using Addr = Register::Address<0x40002120,0x00000000,0x00000000,unsigned>;
         ///DMA source address. Reading this register will return the current source address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> srcaddr{}; 
     }
-    namespace Nonec2srcaddr{    ///<DMA Channel  Source Address Register
-        using Addr = Register::Address<0x40002140,0x00000000,0,unsigned>;
+    namespace GpdmaC2srcaddr{    ///<DMA Channel  Source Address Register
+        using Addr = Register::Address<0x40002140,0x00000000,0x00000000,unsigned>;
         ///DMA source address. Reading this register will return the current source address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> srcaddr{}; 
     }
-    namespace Nonec3srcaddr{    ///<DMA Channel  Source Address Register
-        using Addr = Register::Address<0x40002160,0x00000000,0,unsigned>;
+    namespace GpdmaC3srcaddr{    ///<DMA Channel  Source Address Register
+        using Addr = Register::Address<0x40002160,0x00000000,0x00000000,unsigned>;
         ///DMA source address. Reading this register will return the current source address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> srcaddr{}; 
     }
-    namespace Nonec4srcaddr{    ///<DMA Channel  Source Address Register
-        using Addr = Register::Address<0x40002180,0x00000000,0,unsigned>;
+    namespace GpdmaC4srcaddr{    ///<DMA Channel  Source Address Register
+        using Addr = Register::Address<0x40002180,0x00000000,0x00000000,unsigned>;
         ///DMA source address. Reading this register will return the current source address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> srcaddr{}; 
     }
-    namespace Nonec5srcaddr{    ///<DMA Channel  Source Address Register
-        using Addr = Register::Address<0x400021a0,0x00000000,0,unsigned>;
+    namespace GpdmaC5srcaddr{    ///<DMA Channel  Source Address Register
+        using Addr = Register::Address<0x400021a0,0x00000000,0x00000000,unsigned>;
         ///DMA source address. Reading this register will return the current source address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> srcaddr{}; 
     }
-    namespace Nonec6srcaddr{    ///<DMA Channel  Source Address Register
-        using Addr = Register::Address<0x400021c0,0x00000000,0,unsigned>;
+    namespace GpdmaC6srcaddr{    ///<DMA Channel  Source Address Register
+        using Addr = Register::Address<0x400021c0,0x00000000,0x00000000,unsigned>;
         ///DMA source address. Reading this register will return the current source address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> srcaddr{}; 
     }
-    namespace Nonec7srcaddr{    ///<DMA Channel  Source Address Register
-        using Addr = Register::Address<0x400021e0,0x00000000,0,unsigned>;
+    namespace GpdmaC7srcaddr{    ///<DMA Channel  Source Address Register
+        using Addr = Register::Address<0x400021e0,0x00000000,0x00000000,unsigned>;
         ///DMA source address. Reading this register will return the current source address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> srcaddr{}; 
     }
-    namespace Nonec0destaddr{    ///<DMA Channel  Destination Address Register
-        using Addr = Register::Address<0x40002104,0x00000000,0,unsigned>;
+    namespace GpdmaC0destaddr{    ///<DMA Channel  Destination Address Register
+        using Addr = Register::Address<0x40002104,0x00000000,0x00000000,unsigned>;
         ///DMA Destination address. Reading this register will return the current destination address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> destaddr{}; 
     }
-    namespace Nonec1destaddr{    ///<DMA Channel  Destination Address Register
-        using Addr = Register::Address<0x40002124,0x00000000,0,unsigned>;
+    namespace GpdmaC1destaddr{    ///<DMA Channel  Destination Address Register
+        using Addr = Register::Address<0x40002124,0x00000000,0x00000000,unsigned>;
         ///DMA Destination address. Reading this register will return the current destination address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> destaddr{}; 
     }
-    namespace Nonec2destaddr{    ///<DMA Channel  Destination Address Register
-        using Addr = Register::Address<0x40002144,0x00000000,0,unsigned>;
+    namespace GpdmaC2destaddr{    ///<DMA Channel  Destination Address Register
+        using Addr = Register::Address<0x40002144,0x00000000,0x00000000,unsigned>;
         ///DMA Destination address. Reading this register will return the current destination address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> destaddr{}; 
     }
-    namespace Nonec3destaddr{    ///<DMA Channel  Destination Address Register
-        using Addr = Register::Address<0x40002164,0x00000000,0,unsigned>;
+    namespace GpdmaC3destaddr{    ///<DMA Channel  Destination Address Register
+        using Addr = Register::Address<0x40002164,0x00000000,0x00000000,unsigned>;
         ///DMA Destination address. Reading this register will return the current destination address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> destaddr{}; 
     }
-    namespace Nonec4destaddr{    ///<DMA Channel  Destination Address Register
-        using Addr = Register::Address<0x40002184,0x00000000,0,unsigned>;
+    namespace GpdmaC4destaddr{    ///<DMA Channel  Destination Address Register
+        using Addr = Register::Address<0x40002184,0x00000000,0x00000000,unsigned>;
         ///DMA Destination address. Reading this register will return the current destination address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> destaddr{}; 
     }
-    namespace Nonec5destaddr{    ///<DMA Channel  Destination Address Register
-        using Addr = Register::Address<0x400021a4,0x00000000,0,unsigned>;
+    namespace GpdmaC5destaddr{    ///<DMA Channel  Destination Address Register
+        using Addr = Register::Address<0x400021a4,0x00000000,0x00000000,unsigned>;
         ///DMA Destination address. Reading this register will return the current destination address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> destaddr{}; 
     }
-    namespace Nonec6destaddr{    ///<DMA Channel  Destination Address Register
-        using Addr = Register::Address<0x400021c4,0x00000000,0,unsigned>;
+    namespace GpdmaC6destaddr{    ///<DMA Channel  Destination Address Register
+        using Addr = Register::Address<0x400021c4,0x00000000,0x00000000,unsigned>;
         ///DMA Destination address. Reading this register will return the current destination address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> destaddr{}; 
     }
-    namespace Nonec7destaddr{    ///<DMA Channel  Destination Address Register
-        using Addr = Register::Address<0x400021e4,0x00000000,0,unsigned>;
+    namespace GpdmaC7destaddr{    ///<DMA Channel  Destination Address Register
+        using Addr = Register::Address<0x400021e4,0x00000000,0x00000000,unsigned>;
         ///DMA Destination address. Reading this register will return the current destination address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> destaddr{}; 
     }
-    namespace Nonec0lli{    ///<DMA Channel Linked List Item Register
-        using Addr = Register::Address<0x40002108,0x00000000,0,unsigned>;
+    namespace GpdmaC0lli{    ///<DMA Channel Linked List Item Register
+        using Addr = Register::Address<0x40002108,0x00000000,0x00000000,unsigned>;
         ///AHB master select for loading the next LLI:
         enum class LmVal {
             ahbMaster0=0x00000000,     ///<AHB Master 0.
@@ -459,8 +487,8 @@ namespace Kvasir {
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> lli{}; 
     }
-    namespace Nonec1lli{    ///<DMA Channel Linked List Item Register
-        using Addr = Register::Address<0x40002128,0x00000000,0,unsigned>;
+    namespace GpdmaC1lli{    ///<DMA Channel Linked List Item Register
+        using Addr = Register::Address<0x40002128,0x00000000,0x00000000,unsigned>;
         ///AHB master select for loading the next LLI:
         enum class LmVal {
             ahbMaster0=0x00000000,     ///<AHB Master 0.
@@ -476,8 +504,8 @@ namespace Kvasir {
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> lli{}; 
     }
-    namespace Nonec2lli{    ///<DMA Channel Linked List Item Register
-        using Addr = Register::Address<0x40002148,0x00000000,0,unsigned>;
+    namespace GpdmaC2lli{    ///<DMA Channel Linked List Item Register
+        using Addr = Register::Address<0x40002148,0x00000000,0x00000000,unsigned>;
         ///AHB master select for loading the next LLI:
         enum class LmVal {
             ahbMaster0=0x00000000,     ///<AHB Master 0.
@@ -493,8 +521,8 @@ namespace Kvasir {
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> lli{}; 
     }
-    namespace Nonec3lli{    ///<DMA Channel Linked List Item Register
-        using Addr = Register::Address<0x40002168,0x00000000,0,unsigned>;
+    namespace GpdmaC3lli{    ///<DMA Channel Linked List Item Register
+        using Addr = Register::Address<0x40002168,0x00000000,0x00000000,unsigned>;
         ///AHB master select for loading the next LLI:
         enum class LmVal {
             ahbMaster0=0x00000000,     ///<AHB Master 0.
@@ -510,8 +538,8 @@ namespace Kvasir {
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> lli{}; 
     }
-    namespace Nonec4lli{    ///<DMA Channel Linked List Item Register
-        using Addr = Register::Address<0x40002188,0x00000000,0,unsigned>;
+    namespace GpdmaC4lli{    ///<DMA Channel Linked List Item Register
+        using Addr = Register::Address<0x40002188,0x00000000,0x00000000,unsigned>;
         ///AHB master select for loading the next LLI:
         enum class LmVal {
             ahbMaster0=0x00000000,     ///<AHB Master 0.
@@ -527,8 +555,8 @@ namespace Kvasir {
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> lli{}; 
     }
-    namespace Nonec5lli{    ///<DMA Channel Linked List Item Register
-        using Addr = Register::Address<0x400021a8,0x00000000,0,unsigned>;
+    namespace GpdmaC5lli{    ///<DMA Channel Linked List Item Register
+        using Addr = Register::Address<0x400021a8,0x00000000,0x00000000,unsigned>;
         ///AHB master select for loading the next LLI:
         enum class LmVal {
             ahbMaster0=0x00000000,     ///<AHB Master 0.
@@ -544,8 +572,8 @@ namespace Kvasir {
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> lli{}; 
     }
-    namespace Nonec6lli{    ///<DMA Channel Linked List Item Register
-        using Addr = Register::Address<0x400021c8,0x00000000,0,unsigned>;
+    namespace GpdmaC6lli{    ///<DMA Channel Linked List Item Register
+        using Addr = Register::Address<0x400021c8,0x00000000,0x00000000,unsigned>;
         ///AHB master select for loading the next LLI:
         enum class LmVal {
             ahbMaster0=0x00000000,     ///<AHB Master 0.
@@ -561,8 +589,8 @@ namespace Kvasir {
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> lli{}; 
     }
-    namespace Nonec7lli{    ///<DMA Channel Linked List Item Register
-        using Addr = Register::Address<0x400021e8,0x00000000,0,unsigned>;
+    namespace GpdmaC7lli{    ///<DMA Channel Linked List Item Register
+        using Addr = Register::Address<0x400021e8,0x00000000,0x00000000,unsigned>;
         ///AHB master select for loading the next LLI:
         enum class LmVal {
             ahbMaster0=0x00000000,     ///<AHB Master 0.
@@ -578,8 +606,8 @@ namespace Kvasir {
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> lli{}; 
     }
-    namespace Nonec0control{    ///<DMA Channel  Control Register
-        using Addr = Register::Address<0x4000210c,0x00000000,0,unsigned>;
+    namespace GpdmaC0control{    ///<DMA Channel  Control Register
+        using Addr = Register::Address<0x4000210c,0x00000000,0x00000000,unsigned>;
         ///Transfer size in byte. A write to this field sets the size of the transfer when the DMA Controller is the flow controller. The transfer size value must be set before the channel is enabled. Transfer size is updated as data transfers are completed. A read from this field indicates the number of transfers completed on the destination bus. Reading the register when the channel is active does not give useful information because by the time that the software has processed the value read, the channel might have progressed. It is intended to be used only when a channel is enabled and then disabled. The transfer size value is not used if the DMA Controller is not the flow controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> transfersize{}; 
         ///Source burst size. Indicates the number of transfers that make up a source burst. This value must be set to the burst size of the source peripheral, or if the source is memory, to the memory boundary size (see Figure 3). The burst size is the amount of data that is transferred when the BREQ signal goes active in the source peripheral.
@@ -711,8 +739,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
         }
     }
-    namespace Nonec1control{    ///<DMA Channel  Control Register
-        using Addr = Register::Address<0x4000212c,0x00000000,0,unsigned>;
+    namespace GpdmaC1control{    ///<DMA Channel  Control Register
+        using Addr = Register::Address<0x4000212c,0x00000000,0x00000000,unsigned>;
         ///Transfer size in byte. A write to this field sets the size of the transfer when the DMA Controller is the flow controller. The transfer size value must be set before the channel is enabled. Transfer size is updated as data transfers are completed. A read from this field indicates the number of transfers completed on the destination bus. Reading the register when the channel is active does not give useful information because by the time that the software has processed the value read, the channel might have progressed. It is intended to be used only when a channel is enabled and then disabled. The transfer size value is not used if the DMA Controller is not the flow controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> transfersize{}; 
         ///Source burst size. Indicates the number of transfers that make up a source burst. This value must be set to the burst size of the source peripheral, or if the source is memory, to the memory boundary size (see Figure 3). The burst size is the amount of data that is transferred when the BREQ signal goes active in the source peripheral.
@@ -844,8 +872,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
         }
     }
-    namespace Nonec2control{    ///<DMA Channel  Control Register
-        using Addr = Register::Address<0x4000214c,0x00000000,0,unsigned>;
+    namespace GpdmaC2control{    ///<DMA Channel  Control Register
+        using Addr = Register::Address<0x4000214c,0x00000000,0x00000000,unsigned>;
         ///Transfer size in byte. A write to this field sets the size of the transfer when the DMA Controller is the flow controller. The transfer size value must be set before the channel is enabled. Transfer size is updated as data transfers are completed. A read from this field indicates the number of transfers completed on the destination bus. Reading the register when the channel is active does not give useful information because by the time that the software has processed the value read, the channel might have progressed. It is intended to be used only when a channel is enabled and then disabled. The transfer size value is not used if the DMA Controller is not the flow controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> transfersize{}; 
         ///Source burst size. Indicates the number of transfers that make up a source burst. This value must be set to the burst size of the source peripheral, or if the source is memory, to the memory boundary size (see Figure 3). The burst size is the amount of data that is transferred when the BREQ signal goes active in the source peripheral.
@@ -977,8 +1005,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
         }
     }
-    namespace Nonec3control{    ///<DMA Channel  Control Register
-        using Addr = Register::Address<0x4000216c,0x00000000,0,unsigned>;
+    namespace GpdmaC3control{    ///<DMA Channel  Control Register
+        using Addr = Register::Address<0x4000216c,0x00000000,0x00000000,unsigned>;
         ///Transfer size in byte. A write to this field sets the size of the transfer when the DMA Controller is the flow controller. The transfer size value must be set before the channel is enabled. Transfer size is updated as data transfers are completed. A read from this field indicates the number of transfers completed on the destination bus. Reading the register when the channel is active does not give useful information because by the time that the software has processed the value read, the channel might have progressed. It is intended to be used only when a channel is enabled and then disabled. The transfer size value is not used if the DMA Controller is not the flow controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> transfersize{}; 
         ///Source burst size. Indicates the number of transfers that make up a source burst. This value must be set to the burst size of the source peripheral, or if the source is memory, to the memory boundary size (see Figure 3). The burst size is the amount of data that is transferred when the BREQ signal goes active in the source peripheral.
@@ -1110,8 +1138,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
         }
     }
-    namespace Nonec4control{    ///<DMA Channel  Control Register
-        using Addr = Register::Address<0x4000218c,0x00000000,0,unsigned>;
+    namespace GpdmaC4control{    ///<DMA Channel  Control Register
+        using Addr = Register::Address<0x4000218c,0x00000000,0x00000000,unsigned>;
         ///Transfer size in byte. A write to this field sets the size of the transfer when the DMA Controller is the flow controller. The transfer size value must be set before the channel is enabled. Transfer size is updated as data transfers are completed. A read from this field indicates the number of transfers completed on the destination bus. Reading the register when the channel is active does not give useful information because by the time that the software has processed the value read, the channel might have progressed. It is intended to be used only when a channel is enabled and then disabled. The transfer size value is not used if the DMA Controller is not the flow controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> transfersize{}; 
         ///Source burst size. Indicates the number of transfers that make up a source burst. This value must be set to the burst size of the source peripheral, or if the source is memory, to the memory boundary size (see Figure 3). The burst size is the amount of data that is transferred when the BREQ signal goes active in the source peripheral.
@@ -1243,8 +1271,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
         }
     }
-    namespace Nonec5control{    ///<DMA Channel  Control Register
-        using Addr = Register::Address<0x400021ac,0x00000000,0,unsigned>;
+    namespace GpdmaC5control{    ///<DMA Channel  Control Register
+        using Addr = Register::Address<0x400021ac,0x00000000,0x00000000,unsigned>;
         ///Transfer size in byte. A write to this field sets the size of the transfer when the DMA Controller is the flow controller. The transfer size value must be set before the channel is enabled. Transfer size is updated as data transfers are completed. A read from this field indicates the number of transfers completed on the destination bus. Reading the register when the channel is active does not give useful information because by the time that the software has processed the value read, the channel might have progressed. It is intended to be used only when a channel is enabled and then disabled. The transfer size value is not used if the DMA Controller is not the flow controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> transfersize{}; 
         ///Source burst size. Indicates the number of transfers that make up a source burst. This value must be set to the burst size of the source peripheral, or if the source is memory, to the memory boundary size (see Figure 3). The burst size is the amount of data that is transferred when the BREQ signal goes active in the source peripheral.
@@ -1376,8 +1404,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
         }
     }
-    namespace Nonec6control{    ///<DMA Channel  Control Register
-        using Addr = Register::Address<0x400021cc,0x00000000,0,unsigned>;
+    namespace GpdmaC6control{    ///<DMA Channel  Control Register
+        using Addr = Register::Address<0x400021cc,0x00000000,0x00000000,unsigned>;
         ///Transfer size in byte. A write to this field sets the size of the transfer when the DMA Controller is the flow controller. The transfer size value must be set before the channel is enabled. Transfer size is updated as data transfers are completed. A read from this field indicates the number of transfers completed on the destination bus. Reading the register when the channel is active does not give useful information because by the time that the software has processed the value read, the channel might have progressed. It is intended to be used only when a channel is enabled and then disabled. The transfer size value is not used if the DMA Controller is not the flow controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> transfersize{}; 
         ///Source burst size. Indicates the number of transfers that make up a source burst. This value must be set to the burst size of the source peripheral, or if the source is memory, to the memory boundary size (see Figure 3). The burst size is the amount of data that is transferred when the BREQ signal goes active in the source peripheral.
@@ -1509,8 +1537,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
         }
     }
-    namespace Nonec7control{    ///<DMA Channel  Control Register
-        using Addr = Register::Address<0x400021ec,0x00000000,0,unsigned>;
+    namespace GpdmaC7control{    ///<DMA Channel  Control Register
+        using Addr = Register::Address<0x400021ec,0x00000000,0x00000000,unsigned>;
         ///Transfer size in byte. A write to this field sets the size of the transfer when the DMA Controller is the flow controller. The transfer size value must be set before the channel is enabled. Transfer size is updated as data transfers are completed. A read from this field indicates the number of transfers completed on the destination bus. Reading the register when the channel is active does not give useful information because by the time that the software has processed the value read, the channel might have progressed. It is intended to be used only when a channel is enabled and then disabled. The transfer size value is not used if the DMA Controller is not the flow controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> transfersize{}; 
         ///Source burst size. Indicates the number of transfers that make up a source burst. This value must be set to the burst size of the source peripheral, or if the source is memory, to the memory boundary size (see Figure 3). The burst size is the amount of data that is transferred when the BREQ signal goes active in the source peripheral.
@@ -1642,8 +1670,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
         }
     }
-    namespace Nonec0config{    ///<DMA Channel Configuration Register
-        using Addr = Register::Address<0x40002110,0xfff80000,0,unsigned>;
+    namespace GpdmaC0config{    ///<DMA Channel Configuration Register
+        using Addr = Register::Address<0x40002110,0x00000000,0x00000000,unsigned>;
         ///Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: The Channel Enable bit status can also be found by reading the EnbldChns Register. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.
         enum class EVal {
             channelDisabled=0x00000000,     ///<Channel disabled.
@@ -1770,9 +1798,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
         }
+        ///Reserved, do not modify, masked on read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonec1config{    ///<DMA Channel Configuration Register
-        using Addr = Register::Address<0x40002130,0xfff80000,0,unsigned>;
+    namespace GpdmaC1config{    ///<DMA Channel Configuration Register
+        using Addr = Register::Address<0x40002130,0x00000000,0x00000000,unsigned>;
         ///Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: The Channel Enable bit status can also be found by reading the EnbldChns Register. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.
         enum class EVal {
             channelDisabled=0x00000000,     ///<Channel disabled.
@@ -1899,9 +1929,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
         }
+        ///Reserved, do not modify, masked on read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonec2config{    ///<DMA Channel Configuration Register
-        using Addr = Register::Address<0x40002150,0xfff80000,0,unsigned>;
+    namespace GpdmaC2config{    ///<DMA Channel Configuration Register
+        using Addr = Register::Address<0x40002150,0x00000000,0x00000000,unsigned>;
         ///Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: The Channel Enable bit status can also be found by reading the EnbldChns Register. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.
         enum class EVal {
             channelDisabled=0x00000000,     ///<Channel disabled.
@@ -2028,9 +2060,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
         }
+        ///Reserved, do not modify, masked on read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonec3config{    ///<DMA Channel Configuration Register
-        using Addr = Register::Address<0x40002170,0xfff80000,0,unsigned>;
+    namespace GpdmaC3config{    ///<DMA Channel Configuration Register
+        using Addr = Register::Address<0x40002170,0x00000000,0x00000000,unsigned>;
         ///Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: The Channel Enable bit status can also be found by reading the EnbldChns Register. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.
         enum class EVal {
             channelDisabled=0x00000000,     ///<Channel disabled.
@@ -2157,9 +2191,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
         }
+        ///Reserved, do not modify, masked on read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonec4config{    ///<DMA Channel Configuration Register
-        using Addr = Register::Address<0x40002190,0xfff80000,0,unsigned>;
+    namespace GpdmaC4config{    ///<DMA Channel Configuration Register
+        using Addr = Register::Address<0x40002190,0x00000000,0x00000000,unsigned>;
         ///Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: The Channel Enable bit status can also be found by reading the EnbldChns Register. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.
         enum class EVal {
             channelDisabled=0x00000000,     ///<Channel disabled.
@@ -2286,9 +2322,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
         }
+        ///Reserved, do not modify, masked on read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonec5config{    ///<DMA Channel Configuration Register
-        using Addr = Register::Address<0x400021b0,0xfff80000,0,unsigned>;
+    namespace GpdmaC5config{    ///<DMA Channel Configuration Register
+        using Addr = Register::Address<0x400021b0,0x00000000,0x00000000,unsigned>;
         ///Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: The Channel Enable bit status can also be found by reading the EnbldChns Register. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.
         enum class EVal {
             channelDisabled=0x00000000,     ///<Channel disabled.
@@ -2415,9 +2453,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
         }
+        ///Reserved, do not modify, masked on read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonec6config{    ///<DMA Channel Configuration Register
-        using Addr = Register::Address<0x400021d0,0xfff80000,0,unsigned>;
+    namespace GpdmaC6config{    ///<DMA Channel Configuration Register
+        using Addr = Register::Address<0x400021d0,0x00000000,0x00000000,unsigned>;
         ///Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: The Channel Enable bit status can also be found by reading the EnbldChns Register. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.
         enum class EVal {
             channelDisabled=0x00000000,     ///<Channel disabled.
@@ -2544,9 +2584,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
         }
+        ///Reserved, do not modify, masked on read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonec7config{    ///<DMA Channel Configuration Register
-        using Addr = Register::Address<0x400021f0,0xfff80000,0,unsigned>;
+    namespace GpdmaC7config{    ///<DMA Channel Configuration Register
+        using Addr = Register::Address<0x400021f0,0x00000000,0x00000000,unsigned>;
         ///Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: The Channel Enable bit status can also be found by reading the EnbldChns Register. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.
         enum class EVal {
             channelDisabled=0x00000000,     ///<Channel disabled.
@@ -2673,5 +2715,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
         }
+        ///Reserved, do not modify, masked on read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

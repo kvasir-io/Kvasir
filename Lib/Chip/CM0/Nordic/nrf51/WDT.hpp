@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Watchdog Timer.
-    namespace NonetasksStart{    ///<Start the watchdog.
-        using Addr = Register::Address<0x40010000,0xffffffff,0,unsigned>;
+    namespace WdtTasksStart{    ///<Start the watchdog.
+        using Addr = Register::Address<0x40010000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsTimeout{    ///<Watchdog timeout.
-        using Addr = Register::Address<0x40010100,0xffffffff,0,unsigned>;
+    namespace WdtEventsTimeout{    ///<Watchdog timeout.
+        using Addr = Register::Address<0x40010100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneintenset{    ///<Interrupt enable set register.
-        using Addr = Register::Address<0x40010304,0xfffffffe,0,unsigned>;
+    namespace WdtIntenset{    ///<Interrupt enable set register.
+        using Addr = Register::Address<0x40010304,0xfffffffe,0x00000000,unsigned>;
         ///Enable interrupt on TIMEOUT event.
         enum class TimeoutVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -23,8 +23,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timeout)::Type,TimeoutVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register.
-        using Addr = Register::Address<0x40010308,0xfffffffe,0,unsigned>;
+    namespace WdtIntenclr{    ///<Interrupt enable clear register.
+        using Addr = Register::Address<0x40010308,0xfffffffe,0x00000000,unsigned>;
         ///Disable interrupt on TIMEOUT event.
         enum class TimeoutVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -38,8 +38,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timeout)::Type,TimeoutVal::clear> clear{};
         }
     }
-    namespace Nonerunstatus{    ///<Watchdog running status.
-        using Addr = Register::Address<0x40010400,0xfffffffe,0,unsigned>;
+    namespace WdtRunstatus{    ///<Watchdog running status.
+        using Addr = Register::Address<0x40010400,0xfffffffe,0x00000000,unsigned>;
         ///Watchdog running status.
         enum class RunstatusVal {
             notrunning=0x00000000,     ///<Watchdog timer is not running.
@@ -51,8 +51,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(runstatus)::Type,RunstatusVal::running> running{};
         }
     }
-    namespace Nonereqstatus{    ///<Request status.
-        using Addr = Register::Address<0x40010404,0xffffff00,0,unsigned>;
+    namespace WdtReqstatus{    ///<Request status.
+        using Addr = Register::Address<0x40010404,0xffffff00,0x00000000,unsigned>;
         ///Request status for RR[0].
         enum class Rr0Val {
             disabledorrequested=0x00000000,     ///<RR[0] register is not enabled or has already requested reload.
@@ -134,11 +134,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr7)::Type,Rr7Val::enabledandunrequested> enabledandunrequested{};
         }
     }
-    namespace Nonecrv{    ///<Counter reload value in number of 32kiHz clock cycles.
-        using Addr = Register::Address<0x40010504,0xffffffff,0,unsigned>;
+    namespace WdtCrv{    ///<Counter reload value in number of 32kiHz clock cycles.
+        using Addr = Register::Address<0x40010504,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerren{    ///<Reload request enable.
-        using Addr = Register::Address<0x40010508,0xffffff00,0,unsigned>;
+    namespace WdtRren{    ///<Reload request enable.
+        using Addr = Register::Address<0x40010508,0xffffff00,0x00000000,unsigned>;
         ///Enable or disable RR[0] register.
         enum class Rr0Val {
             disabled=0x00000000,     ///<RR[0] register is disabled.
@@ -220,8 +220,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr7)::Type,Rr7Val::enabled> enabled{};
         }
     }
-    namespace Noneconfig{    ///<Configuration register.
-        using Addr = Register::Address<0x4001050c,0xfffffff6,0,unsigned>;
+    namespace WdtConfig{    ///<Configuration register.
+        using Addr = Register::Address<0x4001050c,0xfffffff6,0x00000000,unsigned>;
         ///Configure the watchdog to pause or not while the CPU is sleeping.
         enum class SleepVal {
             pause=0x00000000,     ///<Pause watchdog while the CPU is asleep.
@@ -243,48 +243,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::run> run{};
         }
     }
-    namespace Nonerr0{    ///<Reload requests registers.
-        using Addr = Register::Address<0x40010600,0x00000000,0,unsigned>;
-        ///Reload register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
-    }
-    namespace Nonerr1{    ///<Reload requests registers.
-        using Addr = Register::Address<0x40010604,0x00000000,0,unsigned>;
-        ///Reload register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
-    }
-    namespace Nonerr2{    ///<Reload requests registers.
-        using Addr = Register::Address<0x40010608,0x00000000,0,unsigned>;
-        ///Reload register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
-    }
-    namespace Nonerr3{    ///<Reload requests registers.
-        using Addr = Register::Address<0x4001060c,0x00000000,0,unsigned>;
-        ///Reload register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
-    }
-    namespace Nonerr4{    ///<Reload requests registers.
-        using Addr = Register::Address<0x40010610,0x00000000,0,unsigned>;
-        ///Reload register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
-    }
-    namespace Nonerr5{    ///<Reload requests registers.
-        using Addr = Register::Address<0x40010614,0x00000000,0,unsigned>;
-        ///Reload register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
-    }
-    namespace Nonerr6{    ///<Reload requests registers.
-        using Addr = Register::Address<0x40010618,0x00000000,0,unsigned>;
-        ///Reload register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
-    }
-    namespace Nonerr7{    ///<Reload requests registers.
-        using Addr = Register::Address<0x4001061c,0x00000000,0,unsigned>;
-        ///Reload register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
-    }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x40010ffc,0xfffffffe,0,unsigned>;
+    namespace WdtPower{    ///<Peripheral power control.
+        using Addr = Register::Address<0x40010ffc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.
@@ -295,5 +255,45 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
         }
+    }
+    namespace WdtRr0{    ///<Reload requests registers.
+        using Addr = Register::Address<0x40010600,0x00000000,0x00000000,unsigned>;
+        ///Reload register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
+    }
+    namespace WdtRr1{    ///<Reload requests registers.
+        using Addr = Register::Address<0x40010604,0x00000000,0x00000000,unsigned>;
+        ///Reload register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
+    }
+    namespace WdtRr2{    ///<Reload requests registers.
+        using Addr = Register::Address<0x40010608,0x00000000,0x00000000,unsigned>;
+        ///Reload register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
+    }
+    namespace WdtRr3{    ///<Reload requests registers.
+        using Addr = Register::Address<0x4001060c,0x00000000,0x00000000,unsigned>;
+        ///Reload register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
+    }
+    namespace WdtRr4{    ///<Reload requests registers.
+        using Addr = Register::Address<0x40010610,0x00000000,0x00000000,unsigned>;
+        ///Reload register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
+    }
+    namespace WdtRr5{    ///<Reload requests registers.
+        using Addr = Register::Address<0x40010614,0x00000000,0x00000000,unsigned>;
+        ///Reload register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
+    }
+    namespace WdtRr6{    ///<Reload requests registers.
+        using Addr = Register::Address<0x40010618,0x00000000,0x00000000,unsigned>;
+        ///Reload register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
+    }
+    namespace WdtRr7{    ///<Reload requests registers.
+        using Addr = Register::Address<0x4001061c,0x00000000,0x00000000,unsigned>;
+        ///Reload register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rr{}; 
     }
 }

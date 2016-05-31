@@ -1,10 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Alternate function I/O
-    namespace Noneevcr{    ///<Event Control Register
-          (AFIO_EVCR)
-        using Addr = Register::Address<0x40010000,0xffffff00,0,unsigned>;
+    namespace AfioEvcr{    ///<Event Control Register          (AFIO_EVCR)
+        using Addr = Register::Address<0x40010000,0xffffff00,0x00000000,unsigned>;
         ///Pin selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> pin{}; 
         ///Port selection
@@ -12,9 +11,8 @@ namespace Kvasir {
         ///Event Output Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> evoe{}; 
     }
-    namespace Nonemapr{    ///<AF remap and debug I/O configuration
-          register (AFIO_MAPR)
-        using Addr = Register::Address<0x40010004,0x881e0000,0,unsigned>;
+    namespace AfioMapr{    ///<AF remap and debug I/O configuration          register (AFIO_MAPR)
+        using Addr = Register::Address<0x40010004,0x881e0000,0x00000000,unsigned>;
         ///SPI1 remapping
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> spi1Remap{}; 
         ///I2C1 remapping
@@ -35,11 +33,9 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> tim4Remap{}; 
         ///CAN1 remapping
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,13),Register::ReadWriteAccess,unsigned> can1Remap{}; 
-        ///Port D0/Port D1 mapping on
-              OSCIN/OSCOUT
+        ///Port D0/Port D1 mapping on              OSCIN/OSCOUT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pd01Remap{}; 
-        ///Set and cleared by
-              software
+        ///Set and cleared by              software
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tim5ch4Iremap{}; 
         ///Ethernet MAC I/O remapping
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ethRemap{}; 
@@ -47,20 +43,17 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> can2Remap{}; 
         ///MII or RMII selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> miiRmiiSel{}; 
-        ///Serial wire JTAG
-              configuration
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> swjCfg{}; 
+        ///Serial wire JTAG              configuration
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> swjCfg{}; 
         ///SPI3/I2S3 remapping
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> spi3Remap{}; 
-        ///TIM2 internal trigger 1
-              remapping
+        ///TIM2 internal trigger 1              remapping
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> tim2itr1Iremap{}; 
         ///Ethernet PTP PPS remapping
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ptpPpsRemap{}; 
     }
-    namespace Noneexticr1{    ///<External interrupt configuration register 1
-          (AFIO_EXTICR1)
-        using Addr = Register::Address<0x40010008,0xffff0000,0,unsigned>;
+    namespace AfioExticr1{    ///<External interrupt configuration register 1          (AFIO_EXTICR1)
+        using Addr = Register::Address<0x40010008,0xffff0000,0x00000000,unsigned>;
         ///EXTI0 configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> exti0{}; 
         ///EXTI1 configuration
@@ -70,9 +63,8 @@ namespace Kvasir {
         ///EXTI3 configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> exti3{}; 
     }
-    namespace Noneexticr2{    ///<External interrupt configuration register 2
-          (AFIO_EXTICR2)
-        using Addr = Register::Address<0x4001000c,0xffff0000,0,unsigned>;
+    namespace AfioExticr2{    ///<External interrupt configuration register 2          (AFIO_EXTICR2)
+        using Addr = Register::Address<0x4001000c,0xffff0000,0x00000000,unsigned>;
         ///EXTI4 configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> exti4{}; 
         ///EXTI5 configuration
@@ -82,9 +74,8 @@ namespace Kvasir {
         ///EXTI7 configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> exti7{}; 
     }
-    namespace Noneexticr3{    ///<External interrupt configuration register 3
-          (AFIO_EXTICR3)
-        using Addr = Register::Address<0x40010010,0xffff0000,0,unsigned>;
+    namespace AfioExticr3{    ///<External interrupt configuration register 3          (AFIO_EXTICR3)
+        using Addr = Register::Address<0x40010010,0xffff0000,0x00000000,unsigned>;
         ///EXTI8 configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> exti8{}; 
         ///EXTI9 configuration
@@ -94,9 +85,8 @@ namespace Kvasir {
         ///EXTI11 configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> exti11{}; 
     }
-    namespace Noneexticr4{    ///<External interrupt configuration register 4
-          (AFIO_EXTICR4)
-        using Addr = Register::Address<0x40010014,0xffff0000,0,unsigned>;
+    namespace AfioExticr4{    ///<External interrupt configuration register 4          (AFIO_EXTICR4)
+        using Addr = Register::Address<0x40010014,0xffff0000,0x00000000,unsigned>;
         ///EXTI12 configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> exti12{}; 
         ///EXTI13 configuration
@@ -106,9 +96,8 @@ namespace Kvasir {
         ///EXTI15 configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> exti15{}; 
     }
-    namespace Nonemapr2{    ///<AF remap and debug I/O configuration
-          register
-        using Addr = Register::Address<0x4001001c,0xfffff81f,0,unsigned>;
+    namespace AfioMapr2{    ///<AF remap and debug I/O configuration          register
+        using Addr = Register::Address<0x4001001c,0xfffff81f,0x00000000,unsigned>;
         ///TIM9 remapping
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tim9Remap{}; 
         ///TIM10 remapping

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog-to-digital converter
-    namespace Nonesr{    ///<status register
-        using Addr = Register::Address<0x40012000,0xffffffc0,0,unsigned>;
+    namespace Adc1Sr{    ///<status register
+        using Addr = Register::Address<0x40012000,0xffffffc0,0x00000000,unsigned>;
         ///Overrun
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovr{}; 
         ///Regular channel start flag
@@ -17,8 +17,8 @@ namespace Kvasir {
         ///Analog watchdog flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> awd{}; 
     }
-    namespace Nonecr1{    ///<control register 1
-        using Addr = Register::Address<0x40012004,0xf83f0000,0,unsigned>;
+    namespace Adc1Cr1{    ///<control register 1
+        using Addr = Register::Address<0x40012004,0xf83f0000,0x00000000,unsigned>;
         ///Overrun interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> ovrie{}; 
         ///Resolution
@@ -48,8 +48,8 @@ namespace Kvasir {
         ///Analog watchdog channel select               bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> awdch{}; 
     }
-    namespace Nonecr2{    ///<control register 2
-        using Addr = Register::Address<0x40012008,0x8080f0fc,0,unsigned>;
+    namespace Adc1Cr2{    ///<control register 2
+        using Addr = Register::Address<0x40012008,0x8080f0fc,0x00000000,unsigned>;
         ///Start conversion of regular               channels
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> swstart{}; 
         ///External trigger enable for regular               channels
@@ -75,48 +75,48 @@ namespace Kvasir {
         ///A/D Converter ON / OFF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> adon{}; 
     }
-    namespace Nonesmpr1{    ///<sample time register 1
-        using Addr = Register::Address<0x4001200c,0x00000000,0,unsigned>;
+    namespace Adc1Smpr1{    ///<sample time register 1
+        using Addr = Register::Address<0x4001200c,0x00000000,0x00000000,unsigned>;
         ///Sample time bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> smpxX{}; 
     }
-    namespace Nonesmpr2{    ///<sample time register 2
-        using Addr = Register::Address<0x40012010,0x00000000,0,unsigned>;
+    namespace Adc1Smpr2{    ///<sample time register 2
+        using Addr = Register::Address<0x40012010,0x00000000,0x00000000,unsigned>;
         ///Sample time bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> smpxX{}; 
     }
-    namespace Nonejofr1{    ///<injected channel data offset register           x
-        using Addr = Register::Address<0x40012014,0xfffff000,0,unsigned>;
+    namespace Adc1Jofr1{    ///<injected channel data offset register           x
+        using Addr = Register::Address<0x40012014,0xfffff000,0x00000000,unsigned>;
         ///Data offset for injected channel               x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> joffset1{}; 
     }
-    namespace Nonejofr2{    ///<injected channel data offset register           x
-        using Addr = Register::Address<0x40012018,0xfffff000,0,unsigned>;
+    namespace Adc1Jofr2{    ///<injected channel data offset register           x
+        using Addr = Register::Address<0x40012018,0xfffff000,0x00000000,unsigned>;
         ///Data offset for injected channel               x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> joffset2{}; 
     }
-    namespace Nonejofr3{    ///<injected channel data offset register           x
-        using Addr = Register::Address<0x4001201c,0xfffff000,0,unsigned>;
+    namespace Adc1Jofr3{    ///<injected channel data offset register           x
+        using Addr = Register::Address<0x4001201c,0xfffff000,0x00000000,unsigned>;
         ///Data offset for injected channel               x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> joffset3{}; 
     }
-    namespace Nonejofr4{    ///<injected channel data offset register           x
-        using Addr = Register::Address<0x40012020,0xfffff000,0,unsigned>;
+    namespace Adc1Jofr4{    ///<injected channel data offset register           x
+        using Addr = Register::Address<0x40012020,0xfffff000,0x00000000,unsigned>;
         ///Data offset for injected channel               x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> joffset4{}; 
     }
-    namespace Nonehtr{    ///<watchdog higher threshold           register
-        using Addr = Register::Address<0x40012024,0xfffff000,0,unsigned>;
+    namespace Adc1Htr{    ///<watchdog higher threshold           register
+        using Addr = Register::Address<0x40012024,0xfffff000,0x00000000,unsigned>;
         ///Analog watchdog higher               threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> ht{}; 
     }
-    namespace Noneltr{    ///<watchdog lower threshold           register
-        using Addr = Register::Address<0x40012028,0xfffff000,0,unsigned>;
+    namespace Adc1Ltr{    ///<watchdog lower threshold           register
+        using Addr = Register::Address<0x40012028,0xfffff000,0x00000000,unsigned>;
         ///Analog watchdog lower               threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> lt{}; 
     }
-    namespace Nonesqr1{    ///<regular sequence register 1
-        using Addr = Register::Address<0x4001202c,0xff000000,0,unsigned>;
+    namespace Adc1Sqr1{    ///<regular sequence register 1
+        using Addr = Register::Address<0x4001202c,0xff000000,0x00000000,unsigned>;
         ///Regular channel sequence               length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> l{}; 
         ///16th conversion in regular               sequence
@@ -128,8 +128,8 @@ namespace Kvasir {
         ///13th conversion in regular               sequence
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sq13{}; 
     }
-    namespace Nonesqr2{    ///<regular sequence register 2
-        using Addr = Register::Address<0x40012030,0xc0000000,0,unsigned>;
+    namespace Adc1Sqr2{    ///<regular sequence register 2
+        using Addr = Register::Address<0x40012030,0xc0000000,0x00000000,unsigned>;
         ///12th conversion in regular               sequence
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,25),Register::ReadWriteAccess,unsigned> sq12{}; 
         ///11th conversion in regular               sequence
@@ -143,8 +143,8 @@ namespace Kvasir {
         ///7th conversion in regular               sequence
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sq7{}; 
     }
-    namespace Nonesqr3{    ///<regular sequence register 3
-        using Addr = Register::Address<0x40012034,0xc0000000,0,unsigned>;
+    namespace Adc1Sqr3{    ///<regular sequence register 3
+        using Addr = Register::Address<0x40012034,0xc0000000,0x00000000,unsigned>;
         ///6th conversion in regular               sequence
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,25),Register::ReadWriteAccess,unsigned> sq6{}; 
         ///5th conversion in regular               sequence
@@ -158,8 +158,8 @@ namespace Kvasir {
         ///1st conversion in regular               sequence
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sq1{}; 
     }
-    namespace Nonejsqr{    ///<injected sequence register
-        using Addr = Register::Address<0x40012038,0xffc00000,0,unsigned>;
+    namespace Adc1Jsqr{    ///<injected sequence register
+        using Addr = Register::Address<0x40012038,0xffc00000,0x00000000,unsigned>;
         ///Injected sequence length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> jl{}; 
         ///4th conversion in injected               sequence
@@ -171,28 +171,28 @@ namespace Kvasir {
         ///1st conversion in injected               sequence
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> jsq1{}; 
     }
-    namespace Nonejdr1{    ///<injected data register x
-        using Addr = Register::Address<0x4001203c,0xffff0000,0,unsigned>;
+    namespace Adc1Jdr1{    ///<injected data register x
+        using Addr = Register::Address<0x4001203c,0xffff0000,0x00000000,unsigned>;
         ///Injected data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> jdata{}; 
     }
-    namespace Nonejdr2{    ///<injected data register x
-        using Addr = Register::Address<0x40012040,0xffff0000,0,unsigned>;
+    namespace Adc1Jdr2{    ///<injected data register x
+        using Addr = Register::Address<0x40012040,0xffff0000,0x00000000,unsigned>;
         ///Injected data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> jdata{}; 
     }
-    namespace Nonejdr3{    ///<injected data register x
-        using Addr = Register::Address<0x40012044,0xffff0000,0,unsigned>;
+    namespace Adc1Jdr3{    ///<injected data register x
+        using Addr = Register::Address<0x40012044,0xffff0000,0x00000000,unsigned>;
         ///Injected data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> jdata{}; 
     }
-    namespace Nonejdr4{    ///<injected data register x
-        using Addr = Register::Address<0x40012048,0xffff0000,0,unsigned>;
+    namespace Adc1Jdr4{    ///<injected data register x
+        using Addr = Register::Address<0x40012048,0xffff0000,0x00000000,unsigned>;
         ///Injected data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> jdata{}; 
     }
-    namespace Nonedr{    ///<regular data register
-        using Addr = Register::Address<0x4001204c,0xffff0000,0,unsigned>;
+    namespace Adc1Dr{    ///<regular data register
+        using Addr = Register::Address<0x4001204c,0xffff0000,0x00000000,unsigned>;
         ///Regular data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }

@@ -1,42 +1,42 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Clock control
-    namespace NonetasksHfclkstart{    ///<Start HFCLK crystal oscillator
-        using Addr = Register::Address<0x40000000,0xffffffff,0,unsigned>;
+    namespace ClockTasksHfclkstart{    ///<Start HFCLK crystal oscillator
+        using Addr = Register::Address<0x40000000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksHfclkstop{    ///<Stop HFCLK crystal oscillator
-        using Addr = Register::Address<0x40000004,0xffffffff,0,unsigned>;
+    namespace ClockTasksHfclkstop{    ///<Stop HFCLK crystal oscillator
+        using Addr = Register::Address<0x40000004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksLfclkstart{    ///<Start LFCLK source
-        using Addr = Register::Address<0x40000008,0xffffffff,0,unsigned>;
+    namespace ClockTasksLfclkstart{    ///<Start LFCLK source
+        using Addr = Register::Address<0x40000008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksLfclkstop{    ///<Stop LFCLK source
-        using Addr = Register::Address<0x4000000c,0xffffffff,0,unsigned>;
+    namespace ClockTasksLfclkstop{    ///<Stop LFCLK source
+        using Addr = Register::Address<0x4000000c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksCal{    ///<Start calibration of LFRC or LFULP oscillator
-        using Addr = Register::Address<0x40000010,0xffffffff,0,unsigned>;
+    namespace ClockTasksCal{    ///<Start calibration of LFRC or LFULP oscillator
+        using Addr = Register::Address<0x40000010,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksCtstart{    ///<Start calibration timer
-        using Addr = Register::Address<0x40000014,0xffffffff,0,unsigned>;
+    namespace ClockTasksCtstart{    ///<Start calibration timer
+        using Addr = Register::Address<0x40000014,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksCtstop{    ///<Stop calibration timer
-        using Addr = Register::Address<0x40000018,0xffffffff,0,unsigned>;
+    namespace ClockTasksCtstop{    ///<Stop calibration timer
+        using Addr = Register::Address<0x40000018,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsHfclkstarted{    ///<HFCLK oscillator started
-        using Addr = Register::Address<0x40000100,0xffffffff,0,unsigned>;
+    namespace ClockEventsHfclkstarted{    ///<HFCLK oscillator started
+        using Addr = Register::Address<0x40000100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsLfclkstarted{    ///<LFCLK started
-        using Addr = Register::Address<0x40000104,0xffffffff,0,unsigned>;
+    namespace ClockEventsLfclkstarted{    ///<LFCLK started
+        using Addr = Register::Address<0x40000104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsDone{    ///<Calibration of LFCLK RC oscillator complete event
-        using Addr = Register::Address<0x4000010c,0xffffffff,0,unsigned>;
+    namespace ClockEventsDone{    ///<Calibration of LFCLK RC oscillator complete event
+        using Addr = Register::Address<0x4000010c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsCtto{    ///<Calibration timer timeout
-        using Addr = Register::Address<0x40000110,0xffffffff,0,unsigned>;
+    namespace ClockEventsCtto{    ///<Calibration timer timeout
+        using Addr = Register::Address<0x40000110,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40000304,0xffffffe4,0,unsigned>;
+    namespace ClockIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40000304,0xffffffe4,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_HFCLKSTARTED event
         enum class HfclkstartedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -86,8 +86,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctto)::Type,CttoVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40000308,0xffffffe4,0,unsigned>;
+    namespace ClockIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40000308,0xffffffe4,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_HFCLKSTARTED event
         enum class HfclkstartedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -137,8 +137,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctto)::Type,CttoVal::clear> clear{};
         }
     }
-    namespace Nonehfclkrun{    ///<Status indicating that HFCLKSTART task has been triggered
-        using Addr = Register::Address<0x40000408,0xfffffffe,0,unsigned>;
+    namespace ClockHfclkrun{    ///<Status indicating that HFCLKSTART task has been triggered
+        using Addr = Register::Address<0x40000408,0xfffffffe,0x00000000,unsigned>;
         ///HFCLKSTART task triggered or not
         enum class StatusVal {
             nottriggered=0x00000000,     ///<Task not triggered
@@ -150,8 +150,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::triggered> triggered{};
         }
     }
-    namespace Nonehfclkstat{    ///<Which HFCLK source is running
-        using Addr = Register::Address<0x4000040c,0xfffefffe,0,unsigned>;
+    namespace ClockHfclkstat{    ///<Which HFCLK source is running
+        using Addr = Register::Address<0x4000040c,0xfffefffe,0x00000000,unsigned>;
         ///Active clock source
         enum class SrcVal {
             rc=0x00000000,     ///<Internal oscillator (HFINT)
@@ -173,8 +173,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::running> running{};
         }
     }
-    namespace Nonelfclkrun{    ///<Status indicating that LFCLKSTART task has been triggered
-        using Addr = Register::Address<0x40000414,0xfffffffe,0,unsigned>;
+    namespace ClockLfclkrun{    ///<Status indicating that LFCLKSTART task has been triggered
+        using Addr = Register::Address<0x40000414,0xfffffffe,0x00000000,unsigned>;
         ///LFCLKSTART task triggered or not
         enum class StatusVal {
             nottriggered=0x00000000,     ///<Task not triggered
@@ -186,8 +186,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::triggered> triggered{};
         }
     }
-    namespace Nonelfclkstat{    ///<Which LFCLK source is running
-        using Addr = Register::Address<0x40000418,0xfffefffc,0,unsigned>;
+    namespace ClockLfclkstat{    ///<Which LFCLK source is running
+        using Addr = Register::Address<0x40000418,0xfffefffc,0x00000000,unsigned>;
         ///Active clock source
         enum class SrcVal {
             rc=0x00000000,     ///<32.768 kHz RC oscillator
@@ -211,8 +211,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::running> running{};
         }
     }
-    namespace Nonelfclksrccopy{    ///<Copy of LFCLKSRC register, set when LFCLKSTART task was triggered
-        using Addr = Register::Address<0x4000041c,0xfffffffc,0,unsigned>;
+    namespace ClockLfclksrccopy{    ///<Copy of LFCLKSRC register, set when LFCLKSTART task was triggered
+        using Addr = Register::Address<0x4000041c,0xfffffffc,0x00000000,unsigned>;
         ///Clock source
         enum class SrcVal {
             rc=0x00000000,     ///<32.768 kHz RC oscillator
@@ -226,8 +226,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::synth> synth{};
         }
     }
-    namespace Nonelfclksrc{    ///<Clock source for the LFCLK
-        using Addr = Register::Address<0x40000518,0xfffffffc,0,unsigned>;
+    namespace ClockLfclksrc{    ///<Clock source for the LFCLK
+        using Addr = Register::Address<0x40000518,0xfffffffc,0x00000000,unsigned>;
         ///Clock source
         enum class SrcVal {
             rc=0x00000000,     ///<32.768 kHz RC oscillator
@@ -241,13 +241,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::synth> synth{};
         }
     }
-    namespace Nonectiv{    ///<Calibration timer interval (retained register, same reset behaviour as RESETREAS)
-        using Addr = Register::Address<0x40000538,0xffffff80,0,unsigned>;
+    namespace ClockCtiv{    ///<Calibration timer interval (retained register, same reset behaviour as RESETREAS)
+        using Addr = Register::Address<0x40000538,0xffffff80,0x00000000,unsigned>;
         ///Calibration timer interval in multiple of 0.25 seconds. Range: 0.25 seconds to 31.75 seconds.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> ctiv{}; 
     }
-    namespace Nonetraceconfig{    ///<Clocking options for the Trace Port debug interface
-        using Addr = Register::Address<0x4000055c,0xfffcfffc,0,unsigned>;
+    namespace ClockTraceconfig{    ///<Clocking options for the Trace Port debug interface
+        using Addr = Register::Address<0x4000055c,0xfffcfffc,0x00000000,unsigned>;
         ///Speed of Trace Port clock. Note that the TRACECLK pin will output this clock divided by two.
         enum class TraceportspeedVal {
             v32mhz=0x00000000,     ///<32 MHz Trace Port clock (TRACECLK = 16 MHz)

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Self wake-up timer (WKT)
-    namespace Nonectrl{    ///<Self wake-up timer control register.
-        using Addr = Register::Address<0x40008000,0xfffffff8,0,unsigned>;
+    namespace WktCtrl{    ///<Self wake-up timer control register.
+        using Addr = Register::Address<0x40008000,0x00000000,0x00000000,unsigned>;
         ///Select the self wake-up timer clock source.
         enum class ClkselVal {
             dividedIrcClockT=0x00000000,     ///<Divided IRC clock. This clock runs at 750 kHz and provides time-out periods of up to approximately 95 minutes in 1.33 us increments. This clock is not available in most low-power modes and must not be selected if the timer is to be used to wake up from one of these modes.
@@ -34,9 +34,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clearctr)::Type,ClearctrVal::noEffectReadingT> noEffectReadingT{};
             constexpr Register::FieldValue<decltype(clearctr)::Type,ClearctrVal::clearTheCounterC> clearTheCounterC{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecount{    ///<Counter register.
-        using Addr = Register::Address<0x4000800c,0x00000000,0,unsigned>;
+    namespace WktCount{    ///<Counter register.
+        using Addr = Register::Address<0x4000800c,0x00000000,0x00000000,unsigned>;
         ///A write to this register pre-loads start count value into the timer and starts the count-down sequence. A read reflects the current value of the timer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> value{}; 
     }

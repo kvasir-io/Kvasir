@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Watchdog Timer (WD)
-    namespace Nonemod{    ///<WD Mode Register
-        using Addr = Register::Address<0x400f2000,0xffffff09,0,unsigned>;
+    namespace Wd0Mod{    ///<WD Mode Register
+        using Addr = Register::Address<0x400f2000,0xffffff09,0x00000000,unsigned>;
         ///RESCR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rescr{}; 
         ///I2WDT
@@ -13,9 +13,9 @@ namespace Kvasir {
         ///WDTE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wdte{}; 
     }
-    namespace Nonecr{    ///<WD Control Register
-        using Addr = Register::Address<0x400f2004,0xffffff00,0,unsigned>;
+    namespace Wd0Cr{    ///<WD Control Register
+        using Addr = Register::Address<0x400f2004,0xffffff00,0x00000000,unsigned>;
         ///WDCR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wdcr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wdcr{}; 
     }
 }

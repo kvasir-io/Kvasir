@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonedmaxbar0{    ///<Channel 0-7 Trigger Select
-        using Addr = Register::Address<0x40037000,0x00000000,0,unsigned>;
+    namespace Dmaxbar0Dmaxbar0{    ///<Channel 0-7 Trigger Select
+        using Addr = Register::Address<0x40037000,0x00000000,0x00000000,unsigned>;
         ///DMA Channel 0 Peripheral Select. 
         enum class Ch0selVal {
             spi1Rx=0x00000001,     ///<Service SPI1 RX data requests.
@@ -211,8 +211,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7sel)::Type,Ch7selVal::timer1h> timer1h{};
         }
     }
-    namespace Nonedmaxbar1{    ///<Channel 8-15 Trigger Select
-        using Addr = Register::Address<0x40037010,0x00000000,0,unsigned>;
+    namespace Dmaxbar0Dmaxbar1{    ///<Channel 8-15 Trigger Select
+        using Addr = Register::Address<0x40037010,0x00000000,0x00000000,unsigned>;
         ///DMA Channel 8 Peripheral Select. 
         enum class Ch8selVal {
             usart1Rx=0x00000001,     ///<Service USART1 RX data requests.

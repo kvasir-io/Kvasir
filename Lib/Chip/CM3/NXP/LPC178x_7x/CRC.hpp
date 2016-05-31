@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //CRC engine 
-    namespace Nonemode{    ///<CRC mode register
-        using Addr = Register::Address<0x20090000,0xffffffc0,0,unsigned>;
+    namespace CrcMode{    ///<CRC mode register
+        using Addr = Register::Address<0x20090000,0x00000000,0x00000000,unsigned>;
         ///Select CRC polynomial
         enum class CrcpolyVal {
             crcCcittPolynomial=0x00000000,     ///<CRC-CCITT polynomial
@@ -56,19 +56,21 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmplSum)::Type,CmplsumVal::noOnesComplement> noOnesComplement{};
             constexpr Register::FieldValue<decltype(cmplSum)::Type,CmplsumVal::onesComplementFor> onesComplementFor{};
         }
+        ///Always 0 when read
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneseed{    ///<CRC seed register
-        using Addr = Register::Address<0x20090004,0x00000000,0,unsigned>;
+    namespace CrcSeed{    ///<CRC seed register
+        using Addr = Register::Address<0x20090004,0x00000000,0x00000000,unsigned>;
         ///A write access to this register will load CRC seed value to CRC_SUM register with selected bit order and 1's complement pre-processes. A write access to this register will overrule the CRC calculation in progresses.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crcSeed{}; 
     }
-    namespace Nonesum{    ///<CRC checksum register
-        using Addr = Register::Address<0x20090008,0x00000000,0,unsigned>;
+    namespace CrcSum{    ///<CRC checksum register
+        using Addr = Register::Address<0x20090008,0x00000000,0x00000000,unsigned>;
         ///The most recent CRC sum can be read through this register with selected bit order and 1's complement post-processes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crcSum{}; 
     }
-    namespace Nonedata{    ///<CRC data register
-        using Addr = Register::Address<0x20090008,0x00000000,0,unsigned>;
+    namespace CrcData{    ///<CRC data register
+        using Addr = Register::Address<0x20090008,0x00000000,0x00000000,unsigned>;
         ///Data written to this register will be taken to perform CRC calculation with selected bit order and 1's complement pre-process. Any write size 8, 16 or 32-bit are allowed and accept back-to-back transactions.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crcWrData{}; 
     }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Comparator
-    namespace Nonecomp2Csr{    ///<control and status register
-        using Addr = Register::Address<0x40010024,0x3fe04102,0,unsigned>;
+    namespace CompComp2Csr{    ///<control and status register
+        using Addr = Register::Address<0x40010024,0x3fe04102,0x00000000,unsigned>;
         ///Comparator 2 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp2en{}; 
         ///Comparator 2 mode
@@ -23,12 +23,12 @@ namespace Kvasir {
         ///Comparator 2 blanking               source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> comp2Blanking{}; 
         ///Comparator 2 output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> comp2out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> comp2out{}; 
         ///Comparator 2 lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> comp2lock{}; 
     }
-    namespace Nonecomp4Csr{    ///<control and status register
-        using Addr = Register::Address<0x4001002c,0x3fe04102,0,unsigned>;
+    namespace CompComp4Csr{    ///<control and status register
+        using Addr = Register::Address<0x4001002c,0x3fe04102,0x00000000,unsigned>;
         ///Comparator 4 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp4en{}; 
         ///Comparator 4 mode
@@ -48,12 +48,12 @@ namespace Kvasir {
         ///Comparator 4 blanking               source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> comp4Blanking{}; 
         ///Comparator 4 output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> comp4out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> comp4out{}; 
         ///Comparator 4 lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> comp4lock{}; 
     }
-    namespace Nonecomp6Csr{    ///<control and status register
-        using Addr = Register::Address<0x40010034,0x3fe04102,0,unsigned>;
+    namespace CompComp6Csr{    ///<control and status register
+        using Addr = Register::Address<0x40010034,0x3fe04102,0x00000000,unsigned>;
         ///Comparator 6 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp6en{}; 
         ///Comparator 6 mode
@@ -73,7 +73,7 @@ namespace Kvasir {
         ///Comparator 6 blanking               source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> comp6Blanking{}; 
         ///Comparator 6 output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> comp6out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> comp6out{}; 
         ///Comparator 6 lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> comp6lock{}; 
     }

@@ -1,30 +1,30 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Low Power Comparator
-    namespace NonetasksStart{    ///<Start comparator
-        using Addr = Register::Address<0x40013000,0xffffffff,0,unsigned>;
+    namespace LpcompTasksStart{    ///<Start comparator
+        using Addr = Register::Address<0x40013000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop comparator
-        using Addr = Register::Address<0x40013004,0xffffffff,0,unsigned>;
+    namespace LpcompTasksStop{    ///<Stop comparator
+        using Addr = Register::Address<0x40013004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksSample{    ///<Sample comparator value
-        using Addr = Register::Address<0x40013008,0xffffffff,0,unsigned>;
+    namespace LpcompTasksSample{    ///<Sample comparator value
+        using Addr = Register::Address<0x40013008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsReady{    ///<LPCOMP is ready and output is valid
-        using Addr = Register::Address<0x40013100,0xffffffff,0,unsigned>;
+    namespace LpcompEventsReady{    ///<LPCOMP is ready and output is valid
+        using Addr = Register::Address<0x40013100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsDown{    ///<Downward crossing
-        using Addr = Register::Address<0x40013104,0xffffffff,0,unsigned>;
+    namespace LpcompEventsDown{    ///<Downward crossing
+        using Addr = Register::Address<0x40013104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsUp{    ///<Upward crossing
-        using Addr = Register::Address<0x40013108,0xffffffff,0,unsigned>;
+    namespace LpcompEventsUp{    ///<Upward crossing
+        using Addr = Register::Address<0x40013108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsCross{    ///<Downward or upward crossing
-        using Addr = Register::Address<0x4001310c,0xffffffff,0,unsigned>;
+    namespace LpcompEventsCross{    ///<Downward or upward crossing
+        using Addr = Register::Address<0x4001310c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x40013200,0xffffffe0,0,unsigned>;
+    namespace LpcompShorts{    ///<Shortcut register
+        using Addr = Register::Address<0x40013200,0xffffffe0,0x00000000,unsigned>;
         ///Shortcut between EVENTS_READY event and TASKS_SAMPLE task
         enum class ReadysampleVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -76,8 +76,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crossStop)::Type,CrossstopVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40013304,0xfffffff0,0,unsigned>;
+    namespace LpcompIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40013304,0xfffffff0,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_READY event
         enum class ReadyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -127,8 +127,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40013308,0xfffffff0,0,unsigned>;
+    namespace LpcompIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40013308,0xfffffff0,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_READY event
         enum class ReadyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -178,8 +178,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::clear> clear{};
         }
     }
-    namespace Noneresult{    ///<Compare result
-        using Addr = Register::Address<0x40013400,0xfffffffe,0,unsigned>;
+    namespace LpcompResult{    ///<Compare result
+        using Addr = Register::Address<0x40013400,0xfffffffe,0x00000000,unsigned>;
         ///Result of last compare. Decision point SAMPLE task.
         enum class ResultVal {
             bellow=0x00000000,     ///<Input voltage is below the reference threshold (VIN+ < VIN-).
@@ -191,8 +191,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(result)::Type,ResultVal::above> above{};
         }
     }
-    namespace Noneenable{    ///<Enable LPCOMP
-        using Addr = Register::Address<0x40013500,0xfffffffc,0,unsigned>;
+    namespace LpcompEnable{    ///<Enable LPCOMP
+        using Addr = Register::Address<0x40013500,0xfffffffc,0x00000000,unsigned>;
         ///Enable or disable LPCOMP
         enum class EnableVal {
             disabled=0x00000000,     ///<Disable
@@ -204,8 +204,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
-    namespace Nonepsel{    ///<Input pin select
-        using Addr = Register::Address<0x40013504,0xfffffff8,0,unsigned>;
+    namespace LpcompPsel{    ///<Input pin select
+        using Addr = Register::Address<0x40013504,0xfffffff8,0x00000000,unsigned>;
         ///Analog pin select
         enum class PselVal {
             analoginput0=0x00000000,     ///<AIN0 selected as analog input
@@ -229,8 +229,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput7> analoginput7{};
         }
     }
-    namespace Nonerefsel{    ///<Reference select
-        using Addr = Register::Address<0x40013508,0xfffffff0,0,unsigned>;
+    namespace LpcompRefsel{    ///<Reference select
+        using Addr = Register::Address<0x40013508,0xfffffff0,0x00000000,unsigned>;
         ///Reference select
         enum class RefselVal {
             ref18vdd=0x00000000,     ///<VDD * 1/8 selected as reference
@@ -270,8 +270,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref1516vdd> ref1516vdd{};
         }
     }
-    namespace Noneextrefsel{    ///<External reference select
-        using Addr = Register::Address<0x4001350c,0xfffffffe,0,unsigned>;
+    namespace LpcompExtrefsel{    ///<External reference select
+        using Addr = Register::Address<0x4001350c,0xfffffffe,0x00000000,unsigned>;
         ///External analog reference select
         enum class ExtrefselVal {
             analogreference0=0x00000000,     ///<Use AIN0 as external analog reference
@@ -283,8 +283,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::analogreference1> analogreference1{};
         }
     }
-    namespace Noneanadetect{    ///<Analog detect configuration
-        using Addr = Register::Address<0x40013520,0xfffffffc,0,unsigned>;
+    namespace LpcompAnadetect{    ///<Analog detect configuration
+        using Addr = Register::Address<0x40013520,0xfffffffc,0x00000000,unsigned>;
         ///Analog detect configuration
         enum class AnadetectVal {
             cross=0x00000000,     ///<Generate ANADETECT on crossing, both upward crossing and downward crossing
@@ -298,8 +298,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(anadetect)::Type,AnadetectVal::down> down{};
         }
     }
-    namespace Nonehyst{    ///<Comparator hysteresis enable
-        using Addr = Register::Address<0x40013538,0xfffffffe,0,unsigned>;
+    namespace LpcompHyst{    ///<Comparator hysteresis enable
+        using Addr = Register::Address<0x40013538,0xfffffffe,0x00000000,unsigned>;
         ///Comparator hysteresis enable
         enum class HystVal {
             nohyst=0x00000000,     ///<Comparator hysteresis disabled

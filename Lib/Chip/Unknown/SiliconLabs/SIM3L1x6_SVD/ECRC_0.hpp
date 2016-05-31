@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40028000,0xffff90e8,0,unsigned>;
+    namespace Ecrc0Control{    ///<Module Control
+        using Addr = Register::Address<0x40028000,0xffff90e8,0x00000000,unsigned>;
         ///Seed Initialization Enable. 
         enum class SinitenVal {
             disabled=0x00000000,     ///<Do not initialize the CRC module to the value set by the SEED bit.
             enabled=0x00000001,     ///<Initialize the CRC module to the value set by the SEED bit.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SinitenVal> siniten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SinitenVal> siniten{}; 
         namespace SinitenValC{
             constexpr Register::FieldValue<decltype(siniten)::Type,SinitenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(siniten)::Type,SinitenVal::enabled> enabled{};
@@ -97,28 +97,28 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aseedsel)::Type,AseedselVal::msbRead> msbRead{};
         }
     }
-    namespace Nonepoly{    ///<16-bit Programmable Polynomial
-        using Addr = Register::Address<0x40028010,0xffff0000,0,unsigned>;
+    namespace Ecrc0Poly{    ///<16-bit Programmable Polynomial
+        using Addr = Register::Address<0x40028010,0xffff0000,0x00000000,unsigned>;
         ///16-bit Programmable Polynomial. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> poly{}; 
     }
-    namespace Nonedata{    ///<Input/Result Data
-        using Addr = Register::Address<0x40028020,0x00000000,0,unsigned>;
+    namespace Ecrc0Data{    ///<Input/Result Data
+        using Addr = Register::Address<0x40028020,0x00000000,0x00000000,unsigned>;
         ///Input/Result Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonerdata{    ///<Bit-Reversed Output Data
-        using Addr = Register::Address<0x40028030,0x00000000,0,unsigned>;
+    namespace Ecrc0Rdata{    ///<Bit-Reversed Output Data
+        using Addr = Register::Address<0x40028030,0x00000000,0x00000000,unsigned>;
         ///Bit-Reversed Output Data. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rdata{}; 
     }
-    namespace Nonebrdata{    ///<Byte-Reversed Output Data
-        using Addr = Register::Address<0x40028040,0x00000000,0,unsigned>;
+    namespace Ecrc0Brdata{    ///<Byte-Reversed Output Data
+        using Addr = Register::Address<0x40028040,0x00000000,0x00000000,unsigned>;
         ///Byte-Reversed Output Data. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> brdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> brdata{}; 
     }
-    namespace Nonescontrol{    ///<Bus Snooping Control
-        using Addr = Register::Address<0x40028050,0xf003ff0c,0,unsigned>;
+    namespace Ecrc0Scontrol{    ///<Bus Snooping Control
+        using Addr = Register::Address<0x40028050,0xf003ff0c,0x00000000,unsigned>;
         ///Snooping Enable. 
         enum class SenVal {
             disabled=0x00000000,     ///<Disable automatic bus snooping.

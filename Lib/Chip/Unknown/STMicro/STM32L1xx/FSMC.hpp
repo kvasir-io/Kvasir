@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Flexible static memory controller
-    namespace Nonebcr1{    ///<BCR1
-        using Addr = Register::Address<0xa0000000,0xfff70080,0,unsigned>;
+    namespace FsmcBcr1{    ///<BCR1
+        using Addr = Register::Address<0xa0000000,0xfff70080,0x00000000,unsigned>;
         ///CBURSTRW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> cburstrw{}; 
         ///ASYNCWAIT
@@ -33,8 +33,8 @@ namespace Kvasir {
         ///MBKEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mbken{}; 
     }
-    namespace Nonebtr1{    ///<BTR1
-        using Addr = Register::Address<0xa0000004,0xc0000000,0,unsigned>;
+    namespace FsmcBtr1{    ///<BTR1
+        using Addr = Register::Address<0xa0000004,0xc0000000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -50,8 +50,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebcr2{    ///<BCR2
-        using Addr = Register::Address<0xa0000008,0xfff70080,0,unsigned>;
+    namespace FsmcBcr2{    ///<BCR2
+        using Addr = Register::Address<0xa0000008,0xfff70080,0x00000000,unsigned>;
         ///CBURSTRW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> cburstrw{}; 
         ///ASYNCWAIT
@@ -81,8 +81,8 @@ namespace Kvasir {
         ///MBKEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mbken{}; 
     }
-    namespace Nonebtr2{    ///<BTR2
-        using Addr = Register::Address<0xa000000c,0xc0000000,0,unsigned>;
+    namespace FsmcBtr2{    ///<BTR2
+        using Addr = Register::Address<0xa000000c,0xc0000000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -98,8 +98,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebcr3{    ///<BCR3
-        using Addr = Register::Address<0xa0000010,0xfff70080,0,unsigned>;
+    namespace FsmcBcr3{    ///<BCR3
+        using Addr = Register::Address<0xa0000010,0xfff70080,0x00000000,unsigned>;
         ///CBURSTRW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> cburstrw{}; 
         ///ASYNCWAIT
@@ -129,8 +129,8 @@ namespace Kvasir {
         ///MBKEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mbken{}; 
     }
-    namespace Nonebtr3{    ///<BTR3
-        using Addr = Register::Address<0xa0000014,0xc0000000,0,unsigned>;
+    namespace FsmcBtr3{    ///<BTR3
+        using Addr = Register::Address<0xa0000014,0xc0000000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -146,8 +146,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebcr4{    ///<BCR4
-        using Addr = Register::Address<0xa0000018,0xfff70080,0,unsigned>;
+    namespace FsmcBcr4{    ///<BCR4
+        using Addr = Register::Address<0xa0000018,0xfff70080,0x00000000,unsigned>;
         ///CBURSTRW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> cburstrw{}; 
         ///ASYNCWAIT
@@ -177,8 +177,8 @@ namespace Kvasir {
         ///MBKEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mbken{}; 
     }
-    namespace Nonebtr4{    ///<BTR4
-        using Addr = Register::Address<0xa000001c,0xc0000000,0,unsigned>;
+    namespace FsmcBtr4{    ///<BTR4
+        using Addr = Register::Address<0xa000001c,0xc0000000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -194,8 +194,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebwtr1{    ///<BWTR1
-        using Addr = Register::Address<0xa0000104,0xc00f0000,0,unsigned>;
+    namespace FsmcBwtr1{    ///<BWTR1
+        using Addr = Register::Address<0xa0000104,0xc00f0000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -209,8 +209,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebwtr2{    ///<BWTR2
-        using Addr = Register::Address<0xa000010c,0xc00f0000,0,unsigned>;
+    namespace FsmcBwtr2{    ///<BWTR2
+        using Addr = Register::Address<0xa000010c,0xc00f0000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -224,8 +224,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebwtr3{    ///<BWTR3
-        using Addr = Register::Address<0xa0000114,0xc00f0000,0,unsigned>;
+    namespace FsmcBwtr3{    ///<BWTR3
+        using Addr = Register::Address<0xa0000114,0xc00f0000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -239,8 +239,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebwtr4{    ///<BWTR4
-        using Addr = Register::Address<0xa000011c,0xc00f0000,0,unsigned>;
+    namespace FsmcBwtr4{    ///<BWTR4
+        using Addr = Register::Address<0xa000011c,0xc00f0000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT

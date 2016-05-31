@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Noneconfig{    ///<System Configuration
-        using Addr = Register::Address<0x400490b0,0xfffffffc,0,unsigned>;
+    namespace Sconfig0Config{    ///<System Configuration
+        using Addr = Register::Address<0x400490b0,0xfffffffc,0x00000000,unsigned>;
         ///Faster DMA Mode Enable. 
         enum class FdmaenVal {
             disabled=0x00000000,     ///<Disable the faster DMA mode.  The DMA module and channels will behave like a standard uDMA.

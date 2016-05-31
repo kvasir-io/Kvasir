@@ -1,14 +1,14 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Secure digital input/output       interface
-    namespace Nonepower{    ///<power control register
-        using Addr = Register::Address<0x40012c00,0xfffffffc,0,unsigned>;
+    namespace SdioPower{    ///<power control register
+        using Addr = Register::Address<0x40012c00,0xfffffffc,0x00000000,unsigned>;
         ///PWRCTRL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> pwrctrl{}; 
     }
-    namespace Noneclkcr{    ///<SDI clock control register
-        using Addr = Register::Address<0x40012c04,0xffff8000,0,unsigned>;
+    namespace SdioClkcr{    ///<SDI clock control register
+        using Addr = Register::Address<0x40012c04,0xffff8000,0x00000000,unsigned>;
         ///HW Flow Control enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> hwfcEn{}; 
         ///SDIO_CK dephasing selection               bit
@@ -24,13 +24,13 @@ namespace Kvasir {
         ///Clock divide factor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
     }
-    namespace Nonearg{    ///<argument register
-        using Addr = Register::Address<0x40012c08,0x00000000,0,unsigned>;
+    namespace SdioArg{    ///<argument register
+        using Addr = Register::Address<0x40012c08,0x00000000,0x00000000,unsigned>;
         ///Command argument
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cmdarg{}; 
     }
-    namespace Nonecmd{    ///<command register
-        using Addr = Register::Address<0x40012c0c,0xffff8000,0,unsigned>;
+    namespace SdioCmd{    ///<command register
+        using Addr = Register::Address<0x40012c0c,0xffff8000,0x00000000,unsigned>;
         ///CE-ATA command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ceAtacmd{}; 
         ///not Interrupt Enable
@@ -50,43 +50,43 @@ namespace Kvasir {
         ///Command index
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> cmdindex{}; 
     }
-    namespace Nonerespcmd{    ///<command response register
-        using Addr = Register::Address<0x40012c10,0xffffffc0,0,unsigned>;
+    namespace SdioRespcmd{    ///<command response register
+        using Addr = Register::Address<0x40012c10,0xffffffc0,0x00000000,unsigned>;
         ///Response command index
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> respcmd{}; 
     }
-    namespace Noneresp1{    ///<response 1..4 register
-        using Addr = Register::Address<0x40012c14,0x00000000,0,unsigned>;
+    namespace SdioResp1{    ///<response 1..4 register
+        using Addr = Register::Address<0x40012c14,0x00000000,0x00000000,unsigned>;
         ///Card Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cardstatus1{}; 
     }
-    namespace Noneresp2{    ///<response 1..4 register
-        using Addr = Register::Address<0x40012c18,0x00000000,0,unsigned>;
+    namespace SdioResp2{    ///<response 1..4 register
+        using Addr = Register::Address<0x40012c18,0x00000000,0x00000000,unsigned>;
         ///Card Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cardstatus2{}; 
     }
-    namespace Noneresp3{    ///<response 1..4 register
-        using Addr = Register::Address<0x40012c1c,0x00000000,0,unsigned>;
+    namespace SdioResp3{    ///<response 1..4 register
+        using Addr = Register::Address<0x40012c1c,0x00000000,0x00000000,unsigned>;
         ///Card Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cardstatus3{}; 
     }
-    namespace Noneresp4{    ///<response 1..4 register
-        using Addr = Register::Address<0x40012c20,0x00000000,0,unsigned>;
+    namespace SdioResp4{    ///<response 1..4 register
+        using Addr = Register::Address<0x40012c20,0x00000000,0x00000000,unsigned>;
         ///Card Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cardstatus4{}; 
     }
-    namespace Nonedtimer{    ///<data timer register
-        using Addr = Register::Address<0x40012c24,0x00000000,0,unsigned>;
+    namespace SdioDtimer{    ///<data timer register
+        using Addr = Register::Address<0x40012c24,0x00000000,0x00000000,unsigned>;
         ///Data timeout period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> datatime{}; 
     }
-    namespace Nonedlen{    ///<data length register
-        using Addr = Register::Address<0x40012c28,0xfe000000,0,unsigned>;
+    namespace SdioDlen{    ///<data length register
+        using Addr = Register::Address<0x40012c28,0xfe000000,0x00000000,unsigned>;
         ///Data length value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,0),Register::ReadWriteAccess,unsigned> datalength{}; 
     }
-    namespace Nonedctrl{    ///<data control register
-        using Addr = Register::Address<0x40012c2c,0xfffff000,0,unsigned>;
+    namespace SdioDctrl{    ///<data control register
+        using Addr = Register::Address<0x40012c2c,0xfffff000,0x00000000,unsigned>;
         ///SD I/O enable functions
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> sdioen{}; 
         ///Read wait mode
@@ -106,13 +106,13 @@ namespace Kvasir {
         ///DTEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dten{}; 
     }
-    namespace Nonedcount{    ///<data counter register
-        using Addr = Register::Address<0x40012c30,0xfe000000,0,unsigned>;
+    namespace SdioDcount{    ///<data counter register
+        using Addr = Register::Address<0x40012c30,0xfe000000,0x00000000,unsigned>;
         ///Data count value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,0),Register::ReadWriteAccess,unsigned> datacount{}; 
     }
-    namespace Nonesta{    ///<status register
-        using Addr = Register::Address<0x40012c34,0xff000000,0,unsigned>;
+    namespace SdioSta{    ///<status register
+        using Addr = Register::Address<0x40012c34,0xff000000,0x00000000,unsigned>;
         ///CE-ATA command completion signal               received for CMD61
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ceataend{}; 
         ///SDIO interrupt received
@@ -162,8 +162,8 @@ namespace Kvasir {
         ///Command response received (CRC check               failed)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ccrcfail{}; 
     }
-    namespace Noneicr{    ///<interrupt clear register
-        using Addr = Register::Address<0x40012c38,0xff3ff800,0,unsigned>;
+    namespace SdioIcr{    ///<interrupt clear register
+        using Addr = Register::Address<0x40012c38,0xff3ff800,0x00000000,unsigned>;
         ///CEATAEND flag clear bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ceataendc{}; 
         ///SDIOIT flag clear bit
@@ -191,8 +191,8 @@ namespace Kvasir {
         ///CCRCFAIL flag clear bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ccrcfailc{}; 
     }
-    namespace Nonemask{    ///<mask register
-        using Addr = Register::Address<0x40012c3c,0xff000000,0,unsigned>;
+    namespace SdioMask{    ///<mask register
+        using Addr = Register::Address<0x40012c3c,0xff000000,0x00000000,unsigned>;
         ///CE-ATA command completion signal               received interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ceataendie{}; 
         ///SDIO mode interrupt received interrupt               enable
@@ -242,13 +242,13 @@ namespace Kvasir {
         ///Command CRC fail interrupt               enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ccrcfailie{}; 
     }
-    namespace Nonefifocnt{    ///<FIFO counter register
-        using Addr = Register::Address<0x40012c48,0xff000000,0,unsigned>;
+    namespace SdioFifocnt{    ///<FIFO counter register
+        using Addr = Register::Address<0x40012c48,0xff000000,0x00000000,unsigned>;
         ///Remaining number of words to be written               to or read from the FIFO.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> fifocount{}; 
     }
-    namespace Nonefifo{    ///<data FIFO register
-        using Addr = Register::Address<0x40012c80,0x00000000,0,unsigned>;
+    namespace SdioFifo{    ///<data FIFO register
+        using Addr = Register::Address<0x40012c80,0x00000000,0x00000000,unsigned>;
         ///Receive and transmit FIFO               data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifodata{}; 
     }

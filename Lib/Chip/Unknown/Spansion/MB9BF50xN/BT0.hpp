@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Base Timer 0
-    namespace NonepwmTmcr{    ///<Timer Control Register
-        using Addr = Register::Address<0x4002500c,0xffff8080,0,unsigned>;
+    namespace Bt0PwmTmcr{    ///<Timer Control Register
+        using Addr = Register::Address<0x4002500c,0xffff8080,0x00000000,unsigned>;
         ///Count clock selection bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> cks20{}; 
         ///Restart enable bit 
@@ -23,13 +23,13 @@ namespace Kvasir {
         ///Software trigger bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> strg{}; 
     }
-    namespace NonepwmTmcr2{    ///<Timer Control Register 2
-        using Addr = Register::Address<0x40025011,0xfffffffe,0,unsigned char>;
+    namespace Bt0PwmTmcr2{    ///<Timer Control Register 2
+        using Addr = Register::Address<0x40025011,0xfffffffe,0x00000000,unsigned char>;
         ///Count clock selection bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cks3{}; 
     }
-    namespace NonepwmStc{    ///< Status Control Register
-        using Addr = Register::Address<0x40025010,0xffffff88,0,unsigned char>;
+    namespace Bt0PwmStc{    ///< Status Control Register
+        using Addr = Register::Address<0x40025010,0xffffff88,0x00000000,unsigned char>;
         ///Trigger interrupt request enable bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tgie{}; 
         ///Duty match interrupt request enable bit 
@@ -43,17 +43,17 @@ namespace Kvasir {
         ///Underflow interrupt request bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> udir{}; 
     }
-    namespace NonepwmPcsr{    ///<PWM Cycle Set Register
-        using Addr = Register::Address<0x40025000,0xffffffff,0,unsigned>;
+    namespace Bt0PwmPcsr{    ///<PWM Cycle Set Register
+        using Addr = Register::Address<0x40025000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonepwmPdut{    ///<PWM Duty Set Register
-        using Addr = Register::Address<0x40025004,0xffffffff,0,unsigned>;
+    namespace Bt0PwmPdut{    ///<PWM Duty Set Register
+        using Addr = Register::Address<0x40025004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonepwmTmr{    ///<Timer Register
-        using Addr = Register::Address<0x40025008,0xffffffff,0,unsigned>;
+    namespace Bt0PwmTmr{    ///<Timer Register
+        using Addr = Register::Address<0x40025008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneppgTmcr{    ///<Timer Control Register
-        using Addr = Register::Address<0x4002500c,0xffff8080,0,unsigned>;
+    namespace Bt0PpgTmcr{    ///<Timer Control Register
+        using Addr = Register::Address<0x4002500c,0xffff8080,0x00000000,unsigned>;
         ///Count clock selection bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> cks20{}; 
         ///Restart enable bit
@@ -73,13 +73,13 @@ namespace Kvasir {
         ///Software trigger bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> strg{}; 
     }
-    namespace NoneppgTmcr2{    ///<Timer Control Register 2
-        using Addr = Register::Address<0x40025011,0xfffffffd,0,unsigned char>;
+    namespace Bt0PpgTmcr2{    ///<Timer Control Register 2
+        using Addr = Register::Address<0x40025011,0xfffffffd,0x00000000,unsigned char>;
         ///Count clock selection bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cks3{}; 
     }
-    namespace NoneppgStc{    ///<Status Control Register
-        using Addr = Register::Address<0x40025010,0xffffffaa,0,unsigned char>;
+    namespace Bt0PpgStc{    ///<Status Control Register
+        using Addr = Register::Address<0x40025010,0xffffffaa,0x00000000,unsigned char>;
         ///Trigger interrupt request enable bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tgie{}; 
         ///Underflow interrupt request enable bit
@@ -89,17 +89,17 @@ namespace Kvasir {
         ///Underflow interrupt request bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> udir{}; 
     }
-    namespace NoneppgPrll{    ///<LOW Width Reload Register
-        using Addr = Register::Address<0x40025000,0xffffffff,0,unsigned>;
+    namespace Bt0PpgPrll{    ///<LOW Width Reload Register
+        using Addr = Register::Address<0x40025000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneppgPrlh{    ///<HIGH Width Reload Register
-        using Addr = Register::Address<0x40025004,0xffffffff,0,unsigned>;
+    namespace Bt0PpgPrlh{    ///<HIGH Width Reload Register
+        using Addr = Register::Address<0x40025004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneppgTmr{    ///<Timer Register
-        using Addr = Register::Address<0x40025008,0xffffffff,0,unsigned>;
+    namespace Bt0PpgTmr{    ///<Timer Register
+        using Addr = Register::Address<0x40025008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonertTmcr{    ///<Timer Control Register
-        using Addr = Register::Address<0x4002500c,0xffff8c00,0,unsigned>;
+    namespace Bt0RtTmcr{    ///<Timer Control Register
+        using Addr = Register::Address<0x4002500c,0xffff8c00,0x00000000,unsigned>;
         ///Count clock selection bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> cks20{}; 
         ///Trigger input edge selection bits
@@ -117,13 +117,13 @@ namespace Kvasir {
         ///Software trigger bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> strg{}; 
     }
-    namespace NonertTmcr2{    ///<Timer Control Register 2
-        using Addr = Register::Address<0x40025011,0xfffffffe,0,unsigned char>;
+    namespace Bt0RtTmcr2{    ///<Timer Control Register 2
+        using Addr = Register::Address<0x40025011,0xfffffffe,0x00000000,unsigned char>;
         ///Count clock selection bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cks3{}; 
     }
-    namespace NonertStc{    ///<Status Control Register
-        using Addr = Register::Address<0x40025010,0xffffffaa,0,unsigned char>;
+    namespace Bt0RtStc{    ///<Status Control Register
+        using Addr = Register::Address<0x40025010,0xffffffaa,0x00000000,unsigned char>;
         ///Trigger interrupt request enable bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tgie{}; 
         ///Underflow interrupt request enable bit 
@@ -133,14 +133,14 @@ namespace Kvasir {
         ///Underflow interrupt request bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> udir{}; 
     }
-    namespace NonertPcsr{    ///<PWM Cycle Set Register
-        using Addr = Register::Address<0x40025000,0xffffffff,0,unsigned>;
+    namespace Bt0RtPcsr{    ///<PWM Cycle Set Register
+        using Addr = Register::Address<0x40025000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonertTmr{    ///<Timer Register
-        using Addr = Register::Address<0x40025008,0xffffffff,0,unsigned>;
+    namespace Bt0RtTmr{    ///<Timer Register
+        using Addr = Register::Address<0x40025008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonepwcTmcr{    ///<Timer Control Register
-        using Addr = Register::Address<0x4002500c,0xffff8809,0,unsigned>;
+    namespace Bt0PwcTmcr{    ///<Timer Control Register
+        using Addr = Register::Address<0x4002500c,0xffff8809,0x00000000,unsigned>;
         ///Count clock selection bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> cks20{}; 
         ///Measurement edge selection bits 
@@ -154,25 +154,25 @@ namespace Kvasir {
         ///Timer enable bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cten{}; 
     }
-    namespace NonepwcTmcr2{    ///<Timer Control Register 2
-        using Addr = Register::Address<0x40025011,0xfffffffe,0,unsigned char>;
+    namespace Bt0PwcTmcr2{    ///<Timer Control Register 2
+        using Addr = Register::Address<0x40025011,0xfffffffe,0x00000000,unsigned char>;
         ///Count clock selection bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cks3{}; 
     }
-    namespace NonepwcStc{    ///<Status Control Register
-        using Addr = Register::Address<0x40025010,0xffffff2a,0,unsigned char>;
+    namespace Bt0PwcStc{    ///<Status Control Register
+        using Addr = Register::Address<0x40025010,0xffffff2a,0x00000000,unsigned char>;
         ///Error flag bit
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> err{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> err{}; 
         ///Measurement completion interrupt request enable bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> edie{}; 
         ///Overflow interrupt request enable bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ovie{}; 
         ///Measurement completion interrupt request bit 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> edir{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> edir{}; 
         ///Overflow interrupt request bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ovir{}; 
     }
-    namespace NonepwcDtbf{    ///<Data Buffer Register
-        using Addr = Register::Address<0x40025004,0xffffffff,0,unsigned>;
+    namespace Bt0PwcDtbf{    ///<Data Buffer Register
+        using Addr = Register::Address<0x40025004,0xffffffff,0x00000000,unsigned>;
     }
 }

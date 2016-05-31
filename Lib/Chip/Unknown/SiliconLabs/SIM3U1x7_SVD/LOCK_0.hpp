@@ -1,14 +1,14 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonekey{    ///<Security Key
-        using Addr = Register::Address<0x40049000,0xffffff00,0,unsigned>;
+    namespace Lock0Key{    ///<Security Key
+        using Addr = Register::Address<0x40049000,0xffffff00,0x00000000,unsigned>;
         ///Peripheral Lock Mask Key. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
     }
-    namespace Noneperiphlock0{    ///<Peripheral Lock Control 0
-        using Addr = Register::Address<0x40049020,0xe8000000,0,unsigned>;
+    namespace Lock0Periphlock0{    ///<Peripheral Lock Control 0
+        using Addr = Register::Address<0x40049020,0xe8000000,0x00000000,unsigned>;
         ///USART/UART Module Lock Enable. 
         enum class UsartlVal {
             unlocked=0x00000000,     ///<Unlock the USART0, USART1, UART0, and UART1 Module registers.
@@ -290,8 +290,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ivcl)::Type,IvclVal::locked> locked{};
         }
     }
-    namespace Noneperiphlock1{    ///<Peripheral Lock Control 1
-        using Addr = Register::Address<0x40049040,0xfffffffe,0,unsigned>;
+    namespace Lock0Periphlock1{    ///<Peripheral Lock Control 1
+        using Addr = Register::Address<0x40049040,0xfffffffe,0x00000000,unsigned>;
         ///PMU Module Lock Enable. 
         enum class PmulVal {
             unlocked=0x00000000,     ///<Unlock the PMU Module registers.

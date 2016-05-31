@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Programmable Peripheral Interconnect
-    namespace Nonechen{    ///<Channel enable register
-        using Addr = Register::Address<0x4001f500,0x00000000,0,unsigned>;
+    namespace PpiChen{    ///<Channel enable register
+        using Addr = Register::Address<0x4001f500,0x00000000,0x00000000,unsigned>;
         ///Enable or disable channel 0
         enum class Ch0Val {
             disabled=0x00000000,     ///<Disable channel
@@ -325,8 +325,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch31)::Type,Ch31Val::enabled> enabled{};
         }
     }
-    namespace Nonechenset{    ///<Channel enable set register
-        using Addr = Register::Address<0x4001f504,0x00000000,0,unsigned>;
+    namespace PpiChenset{    ///<Channel enable set register
+        using Addr = Register::Address<0x4001f504,0x00000000,0x00000000,unsigned>;
         ///Channel 0 enable set register.  Writing '0' has no effect
         enum class Ch0Val {
             disabled=0x00000000,     ///<Read: channel disabled
@@ -712,8 +712,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch31)::Type,Ch31Val::set> set{};
         }
     }
-    namespace Nonechenclr{    ///<Channel enable clear register
-        using Addr = Register::Address<0x4001f508,0x00000000,0,unsigned>;
+    namespace PpiChenclr{    ///<Channel enable clear register
+        using Addr = Register::Address<0x4001f508,0x00000000,0x00000000,unsigned>;
         ///Channel 0 enable clear register.  Writing '0' has no effect
         enum class Ch0Val {
             disabled=0x00000000,     ///<Read: channel disabled
@@ -1099,8 +1099,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch31)::Type,Ch31Val::clear> clear{};
         }
     }
-    namespace Nonechg0{    ///<Description collection[0]:  Channel group 0
-        using Addr = Register::Address<0x4001f800,0x00000000,0,unsigned>;
+    namespace PpiChg0{    ///<Description collection[0]:  Channel group 0
+        using Addr = Register::Address<0x4001f800,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
         enum class Ch0Val {
             excluded=0x00000000,     ///<Exclude
@@ -1422,8 +1422,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch31)::Type,Ch31Val::included> included{};
         }
     }
-    namespace Nonechg1{    ///<Description collection[0]:  Channel group 0
-        using Addr = Register::Address<0x4001f804,0x00000000,0,unsigned>;
+    namespace PpiChg1{    ///<Description collection[0]:  Channel group 0
+        using Addr = Register::Address<0x4001f804,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
         enum class Ch0Val {
             excluded=0x00000000,     ///<Exclude
@@ -1745,8 +1745,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch31)::Type,Ch31Val::included> included{};
         }
     }
-    namespace Nonechg2{    ///<Description collection[0]:  Channel group 0
-        using Addr = Register::Address<0x4001f808,0x00000000,0,unsigned>;
+    namespace PpiChg2{    ///<Description collection[0]:  Channel group 0
+        using Addr = Register::Address<0x4001f808,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
         enum class Ch0Val {
             excluded=0x00000000,     ///<Exclude
@@ -2068,8 +2068,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch31)::Type,Ch31Val::included> included{};
         }
     }
-    namespace Nonechg3{    ///<Description collection[0]:  Channel group 0
-        using Addr = Register::Address<0x4001f80c,0x00000000,0,unsigned>;
+    namespace PpiChg3{    ///<Description collection[0]:  Channel group 0
+        using Addr = Register::Address<0x4001f80c,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
         enum class Ch0Val {
             excluded=0x00000000,     ///<Exclude
@@ -2391,8 +2391,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch31)::Type,Ch31Val::included> included{};
         }
     }
-    namespace Nonechg4{    ///<Description collection[0]:  Channel group 0
-        using Addr = Register::Address<0x4001f810,0x00000000,0,unsigned>;
+    namespace PpiChg4{    ///<Description collection[0]:  Channel group 0
+        using Addr = Register::Address<0x4001f810,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
         enum class Ch0Val {
             excluded=0x00000000,     ///<Exclude
@@ -2714,8 +2714,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch31)::Type,Ch31Val::included> included{};
         }
     }
-    namespace Nonechg5{    ///<Description collection[0]:  Channel group 0
-        using Addr = Register::Address<0x4001f814,0x00000000,0,unsigned>;
+    namespace PpiChg5{    ///<Description collection[0]:  Channel group 0
+        using Addr = Register::Address<0x4001f814,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
         enum class Ch0Val {
             excluded=0x00000000,     ///<Exclude

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Basic timer
-    namespace Nonecr1{    ///<control register 1
-        using Addr = Register::Address<0x40001000,0xffffff70,0,unsigned>;
+    namespace Tim6Cr1{    ///<control register 1
+        using Addr = Register::Address<0x40001000,0xffffff70,0x00000000,unsigned>;
         ///Auto-reload preload enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> arpe{}; 
         ///One-pulse mode
@@ -15,40 +15,40 @@ namespace Kvasir {
         ///Counter enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cen{}; 
     }
-    namespace Nonecr2{    ///<control register 2
-        using Addr = Register::Address<0x40001004,0xffffff8f,0,unsigned>;
+    namespace Tim6Cr2{    ///<control register 2
+        using Addr = Register::Address<0x40001004,0xffffff8f,0x00000000,unsigned>;
         ///Master mode selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> mms{}; 
     }
-    namespace Nonedier{    ///<DMA/Interrupt enable register
-        using Addr = Register::Address<0x4000100c,0xfffffefe,0,unsigned>;
+    namespace Tim6Dier{    ///<DMA/Interrupt enable register
+        using Addr = Register::Address<0x4000100c,0xfffffefe,0x00000000,unsigned>;
         ///Update DMA request enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ude{}; 
         ///Update interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> uie{}; 
     }
-    namespace Nonesr{    ///<status register
-        using Addr = Register::Address<0x40001010,0xfffffffe,0,unsigned>;
+    namespace Tim6Sr{    ///<status register
+        using Addr = Register::Address<0x40001010,0xfffffffe,0x00000000,unsigned>;
         ///Update interrupt flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> uif{}; 
     }
-    namespace Noneegr{    ///<event generation register
-        using Addr = Register::Address<0x40001014,0xfffffffe,0,unsigned>;
+    namespace Tim6Egr{    ///<event generation register
+        using Addr = Register::Address<0x40001014,0xfffffffe,0x00000000,unsigned>;
         ///Update generation
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ug{}; 
     }
-    namespace Nonecnt{    ///<counter
-        using Addr = Register::Address<0x40001024,0xffff0000,0,unsigned>;
+    namespace Tim6Cnt{    ///<counter
+        using Addr = Register::Address<0x40001024,0xffff0000,0x00000000,unsigned>;
         ///Low counter value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
     }
-    namespace Nonepsc{    ///<prescaler
-        using Addr = Register::Address<0x40001028,0xffff0000,0,unsigned>;
+    namespace Tim6Psc{    ///<prescaler
+        using Addr = Register::Address<0x40001028,0xffff0000,0x00000000,unsigned>;
         ///Prescaler value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> psc{}; 
     }
-    namespace Nonearr{    ///<auto-reload register
-        using Addr = Register::Address<0x4000102c,0xffff0000,0,unsigned>;
+    namespace Tim6Arr{    ///<auto-reload register
+        using Addr = Register::Address<0x4000102c,0xffff0000,0x00000000,unsigned>;
         ///Low Auto-reload value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> arr{}; 
     }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Routing interface
-    namespace Noneicr{    ///<RI input capture register
-        using Addr = Register::Address<0x40007c08,0xffc00000,0,unsigned>;
+    namespace RiIcr{    ///<RI input capture register
+        using Addr = Register::Address<0x40007c08,0xffc00000,0x00000000,unsigned>;
         ///IC4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ic4{}; 
         ///IC3
@@ -14,22 +14,17 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ic1{}; 
         ///Timer select bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> tim{}; 
-        ///Input capture 4 select
-              bits
+        ///Input capture 4 select              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> ic4ios{}; 
-        ///Input capture 3 select
-              bits
+        ///Input capture 3 select              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> ic3ios{}; 
-        ///Input capture 2 select
-              bits
+        ///Input capture 2 select              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> ic2ios{}; 
-        ///Input capture 1 select
-              bits
+        ///Input capture 1 select              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ic1ios{}; 
     }
-    namespace Noneascr1{    ///<RI analog switches control register
-          1
-        using Addr = Register::Address<0x40007c0c,0x00020000,0,unsigned>;
+    namespace RiAscr1{    ///<RI analog switches control register          1
+        using Addr = Register::Address<0x40007c0c,0x00020000,0x00000000,unsigned>;
         ///Switch control mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> scm{}; 
         ///Analog switch control
@@ -40,20 +35,15 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> ch28gr112{}; 
         ///Analog switch control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> ch27gr111{}; 
-        ///ADC analog switch selection for internal
-              node to comparator 1
+        ///ADC analog switch selection for internal              node to comparator 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> vcomp{}; 
-        ///Analog I/O switch control of channel
-              CH25
+        ///Analog I/O switch control of channel              CH25
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> ch25{}; 
-        ///Analog I/O switch control of channel
-              CH24
+        ///Analog I/O switch control of channel              CH24
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> ch24{}; 
-        ///Analog I/O switch control of channel
-              CH23
+        ///Analog I/O switch control of channel              CH23
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ch23{}; 
-        ///Analog I/O switch control of channel
-              CH22
+        ///Analog I/O switch control of channel              CH22
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ch22{}; 
         ///Analog switch control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ch21gr74{}; 
@@ -98,122 +88,85 @@ namespace Kvasir {
         ///Analog switch control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0gr11{}; 
     }
-    namespace Noneascr2{    ///<RI analog switches control register
-          2
-        using Addr = Register::Address<0x40007c10,0xc000f000,0,unsigned>;
-        ///GR5_4 analog switch
-              control
+    namespace RiAscr2{    ///<RI analog switches control register          2
+        using Addr = Register::Address<0x40007c10,0xc000f000,0x00000000,unsigned>;
+        ///GR5_4 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> gr54{}; 
-        ///GR6_4 analog switch
-              control
+        ///GR6_4 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> gr64{}; 
-        ///GR6_3 analog switch
-              control
+        ///GR6_3 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> gr63{}; 
-        ///GR7_7 analog switch
-              control
+        ///GR7_7 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> gr77{}; 
-        ///GR7_6 analog switch
-              control
+        ///GR7_6 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> gr76{}; 
-        ///GR7_5 analog switch
-              control
+        ///GR7_5 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> gr75{}; 
-        ///GR2_5 analog switch
-              control
+        ///GR2_5 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> gr25{}; 
-        ///GR2_4 analog switch
-              control
+        ///GR2_4 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> gr24{}; 
-        ///GR2_3 analog switch
-              control
+        ///GR2_3 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> gr23{}; 
-        ///GR9_4 analog switch
-              control
+        ///GR9_4 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> gr94{}; 
-        ///GR9_3 analog switch
-              control
+        ///GR9_3 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> gr93{}; 
-        ///GR3_5 analog switch
-              control
+        ///GR3_5 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> gr35{}; 
-        ///GR3_4 analog switch
-              control
+        ///GR3_4 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> gr34{}; 
-        ///GR3_3 analog switch
-              control
+        ///GR3_3 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> gr33{}; 
-        ///GR4_3 analog switch
-              control
+        ///GR4_3 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> gr43{}; 
-        ///GR4_2 analog switch
-              control
+        ///GR4_2 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> gr42{}; 
-        ///GR4_1 analog switch
-              control
+        ///GR4_1 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> gr41{}; 
-        ///GR5_3 analog switch
-              control
+        ///GR5_3 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> gr53{}; 
-        ///GR5_2 analog switch
-              control
+        ///GR5_2 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> gr52{}; 
-        ///GR5_1 analog switch
-              control
+        ///GR5_1 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> gr51{}; 
-        ///GR6_2 analog switch
-              control
+        ///GR6_2 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> gr62{}; 
-        ///GR6_1 analog switch
-              control
+        ///GR6_1 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> gr61{}; 
-        ///GR10_4 analog switch
-              control
+        ///GR10_4 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> gr104{}; 
-        ///GR10_3 analog switch
-              control
+        ///GR10_3 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> gr103{}; 
-        ///GR10_2 analog switch
-              control
+        ///GR10_2 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> gr102{}; 
-        ///GR10_1 analog switch
-              control
+        ///GR10_1 analog switch              control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gr101{}; 
     }
-    namespace Nonehyscr1{    ///<RI hysteresis control register
-          1
-        using Addr = Register::Address<0x40007c14,0x00000000,0,unsigned>;
-        ///Port B hysteresis control
-              on/off
+    namespace RiHyscr1{    ///<RI hysteresis control register          1
+        using Addr = Register::Address<0x40007c14,0x00000000,0x00000000,unsigned>;
+        ///Port B hysteresis control              on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pb{}; 
-        ///Port A hysteresis control
-              on/off
+        ///Port A hysteresis control              on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonehyscr2{    ///<RI hysteresis control register
-          2
-        using Addr = Register::Address<0x40007c18,0x00000000,0,unsigned>;
-        ///Port D hysteresis control
-              on/off
+    namespace RiHyscr2{    ///<RI hysteresis control register          2
+        using Addr = Register::Address<0x40007c18,0x00000000,0x00000000,unsigned>;
+        ///Port D hysteresis control              on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pd{}; 
-        ///Port C hysteresis control
-              on/off
+        ///Port C hysteresis control              on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pc{}; 
     }
-    namespace Nonehyscr3{    ///<RI hysteresis control register
-          3
-        using Addr = Register::Address<0x40007c1c,0x00000000,0,unsigned>;
-        ///Port F hysteresis control
-              on/off
+    namespace RiHyscr3{    ///<RI hysteresis control register          3
+        using Addr = Register::Address<0x40007c1c,0x00000000,0x00000000,unsigned>;
+        ///Port F hysteresis control              on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pf{}; 
-        ///Port E hysteresis control
-              on/off
+        ///Port E hysteresis control              on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pe{}; 
     }
-    namespace Nonehyscr4{    ///<Hysteresis control register
-        using Addr = Register::Address<0x40007c20,0xffff0000,0,unsigned>;
-        ///Port G hysteresis control
-              on/off
+    namespace RiHyscr4{    ///<Hysteresis control register
+        using Addr = Register::Address<0x40007c20,0xffff0000,0x00000000,unsigned>;
+        ///Port G hysteresis control              on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pg{}; 
     }
 }

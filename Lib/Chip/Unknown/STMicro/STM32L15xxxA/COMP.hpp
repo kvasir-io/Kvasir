@@ -1,13 +1,13 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Comparators
-    namespace Nonecsr{    ///<comparator control and status           register
-        using Addr = Register::Address<0x40007c00,0x0300cf40,0,unsigned>;
+    namespace CompCsr{    ///<comparator control and status           register
+        using Addr = Register::Address<0x40007c00,0x0300cf40,0x00000000,unsigned>;
         ///Suspend Timer Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> tsusp{}; 
         ///Channel acquisition interrupt               flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> caif{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> caif{}; 
         ///Channel Acquisition Interrupt Enable /               Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> caie{}; 
         ///Select GPIO port PC3 as re-routed ADC               input channel CH13.
@@ -25,11 +25,11 @@ namespace Kvasir {
         ///VREFINT output enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> vrefouten{}; 
         ///Comparator 2 output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> cmp2out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cmp2out{}; 
         ///Comparator 2 speed mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> speed{}; 
         ///Comparator 1 output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cmp1out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cmp1out{}; 
         ///SW1 analog switch enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sw1{}; 
         ///Comparator 1 enable

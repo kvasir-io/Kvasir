@@ -1,51 +1,51 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //UART with EasyDMA
-    namespace NonetasksStartrx{    ///<Start UART receiver
-        using Addr = Register::Address<0x40002000,0xffffffff,0,unsigned>;
+    namespace Uarte0TasksStartrx{    ///<Start UART receiver
+        using Addr = Register::Address<0x40002000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStoprx{    ///<Stop UART receiver
-        using Addr = Register::Address<0x40002004,0xffffffff,0,unsigned>;
+    namespace Uarte0TasksStoprx{    ///<Stop UART receiver
+        using Addr = Register::Address<0x40002004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStarttx{    ///<Start UART transmitter
-        using Addr = Register::Address<0x40002008,0xffffffff,0,unsigned>;
+    namespace Uarte0TasksStarttx{    ///<Start UART transmitter
+        using Addr = Register::Address<0x40002008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStoptx{    ///<Stop UART transmitter
-        using Addr = Register::Address<0x4000200c,0xffffffff,0,unsigned>;
+    namespace Uarte0TasksStoptx{    ///<Stop UART transmitter
+        using Addr = Register::Address<0x4000200c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksFlushrx{    ///<Flush RX FIFO into RX buffer
-        using Addr = Register::Address<0x4000202c,0xffffffff,0,unsigned>;
+    namespace Uarte0TasksFlushrx{    ///<Flush RX FIFO into RX buffer
+        using Addr = Register::Address<0x4000202c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsCts{    ///<CTS is activated (set low). Clear To Send.
-        using Addr = Register::Address<0x40002100,0xffffffff,0,unsigned>;
+    namespace Uarte0EventsCts{    ///<CTS is activated (set low). Clear To Send.
+        using Addr = Register::Address<0x40002100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsNcts{    ///<CTS is deactivated (set high). Not Clear To Send.
-        using Addr = Register::Address<0x40002104,0xffffffff,0,unsigned>;
+    namespace Uarte0EventsNcts{    ///<CTS is deactivated (set high). Not Clear To Send.
+        using Addr = Register::Address<0x40002104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEndrx{    ///<Receive buffer is filled up
-        using Addr = Register::Address<0x40002110,0xffffffff,0,unsigned>;
+    namespace Uarte0EventsEndrx{    ///<Receive buffer is filled up
+        using Addr = Register::Address<0x40002110,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEndtx{    ///<Last TX byte transmitted
-        using Addr = Register::Address<0x40002120,0xffffffff,0,unsigned>;
+    namespace Uarte0EventsEndtx{    ///<Last TX byte transmitted
+        using Addr = Register::Address<0x40002120,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsError{    ///<Error detected
-        using Addr = Register::Address<0x40002124,0xffffffff,0,unsigned>;
+    namespace Uarte0EventsError{    ///<Error detected
+        using Addr = Register::Address<0x40002124,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsRxto{    ///<Receiver timeout
-        using Addr = Register::Address<0x40002144,0xffffffff,0,unsigned>;
+    namespace Uarte0EventsRxto{    ///<Receiver timeout
+        using Addr = Register::Address<0x40002144,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsRxstarted{    ///<UART receiver has started
-        using Addr = Register::Address<0x4000214c,0xffffffff,0,unsigned>;
+    namespace Uarte0EventsRxstarted{    ///<UART receiver has started
+        using Addr = Register::Address<0x4000214c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsTxstarted{    ///<UART transmitter has started
-        using Addr = Register::Address<0x40002150,0xffffffff,0,unsigned>;
+    namespace Uarte0EventsTxstarted{    ///<UART transmitter has started
+        using Addr = Register::Address<0x40002150,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsTxstopped{    ///<Transmitter stopped
-        using Addr = Register::Address<0x40002158,0xffffffff,0,unsigned>;
+    namespace Uarte0EventsTxstopped{    ///<Transmitter stopped
+        using Addr = Register::Address<0x40002158,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x40002200,0xffffff9f,0,unsigned>;
+    namespace Uarte0Shorts{    ///<Shortcut register
+        using Addr = Register::Address<0x40002200,0xffffff9f,0x00000000,unsigned>;
         ///Shortcut between EVENTS_ENDRX event and TASKS_STARTRX task
         enum class EndrxstartrxVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -67,8 +67,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endrxStoprx)::Type,EndrxstoprxVal::enabled> enabled{};
         }
     }
-    namespace Noneinten{    ///<Enable or disable interrupt
-        using Addr = Register::Address<0x40002300,0xffa5fcec,0,unsigned>;
+    namespace Uarte0Inten{    ///<Enable or disable interrupt
+        using Addr = Register::Address<0x40002300,0xffa5fcec,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_CTS event
         enum class CtsVal {
             disabled=0x00000000,     ///<Disable
@@ -160,8 +160,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txstopped)::Type,TxstoppedVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40002304,0xffa5fcec,0,unsigned>;
+    namespace Uarte0Intenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40002304,0xffa5fcec,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_CTS event
         enum class CtsVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -271,8 +271,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txstopped)::Type,TxstoppedVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40002308,0xffa5fcec,0,unsigned>;
+    namespace Uarte0Intenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40002308,0xffa5fcec,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_CTS event
         enum class CtsVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -382,8 +382,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txstopped)::Type,TxstoppedVal::clear> clear{};
         }
     }
-    namespace Noneerrorsrc{    ///<Error source
-        using Addr = Register::Address<0x40002480,0xfffffff0,0,unsigned>;
+    namespace Uarte0Errorsrc{    ///<Error source
+        using Addr = Register::Address<0x40002480,0xfffffff0,0x00000000,unsigned>;
         ///Overrun error
         enum class OverrunVal {
             notpresent=0x00000000,     ///<Read: error not present
@@ -425,13 +425,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(break_)::Type,Break_Val::present> present{};
         }
     }
-    namespace Noneenable{    ///<Enable UART
-        using Addr = Register::Address<0x40002500,0xfffffff0,0,unsigned>;
+    namespace Uarte0Enable{    ///<Enable UART
+        using Addr = Register::Address<0x40002500,0xfffffff0,0x00000000,unsigned>;
         ///Enable or disable UARTE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> enable{}; 
     }
-    namespace Nonebaudrate{    ///<Baud rate
-        using Addr = Register::Address<0x40002524,0x00000000,0,unsigned>;
+    namespace Uarte0Baudrate{    ///<Baud rate
+        using Addr = Register::Address<0x40002524,0x00000000,0x00000000,unsigned>;
         ///Baud-rate
         enum class BaudrateVal {
             baud1200=0x0004f000,     ///<1200 baud (actual rate: 1205)
@@ -471,8 +471,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud1m> baud1m{};
         }
     }
-    namespace Noneconfig{    ///<Configuration of parity and hardware flow control
-        using Addr = Register::Address<0x4000256c,0xfffffff0,0,unsigned>;
+    namespace Uarte0Config{    ///<Configuration of parity and hardware flow control
+        using Addr = Register::Address<0x4000256c,0xfffffff0,0x00000000,unsigned>;
         ///Hardware flow control
         enum class HwfcVal {
             disabled=0x00000000,     ///<Disabled

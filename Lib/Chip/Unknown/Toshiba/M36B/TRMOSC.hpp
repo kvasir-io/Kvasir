@@ -1,26 +1,26 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Internal High-speed Oscillation Adjustment
-    namespace Nonepro{    ///<Protection Register
-        using Addr = Register::Address<0x400f3200,0xffffff00,0,unsigned>;
+    namespace TrmoscPro{    ///<Protection Register
+        using Addr = Register::Address<0x400f3200,0xffffff00,0x00000000,unsigned>;
         ///PROTECT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> protect{}; 
     }
-    namespace Noneen{    ///<Enable Register
-        using Addr = Register::Address<0x400f3204,0xfffffffe,0,unsigned>;
+    namespace TrmoscEn{    ///<Enable Register
+        using Addr = Register::Address<0x400f3204,0xfffffffe,0x00000000,unsigned>;
         ///TRIMEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> trimen{}; 
     }
-    namespace Noneinit{    ///<Initial Trimming Level Monitor Register
-        using Addr = Register::Address<0x400f3208,0xffffc0f0,0,unsigned>;
+    namespace TrmoscInit{    ///<Initial Trimming Level Monitor Register
+        using Addr = Register::Address<0x400f3208,0xffffc0f0,0x00000000,unsigned>;
         ///TRIMINITF
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> triminitf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> triminitf{}; 
         ///TRIMINITC
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> triminitc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> triminitc{}; 
     }
-    namespace Noneset{    ///<Trimming Level Setting Register
-        using Addr = Register::Address<0x400f320c,0xffffc0f0,0,unsigned>;
+    namespace TrmoscSet{    ///<Trimming Level Setting Register
+        using Addr = Register::Address<0x400f320c,0xffffc0f0,0x00000000,unsigned>;
         ///TRIMSETF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> trimsetf{}; 
         ///TRIMSETC

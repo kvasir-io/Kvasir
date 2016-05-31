@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SCI
-    namespace NonesciCr{    ///<SCI_CR
-        using Addr = Register::Address<0x40043000,0xfffffc80,0,unsigned>;
+    namespace SciSciCr{    ///<SCI_CR
+        using Addr = Register::Address<0x40043000,0x00000080,0x00000000,unsigned>;
         ///CONV
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> conv{}; 
         ///CREP
@@ -22,9 +22,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txdma{}; 
         ///RXDMA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxdma{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesciSr{    ///<SCI_SR
-        using Addr = Register::Address<0x40043004,0xffffff30,0,unsigned>;
+    namespace SciSciSr{    ///<SCI_SR
+        using Addr = Register::Address<0x40043004,0x00000030,0x00000000,unsigned>;
         ///PARF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> parf{}; 
         ///RXCF
@@ -37,35 +39,45 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> cpref{}; 
         ///TXBEF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txbef{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesciCcr{    ///<SCI_CCR
-        using Addr = Register::Address<0x40043008,0xffffff73,0,unsigned>;
+    namespace SciSciCcr{    ///<SCI_CCR
+        using Addr = Register::Address<0x40043008,0x00000073,0x00000000,unsigned>;
         ///CCLK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cclk{}; 
         ///CDIO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cdio{}; 
         ///CLKSEL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> clksel{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesciEtu{    ///<SCI_ETU
-        using Addr = Register::Address<0x4004300c,0xffff7800,0,unsigned>;
+    namespace SciSciEtu{    ///<SCI_ETU
+        using Addr = Register::Address<0x4004300c,0x00007800,0x00000000,unsigned>;
         ///ETU
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> etu{}; 
         ///COMP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> comp{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesciGt{    ///<SCI_GT
-        using Addr = Register::Address<0x40043010,0xfffffe00,0,unsigned>;
+    namespace SciSciGt{    ///<SCI_GT
+        using Addr = Register::Address<0x40043010,0x00000000,0x00000000,unsigned>;
         ///GT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> gt{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesciWt{    ///<SCI_WT
-        using Addr = Register::Address<0x40043014,0xff000000,0,unsigned>;
+    namespace SciSciWt{    ///<SCI_WT
+        using Addr = Register::Address<0x40043014,0x00000000,0x00000000,unsigned>;
         ///WT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> wt{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesciIer{    ///<SCI_IER
-        using Addr = Register::Address<0x40043018,0xffffff30,0,unsigned>;
+    namespace SciSciIer{    ///<SCI_IER
+        using Addr = Register::Address<0x40043018,0x00000030,0x00000000,unsigned>;
         ///PARE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pare{}; 
         ///RXCE
@@ -78,9 +90,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> cardire{}; 
         ///TXBEE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txbee{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesciIpr{    ///<SCI_IPR
-        using Addr = Register::Address<0x4004301c,0xffffff30,0,unsigned>;
+    namespace SciSciIpr{    ///<SCI_IPR
+        using Addr = Register::Address<0x4004301c,0x00000030,0x00000000,unsigned>;
         ///PARP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> parp{}; 
         ///RXCP
@@ -93,20 +107,28 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> cardirp{}; 
         ///TXBEP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txbep{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesciTxb{    ///<SCI_TXB
-        using Addr = Register::Address<0x40043020,0xffffff00,0,unsigned>;
+    namespace SciSciTxb{    ///<SCI_TXB
+        using Addr = Register::Address<0x40043020,0x00000000,0x00000000,unsigned>;
         ///TB
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tb{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesciRxb{    ///<SCI_RXB
-        using Addr = Register::Address<0x40043024,0xffffff00,0,unsigned>;
+    namespace SciSciRxb{    ///<SCI_RXB
+        using Addr = Register::Address<0x40043024,0x00000000,0x00000000,unsigned>;
         ///RB
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rb{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesciPsc{    ///<SCI_PSC
-        using Addr = Register::Address<0x40043028,0xffffffc0,0,unsigned>;
+    namespace SciSciPsc{    ///<SCI_PSC
+        using Addr = Register::Address<0x40043028,0x00000000,0x00000000,unsigned>;
         ///PSC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> psc{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

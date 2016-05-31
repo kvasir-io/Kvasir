@@ -3,7 +3,7 @@
 namespace Kvasir {
 //Universal serial bus full-speed device      interface
     namespace UsbEp0r{    ///<endpoint 0 register
-        using Addr = Register::Address<0x40005c00,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40005c00,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
@@ -26,7 +26,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
     namespace UsbEp1r{    ///<endpoint 1 register
-        using Addr = Register::Address<0x40005c04,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40005c04,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
@@ -49,7 +49,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
     namespace UsbEp2r{    ///<endpoint 2 register
-        using Addr = Register::Address<0x40005c08,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40005c08,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
@@ -72,7 +72,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
     namespace UsbEp3r{    ///<endpoint 3 register
-        using Addr = Register::Address<0x40005c0c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40005c0c,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
@@ -95,7 +95,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
     namespace UsbEp4r{    ///<endpoint 4 register
-        using Addr = Register::Address<0x40005c10,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40005c10,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
@@ -118,7 +118,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
     namespace UsbEp5r{    ///<endpoint 5 register
-        using Addr = Register::Address<0x40005c14,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40005c14,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
@@ -141,7 +141,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
     namespace UsbEp6r{    ///<endpoint 6 register
-        using Addr = Register::Address<0x40005c18,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40005c18,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
@@ -164,7 +164,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
     namespace UsbEp7r{    ///<endpoint 7 register
-        using Addr = Register::Address<0x40005c1c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40005c1c,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
@@ -187,7 +187,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
     namespace UsbCntr{    ///<control register
-        using Addr = Register::Address<0x40005c40,0xffff0040,0,unsigned>;
+        using Addr = Register::Address<0x40005c40,0xffff0040,0x00000000,unsigned>;
         ///Force USB Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fres{}; 
         ///Power down
@@ -220,7 +220,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrm{}; 
     }
     namespace UsbIstr{    ///<interrupt status register
-        using Addr = Register::Address<0x40005c44,0xffff0060,0,unsigned>;
+        using Addr = Register::Address<0x40005c44,0xffff0060,0x00000000,unsigned>;
         ///Endpoint Identifier
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> epId{}; 
         ///Direction of transaction
@@ -245,7 +245,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctr{}; 
     }
     namespace UsbFnr{    ///<frame number register
-        using Addr = Register::Address<0x40005c48,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40005c48,0xffff0000,0x00000000,unsigned>;
         ///Frame number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> fn{}; 
         ///Lost SOF
@@ -258,19 +258,19 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxdp{}; 
     }
     namespace UsbDaddr{    ///<device address
-        using Addr = Register::Address<0x40005c4c,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40005c4c,0xffffff00,0x00000000,unsigned>;
         ///Device address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> add{}; 
         ///Enable function
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ef{}; 
     }
     namespace UsbBtable{    ///<Buffer table address
-        using Addr = Register::Address<0x40005c50,0xffff0007,0,unsigned>;
+        using Addr = Register::Address<0x40005c50,0xffff0007,0x00000000,unsigned>;
         ///Buffer table
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,3),Register::ReadWriteAccess,unsigned> btable{}; 
     }
     namespace UsbLpmcsr{    ///<LPM control and status          register
-        using Addr = Register::Address<0x40005c54,0xffffff04,0,unsigned>;
+        using Addr = Register::Address<0x40005c54,0xffffff04,0x00000000,unsigned>;
         ///LPM support enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lpmen{}; 
         ///LPM Token acknowledge              enable
@@ -281,7 +281,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> besl{}; 
     }
     namespace UsbBcdr{    ///<Battery charging detector
-        using Addr = Register::Address<0x40005c58,0xffff7f00,0,unsigned>;
+        using Addr = Register::Address<0x40005c58,0xffff7f00,0x00000000,unsigned>;
         ///Battery charging detector (BCD)              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bcden{}; 
         ///Data contact detection (DCD) mode              enable

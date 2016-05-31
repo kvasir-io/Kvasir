@@ -1,9 +1,11 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // Digital-to-Analog Converter (DAC) 
-    namespace Nonecr{    ///<D/A Converter Register. This register contains the digital value to be converted to analog and a power control bit.
-        using Addr = Register::Address<0x4008c000,0xfffe003f,0,unsigned>;
+    namespace DacCr{    ///<D/A Converter Register. This register contains the digital value to be converted to analog and a power control bit.
+        using Addr = Register::Address<0x4008c000,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///After the selected settling time after this field is written with a new VALUE, the voltage on the DAC_OUT pin (with respect to VSSA) is VALUE  x ((VREFP - V REFN)/1024) + VREFN.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> value{}; 
         ///Settling time  The settling times noted in the description of the BIAS bit are valid for a capacitance load on the DAC_OUT pin not exceeding 100 pF. A load impedance value greater than that value will cause settling time longer than the specified time. One or more graphs of load impedance vs. settling time will be included in the final data sheet.
@@ -16,9 +18,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::fast> fast{};
             constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::slow> slow{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,17),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectrl{    ///<DAC Control register. This register controls DMA and timer operation.
-        using Addr = Register::Address<0x4008c004,0xfffffff0,0,unsigned>;
+    namespace DacCtrl{    ///<DAC Control register. This register controls DMA and timer operation.
+        using Addr = Register::Address<0x4008c004,0x00000000,0x00000000,unsigned>;
         ///DMA interrupt request
         enum class IntdmareqVal {
             clearOnAnyWriteT=0x00000000,     ///<Clear on any write to the DACR register.
@@ -59,10 +63,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmaEna)::Type,DmaenaVal::disable> disable{};
             constexpr Register::FieldValue<decltype(dmaEna)::Type,DmaenaVal::enableDmaBurstRe> enableDmaBurstRe{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecntval{    ///<DAC Counter Value register. This register contains the reload value for the DAC DMA/Interrupt timer.
-        using Addr = Register::Address<0x4008c008,0xffff0000,0,unsigned>;
+    namespace DacCntval{    ///<DAC Counter Value register. This register contains the reload value for the DAC DMA/Interrupt timer.
+        using Addr = Register::Address<0x4008c008,0x00000000,0x00000000,unsigned>;
         ///16-bit reload value for the DAC interrupt/DMA timer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> value{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

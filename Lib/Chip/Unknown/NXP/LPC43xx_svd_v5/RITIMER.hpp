@@ -1,19 +1,19 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10430 Chapter title=LPC18xx Repetitive Interrupt Timer (RIT) Modification date=1/14/2011 Major revision=0 Minor revision=7 
-    namespace Nonecompval{    ///<Compare register
-        using Addr = Register::Address<0x400c0000,0x00000000,0,unsigned>;
+    namespace RitimerCompval{    ///<Compare register
+        using Addr = Register::Address<0x400c0000,0x00000000,0x00000000,unsigned>;
         ///Compare register. Holds the compare value which is compared to the counter.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricomp{}; 
     }
-    namespace Nonemask{    ///<Mask register. This register holds the 32-bit mask value. A 1 written to any bit will force a compare on the corresponding bit of the counter and compare register.
-        using Addr = Register::Address<0x400c0004,0x00000000,0,unsigned>;
+    namespace RitimerMask{    ///<Mask register. This register holds the 32-bit mask value. A 1 written to any bit will force a compare on the corresponding bit of the counter and compare register.
+        using Addr = Register::Address<0x400c0004,0x00000000,0x00000000,unsigned>;
         ///Mask register. This register holds the 32-bit mask value. A one written to any bit overrides the result of the comparison for the corresponding bit of the counter and compare register (causes the comparison of the register bits to be always true).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rimask{}; 
     }
-    namespace Nonectrl{    ///<Control register.
-        using Addr = Register::Address<0x400c0008,0xfffffff0,0,unsigned>;
+    namespace RitimerCtrl{    ///<Control register.
+        using Addr = Register::Address<0x400c0008,0x00000000,0x00000000,unsigned>;
         ///Interrupt flag
         enum class RitintVal {
             thisBitIsSetTo1=0x00000001,     ///<This bit is set to 1 by hardware whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. Writing a 1 to this bit will clear it to 0. Writing a 0 has no effect.
@@ -54,9 +54,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerEnabledThis> timerEnabledThis{};
             constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerDisabled> timerDisabled{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecounter{    ///<32-bit counter
-        using Addr = Register::Address<0x400c000c,0x00000000,0,unsigned>;
+    namespace RitimerCounter{    ///<32-bit counter
+        using Addr = Register::Address<0x400c000c,0x00000000,0x00000000,unsigned>;
         ///32-bit up counter. Counts continuously unless RITEN bit in RICTRL register is cleared or debug mode is entered (if enabled by the RITNEBR bit in RICTRL). Can be loaded to any value in software.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricounter{}; 
     }

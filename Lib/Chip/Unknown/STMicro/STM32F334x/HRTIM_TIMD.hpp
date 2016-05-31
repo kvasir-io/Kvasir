@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //High Resolution Timer: TIMD
-    namespace Nonetimdcr{    ///<Timerx Control Register
-        using Addr = Register::Address<0x40017600,0x00090380,0,unsigned>;
+    namespace HrtimTimdTimdcr{    ///<Timerx Control Register
+        using Addr = Register::Address<0x40017600,0x00090380,0x00000000,unsigned>;
         ///Update Gating
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> updgat{}; 
         ///Preload enable
@@ -28,11 +28,9 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> delcmp4{}; 
         ///Delayed CMP2 mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> delcmp2{}; 
-        ///Synchronization Starts Timer
-              x
+        ///Synchronization Starts Timer              x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> syncstrtx{}; 
-        ///Synchronization Resets Timer
-              x
+        ///Synchronization Resets Timer              x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> syncrstx{}; 
         ///Push-Pull mode enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pshpll{}; 
@@ -42,13 +40,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> retrig{}; 
         ///Continuous mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cont{}; 
-        ///HRTIM Timer x Clock
-              prescaler
+        ///HRTIM Timer x Clock              prescaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ckPscx{}; 
     }
-    namespace Nonetimdisr{    ///<Timerx Interrupt Status
-          Register
-        using Addr = Register::Address<0x40017604,0xfff08020,0,unsigned>;
+    namespace HrtimTimdTimdisr{    ///<Timerx Interrupt Status          Register
+        using Addr = Register::Address<0x40017604,0xfff08020,0x00000000,unsigned>;
         ///Output 2 State
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> o2stat{}; 
         ///Output 1 State
@@ -61,17 +57,13 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dlyprt{}; 
         ///Reset Interrupt Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rst{}; 
-        ///Output 2 Reset Interrupt
-              Flag
+        ///Output 2 Reset Interrupt              Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rstx2{}; 
-        ///Output 2 Set Interrupt
-              Flag
+        ///Output 2 Set Interrupt              Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setx2{}; 
-        ///Output 1 Reset Interrupt
-              Flag
+        ///Output 1 Reset Interrupt              Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rstx1{}; 
-        ///Output 1 Set Interrupt
-              Flag
+        ///Output 1 Set Interrupt              Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> setx1{}; 
         ///Capture2 Interrupt Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cpt2{}; 
@@ -90,11 +82,9 @@ namespace Kvasir {
         ///Compare 1 Interrupt Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cmp1{}; 
     }
-    namespace Nonetimdicr{    ///<Timerx Interrupt Clear
-          Register
-        using Addr = Register::Address<0x40017608,0xffff8020,0,unsigned>;
-        ///Delayed Protection Flag
-              Clear
+    namespace HrtimTimdTimdicr{    ///<Timerx Interrupt Clear          Register
+        using Addr = Register::Address<0x40017608,0xffff8020,0x00000000,unsigned>;
+        ///Delayed Protection Flag              Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dlyprtc{}; 
         ///Reset Interrupt flag Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rstc{}; 
@@ -106,33 +96,25 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rstx1c{}; 
         ///Output 1 Set flag Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> set1xc{}; 
-        ///Capture2 Interrupt flag
-              Clear
+        ///Capture2 Interrupt flag              Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cpt2c{}; 
-        ///Capture1 Interrupt flag
-              Clear
+        ///Capture1 Interrupt flag              Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cpt1c{}; 
-        ///Update Interrupt flag
-              Clear
+        ///Update Interrupt flag              Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> updc{}; 
-        ///Repetition Interrupt flag
-              Clear
+        ///Repetition Interrupt flag              Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> repc{}; 
-        ///Compare 4 Interrupt flag
-              Clear
+        ///Compare 4 Interrupt flag              Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cmp4c{}; 
-        ///Compare 3 Interrupt flag
-              Clear
+        ///Compare 3 Interrupt flag              Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cmp3c{}; 
-        ///Compare 2 Interrupt flag
-              Clear
+        ///Compare 2 Interrupt flag              Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cmp2c{}; 
-        ///Compare 1 Interrupt flag
-              Clear
+        ///Compare 1 Interrupt flag              Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cmp1c{}; 
     }
-    namespace Nonetimddier5{    ///<TIMxDIER5
-        using Addr = Register::Address<0x4001760c,0x80208020,0,unsigned>;
+    namespace HrtimTimdTimddier5{    ///<TIMxDIER5
+        using Addr = Register::Address<0x4001760c,0x80208020,0x00000000,unsigned>;
         ///DLYPRTDE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> dlyprtde{}; 
         ///RSTDE
@@ -190,69 +172,65 @@ namespace Kvasir {
         ///CMP1IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cmp1ie{}; 
     }
-    namespace Nonecntdr{    ///<Timerx Counter Register
-        using Addr = Register::Address<0x40017610,0xffff0000,0,unsigned>;
+    namespace HrtimTimdCntdr{    ///<Timerx Counter Register
+        using Addr = Register::Address<0x40017610,0xffff0000,0x00000000,unsigned>;
         ///Timerx Counter value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cntx{}; 
     }
-    namespace Noneperdr{    ///<Timerx Period Register
-        using Addr = Register::Address<0x40017614,0xffff0000,0,unsigned>;
+    namespace HrtimTimdPerdr{    ///<Timerx Period Register
+        using Addr = Register::Address<0x40017614,0xffff0000,0x00000000,unsigned>;
         ///Timerx Period value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> perx{}; 
     }
-    namespace Nonerepdr{    ///<Timerx Repetition Register
-        using Addr = Register::Address<0x40017618,0xffffff00,0,unsigned>;
-        ///Timerx Repetition counter
-              value
+    namespace HrtimTimdRepdr{    ///<Timerx Repetition Register
+        using Addr = Register::Address<0x40017618,0xffffff00,0x00000000,unsigned>;
+        ///Timerx Repetition counter              value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> repx{}; 
     }
-    namespace Nonecmp1dr{    ///<Timerx Compare 1 Register
-        using Addr = Register::Address<0x4001761c,0xffff0000,0,unsigned>;
+    namespace HrtimTimdCmp1dr{    ///<Timerx Compare 1 Register
+        using Addr = Register::Address<0x4001761c,0xffff0000,0x00000000,unsigned>;
         ///Timerx Compare 1 value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp1x{}; 
     }
-    namespace Nonecmp1cdr{    ///<Timerx Compare 1 Compound
-          Register
-        using Addr = Register::Address<0x40017620,0xff000000,0,unsigned>;
-        ///Timerx Repetition value (aliased from
-              HRTIM_REPx register)
+    namespace HrtimTimdCmp1cdr{    ///<Timerx Compare 1 Compound          Register
+        using Addr = Register::Address<0x40017620,0xff000000,0x00000000,unsigned>;
+        ///Timerx Repetition value (aliased from              HRTIM_REPx register)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> repx{}; 
         ///Timerx Compare 1 value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp1x{}; 
     }
-    namespace Nonecmp2dr{    ///<Timerx Compare 2 Register
-        using Addr = Register::Address<0x40017624,0xffff0000,0,unsigned>;
+    namespace HrtimTimdCmp2dr{    ///<Timerx Compare 2 Register
+        using Addr = Register::Address<0x40017624,0xffff0000,0x00000000,unsigned>;
         ///Timerx Compare 2 value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp2x{}; 
     }
-    namespace Nonecmp3dr{    ///<Timerx Compare 3 Register
-        using Addr = Register::Address<0x40017628,0xffff0000,0,unsigned>;
+    namespace HrtimTimdCmp3dr{    ///<Timerx Compare 3 Register
+        using Addr = Register::Address<0x40017628,0xffff0000,0x00000000,unsigned>;
         ///Timerx Compare 3 value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp3x{}; 
     }
-    namespace Nonecmp4dr{    ///<Timerx Compare 4 Register
-        using Addr = Register::Address<0x4001762c,0xffff0000,0,unsigned>;
+    namespace HrtimTimdCmp4dr{    ///<Timerx Compare 4 Register
+        using Addr = Register::Address<0x4001762c,0xffff0000,0x00000000,unsigned>;
         ///Timerx Compare 4 value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp4x{}; 
     }
-    namespace Nonecpt1dr{    ///<Timerx Capture 1 Register
-        using Addr = Register::Address<0x40017630,0xffff0000,0,unsigned>;
+    namespace HrtimTimdCpt1dr{    ///<Timerx Capture 1 Register
+        using Addr = Register::Address<0x40017630,0xffff0000,0x00000000,unsigned>;
         ///Timerx Capture 1 value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cpt1x{}; 
     }
-    namespace Nonecpt2dr{    ///<Timerx Capture 2 Register
-        using Addr = Register::Address<0x40017634,0xffff0000,0,unsigned>;
+    namespace HrtimTimdCpt2dr{    ///<Timerx Capture 2 Register
+        using Addr = Register::Address<0x40017634,0xffff0000,0x00000000,unsigned>;
         ///Timerx Capture 2 value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cpt2x{}; 
     }
-    namespace Nonedtdr{    ///<Timerx Deadtime Register
-        using Addr = Register::Address<0x40017638,0x3c002000,0,unsigned>;
+    namespace HrtimTimdDtdr{    ///<Timerx Deadtime Register
+        using Addr = Register::Address<0x40017638,0x3c002000,0x00000000,unsigned>;
         ///Deadtime Falling Lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dtflkx{}; 
         ///Deadtime Falling Sign Lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> dtfslkx{}; 
-        ///Sign Deadtime Falling
-              value
+        ///Sign Deadtime Falling              value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> sdtfx{}; 
         ///Deadtime Falling value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,16),Register::ReadWriteAccess,unsigned> dtfx{}; 
@@ -267,10 +245,9 @@ namespace Kvasir {
         ///Deadtime Rising value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> dtrx{}; 
     }
-    namespace Nonesetd1r{    ///<Timerx Output1 Set Register
-        using Addr = Register::Address<0x4001763c,0x00000000,0,unsigned>;
-        ///Registers update (transfer preload to
-              active)
+    namespace HrtimTimdSetd1r{    ///<Timerx Output1 Set Register
+        using Addr = Register::Address<0x4001763c,0x00000000,0x00000000,unsigned>;
+        ///Registers update (transfer preload to              active)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> update{}; 
         ///External Event 10
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> extevnt10{}; 
@@ -335,8 +312,8 @@ namespace Kvasir {
         ///Software Set trigger
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sst{}; 
     }
-    namespace Nonerstd1r{    ///<Timerx Output1 Reset Register
-        using Addr = Register::Address<0x40017640,0x00000000,0,unsigned>;
+    namespace HrtimTimdRstd1r{    ///<Timerx Output1 Reset Register
+        using Addr = Register::Address<0x40017640,0x00000000,0x00000000,unsigned>;
         ///UPDATE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> update{}; 
         ///EXTEVNT10
@@ -402,8 +379,8 @@ namespace Kvasir {
         ///SRT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> srt{}; 
     }
-    namespace Nonesetd2r{    ///<Timerx Output2 Set Register
-        using Addr = Register::Address<0x40017644,0x00000000,0,unsigned>;
+    namespace HrtimTimdSetd2r{    ///<Timerx Output2 Set Register
+        using Addr = Register::Address<0x40017644,0x00000000,0x00000000,unsigned>;
         ///UPDATE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> update{}; 
         ///EXTEVNT10
@@ -469,8 +446,8 @@ namespace Kvasir {
         ///SST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sst{}; 
     }
-    namespace Nonerstd2r{    ///<Timerx Output2 Reset Register
-        using Addr = Register::Address<0x40017648,0x00000000,0,unsigned>;
+    namespace HrtimTimdRstd2r{    ///<Timerx Output2 Reset Register
+        using Addr = Register::Address<0x40017648,0x00000000,0x00000000,unsigned>;
         ///UPDATE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> update{}; 
         ///EXTEVNT10
@@ -536,9 +513,8 @@ namespace Kvasir {
         ///SRT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> srt{}; 
     }
-    namespace Noneeefdr1{    ///<Timerx External Event Filtering Register
-          1
-        using Addr = Register::Address<0x4001764c,0xe0820820,0,unsigned>;
+    namespace HrtimTimdEefdr1{    ///<Timerx External Event Filtering Register          1
+        using Addr = Register::Address<0x4001764c,0xe0820820,0x00000000,unsigned>;
         ///External Event 5 filter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,25),Register::ReadWriteAccess,unsigned> ee5fltr{}; 
         ///External Event 5 latch
@@ -560,9 +536,8 @@ namespace Kvasir {
         ///External Event 1 latch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ee1ltch{}; 
     }
-    namespace Noneeefdr2{    ///<Timerx External Event Filtering Register
-          2
-        using Addr = Register::Address<0x40017650,0xe0820820,0,unsigned>;
+    namespace HrtimTimdEefdr2{    ///<Timerx External Event Filtering Register          2
+        using Addr = Register::Address<0x40017650,0xe0820820,0x00000000,unsigned>;
         ///External Event 10 filter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,25),Register::ReadWriteAccess,unsigned> ee10fltr{}; 
         ///External Event 10 latch
@@ -584,8 +559,8 @@ namespace Kvasir {
         ///External Event 6 latch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ee6ltch{}; 
     }
-    namespace Nonerstdr{    ///<TimerA Reset Register
-        using Addr = Register::Address<0x40017654,0x80000001,0,unsigned>;
+    namespace HrtimTimdRstdr{    ///<TimerA Reset Register
+        using Addr = Register::Address<0x40017654,0x80000001,0x00000000,unsigned>;
         ///Timer E Compare 4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> timecmp4{}; 
         ///Timer E Compare 2
@@ -647,20 +622,17 @@ namespace Kvasir {
         ///Timer A Update reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> updt{}; 
     }
-    namespace Nonechpdr{    ///<Timerx Chopper Register
-        using Addr = Register::Address<0x40017658,0xfffff800,0,unsigned>;
+    namespace HrtimTimdChpdr{    ///<Timerx Chopper Register
+        using Addr = Register::Address<0x40017658,0xfffff800,0x00000000,unsigned>;
         ///STRTPW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,7),Register::ReadWriteAccess,unsigned> strtpw{}; 
-        ///Timerx chopper duty cycle
-              value
+        ///Timerx chopper duty cycle              value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> chpdty{}; 
-        ///Timerx carrier frequency
-              value
+        ///Timerx carrier frequency              value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> chpfrq{}; 
     }
-    namespace Nonecpt1dcr{    ///<Timerx Capture 2 Control
-          Register
-        using Addr = Register::Address<0x4001765c,0x0f000000,0,unsigned>;
+    namespace HrtimTimdCpt1dcr{    ///<Timerx Capture 2 Control          Register
+        using Addr = Register::Address<0x4001765c,0x0f000000,0x00000000,unsigned>;
         ///Timer E Compare 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> tecmp2{}; 
         ///Timer E Compare 1
@@ -718,8 +690,8 @@ namespace Kvasir {
         ///Software Capture
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swcpt{}; 
     }
-    namespace Nonecpt2dcr{    ///<CPT2xCR
-        using Addr = Register::Address<0x40017660,0x0f000000,0,unsigned>;
+    namespace HrtimTimdCpt2dcr{    ///<CPT2xCR
+        using Addr = Register::Address<0x40017660,0x0f000000,0x00000000,unsigned>;
         ///Timer E Compare 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> tecmp2{}; 
         ///Timer E Compare 1
@@ -777,10 +749,9 @@ namespace Kvasir {
         ///Software Capture
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swcpt{}; 
     }
-    namespace Noneoutdr{    ///<Timerx Output Register
-        using Addr = Register::Address<0x40017664,0xff01e001,0,unsigned>;
-        ///Output 2 Deadtime upon burst mode Idle
-              entry
+    namespace HrtimTimdOutdr{    ///<Timerx Output Register
+        using Addr = Register::Address<0x40017664,0xff01e001,0x00000000,unsigned>;
+        ///Output 2 Deadtime upon burst mode Idle              entry
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> didl2{}; 
         ///Output 2 Chopper enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> chp2{}; 
@@ -798,8 +769,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> dlyprten{}; 
         ///Deadtime enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dten{}; 
-        ///Output 1 Deadtime upon burst mode Idle
-              entry
+        ///Output 1 Deadtime upon burst mode Idle              entry
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> didl1{}; 
         ///Output 1 Chopper enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> chp1{}; 
@@ -812,8 +782,8 @@ namespace Kvasir {
         ///Output 1 polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pol1{}; 
     }
-    namespace Nonefltdr{    ///<Timerx Fault Register
-        using Addr = Register::Address<0x40017668,0x7fffffe0,0,unsigned>;
+    namespace HrtimTimdFltdr{    ///<Timerx Fault Register
+        using Addr = Register::Address<0x40017668,0x7fffffe0,0x00000000,unsigned>;
         ///Fault sources Lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fltlck{}; 
         ///Fault 5 enable

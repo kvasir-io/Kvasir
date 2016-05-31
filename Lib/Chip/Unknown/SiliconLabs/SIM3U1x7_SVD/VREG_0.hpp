@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40040000,0x7ffffe1c,0,unsigned>;
+    namespace Vreg0Control{    ///<Module Control
+        using Addr = Register::Address<0x40040000,0x7ffffe1c,0x00000000,unsigned>;
         ///VBUS Valid Flag. 
         enum class VbusvldfVal {
             notSet=0x00000000,     ///<The current voltage on the VBUS pin is below the valid threshold.
             set=0x00000001,     ///<The current voltage on the VBUS pin is above the valid threshold.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,VbusvldfVal> vbusvldf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,VbusvldfVal> vbusvldf{}; 
         namespace VbusvldfValC{
             constexpr Register::FieldValue<decltype(vbusvldf)::Type,VbusvldfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(vbusvldf)::Type,VbusvldfVal::set> set{};

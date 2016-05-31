@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // peripheral CLK_GATING 
-    namespace Nonecken0{    ///< register CKEN0 
-        using Addr = Register::Address<0x4003c100,0xeaf00000,0,unsigned>;
+    namespace ClkGatingCken0{    ///< register CKEN0 
+        using Addr = Register::Address<0x4003c100,0xeaf00000,0x00000000,unsigned>;
         /// bitfield GIOCK 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> giock{}; 
         /// bitfield EXBCK 
@@ -51,8 +51,8 @@ namespace Kvasir {
         /// bitfield MFSCK0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsck0{}; 
     }
-    namespace Nonemrst0{    ///< register MRST0 
-        using Addr = Register::Address<0x4003c104,0xfaf00000,0,unsigned>;
+    namespace ClkGatingMrst0{    ///< register MRST0 
+        using Addr = Register::Address<0x4003c104,0xfaf00000,0x00000000,unsigned>;
         /// bitfield EXBRST 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> exbrst{}; 
         /// bitfield DMARST 
@@ -98,8 +98,8 @@ namespace Kvasir {
         /// bitfield MFSRST0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsrst0{}; 
     }
-    namespace Nonecken1{    ///< register CKEN1 
-        using Addr = Register::Address<0x4003c110,0xfff0f0f0,0,unsigned>;
+    namespace ClkGatingCken1{    ///< register CKEN1 
+        using Addr = Register::Address<0x4003c110,0xfff0f0f0,0x00000000,unsigned>;
         /// bitfield QDUCK3 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> qduck3{}; 
         /// bitfield QDUCK2 
@@ -125,8 +125,8 @@ namespace Kvasir {
         /// bitfield BTMCK0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> btmck0{}; 
     }
-    namespace Nonemrst1{    ///< register MRST1 
-        using Addr = Register::Address<0x4003c114,0xfff0f0f0,0,unsigned>;
+    namespace ClkGatingMrst1{    ///< register MRST1 
+        using Addr = Register::Address<0x4003c114,0xfff0f0f0,0x00000000,unsigned>;
         /// bitfield QDURST3 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> qdurst3{}; 
         /// bitfield QDURST2 
@@ -152,8 +152,8 @@ namespace Kvasir {
         /// bitfield BTMRST0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> btmrst0{}; 
     }
-    namespace Nonecken2{    ///< register CKEN2 
-        using Addr = Register::Address<0x4003c120,0xfffffecc,0,unsigned>;
+    namespace ClkGatingCken2{    ///< register CKEN2 
+        using Addr = Register::Address<0x4003c120,0xfffffecc,0x00000000,unsigned>;
         /// bitfield SDCCK 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sdcck{}; 
         /// bitfield CANCK1 
@@ -165,8 +165,8 @@ namespace Kvasir {
         /// bitfield USBCK0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usbck0{}; 
     }
-    namespace Nonemrst2{    ///< register MRST2 
-        using Addr = Register::Address<0x4003c124,0xfffffecc,0,unsigned>;
+    namespace ClkGatingMrst2{    ///< register MRST2 
+        using Addr = Register::Address<0x4003c124,0xfffffecc,0x00000000,unsigned>;
         /// bitfield SDCRST 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sdcrst{}; 
         /// bitfield CANRST1 

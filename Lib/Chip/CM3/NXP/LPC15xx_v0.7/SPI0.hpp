@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SPI0  
-    namespace Nonecfg{    ///<SPI Configuration register
-        using Addr = Register::Address<0x40048000,0xfffff042,0,unsigned>;
+    namespace Spi0Cfg{    ///<SPI Configuration register
+        using Addr = Register::Address<0x40048000,0x00000000,0x00000000,unsigned>;
         ///SPI enable.
         enum class EnableVal {
             disabled=0x00000000,     ///<Disabled. The SPI is disabled and the internal state machine and counters are reset.
@@ -14,6 +14,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Master mode select.
         enum class MasterVal {
             slaveMode=0x00000000,     ///<Slave mode. The SPI will operate in slave mode. SCK, MOSI, and the SSEL signals are inputs, MISO is an output.
@@ -54,6 +56,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::low> low{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::high> high{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Loopback mode enable. Loopback mode applies only to Master mode, and connects transmit and receive data connected together to allow simple software testing.
         enum class LoopVal {
             disabled=0x00000000,     ///<Disabled.
@@ -104,9 +108,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spol3)::Type,Spol3Val::low> low{};
             constexpr Register::FieldValue<decltype(spol3)::Type,Spol3Val::high> high{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedly{    ///<SPI Delay register
-        using Addr = Register::Address<0x40048004,0xffff0000,0,unsigned>;
+    namespace Spi0Dly{    ///<SPI Delay register
+        using Addr = Register::Address<0x40048004,0x00000000,0x00000000,unsigned>;
         ///Controls the amount of time between SSEL assertion and the beginning of a data frame.  There is always one SPI clock time between SSEL assertion and the first clock edge. This is not considered part of the pre-delay. 0x0 = No additional time is inserted. 0x1 = 1 SPI clock time is inserted. 0x2 = 2 SPI clock times are inserted. ... 0xF = 15 SPI clock times are inserted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> preDelay{}; 
         ///Controls the amount of time between the end of a data frame and SSEL deassertion.  0x0 = No additional time is inserted. 0x1 = 1 SPI clock time is inserted. 0x2 = 2 SPI clock times are inserted. ... 0xF = 15 SPI clock times are inserted.
@@ -115,9 +121,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> frameDelay{}; 
         ///Controls the minimum amount of time that the SSEL is deasserted between transfers.  0x0 = The minimum time that SSEL is deasserted is 1 SPI clock time. (Zero added time.) 0x1 = The minimum time that SSEL is deasserted is 2 SPI clock times. 0x2 = The minimum time that SSEL is deasserted is 3 SPI clock times. ... 0xF = The minimum time that SSEL is deasserted is 16 SPI clock times.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> transferDelay{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestat{    ///<SPI Status. Some status flags can be cleared by writing a 1 to that bit position
-        using Addr = Register::Address<0x40048008,0xfffffe00,0,unsigned>;
+    namespace Spi0Stat{    ///<SPI Status. Some status flags can be cleared by writing a 1 to that bit position
+        using Addr = Register::Address<0x40048008,0x00000000,0x00000000,unsigned>;
         ///Receiver Ready flag. When 1, indicates that data is available to be read from the receiver buffer. Cleared after a read of the RXDAT register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
         ///Transmitter Ready flag. When 1, this bit indicates that data may be written to the transmit buffer. Previous data may still be in the process of being transmitted. Cleared when data is written to TXDAT or TXDATCTL until the data is moved to the transmit shift register.
@@ -136,9 +144,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> endtransfer{}; 
         ///Idle status flag. This bit is 1 whenever the SPI master function is fully idle. This means that the transmit holding register is empty and the transmitter is not in the process of sending data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> idle{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintenset{    ///<SPI Interrupt Enable read and Set. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set.
-        using Addr = Register::Address<0x4004800c,0xffffffc0,0,unsigned>;
+    namespace Spi0Intenset{    ///<SPI Interrupt Enable read and Set. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set.
+        using Addr = Register::Address<0x4004800c,0x00000000,0x00000000,unsigned>;
         ///Determines whether an interrupt occurs when receiver data is available.
         enum class RxrdyenVal {
             noInterruptWillBe=0x00000000,     ///<No interrupt will be generated when receiver data is available.
@@ -199,9 +209,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssden)::Type,SsdenVal::noInterruptWillBe> noInterruptWillBe{};
             constexpr Register::FieldValue<decltype(ssden)::Type,SsdenVal::anInterruptWillBe> anInterruptWillBe{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintenclr{    ///<SPI Interrupt Enable Clear. Writing a 1 to any implemented bit position causes the corresponding bit in INTENSET to be cleared.
-        using Addr = Register::Address<0x40048010,0xffffffc0,0,unsigned>;
+    namespace Spi0Intenclr{    ///<SPI Interrupt Enable Clear. Writing a 1 to any implemented bit position causes the corresponding bit in INTENSET to be cleared.
+        using Addr = Register::Address<0x40048010,0x00000000,0x00000000,unsigned>;
         ///Writing 1 clears the corresponding bits in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdyen{}; 
         ///Writing 1 clears the corresponding bits in the INTENSET register.
@@ -214,9 +226,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ssaen{}; 
         ///Writing 1 clears the corresponding bits in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ssden{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerxdat{    ///<SPI Receive Data
-        using Addr = Register::Address<0x40048014,0xffe00000,0,unsigned>;
+    namespace Spi0Rxdat{    ///<SPI Receive Data
+        using Addr = Register::Address<0x40048014,0x00000000,0x00000000,unsigned>;
         ///Receiver Data. This contains the next piece of received data. The number of bits that are used depends on the FLen setting in TXCTL / TXDATCTL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxdat{}; 
         ///Slave Select for receive. This field allows the state of the  SSEL0 pin to be saved along with received data. The value will reflect the SSEL0 pin for both master and slave operation. A zero indicates that a slave select is active. The actual polarity of each slave select pin is configured by the related SPOL bit in CFG.
@@ -229,9 +243,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rxssel3{}; 
         ///Start of Transfer flag. This flag will be 1 if this is the first frame after the SSELs went from  deasserted to  asserted (i.e., any previous transfer has ended). This information can be used to identify the first piece of data in cases where the frame length is greater than 16 bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> sot{}; 
+        ///Reserved, the value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxdatctl{    ///<SPI Transmit Data with Control
-        using Addr = Register::Address<0x40048018,0xf0800000,0,unsigned>;
+    namespace Spi0Txdatctl{    ///<SPI Transmit Data with Control
+        using Addr = Register::Address<0x40048018,0x00000000,0x00000000,unsigned>;
         ///Transmit Data. This field provides from 1 to 16 bits of data to be transmitted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdat{}; 
         ///Transmit Slave Select . This field controls what is output for SSEL0 in master mode.  The active state of the SSEL0 function is configured by bits in the CFG register.
@@ -304,16 +320,24 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxignore)::Type,RxignoreVal::readReceivedData> readReceivedData{};
             constexpr Register::FieldValue<decltype(rxignore)::Type,RxignoreVal::ignoreReceivedData> ignoreReceivedData{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Frame Length. Specifies the frame length from 1 to 16 bits. Note that frame lengths greater than 16 bits are supported by implementing multiple sequential frames. Note that if a 1-bit frame is selected, the master function will always insert a delay with a length of one SCK time following the single clock seen on the SCK pin. 0x0 = Data frame is 1 bit in length. 0x1 = Data frame is 2 bits in length. 0x2 = Data frame is 3 bits in length. ... 0xF = Data frame is 16 bits in length.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> flen{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxdat{    ///<SPI Transmit Data with Control
-        using Addr = Register::Address<0x4004801c,0xffff0000,0,unsigned>;
+    namespace Spi0Txdat{    ///<SPI Transmit Data with Control
+        using Addr = Register::Address<0x4004801c,0x00000000,0x00000000,unsigned>;
         ///Transmit Data. This field provides from 4 to 16 bits of data to be transmitted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
+        ///Reserved. Only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxctl{    ///<SPI Transmit Control
-        using Addr = Register::Address<0x40048020,0xf080ffff,0,unsigned>;
+    namespace Spi0Txctl{    ///<SPI Transmit Control
+        using Addr = Register::Address<0x40048020,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transmit Slave Select 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> txssel0{}; 
         ///Transmit Slave Select 1.
@@ -328,16 +352,22 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> eof{}; 
         ///Receive Ignore.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> rxignore{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Frame Length.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> flen{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonediv{    ///<SPI clock Divider
-        using Addr = Register::Address<0x40048024,0xffff0000,0,unsigned>;
+    namespace Spi0Div{    ///<SPI clock Divider
+        using Addr = Register::Address<0x40048024,0x00000000,0x00000000,unsigned>;
         ///Rate divider value. Specifies how the PCLK for the SPI is divided to produce the SPI clock rate in master mode.  DIVVAL is -1 encoded such that the value 0 results in PCLK/1, the value 1 results in PCLK/2, up to the maximum possible divide value of 0xFFFF, which results in PCLK/65536.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> divval{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintstat{    ///<SPI Interrupt Status
-        using Addr = Register::Address<0x40048028,0xffffffc0,0,unsigned>;
+    namespace Spi0Intstat{    ///<SPI Interrupt Status
+        using Addr = Register::Address<0x40048028,0x00000000,0x00000000,unsigned>;
         ///Receiver Ready flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
         ///Transmitter Ready flag.
@@ -350,5 +380,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ssa{}; 
         ///Slave Select Deassert.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ssd{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

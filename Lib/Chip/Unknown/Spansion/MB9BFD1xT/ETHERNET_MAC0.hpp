@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Ethernet-MAC 0
-    namespace Nonemcr{    ///<MAC Configuration Register
-        using Addr = Register::Address<0x40064000,0xfc000003,0,unsigned>;
+    namespace EthernetMac0Mcr{    ///<MAC Configuration Register
+        using Addr = Register::Address<0x40064000,0xfc000003,0x00000000,unsigned>;
         ///CRC stripping for Type frames
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> cst{}; 
         ///Transmit Configuration in RGMII
@@ -47,8 +47,8 @@ namespace Kvasir {
         ///Receiver Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> re{}; 
     }
-    namespace Nonemffr{    ///<MAC Frame Filter Register
-        using Addr = Register::Address<0x40064004,0x7ffff800,0,unsigned>;
+    namespace EthernetMac0Mffr{    ///<MAC Frame Filter Register
+        using Addr = Register::Address<0x40064004,0x7ffff800,0x00000000,unsigned>;
         ///Receive All
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ra{}; 
         ///Hash or Perfect Filter
@@ -72,18 +72,18 @@ namespace Kvasir {
         ///Promiscuous Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pr{}; 
     }
-    namespace Nonemhtrh{    ///<MAC Hash Table Register (High)
-        using Addr = Register::Address<0x40064008,0x00000000,0,unsigned>;
+    namespace EthernetMac0Mhtrh{    ///<MAC Hash Table Register (High)
+        using Addr = Register::Address<0x40064008,0x00000000,0x00000000,unsigned>;
         ///the upper 32 bits of the hash table in the HTH
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hth{}; 
     }
-    namespace Nonemhtrl{    ///<MAC Hash Table Register (Low)
-        using Addr = Register::Address<0x4006400c,0x00000000,0,unsigned>;
+    namespace EthernetMac0Mhtrl{    ///<MAC Hash Table Register (Low)
+        using Addr = Register::Address<0x4006400c,0x00000000,0x00000000,unsigned>;
         ///the lower 32 bits of the hash table in the HTL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> htl{}; 
     }
-    namespace Nonegar{    ///<GMII/MII Address Register
-        using Addr = Register::Address<0x40064010,0xffff0000,0,unsigned>;
+    namespace EthernetMac0Gar{    ///<GMII/MII Address Register
+        using Addr = Register::Address<0x40064010,0xffff0000,0x00000000,unsigned>;
         ///Physical Layer Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> pa{}; 
         ///GMII Register
@@ -95,13 +95,13 @@ namespace Kvasir {
         ///GMII/MII Busy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gb{}; 
     }
-    namespace Nonegdr{    ///<GMII/MII Data Register
-        using Addr = Register::Address<0x40064014,0xffff0000,0,unsigned>;
+    namespace EthernetMac0Gdr{    ///<GMII/MII Data Register
+        using Addr = Register::Address<0x40064014,0xffff0000,0x00000000,unsigned>;
         ///GMII/MII Data Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gd{}; 
     }
-    namespace Nonefcr{    ///<Flow Control Register
-        using Addr = Register::Address<0x40064018,0x0000ff40,0,unsigned>;
+    namespace EthernetMac0Fcr{    ///<Flow Control Register
+        using Addr = Register::Address<0x40064018,0x0000ff40,0x00000000,unsigned>;
         ///Pause Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pt{}; 
         ///Disable Zero-Quanta Pause
@@ -117,20 +117,20 @@ namespace Kvasir {
         ///Flow Control Busy/Backpressure Activate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fcbBpa{}; 
     }
-    namespace Nonevtr{    ///<VLAN TAG Register
-        using Addr = Register::Address<0x4006401c,0xfffe0000,0,unsigned>;
+    namespace EthernetMac0Vtr{    ///<VLAN TAG Register
+        using Addr = Register::Address<0x4006401c,0xfffe0000,0x00000000,unsigned>;
         ///Enable 12-Bit VLAN Tag Comparison
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> etv{}; 
         ///VLAN Tag Identifier
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> vl{}; 
     }
-    namespace Nonerwffr{    ///<Remote Wake-up Frame Filter Register
-        using Addr = Register::Address<0x40064028,0x00000000,0,unsigned>;
+    namespace EthernetMac0Rwffr{    ///<Remote Wake-up Frame Filter Register
+        using Addr = Register::Address<0x40064028,0x00000000,0x00000000,unsigned>;
         ///Remote Wake-up Frame Filter Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rwffr31{}; 
     }
-    namespace Nonepmtr{    ///<PMT Register
-        using Addr = Register::Address<0x4006402c,0x7ffffd98,0,unsigned>;
+    namespace EthernetMac0Pmtr{    ///<PMT Register
+        using Addr = Register::Address<0x4006402c,0x7ffffd98,0x00000000,unsigned>;
         ///Remote Wake-up Frame Filter Register Pointer Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> rwffrpr{}; 
         ///Global Unicast
@@ -146,8 +146,8 @@ namespace Kvasir {
         ///Power Down
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd{}; 
     }
-    namespace Nonelpicsr{    ///<LPI Control and Status Register
-        using Addr = Register::Address<0x40064030,0xfff0fcf0,0,unsigned>;
+    namespace EthernetMac0Lpicsr{    ///<LPI Control and Status Register
+        using Addr = Register::Address<0x40064030,0xfff0fcf0,0x00000000,unsigned>;
         ///LPI TX Automate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> lpitxa{}; 
         ///PHY Link Status Enable
@@ -157,46 +157,46 @@ namespace Kvasir {
         ///LPI Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> lpien{}; 
         ///Receive LPI State
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rlpist{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rlpist{}; 
         ///Transmit LPI State
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> tlpist{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tlpist{}; 
         ///Receive LPI Exit
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rlpiex{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rlpiex{}; 
         ///Receive LPI Entry
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rlpien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rlpien{}; 
         ///Transmit LPI Exit
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tlpiex{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tlpiex{}; 
         ///Transmit LPI Entry
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tlpien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tlpien{}; 
     }
-    namespace Nonelpitcr{    ///<LPI Timers Control Register
-        using Addr = Register::Address<0x40064034,0xfc000000,0,unsigned>;
+    namespace EthernetMac0Lpitcr{    ///<LPI Timers Control Register
+        using Addr = Register::Address<0x40064034,0xfc000000,0x00000000,unsigned>;
         ///LPI LS TIMER
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> lit{}; 
         ///LPI TW TIMER
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> twt{}; 
     }
-    namespace Noneisr{    ///<Interrupt Status Register
-        using Addr = Register::Address<0x40064038,0xfffff906,0,unsigned>;
+    namespace EthernetMac0Isr{    ///<Interrupt Status Register
+        using Addr = Register::Address<0x40064038,0xfffff906,0x00000000,unsigned>;
         ///LPI Interrupt Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> lpiis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lpiis{}; 
         ///Time Stamp Interrupt Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> tsis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tsis{}; 
         ///MMC Receive Checksum Offload Interrupt Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cois{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cois{}; 
         ///MMC Transmit Interrupt Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tis{}; 
         ///MMC Receive Interrupt Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ris{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ris{}; 
         ///MMC Interrupt Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mis{}; 
         ///PMT Interrupt Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pis{}; 
         ///RGMII Interrupt Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rgis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rgis{}; 
     }
-    namespace Noneimr{    ///<Interrupt Mask Register
-        using Addr = Register::Address<0x4006403c,0xffffff96,0,unsigned>;
+    namespace EthernetMac0Imr{    ///<Interrupt Mask Register
+        using Addr = Register::Address<0x4006403c,0xffffff96,0x00000000,unsigned>;
         ///LPI Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> lpiim{}; 
         ///Time Stamp Interrupt Mask
@@ -206,10 +206,10 @@ namespace Kvasir {
         ///RGMII Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rgim{}; 
     }
-    namespace Nonemar0h{    ///<MAC Address0 Register (High)
-        using Addr = Register::Address<0x40064040,0x7fff0000,0,unsigned>;
+    namespace EthernetMac0Mar0h{    ///<MAC Address0 Register (High)
+        using Addr = Register::Address<0x40064040,0x7fff0000,0x00000000,unsigned>;
         ///Must be one
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> mo{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mo{}; 
         ///AD[47]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> a47{}; 
         ///AD[46]
@@ -243,8 +243,8 @@ namespace Kvasir {
         ///AD[32]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> a32{}; 
     }
-    namespace Nonemar0l{    ///<MAC Address0 Register (Low)
-        using Addr = Register::Address<0x40064044,0x00000000,0,unsigned>;
+    namespace EthernetMac0Mar0l{    ///<MAC Address0 Register (Low)
+        using Addr = Register::Address<0x40064044,0x00000000,0x00000000,unsigned>;
         ///AD[31]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> a31{}; 
         ///AD[30]
@@ -310,8 +310,8 @@ namespace Kvasir {
         ///AD[0]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> a0{}; 
     }
-    namespace Nonemar1h{    ///<MAC Address1 Register -High
-        using Addr = Register::Address<0x40064048,0x00ff0000,0,unsigned>;
+    namespace EthernetMac0Mar1h{    ///<MAC Address1 Register -High
+        using Addr = Register::Address<0x40064048,0x00ff0000,0x00000000,unsigned>;
         ///Address Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ae{}; 
         ///Source Address
@@ -351,8 +351,8 @@ namespace Kvasir {
         ///AD[32]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> a32{}; 
     }
-    namespace Nonemar1l{    ///<MAC Address1 Register -Low
-        using Addr = Register::Address<0x4006404c,0x00000000,0,unsigned>;
+    namespace EthernetMac0Mar1l{    ///<MAC Address1 Register -Low
+        using Addr = Register::Address<0x4006404c,0x00000000,0x00000000,unsigned>;
         ///AD[31]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> a31{}; 
         ///AD[30]
@@ -418,353 +418,353 @@ namespace Kvasir {
         ///AD[0]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> a0{}; 
     }
-    namespace Nonemar2h{    ///<MAC Address2 Register -High
-        using Addr = Register::Address<0x40064050,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar2h{    ///<MAC Address2 Register -High
+        using Addr = Register::Address<0x40064050,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar2l{    ///<MAC Address2 Register -Low
-        using Addr = Register::Address<0x40064054,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar2l{    ///<MAC Address2 Register -Low
+        using Addr = Register::Address<0x40064054,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar3h{    ///<MAC Address3 Register -High
-        using Addr = Register::Address<0x40064058,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar3h{    ///<MAC Address3 Register -High
+        using Addr = Register::Address<0x40064058,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar3l{    ///<MAC Address3 Register -Low
-        using Addr = Register::Address<0x4006405c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar3l{    ///<MAC Address3 Register -Low
+        using Addr = Register::Address<0x4006405c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar4h{    ///<MAC Address4 Register -High
-        using Addr = Register::Address<0x40064060,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar4h{    ///<MAC Address4 Register -High
+        using Addr = Register::Address<0x40064060,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar4l{    ///<MAC Address4 Register -Low
-        using Addr = Register::Address<0x40064064,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar4l{    ///<MAC Address4 Register -Low
+        using Addr = Register::Address<0x40064064,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar5h{    ///<MAC Address5 Register -High
-        using Addr = Register::Address<0x40064068,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar5h{    ///<MAC Address5 Register -High
+        using Addr = Register::Address<0x40064068,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar5l{    ///<MAC Address5 Register -Low
-        using Addr = Register::Address<0x4006406c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar5l{    ///<MAC Address5 Register -Low
+        using Addr = Register::Address<0x4006406c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar6h{    ///<MAC Address6 Register -High
-        using Addr = Register::Address<0x40064070,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar6h{    ///<MAC Address6 Register -High
+        using Addr = Register::Address<0x40064070,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar6l{    ///<MAC Address6 Register -Low
-        using Addr = Register::Address<0x40064074,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar6l{    ///<MAC Address6 Register -Low
+        using Addr = Register::Address<0x40064074,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar7h{    ///<MAC Address7 Register -High
-        using Addr = Register::Address<0x40064078,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar7h{    ///<MAC Address7 Register -High
+        using Addr = Register::Address<0x40064078,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar7l{    ///<MAC Address7 Register -Low
-        using Addr = Register::Address<0x4006407c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar7l{    ///<MAC Address7 Register -Low
+        using Addr = Register::Address<0x4006407c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar8h{    ///<MAC Address8 Register -High
-        using Addr = Register::Address<0x40064080,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar8h{    ///<MAC Address8 Register -High
+        using Addr = Register::Address<0x40064080,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar8l{    ///<MAC Address8 Register -Low
-        using Addr = Register::Address<0x40064084,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar8l{    ///<MAC Address8 Register -Low
+        using Addr = Register::Address<0x40064084,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar9h{    ///<MAC Address9 Register -High
-        using Addr = Register::Address<0x40064088,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar9h{    ///<MAC Address9 Register -High
+        using Addr = Register::Address<0x40064088,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar9l{    ///<MAC Address9 Register -Low
-        using Addr = Register::Address<0x4006408c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar9l{    ///<MAC Address9 Register -Low
+        using Addr = Register::Address<0x4006408c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar10h{    ///<MAC Address10 Register -High
-        using Addr = Register::Address<0x40064090,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar10h{    ///<MAC Address10 Register -High
+        using Addr = Register::Address<0x40064090,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar10l{    ///<MAC Address10 Register -Low
-        using Addr = Register::Address<0x40064094,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar10l{    ///<MAC Address10 Register -Low
+        using Addr = Register::Address<0x40064094,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar11h{    ///<MAC Address11 Register -High
-        using Addr = Register::Address<0x40064098,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar11h{    ///<MAC Address11 Register -High
+        using Addr = Register::Address<0x40064098,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar11l{    ///<MAC Address11 Register -Low
-        using Addr = Register::Address<0x4006409c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar11l{    ///<MAC Address11 Register -Low
+        using Addr = Register::Address<0x4006409c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar12h{    ///<MAC Address12 Register -High
-        using Addr = Register::Address<0x400640a0,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar12h{    ///<MAC Address12 Register -High
+        using Addr = Register::Address<0x400640a0,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar12l{    ///<MAC Address12 Register -Low
-        using Addr = Register::Address<0x400640a4,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar12l{    ///<MAC Address12 Register -Low
+        using Addr = Register::Address<0x400640a4,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar13h{    ///<MAC Address13 Register -High
-        using Addr = Register::Address<0x400640a8,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar13h{    ///<MAC Address13 Register -High
+        using Addr = Register::Address<0x400640a8,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar13l{    ///<MAC Address13 Register -Low
-        using Addr = Register::Address<0x400640ac,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar13l{    ///<MAC Address13 Register -Low
+        using Addr = Register::Address<0x400640ac,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar14h{    ///<MAC Address14 Register -High
-        using Addr = Register::Address<0x400640b0,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar14h{    ///<MAC Address14 Register -High
+        using Addr = Register::Address<0x400640b0,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar14l{    ///<MAC Address14 Register -Low
-        using Addr = Register::Address<0x400640b4,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar14l{    ///<MAC Address14 Register -Low
+        using Addr = Register::Address<0x400640b4,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar15h{    ///<MAC Address15 Register -High
-        using Addr = Register::Address<0x400640b8,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar15h{    ///<MAC Address15 Register -High
+        using Addr = Register::Address<0x400640b8,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar15l{    ///<MAC Address15 Register -Low
-        using Addr = Register::Address<0x400640bc,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar15l{    ///<MAC Address15 Register -Low
+        using Addr = Register::Address<0x400640bc,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonemmcCntl{    ///<MMC Control Register
-        using Addr = Register::Address<0x40064100,0xffffffff,0,unsigned>;
+    namespace EthernetMac0MmcCntl{    ///<MMC Control Register
+        using Addr = Register::Address<0x40064100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonemmcIntrRx{    ///<Receive Interrupt Register
-        using Addr = Register::Address<0x40064104,0xffffffff,0,unsigned>;
+    namespace EthernetMac0MmcIntrRx{    ///<Receive Interrupt Register
+        using Addr = Register::Address<0x40064104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonemmcIntrTx{    ///<MMC Transmit Interrupt Register 
-        using Addr = Register::Address<0x40064108,0xffffffff,0,unsigned>;
+    namespace EthernetMac0MmcIntrTx{    ///<MMC Transmit Interrupt Register 
+        using Addr = Register::Address<0x40064108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonemmcIntrMaskRx{    ///<MMC Receive Interrupt Mask Register
-        using Addr = Register::Address<0x4006410c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0MmcIntrMaskRx{    ///<MMC Receive Interrupt Mask Register
+        using Addr = Register::Address<0x4006410c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonemmcIntrMaskTx{    ///<MMC Transmit Interrupt Mask Register 
-        using Addr = Register::Address<0x40064110,0xffffffff,0,unsigned>;
+    namespace EthernetMac0MmcIntrMaskTx{    ///<MMC Transmit Interrupt Mask Register 
+        using Addr = Register::Address<0x40064110,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxoctetcountGb{    ///<"Number of bytes transmitted, exclusive of preamble and retried bytes, in good and bad frames"
-        using Addr = Register::Address<0x40064114,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxoctetcountGb{    ///<"Number of bytes transmitted, exclusive of preamble and retried bytes, in good and bad frames"
+        using Addr = Register::Address<0x40064114,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxframecountGb{    ///<"Number of good and bad frames transmitted, exclusive of retried frames"
-        using Addr = Register::Address<0x40064118,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxframecountGb{    ///<"Number of good and bad frames transmitted, exclusive of retried frames"
+        using Addr = Register::Address<0x40064118,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxbroadcastframesG{    ///<Number of good broadcast frames transmitted
-        using Addr = Register::Address<0x4006411c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxbroadcastframesG{    ///<Number of good broadcast frames transmitted
+        using Addr = Register::Address<0x4006411c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxmulticastframesG{    ///<Number of good multicast frames transmitted
-        using Addr = Register::Address<0x40064120,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxmulticastframesG{    ///<Number of good multicast frames transmitted
+        using Addr = Register::Address<0x40064120,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetx64octetsGb{    ///<"Number of good and bad frames transmitted with length of 64 bytes, exclusive of preamble and retried frames"
-        using Addr = Register::Address<0x40064124,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Tx64octetsGb{    ///<"Number of good and bad frames transmitted with length of 64 bytes, exclusive of preamble and retried frames"
+        using Addr = Register::Address<0x40064124,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetx65to127octetsGb{    ///<"Number of good and bad frames transmitted with length between 65 and 127 (inclusive) bytes, exclusive of preamble and retried frames"
-        using Addr = Register::Address<0x40064128,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Tx65to127octetsGb{    ///<"Number of good and bad frames transmitted with length between 65 and 127 (inclusive) bytes, exclusive of preamble and retried frames"
+        using Addr = Register::Address<0x40064128,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetx128to255octetsGb{    ///<"Number of good and bad frames transmitted with length between 128 and 255 (inclusive) bytes, exclusive of preamble and retried frames"
-        using Addr = Register::Address<0x4006412c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Tx128to255octetsGb{    ///<"Number of good and bad frames transmitted with length between 128 and 255 (inclusive) bytes, exclusive of preamble and retried frames"
+        using Addr = Register::Address<0x4006412c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetx256to511octetsGb{    ///<"Number of good and bad frames transmitted with length between 256 and 511 (inclusive) bytes, exclusive of preamble and retried frames"
-        using Addr = Register::Address<0x40064130,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Tx256to511octetsGb{    ///<"Number of good and bad frames transmitted with length between 256 and 511 (inclusive) bytes, exclusive of preamble and retried frames"
+        using Addr = Register::Address<0x40064130,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetx512to1023octetsGb{    ///<"Number of good and bad frames transmitted with length between 512 and 1023 (inclusive) bytes, exclusive of preamble and retried frames"
-        using Addr = Register::Address<0x40064134,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Tx512to1023octetsGb{    ///<"Number of good and bad frames transmitted with length between 512 and 1023 (inclusive) bytes, exclusive of preamble and retried frames"
+        using Addr = Register::Address<0x40064134,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetx1024tomaxoctetsGb{    ///<"Number of good and bad frames transmitted with length between 1024 and Maxsize (inclusive) bytes, exclusive of preamble and retried frames"
-        using Addr = Register::Address<0x40064138,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Tx1024tomaxoctetsGb{    ///<"Number of good and bad frames transmitted with length between 1024 and Maxsize (inclusive) bytes, exclusive of preamble and retried frames"
+        using Addr = Register::Address<0x40064138,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxunicastframesGb{    ///<Number of good and bad unicast frames transmitted
-        using Addr = Register::Address<0x4006413c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxunicastframesGb{    ///<Number of good and bad unicast frames transmitted
+        using Addr = Register::Address<0x4006413c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxmulticastframesGb{    ///<Number of good and bad multicast frames transmitted
-        using Addr = Register::Address<0x40064140,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxmulticastframesGb{    ///<Number of good and bad multicast frames transmitted
+        using Addr = Register::Address<0x40064140,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxbroadcastframesGb{    ///<Number of good and bad broadcast frames transmitted
-        using Addr = Register::Address<0x40064144,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxbroadcastframesGb{    ///<Number of good and bad broadcast frames transmitted
+        using Addr = Register::Address<0x40064144,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetxunderflowerror{    ///<Number of frames aborted due to frame underflow error
-        using Addr = Register::Address<0x40064148,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Txunderflowerror{    ///<Number of frames aborted due to frame underflow error
+        using Addr = Register::Address<0x40064148,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxsinglecolG{    ///<Number of successfully transmitted frames after a single collision in Half-duplex mode 
-        using Addr = Register::Address<0x4006414c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxsinglecolG{    ///<Number of successfully transmitted frames after a single collision in Half-duplex mode 
+        using Addr = Register::Address<0x4006414c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxmulticolG{    ///<Number of successfully transmitted frames after more than a single collision in Half-duplex mode
-        using Addr = Register::Address<0x40064150,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxmulticolG{    ///<Number of successfully transmitted frames after more than a single collision in Half-duplex mode
+        using Addr = Register::Address<0x40064150,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetxdeferred{    ///<Number of successfully transmitted frames after a deferral in Half-duplex mode.
-        using Addr = Register::Address<0x40064154,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Txdeferred{    ///<Number of successfully transmitted frames after a deferral in Half-duplex mode.
+        using Addr = Register::Address<0x40064154,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetxlatecol{    ///<Number of frames aborted due to late collision error. 
-        using Addr = Register::Address<0x40064158,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Txlatecol{    ///<Number of frames aborted due to late collision error. 
+        using Addr = Register::Address<0x40064158,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetxexesscol{    ///<Number of frames aborted due to excessive (16) collision errors. 
-        using Addr = Register::Address<0x4006415c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Txexesscol{    ///<Number of frames aborted due to excessive (16) collision errors. 
+        using Addr = Register::Address<0x4006415c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetxcarriererror{    ///<Number of frames aborted due to carrier sense error (no carrier or loss of carrier).  
-        using Addr = Register::Address<0x40064160,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Txcarriererror{    ///<Number of frames aborted due to carrier sense error (no carrier or loss of carrier).  
+        using Addr = Register::Address<0x40064160,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxoctetcountG{    ///<"Number of bytes transmitted, exclusive of preamble, in good frames only. "
-        using Addr = Register::Address<0x40064164,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxoctetcountG{    ///<"Number of bytes transmitted, exclusive of preamble, in good frames only. "
+        using Addr = Register::Address<0x40064164,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxframecountG{    ///<Number of good frames transmitted. 
-        using Addr = Register::Address<0x40064168,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxframecountG{    ///<Number of good frames transmitted. 
+        using Addr = Register::Address<0x40064168,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxexecessdefG{    ///<Number of frames aborted due to excessive deferral error (deferred for more than two max-sized frame times).
-        using Addr = Register::Address<0x4006416c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxexecessdefG{    ///<Number of frames aborted due to excessive deferral error (deferred for more than two max-sized frame times).
+        using Addr = Register::Address<0x4006416c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetxpauseframes{    ///<Number of good PAUSE frames transmitted. 
-        using Addr = Register::Address<0x40064170,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Txpauseframes{    ///<Number of good PAUSE frames transmitted. 
+        using Addr = Register::Address<0x40064170,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetxvlanframesG{    ///<"Number of good VLAN frames transmitted, exclusive of retried frames. "
-        using Addr = Register::Address<0x40064174,0xffffffff,0,unsigned>;
+    namespace EthernetMac0TxvlanframesG{    ///<"Number of good VLAN frames transmitted, exclusive of retried frames. "
+        using Addr = Register::Address<0x40064174,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxframecountGb{    ///<Number of good and bad frames received. 
-        using Addr = Register::Address<0x40064180,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxframecountGb{    ///<Number of good and bad frames received. 
+        using Addr = Register::Address<0x40064180,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxoctetcountGb{    ///<"Number of bytes received, exclusive of preamble, in good and bad frames.  "
-        using Addr = Register::Address<0x40064184,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxoctetcountGb{    ///<"Number of bytes received, exclusive of preamble, in good and bad frames.  "
+        using Addr = Register::Address<0x40064184,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxoctetcountG{    ///<"Number of bytes received, exclusive of preamble, only in good frames. "
-        using Addr = Register::Address<0x40064188,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxoctetcountG{    ///<"Number of bytes received, exclusive of preamble, only in good frames. "
+        using Addr = Register::Address<0x40064188,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxbroadcastframesG{    ///<Number of good broadcast frames received. 
-        using Addr = Register::Address<0x4006418c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxbroadcastframesG{    ///<Number of good broadcast frames received. 
+        using Addr = Register::Address<0x4006418c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxmulticastframesG{    ///<Number of good multicast frames received. 
-        using Addr = Register::Address<0x40064190,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxmulticastframesG{    ///<Number of good multicast frames received. 
+        using Addr = Register::Address<0x40064190,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxcrcerror{    ///<Number of frames received with CRC error. 
-        using Addr = Register::Address<0x40064194,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxcrcerror{    ///<Number of frames received with CRC error. 
+        using Addr = Register::Address<0x40064194,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxallignmenterror{    ///<Number of frames received with alignment (dribble) error. Valid only in 10/100 mode. 
-        using Addr = Register::Address<0x40064198,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxallignmenterror{    ///<Number of frames received with alignment (dribble) error. Valid only in 10/100 mode. 
+        using Addr = Register::Address<0x40064198,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxrunterror{    ///<Number of frames received with runt (64 bytes and CRC error) error. 
-        using Addr = Register::Address<0x4006419c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxrunterror{    ///<Number of frames received with runt (64 bytes and CRC error) error. 
+        using Addr = Register::Address<0x4006419c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxjabbererror{    ///<Number of frames received with length greater than 1518 bytes with CRC error. 
-        using Addr = Register::Address<0x400641a0,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxjabbererror{    ///<Number of frames received with length greater than 1518 bytes with CRC error. 
+        using Addr = Register::Address<0x400641a0,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxundersizeG{    ///<"Number of frames received with length less than 64 bytes, without any errors.  "
-        using Addr = Register::Address<0x400641a4,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxundersizeG{    ///<"Number of frames received with length less than 64 bytes, without any errors.  "
+        using Addr = Register::Address<0x400641a4,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxoversizeG{    ///<Number of frames received with length greater than the maxsize without error. 
-        using Addr = Register::Address<0x400641a8,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxoversizeG{    ///<Number of frames received with length greater than the maxsize without error. 
+        using Addr = Register::Address<0x400641a8,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerx64octetsGb{    ///<"Number of good and bad frames received with length 64 bytes, exclusive of preamble. "
-        using Addr = Register::Address<0x400641ac,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rx64octetsGb{    ///<"Number of good and bad frames received with length 64 bytes, exclusive of preamble. "
+        using Addr = Register::Address<0x400641ac,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerx65to127octetsGb{    ///<"Number of good and bad frames received with length between 65 and 127 (inclusive) bytes, exclusive of preamble.  "
-        using Addr = Register::Address<0x400641b0,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rx65to127octetsGb{    ///<"Number of good and bad frames received with length between 65 and 127 (inclusive) bytes, exclusive of preamble.  "
+        using Addr = Register::Address<0x400641b0,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerx128to255octetsGb{    ///<"Number of good and bad frames received with length between 128 and 255 (inclusive) bytes, exclusive of preamble.  "
-        using Addr = Register::Address<0x400641b4,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rx128to255octetsGb{    ///<"Number of good and bad frames received with length between 128 and 255 (inclusive) bytes, exclusive of preamble.  "
+        using Addr = Register::Address<0x400641b4,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerx256to511octetsGb{    ///<"Number of good and bad frames received with length between 256 and 511 (inclusive) bytes, exclusive of preamble.  "
-        using Addr = Register::Address<0x400641b8,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rx256to511octetsGb{    ///<"Number of good and bad frames received with length between 256 and 511 (inclusive) bytes, exclusive of preamble.  "
+        using Addr = Register::Address<0x400641b8,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerx512to1023octetsGb{    ///<"Number of good and bad frames received with length between 512 and 1023 (inclusive) bytes, exclusive of preamble.  "
-        using Addr = Register::Address<0x400641bc,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rx512to1023octetsGb{    ///<"Number of good and bad frames received with length between 512 and 1023 (inclusive) bytes, exclusive of preamble.  "
+        using Addr = Register::Address<0x400641bc,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerx1024tomaxoctetsGb{    ///<"Number of good and bad frames received with length between 1024 and maxsize (inclusive) bytes, exclusive of preamble. "
-        using Addr = Register::Address<0x400641c0,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rx1024tomaxoctetsGb{    ///<"Number of good and bad frames received with length between 1024 and maxsize (inclusive) bytes, exclusive of preamble. "
+        using Addr = Register::Address<0x400641c0,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxunicastframesG{    ///<Number of good unicast frames received. 
-        using Addr = Register::Address<0x400641c4,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxunicastframesG{    ///<Number of good unicast frames received. 
+        using Addr = Register::Address<0x400641c4,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxlengtherror{    ///<"Number of frames received with length error (Length type field is not the frame size), for all frames with valid length field. "
-        using Addr = Register::Address<0x400641c8,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxlengtherror{    ///<"Number of frames received with length error (Length type field is not the frame size), for all frames with valid length field. "
+        using Addr = Register::Address<0x400641c8,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxoutofrangetype{    ///<Number of frames received with length/type field not equal to the valid frame size (>1500) 
-        using Addr = Register::Address<0x400641cc,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxoutofrangetype{    ///<Number of frames received with length/type field not equal to the valid frame size (>1500) 
+        using Addr = Register::Address<0x400641cc,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxpauseframes{    ///<Number of good and valid PAUSE frames received. 
-        using Addr = Register::Address<0x400641d0,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxpauseframes{    ///<Number of good and valid PAUSE frames received. 
+        using Addr = Register::Address<0x400641d0,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxfifooverflow{    ///<Number of missed received frames due to FIFO overflow. 
-        using Addr = Register::Address<0x400641d4,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxfifooverflow{    ///<Number of missed received frames due to FIFO overflow. 
+        using Addr = Register::Address<0x400641d4,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxvlanframesGb{    ///<Number of good and bad VLAN frames received. 
-        using Addr = Register::Address<0x400641d8,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxvlanframesGb{    ///<Number of good and bad VLAN frames received. 
+        using Addr = Register::Address<0x400641d8,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxwatchdogerror{    ///<Number of frames received with error due to watchdog timeout error (frames with a data load larger than 2048 bytes). 
-        using Addr = Register::Address<0x400641dc,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxwatchdogerror{    ///<Number of frames received with error due to watchdog timeout error (frames with a data load larger than 2048 bytes). 
+        using Addr = Register::Address<0x400641dc,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonemmcIpcIntrMaskRx{    ///<MMC Receive Checksum Offload Interrupt Mask Register
-        using Addr = Register::Address<0x40064200,0xffffffff,0,unsigned>;
+    namespace EthernetMac0MmcIpcIntrMaskRx{    ///<MMC Receive Checksum Offload Interrupt Mask Register
+        using Addr = Register::Address<0x40064200,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonemmcIpcIntrRx{    ///<MMC Receive Checksum Offload Interrupt Register
-        using Addr = Register::Address<0x40064208,0xffffffff,0,unsigned>;
+    namespace EthernetMac0MmcIpcIntrRx{    ///<MMC Receive Checksum Offload Interrupt Register
+        using Addr = Register::Address<0x40064208,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv4GdFrms{    ///<"Number of good IPv4 datagrams received with the TCP, UDP, or ICMP payload  "
-        using Addr = Register::Address<0x40064210,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv4GdFrms{    ///<"Number of good IPv4 datagrams received with the TCP, UDP, or ICMP payload  "
+        using Addr = Register::Address<0x40064210,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv4HdrerrFrms{    ///<"Number of IPv4 datagrams received with header errors (checksum, length, or version mismatch) "
-        using Addr = Register::Address<0x40064214,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv4HdrerrFrms{    ///<"Number of IPv4 datagrams received with header errors (checksum, length, or version mismatch) "
+        using Addr = Register::Address<0x40064214,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv4NopayFrms{    ///<"Number of IPv4 datagram frames received that did not have a TCP, UDP, or ICMP payload processed by the Checksum engine "
-        using Addr = Register::Address<0x40064218,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv4NopayFrms{    ///<"Number of IPv4 datagram frames received that did not have a TCP, UDP, or ICMP payload processed by the Checksum engine "
+        using Addr = Register::Address<0x40064218,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv4FragFrms{    ///<Number of good IPv4 datagrams with fragmentation 
-        using Addr = Register::Address<0x4006421c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv4FragFrms{    ///<Number of good IPv4 datagrams with fragmentation 
+        using Addr = Register::Address<0x4006421c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv4UdsblFrms{    ///<Number of good IPv4 datagrams received that had a UDP payload with checksum disabled 
-        using Addr = Register::Address<0x40064220,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv4UdsblFrms{    ///<Number of good IPv4 datagrams received that had a UDP payload with checksum disabled 
+        using Addr = Register::Address<0x40064220,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv6GdFrms{    ///<"Number of good IPv6 datagrams received with TCP, UDP, or ICMP payloads "
-        using Addr = Register::Address<0x40064224,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv6GdFrms{    ///<"Number of good IPv6 datagrams received with TCP, UDP, or ICMP payloads "
+        using Addr = Register::Address<0x40064224,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv6HdrerrFrms{    ///<Number of IPv6 datagrams received with header errors (length or version mismatch) 
-        using Addr = Register::Address<0x40064228,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv6HdrerrFrms{    ///<Number of IPv6 datagrams received with header errors (length or version mismatch) 
+        using Addr = Register::Address<0x40064228,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv6NopayFrms{    ///<"Number of IPv6 datagram frames received that did not have a TCP, UDP, or ICMP payload. This includes all IPv6 datagrams with fragmentation or security extension headers  "
-        using Addr = Register::Address<0x4006422c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv6NopayFrms{    ///<"Number of IPv6 datagram frames received that did not have a TCP, UDP, or ICMP payload. This includes all IPv6 datagrams with fragmentation or security extension headers  "
+        using Addr = Register::Address<0x4006422c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxudpGdFrms{    ///<Number of good IP datagrams with a good UDP payload. This counter is not updated when the rxipv4_udsbl_frms counter is incremented. 
-        using Addr = Register::Address<0x40064230,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxudpGdFrms{    ///<Number of good IP datagrams with a good UDP payload. This counter is not updated when the rxipv4_udsbl_frms counter is incremented. 
+        using Addr = Register::Address<0x40064230,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxudpErrFrms{    ///<Number of good IP datagrams whose UDP payload has a checksum error
-        using Addr = Register::Address<0x40064234,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxudpErrFrms{    ///<Number of good IP datagrams whose UDP payload has a checksum error
+        using Addr = Register::Address<0x40064234,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxtcpGdFrms{    ///<Number of good IP datagrams with a good TCP payload 
-        using Addr = Register::Address<0x40064238,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxtcpGdFrms{    ///<Number of good IP datagrams with a good TCP payload 
+        using Addr = Register::Address<0x40064238,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxtcpErrFrms{    ///<Number of good IP datagrams whose TCP payload has a checksum error
-        using Addr = Register::Address<0x4006423c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxtcpErrFrms{    ///<Number of good IP datagrams whose TCP payload has a checksum error
+        using Addr = Register::Address<0x4006423c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxicmpGdFrms{    ///<Number of good IP datagrams with a good ICMP payload 
-        using Addr = Register::Address<0x40064240,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxicmpGdFrms{    ///<Number of good IP datagrams with a good ICMP payload 
+        using Addr = Register::Address<0x40064240,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxicmpErrFrms{    ///<Number of good IP datagrams whose ICMP payload has a checksum error
-        using Addr = Register::Address<0x40064244,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxicmpErrFrms{    ///<Number of good IP datagrams whose ICMP payload has a checksum error
+        using Addr = Register::Address<0x40064244,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv4GdOctets{    ///<"Number of bytes received in good IPv4 datagrams encapsulating TCP, UDP, or ICMP data. (Ethernet header, FCS, pad, or IP pad bytes are not included in this counter or in the octet counters listed below).  "
-        using Addr = Register::Address<0x40064250,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv4GdOctets{    ///<"Number of bytes received in good IPv4 datagrams encapsulating TCP, UDP, or ICMP data. (Ethernet header, FCS, pad, or IP pad bytes are not included in this counter or in the octet counters listed below).  "
+        using Addr = Register::Address<0x40064250,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv4HdrerrOctets{    ///<"Number of bytes received in IPv4 datagrams with header errors (checksum, length, version mismatch). The value in the Length field of IPv4 header is used to update this counter. "
-        using Addr = Register::Address<0x40064254,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv4HdrerrOctets{    ///<"Number of bytes received in IPv4 datagrams with header errors (checksum, length, version mismatch). The value in the Length field of IPv4 header is used to update this counter. "
+        using Addr = Register::Address<0x40064254,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv4NopayOctets{    ///<"Number of bytes received in IPv4 datagrams that did not have a TCP, UDP, or ICMP payload. The value in the IPv4 header's Length field is used to update this counter. "
-        using Addr = Register::Address<0x40064258,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv4NopayOctets{    ///<"Number of bytes received in IPv4 datagrams that did not have a TCP, UDP, or ICMP payload. The value in the IPv4 header's Length field is used to update this counter. "
+        using Addr = Register::Address<0x40064258,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv4FragOctets{    ///<Number of bytes received in fragmented IPv4 datagrams. The value in the IPv4 header's Length field is used to update this counter. 
-        using Addr = Register::Address<0x4006425c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv4FragOctets{    ///<Number of bytes received in fragmented IPv4 datagrams. The value in the IPv4 header's Length field is used to update this counter. 
+        using Addr = Register::Address<0x4006425c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv4UdsblOctets{    ///<Number of bytes received in a UDP segment that had the UDP checksum disabled. This counter does not count IP Header bytes. 
-        using Addr = Register::Address<0x40064260,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv4UdsblOctets{    ///<Number of bytes received in a UDP segment that had the UDP checksum disabled. This counter does not count IP Header bytes. 
+        using Addr = Register::Address<0x40064260,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv6GdOctets{    ///<"Number of bytes received in good IPv6 datagrams encapsulating TCP, UDP or ICMPv6 data"
-        using Addr = Register::Address<0x40064264,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv6GdOctets{    ///<"Number of bytes received in good IPv6 datagrams encapsulating TCP, UDP or ICMPv6 data"
+        using Addr = Register::Address<0x40064264,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv6HdrerrOctets{    ///<"Number of bytes received in IPv6 datagrams with header errors (length, version mismatch). The value in the IPv6 header's Length field is used to update this counter.  "
-        using Addr = Register::Address<0x40064268,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv6HdrerrOctets{    ///<"Number of bytes received in IPv6 datagrams with header errors (length, version mismatch). The value in the IPv6 header's Length field is used to update this counter.  "
+        using Addr = Register::Address<0x40064268,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxipv6NopayOctets{    ///<"Number of bytes received in IPv6 datagrams that did not have a TCP, UDP, or ICMP payload. The value in the IPv6 header's Length field is used to update this counter. "
-        using Addr = Register::Address<0x4006426c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Rxipv6NopayOctets{    ///<"Number of bytes received in IPv6 datagrams that did not have a TCP, UDP, or ICMP payload. The value in the IPv6 header's Length field is used to update this counter. "
+        using Addr = Register::Address<0x4006426c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxudpGdOctets{    ///<Number of bytes received in a good UDP segment. This counter (and the counters below) does not count IP header bytes. 
-        using Addr = Register::Address<0x40064270,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxudpGdOctets{    ///<Number of bytes received in a good UDP segment. This counter (and the counters below) does not count IP header bytes. 
+        using Addr = Register::Address<0x40064270,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxudpErrOctets{    ///<Number of bytes received in a UDP segment that had checksum errors
-        using Addr = Register::Address<0x40064274,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxudpErrOctets{    ///<Number of bytes received in a UDP segment that had checksum errors
+        using Addr = Register::Address<0x40064274,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxtcpGdOctets{    ///<Number of bytes received in a good TCP segment 
-        using Addr = Register::Address<0x40064278,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxtcpGdOctets{    ///<Number of bytes received in a good TCP segment 
+        using Addr = Register::Address<0x40064278,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxtcpErrOctets{    ///<Number of bytes received in a TCP segment with checksum errors 
-        using Addr = Register::Address<0x4006427c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxtcpErrOctets{    ///<Number of bytes received in a TCP segment with checksum errors 
+        using Addr = Register::Address<0x4006427c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxicmpGdOctets{    ///<Number of bytes received in a good ICMP segment 
-        using Addr = Register::Address<0x40064280,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxicmpGdOctets{    ///<Number of bytes received in a good ICMP segment 
+        using Addr = Register::Address<0x40064280,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonerxicmpErrOctets{    ///<Number of bytes received in an ICMP segment with checksum errors
-        using Addr = Register::Address<0x40064284,0xffffffff,0,unsigned>;
+    namespace EthernetMac0RxicmpErrOctets{    ///<Number of bytes received in an ICMP segment with checksum errors
+        using Addr = Register::Address<0x40064284,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonergsr{    ///<RGMII Status Register)
-        using Addr = Register::Address<0x400640d8,0xfffffff0,0,unsigned>;
+    namespace EthernetMac0Rgsr{    ///<RGMII Status Register)
+        using Addr = Register::Address<0x400640d8,0xfffffff0,0x00000000,unsigned>;
         ///Link Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ls{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ls{}; 
         ///Link Speed
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,unsigned> lsp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lsp{}; 
         ///Link Mode
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lm{}; 
     }
-    namespace Nonetscr{    ///<Time Stamp Control Register
-        using Addr = Register::Address<0x40064700,0xfef800c0,0,unsigned>;
+    namespace EthernetMac0Tscr{    ///<Time Stamp Control Register
+        using Addr = Register::Address<0x40064700,0xfef800c0,0x00000000,unsigned>;
         ///Auxiliary Snapshot FIFO Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> atsfc{}; 
         ///Enable MAC address for PTP frame filtering
@@ -800,181 +800,181 @@ namespace Kvasir {
         ///Time Stamp Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tse{}; 
     }
-    namespace Nonessir{    ///<Sub-Second Increment Register
-        using Addr = Register::Address<0x40064704,0xffffff00,0,unsigned>;
+    namespace EthernetMac0Ssir{    ///<Sub-Second Increment Register
+        using Addr = Register::Address<0x40064704,0xffffff00,0x00000000,unsigned>;
         ///Sub-Second Increment Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ssinc{}; 
     }
-    namespace Nonestsr{    ///<System Time - Seconds Register
-        using Addr = Register::Address<0x40064708,0x00000000,0,unsigned>;
+    namespace EthernetMac0Stsr{    ///<System Time - Seconds Register
+        using Addr = Register::Address<0x40064708,0x00000000,0x00000000,unsigned>;
         ///Time Stamp Second
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tss{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tss{}; 
     }
-    namespace Nonestnr{    ///<System Time - Nanoseconds Register
-        using Addr = Register::Address<0x4006470c,0x80000000,0,unsigned>;
+    namespace EthernetMac0Stnr{    ///<System Time - Nanoseconds Register
+        using Addr = Register::Address<0x4006470c,0x80000000,0x00000000,unsigned>;
         ///Time Stamp Sub-Seconds
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,0),Register::ReadWriteAccess,unsigned> tsss{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tsss{}; 
     }
-    namespace Nonestsur{    ///<System Time - Seconds Update Register
-        using Addr = Register::Address<0x40064710,0x00000000,0,unsigned>;
+    namespace EthernetMac0Stsur{    ///<System Time - Seconds Update Register
+        using Addr = Register::Address<0x40064710,0x00000000,0x00000000,unsigned>;
         ///Time Stamp Second
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tss{}; 
     }
-    namespace Nonestnur{    ///<System Time - Nanoseconds Update Register
-        using Addr = Register::Address<0x40064714,0x00000000,0,unsigned>;
+    namespace EthernetMac0Stnur{    ///<System Time - Nanoseconds Update Register
+        using Addr = Register::Address<0x40064714,0x00000000,0x00000000,unsigned>;
         ///Add or Subtract Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> addsub{}; 
         ///Time Stamp Sub-Seconds
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,0),Register::ReadWriteAccess,unsigned> tsss{}; 
     }
-    namespace Nonetsar{    ///<Time Stamp Addend Register
-        using Addr = Register::Address<0x40064718,0x00000000,0,unsigned>;
+    namespace EthernetMac0Tsar{    ///<Time Stamp Addend Register
+        using Addr = Register::Address<0x40064718,0x00000000,0x00000000,unsigned>;
         ///Time Stamp Addend Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsar{}; 
     }
-    namespace Nonettsr{    ///<Target Time Seconds Register
-        using Addr = Register::Address<0x4006471c,0x00000000,0,unsigned>;
+    namespace EthernetMac0Ttsr{    ///<Target Time Seconds Register
+        using Addr = Register::Address<0x4006471c,0x00000000,0x00000000,unsigned>;
         ///Target Time Stamp Seconds Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tstr{}; 
     }
-    namespace Nonettnr{    ///<Target Time Nanoseconds Register
-        using Addr = Register::Address<0x40064720,0x80000000,0,unsigned>;
+    namespace EthernetMac0Ttnr{    ///<Target Time Nanoseconds Register
+        using Addr = Register::Address<0x40064720,0x80000000,0x00000000,unsigned>;
         ///Target Time Stamp Nanoseconds Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,0),Register::ReadWriteAccess,unsigned> tstr{}; 
     }
-    namespace Nonesthwsr{    ///<System Time - Higher Word Seconds Register
-        using Addr = Register::Address<0x40064724,0xffff0000,0,unsigned>;
+    namespace EthernetMac0Sthwsr{    ///<System Time - Higher Word Seconds Register
+        using Addr = Register::Address<0x40064724,0xffff0000,0x00000000,unsigned>;
         ///Time Stamp Higher Word Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tshwr{}; 
     }
-    namespace Nonetsr{    ///<Time Stamp Status Register
-        using Addr = Register::Address<0x40064728,0xf0fffff0,0,unsigned>;
+    namespace EthernetMac0Tsr{    ///<Time Stamp Status Register
+        using Addr = Register::Address<0x40064728,0xf0fffff0,0x00000000,unsigned>;
         ///Auxiliary Time Stamp Number of Snapshots
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,25),Register::ReadWriteAccess,unsigned> atsns{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> atsns{}; 
         ///Auxiliary Time Stamp Snapshot Trigger Missed
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> atsstm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> atsstm{}; 
         ///Timestamp Target Time Error
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> trgter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trgter{}; 
         ///Auxiliary Time Stamp Trigger Snapshot
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> atsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> atsts{}; 
         ///Time Stamp Target Time Reached
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tstart{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tstart{}; 
         ///Time Stamp Seconds Overflow
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tssovf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tssovf{}; 
     }
-    namespace Noneppscr{    ///<PPS Control Register
-        using Addr = Register::Address<0x4006472c,0xfffffff0,0,unsigned>;
+    namespace EthernetMac0Ppscr{    ///<PPS Control Register
+        using Addr = Register::Address<0x4006472c,0xfffffff0,0x00000000,unsigned>;
         ///Controls the frequency of the PPS output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ppsctrl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ppsctrl{}; 
     }
-    namespace Noneatnr{    ///<Auxiliary Time Stamp - Nanoseconds Register
-        using Addr = Register::Address<0x40064730,0x80000000,0,unsigned>;
+    namespace EthernetMac0Atnr{    ///<Auxiliary Time Stamp - Nanoseconds Register
+        using Addr = Register::Address<0x40064730,0x80000000,0x00000000,unsigned>;
         ///ATN
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,0),Register::ReadWriteAccess,unsigned> atn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> atn{}; 
     }
-    namespace Noneatsr{    ///<Auxiliary Time Stamp - Seconds Register
-        using Addr = Register::Address<0x40064734,0x00000000,0,unsigned>;
+    namespace EthernetMac0Atsr{    ///<Auxiliary Time Stamp - Seconds Register
+        using Addr = Register::Address<0x40064734,0x00000000,0x00000000,unsigned>;
         ///ATS
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ats{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ats{}; 
     }
-    namespace Nonemar16h{    ///<MAC Address16 Register -High
-        using Addr = Register::Address<0x40064800,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar16h{    ///<MAC Address16 Register -High
+        using Addr = Register::Address<0x40064800,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar16l{    ///<MAC Address16 Register -Low
-        using Addr = Register::Address<0x40064804,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar16l{    ///<MAC Address16 Register -Low
+        using Addr = Register::Address<0x40064804,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar17h{    ///<MAC Address17 Register -High
-        using Addr = Register::Address<0x40064808,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar17h{    ///<MAC Address17 Register -High
+        using Addr = Register::Address<0x40064808,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar17l{    ///<MAC Address17 Register -Low
-        using Addr = Register::Address<0x4006480c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar17l{    ///<MAC Address17 Register -Low
+        using Addr = Register::Address<0x4006480c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar18h{    ///<MAC Address18 Register -High
-        using Addr = Register::Address<0x40064810,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar18h{    ///<MAC Address18 Register -High
+        using Addr = Register::Address<0x40064810,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar18l{    ///<MAC Address18 Register -Low
-        using Addr = Register::Address<0x40064814,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar18l{    ///<MAC Address18 Register -Low
+        using Addr = Register::Address<0x40064814,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar19h{    ///<MAC Address19 Register -High
-        using Addr = Register::Address<0x40064818,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar19h{    ///<MAC Address19 Register -High
+        using Addr = Register::Address<0x40064818,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar19l{    ///<MAC Address19 Register -Low
-        using Addr = Register::Address<0x4006481c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar19l{    ///<MAC Address19 Register -Low
+        using Addr = Register::Address<0x4006481c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar20h{    ///<MAC Address20 Register -High
-        using Addr = Register::Address<0x40064820,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar20h{    ///<MAC Address20 Register -High
+        using Addr = Register::Address<0x40064820,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar20l{    ///<MAC Address20 Register -Low
-        using Addr = Register::Address<0x40064824,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar20l{    ///<MAC Address20 Register -Low
+        using Addr = Register::Address<0x40064824,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar21h{    ///<MAC Address21 Register -High
-        using Addr = Register::Address<0x40064828,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar21h{    ///<MAC Address21 Register -High
+        using Addr = Register::Address<0x40064828,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar21l{    ///<MAC Address21 Register -Low
-        using Addr = Register::Address<0x4006482c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar21l{    ///<MAC Address21 Register -Low
+        using Addr = Register::Address<0x4006482c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar22h{    ///<MAC Address22 Register -High
-        using Addr = Register::Address<0x40064830,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar22h{    ///<MAC Address22 Register -High
+        using Addr = Register::Address<0x40064830,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar22l{    ///<MAC Address22 Register -Low
-        using Addr = Register::Address<0x40064834,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar22l{    ///<MAC Address22 Register -Low
+        using Addr = Register::Address<0x40064834,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar23h{    ///<MAC Address23 Register -High
-        using Addr = Register::Address<0x40064838,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar23h{    ///<MAC Address23 Register -High
+        using Addr = Register::Address<0x40064838,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar23l{    ///<MAC Address23 Register -Low
-        using Addr = Register::Address<0x4006483c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar23l{    ///<MAC Address23 Register -Low
+        using Addr = Register::Address<0x4006483c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar24h{    ///<MAC Address24 Register -High
-        using Addr = Register::Address<0x40064840,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar24h{    ///<MAC Address24 Register -High
+        using Addr = Register::Address<0x40064840,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar24l{    ///<MAC Address24 Register -Low
-        using Addr = Register::Address<0x40064844,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar24l{    ///<MAC Address24 Register -Low
+        using Addr = Register::Address<0x40064844,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar25h{    ///<MAC Address25 Register -High
-        using Addr = Register::Address<0x40064848,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar25h{    ///<MAC Address25 Register -High
+        using Addr = Register::Address<0x40064848,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar25l{    ///<MAC Address25 Register -Low
-        using Addr = Register::Address<0x4006484c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar25l{    ///<MAC Address25 Register -Low
+        using Addr = Register::Address<0x4006484c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar26h{    ///<MAC Address26 Register -High
-        using Addr = Register::Address<0x40064850,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar26h{    ///<MAC Address26 Register -High
+        using Addr = Register::Address<0x40064850,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar26l{    ///<MAC Address26 Register -Low
-        using Addr = Register::Address<0x40064854,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar26l{    ///<MAC Address26 Register -Low
+        using Addr = Register::Address<0x40064854,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar27h{    ///<MAC Address27 Register -High
-        using Addr = Register::Address<0x40064858,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar27h{    ///<MAC Address27 Register -High
+        using Addr = Register::Address<0x40064858,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar27l{    ///<MAC Address27 Register -Low
-        using Addr = Register::Address<0x4006485c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar27l{    ///<MAC Address27 Register -Low
+        using Addr = Register::Address<0x4006485c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar28h{    ///<MAC Address28 Register -High
-        using Addr = Register::Address<0x40064860,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar28h{    ///<MAC Address28 Register -High
+        using Addr = Register::Address<0x40064860,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar28l{    ///<MAC Address28 Register -Low
-        using Addr = Register::Address<0x40064864,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar28l{    ///<MAC Address28 Register -Low
+        using Addr = Register::Address<0x40064864,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar29h{    ///<MAC Address29 Register -High
-        using Addr = Register::Address<0x40064868,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar29h{    ///<MAC Address29 Register -High
+        using Addr = Register::Address<0x40064868,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar29l{    ///<MAC Address29 Register -Low
-        using Addr = Register::Address<0x4006486c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar29l{    ///<MAC Address29 Register -Low
+        using Addr = Register::Address<0x4006486c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar30h{    ///<MAC Address30 Register -High
-        using Addr = Register::Address<0x40064870,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar30h{    ///<MAC Address30 Register -High
+        using Addr = Register::Address<0x40064870,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar30l{    ///<MAC Address30 Register -Low
-        using Addr = Register::Address<0x40064874,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar30l{    ///<MAC Address30 Register -Low
+        using Addr = Register::Address<0x40064874,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar31h{    ///<MAC Address31 Register -High
-        using Addr = Register::Address<0x40064878,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar31h{    ///<MAC Address31 Register -High
+        using Addr = Register::Address<0x40064878,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemar31l{    ///<MAC Address31 Register -Low
-        using Addr = Register::Address<0x4006487c,0xffffffff,0,unsigned>;
+    namespace EthernetMac0Mar31l{    ///<MAC Address31 Register -Low
+        using Addr = Register::Address<0x4006487c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonebmr{    ///<Bus Mode Register
-        using Addr = Register::Address<0x40065000,0xf0000000,0,unsigned>;
+    namespace EthernetMac0Bmr{    ///<Bus Mode Register
+        using Addr = Register::Address<0x40065000,0xf0000000,0x00000000,unsigned>;
         ///Transmit Priority
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> txpr{}; 
         ///Mixed Burst
@@ -1002,18 +1002,18 @@ namespace Kvasir {
         ///Software Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swr{}; 
     }
-    namespace Nonetpdr{    ///<Transmit Poll Demand Register)
-        using Addr = Register::Address<0x40065004,0x00000000,0,unsigned>;
+    namespace EthernetMac0Tpdr{    ///<Transmit Poll Demand Register)
+        using Addr = Register::Address<0x40065004,0x00000000,0x00000000,unsigned>;
         ///Transmit Poll Demand
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tpd{}; 
     }
-    namespace Nonerpdr{    ///<Receive Poll Demand Register
-        using Addr = Register::Address<0x40065008,0x00000000,0,unsigned>;
+    namespace EthernetMac0Rpdr{    ///<Receive Poll Demand Register
+        using Addr = Register::Address<0x40065008,0x00000000,0x00000000,unsigned>;
         ///Receive Poll Demand
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rpd{}; 
     }
-    namespace Nonerdlar{    ///<Receive Descriptor List Address Register)
-        using Addr = Register::Address<0x4006500c,0x00000003,0,unsigned>;
+    namespace EthernetMac0Rdlar{    ///<Receive Descriptor List Address Register)
+        using Addr = Register::Address<0x4006500c,0x00000003,0x00000000,unsigned>;
         ///Start of Receive List
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> srl31{}; 
         ///Bit30 of RDLAR
@@ -1075,8 +1075,8 @@ namespace Kvasir {
         ///Bit2 of RDLAR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> srl2{}; 
     }
-    namespace Nonetdlar{    ///< Transmit Descriptor List Address Register
-        using Addr = Register::Address<0x40065010,0x00000003,0,unsigned>;
+    namespace EthernetMac0Tdlar{    ///< Transmit Descriptor List Address Register
+        using Addr = Register::Address<0x40065010,0x00000003,0x00000000,unsigned>;
         ///Start of Transmit List
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> stl31{}; 
         ///Bit30 of TDLAR
@@ -1138,57 +1138,57 @@ namespace Kvasir {
         ///Bit2 of TDLAR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> stl2{}; 
     }
-    namespace Nonesr{    ///<Status Register
-        using Addr = Register::Address<0x40065014,0x80001800,0,unsigned>;
+    namespace EthernetMac0Sr{    ///<Status Register
+        using Addr = Register::Address<0x40065014,0x80001800,0x00000000,unsigned>;
         ///GMAC LPI Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> glpii{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> glpii{}; 
         ///Time-Stamp Trigger Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> tti{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tti{}; 
         ///GMAC PMT Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> gpi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpi{}; 
         ///GMAC MMC Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> gmi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gmi{}; 
         ///GMAC Line interface Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> gli{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gli{}; 
         ///Error Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::ReadWriteAccess,unsigned> eb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> eb{}; 
         ///Transmit Process State
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> ts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ts{}; 
         ///Receive Process State
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::ReadWriteAccess,unsigned> rs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rs{}; 
         ///Normal Interrupt Summary
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> nis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nis{}; 
         ///Abnormal Interrupt Summary
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ais{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ais{}; 
         ///Early Receive Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> eri{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> eri{}; 
         ///Fatal Bus Error Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> fbi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fbi{}; 
         ///Early Transmit Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> eti{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> eti{}; 
         ///Receive Watchdog Timeout
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rwt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rwt{}; 
         ///Receive process Stopped
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rps{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rps{}; 
         ///Receive Buffer Unavailable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ru{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ru{}; 
         ///Receive Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ri{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ri{}; 
         ///Transmit underflow
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> unf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> unf{}; 
         ///Receive Overflow
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ovf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ovf{}; 
         ///Transmit Jabber Timeout
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tjt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tjt{}; 
         ///Transmit Buffer Unavailable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tu{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tu{}; 
         ///Transmit Process Stopped
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tps{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tps{}; 
         ///Transmit Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ti{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ti{}; 
     }
-    namespace Noneomr{    ///<Operation Mode Register
-        using Addr = Register::Address<0x40065018,0xf8ce1f21,0,unsigned>;
+    namespace EthernetMac0Omr{    ///<Operation Mode Register
+        using Addr = Register::Address<0x40065018,0xf8ce1f21,0x00000000,unsigned>;
         ///Disable Dropping of TCP/IP Checksum Error Frames
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dt{}; 
         ///Receive Store and Forward
@@ -1214,8 +1214,8 @@ namespace Kvasir {
         ///Start/Stop Receive
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sr{}; 
     }
-    namespace Noneier{    ///<Interrupt Enable Register
-        using Addr = Register::Address<0x4006501c,0xfffe1800,0,unsigned>;
+    namespace EthernetMac0Ier{    ///<Interrupt Enable Register
+        using Addr = Register::Address<0x4006501c,0xfffe1800,0x00000000,unsigned>;
         ///Normal Interrupt Summary Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> nie{}; 
         ///Abnormal Interrupt Summary Enable
@@ -1237,7 +1237,7 @@ namespace Kvasir {
         ///Transmit underflow Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> une{}; 
         ///Receive Overflow Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ove{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ove{}; 
         ///Transmit Jabber Timeout
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tje{}; 
         ///Transmit Buffer Unavailable
@@ -1247,45 +1247,45 @@ namespace Kvasir {
         ///Transmit Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tie{}; 
     }
-    namespace Nonemfbocr{    ///<Missed Frame and Buffer Overflow Counter Register
-        using Addr = Register::Address<0x40065020,0xe0000000,0,unsigned>;
+    namespace EthernetMac0Mfbocr{    ///<Missed Frame and Buffer Overflow Counter Register
+        using Addr = Register::Address<0x40065020,0xe0000000,0x00000000,unsigned>;
         ///Overflow NMFF
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> onmff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> onmff{}; 
         ///Number of Missed frame by Ethernet-MAC
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,17),Register::ReadWriteAccess,unsigned> nmff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nmff{}; 
         ///Overflow NMFH
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> onmfh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> onmfh{}; 
         ///Number of Missed frame by HOST
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> nmfh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nmfh{}; 
     }
-    namespace Noneriwtr{    ///<Receive Interrupt Watchdog Timer Register
-        using Addr = Register::Address<0x40065024,0xffffff00,0,unsigned>;
+    namespace EthernetMac0Riwtr{    ///<Receive Interrupt Watchdog Timer Register
+        using Addr = Register::Address<0x40065024,0xffffff00,0x00000000,unsigned>;
         ///RI Watchdog Timer count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> riwt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> riwt{}; 
     }
-    namespace Noneahbsr{    ///<AHB Status Register
-        using Addr = Register::Address<0x4006502c,0xfffffffe,0,unsigned>;
+    namespace EthernetMac0Ahbsr{    ///<AHB Status Register
+        using Addr = Register::Address<0x4006502c,0xfffffffe,0x00000000,unsigned>;
         ///AHB Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ahbs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ahbs{}; 
     }
-    namespace Nonechtdr{    ///<Current Host Transmit Descriptor Register
-        using Addr = Register::Address<0x40065048,0x00000000,0,unsigned>;
+    namespace EthernetMac0Chtdr{    ///<Current Host Transmit Descriptor Register
+        using Addr = Register::Address<0x40065048,0x00000000,0x00000000,unsigned>;
         ///Host Transmit Descriptor Address Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> htdap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> htdap{}; 
     }
-    namespace Nonechrdr{    ///<Current Host Receive Descriptor Register
-        using Addr = Register::Address<0x4006504c,0x00000000,0,unsigned>;
+    namespace EthernetMac0Chrdr{    ///<Current Host Receive Descriptor Register
+        using Addr = Register::Address<0x4006504c,0x00000000,0x00000000,unsigned>;
         ///Host Receive Descriptor Address Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hrdap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hrdap{}; 
     }
-    namespace Nonechtbar{    ///<Current Host Transmit Buffer Address Register
-        using Addr = Register::Address<0x40065050,0x00000000,0,unsigned>;
+    namespace EthernetMac0Chtbar{    ///<Current Host Transmit Buffer Address Register
+        using Addr = Register::Address<0x40065050,0x00000000,0x00000000,unsigned>;
         ///Host Transmit Buffer Address Register
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> htbar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> htbar{}; 
     }
-    namespace Nonechrbar{    ///<Current Host Receive Buffer Address Register
-        using Addr = Register::Address<0x40065054,0x00000000,0,unsigned>;
+    namespace EthernetMac0Chrbar{    ///<Current Host Receive Buffer Address Register
+        using Addr = Register::Address<0x40065054,0x00000000,0x00000000,unsigned>;
         ///Host Receive Buffer Address Register
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hrbar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hrbar{}; 
     }
 }

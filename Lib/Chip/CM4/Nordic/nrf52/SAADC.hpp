@@ -1,39 +1,39 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog to Digital Converter
-    namespace NonetasksStart{    ///<Start the ADC and prepare the result buffer in RAM
-        using Addr = Register::Address<0x40007000,0xffffffff,0,unsigned>;
+    namespace SaadcTasksStart{    ///<Start the ADC and prepare the result buffer in RAM
+        using Addr = Register::Address<0x40007000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksSample{    ///<Take one ADC sample, if scan is enabled all channels are sampled
-        using Addr = Register::Address<0x40007004,0xffffffff,0,unsigned>;
+    namespace SaadcTasksSample{    ///<Take one ADC sample, if scan is enabled all channels are sampled
+        using Addr = Register::Address<0x40007004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop the ADC and terminate any on-going conversion
-        using Addr = Register::Address<0x40007008,0xffffffff,0,unsigned>;
+    namespace SaadcTasksStop{    ///<Stop the ADC and terminate any on-going conversion
+        using Addr = Register::Address<0x40007008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksCalibrateoffset{    ///<Starts offset auto-calibration
-        using Addr = Register::Address<0x4000700c,0xffffffff,0,unsigned>;
+    namespace SaadcTasksCalibrateoffset{    ///<Starts offset auto-calibration
+        using Addr = Register::Address<0x4000700c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStarted{    ///<The ADC has started
-        using Addr = Register::Address<0x40007100,0xffffffff,0,unsigned>;
+    namespace SaadcEventsStarted{    ///<The ADC has started
+        using Addr = Register::Address<0x40007100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEnd{    ///<The ADC has filled up the Result buffer
-        using Addr = Register::Address<0x40007104,0xffffffff,0,unsigned>;
+    namespace SaadcEventsEnd{    ///<The ADC has filled up the Result buffer
+        using Addr = Register::Address<0x40007104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsDone{    ///<A conversion task has been completed. Depending on the mode, multiple conversions might be needed for a result to be transferred to RAM.
-        using Addr = Register::Address<0x40007108,0xffffffff,0,unsigned>;
+    namespace SaadcEventsDone{    ///<A conversion task has been completed. Depending on the mode, multiple conversions might be needed for a result to be transferred to RAM.
+        using Addr = Register::Address<0x40007108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsResultdone{    ///<A result is ready to get transferred to RAM
-        using Addr = Register::Address<0x4000710c,0xffffffff,0,unsigned>;
+    namespace SaadcEventsResultdone{    ///<A result is ready to get transferred to RAM
+        using Addr = Register::Address<0x4000710c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsCalibratedone{    ///<Calibration is complete
-        using Addr = Register::Address<0x40007110,0xffffffff,0,unsigned>;
+    namespace SaadcEventsCalibratedone{    ///<Calibration is complete
+        using Addr = Register::Address<0x40007110,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStopped{    ///<The ADC has stopped
-        using Addr = Register::Address<0x40007114,0xffffffff,0,unsigned>;
+    namespace SaadcEventsStopped{    ///<The ADC has stopped
+        using Addr = Register::Address<0x40007114,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneinten{    ///<Enable or disable interrupt
-        using Addr = Register::Address<0x40007300,0xffc00000,0,unsigned>;
+    namespace SaadcInten{    ///<Enable or disable interrupt
+        using Addr = Register::Address<0x40007300,0xffc00000,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_STARTED event
         enum class StartedVal {
             disabled=0x00000000,     ///<Disable
@@ -255,8 +255,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40007304,0xffc00000,0,unsigned>;
+    namespace SaadcIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40007304,0xffc00000,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_STARTED event
         enum class StartedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -522,8 +522,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40007308,0xffc00000,0,unsigned>;
+    namespace SaadcIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40007308,0xffc00000,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_STARTED event
         enum class StartedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -789,8 +789,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::clear> clear{};
         }
     }
-    namespace Nonestatus{    ///<Status
-        using Addr = Register::Address<0x40007400,0xfffffffe,0,unsigned>;
+    namespace SaadcStatus{    ///<Status
+        using Addr = Register::Address<0x40007400,0xfffffffe,0x00000000,unsigned>;
         ///Status
         enum class StatusVal {
             ready=0x00000000,     ///<ADC is ready. No on-going conversion.
@@ -802,8 +802,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::busy> busy{};
         }
     }
-    namespace Noneenable{    ///<Enable or disable ADC
-        using Addr = Register::Address<0x40007500,0xfffffffe,0,unsigned>;
+    namespace SaadcEnable{    ///<Enable or disable ADC
+        using Addr = Register::Address<0x40007500,0xfffffffe,0x00000000,unsigned>;
         ///Enable or disable ADC
         enum class EnableVal {
             disabled=0x00000000,     ///<Disable ADC
@@ -815,13 +815,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
-    namespace Noneresolution{    ///<Resolution configuration
-        using Addr = Register::Address<0x400075f0,0xfffffff8,0,unsigned>;
+    namespace SaadcResolution{    ///<Resolution configuration
+        using Addr = Register::Address<0x400075f0,0xfffffff8,0x00000000,unsigned>;
         ///Set the resolution
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> val{}; 
     }
-    namespace Noneoversample{    ///<Oversampling configuration. OVERSAMPLE should not be combined with SCAN. The RESOLUTION is applied before averaging, thus for high OVERSAMPLE a higher RESOLUTION should be used.
-        using Addr = Register::Address<0x400075f4,0xfffffff0,0,unsigned>;
+    namespace SaadcOversample{    ///<Oversampling configuration. OVERSAMPLE should not be combined with SCAN. The RESOLUTION is applied before averaging, thus for high OVERSAMPLE a higher RESOLUTION should be used.
+        using Addr = Register::Address<0x400075f4,0xfffffff0,0x00000000,unsigned>;
         ///Oversample control
         enum class OversampleVal {
             bypass=0x00000000,     ///<Bypass oversampling
@@ -847,8 +847,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oversample)::Type,OversampleVal::over256x> over256x{};
         }
     }
-    namespace Nonesamplerate{    ///<Controls normal or continuous sample rate
-        using Addr = Register::Address<0x400075f8,0xffffe800,0,unsigned>;
+    namespace SaadcSamplerate{    ///<Controls normal or continuous sample rate
+        using Addr = Register::Address<0x400075f8,0xffffe800,0x00000000,unsigned>;
         ///Capture and compare value. Sample rate is 16 MHz/CC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> cc{}; 
         ///Select mode for sample rate control

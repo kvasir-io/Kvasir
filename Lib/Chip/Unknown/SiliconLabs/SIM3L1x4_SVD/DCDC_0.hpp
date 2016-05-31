@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4004e000,0x00a000f0,0,unsigned>;
+    namespace Dcdc0Control{    ///<Module Control
+        using Addr = Register::Address<0x4004e000,0x00a000f0,0x00000000,unsigned>;
         ///DC-DC Converter Ready Low Flag. 
         enum class RdylowfVal {
             notSet=0x00000000,     ///<The output voltage (VDC) is below the threshold set in the RDYLOWTH threshold field (RDYLOWTH).
             set=0x00000001,     ///<The output voltage (VDC) is above the threshold set in the RDYLOWTH threshold field (RDYLOWTH).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RdylowfVal> rdylowf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RdylowfVal> rdylowf{}; 
         namespace RdylowfValC{
             constexpr Register::FieldValue<decltype(rdylowf)::Type,RdylowfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rdylowf)::Type,RdylowfVal::set> set{};
@@ -19,7 +19,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The output voltage (VDC) has not exceeded 105% of the programmed output value.
             set=0x00000001,     ///<The output voltage (VDC) has exceeded 105% of the programmed output value.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RdyhighfVal> rdyhighf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RdyhighfVal> rdyhighf{}; 
         namespace RdyhighfValC{
             constexpr Register::FieldValue<decltype(rdyhighf)::Type,RdyhighfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rdyhighf)::Type,RdyhighfVal::set> set{};
@@ -29,7 +29,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The input voltage (VBATDC) is more than 0.4 V above the output voltage (VDC). The DC-DC converter is not in dropout.
             set=0x00000001,     ///<The input voltage (VBATDC) is less than 0.4 V above the output voltage (VDC). The DC-DC converter is in dropout, and firmware should enable the bypass switch (BEN=1).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DropoutfVal> dropoutf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DropoutfVal> dropoutf{}; 
         namespace DropoutfValC{
             constexpr Register::FieldValue<decltype(dropoutf)::Type,DropoutfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dropoutf)::Type,DropoutfVal::set> set{};
@@ -39,7 +39,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The bandgap voltage is not above the threshold.
             set=0x00000001,     ///<The bandgap voltage is above the threshold.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BgrdyfVal> bgrdyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BgrdyfVal> bgrdyf{}; 
         namespace BgrdyfValC{
             constexpr Register::FieldValue<decltype(bgrdyf)::Type,BgrdyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(bgrdyf)::Type,BgrdyfVal::set> set{};
@@ -191,8 +191,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcdcen)::Type,DcdcenVal::enabled> enabled{};
         }
     }
-    namespace Noneconfig{    ///<Module Configuration
-        using Addr = Register::Address<0x4004e010,0xffccff8f,0,unsigned>;
+    namespace Dcdc0Config{    ///<Module Configuration
+        using Addr = Register::Address<0x4004e010,0xffccff8f,0x00000000,unsigned>;
         ///Inductor Peak Current Limit. 
         enum class IlimitVal {
             limit1=0x00000001,     ///<Limit the peak inductor current to 200 mA.

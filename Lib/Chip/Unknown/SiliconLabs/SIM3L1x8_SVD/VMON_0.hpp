@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4002f000,0x7fffffa3,0,unsigned>;
+    namespace Vmon0Control{    ///<Module Control
+        using Addr = Register::Address<0x4002f000,0x7fffffa3,0x00000000,unsigned>;
         ///VBAT Reset Threshold Status Flag. 
         enum class VbatrstfVal {
             vbatIsBelowReset=0x00000000,     ///<The VBAT voltage is below the VBAT reset threshold.
             vbatIsAboveReset=0x00000001,     ///<The VBAT voltage is above the VBAT reset threshold.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VbatrstfVal> vbatrstf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,VbatrstfVal> vbatrstf{}; 
         namespace VbatrstfValC{
             constexpr Register::FieldValue<decltype(vbatrstf)::Type,VbatrstfVal::vbatIsBelowReset> vbatIsBelowReset{};
             constexpr Register::FieldValue<decltype(vbatrstf)::Type,VbatrstfVal::vbatIsAboveReset> vbatIsAboveReset{};
@@ -19,7 +19,7 @@ namespace Kvasir {
             vbatIsLow=0x00000000,     ///<The VBAT voltage is below the early warning threshold.
             vbatIsOk=0x00000001,     ///<The VBAT voltage is above the early warning threshold.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,VbatliVal> vbatli{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,VbatliVal> vbatli{}; 
         namespace VbatliValC{
             constexpr Register::FieldValue<decltype(vbatli)::Type,VbatliVal::vbatIsLow> vbatIsLow{};
             constexpr Register::FieldValue<decltype(vbatli)::Type,VbatliVal::vbatIsOk> vbatIsOk{};

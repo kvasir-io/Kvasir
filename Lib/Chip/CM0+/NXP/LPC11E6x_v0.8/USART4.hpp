@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //USART4 
-    namespace Nonecfg{    ///<USART Configuration register. Basic USART configuration settings that typically are not changed during operation.
-        using Addr = Register::Address<0x4004c000,0xff032502,0,unsigned>;
+    namespace Usart4Cfg{    ///<USART Configuration register. Basic USART configuration settings that typically are not changed during operation.
+        using Addr = Register::Address<0x4004c000,0x00000000,0x00000000,unsigned>;
         ///USART Enable.
         enum class EnableVal {
             disabled=0x00000000,     ///<Disabled. The USART is disabled and the internal state machine and counters are reset. While Enable = 0, all USART interrupts and DMA transfers are disabled. When Enable is set again, CFG and most other control bits remain unchanged. For instance, when re-enabled, the USART will immediately generate a TxRdy interrupt (if  enabled in the INTENSET register) or a DMA transfer request because the transmitter has been reset and is therefore available.
@@ -14,6 +14,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Selects the data size for the USART.
         enum class DatalenVal {
             v7BitDataLength=0x00000000,     ///<7 bit Data length.
@@ -58,6 +60,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode32k)::Type,Mode32kVal::standard> standard{};
             constexpr Register::FieldValue<decltype(mode32k)::Type,Mode32kVal::v32khz> v32khz{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///CTS Enable. Determines whether CTS is used for flow control. CTS can be from the input pin, or from the USART's own RTS if loopback mode is enabled. See Section 11.8.4 for more information.
         enum class CtsenVal {
             noFlowControl=0x00000000,     ///<No flow control. The transmitter does not receive any automatic flow control signal.
@@ -68,6 +72,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctsen)::Type,CtsenVal::noFlowControl> noFlowControl{};
             constexpr Register::FieldValue<decltype(ctsen)::Type,CtsenVal::flowControlEnabled> flowControlEnabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Selects synchronous or asynchronous operation.
         enum class SyncenVal {
             asynchronous=0x00000000,     ///<Asynchronous mode is selected.
@@ -88,6 +94,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkpol)::Type,ClkpolVal::fallingEdge> fallingEdge{};
             constexpr Register::FieldValue<decltype(clkpol)::Type,ClkpolVal::risingEdge> risingEdge{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Synchronous mode Master select.
         enum class SyncmstVal {
             slave=0x00000000,     ///<Slave. When synchronous mode is enabled, the USART is a slave.
@@ -108,6 +116,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loop)::Type,LoopVal::normalOperation> normalOperation{};
             constexpr Register::FieldValue<decltype(loop)::Type,LoopVal::loopbackMode> loopbackMode{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Output Enable Turnaround time enable for RS-485 operation.
         enum class OetaVal {
             deasserted=0x00000000,     ///<Deasserted. If selected by OESEL, the Output Enable signal deasserted at the end of the last stop bit of a transmission.
@@ -168,9 +178,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpol)::Type,TxpolVal::notChanged> notChanged{};
             constexpr Register::FieldValue<decltype(txpol)::Type,TxpolVal::inverted> inverted{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectl{    ///<USART Control register. USART control settings that are more likely to change during operation.
-        using Addr = Register::Address<0x4004c004,0xfffefcb9,0,unsigned>;
+    namespace Usart4Ctl{    ///<USART Control register. USART control settings that are more likely to change during operation.
+        using Addr = Register::Address<0x4004c004,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Break Enable.
         enum class TxbrkenVal {
             normalOperation=0x00000000,     ///<Normal operation.
@@ -191,6 +205,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addrdet)::Type,AddrdetVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addrdet)::Type,AddrdetVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transmit Disable.
         enum class TxdisVal {
             notDisabled=0x00000000,     ///<Not disabled. USART transmitter is not disabled.
@@ -201,6 +217,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdis)::Type,TxdisVal::notDisabled> notDisabled{};
             constexpr Register::FieldValue<decltype(txdis)::Type,TxdisVal::disabled> disabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Continuous Clock generation. By default, SCLK is only output while data is being transmitted in synchronous mode.
         enum class CcVal {
             clockOnCharacter=0x00000000,     ///<Clock on character. In synchronous mode, SCLK cycles only when characters are being sent on Un_TXD or to complete a character that is being received.
@@ -221,6 +239,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrcconrx)::Type,ClrcconrxVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(clrcconrx)::Type,ClrcconrxVal::autoClear> autoClear{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Autobaud enable.
         enum class AutobaudVal {
             disabled=0x00000000,     ///<Disabled. UART is in normal operating mode.
@@ -231,9 +251,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autobaud)::Type,AutobaudVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autobaud)::Type,AutobaudVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,17),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestat{    ///<USART Status register. The complete status value can be read here. Writing ones clears some bits in the register. Some bits can be cleared by writing a 1 to them.
-        using Addr = Register::Address<0x4004c008,0xfffe0280,0,unsigned>;
+    namespace Usart4Stat{    ///<USART Status register. The complete status value can be read here. Writing ones clears some bits in the register. Some bits can be cleared by writing a 1 to them.
+        using Addr = Register::Address<0x4004c008,0x00000000,0x00000000,unsigned>;
         ///Receiver Ready flag. When 1, indicates that data is available to be read from the receiver buffer. Cleared after a read of the RXDAT or RXDATSTAT registers.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
         ///Receiver Idle. When 0, indicates that the receiver is currently in the process of receiving data. When 1, indicates that the receiver is not currently in the process of receiving data.
@@ -248,8 +270,12 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltacts{}; 
         ///Transmitter Disabled Interrupt flag. When 1, this bit indicates that the USART transmitter is fully idle after being disabled via the TXDIS in the CFG register (TXDIS = 1).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisstat{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Overrun Error interrupt flag. This flag is set when a new character is received while the receiver buffer is still in use. If this occurs, the newly received character in the shift register is lost.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunint{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Received Break. This bit reflects the current state of the receiver break detection logic. It is set when the Un_RXD pin remains low for 16 bit times. Note that FRAMERRINT will also be set when this condition occurs because the stop bit(s) for the character would be missing. RXBRK is cleared when the Un_RXD pin goes high.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rxbrk{}; 
         ///This bit is set when a change in the state of receiver break detection occurs. Cleared by software.
@@ -264,21 +290,31 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseint{}; 
         ///Auto-baud Error. An auto-baud error can occur if the BRG counts to its limit before the end of the start bit that is being measured, essentially an auto-baud time-out.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberr{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,17),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintenset{    ///<Interrupt Enable read and Set register. Contains an individual interrupt enable bit for each potential USART interrupt. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set.
-        using Addr = Register::Address<0x4004c00c,0xfffe0692,0,unsigned>;
+    namespace Usart4Intenset{    ///<Interrupt Enable read and Set register. Contains an individual interrupt enable bit for each potential USART interrupt. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set.
+        using Addr = Register::Address<0x4004c00c,0x00000000,0x00000000,unsigned>;
         ///When 1, enables an interrupt when there is a received character available to be read from the RXDAT register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdyen{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///When 1, enables an interrupt when the TXDAT register is available to take another character to transmit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdyen{}; 
         ///When 1, enables an interrupt when the transmitter becomes idle (TXIDLE = 1).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidleen{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///When 1, enables an interrupt when there is a change in the state of the CTS input.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltactsen{}; 
         ///When 1, enables an interrupt when the transmitter is fully disabled as indicated by the TXDISINT flag in STAT. See description of the TXDISINT bit for details.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisen{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///When 1, enables an interrupt when an overrun error occurred.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunen{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///When 1, enables an interrupt when a change of state has occurred in the detection of a received break condition (break condition asserted or deasserted).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrken{}; 
         ///When 1, enables an interrupt when a received start bit has been detected.
@@ -291,21 +327,31 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseen{}; 
         ///When 1, enables an interrupt when an auto-baud error occurs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberren{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,17),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintenclr{    ///<Interrupt Enable Clear register. Allows clearing any combination of bits in the INTENSET register. Writing a 1 to any implemented bit position causes the corresponding bit to be cleared.
-        using Addr = Register::Address<0x4004c010,0xfffe0692,0,unsigned>;
+    namespace Usart4Intenclr{    ///<Interrupt Enable Clear register. Allows clearing any combination of bits in the INTENSET register. Writing a 1 to any implemented bit position causes the corresponding bit to be cleared.
+        using Addr = Register::Address<0x4004c010,0x00000000,0x00000000,unsigned>;
         ///Writing 1 clears the corresponding bit in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdyclr{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing 1 clears the corresponding bit in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdyclr{}; 
         ///Writing 1 clears the corresponding bit in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidleclr{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing 1 clears the corresponding bit in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltactsclr{}; 
         ///Writing 1 clears the corresponding bit in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisintclr{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing 1 clears the corresponding bit in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunclr{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing 1 clears the corresponding bit in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrkclr{}; 
         ///Writing 1 clears the corresponding bit in the INTENSET register.
@@ -318,47 +364,67 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseclr{}; 
         ///Writing 1 clears the corresponding bit in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberrclr{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,17),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerxdat{    ///<Receiver Data register. Contains the last character received.
-        using Addr = Register::Address<0x4004c014,0xfffffe00,0,unsigned>;
+    namespace Usart4Rxdat{    ///<Receiver Data register. Contains the last character received.
+        using Addr = Register::Address<0x4004c014,0x00000000,0x00000000,unsigned>;
         ///The USART Receiver Data register contains the next received character. The number of bits that are relevant depends on the USART configuration settings.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rxdat{}; 
+        ///Reserved, the value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerxdatstat{    ///<Receiver Data with Status register. Combines the last character received with the current USART receive status. Allows DMA or software to recover incoming data and status together.
-        using Addr = Register::Address<0x4004c018,0xffff1e00,0,unsigned>;
+    namespace Usart4Rxdatstat{    ///<Receiver Data with Status register. Combines the last character received with the current USART receive status. Allows DMA or software to recover incoming data and status together.
+        using Addr = Register::Address<0x4004c018,0x00000000,0x00000000,unsigned>;
         ///The USART Receiver Data register contains the next received character. The number of bits that are relevant depends on the USART configuration settings.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rxdat{}; 
+        ///Reserved, the value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Framing Error status flag. This bit is valid when there is a character to be read in the RXDAT register and reflects the status of that character. This bit will set when the character in RXDAT was received with a missing stop bit at the expected location. This could be an indication of a baud rate or configuration mismatch with the transmitting source.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerr{}; 
         ///Parity Error status flag. This bit is valid when there is a character to be read in the RXDAT register and reflects the status of that character. This bit will be set when a parity error is detected in a received character.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerr{}; 
         ///Received Noise flag. See description of the RXNOISEINT bit in Table 133.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoise{}; 
+        ///Reserved, the value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxdat{    ///<Transmit Data register. Data to be transmitted is written here.
-        using Addr = Register::Address<0x4004c01c,0xfffffe00,0,unsigned>;
+    namespace Usart4Txdat{    ///<Transmit Data register. Data to be transmitted is written here.
+        using Addr = Register::Address<0x4004c01c,0x00000000,0x00000000,unsigned>;
         ///Writing to the USART Transmit Data Register causes the data to be transmitted as soon as the transmit shift register is available and any conditions for transmitting data are met: CTS low (if CTSEN bit = 1), TXDIS bit = 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> txdat{}; 
+        ///Reserved. Only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonebrg{    ///<Baud Rate Generator register. 16-bit integer baud rate divisor value.
-        using Addr = Register::Address<0x4004c020,0xffff0000,0,unsigned>;
+    namespace Usart4Brg{    ///<Baud Rate Generator register. 16-bit integer baud rate divisor value.
+        using Addr = Register::Address<0x4004c020,0x00000000,0x00000000,unsigned>;
         ///This value is used to divide the USART input clock to determine the baud rate, based on the input clock from the FRG. 0 = The FRG clock is used directly by the USART function. 1 = The FRG clock is divided by 2 before use by the USART function. 2 = The FRG clock is divided by 3 before use by the USART function. ... 0xFFFF = The FRG clock is divided by 65,536 before use by the USART function.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> brgval{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintstat{    ///<Interrupt status register. Reflects interrupts that are currently enabled.
-        using Addr = Register::Address<0x4004c024,0xfffe0692,0,unsigned>;
+    namespace Usart4Intstat{    ///<Interrupt status register. Reflects interrupts that are currently enabled.
+        using Addr = Register::Address<0x4004c024,0x00000000,0x00000000,unsigned>;
         ///Receiver Ready flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transmitter Ready flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdy{}; 
         ///Transmitter idle status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidle{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///This bit is set when a change in the state of the CTS input is detected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltacts{}; 
         ///Transmitter Disabled Interrupt flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisint{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Overrun Error interrupt flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunint{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///This bit is set when a change in the state of receiver break detection occurs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrk{}; 
         ///This bit is set when a start is detected on the receiver input.
@@ -371,15 +437,21 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseint{}; 
         ///Auto-baud Error flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberr{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,17),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneosr{    ///<Oversample selection register for asynchronous communication.
-        using Addr = Register::Address<0x4004c028,0xfffffff0,0,unsigned>;
+    namespace Usart4Osr{    ///<Oversample selection register for asynchronous communication.
+        using Addr = Register::Address<0x4004c028,0x00000000,0x00000000,unsigned>;
         ///Oversample Selection Value. 0 to 3 = not supported 0x4 = 5 peripheral clocks are used to transmit and receive each data bit. 0x5 = 6 peripheral clocks are used to transmit and receive each data bit.  ... 0xF= 16 peripheral clocks are used to transmit and receive each data bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> osrval{}; 
+        ///Reserved, the value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneaddr{    ///<Address register for automatic address matching.
-        using Addr = Register::Address<0x4004c02c,0xffffff00,0,unsigned>;
+    namespace Usart4Addr{    ///<Address register for automatic address matching.
+        using Addr = Register::Address<0x4004c02c,0x00000000,0x00000000,unsigned>;
         ///8-bit address used with automatic address matching. Used when address detection is enabled (ADDRDET in CTL = 1) and automatic address matching is enabled (AUTOADDR in CFG = 1).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> address{}; 
+        ///Reserved, the value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

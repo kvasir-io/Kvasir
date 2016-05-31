@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //ADC
-    namespace Nonecr{    ///<A/D Control Register. The CR register must be written to select the operating mode before A/D conversion can occur.
-        using Addr = Register::Address<0x4001c000,0xf03e0000,0,unsigned>;
+    namespace AdcCr{    ///<A/D Control Register. The CR register must be written to select the operating mode before A/D conversion can occur.
+        using Addr = Register::Address<0x4001c000,0x00000000,0x00000000,unsigned>;
         ///Selects which of the AD7:0 pins is (are) to be sampled and converted. Bit 0 selects Pin AD0, bit 1 selects pin AD1,..., and bit 7 selects pin AD7.  In software-controlled mode (BURST = 0), only one channel can be selected, i.e. only one of these bits should be 1.  In hardware scan mode (BURST = 1), any numbers of channels can be selected, i.e any or all bits can be set to 1. If all bits are set to 0, channel 0 is selected automatically (SEL = 0x01).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> sel{}; 
         ///The main clock (PCLK_ADC) is divided by (this value plus one) to produce the clock for  the A/D converter. The clock should be less than or equal to 15.5 MHz(12-bit mode) or 31 MHz (10-bit mode) in software-controlled mode (BURST bit = 0).. Typically, software should program the smallest value in this field that yields a clock of 15.5 MHz or slightly less, but in certain cases (such as a high-impedance analog  source) a slower clock may be desirable.
@@ -18,6 +18,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::softwareControlled> softwareControlled{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::hardwareScanMode> hardwareScanMode{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,17),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Low-power mode
         enum class LpwrmodeVal {
             disableTheLowPowe=0x00000000,     ///<Disable the low-power ADC mode. The analog circuitry remains activated when no conversions are requested.
@@ -70,127 +74,159 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::rising> rising{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::falling> falling{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonegdr{    ///<A/D Global Data Register. Contains the result of the most recent A/D conversion.
-        using Addr = Register::Address<0x4001c004,0x38ff000f,0,unsigned>;
+    namespace AdcGdr{    ///<A/D Global Data Register. Contains the result of the most recent A/D conversion.
+        using Addr = Register::Address<0x4001c004,0x00000000,0x00000000,unsigned>;
+        ///Reserved. These bits always read as zeros.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin selected by the SEL field, divided by the voltage on the VDD pin or as it falls within the range of VREFP to  VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VSS/VREFN, while 0xFFF indicates that the voltage on ADn was close to, equal to, or greater than that on VDD/VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
+        ///Reserved. These bits always read as zeros.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///These bits contain the channel from which the result bits V_VREF were converted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> chn{}; 
+        ///Reserved. These bits always read as zeros.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,27),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
         ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read and when the ADCR is written. If the ADCR is written while a conversion is still in progress, this bit is set and a new conversion is started.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
     }
-    namespace Noneinten{    ///<A/D Interrupt Enable Register. This register contains enable bits that allow the DONE flag of each A/D channel to be included or excluded from contributing to the generation of an A/D interrupt.
-        using Addr = Register::Address<0x4001c00c,0xfffffe00,0,unsigned>;
+    namespace AdcInten{    ///<A/D Interrupt Enable Register. This register contains enable bits that allow the DONE flag of each A/D channel to be included or excluded from contributing to the generation of an A/D interrupt.
+        using Addr = Register::Address<0x4001c00c,0x00000000,0x00000000,unsigned>;
         ///These bits allow control over which A/D channels generate interrupts for conversion completion. When bit 0 is one, completion of a conversion on A/D channel 0 will generate an interrupt, when bit 1 is one, completion of a conversion on A/D channel 1 will generate an interrupt, etc.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> adinten{}; 
         ///When 1, enables the global DONE flag in ADDR to generate an interrupt. When 0, only the individual A/D channels enabled by ADINTEN 7:0 will generate interrupts. This bit must be set to 0 in burst mode (BURST = 1 in the CR register).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> adginten{}; 
+        ///Reserved. Unused, always 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedr0{    ///<A/D Channel N Data
-Register. This register contains the result of the most recent conversion
-completed on channel n
-        using Addr = Register::Address<0x4001c010,0x3fff000f,0,unsigned>;
-        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
-        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
-    }
-    namespace Nonedr1{    ///<A/D Channel N Data
-Register. This register contains the result of the most recent conversion
-completed on channel n
-        using Addr = Register::Address<0x4001c014,0x3fff000f,0,unsigned>;
-        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
-        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
-    }
-    namespace Nonedr2{    ///<A/D Channel N Data
-Register. This register contains the result of the most recent conversion
-completed on channel n
-        using Addr = Register::Address<0x4001c018,0x3fff000f,0,unsigned>;
-        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
-        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
-    }
-    namespace Nonedr3{    ///<A/D Channel N Data
-Register. This register contains the result of the most recent conversion
-completed on channel n
-        using Addr = Register::Address<0x4001c01c,0x3fff000f,0,unsigned>;
-        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
-        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
-    }
-    namespace Nonedr4{    ///<A/D Channel N Data
-Register. This register contains the result of the most recent conversion
-completed on channel n
-        using Addr = Register::Address<0x4001c020,0x3fff000f,0,unsigned>;
-        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
-        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
-    }
-    namespace Nonedr5{    ///<A/D Channel N Data
-Register. This register contains the result of the most recent conversion
-completed on channel n
-        using Addr = Register::Address<0x4001c024,0x3fff000f,0,unsigned>;
-        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
-        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
-    }
-    namespace Nonedr6{    ///<A/D Channel N Data
-Register. This register contains the result of the most recent conversion
-completed on channel n
-        using Addr = Register::Address<0x4001c028,0x3fff000f,0,unsigned>;
-        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
-        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
-    }
-    namespace Nonedr7{    ///<A/D Channel N Data
-Register. This register contains the result of the most recent conversion
-completed on channel n
-        using Addr = Register::Address<0x4001c02c,0x3fff000f,0,unsigned>;
-        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
-        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
-    }
-    namespace Nonestat{    ///<A/D Status Register. This register contains DONE and OVERRUN flags for all of the A/D channels, as well as the A/D interrupt flag.
-        using Addr = Register::Address<0x4001c030,0xfffe0000,0,unsigned>;
+    namespace AdcStat{    ///<A/D Status Register. This register contains DONE and OVERRUN flags for all of the A/D channels, as well as the A/D interrupt flag.
+        using Addr = Register::Address<0x4001c030,0x00000000,0x00000000,unsigned>;
         ///These bits mirror the DONE status flags that appear in the result register for each A/D channel n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> done{}; 
         ///These bits mirror the OVERRRUN status flags that appear in the result register for each A/D channel n. Reading ADSTAT allows checking the status of all A/D channels simultaneously.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> overrun{}; 
         ///This bit is the A/D interrupt flag. It is one when any of the individual A/D channel Done flags is asserted and enabled to contribute to the A/D interrupt via the ADINTEN register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> adint{}; 
+        ///Reserved. Unused, always 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,17),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetrm{    ///<A/D trim register
-        using Addr = Register::Address<0x4001c034,0xfffff00f,0,unsigned>;
+    namespace AdcTrm{    ///<A/D trim register
+        using Addr = Register::Address<0x4001c034,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Offset trim bits for ADC operation. Initialized by the boot code. Can be overwritten by the user.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> adcoffs{}; 
         ///Written-to by boot code. Can not be overwritten by the user. These bits are locked after boot code write.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> trim{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace AdcDr0{    ///<A/D Channel N DataRegister. This register contains the result of the most recent conversioncompleted on channel n
+        using Addr = Register::Address<0x4001c010,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
+        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
+    }
+    namespace AdcDr1{    ///<A/D Channel N DataRegister. This register contains the result of the most recent conversioncompleted on channel n
+        using Addr = Register::Address<0x4001c014,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
+        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
+    }
+    namespace AdcDr2{    ///<A/D Channel N DataRegister. This register contains the result of the most recent conversioncompleted on channel n
+        using Addr = Register::Address<0x4001c018,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
+        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
+    }
+    namespace AdcDr3{    ///<A/D Channel N DataRegister. This register contains the result of the most recent conversioncompleted on channel n
+        using Addr = Register::Address<0x4001c01c,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
+        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
+    }
+    namespace AdcDr4{    ///<A/D Channel N DataRegister. This register contains the result of the most recent conversioncompleted on channel n
+        using Addr = Register::Address<0x4001c020,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
+        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
+    }
+    namespace AdcDr5{    ///<A/D Channel N DataRegister. This register contains the result of the most recent conversioncompleted on channel n
+        using Addr = Register::Address<0x4001c024,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
+        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
+    }
+    namespace AdcDr6{    ///<A/D Channel N DataRegister. This register contains the result of the most recent conversioncompleted on channel n
+        using Addr = Register::Address<0x4001c028,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
+        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
+    }
+    namespace AdcDr7{    ///<A/D Channel N DataRegister. This register contains the result of the most recent conversioncompleted on channel n
+        using Addr = Register::Address<0x4001c02c,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///When DONE is 1, this field contains a binary fraction representing the voltage on the ADn pin as it falls within the range of VREFP to VREFN. Zero in the field indicates that the voltage on the ADn pin was less than, equal to, or close to that on VREFN/VSS, while 0xFFF indicates that the voltage on AD input was close to, equal to, or greater than that on VREFP/VDD.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> vVref{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///This bit is 1 in burst mode if the results of one or more conversions was (were) lost and overwritten before the conversion that produced the result in the V_VREF bits.This bit is cleared by reading this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
+        ///This bit is set to 1 when an A/D conversion completes. It is cleared when this register is read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
     }
 }

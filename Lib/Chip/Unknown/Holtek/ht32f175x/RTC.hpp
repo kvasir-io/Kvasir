@@ -1,19 +1,19 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //RTC
-    namespace NonertcCnt{    ///<RTC_CNT
-        using Addr = Register::Address<0x4006a000,0x00000000,0,unsigned>;
+    namespace RtcRtcCnt{    ///<RTC_CNT
+        using Addr = Register::Address<0x4006a000,0x00000000,0x00000000,unsigned>;
         ///RTCCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rtccnt{}; 
     }
-    namespace NonertcCmp{    ///<RTC_CMP
-        using Addr = Register::Address<0x4006a004,0x00000000,0,unsigned>;
+    namespace RtcRtcCmp{    ///<RTC_CMP
+        using Addr = Register::Address<0x4006a004,0x00000000,0x00000000,unsigned>;
         ///RTCCMP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rtccmp{}; 
     }
-    namespace NonertcCr{    ///<RTC_CR
-        using Addr = Register::Address<0x4006a008,0xffe0f0c0,0,unsigned>;
+    namespace RtcRtcCr{    ///<RTC_CR
+        using Addr = Register::Address<0x4006a008,0x0000f0c0,0x00000000,unsigned>;
         ///RTCEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rtcen{}; 
         ///RTCSRC
@@ -38,18 +38,22 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> roap{}; 
         ///ROLF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rolf{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonertcSr{    ///<RTC_SR
-        using Addr = Register::Address<0x4006a00c,0xfffffff8,0,unsigned>;
+    namespace RtcRtcSr{    ///<RTC_SR
+        using Addr = Register::Address<0x4006a00c,0x00000000,0x00000000,unsigned>;
         ///CSECFLAG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> csecflag{}; 
         ///CMFLAG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cmflag{}; 
         ///OVFLAG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ovflag{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonertcIwen{    ///<RTC_IWEN
-        using Addr = Register::Address<0x4006a010,0xfffff8f8,0,unsigned>;
+    namespace RtcRtcIwen{    ///<RTC_IWEN
+        using Addr = Register::Address<0x4006a010,0x000000f8,0x00000000,unsigned>;
         ///CSECIEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> csecien{}; 
         ///CMIEN
@@ -62,5 +66,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cmwen{}; 
         ///OVWEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ovwen{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

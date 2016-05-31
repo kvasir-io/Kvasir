@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // peripheral DMAC 
-    namespace Nonedmacr{    ///< register DMACR 
-        using Addr = Register::Address<0x40060000,0x20ffffff,0,unsigned>;
+    namespace DmacDmacr{    ///< register DMACR 
+        using Addr = Register::Address<0x40060000,0x20ffffff,0x00000000,unsigned>;
         /// bitfield DE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> de{}; 
         /// bitfield DS 
@@ -13,8 +13,8 @@ namespace Kvasir {
         /// bitfield DH 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> dh{}; 
     }
-    namespace Nonedmaca0{    ///< register DMACA0 
-        using Addr = Register::Address<0x40060010,0x00700000,0,unsigned>;
+    namespace DmacDmaca0{    ///< register DMACA0 
+        using Addr = Register::Address<0x40060010,0x00700000,0x00000000,unsigned>;
         /// bitfield EB 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eb{}; 
         /// bitfield PB 
@@ -28,8 +28,8 @@ namespace Kvasir {
         /// bitfield TC 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tc{}; 
     }
-    namespace Nonedmacb0{    ///< register DMACB0 
-        using Addr = Register::Address<0x40060014,0xc000fffe,0,unsigned>;
+    namespace DmacDmacb0{    ///< register DMACB0 
+        using Addr = Register::Address<0x40060014,0xc000fffe,0x00000000,unsigned>;
         /// bitfield MS 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> ms{}; 
         /// bitfield TW 
@@ -53,46 +53,46 @@ namespace Kvasir {
         /// bitfield EM 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> em{}; 
     }
-    namespace Nonedmacsa0{    ///< register DMACSA0 
-        using Addr = Register::Address<0x40060018,0xffffffff,0,unsigned>;
+    namespace DmacDmacsa0{    ///< register DMACSA0 
+        using Addr = Register::Address<0x40060018,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacda0{    ///< register DMACDA0 
-        using Addr = Register::Address<0x4006001c,0xffffffff,0,unsigned>;
+    namespace DmacDmacda0{    ///< register DMACDA0 
+        using Addr = Register::Address<0x4006001c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmaca1{    ///< register DMACA1 
-        using Addr = Register::Address<0x40060020,0xffffffff,0,unsigned>;
+    namespace DmacDmaca1{    ///< register DMACA1 
+        using Addr = Register::Address<0x40060020,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacb1{    ///< register DMACB1 
-        using Addr = Register::Address<0x40060024,0xffffffff,0,unsigned>;
+    namespace DmacDmacb1{    ///< register DMACB1 
+        using Addr = Register::Address<0x40060024,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacsa1{    ///< register DMACSA1 
-        using Addr = Register::Address<0x40060028,0xffffffff,0,unsigned>;
+    namespace DmacDmacsa1{    ///< register DMACSA1 
+        using Addr = Register::Address<0x40060028,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacda1{    ///< register DMACDA1 
-        using Addr = Register::Address<0x4006002c,0xffffffff,0,unsigned>;
+    namespace DmacDmacda1{    ///< register DMACDA1 
+        using Addr = Register::Address<0x4006002c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmaca2{    ///< register DMACA2 
-        using Addr = Register::Address<0x40060030,0xffffffff,0,unsigned>;
+    namespace DmacDmaca2{    ///< register DMACA2 
+        using Addr = Register::Address<0x40060030,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacb2{    ///< register DMACB2 
-        using Addr = Register::Address<0x40060034,0xffffffff,0,unsigned>;
+    namespace DmacDmacb2{    ///< register DMACB2 
+        using Addr = Register::Address<0x40060034,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacsa2{    ///< register DMACSA2 
-        using Addr = Register::Address<0x40060038,0xffffffff,0,unsigned>;
+    namespace DmacDmacsa2{    ///< register DMACSA2 
+        using Addr = Register::Address<0x40060038,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacda2{    ///< register DMACDA2 
-        using Addr = Register::Address<0x4006003c,0xffffffff,0,unsigned>;
+    namespace DmacDmacda2{    ///< register DMACDA2 
+        using Addr = Register::Address<0x4006003c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmaca3{    ///< register DMACA3 
-        using Addr = Register::Address<0x40060040,0xffffffff,0,unsigned>;
+    namespace DmacDmaca3{    ///< register DMACA3 
+        using Addr = Register::Address<0x40060040,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacb3{    ///< register DMACB3 
-        using Addr = Register::Address<0x40060044,0xffffffff,0,unsigned>;
+    namespace DmacDmacb3{    ///< register DMACB3 
+        using Addr = Register::Address<0x40060044,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacsa3{    ///< register DMACSA3 
-        using Addr = Register::Address<0x40060048,0xffffffff,0,unsigned>;
+    namespace DmacDmacsa3{    ///< register DMACSA3 
+        using Addr = Register::Address<0x40060048,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacda3{    ///< register DMACDA3 
-        using Addr = Register::Address<0x4006004c,0xffffffff,0,unsigned>;
+    namespace DmacDmacda3{    ///< register DMACDA3 
+        using Addr = Register::Address<0x4006004c,0xffffffff,0x00000000,unsigned>;
     }
 }

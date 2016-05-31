@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Ethernet: MAC management counters
-    namespace Nonemmccr{    ///<Ethernet MMC control register
-        using Addr = Register::Address<0x40028100,0xffffffc0,0,unsigned>;
+    namespace EthernetMmcMmccr{    ///<Ethernet MMC control register
+        using Addr = Register::Address<0x40028100,0xffffffc0,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cr{}; 
         ///no description available
@@ -17,9 +17,8 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> mcfhp{}; 
     }
-    namespace Nonemmcrir{    ///<Ethernet MMC receive interrupt
-          register
-        using Addr = Register::Address<0x40028104,0xfffdff9f,0,unsigned>;
+    namespace EthernetMmcMmcrir{    ///<Ethernet MMC receive interrupt          register
+        using Addr = Register::Address<0x40028104,0xfffdff9f,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rfces{}; 
         ///no description available
@@ -27,9 +26,8 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rgufs{}; 
     }
-    namespace Nonemmctir{    ///<Ethernet MMC transmit interrupt
-          register
-        using Addr = Register::Address<0x40028108,0xffdf3fff,0,unsigned>;
+    namespace EthernetMmcMmctir{    ///<Ethernet MMC transmit interrupt          register
+        using Addr = Register::Address<0x40028108,0xffdf3fff,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> tgfscs{}; 
         ///no description available
@@ -37,9 +35,8 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> tgfs{}; 
     }
-    namespace Nonemmcrimr{    ///<Ethernet MMC receive interrupt mask
-          register
-        using Addr = Register::Address<0x4002810c,0xfffdff9f,0,unsigned>;
+    namespace EthernetMmcMmcrimr{    ///<Ethernet MMC receive interrupt mask          register
+        using Addr = Register::Address<0x4002810c,0xfffdff9f,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rfcem{}; 
         ///no description available
@@ -47,9 +44,8 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rgufm{}; 
     }
-    namespace Nonemmctimr{    ///<Ethernet MMC transmit interrupt mask
-          register
-        using Addr = Register::Address<0x40028110,0xfffe3fff,0,unsigned>;
+    namespace EthernetMmcMmctimr{    ///<Ethernet MMC transmit interrupt mask          register
+        using Addr = Register::Address<0x40028110,0xfffe3fff,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> tgfscm{}; 
         ///no description available
@@ -57,39 +53,33 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tgfm{}; 
     }
-    namespace Nonemmctgfsccr{    ///<Ethernet MMC transmitted good frames after a
-          single collision counter
-        using Addr = Register::Address<0x4002814c,0x00000000,0,unsigned>;
+    namespace EthernetMmcMmctgfsccr{    ///<Ethernet MMC transmitted good frames after a          single collision counter
+        using Addr = Register::Address<0x4002814c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tgfscc{}; 
     }
-    namespace Nonemmctgfmsccr{    ///<Ethernet MMC transmitted good frames after
-          more than a single collision
-        using Addr = Register::Address<0x40028150,0x00000000,0,unsigned>;
+    namespace EthernetMmcMmctgfmsccr{    ///<Ethernet MMC transmitted good frames after          more than a single collision
+        using Addr = Register::Address<0x40028150,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tgfmscc{}; 
     }
-    namespace Nonemmctgfcr{    ///<Ethernet MMC transmitted good frames counter
-          register
-        using Addr = Register::Address<0x40028168,0x00000000,0,unsigned>;
+    namespace EthernetMmcMmctgfcr{    ///<Ethernet MMC transmitted good frames counter          register
+        using Addr = Register::Address<0x40028168,0x00000000,0x00000000,unsigned>;
         ///HTL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tgfc{}; 
     }
-    namespace Nonemmcrfcecr{    ///<Ethernet MMC received frames with CRC error
-          counter register
-        using Addr = Register::Address<0x40028194,0x00000000,0,unsigned>;
+    namespace EthernetMmcMmcrfcecr{    ///<Ethernet MMC received frames with CRC error          counter register
+        using Addr = Register::Address<0x40028194,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rfcfc{}; 
     }
-    namespace Nonemmcrfaecr{    ///<Ethernet MMC received frames with alignment
-          error counter register
-        using Addr = Register::Address<0x40028198,0x00000000,0,unsigned>;
+    namespace EthernetMmcMmcrfaecr{    ///<Ethernet MMC received frames with alignment          error counter register
+        using Addr = Register::Address<0x40028198,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rfaec{}; 
     }
-    namespace Nonemmcrgufcr{    ///<MMC received good unicast frames counter
-          register
-        using Addr = Register::Address<0x400281c4,0x00000000,0,unsigned>;
+    namespace EthernetMmcMmcrgufcr{    ///<MMC received good unicast frames counter          register
+        using Addr = Register::Address<0x400281c4,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rgufc{}; 
     }

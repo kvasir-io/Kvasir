@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Routing interface
-    namespace Noneicr{    ///<RI input capture register
-        using Addr = Register::Address<0x40007c04,0xffc00000,0,unsigned>;
+    namespace RiIcr{    ///<RI input capture register
+        using Addr = Register::Address<0x40007c04,0xffc00000,0x00000000,unsigned>;
         ///IC4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ic4{}; 
         ///IC3
@@ -23,8 +23,8 @@ namespace Kvasir {
         ///Input capture 1 select               bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ic1ios{}; 
     }
-    namespace Noneascr1{    ///<RI analog switches control register           1
-        using Addr = Register::Address<0x40007c08,0x00020000,0,unsigned>;
+    namespace RiAscr1{    ///<RI analog switches control register           1
+        using Addr = Register::Address<0x40007c08,0x00020000,0x00000000,unsigned>;
         ///Switch control mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> scm{}; 
         ///Analog switch control
@@ -88,8 +88,8 @@ namespace Kvasir {
         ///Analog switch control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0gr11{}; 
     }
-    namespace Noneascr2{    ///<RI analog switches control register           2
-        using Addr = Register::Address<0x40007c0c,0xc000f000,0,unsigned>;
+    namespace RiAscr2{    ///<RI analog switches control register           2
+        using Addr = Register::Address<0x40007c0c,0xc000f000,0x00000000,unsigned>;
         ///GR5_4 analog switch               control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> gr54{}; 
         ///GR6_4 analog switch               control
@@ -143,104 +143,104 @@ namespace Kvasir {
         ///GR10_1 analog switch               control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gr101{}; 
     }
-    namespace Nonehyscr1{    ///<RI hysteresis control register           1
-        using Addr = Register::Address<0x40007c10,0x00000000,0,unsigned>;
+    namespace RiHyscr1{    ///<RI hysteresis control register           1
+        using Addr = Register::Address<0x40007c10,0x00000000,0x00000000,unsigned>;
         ///Port B hysteresis control               on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pb{}; 
         ///Port A hysteresis control               on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonehyscr2{    ///<RI hysteresis control register           2
-        using Addr = Register::Address<0x40007c14,0x00000000,0,unsigned>;
+    namespace RiHyscr2{    ///<RI hysteresis control register           2
+        using Addr = Register::Address<0x40007c14,0x00000000,0x00000000,unsigned>;
         ///Port D hysteresis control               on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pd{}; 
         ///Port C hysteresis control               on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pc{}; 
     }
-    namespace Nonehyscr3{    ///<RI hysteresis control register           3
-        using Addr = Register::Address<0x40007c18,0x00000000,0,unsigned>;
+    namespace RiHyscr3{    ///<RI hysteresis control register           3
+        using Addr = Register::Address<0x40007c18,0x00000000,0x00000000,unsigned>;
         ///Port F hysteresis control               on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pf{}; 
         ///Port E hysteresis control               on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pe{}; 
     }
-    namespace Nonehyscr4{    ///<Hysteresis control register
-        using Addr = Register::Address<0x40007c1c,0xffff0000,0,unsigned>;
+    namespace RiHyscr4{    ///<Hysteresis control register
+        using Addr = Register::Address<0x40007c1c,0xffff0000,0x00000000,unsigned>;
         ///Port G hysteresis control               on/off
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pg{}; 
     }
-    namespace Noneasmr1{    ///<Analog switch mode register
-        using Addr = Register::Address<0x40007c20,0xffff0000,0,unsigned>;
+    namespace RiAsmr1{    ///<Analog switch mode register
+        using Addr = Register::Address<0x40007c20,0xffff0000,0x00000000,unsigned>;
         ///Port A analog switch mode               selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonecmr1{    ///<Channel mask register
-        using Addr = Register::Address<0x40007c24,0xffff0000,0,unsigned>;
+    namespace RiCmr1{    ///<Channel mask register
+        using Addr = Register::Address<0x40007c24,0xffff0000,0x00000000,unsigned>;
         ///Port A channel masking
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonecicr1{    ///<Channel identification for capture           register
-        using Addr = Register::Address<0x40007c28,0xffff0000,0,unsigned>;
+    namespace RiCicr1{    ///<Channel identification for capture           register
+        using Addr = Register::Address<0x40007c28,0xffff0000,0x00000000,unsigned>;
         ///Port A channel identification for               capture
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Noneasmr2{    ///<Analog switch mode register
-        using Addr = Register::Address<0x40007c2c,0xffff0000,0,unsigned>;
+    namespace RiAsmr2{    ///<Analog switch mode register
+        using Addr = Register::Address<0x40007c2c,0xffff0000,0x00000000,unsigned>;
         ///Port B analog switch mode               selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pb{}; 
     }
-    namespace Nonecmr2{    ///<Channel mask register
-        using Addr = Register::Address<0x40007c30,0xffff0000,0,unsigned>;
+    namespace RiCmr2{    ///<Channel mask register
+        using Addr = Register::Address<0x40007c30,0xffff0000,0x00000000,unsigned>;
         ///Port B channel masking
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pb{}; 
     }
-    namespace Nonecicr2{    ///<Channel identification for capture           register
-        using Addr = Register::Address<0x40007c34,0xffff0000,0,unsigned>;
+    namespace RiCicr2{    ///<Channel identification for capture           register
+        using Addr = Register::Address<0x40007c34,0xffff0000,0x00000000,unsigned>;
         ///Port B channel identification for               capture
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pb{}; 
     }
-    namespace Noneasmr3{    ///<Analog switch mode register
-        using Addr = Register::Address<0x40007c38,0xffff0000,0,unsigned>;
+    namespace RiAsmr3{    ///<Analog switch mode register
+        using Addr = Register::Address<0x40007c38,0xffff0000,0x00000000,unsigned>;
         ///Port C analog switch mode               selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pc{}; 
     }
-    namespace Nonecmr3{    ///<Channel mask register
-        using Addr = Register::Address<0x40007c3c,0xffff0000,0,unsigned>;
+    namespace RiCmr3{    ///<Channel mask register
+        using Addr = Register::Address<0x40007c3c,0xffff0000,0x00000000,unsigned>;
         ///Port C channel masking
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pc{}; 
     }
-    namespace Nonecicr3{    ///<Channel identification for capture           register
-        using Addr = Register::Address<0x40007c40,0xffff0000,0,unsigned>;
+    namespace RiCicr3{    ///<Channel identification for capture           register
+        using Addr = Register::Address<0x40007c40,0xffff0000,0x00000000,unsigned>;
         ///Port C channel identification for               capture
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pc{}; 
     }
-    namespace Noneasmr4{    ///<Analog switch mode register
-        using Addr = Register::Address<0x40007c44,0xffff0000,0,unsigned>;
+    namespace RiAsmr4{    ///<Analog switch mode register
+        using Addr = Register::Address<0x40007c44,0xffff0000,0x00000000,unsigned>;
         ///Port F analog switch mode               selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pf{}; 
     }
-    namespace Nonecmr4{    ///<Channel mask register
-        using Addr = Register::Address<0x40007c48,0xffff0000,0,unsigned>;
+    namespace RiCmr4{    ///<Channel mask register
+        using Addr = Register::Address<0x40007c48,0xffff0000,0x00000000,unsigned>;
         ///Port F channel masking
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pf{}; 
     }
-    namespace Nonecicr4{    ///<Channel identification for capture           register
-        using Addr = Register::Address<0x40007c4c,0xffff0000,0,unsigned>;
+    namespace RiCicr4{    ///<Channel identification for capture           register
+        using Addr = Register::Address<0x40007c4c,0xffff0000,0x00000000,unsigned>;
         ///Port F channel identification for               capture
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pf{}; 
     }
-    namespace Noneasmr5{    ///<Analog switch mode register
-        using Addr = Register::Address<0x40007c50,0xffff0000,0,unsigned>;
+    namespace RiAsmr5{    ///<Analog switch mode register
+        using Addr = Register::Address<0x40007c50,0xffff0000,0x00000000,unsigned>;
         ///Port G analog switch mode               selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pg{}; 
     }
-    namespace Nonecmr5{    ///<Channel mask register
-        using Addr = Register::Address<0x40007c54,0xffff0000,0,unsigned>;
+    namespace RiCmr5{    ///<Channel mask register
+        using Addr = Register::Address<0x40007c54,0xffff0000,0x00000000,unsigned>;
         ///Port G channel masking
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pg{}; 
     }
-    namespace Nonecicr5{    ///<Channel identification for capture           register
-        using Addr = Register::Address<0x40007c58,0xffff0000,0,unsigned>;
+    namespace RiCicr5{    ///<Channel identification for capture           register
+        using Addr = Register::Address<0x40007c58,0xffff0000,0x00000000,unsigned>;
         ///Port G channel identification for               capture
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pg{}; 
     }

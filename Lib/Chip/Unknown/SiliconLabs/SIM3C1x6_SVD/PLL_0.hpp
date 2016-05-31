@@ -1,22 +1,22 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonedivider{    ///<Reference Divider Setting
-        using Addr = Register::Address<0x4003b000,0xf000f000,0,unsigned>;
+    namespace Pll0Divider{    ///<Reference Divider Setting
+        using Addr = Register::Address<0x4003b000,0xf000f000,0x00000000,unsigned>;
         ///M Divider Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> m{}; 
         ///N Divider Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,16),Register::ReadWriteAccess,unsigned> n{}; 
     }
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4003b010,0x0bccf1f8,0,unsigned>;
+    namespace Pll0Control{    ///<Module Control
+        using Addr = Register::Address<0x4003b010,0x0bccf1f8,0x00000000,unsigned>;
         ///CAL Saturation (Low) Flag. 
         enum class LlmtfVal {
             notSet=0x00000000,     ///<DCO period is not saturated low.
             set=0x00000001,     ///<DCO period is saturated low.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LlmtfVal> llmtf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LlmtfVal> llmtf{}; 
         namespace LlmtfValC{
             constexpr Register::FieldValue<decltype(llmtf)::Type,LlmtfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(llmtf)::Type,LlmtfVal::set> set{};
@@ -26,7 +26,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<DCO period is not saturated high.
             set=0x00000001,     ///<DCO period is saturated high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HlmtfVal> hlmtf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,HlmtfVal> hlmtf{}; 
         namespace HlmtfValC{
             constexpr Register::FieldValue<decltype(hlmtf)::Type,HlmtfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(hlmtf)::Type,HlmtfVal::set> set{};
@@ -36,7 +36,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<DCO is disabled or not locked.
             set=0x00000001,     ///<DCO is enabled and locked.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,LckiVal> lcki{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LckiVal> lcki{}; 
         namespace LckiValC{
             constexpr Register::FieldValue<decltype(lcki)::Type,LckiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(lcki)::Type,LckiVal::set> set{};
@@ -132,8 +132,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::pll> pll{};
         }
     }
-    namespace Nonesspr{    ///<Spectrum Spreading Control
-        using Addr = Register::Address<0x4003b020,0xffffe0f8,0,unsigned>;
+    namespace Pll0Sspr{    ///<Spectrum Spreading Control
+        using Addr = Register::Address<0x4003b020,0xffffe0f8,0x00000000,unsigned>;
         ///Spectrum Spreading Amplitude. 
         enum class SsampVal {
             disabled=0x00000000,     ///<Disable Spectrum Spreading.
@@ -155,8 +155,8 @@ namespace Kvasir {
         ///Spectrum Spreading Update Interval. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> ssuinv{}; 
     }
-    namespace Nonecalconfig{    ///<Calibration Configuration
-        using Addr = Register::Address<0x4003b030,0xfff80000,0,unsigned>;
+    namespace Pll0Calconfig{    ///<Calibration Configuration
+        using Addr = Register::Address<0x4003b030,0xfff80000,0x00000000,unsigned>;
         ///DCO Dither Setting. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dither{}; 
         ///DCO Calibration Value. 

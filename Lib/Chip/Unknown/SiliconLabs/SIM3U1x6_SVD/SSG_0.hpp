@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Noneconfig{    ///<Module Configuration
-        using Addr = Register::Address<0x4001e000,0xffff8000,0,unsigned>;
+    namespace Ssg0Config{    ///<Module Configuration
+        using Addr = Register::Address<0x4001e000,0xffff8000,0x00000000,unsigned>;
         ///Pulse Generator Counter. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> count{}; 
         ///Speed Select. 
@@ -37,8 +37,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pugfren)::Type,PugfrenVal::enabled> enabled{};
         }
     }
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4001e010,0xfffffe00,0,unsigned>;
+    namespace Ssg0Control{    ///<Module Control
+        using Addr = Register::Address<0x4001e010,0xfffffe00,0x00000000,unsigned>;
         ///Output 0 Invert Enable. 
         enum class Ex0invenVal {
             normal=0x00000000,     ///<Do not invert the Pulse Generator output on EX0.
@@ -124,7 +124,7 @@ namespace Kvasir {
             idle=0x00000000,     ///<The SSG module is idle and the Pulse Generator is not operating.
             active=0x00000001,     ///<The SSG module is active and the Pulse Generator is counting.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,StatusVal> status{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StatusVal> status{}; 
         namespace StatusValC{
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::idle> idle{};
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::active> active{};

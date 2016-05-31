@@ -1,38 +1,38 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Serial Channel (SC)
-    namespace Noneen{    ///<SC Enable Register
-        using Addr = Register::Address<0x400e1000,0xfffffffe,0,unsigned>;
+    namespace Sc0En{    ///<SC Enable Register
+        using Addr = Register::Address<0x400e1000,0xfffffffe,0x00000000,unsigned>;
         ///SIOE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sioe{}; 
     }
-    namespace Nonebuf{    ///<SC Buffer Register
-        using Addr = Register::Address<0x400e1004,0xffffff00,0,unsigned>;
+    namespace Sc0Buf{    ///<SC Buffer Register
+        using Addr = Register::Address<0x400e1004,0xffffff00,0x00000000,unsigned>;
         ///TB_RB
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tbRb{}; 
     }
-    namespace Nonecr{    ///<SC Control Register
-        using Addr = Register::Address<0x400e1008,0xffffff00,0,unsigned>;
+    namespace Sc0Cr{    ///<SC Control Register
+        using Addr = Register::Address<0x400e1008,0xffffff00,0x00000000,unsigned>;
         ///IOC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ioc{}; 
         ///SCLKS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sclks{}; 
         ///FERR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ferr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ferr{}; 
         ///PERR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> perr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> perr{}; 
         ///OERR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> oerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> oerr{}; 
         ///PE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pe{}; 
         ///EVEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> even{}; 
         ///RB8
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rb8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rb8{}; 
     }
-    namespace Nonemod0{    ///<SC Mode Control Register 0
-        using Addr = Register::Address<0x400e100c,0xffffff00,0,unsigned>;
+    namespace Sc0Mod0{    ///<SC Mode Control Register 0
+        using Addr = Register::Address<0x400e100c,0xffffff00,0x00000000,unsigned>;
         ///SC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> sc{}; 
         ///SM
@@ -46,8 +46,8 @@ namespace Kvasir {
         ///TB8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tb8{}; 
     }
-    namespace Nonebrcr{    ///<SC Baud Rate Generator Control Register
-        using Addr = Register::Address<0x400e1010,0xffffff80,0,unsigned>;
+    namespace Sc0Brcr{    ///<SC Baud Rate Generator Control Register
+        using Addr = Register::Address<0x400e1010,0xffffff80,0x00000000,unsigned>;
         ///BRS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> brs{}; 
         ///BRCK
@@ -55,13 +55,13 @@ namespace Kvasir {
         ///BRADDE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> bradde{}; 
     }
-    namespace Nonebradd{    ///<SC Baud Rate Generator Control Register 2
-        using Addr = Register::Address<0x400e1014,0xfffffff0,0,unsigned>;
+    namespace Sc0Bradd{    ///<SC Baud Rate Generator Control Register 2
+        using Addr = Register::Address<0x400e1014,0xfffffff0,0x00000000,unsigned>;
         ///BRK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> brk{}; 
     }
-    namespace Nonemod1{    ///<SC Mode Control Register 1
-        using Addr = Register::Address<0x400e1018,0xffffff01,0,unsigned>;
+    namespace Sc0Mod1{    ///<SC Mode Control Register 1
+        using Addr = Register::Address<0x400e1018,0xffffff01,0x00000000,unsigned>;
         ///SINT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> sint{}; 
         ///TXE
@@ -71,8 +71,8 @@ namespace Kvasir {
         ///I2SC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> i2sc{}; 
     }
-    namespace Nonemod2{    ///<SC Mode Control Register 2
-        using Addr = Register::Address<0x400e101c,0xffffff00,0,unsigned>;
+    namespace Sc0Mod2{    ///<SC Mode Control Register 2
+        using Addr = Register::Address<0x400e101c,0xffffff00,0x00000000,unsigned>;
         ///SWRST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> swrst{}; 
         ///WBUF
@@ -82,46 +82,46 @@ namespace Kvasir {
         ///SBLEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> sblen{}; 
         ///TXRUN
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txrun{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txrun{}; 
         ///RBFLL
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rbfll{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rbfll{}; 
         ///TBEMP
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tbemp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tbemp{}; 
     }
-    namespace Nonerfc{    ///<SC RX FIFO Configuration Register
-        using Addr = Register::Address<0x400e1020,0xffffff3c,0,unsigned>;
+    namespace Sc0Rfc{    ///<SC RX FIFO Configuration Register
+        using Addr = Register::Address<0x400e1020,0xffffff3c,0x00000000,unsigned>;
         ///RIL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ril{}; 
         ///RFIS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rfis{}; 
         ///RFCS
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rfcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfcs{}; 
     }
-    namespace Nonetfc{    ///<SC TX FIFO Configuration Register
-        using Addr = Register::Address<0x400e1024,0xffffff3c,0,unsigned>;
+    namespace Sc0Tfc{    ///<SC TX FIFO Configuration Register
+        using Addr = Register::Address<0x400e1024,0xffffff3c,0x00000000,unsigned>;
         ///TIL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> til{}; 
         ///TFIS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tfis{}; 
         ///TFCS
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tfcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tfcs{}; 
     }
-    namespace Nonerst{    ///<SC RX FIFO Status Register
-        using Addr = Register::Address<0x400e1028,0xffffff78,0,unsigned>;
+    namespace Sc0Rst{    ///<SC RX FIFO Status Register
+        using Addr = Register::Address<0x400e1028,0xffffff78,0x00000000,unsigned>;
         ///RLVL
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> rlvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rlvl{}; 
         ///ROR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ror{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ror{}; 
     }
-    namespace Nonetst{    ///<SC TX FIFO Status Register
-        using Addr = Register::Address<0x400e102c,0xffffff78,0,unsigned>;
+    namespace Sc0Tst{    ///<SC TX FIFO Status Register
+        using Addr = Register::Address<0x400e102c,0xffffff78,0x00000000,unsigned>;
         ///TLVL
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> tlvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tlvl{}; 
         ///TUR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tur{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tur{}; 
     }
-    namespace Nonefcnf{    ///<SC FIFO Configuration Register
-        using Addr = Register::Address<0x400e1030,0xffffffe0,0,unsigned>;
+    namespace Sc0Fcnf{    ///<SC FIFO Configuration Register
+        using Addr = Register::Address<0x400e1030,0xffffffe0,0x00000000,unsigned>;
         ///CNFG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cnfg{}; 
         ///RXTXCNT

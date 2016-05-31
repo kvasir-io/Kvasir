@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //GPIO group interrupt 0
-    namespace Nonectrl{    ///<GPIO grouped interrupt control register
-        using Addr = Register::Address<0x40088000,0xfffffff8,0,unsigned>;
+    namespace GpioGroupInt0Ctrl{    ///<GPIO grouped interrupt control register
+        using Addr = Register::Address<0x40088000,0x00000000,0x00000000,unsigned>;
         ///Group interrupt status. This bit is cleared by writing a one to it. Writing zero has no effect.
         enum class Int_Val {
             noInterruptRequest=0x00000000,     ///<No interrupt request is pending.
@@ -34,9 +34,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::edgeTriggered> edgeTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::levelTriggered> levelTriggered{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneportPol0{    ///<GPIO grouped interrupt port  polarity register
-        using Addr = Register::Address<0x40088020,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortPol0{    ///<GPIO grouped interrupt port  polarity register
+        using Addr = Register::Address<0x40088020,0x00000000,0x00000000,unsigned>;
         ///Configure pin polarity of port  pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m . 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pol0{}; 
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
@@ -102,8 +104,8 @@ namespace Kvasir {
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pol31{}; 
     }
-    namespace NoneportPol1{    ///<GPIO grouped interrupt port  polarity register
-        using Addr = Register::Address<0x40088024,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortPol1{    ///<GPIO grouped interrupt port  polarity register
+        using Addr = Register::Address<0x40088024,0x00000000,0x00000000,unsigned>;
         ///Configure pin polarity of port  pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m . 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pol0{}; 
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
@@ -169,8 +171,8 @@ namespace Kvasir {
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pol31{}; 
     }
-    namespace NoneportPol2{    ///<GPIO grouped interrupt port  polarity register
-        using Addr = Register::Address<0x40088028,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortPol2{    ///<GPIO grouped interrupt port  polarity register
+        using Addr = Register::Address<0x40088028,0x00000000,0x00000000,unsigned>;
         ///Configure pin polarity of port  pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m . 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pol0{}; 
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
@@ -236,8 +238,8 @@ namespace Kvasir {
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pol31{}; 
     }
-    namespace NoneportPol3{    ///<GPIO grouped interrupt port  polarity register
-        using Addr = Register::Address<0x4008802c,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortPol3{    ///<GPIO grouped interrupt port  polarity register
+        using Addr = Register::Address<0x4008802c,0x00000000,0x00000000,unsigned>;
         ///Configure pin polarity of port  pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m . 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pol0{}; 
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
@@ -303,8 +305,8 @@ namespace Kvasir {
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pol31{}; 
     }
-    namespace NoneportPol4{    ///<GPIO grouped interrupt port  polarity register
-        using Addr = Register::Address<0x40088030,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortPol4{    ///<GPIO grouped interrupt port  polarity register
+        using Addr = Register::Address<0x40088030,0x00000000,0x00000000,unsigned>;
         ///Configure pin polarity of port  pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m . 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pol0{}; 
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
@@ -370,8 +372,8 @@ namespace Kvasir {
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pol31{}; 
     }
-    namespace NoneportPol5{    ///<GPIO grouped interrupt port  polarity register
-        using Addr = Register::Address<0x40088034,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortPol5{    ///<GPIO grouped interrupt port  polarity register
+        using Addr = Register::Address<0x40088034,0x00000000,0x00000000,unsigned>;
         ///Configure pin polarity of port  pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m . 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pol0{}; 
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
@@ -437,8 +439,8 @@ namespace Kvasir {
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pol31{}; 
     }
-    namespace NoneportPol6{    ///<GPIO grouped interrupt port  polarity register
-        using Addr = Register::Address<0x40088038,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortPol6{    ///<GPIO grouped interrupt port  polarity register
+        using Addr = Register::Address<0x40088038,0x00000000,0x00000000,unsigned>;
         ///Configure pin polarity of port  pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m . 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pol0{}; 
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
@@ -504,8 +506,8 @@ namespace Kvasir {
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pol31{}; 
     }
-    namespace NoneportPol7{    ///<GPIO grouped interrupt port  polarity register
-        using Addr = Register::Address<0x4008803c,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortPol7{    ///<GPIO grouped interrupt port  polarity register
+        using Addr = Register::Address<0x4008803c,0x00000000,0x00000000,unsigned>;
         ///Configure pin polarity of port  pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m . 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pol0{}; 
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
@@ -571,8 +573,8 @@ namespace Kvasir {
         ///Configure pin polarity of port m pins for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the pin is active LOW. If the level on this pin is LOW, the pin contributes to the group interrupt. 1 = the pin is active HIGH. If the level on this pin is HIGH, the pin contributes to the group interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pol31{}; 
     }
-    namespace NoneportEna0{    ///<GPIO grouped interrupt port m enable register
-        using Addr = Register::Address<0x40088040,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortEna0{    ///<GPIO grouped interrupt port m enable register
+        using Addr = Register::Address<0x40088040,0x00000000,0x00000000,unsigned>;
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ena0{}; 
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
@@ -638,8 +640,8 @@ namespace Kvasir {
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ena31{}; 
     }
-    namespace NoneportEna1{    ///<GPIO grouped interrupt port m enable register
-        using Addr = Register::Address<0x40088044,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortEna1{    ///<GPIO grouped interrupt port m enable register
+        using Addr = Register::Address<0x40088044,0x00000000,0x00000000,unsigned>;
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ena0{}; 
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
@@ -705,8 +707,8 @@ namespace Kvasir {
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ena31{}; 
     }
-    namespace NoneportEna2{    ///<GPIO grouped interrupt port m enable register
-        using Addr = Register::Address<0x40088048,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortEna2{    ///<GPIO grouped interrupt port m enable register
+        using Addr = Register::Address<0x40088048,0x00000000,0x00000000,unsigned>;
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ena0{}; 
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
@@ -772,8 +774,8 @@ namespace Kvasir {
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ena31{}; 
     }
-    namespace NoneportEna3{    ///<GPIO grouped interrupt port m enable register
-        using Addr = Register::Address<0x4008804c,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortEna3{    ///<GPIO grouped interrupt port m enable register
+        using Addr = Register::Address<0x4008804c,0x00000000,0x00000000,unsigned>;
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ena0{}; 
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
@@ -839,8 +841,8 @@ namespace Kvasir {
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ena31{}; 
     }
-    namespace NoneportEna4{    ///<GPIO grouped interrupt port m enable register
-        using Addr = Register::Address<0x40088050,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortEna4{    ///<GPIO grouped interrupt port m enable register
+        using Addr = Register::Address<0x40088050,0x00000000,0x00000000,unsigned>;
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ena0{}; 
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
@@ -906,8 +908,8 @@ namespace Kvasir {
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ena31{}; 
     }
-    namespace NoneportEna5{    ///<GPIO grouped interrupt port m enable register
-        using Addr = Register::Address<0x40088054,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortEna5{    ///<GPIO grouped interrupt port m enable register
+        using Addr = Register::Address<0x40088054,0x00000000,0x00000000,unsigned>;
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ena0{}; 
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
@@ -973,8 +975,8 @@ namespace Kvasir {
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ena31{}; 
     }
-    namespace NoneportEna6{    ///<GPIO grouped interrupt port m enable register
-        using Addr = Register::Address<0x40088058,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortEna6{    ///<GPIO grouped interrupt port m enable register
+        using Addr = Register::Address<0x40088058,0x00000000,0x00000000,unsigned>;
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ena0{}; 
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
@@ -1040,8 +1042,8 @@ namespace Kvasir {
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ena31{}; 
     }
-    namespace NoneportEna7{    ///<GPIO grouped interrupt port m enable register
-        using Addr = Register::Address<0x4008805c,0x00000000,0,unsigned>;
+    namespace GpioGroupInt0PortEna7{    ///<GPIO grouped interrupt port m enable register
+        using Addr = Register::Address<0x4008805c,0x00000000,0x00000000,unsigned>;
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ena0{}; 
         ///Enable port m pin for group interrupt. Bit n corresponds to pin GPIOm[n] of port m. 0 = the port m pin is disabled and does not contribute to the grouped interrupt. 1 = the port m pin is enabled and contributes to the grouped interrupt.

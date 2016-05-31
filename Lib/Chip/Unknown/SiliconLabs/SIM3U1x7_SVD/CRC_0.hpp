@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40028000,0xfffff0c8,0,unsigned>;
+    namespace Crc0Control{    ///<Module Control
+        using Addr = Register::Address<0x40028000,0xfffff0c8,0x00000000,unsigned>;
         ///Seed Initialization Enable. 
         enum class SinitenVal {
             disabled=0x00000000,     ///<Do not initialize the CRC module to the value set by the SEED bit.
             enabled=0x00000001,     ///<Initialize the CRC module to the value set by the SEED bit.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SinitenVal> siniten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SinitenVal> siniten{}; 
         namespace SinitenValC{
             constexpr Register::FieldValue<decltype(siniten)::Type,SinitenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(siniten)::Type,SinitenVal::enabled> enabled{};
@@ -19,7 +19,7 @@ namespace Kvasir {
             allZeroes=0x00000000,     ///<CRC seed value is all 0's (0x00000000)
             allOnes=0x00000001,     ///<CRC seed value is all 1's (0xFFFFFFFF).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SeedVal> seed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SeedVal> seed{}; 
         namespace SeedValC{
             constexpr Register::FieldValue<decltype(seed)::Type,SeedVal::allZeroes> allZeroes{};
             constexpr Register::FieldValue<decltype(seed)::Type,SeedVal::allOnes> allOnes{};
@@ -81,14 +81,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::bigEndian32> bigEndian32{};
         }
     }
-    namespace Nonedata{    ///<Input/Result Data
-        using Addr = Register::Address<0x40028010,0x00000000,0,unsigned>;
+    namespace Crc0Data{    ///<Input/Result Data
+        using Addr = Register::Address<0x40028010,0x00000000,0x00000000,unsigned>;
         ///Input/Result Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonerdata{    ///<Bit-Reversed Output Data
-        using Addr = Register::Address<0x40028020,0x00000000,0,unsigned>;
+    namespace Crc0Rdata{    ///<Bit-Reversed Output Data
+        using Addr = Register::Address<0x40028020,0x00000000,0x00000000,unsigned>;
         ///Bit-Reversed Output Data. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rdata{}; 
     }
 }

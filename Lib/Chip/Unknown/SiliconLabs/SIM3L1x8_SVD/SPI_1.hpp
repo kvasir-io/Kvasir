@@ -1,20 +1,20 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonedata{    ///<Input/Output Data
-        using Addr = Register::Address<0x40005000,0x00000000,0,unsigned>;
+    namespace Spi1Data{    ///<Input/Output Data
+        using Addr = Register::Address<0x40005000,0x00000000,0x00000000,unsigned>;
         ///Input/Output Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40005010,0xfe003c00,0,unsigned>;
+    namespace Spi1Control{    ///<Module Control
+        using Addr = Register::Address<0x40005010,0xfe003c00,0x00000000,unsigned>;
         ///Receive FIFO Read Request Interrupt Flag. 
         enum class RfrqiVal {
             notSet=0x00000000,     ///<The RX FIFO has fewer bytes than the level defined by RFTH.
             set=0x00000001,     ///<The RX FIFO has equal or more bytes than the level defined by RFTH.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RfrqiVal> rfrqi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RfrqiVal> rfrqi{}; 
         namespace RfrqiValC{
             constexpr Register::FieldValue<decltype(rfrqi)::Type,RfrqiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rfrqi)::Type,RfrqiVal::set> set{};
@@ -34,7 +34,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The TX FIFO has fewer bytes than the level defined by TFTH.
             set=0x00000001,     ///<The TX FIFO has equal or more bytes than the level defined by TFTH.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TfrqiVal> tfrqi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TfrqiVal> tfrqi{}; 
         namespace TfrqiValC{
             constexpr Register::FieldValue<decltype(tfrqi)::Type,TfrqiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(tfrqi)::Type,TfrqiVal::set> set{};
@@ -54,7 +54,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The slave select signal (NSS) is not active.
             set=0x00000001,     ///<The slave select signal (NSS) is active.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SlvseliVal> slvseli{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SlvseliVal> slvseli{}; 
         namespace SlvseliValC{
             constexpr Register::FieldValue<decltype(slvseli)::Type,SlvseliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(slvseli)::Type,SlvseliVal::set> set{};
@@ -84,7 +84,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<There is data still present in the transmit FIFO.
             set=0x00000001,     ///<All data has been transferred out of the shift register and there is no data waiting in the transmit FIFO.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SreiVal> srei{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SreiVal> srei{}; 
         namespace SreiValC{
             constexpr Register::FieldValue<decltype(srei)::Type,SreiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(srei)::Type,SreiVal::set> set{};
@@ -114,7 +114,7 @@ namespace Kvasir {
             low=0x00000000,     ///<NSS is currently a logic low.
             high=0x00000001,     ///<NSS is currently a logic high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,NssstsVal> nsssts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,NssstsVal> nsssts{}; 
         namespace NssstsValC{
             constexpr Register::FieldValue<decltype(nsssts)::Type,NssstsVal::low> low{};
             constexpr Register::FieldValue<decltype(nsssts)::Type,NssstsVal::high> high{};
@@ -124,15 +124,15 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The SPI is not busy and a transfer is not in progress.
             set=0x00000001,     ///<The SPI is currently busy and a transfer is in progress.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,BusyfVal> busyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BusyfVal> busyf{}; 
         namespace BusyfValC{
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::set> set{};
         }
         ///Receive FIFO Counter. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> rfcnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfcnt{}; 
         ///Transmit FIFO Counter. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> tfcnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tfcnt{}; 
         ///SPI Debug Mode. 
         enum class DbgmdVal {
             run=0x00000000,     ///<The SPI module will continue to operate while the core is halted in debug mode.
@@ -144,8 +144,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
         }
     }
-    namespace Noneconfig{    ///<Module Configuration
-        using Addr = Register::Address<0x40005020,0x1e000000,0,unsigned>;
+    namespace Spi1Config{    ///<Module Configuration
+        using Addr = Register::Address<0x40005020,0x1e000000,0x00000000,unsigned>;
         ///Receive FIFO Read Request Interrupt Enable. 
         enum class RfrqienVal {
             disabled=0x00000000,     ///<Disable the receive FIFO request interrupt.
@@ -367,24 +367,24 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::active> active{};
         }
     }
-    namespace Noneclkrate{    ///<Module Clock Rate Control
-        using Addr = Register::Address<0x40005030,0xffff0000,0,unsigned>;
+    namespace Spi1Clkrate{    ///<Module Clock Rate Control
+        using Addr = Register::Address<0x40005030,0xffff0000,0x00000000,unsigned>;
         ///Clock Divider. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
     }
-    namespace Nonefstatus{    ///<FIFO Status
-        using Addr = Register::Address<0x40005040,0xffff0000,0,unsigned>;
+    namespace Spi1Fstatus{    ///<FIFO Status
+        using Addr = Register::Address<0x40005040,0xffff0000,0x00000000,unsigned>;
         ///Receive FIFO Read Pointer. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> rfrptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfrptr{}; 
         ///Receive FIFO Write Pointer. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> rfwptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfwptr{}; 
         ///Transmit FIFO Read Pointer. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> tfrptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tfrptr{}; 
         ///Transmit FIFO Write Pointer. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> tfwptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tfwptr{}; 
     }
-    namespace Noneconfigmd{    ///<Mode Configuration
-        using Addr = Register::Address<0x40005050,0xf8000080,0,unsigned>;
+    namespace Spi1Configmd{    ///<Mode Configuration
+        using Addr = Register::Address<0x40005050,0xf8000080,0x00000000,unsigned>;
         ///Operation Mode. 
         enum class OpmdVal {
             normal=0x00000000,     ///<Normal mode

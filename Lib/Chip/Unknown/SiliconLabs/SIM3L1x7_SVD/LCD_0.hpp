@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Noneconfig{    ///<Configuration
-        using Addr = Register::Address<0x4004d000,0xb0fc8002,0,unsigned>;
+    namespace Lcd0Config{    ///<Configuration
+        using Addr = Register::Address<0x4004d000,0xb0fc8002,0x00000000,unsigned>;
         ///Module Enable. 
         enum class LcdenVal {
             disabled=0x00000000,     ///<Disable the LCD module.
@@ -209,22 +209,22 @@ namespace Kvasir {
             vbat=0x00000000,     ///<VBAT is greater than VLCD. 
             vlcd=0x00000001,     ///<VLCD is greater than VBAT.   
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CpcsVal> cpcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CpcsVal> cpcs{}; 
         namespace CpcsValC{
             constexpr Register::FieldValue<decltype(cpcs)::Type,CpcsVal::vbat> vbat{};
             constexpr Register::FieldValue<decltype(cpcs)::Type,CpcsVal::vlcd> vlcd{};
         }
     }
-    namespace Noneclkcontrol{    ///<Clock Control
-        using Addr = Register::Address<0x4004d020,0xcffffc00,0,unsigned>;
+    namespace Lcd0Clkcontrol{    ///<Clock Control
+        using Addr = Register::Address<0x4004d020,0xcffffc00,0x00000000,unsigned>;
         ///Clock Divider. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
         ///RTC Input Clock Divider. 
         enum class RtcclkdivVal {
-            divideBy1=0x00000000,     ///<None
-            divideBy2=0x00000001,     ///<None
-            divideBy4=0x00000002,     ///<None
-            divideBy8=0x00000003,     ///<None
+            divideBy1=0x00000000,     ///<
+            divideBy2=0x00000001,     ///<
+            divideBy4=0x00000002,     ///<
+            divideBy8=0x00000003,     ///<
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,RtcclkdivVal> rtcclkdiv{}; 
         namespace RtcclkdivValC{
@@ -234,8 +234,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtcclkdiv)::Type,RtcclkdivVal::divideBy8> divideBy8{};
         }
     }
-    namespace Noneblkcontrol{    ///<Blinking Control
-        using Addr = Register::Address<0x4004d030,0xfffff000,0,unsigned>;
+    namespace Lcd0Blkcontrol{    ///<Blinking Control
+        using Addr = Register::Address<0x4004d030,0xfffff000,0x00000000,unsigned>;
         ///Hardware Blinking Enable. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> blkmask{}; 
         ///Hardware Blinking Rate Divider Exponent. 
@@ -269,8 +269,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy4096> divideBy4096{};
         }
     }
-    namespace Nonesegcontrol{    ///<Segment Control
-        using Addr = Register::Address<0x4004d040,0xfffffe08,0,unsigned>;
+    namespace Lcd0Segcontrol{    ///<Segment Control
+        using Addr = Register::Address<0x4004d040,0xfffffe08,0x00000000,unsigned>;
         ///Hardware Bias Mode. 
         enum class BiasmdVal {
             oneThird=0x00000000,     ///<Select 1/3 bias. Use for three-mux segment mode and four-mux segment mode.
@@ -318,8 +318,8 @@ namespace Kvasir {
         ///Reset Phase Mode. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,6),Register::ReadWriteAccess,unsigned> rphmd{}; 
     }
-    namespace Nonectrstcontrol{    ///<Contrast Control
-        using Addr = Register::Address<0x4004d060,0xdffeffe0,0,unsigned>;
+    namespace Lcd0Ctrstcontrol{    ///<Contrast Control
+        using Addr = Register::Address<0x4004d060,0xdffeffe0,0x00000000,unsigned>;
         ///Contrast Voltage. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> ctrst{}; 
         ///Contrast Busy Flag. 
@@ -327,7 +327,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<An update of the internal contrast registers is not in progress.
             set=0x00000001,     ///<The internal contrast registers are busy updating.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,CtrstbfVal> ctrstbf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CtrstbfVal> ctrstbf{}; 
         namespace CtrstbfValC{
             constexpr Register::FieldValue<decltype(ctrstbf)::Type,CtrstbfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ctrstbf)::Type,CtrstbfVal::set> set{};
@@ -343,8 +343,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpcden)::Type,CpcdenVal::enabled> enabled{};
         }
     }
-    namespace Nonevbmcontrol{    ///<VBAT Monitor Control
-        using Addr = Register::Address<0x4004d070,0x1e3effe0,0,unsigned>;
+    namespace Lcd0Vbmcontrol{    ///<VBAT Monitor Control
+        using Addr = Register::Address<0x4004d070,0x1e3effe0,0x00000000,unsigned>;
         ///VBAT Monitor Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> vbmth{}; 
         ///VBAT Monitor Busy Flag. 
@@ -352,7 +352,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<An update of the internal VBAT monitor registers is not in progress.
             set=0x00000001,     ///<The internal VBAT monitor registers are busy updating.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,VbmbfVal> vbmbf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,VbmbfVal> vbmbf{}; 
         namespace VbmbfValC{
             constexpr Register::FieldValue<decltype(vbmbf)::Type,VbmbfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(vbmbf)::Type,VbmbfVal::set> set{};
@@ -390,18 +390,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbmen)::Type,VbmenVal::enabled> enabled{};
         }
     }
-    namespace Nonesegmask0{    ///<Segment Mask 0
-        using Addr = Register::Address<0x4004d080,0x00000000,0,unsigned>;
+    namespace Lcd0Segmask0{    ///<Segment Mask 0
+        using Addr = Register::Address<0x4004d080,0x00000000,0x00000000,unsigned>;
         ///Segment Enable. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> segen{}; 
     }
-    namespace Nonesegmask1{    ///<Segment Mask 1
-        using Addr = Register::Address<0x4004d090,0xffffff00,0,unsigned>;
+    namespace Lcd0Segmask1{    ///<Segment Mask 1
+        using Addr = Register::Address<0x4004d090,0xffffff00,0x00000000,unsigned>;
         ///Segment Enable. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> segen{}; 
     }
-    namespace Nonesegdata0{    ///<Segment Data 0
-        using Addr = Register::Address<0x4004d0a0,0x00000000,0,unsigned>;
+    namespace Lcd0Segdata0{    ///<Segment Data 0
+        using Addr = Register::Address<0x4004d0a0,0x00000000,0x00000000,unsigned>;
         ///Segment LCDn.0 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> segpin0{}; 
         ///Segment LCDn.1 Control. 
@@ -419,8 +419,8 @@ namespace Kvasir {
         ///Segment LCDn.7 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> segpin7{}; 
     }
-    namespace Nonesegdata1{    ///<Segment Data 1
-        using Addr = Register::Address<0x4004d0b0,0x00000000,0,unsigned>;
+    namespace Lcd0Segdata1{    ///<Segment Data 1
+        using Addr = Register::Address<0x4004d0b0,0x00000000,0x00000000,unsigned>;
         ///Segment LCDn.8 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> segpin8{}; 
         ///Segment LCDn.9 Control. 
@@ -438,8 +438,8 @@ namespace Kvasir {
         ///Segment LCDn.15 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> segpin15{}; 
     }
-    namespace Nonesegdata2{    ///<Segment Data 2
-        using Addr = Register::Address<0x4004d0c0,0x00000000,0,unsigned>;
+    namespace Lcd0Segdata2{    ///<Segment Data 2
+        using Addr = Register::Address<0x4004d0c0,0x00000000,0x00000000,unsigned>;
         ///Segment LCDn.16 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> segpin16{}; 
         ///Segment LCDn.17 Control. 
@@ -457,8 +457,8 @@ namespace Kvasir {
         ///Segment LCDn.23 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> segpin23{}; 
     }
-    namespace Nonesegdata3{    ///<Segment Data 3
-        using Addr = Register::Address<0x4004d0d0,0x00000000,0,unsigned>;
+    namespace Lcd0Segdata3{    ///<Segment Data 3
+        using Addr = Register::Address<0x4004d0d0,0x00000000,0x00000000,unsigned>;
         ///Segment LCDn.24 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> segpin24{}; 
         ///Segment LCDn.25 Control. 
@@ -476,8 +476,8 @@ namespace Kvasir {
         ///Segment LCDn.31 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> segpin31{}; 
     }
-    namespace Nonesegdata4{    ///<Segment Data 4
-        using Addr = Register::Address<0x4004d0e0,0x00000000,0,unsigned>;
+    namespace Lcd0Segdata4{    ///<Segment Data 4
+        using Addr = Register::Address<0x4004d0e0,0x00000000,0x00000000,unsigned>;
         ///Segment LCDn.32 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> segpin32{}; 
         ///Segment LCDn.33 Control. 

@@ -1,10 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General purpose I/Os
-    namespace NonegpioaCrl{    ///<Port A configuration register
-          (Low)
-        using Addr = Register::Address<0x4000b000,0xffff0000,0,unsigned>;
+    namespace GpioaGpioaCrl{    ///<Port A configuration register          (Low)
+        using Addr = Register::Address<0x4000b000,0xffff0000,0x00000000,unsigned>;
         ///CNFMODE3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> cnfmode3{}; 
         ///CNFMODE2
@@ -14,9 +13,8 @@ namespace Kvasir {
         ///CNFMODE0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> cnfmode0{}; 
     }
-    namespace NonegpioaCrh{    ///<Port A configuration register
-          (High)
-        using Addr = Register::Address<0x4000b004,0xffff0000,0,unsigned>;
+    namespace GpioaGpioaCrh{    ///<Port A configuration register          (High)
+        using Addr = Register::Address<0x4000b004,0xffff0000,0x00000000,unsigned>;
         ///CNFMODE7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> cnfmode7{}; 
         ///CNFMODE6
@@ -26,8 +24,8 @@ namespace Kvasir {
         ///CNFMODE4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> cnfmode4{}; 
     }
-    namespace NonegpioaIdr{    ///<Port A input data register
-        using Addr = Register::Address<0x4000b008,0xffffff00,0,unsigned>;
+    namespace GpioaGpioaIdr{    ///<Port A input data register
+        using Addr = Register::Address<0x4000b008,0xffffff00,0x00000000,unsigned>;
         ///IDR7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> idr7{}; 
         ///IDR6
@@ -45,8 +43,8 @@ namespace Kvasir {
         ///IDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> idr0{}; 
     }
-    namespace NonegpioaOdr{    ///<Port A output data register
-        using Addr = Register::Address<0x4000b00c,0xffffff00,0,unsigned>;
+    namespace GpioaGpioaOdr{    ///<Port A output data register
+        using Addr = Register::Address<0x4000b00c,0xffffff00,0x00000000,unsigned>;
         ///ODR7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> odr7{}; 
         ///ODR6
@@ -64,8 +62,8 @@ namespace Kvasir {
         ///ODR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> odr0{}; 
     }
-    namespace NonegpioaBsr{    ///<Port A bit set register
-        using Addr = Register::Address<0x4000b010,0xffffff00,0,unsigned>;
+    namespace GpioaGpioaBsr{    ///<Port A bit set register
+        using Addr = Register::Address<0x4000b010,0xffffff00,0x00000000,unsigned>;
         ///BS7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> bs7{}; 
         ///BS6
@@ -83,8 +81,8 @@ namespace Kvasir {
         ///BS0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bs0{}; 
     }
-    namespace NonegpioaBrr{    ///<Port A output clear register
-        using Addr = Register::Address<0x4000b014,0xffffff00,0,unsigned>;
+    namespace GpioaGpioaBrr{    ///<Port A output clear register
+        using Addr = Register::Address<0x4000b014,0xffffff00,0x00000000,unsigned>;
         ///BR7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> br7{}; 
         ///BR6

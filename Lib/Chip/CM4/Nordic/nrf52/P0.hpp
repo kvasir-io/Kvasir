@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //GPIO Port 1
-    namespace Noneout{    ///<Write GPIO port
-        using Addr = Register::Address<0x50000504,0x00000000,0,unsigned>;
+    namespace P0Out{    ///<Write GPIO port
+        using Addr = Register::Address<0x50000504,0x00000000,0x00000000,unsigned>;
         ///P0.0 pin
         enum class Pin0Val {
             low=0x00000000,     ///<Pin driver is low
@@ -325,8 +325,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin31)::Type,Pin31Val::high> high{};
         }
     }
-    namespace Noneoutset{    ///<Set individual bits in GPIO port
-        using Addr = Register::Address<0x50000508,0x00000000,0,unsigned>;
+    namespace P0Outset{    ///<Set individual bits in GPIO port
+        using Addr = Register::Address<0x50000508,0x00000000,0x00000000,unsigned>;
         ///P0.0 pin
         enum class Pin0Val {
             low=0x00000000,     ///<Read: pin driver is low
@@ -712,8 +712,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin31)::Type,Pin31Val::set> set{};
         }
     }
-    namespace Noneoutclr{    ///<Clear individual bits in GPIO port
-        using Addr = Register::Address<0x5000050c,0x00000000,0,unsigned>;
+    namespace P0Outclr{    ///<Clear individual bits in GPIO port
+        using Addr = Register::Address<0x5000050c,0x00000000,0x00000000,unsigned>;
         ///P0.0 pin
         enum class Pin0Val {
             low=0x00000000,     ///<Read: pin driver is low
@@ -1099,8 +1099,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin31)::Type,Pin31Val::clear> clear{};
         }
     }
-    namespace Nonein{    ///<Read GPIO port
-        using Addr = Register::Address<0x50000510,0x00000000,0,unsigned>;
+    namespace P0In{    ///<Read GPIO port
+        using Addr = Register::Address<0x50000510,0x00000000,0x00000000,unsigned>;
         ///P0.0 pin
         enum class Pin0Val {
             low=0x00000000,     ///<Pin input is low
@@ -1422,8 +1422,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin31)::Type,Pin31Val::high> high{};
         }
     }
-    namespace Nonedir{    ///<Direction of GPIO pins
-        using Addr = Register::Address<0x50000514,0x00000000,0,unsigned>;
+    namespace P0Dir{    ///<Direction of GPIO pins
+        using Addr = Register::Address<0x50000514,0x00000000,0x00000000,unsigned>;
         ///P0.0 pin
         enum class Pin0Val {
             input=0x00000000,     ///<Pin set as input
@@ -1745,8 +1745,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin31)::Type,Pin31Val::output> output{};
         }
     }
-    namespace Nonedirset{    ///<DIR set register
-        using Addr = Register::Address<0x50000518,0x00000000,0,unsigned>;
+    namespace P0Dirset{    ///<DIR set register
+        using Addr = Register::Address<0x50000518,0x00000000,0x00000000,unsigned>;
         ///Set as output pin 0
         enum class Pin0Val {
             input=0x00000000,     ///<Read: pin set as input
@@ -2132,8 +2132,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin31)::Type,Pin31Val::set> set{};
         }
     }
-    namespace Nonedirclr{    ///<DIR clear register
-        using Addr = Register::Address<0x5000051c,0x00000000,0,unsigned>;
+    namespace P0Dirclr{    ///<DIR clear register
+        using Addr = Register::Address<0x5000051c,0x00000000,0x00000000,unsigned>;
         ///Set as input pin 0
         enum class Pin0Val {
             input=0x00000000,     ///<Read: pin set as input
@@ -2519,13 +2519,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin31)::Type,Pin31Val::clear> clear{};
         }
     }
-    namespace Nonelatch{    ///<Latch indicating which GPIO pins have met the criteria set in PIN_CNF[n].SENSE register
-        using Addr = Register::Address<0x50000520,0x00000000,0,unsigned>;
+    namespace P0Latch{    ///<Latch indicating which GPIO pins have met the criteria set in PIN_CNF[n].SENSE register
+        using Addr = Register::Address<0x50000520,0x00000000,0x00000000,unsigned>;
         ///Register holding a '1' for each GPIO pins which has met the criteria set in PIN_CNF[n].SENSE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> latch{}; 
     }
-    namespace Nonedetectmode{    ///<Select between default DETECT signal behaviour and LDETECT mode
-        using Addr = Register::Address<0x50000524,0xfffffffe,0,unsigned>;
+    namespace P0Detectmode{    ///<Select between default DETECT signal behaviour and LDETECT mode
+        using Addr = Register::Address<0x50000524,0xfffffffe,0x00000000,unsigned>;
         ///Select between default DETECT signal behaviour and LDETECT mode
         enum class DetectmodeVal {
             default_=0x00000000,     ///<Use default behaviour
@@ -2537,8 +2537,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(detectmode)::Type,DetectmodeVal::ldetect> ldetect{};
         }
     }
-    namespace NonepinCnf0{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000700,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf0{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000700,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -2606,8 +2606,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf1{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000704,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf1{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000704,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -2675,8 +2675,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf2{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000708,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf2{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000708,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -2744,8 +2744,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf3{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x5000070c,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf3{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x5000070c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -2813,8 +2813,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf4{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000710,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf4{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000710,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -2882,8 +2882,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf5{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000714,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf5{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000714,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -2951,8 +2951,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf6{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000718,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf6{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000718,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3020,8 +3020,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf7{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x5000071c,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf7{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x5000071c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3089,8 +3089,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf8{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000720,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf8{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000720,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3158,8 +3158,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf9{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000724,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf9{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000724,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3227,8 +3227,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf10{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000728,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf10{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000728,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3296,8 +3296,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf11{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x5000072c,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf11{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x5000072c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3365,8 +3365,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf12{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000730,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf12{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000730,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3434,8 +3434,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf13{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000734,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf13{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000734,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3503,8 +3503,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf14{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000738,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf14{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000738,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3572,8 +3572,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf15{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x5000073c,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf15{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x5000073c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3641,8 +3641,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf16{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000740,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf16{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000740,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3710,8 +3710,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf17{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000744,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf17{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000744,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3779,8 +3779,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf18{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000748,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf18{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000748,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3848,8 +3848,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf19{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x5000074c,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf19{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x5000074c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3917,8 +3917,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf20{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000750,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf20{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000750,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -3986,8 +3986,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf21{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000754,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf21{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000754,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -4055,8 +4055,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf22{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000758,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf22{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000758,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -4124,8 +4124,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf23{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x5000075c,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf23{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x5000075c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -4193,8 +4193,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf24{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000760,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf24{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000760,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -4262,8 +4262,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf25{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000764,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf25{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000764,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -4331,8 +4331,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf26{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000768,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf26{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000768,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -4400,8 +4400,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf27{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x5000076c,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf27{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x5000076c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -4469,8 +4469,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf28{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000770,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf28{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000770,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -4538,8 +4538,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf29{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000774,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf29{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000774,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -4607,8 +4607,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf30{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x50000778,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf30{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x50000778,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin
@@ -4676,8 +4676,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense)::Type,SenseVal::low> low{};
         }
     }
-    namespace NonepinCnf31{    ///<Description collection[0]:  Configuration of GPIO pins
-        using Addr = Register::Address<0x5000077c,0xfffcf8f0,0,unsigned>;
+    namespace P0PinCnf31{    ///<Description collection[0]:  Configuration of GPIO pins
+        using Addr = Register::Address<0x5000077c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
         enum class DirVal {
             input=0x00000000,     ///<Configure pin as an input pin

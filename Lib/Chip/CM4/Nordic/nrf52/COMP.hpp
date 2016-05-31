@@ -1,30 +1,30 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Comparator
-    namespace NonetasksStart{    ///<Start comparator
-        using Addr = Register::Address<0x40013000,0xffffffff,0,unsigned>;
+    namespace CompTasksStart{    ///<Start comparator
+        using Addr = Register::Address<0x40013000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop comparator
-        using Addr = Register::Address<0x40013004,0xffffffff,0,unsigned>;
+    namespace CompTasksStop{    ///<Stop comparator
+        using Addr = Register::Address<0x40013004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksSample{    ///<Sample comparator value
-        using Addr = Register::Address<0x40013008,0xffffffff,0,unsigned>;
+    namespace CompTasksSample{    ///<Sample comparator value
+        using Addr = Register::Address<0x40013008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsReady{    ///<COMP is ready and output is valid
-        using Addr = Register::Address<0x40013100,0xffffffff,0,unsigned>;
+    namespace CompEventsReady{    ///<COMP is ready and output is valid
+        using Addr = Register::Address<0x40013100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsDown{    ///<Downward crossing
-        using Addr = Register::Address<0x40013104,0xffffffff,0,unsigned>;
+    namespace CompEventsDown{    ///<Downward crossing
+        using Addr = Register::Address<0x40013104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsUp{    ///<Upward crossing
-        using Addr = Register::Address<0x40013108,0xffffffff,0,unsigned>;
+    namespace CompEventsUp{    ///<Upward crossing
+        using Addr = Register::Address<0x40013108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsCross{    ///<Downward or upward crossing
-        using Addr = Register::Address<0x4001310c,0xffffffff,0,unsigned>;
+    namespace CompEventsCross{    ///<Downward or upward crossing
+        using Addr = Register::Address<0x4001310c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x40013200,0xffffffe0,0,unsigned>;
+    namespace CompShorts{    ///<Shortcut register
+        using Addr = Register::Address<0x40013200,0xffffffe0,0x00000000,unsigned>;
         ///Shortcut between EVENTS_READY event and TASKS_SAMPLE task
         enum class ReadysampleVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -76,8 +76,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crossStop)::Type,CrossstopVal::enabled> enabled{};
         }
     }
-    namespace Noneinten{    ///<Enable or disable interrupt
-        using Addr = Register::Address<0x40013300,0xfffffff0,0,unsigned>;
+    namespace CompInten{    ///<Enable or disable interrupt
+        using Addr = Register::Address<0x40013300,0xfffffff0,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_READY event
         enum class ReadyVal {
             disabled=0x00000000,     ///<Disable
@@ -119,8 +119,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40013304,0xfffffff0,0,unsigned>;
+    namespace CompIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40013304,0xfffffff0,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_READY event
         enum class ReadyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -170,8 +170,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40013308,0xfffffff0,0,unsigned>;
+    namespace CompIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40013308,0xfffffff0,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_READY event
         enum class ReadyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -221,8 +221,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::clear> clear{};
         }
     }
-    namespace Noneresult{    ///<Compare result
-        using Addr = Register::Address<0x40013400,0xfffffffe,0,unsigned>;
+    namespace CompResult{    ///<Compare result
+        using Addr = Register::Address<0x40013400,0xfffffffe,0x00000000,unsigned>;
         ///Result of last compare. Decision point SAMPLE task.
         enum class ResultVal {
             below=0x00000000,     ///<Input voltage is below the threshold (VIN+ < VIN-)
@@ -234,8 +234,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(result)::Type,ResultVal::above> above{};
         }
     }
-    namespace Noneenable{    ///<COMP enable
-        using Addr = Register::Address<0x40013500,0xfffffffc,0,unsigned>;
+    namespace CompEnable{    ///<COMP enable
+        using Addr = Register::Address<0x40013500,0xfffffffc,0x00000000,unsigned>;
         ///Enable or disable COMP
         enum class EnableVal {
             disabled=0x00000000,     ///<Disable
@@ -247,8 +247,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
-    namespace Nonepsel{    ///<Pin select
-        using Addr = Register::Address<0x40013504,0xfffffff8,0,unsigned>;
+    namespace CompPsel{    ///<Pin select
+        using Addr = Register::Address<0x40013504,0xfffffff8,0x00000000,unsigned>;
         ///Analog pin select
         enum class PselVal {
             analoginput0=0x00000000,     ///<AIN0 selected as analog input
@@ -272,8 +272,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput7> analoginput7{};
         }
     }
-    namespace Nonerefsel{    ///<Reference source select
-        using Addr = Register::Address<0x40013508,0xfffffff8,0,unsigned>;
+    namespace CompRefsel{    ///<Reference source select
+        using Addr = Register::Address<0x40013508,0xfffffff8,0x00000000,unsigned>;
         ///Reference select
         enum class RefselVal {
             int1v2=0x00000000,     ///<VREF = internal 1.2 V reference (VDD >= 1.7 V)
@@ -291,8 +291,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::aref> aref{};
         }
     }
-    namespace Noneextrefsel{    ///<External reference select
-        using Addr = Register::Address<0x4001350c,0xfffffffe,0,unsigned>;
+    namespace CompExtrefsel{    ///<External reference select
+        using Addr = Register::Address<0x4001350c,0xfffffffe,0x00000000,unsigned>;
         ///External analog reference select
         enum class ExtrefselVal {
             analogreference0=0x00000000,     ///<Use AIN0 as external analog reference
@@ -304,15 +304,15 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::analogreference1> analogreference1{};
         }
     }
-    namespace Noneth{    ///<Threshold configuration for hysteresis unit
-        using Addr = Register::Address<0x40013530,0xffffc0c0,0,unsigned>;
+    namespace CompTh{    ///<Threshold configuration for hysteresis unit
+        using Addr = Register::Address<0x40013530,0xffffc0c0,0x00000000,unsigned>;
         ///VUP = (THUP+1)/64*VREF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> thup{}; 
         ///VDOWN = (THDOWN+1)/64*VREF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> thdown{}; 
     }
-    namespace Nonemode{    ///<Mode configuration
-        using Addr = Register::Address<0x40013534,0xfffffefc,0,unsigned>;
+    namespace CompMode{    ///<Mode configuration
+        using Addr = Register::Address<0x40013534,0xfffffefc,0x00000000,unsigned>;
         ///Speed and power mode
         enum class SpVal {
             low=0x00000000,     ///<Low power mode
@@ -336,8 +336,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(main)::Type,MainVal::diff> diff{};
         }
     }
-    namespace Nonehyst{    ///<Comparator hysteresis enable
-        using Addr = Register::Address<0x40013538,0xfffffffe,0,unsigned>;
+    namespace CompHyst{    ///<Comparator hysteresis enable
+        using Addr = Register::Address<0x40013538,0xfffffffe,0x00000000,unsigned>;
         ///Comparator hysteresis
         enum class HystVal {
             nohyst=0x00000000,     ///<Comparator hysteresis disabled
@@ -349,8 +349,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hyst)::Type,HystVal::hyst50mv> hyst50mv{};
         }
     }
-    namespace Noneisource{    ///<Current source select on analog input
-        using Addr = Register::Address<0x4001353c,0xfffffffc,0,unsigned>;
+    namespace CompIsource{    ///<Current source select on analog input
+        using Addr = Register::Address<0x4001353c,0xfffffffc,0x00000000,unsigned>;
         ///Comparator hysteresis
         enum class IsourceVal {
             off=0x00000000,     ///<Current source disabled

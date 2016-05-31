@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General Purpose Input_Output Port (PB)
-    namespace Nonedata{    ///<PB Data Register
-        using Addr = Register::Address<0x400c0100,0xffffff00,0,unsigned>;
+    namespace PbData{    ///<PB Data Register
+        using Addr = Register::Address<0x400c0100,0xffffff00,0x00000000,unsigned>;
         ///PB0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pb0{}; 
         ///PB1
@@ -21,8 +21,8 @@ namespace Kvasir {
         ///PB7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pb7{}; 
     }
-    namespace Nonecr{    ///<PB Control Register
-        using Addr = Register::Address<0x400c0104,0xffffff00,0,unsigned>;
+    namespace PbCr{    ///<PB Control Register
+        using Addr = Register::Address<0x400c0104,0xffffff00,0x00000000,unsigned>;
         ///PB0C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pb0c{}; 
         ///PB1C
@@ -40,8 +40,8 @@ namespace Kvasir {
         ///PB7C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pb7c{}; 
     }
-    namespace Nonefr1{    ///<PB Function Register 1
-        using Addr = Register::Address<0x400c0108,0xffffff00,0,unsigned>;
+    namespace PbFr1{    ///<PB Function Register 1
+        using Addr = Register::Address<0x400c0108,0xffffff00,0x00000000,unsigned>;
         ///PB0F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pb0f1{}; 
         ///PB1F1
@@ -59,8 +59,8 @@ namespace Kvasir {
         ///PB7F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pb7f1{}; 
     }
-    namespace Noneod{    ///<PB Open Drain Control Register
-        using Addr = Register::Address<0x400c0128,0xffffff00,0,unsigned>;
+    namespace PbOd{    ///<PB Open Drain Control Register
+        using Addr = Register::Address<0x400c0128,0xffffff00,0x00000000,unsigned>;
         ///PB0OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pb0od{}; 
         ///PB1OD
@@ -78,8 +78,8 @@ namespace Kvasir {
         ///PB7OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pb7od{}; 
     }
-    namespace Nonepup{    ///<PB Pull-Up Control Register
-        using Addr = Register::Address<0x400c012c,0xffffff00,0,unsigned>;
+    namespace PbPup{    ///<PB Pull-Up Control Register
+        using Addr = Register::Address<0x400c012c,0xffffff00,0x00000000,unsigned>;
         ///PB0UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pb0up{}; 
         ///PB1UP
@@ -97,8 +97,8 @@ namespace Kvasir {
         ///PB7UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pb7up{}; 
     }
-    namespace Nonepdn{    ///<PB Pull-Down Control Register
-        using Addr = Register::Address<0x400c0130,0xffffff00,0,unsigned>;
+    namespace PbPdn{    ///<PB Pull-Down Control Register
+        using Addr = Register::Address<0x400c0130,0xffffff00,0x00000000,unsigned>;
         ///PB0DN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pb0dn{}; 
         ///PB1DN
@@ -116,8 +116,8 @@ namespace Kvasir {
         ///PB7DN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pb7dn{}; 
     }
-    namespace Noneie{    ///<PB Input Enable Control Register
-        using Addr = Register::Address<0x400c0138,0xffffff00,0,unsigned>;
+    namespace PbIe{    ///<PB Input Enable Control Register
+        using Addr = Register::Address<0x400c0138,0xffffff00,0x00000000,unsigned>;
         ///PB0IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pb0ie{}; 
         ///PB1IE

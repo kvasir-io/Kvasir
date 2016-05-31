@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // SCT Input Processing Unit (IPU) 
-    namespace NonesampleCtrl{    ///<SCT IPU sample control register. Contains the input mux selects,  latch/sample-enable mux selects, and sample overrride bits for the  SAMPLE module.
-        using Addr = Register::Address<0x400b8000,0xffff0000,0,unsigned>;
+    namespace SctipuSampleCtrl{    ///<SCT IPU sample control register. Contains the input mux selects,  latch/sample-enable mux selects, and sample overrride bits for the  SAMPLE module.
+        using Addr = Register::Address<0x400b8000,0xffff0000,0x00000000,unsigned>;
         ///Select SCT IPU input source for output channel 0.
         enum class In0selVal {
             sampeInA0Select=0x00000000,     ///<SAMPE_IN_A0. Select input SAMPLE_IN_A0.
@@ -141,8 +141,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(latchen3)::Type,Latchen3Val::latchedModeTheSa> latchedModeTheSa{};
         }
     }
-    namespace NoneabortEnable0{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
-        using Addr = Register::Address<0x400b8020,0xfffffe00,0,unsigned>;
+    namespace SctipuAbortEnable0{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
+        using Addr = Register::Address<0x400b8020,0xfffffe00,0x00000000,unsigned>;
         ///Enable abort source SCT_ABORT0.
         enum class Ena0Val {
             disabled=0x00000000,     ///<Disabled.
@@ -234,8 +234,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::enabled> enabled{};
         }
     }
-    namespace NoneabortEnable1{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
-        using Addr = Register::Address<0x400b8040,0xfffffe00,0,unsigned>;
+    namespace SctipuAbortEnable1{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
+        using Addr = Register::Address<0x400b8040,0xfffffe00,0x00000000,unsigned>;
         ///Enable abort source SCT_ABORT0.
         enum class Ena0Val {
             disabled=0x00000000,     ///<Disabled.
@@ -327,8 +327,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::enabled> enabled{};
         }
     }
-    namespace NoneabortEnable2{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
-        using Addr = Register::Address<0x400b8060,0xfffffe00,0,unsigned>;
+    namespace SctipuAbortEnable2{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
+        using Addr = Register::Address<0x400b8060,0xfffffe00,0x00000000,unsigned>;
         ///Enable abort source SCT_ABORT0.
         enum class Ena0Val {
             disabled=0x00000000,     ///<Disabled.
@@ -420,8 +420,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::enabled> enabled{};
         }
     }
-    namespace NoneabortEnable3{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
-        using Addr = Register::Address<0x400b8080,0xfffffe00,0,unsigned>;
+    namespace SctipuAbortEnable3{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
+        using Addr = Register::Address<0x400b8080,0xfffffe00,0x00000000,unsigned>;
         ///Enable abort source SCT_ABORT0.
         enum class Ena0Val {
             disabled=0x00000000,     ///<Disabled.
@@ -513,8 +513,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::enabled> enabled{};
         }
     }
-    namespace NoneabortSource0{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
-        using Addr = Register::Address<0x400b8024,0xfffffe00,0,unsigned>;
+    namespace SctipuAbortSource0{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
+        using Addr = Register::Address<0x400b8024,0xfffffe00,0x00000000,unsigned>;
         ///Source SCT_ABORT0 activated. This bit is set by hardware when the source is actived. Write 0 to clear. This function can be assigned to any pin via the PINASSIGN10 register in the switch matrix.
         enum class Act0Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -606,8 +606,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::activated> activated{};
         }
     }
-    namespace NoneabortSource1{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
-        using Addr = Register::Address<0x400b8044,0xfffffe00,0,unsigned>;
+    namespace SctipuAbortSource1{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
+        using Addr = Register::Address<0x400b8044,0xfffffe00,0x00000000,unsigned>;
         ///Source SCT_ABORT0 activated. This bit is set by hardware when the source is actived. Write 0 to clear. This function can be assigned to any pin via the PINASSIGN10 register in the switch matrix.
         enum class Act0Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -699,8 +699,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::activated> activated{};
         }
     }
-    namespace NoneabortSource2{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
-        using Addr = Register::Address<0x400b8064,0xfffffe00,0,unsigned>;
+    namespace SctipuAbortSource2{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
+        using Addr = Register::Address<0x400b8064,0xfffffe00,0x00000000,unsigned>;
         ///Source SCT_ABORT0 activated. This bit is set by hardware when the source is actived. Write 0 to clear. This function can be assigned to any pin via the PINASSIGN10 register in the switch matrix.
         enum class Act0Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -792,8 +792,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::activated> activated{};
         }
     }
-    namespace NoneabortSource3{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
-        using Addr = Register::Address<0x400b8084,0xfffffe00,0,unsigned>;
+    namespace SctipuAbortSource3{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
+        using Addr = Register::Address<0x400b8084,0xfffffe00,0x00000000,unsigned>;
         ///Source SCT_ABORT0 activated. This bit is set by hardware when the source is actived. Write 0 to clear. This function can be assigned to any pin via the PINASSIGN10 register in the switch matrix.
         enum class Act0Val {
             notActivated=0x00000000,     ///<Not activated.

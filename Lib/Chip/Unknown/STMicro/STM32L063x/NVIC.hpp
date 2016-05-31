@@ -1,32 +1,29 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//Nested Vectored Interrupt
-      Controller
-    namespace Noneiser{    ///<Interrupt Set Enable Register
-        using Addr = Register::Address<0xe000e100,0x00000000,0,unsigned>;
+//Nested Vectored Interrupt      Controller
+    namespace NvicIser{    ///<Interrupt Set Enable Register
+        using Addr = Register::Address<0xe000e100,0x00000000,0x00000000,unsigned>;
         ///SETENA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> setena{}; 
     }
-    namespace Noneicer{    ///<Interrupt Clear Enable
-          Register
-        using Addr = Register::Address<0xe000e180,0x00000000,0,unsigned>;
+    namespace NvicIcer{    ///<Interrupt Clear Enable          Register
+        using Addr = Register::Address<0xe000e180,0x00000000,0x00000000,unsigned>;
         ///CLRENA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> clrena{}; 
     }
-    namespace Noneispr{    ///<Interrupt Set-Pending Register
-        using Addr = Register::Address<0xe000e200,0x00000000,0,unsigned>;
+    namespace NvicIspr{    ///<Interrupt Set-Pending Register
+        using Addr = Register::Address<0xe000e200,0x00000000,0x00000000,unsigned>;
         ///SETPEND
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> setpend{}; 
     }
-    namespace Noneicpr{    ///<Interrupt Clear-Pending
-          Register
-        using Addr = Register::Address<0xe000e280,0x00000000,0,unsigned>;
+    namespace NvicIcpr{    ///<Interrupt Clear-Pending          Register
+        using Addr = Register::Address<0xe000e280,0x00000000,0x00000000,unsigned>;
         ///CLRPEND
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> clrpend{}; 
     }
-    namespace Noneipr0{    ///<Interrupt Priority Register 0
-        using Addr = Register::Address<0xe000e400,0x00000000,0,unsigned>;
+    namespace NvicIpr0{    ///<Interrupt Priority Register 0
+        using Addr = Register::Address<0xe000e400,0x00000000,0x00000000,unsigned>;
         ///priority for interrupt 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri0{}; 
         ///priority for interrupt 1
@@ -36,8 +33,8 @@ namespace Kvasir {
         ///priority for interrupt 3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri3{}; 
     }
-    namespace Noneipr1{    ///<Interrupt Priority Register 1
-        using Addr = Register::Address<0xe000e404,0x00000000,0,unsigned>;
+    namespace NvicIpr1{    ///<Interrupt Priority Register 1
+        using Addr = Register::Address<0xe000e404,0x00000000,0x00000000,unsigned>;
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri4{}; 
         ///priority for interrupt n
@@ -47,8 +44,8 @@ namespace Kvasir {
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri7{}; 
     }
-    namespace Noneipr2{    ///<Interrupt Priority Register 2
-        using Addr = Register::Address<0xe000e408,0x00000000,0,unsigned>;
+    namespace NvicIpr2{    ///<Interrupt Priority Register 2
+        using Addr = Register::Address<0xe000e408,0x00000000,0x00000000,unsigned>;
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri8{}; 
         ///priority for interrupt n
@@ -58,8 +55,8 @@ namespace Kvasir {
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri11{}; 
     }
-    namespace Noneipr3{    ///<Interrupt Priority Register 3
-        using Addr = Register::Address<0xe000e40c,0x00000000,0,unsigned>;
+    namespace NvicIpr3{    ///<Interrupt Priority Register 3
+        using Addr = Register::Address<0xe000e40c,0x00000000,0x00000000,unsigned>;
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri12{}; 
         ///priority for interrupt n
@@ -69,8 +66,8 @@ namespace Kvasir {
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri15{}; 
     }
-    namespace Noneipr4{    ///<Interrupt Priority Register 4
-        using Addr = Register::Address<0xe000e410,0x00000000,0,unsigned>;
+    namespace NvicIpr4{    ///<Interrupt Priority Register 4
+        using Addr = Register::Address<0xe000e410,0x00000000,0x00000000,unsigned>;
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri16{}; 
         ///priority for interrupt n
@@ -80,8 +77,8 @@ namespace Kvasir {
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri19{}; 
     }
-    namespace Noneipr5{    ///<Interrupt Priority Register 5
-        using Addr = Register::Address<0xe000e414,0x00000000,0,unsigned>;
+    namespace NvicIpr5{    ///<Interrupt Priority Register 5
+        using Addr = Register::Address<0xe000e414,0x00000000,0x00000000,unsigned>;
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri20{}; 
         ///priority for interrupt n
@@ -91,8 +88,8 @@ namespace Kvasir {
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri23{}; 
     }
-    namespace Noneipr6{    ///<Interrupt Priority Register 6
-        using Addr = Register::Address<0xe000e418,0x00000000,0,unsigned>;
+    namespace NvicIpr6{    ///<Interrupt Priority Register 6
+        using Addr = Register::Address<0xe000e418,0x00000000,0x00000000,unsigned>;
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri24{}; 
         ///priority for interrupt n
@@ -102,8 +99,8 @@ namespace Kvasir {
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri27{}; 
     }
-    namespace Noneipr7{    ///<Interrupt Priority Register 7
-        using Addr = Register::Address<0xe000e41c,0x00000000,0,unsigned>;
+    namespace NvicIpr7{    ///<Interrupt Priority Register 7
+        using Addr = Register::Address<0xe000e41c,0x00000000,0x00000000,unsigned>;
         ///priority for interrupt n
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri28{}; 
         ///priority for interrupt n

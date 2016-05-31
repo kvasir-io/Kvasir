@@ -1,24 +1,24 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Power control
-    namespace NonetasksConstlat{    ///<Enable constant latency mode
-        using Addr = Register::Address<0x40000078,0xffffffff,0,unsigned>;
+    namespace PowerTasksConstlat{    ///<Enable constant latency mode
+        using Addr = Register::Address<0x40000078,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksLowpwr{    ///<Enable low power mode (variable latency)
-        using Addr = Register::Address<0x4000007c,0xffffffff,0,unsigned>;
+    namespace PowerTasksLowpwr{    ///<Enable low power mode (variable latency)
+        using Addr = Register::Address<0x4000007c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsPofwarn{    ///<Power failure warning
-        using Addr = Register::Address<0x40000108,0xffffffff,0,unsigned>;
+    namespace PowerEventsPofwarn{    ///<Power failure warning
+        using Addr = Register::Address<0x40000108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsSleepenter{    ///<CPU entered WFI/WFE sleep
-        using Addr = Register::Address<0x40000114,0xffffffff,0,unsigned>;
+    namespace PowerEventsSleepenter{    ///<CPU entered WFI/WFE sleep
+        using Addr = Register::Address<0x40000114,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsSleepexit{    ///<CPU exited WFI/WFE sleep
-        using Addr = Register::Address<0x40000118,0xffffffff,0,unsigned>;
+    namespace PowerEventsSleepexit{    ///<CPU exited WFI/WFE sleep
+        using Addr = Register::Address<0x40000118,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40000304,0xffffff9b,0,unsigned>;
+    namespace PowerIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40000304,0xffffff9b,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_POFWARN event
         enum class PofwarnVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -56,8 +56,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepexit)::Type,SleepexitVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40000308,0xffffff9b,0,unsigned>;
+    namespace PowerIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40000308,0xffffff9b,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_POFWARN event
         enum class PofwarnVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -95,8 +95,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepexit)::Type,SleepexitVal::clear> clear{};
         }
     }
-    namespace Noneresetreas{    ///<Reset reason
-        using Addr = Register::Address<0x40000400,0xfff0fff0,0,unsigned>;
+    namespace PowerResetreas{    ///<Reset reason
+        using Addr = Register::Address<0x40000400,0xfff0fff0,0x00000000,unsigned>;
         ///Reset from pin-reset detected
         enum class ResetpinVal {
             notdetected=0x00000000,     ///<Not detected
@@ -178,8 +178,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nfc)::Type,NfcVal::detected> detected{};
         }
     }
-    namespace Noneramstatus{    ///<Deprecated register -  RAM status register
-        using Addr = Register::Address<0x40000428,0xfffffff0,0,unsigned>;
+    namespace PowerRamstatus{    ///<Deprecated register -  RAM status register
+        using Addr = Register::Address<0x40000428,0xfffffff0,0x00000000,unsigned>;
         ///RAM block 0 is on or off/powering up
         enum class Ramblock0Val {
             off=0x00000000,     ///<Off
@@ -221,8 +221,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ramblock3)::Type,Ramblock3Val::on> on{};
         }
     }
-    namespace Nonesystemoff{    ///<System OFF register
-        using Addr = Register::Address<0x40000500,0xfffffffe,0,unsigned>;
+    namespace PowerSystemoff{    ///<System OFF register
+        using Addr = Register::Address<0x40000500,0xfffffffe,0x00000000,unsigned>;
         ///Enable System OFF mode
         enum class SystemoffVal {
             enter=0x00000001,     ///<Enable System OFF mode
@@ -232,8 +232,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(systemoff)::Type,SystemoffVal::enter> enter{};
         }
     }
-    namespace Nonepofcon{    ///<Power failure comparator configuration
-        using Addr = Register::Address<0x40000510,0xffffffe0,0,unsigned>;
+    namespace PowerPofcon{    ///<Power failure comparator configuration
+        using Addr = Register::Address<0x40000510,0xffffffe0,0x00000000,unsigned>;
         ///Enable or disable power failure comparator
         enum class PofVal {
             disabled=0x00000000,     ///<Disable
@@ -267,18 +267,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(threshold)::Type,ThresholdVal::v28> v28{};
         }
     }
-    namespace Nonegpregret{    ///<General purpose retention register
-        using Addr = Register::Address<0x4000051c,0xffffff00,0,unsigned>;
+    namespace PowerGpregret{    ///<General purpose retention register
+        using Addr = Register::Address<0x4000051c,0xffffff00,0x00000000,unsigned>;
         ///General purpose retention register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> gpregret{}; 
     }
-    namespace Nonegpregret2{    ///<General purpose retention register
-        using Addr = Register::Address<0x40000520,0xffffff00,0,unsigned>;
+    namespace PowerGpregret2{    ///<General purpose retention register
+        using Addr = Register::Address<0x40000520,0xffffff00,0x00000000,unsigned>;
         ///General purpose retention register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> gpregret{}; 
     }
-    namespace Noneramon{    ///<Deprecated register -  RAM on/off register (this register is retained)
-        using Addr = Register::Address<0x40000524,0xfffcfffc,0,unsigned>;
+    namespace PowerRamon{    ///<Deprecated register -  RAM on/off register (this register is retained)
+        using Addr = Register::Address<0x40000524,0xfffcfffc,0x00000000,unsigned>;
         ///Keep RAM block 0 on or off in system ON Mode
         enum class Onram0Val {
             ram0off=0x00000000,     ///<Off
@@ -320,8 +320,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(offram1)::Type,Offram1Val::ram1on> ram1on{};
         }
     }
-    namespace Noneramonb{    ///<Deprecated register -  RAM on/off register (this register is retained)
-        using Addr = Register::Address<0x40000554,0xfffcfffc,0,unsigned>;
+    namespace PowerRamonb{    ///<Deprecated register -  RAM on/off register (this register is retained)
+        using Addr = Register::Address<0x40000554,0xfffcfffc,0x00000000,unsigned>;
         ///Keep RAM block 2 on or off in system ON Mode
         enum class Onram2Val {
             ram2off=0x00000000,     ///<Off
@@ -363,8 +363,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(offram3)::Type,Offram3Val::ram3on> ram3on{};
         }
     }
-    namespace Nonedcdcen{    ///<DC/DC enable register
-        using Addr = Register::Address<0x40000578,0xfffffffe,0,unsigned>;
+    namespace PowerDcdcen{    ///<DC/DC enable register
+        using Addr = Register::Address<0x40000578,0xfffffffe,0x00000000,unsigned>;
         ///Enable or disable DC/DC converter
         enum class DcdcenVal {
             disabled=0x00000000,     ///<Disable

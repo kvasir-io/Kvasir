@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //USB device/host/OTG controller
-    namespace Noneintst{    ///<OTG Interrupt Status
-        using Addr = Register::Address<0x50008100,0xfffffff0,0,unsigned>;
+    namespace UsbIntst{    ///<OTG Interrupt Status
+        using Addr = Register::Address<0x50008100,0x00000000,0x00000000,unsigned>;
         ///Timer time-out.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tmr{}; 
         ///Remove pull-up. This bit is set by hardware to indicate that software needs to disable the D+ pull-up resistor.
@@ -12,9 +12,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hnpFailure{}; 
         ///HNP succeeded. This bit is set by hardware to indicate that the HNP switching has succeeded.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> hnpSuccess{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneinten{    ///<OTG Interrupt Enable
-        using Addr = Register::Address<0x50008104,0xfffffff0,0,unsigned>;
+    namespace UsbInten{    ///<OTG Interrupt Enable
+        using Addr = Register::Address<0x50008104,0x00000000,0x00000000,unsigned>;
         ///1 = enable the corresponding bit in the IntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tmrEn{}; 
         ///1 = enable the corresponding bit in the IntSt register.
@@ -23,9 +25,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hnpFailureEn{}; 
         ///1 = enable the corresponding bit in the IntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> hnpSuccesEn{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintset{    ///<OTG Interrupt Set
-        using Addr = Register::Address<0x50008108,0xfffffff0,0,unsigned>;
+    namespace UsbIntset{    ///<OTG Interrupt Set
+        using Addr = Register::Address<0x50008108,0x00000000,0x00000000,unsigned>;
         ///0 = no effect. 1 = set the corresponding bit in the IntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tmrSet{}; 
         ///0 = no effect. 1 = set the corresponding bit in the IntSt register.
@@ -34,9 +38,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hnpFailureSet{}; 
         ///0 = no effect. 1 = set the corresponding bit in the IntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> hnpSuccesSet{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintclr{    ///<OTG Interrupt Clear
-        using Addr = Register::Address<0x5000810c,0xfffffff0,0,unsigned>;
+    namespace UsbIntclr{    ///<OTG Interrupt Clear
+        using Addr = Register::Address<0x5000810c,0x00000000,0x00000000,unsigned>;
         ///0 = no effect. 1 = clear the corresponding bit in the IntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tmrClr{}; 
         ///0 = no effect. 1 = clear the corresponding bit in the IntSt register.
@@ -45,9 +51,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hnpFailureClr{}; 
         ///0 = no effect. 1 = clear the corresponding bit in the IntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> hnpSuccesClr{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestctrl{    ///<OTG Status and Control and USB port select
-        using Addr = Register::Address<0x50008110,0x0000f880,0,unsigned>;
+    namespace UsbStctrl{    ///<OTG Status and Control and USB port select
+        using Addr = Register::Address<0x50008110,0x00000000,0x00000000,unsigned>;
         ///Controls connection of USB functions (see Figure 51). Bit 0 is set or cleared by hardware when B_HNP_TRACK or A_HNP_TRACK is set and HNP succeeds. See Section 14.9. 00: U1 = device (OTG), U2 = host 01: U1 = host (OTG), U2 = host 10: Reserved 11: U1 = host, U2 = device In a device-only configuration, the following values are allowed: 00: U1 = device. The USB device controller signals are mapped to the U1 port: USB_CONNECT1, USB_UP_LED1, USB_D+1, USB_D-1. 11: U2 = device. The USB device controller signals are mapped to the U2 port: USB_CONNECT2, USB_UP_LED2, USB_D+2, USB_D-2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> portFunc{}; 
         ///Timer scale selection. This field determines the duration of each timer count. 00: 10 ms (100 KHz) 01: 100 ms (10 KHz) 10: 1000 ms (1 KHz) 11: Reserved
@@ -58,22 +66,28 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tmrEn{}; 
         ///Timer reset. Writing one to this bit resets TMR_CNT to 0. This provides a single bit control for the software to restart the timer when the timer is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tmrRst{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Enable HNP tracking for B-device (peripheral), see Section 14.9. Hardware clears this bit when HNP_SUCCESS or HNP_FAILURE is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> bHnpTrack{}; 
         ///Enable HNP tracking for A-device (host), see Section 14.9. Hardware clears this bit when HNP_SUCCESS or HNP_FAILURE is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> aHnpTrack{}; 
         ///When the B-device changes its role from peripheral to host, software sets this bit when it removes the D+ pull-up, see Section 14.9. Hardware clears this bit when HNP_SUCCESS or HNP_FAILURE is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> puRemoved{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Current timer count value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> tmrCnt{}; 
     }
-    namespace Nonetmr{    ///<OTG Timer
-        using Addr = Register::Address<0x50008114,0xffff0000,0,unsigned>;
+    namespace UsbTmr{    ///<OTG Timer
+        using Addr = Register::Address<0x50008114,0x00000000,0x00000000,unsigned>;
         ///The TMR interrupt is set when TMR_CNT reaches this value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timeoutCnt{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedevintst{    ///<USB Device Interrupt Status
-        using Addr = Register::Address<0x50008200,0xfffffc00,0,unsigned>;
+    namespace UsbDevintst{    ///<USB Device Interrupt Status
+        using Addr = Register::Address<0x50008200,0x00000000,0x00000000,unsigned>;
         ///The frame interrupt occurs every 1 ms. This is used in isochronous packet transfers.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frame{}; 
         ///Fast endpoint interrupt. If an Endpoint Interrupt Priority register (USBEpIntPri) bit is set, the corresponding endpoint interrupt will be routed to this bit.
@@ -94,9 +108,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epRlzed{}; 
         ///Error Interrupt. Any bus error interrupt from the USB device. Refer to Section 13.12.9 Read Error Status (Command: 0xFB, Data: read 1 byte) on page 368
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> errInt{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedevinten{    ///<USB Device Interrupt Enable
-        using Addr = Register::Address<0x50008204,0xfffffc00,0,unsigned>;
+    namespace UsbDevinten{    ///<USB Device Interrupt Enable
+        using Addr = Register::Address<0x50008204,0x00000000,0x00000000,unsigned>;
         ///0 = No interrupt is generated. 1 = An interrupt will be generated when the corresponding bit in the Device Interrupt Status (USBDevIntSt) register (Table 261) is set. By default, the interrupt is routed to the USB_INT_REQ_LP interrupt line. Optionally, either the EP_FAST or FRAME interrupt may be routed to the USB_INT_REQ_HP interrupt line by changing the value of USBDevIntPri.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frameen{}; 
         ///0 = No interrupt is generated. 1 = An interrupt will be generated when the corresponding bit in the Device Interrupt Status (USBDevIntSt) register (Table 261) is set. By default, the interrupt is routed to the USB_INT_REQ_LP interrupt line. Optionally, either the EP_FAST or FRAME interrupt may be routed to the USB_INT_REQ_HP interrupt line by changing the value of USBDevIntPri.
@@ -117,9 +133,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epRlzeden{}; 
         ///0 = No interrupt is generated. 1 = An interrupt will be generated when the corresponding bit in the Device Interrupt Status (USBDevIntSt) register (Table 261) is set. By default, the interrupt is routed to the USB_INT_REQ_LP interrupt line. Optionally, either the EP_FAST or FRAME interrupt may be routed to the USB_INT_REQ_HP interrupt line by changing the value of USBDevIntPri.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> errInten{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedevintclr{    ///<USB Device Interrupt Clear
-        using Addr = Register::Address<0x50008208,0xfffffc00,0,unsigned>;
+    namespace UsbDevintclr{    ///<USB Device Interrupt Clear
+        using Addr = Register::Address<0x50008208,0x00000000,0x00000000,unsigned>;
         ///0 = No effect. 1 = The corresponding bit in USBDevIntSt (Section 13.10.3.2) is cleared.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frameclr{}; 
         ///0 = No effect. 1 = The corresponding bit in USBDevIntSt (Section 13.10.3.2) is cleared.
@@ -140,9 +158,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epRlzedclr{}; 
         ///0 = No effect. 1 = The corresponding bit in USBDevIntSt (Section 13.10.3.2) is cleared.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> errIntclr{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedevintset{    ///<USB Device Interrupt Set
-        using Addr = Register::Address<0x5000820c,0xfffffc00,0,unsigned>;
+    namespace UsbDevintset{    ///<USB Device Interrupt Set
+        using Addr = Register::Address<0x5000820c,0x00000000,0x00000000,unsigned>;
         ///0 = No effect. 1 = The corresponding bit in USBDevIntSt (Section 13.10.3.2) is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frameset{}; 
         ///0 = No effect. 1 = The corresponding bit in USBDevIntSt (Section 13.10.3.2) is set.
@@ -163,31 +183,39 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epRlzedset{}; 
         ///0 = No effect. 1 = The corresponding bit in USBDevIntSt (Section 13.10.3.2) is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> errIntset{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecmdcode{    ///<USB Command Code
-        using Addr = Register::Address<0x50008210,0xff0000ff,0,unsigned>;
+    namespace UsbCmdcode{    ///<USB Command Code
+        using Addr = Register::Address<0x50008210,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///The command phase:
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cmdPhase{}; 
         ///This is a multi-purpose field. When CMD_PHASE is Command or Read, this field contains the code for the command (CMD_CODE). When CMD_PHASE is Write, this field contains the command write data (CMD_WDATA).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> cmdCodeWdata{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecmddata{    ///<USB Command Data
-        using Addr = Register::Address<0x50008214,0xffffff00,0,unsigned>;
+    namespace UsbCmddata{    ///<USB Command Data
+        using Addr = Register::Address<0x50008214,0x00000000,0x00000000,unsigned>;
         ///Command Read Data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cmdRdata{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerxdata{    ///<USB Receive Data
-        using Addr = Register::Address<0x50008218,0x00000000,0,unsigned>;
+    namespace UsbRxdata{    ///<USB Receive Data
+        using Addr = Register::Address<0x50008218,0x00000000,0x00000000,unsigned>;
         ///Data received.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxData{}; 
     }
-    namespace Nonetxdata{    ///<USB Transmit Data
-        using Addr = Register::Address<0x5000821c,0x00000000,0,unsigned>;
+    namespace UsbTxdata{    ///<USB Transmit Data
+        using Addr = Register::Address<0x5000821c,0x00000000,0x00000000,unsigned>;
         ///Transmit Data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txData{}; 
     }
-    namespace Nonerxplen{    ///<USB Receive Packet Length
-        using Addr = Register::Address<0x500080dc,0xfffff000,0,unsigned>;
+    namespace UsbRxplen{    ///<USB Receive Packet Length
+        using Addr = Register::Address<0x500080dc,0x00000000,0x00000000,unsigned>;
         ///The remaining number of bytes to be read from the currently selected endpoint's buffer. When this field decrements to 0, the RxENDPKT bit will be set in USBDevIntSt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> pktLngth{}; 
         ///Data valid. This bit is useful for isochronous endpoints. Non-isochronous endpoints do not raise an interrupt when an erroneous data packet is received. But invalid data packet can be produced with a bus reset. For isochronous endpoints, data transfer will happen even if an erroneous packet is received. In this case DV bit will not be set for the packet.
@@ -202,14 +230,18 @@ namespace Kvasir {
         }
         ///The PKT_LNGTH field is valid and the packet is ready for reading.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> pktRdy{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxplen{    ///<USB Transmit Packet Length
-        using Addr = Register::Address<0x50008224,0xfffffc00,0,unsigned>;
+    namespace UsbTxplen{    ///<USB Transmit Packet Length
+        using Addr = Register::Address<0x50008224,0x00000000,0x00000000,unsigned>;
         ///The remaining number of bytes to be written to the selected endpoint buffer. This field is decremented by 4 by hardware after each write to USBTxData. When this field decrements to 0, the TxENDPKT bit will be set in USBDevIntSt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> pktLngth{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectrl{    ///<USB Control
-        using Addr = Register::Address<0x50008228,0xffffffc0,0,unsigned>;
+    namespace UsbCtrl{    ///<USB Control
+        using Addr = Register::Address<0x50008228,0x00000000,0x00000000,unsigned>;
         ///Read mode control. Enables reading data from the OUT endpoint buffer for the endpoint specified in the LOG_ENDPOINT field using the USBRxData register. This bit is cleared by hardware when the last word of the current packet is read from USBRxData.
         enum class RdenVal {
             disabled=0x00000000,     ///<Disabled.
@@ -232,9 +264,11 @@ namespace Kvasir {
         }
         ///Logical Endpoint number.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> logEndpoint{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedevintpri{    ///<USB Device Interrupt Priority
-        using Addr = Register::Address<0x5000822c,0xfffffffc,0,unsigned>;
+    namespace UsbDevintpri{    ///<USB Device Interrupt Priority
+        using Addr = Register::Address<0x5000822c,0x00000000,0x00000000,unsigned>;
         ///Frame interrupt routing
         enum class FrameVal {
             lp=0x00000000,     ///<FRAME interrupt is routed to USB_INT_REQ_LP.
@@ -255,9 +289,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epFast)::Type,EpfastVal::lp> lp{};
             constexpr Register::FieldValue<decltype(epFast)::Type,EpfastVal::hp> hp{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneepintst{    ///<USB Endpoint Interrupt Status
-        using Addr = Register::Address<0x50008230,0x00000000,0,unsigned>;
+    namespace UsbEpintst{    ///<USB Endpoint Interrupt Status
+        using Addr = Register::Address<0x50008230,0x00000000,0x00000000,unsigned>;
         ///1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epst0{}; 
         ///1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received.
@@ -323,8 +359,8 @@ namespace Kvasir {
         ///1 = Endpoint Data Received (bits 0, 2, 4, ..., 30) or Transmitted (bits 1, 3, 5, ..., 31) Interrupt received.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epst31{}; 
     }
-    namespace Noneepinten{    ///<USB Endpoint Interrupt Enable
-        using Addr = Register::Address<0x50008234,0x00000000,0,unsigned>;
+    namespace UsbEpinten{    ///<USB Endpoint Interrupt Enable
+        using Addr = Register::Address<0x50008234,0x00000000,0x00000000,unsigned>;
         ///0= The corresponding bit in USBDMARSt is set when an interrupt occurs for this endpoint. 1 = The corresponding bit in USBEpIntSt is set when an interrupt occurs for this endpoint. Implies Slave mode for this endpoint.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epen0{}; 
         ///0= The corresponding bit in USBDMARSt is set when an interrupt occurs for this endpoint. 1 = The corresponding bit in USBEpIntSt is set when an interrupt occurs for this endpoint. Implies Slave mode for this endpoint.
@@ -390,8 +426,8 @@ namespace Kvasir {
         ///0= The corresponding bit in USBDMARSt is set when an interrupt occurs for this endpoint. 1 = The corresponding bit in USBEpIntSt is set when an interrupt occurs for this endpoint. Implies Slave mode for this endpoint.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epen31{}; 
     }
-    namespace Noneepintclr{    ///<USB Endpoint Interrupt Clear
-        using Addr = Register::Address<0x50008238,0x00000000,0,unsigned>;
+    namespace UsbEpintclr{    ///<USB Endpoint Interrupt Clear
+        using Addr = Register::Address<0x50008238,0x00000000,0x00000000,unsigned>;
         ///0 = No effect. 1 = Clears the corresponding bit in USBEpIntSt, by executing the SIE Select Endpoint/Clear Interrupt command for this endpoint.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epclr0{}; 
         ///0 = No effect. 1 = Clears the corresponding bit in USBEpIntSt, by executing the SIE Select Endpoint/Clear Interrupt command for this endpoint.
@@ -457,8 +493,8 @@ namespace Kvasir {
         ///0 = No effect. 1 = Clears the corresponding bit in USBEpIntSt, by executing the SIE Select Endpoint/Clear Interrupt command for this endpoint.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epclr31{}; 
     }
-    namespace Noneepintset{    ///<USB Endpoint Interrupt Set
-        using Addr = Register::Address<0x5000823c,0x00000000,0,unsigned>;
+    namespace UsbEpintset{    ///<USB Endpoint Interrupt Set
+        using Addr = Register::Address<0x5000823c,0x00000000,0x00000000,unsigned>;
         ///0 = No effect. 1 = Sets the corresponding bit in USBEpIntSt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epset0{}; 
         ///0 = No effect. 1 = Sets the corresponding bit in USBEpIntSt.
@@ -524,8 +560,8 @@ namespace Kvasir {
         ///0 = No effect. 1 = Sets the corresponding bit in USBEpIntSt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epset31{}; 
     }
-    namespace Noneepintpri{    ///<USB Endpoint Priority
-        using Addr = Register::Address<0x50008240,0x00000000,0,unsigned>;
+    namespace UsbEpintpri{    ///<USB Endpoint Priority
+        using Addr = Register::Address<0x50008240,0x00000000,0x00000000,unsigned>;
         ///0 = The corresponding interrupt is routed to the EP_SLOW bit of USBDevIntSt 1 = The corresponding interrupt is routed to the EP_FAST bit of USBDevIntSt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eppri0{}; 
         ///0 = The corresponding interrupt is routed to the EP_SLOW bit of USBDevIntSt 1 = The corresponding interrupt is routed to the EP_FAST bit of USBDevIntSt
@@ -591,8 +627,8 @@ namespace Kvasir {
         ///0 = The corresponding interrupt is routed to the EP_SLOW bit of USBDevIntSt 1 = The corresponding interrupt is routed to the EP_FAST bit of USBDevIntSt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eppri31{}; 
     }
-    namespace Nonereep{    ///<USB Realize Endpoint
-        using Addr = Register::Address<0x50008244,0x00000000,0,unsigned>;
+    namespace UsbReep{    ///<USB Realize Endpoint
+        using Addr = Register::Address<0x50008244,0x00000000,0x00000000,unsigned>;
         ///0 = Endpoint EPxx is not realized. 1 = Endpoint EPxx is realized.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epr0{}; 
         ///0 = Endpoint EPxx is not realized. 1 = Endpoint EPxx is realized.
@@ -658,18 +694,22 @@ namespace Kvasir {
         ///0 = Endpoint EPxx is not realized. 1 = Endpoint EPxx is realized.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epr31{}; 
     }
-    namespace Noneepind{    ///<USB Endpoint Index
-        using Addr = Register::Address<0x50008248,0xffffffe0,0,unsigned>;
+    namespace UsbEpind{    ///<USB Endpoint Index
+        using Addr = Register::Address<0x50008248,0x00000000,0x00000000,unsigned>;
         ///Physical endpoint number (0-31)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> phyEp{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemaxpsize{    ///<USB MaxPacketSize
-        using Addr = Register::Address<0x5000824c,0xfffffc00,0,unsigned>;
+    namespace UsbMaxpsize{    ///<USB MaxPacketSize
+        using Addr = Register::Address<0x5000824c,0x00000000,0x00000000,unsigned>;
         ///The maximum packet size value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> mps{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedmarst{    ///<USB DMA Request Status
-        using Addr = Register::Address<0x50008250,0x00000000,0,unsigned>;
+    namespace UsbDmarst{    ///<USB DMA Request Status
+        using Addr = Register::Address<0x50008250,0x00000000,0x00000000,unsigned>;
         ///Control endpoint OUT (DMA cannot be enabled for this endpoint and EP0 bit must be 0).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eprst0{}; 
         ///Control endpoint IN (DMA cannot be enabled for this endpoint and EP1 bit must be 0).
@@ -735,8 +775,8 @@ namespace Kvasir {
         ///Endpoint xx (2 <= xx  <= 31) DMA request. 0 = DMA not requested by endpoint xx. 1 = DMA requested by endpoint xx.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eprst31{}; 
     }
-    namespace Nonedmarclr{    ///<USB DMA Request Clear
-        using Addr = Register::Address<0x50008254,0x00000000,0,unsigned>;
+    namespace UsbDmarclr{    ///<USB DMA Request Clear
+        using Addr = Register::Address<0x50008254,0x00000000,0x00000000,unsigned>;
         ///Control endpoint OUT (DMA cannot be enabled for this endpoint and the EP0 bit must be 0).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eprclr0{}; 
         ///Control endpoint IN (DMA cannot be enabled for this endpoint and the EP1 bit must be 0).
@@ -802,8 +842,8 @@ namespace Kvasir {
         ///Clear the endpoint xx (2 <= xx <= 31) DMA request. 0 = No effect 1 = Clear the corresponding bit in USBDMARSt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eprclr31{}; 
     }
-    namespace Nonedmarset{    ///<USB DMA Request Set
-        using Addr = Register::Address<0x50008258,0x00000000,0,unsigned>;
+    namespace UsbDmarset{    ///<USB DMA Request Set
+        using Addr = Register::Address<0x50008258,0x00000000,0x00000000,unsigned>;
         ///Control endpoint OUT (DMA cannot be enabled for this endpoint and the EP0 bit must be 0).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eprset0{}; 
         ///Control endpoint IN (DMA cannot be enabled for this endpoint and the EP1 bit must be 0).
@@ -869,13 +909,15 @@ namespace Kvasir {
         ///Set the endpoint xx (2 <= xx <= 31) DMA request. 0 = No effect 1 = Set the corresponding bit in USBDMARSt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eprset31{}; 
     }
-    namespace Noneudcah{    ///<USB UDCA Head
-        using Addr = Register::Address<0x50008280,0x0000007f,0,unsigned>;
+    namespace UsbUdcah{    ///<USB UDCA Head
+        using Addr = Register::Address<0x50008280,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Read value is undefined, only zero should be written. The UDCA is aligned to 128-byte boundaries.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Start address of the UDCA.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,7),Register::ReadWriteAccess,unsigned> udcaAddr{}; 
     }
-    namespace Noneepdmast{    ///<USB Endpoint DMA Status
-        using Addr = Register::Address<0x50008284,0x00000000,0,unsigned>;
+    namespace UsbEpdmast{    ///<USB Endpoint DMA Status
+        using Addr = Register::Address<0x50008284,0x00000000,0x00000000,unsigned>;
         ///Control endpoint OUT (DMA cannot be enabled for this endpoint and the EP0_DMA_ENABLE bit must be 0).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epDmaSt0{}; 
         ///Control endpoint IN (DMA cannot be enabled for this endpoint and the EP1_DMA_ENABLE bit must be 0).
@@ -941,8 +983,8 @@ namespace Kvasir {
         ///Endpoint xx (2 <= xx <= 31) DMA enabled bit. 0 = The DMA for endpoint EPxx is disabled. 1 = The DMA for endpoint EPxx is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epDmaSt31{}; 
     }
-    namespace Noneepdmaen{    ///<USB Endpoint DMA Enable
-        using Addr = Register::Address<0x50008288,0x00000000,0,unsigned>;
+    namespace UsbEpdmaen{    ///<USB Endpoint DMA Enable
+        using Addr = Register::Address<0x50008288,0x00000000,0x00000000,unsigned>;
         ///Control endpoint OUT (DMA cannot be enabled for this endpoint and the EP0_DMA_ENABLE bit value must be 0).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epDmaEn0{}; 
         ///Control endpoint IN (DMA cannot be enabled for this endpoint and the EP1_DMA_ENABLE bit must be 0).
@@ -950,8 +992,8 @@ namespace Kvasir {
         ///Endpoint xx(2 <= xx <= 31) DMA enable control bit. 0 = No effect. 1 = Enable the DMA operation for endpoint EPxx.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> epDmaEn{}; 
     }
-    namespace Noneepdmadis{    ///<USB Endpoint DMA Disable
-        using Addr = Register::Address<0x5000828c,0x00000000,0,unsigned>;
+    namespace UsbEpdmadis{    ///<USB Endpoint DMA Disable
+        using Addr = Register::Address<0x5000828c,0x00000000,0x00000000,unsigned>;
         ///Control endpoint OUT (DMA cannot be enabled for this endpoint and the EP0_DMA_DISABLE bit value must be 0).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epDmaDis0{}; 
         ///Control endpoint IN (DMA cannot be enabled for this endpoint and the EP1_DMA_DISABLE bit value must be 0).
@@ -1017,8 +1059,8 @@ namespace Kvasir {
         ///Endpoint xx (2 <= xx <= 31) DMA disable control bit. 0 = No effect. 1 = Disable the DMA operation for endpoint EPxx.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epDmaDis31{}; 
     }
-    namespace Nonedmaintst{    ///<USB DMA Interrupt Status
-        using Addr = Register::Address<0x50008290,0xfffffff8,0,unsigned>;
+    namespace UsbDmaintst{    ///<USB DMA Interrupt Status
+        using Addr = Register::Address<0x50008290,0x00000000,0x00000000,unsigned>;
         ///End of Transfer Interrupt bit.
         enum class EotVal {
             allBitsInTheUsbe=0x00000000,     ///<All bits in the USBEoTIntSt register are 0.
@@ -1049,9 +1091,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::allBitsInTheUsbs> allBitsInTheUsbs{};
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::atLeastOneBitIn> atLeastOneBitIn{};
         }
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedmainten{    ///<USB DMA Interrupt Enable
-        using Addr = Register::Address<0x50008294,0xfffffff8,0,unsigned>;
+    namespace UsbDmainten{    ///<USB DMA Interrupt Enable
+        using Addr = Register::Address<0x50008294,0x00000000,0x00000000,unsigned>;
         ///End of Transfer Interrupt enable bit.
         enum class EotVal {
             disabled=0x00000000,     ///<Disabled.
@@ -1082,9 +1126,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneeotintst{    ///<USB End of Transfer Interrupt Status
-        using Addr = Register::Address<0x500082a0,0x00000000,0,unsigned>;
+    namespace UsbEotintst{    ///<USB End of Transfer Interrupt Status
+        using Addr = Register::Address<0x500082a0,0x00000000,0x00000000,unsigned>;
         ///Endpoint xx (2 <= xx  <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptxintst0{}; 
         ///Endpoint xx (2 <= xx  <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx.
@@ -1150,8 +1196,8 @@ namespace Kvasir {
         ///Endpoint xx (2 <= xx  <= 31) End of Transfer Interrupt request. 0 = There is no End of Transfer interrupt request for endpoint xx. 1 = There is an End of Transfer Interrupt request for endpoint xx.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptxintst31{}; 
     }
-    namespace Noneeotintclr{    ///<USB End of Transfer Interrupt Clear
-        using Addr = Register::Address<0x500082a4,0x00000000,0,unsigned>;
+    namespace UsbEotintclr{    ///<USB End of Transfer Interrupt Clear
+        using Addr = Register::Address<0x500082a4,0x00000000,0x00000000,unsigned>;
         ///Clear endpoint xx (2 <= xx  <= 31) End of Transfer Interrupt request. 0 = No effect. 1 = Clear the EPxx End of Transfer Interrupt request in the USBEoTIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptxintclr0{}; 
         ///Clear endpoint xx (2 <= xx  <= 31) End of Transfer Interrupt request. 0 = No effect. 1 = Clear the EPxx End of Transfer Interrupt request in the USBEoTIntSt register.
@@ -1217,8 +1263,8 @@ namespace Kvasir {
         ///Clear endpoint xx (2 <= xx  <= 31) End of Transfer Interrupt request. 0 = No effect. 1 = Clear the EPxx End of Transfer Interrupt request in the USBEoTIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptxintclr31{}; 
     }
-    namespace Noneeotintset{    ///<USB End of Transfer Interrupt Set
-        using Addr = Register::Address<0x500082a8,0x00000000,0,unsigned>;
+    namespace UsbEotintset{    ///<USB End of Transfer Interrupt Set
+        using Addr = Register::Address<0x500082a8,0x00000000,0x00000000,unsigned>;
         ///Set endpoint xx (2 <= xx  <= 31) End of Transfer Interrupt request. 0 = No effect. 1 = Set the EPxx End of Transfer Interrupt request in the USBEoTIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptxintset0{}; 
         ///Set endpoint xx (2 <= xx  <= 31) End of Transfer Interrupt request. 0 = No effect. 1 = Set the EPxx End of Transfer Interrupt request in the USBEoTIntSt register.
@@ -1284,8 +1330,8 @@ namespace Kvasir {
         ///Set endpoint xx (2 <= xx  <= 31) End of Transfer Interrupt request. 0 = No effect. 1 = Set the EPxx End of Transfer Interrupt request in the USBEoTIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptxintset31{}; 
     }
-    namespace Nonenddrintst{    ///<USB New DD Request Interrupt Status
-        using Addr = Register::Address<0x500082ac,0x00000000,0,unsigned>;
+    namespace UsbNddrintst{    ///<USB New DD Request Interrupt Status
+        using Addr = Register::Address<0x500082ac,0x00000000,0x00000000,unsigned>;
         ///Endpoint xx (2 <= xx  <= 31) new DD interrupt request. 0 = There is no new DD interrupt request for endpoint xx. 1 = There is a new DD interrupt request for endpoint xx.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epnddintst0{}; 
         ///Endpoint xx (2 <= xx  <= 31) new DD interrupt request. 0 = There is no new DD interrupt request for endpoint xx. 1 = There is a new DD interrupt request for endpoint xx.
@@ -1351,8 +1397,8 @@ namespace Kvasir {
         ///Endpoint xx (2 <= xx  <= 31) new DD interrupt request. 0 = There is no new DD interrupt request for endpoint xx. 1 = There is a new DD interrupt request for endpoint xx.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epnddintst31{}; 
     }
-    namespace Nonenddrintclr{    ///<USB New DD Request Interrupt Clear
-        using Addr = Register::Address<0x500082b0,0x00000000,0,unsigned>;
+    namespace UsbNddrintclr{    ///<USB New DD Request Interrupt Clear
+        using Addr = Register::Address<0x500082b0,0x00000000,0x00000000,unsigned>;
         ///Clear endpoint xx (2 <= xx  <= 31) new DD interrupt request. 0 = No effect. 1 = Clear the EPxx new DD interrupt request in the USBNDDRIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epnddintclr0{}; 
         ///Clear endpoint xx (2 <= xx  <= 31) new DD interrupt request. 0 = No effect. 1 = Clear the EPxx new DD interrupt request in the USBNDDRIntSt register.
@@ -1418,8 +1464,8 @@ namespace Kvasir {
         ///Clear endpoint xx (2 <= xx  <= 31) new DD interrupt request. 0 = No effect. 1 = Clear the EPxx new DD interrupt request in the USBNDDRIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epnddintclr31{}; 
     }
-    namespace Nonenddrintset{    ///<USB New DD Request Interrupt Set
-        using Addr = Register::Address<0x500082b4,0x00000000,0,unsigned>;
+    namespace UsbNddrintset{    ///<USB New DD Request Interrupt Set
+        using Addr = Register::Address<0x500082b4,0x00000000,0x00000000,unsigned>;
         ///Set endpoint xx (2 <= xx  <= 31) new DD interrupt request. 0 = No effect. 1 = Set the EPxx new DD interrupt request in the USBNDDRIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> epnddintset0{}; 
         ///Set endpoint xx (2 <= xx  <= 31) new DD interrupt request. 0 = No effect. 1 = Set the EPxx new DD interrupt request in the USBNDDRIntSt register.
@@ -1485,8 +1531,8 @@ namespace Kvasir {
         ///Set endpoint xx (2 <= xx  <= 31) new DD interrupt request. 0 = No effect. 1 = Set the EPxx new DD interrupt request in the USBNDDRIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epnddintset31{}; 
     }
-    namespace Nonesyserrintst{    ///<USB System Error Interrupt Status
-        using Addr = Register::Address<0x500082b8,0x00000000,0,unsigned>;
+    namespace UsbSyserrintst{    ///<USB System Error Interrupt Status
+        using Addr = Register::Address<0x500082b8,0x00000000,0x00000000,unsigned>;
         ///Endpoint xx (2 <= xx  <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eperrintst0{}; 
         ///Endpoint xx (2 <= xx  <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx.
@@ -1552,8 +1598,8 @@ namespace Kvasir {
         ///Endpoint xx (2 <= xx  <= 31) System Error Interrupt request. 0 = There is no System Error Interrupt request for endpoint xx. 1 = There is a System Error Interrupt request for endpoint xx.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eperrintst31{}; 
     }
-    namespace Nonesyserrintclr{    ///<USB System Error Interrupt Clear
-        using Addr = Register::Address<0x500082bc,0x00000000,0,unsigned>;
+    namespace UsbSyserrintclr{    ///<USB System Error Interrupt Clear
+        using Addr = Register::Address<0x500082bc,0x00000000,0x00000000,unsigned>;
         ///Clear endpoint xx (2 <= xx  <= 31) System Error Interrupt request. 0 = No effect. 1 = Clear the EPxx System Error Interrupt request in the USBSysErrIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eperrintclr0{}; 
         ///Clear endpoint xx (2 <= xx  <= 31) System Error Interrupt request. 0 = No effect. 1 = Clear the EPxx System Error Interrupt request in the USBSysErrIntSt register.
@@ -1619,8 +1665,8 @@ namespace Kvasir {
         ///Clear endpoint xx (2 <= xx  <= 31) System Error Interrupt request. 0 = No effect. 1 = Clear the EPxx System Error Interrupt request in the USBSysErrIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eperrintclr31{}; 
     }
-    namespace Nonesyserrintset{    ///<USB System Error Interrupt Set
-        using Addr = Register::Address<0x500082c0,0x00000000,0,unsigned>;
+    namespace UsbSyserrintset{    ///<USB System Error Interrupt Set
+        using Addr = Register::Address<0x500082c0,0x00000000,0x00000000,unsigned>;
         ///Set endpoint xx (2 <= xx  <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eperrintset0{}; 
         ///Set endpoint xx (2 <= xx  <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register.
@@ -1686,22 +1732,24 @@ namespace Kvasir {
         ///Set endpoint xx (2 <= xx  <= 31) System Error Interrupt request. 0 = No effect. 1 = Set the EPxx System Error Interrupt request in the USBSysErrIntSt register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eperrintset31{}; 
     }
-    namespace Nonei2cRx{    ///<I2C Receive
-        using Addr = Register::Address<0x50008300,0xffffff00,0,unsigned>;
+    namespace UsbI2cRx{    ///<I2C Receive
+        using Addr = Register::Address<0x50008300,0xffffff00,0x00000000,unsigned>;
         ///Receive data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
     }
-    namespace Nonei2cWo{    ///<I2C Transmit
-        using Addr = Register::Address<0x50008300,0xfffffc00,0,unsigned>;
+    namespace UsbI2cWo{    ///<I2C Transmit
+        using Addr = Register::Address<0x50008300,0x00000000,0x00000000,unsigned>;
         ///Transmit data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txdata{}; 
         ///When 1, issue a START condition before transmitting this byte.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> start{}; 
         ///When 1, issue a STOP condition after transmitting this byte.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> stop{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2cSts{    ///<I2C Status
-        using Addr = Register::Address<0x50008304,0xfffff000,0,unsigned>;
+    namespace UsbI2cSts{    ///<I2C Status
+        using Addr = Register::Address<0x50008304,0x00000000,0x00000000,unsigned>;
         ///Transaction Done Interrupt. This flag is set if a transaction completes successfully. It is cleared by writing a one to bit 0 of the status register. It is unaffected by slave transactions.
         enum class TdiVal {
             notComplete=0x00000000,     ///<Transaction has not completed.
@@ -1798,9 +1846,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tfe)::Type,TfeVal::validData> validData{};
             constexpr Register::FieldValue<decltype(tfe)::Type,TfeVal::empty> empty{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2cCtl{    ///<I2C Control
-        using Addr = Register::Address<0x50008308,0xfffffe00,0,unsigned>;
+    namespace UsbI2cCtl{    ///<I2C Control
+        using Addr = Register::Address<0x50008308,0x00000000,0x00000000,unsigned>;
         ///Transmit Done Interrupt Enable. This enables the TDI interrupt signalling that this I2C issued a STOP condition.
         enum class TdieVal {
             disableTheTdiInte=0x00000000,     ///<Disable the TDI interrupt.
@@ -1891,28 +1941,40 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srst)::Type,SrstVal::noReset> noReset{};
             constexpr Register::FieldValue<decltype(srst)::Type,SrstVal::reset> reset{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2cClkhi{    ///<I2C Clock High
-        using Addr = Register::Address<0x5000830c,0xffffff00,0,unsigned>;
+    namespace UsbI2cClkhi{    ///<I2C Clock High
+        using Addr = Register::Address<0x5000830c,0x00000000,0x00000000,unsigned>;
         ///Clock divisor high. This value is the number of 48 MHz clocks the serial clock (SCL) will be high.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cdhi{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2cClklo{    ///<I2C Clock Low
-        using Addr = Register::Address<0x50008310,0xffffff00,0,unsigned>;
+    namespace UsbI2cClklo{    ///<I2C Clock Low
+        using Addr = Register::Address<0x50008310,0x00000000,0x00000000,unsigned>;
         ///Clock divisor low. This value is the number of 48 MHz clocks the serial clock (SCL) will be low.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cdlo{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneusbclkctrl{    ///<USB Clock Control
-        using Addr = Register::Address<0x50008ff4,0xffffffe5,0,unsigned>;
+    namespace UsbUsbclkctrl{    ///<USB Clock Control
+        using Addr = Register::Address<0x50008ff4,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Device clock enable.   Enables the usbclk input to the device controller
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> devClkEn{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port select register clock enable.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> portselClkEn{}; 
         ///AHB clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ahbClkEn{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneotgclkctrl{    ///<OTG clock controller
-        using Addr = Register::Address<0x50008ff4,0xffffffe0,0,unsigned>;
+    namespace UsbOtgclkctrl{    ///<OTG clock controller
+        using Addr = Register::Address<0x50008ff4,0x00000000,0x00000000,unsigned>;
         ///Host clock enable
         enum class HostclkenVal {
             disableTheHostClo=0x00000000,     ///<Disable the Host clock.
@@ -1963,18 +2025,26 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ahbClkEn)::Type,AhbclkenVal::disableTheAhbCloc> disableTheAhbCloc{};
             constexpr Register::FieldValue<decltype(ahbClkEn)::Type,AhbclkenVal::enableTheAhbClock> enableTheAhbClock{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneusbclkst{    ///<USB Clock Status
-        using Addr = Register::Address<0x50008ff8,0xffffffe5,0,unsigned>;
+    namespace UsbUsbclkst{    ///<USB Clock Status
+        using Addr = Register::Address<0x50008ff8,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Device clock on. The usbclk input to the device controller is active	.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> devClkOn{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port select register clock on.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> portselClkOn{}; 
         ///AHB clock on.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ahbClkOn{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneotgclkst{    ///<OTG clock status
-        using Addr = Register::Address<0x50008ff8,0xffffffe0,0,unsigned>;
+    namespace UsbOtgclkst{    ///<OTG clock status
+        using Addr = Register::Address<0x50008ff8,0x00000000,0x00000000,unsigned>;
         ///Host clock status.
         enum class HostclkonVal {
             hostClockIsNotAv=0x00000000,     ///<Host clock is not available.
@@ -2025,5 +2095,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ahbClkOn)::Type,AhbclkonVal::ahbClockIsNotAva> ahbClockIsNotAva{};
             constexpr Register::FieldValue<decltype(ahbClkOn)::Type,AhbclkonVal::ahbClockIsAvailab> ahbClockIsAvailab{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

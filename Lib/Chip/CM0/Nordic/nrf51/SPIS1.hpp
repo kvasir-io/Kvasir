@@ -1,21 +1,21 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SPI slave 1.
-    namespace NonetasksAcquire{    ///<Acquire SPI semaphore.
-        using Addr = Register::Address<0x40004024,0xffffffff,0,unsigned>;
+    namespace Spis1TasksAcquire{    ///<Acquire SPI semaphore.
+        using Addr = Register::Address<0x40004024,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksRelease{    ///<Release SPI semaphore.
-        using Addr = Register::Address<0x40004028,0xffffffff,0,unsigned>;
+    namespace Spis1TasksRelease{    ///<Release SPI semaphore.
+        using Addr = Register::Address<0x40004028,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEnd{    ///<Granted transaction completed.
-        using Addr = Register::Address<0x40004104,0xffffffff,0,unsigned>;
+    namespace Spis1EventsEnd{    ///<Granted transaction completed.
+        using Addr = Register::Address<0x40004104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsAcquired{    ///<Semaphore acquired.
-        using Addr = Register::Address<0x40004128,0xffffffff,0,unsigned>;
+    namespace Spis1EventsAcquired{    ///<Semaphore acquired.
+        using Addr = Register::Address<0x40004128,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcuts for SPIS.
-        using Addr = Register::Address<0x40004200,0xfffffffb,0,unsigned>;
+    namespace Spis1Shorts{    ///<Shortcuts for SPIS.
+        using Addr = Register::Address<0x40004200,0xfffffffb,0x00000000,unsigned>;
         ///Shortcut between END event and the ACQUIRE task.
         enum class EndacquireVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -27,8 +27,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endAcquire)::Type,EndacquireVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Interrupt enable set register.
-        using Addr = Register::Address<0x40004304,0xfffffbfd,0,unsigned>;
+    namespace Spis1Intenset{    ///<Interrupt enable set register.
+        using Addr = Register::Address<0x40004304,0xfffffbfd,0x00000000,unsigned>;
         ///Enable interrupt on END event.
         enum class EndVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -54,8 +54,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register.
-        using Addr = Register::Address<0x40004308,0xfffffbfd,0,unsigned>;
+    namespace Spis1Intenclr{    ///<Interrupt enable clear register.
+        using Addr = Register::Address<0x40004308,0xfffffbfd,0x00000000,unsigned>;
         ///Disable interrupt on END event.
         enum class EndVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -81,8 +81,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::clear> clear{};
         }
     }
-    namespace Nonesemstat{    ///<Semaphore status.
-        using Addr = Register::Address<0x40004400,0xfffffffc,0,unsigned>;
+    namespace Spis1Semstat{    ///<Semaphore status.
+        using Addr = Register::Address<0x40004400,0xfffffffc,0x00000000,unsigned>;
         ///Semaphore status.
         enum class SemstatVal {
             free=0x00000000,     ///<Semaphore is free.
@@ -98,8 +98,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(semstat)::Type,SemstatVal::cpupending> cpupending{};
         }
     }
-    namespace Nonestatus{    ///<Status from last transaction.
-        using Addr = Register::Address<0x40004440,0xfffffffc,0,unsigned>;
+    namespace Spis1Status{    ///<Status from last transaction.
+        using Addr = Register::Address<0x40004440,0xfffffffc,0x00000000,unsigned>;
         ///TX buffer overread detected, and prevented.
         enum class OverreadVal {
             notpresent=0x00000000,     ///<Error not present.
@@ -125,51 +125,51 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overflow)::Type,OverflowVal::clear> clear{};
         }
     }
-    namespace Noneenable{    ///<Enable SPIS.
-        using Addr = Register::Address<0x40004500,0xfffffff8,0,unsigned>;
+    namespace Spis1Enable{    ///<Enable SPIS.
+        using Addr = Register::Address<0x40004500,0xfffffff8,0x00000000,unsigned>;
         ///Enable or disable SPIS.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> enable{}; 
     }
-    namespace Nonepselsck{    ///<Pin select for SCK.
-        using Addr = Register::Address<0x40004508,0xffffffff,0,unsigned>;
+    namespace Spis1Pselsck{    ///<Pin select for SCK.
+        using Addr = Register::Address<0x40004508,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepselmiso{    ///<Pin select for MISO.
-        using Addr = Register::Address<0x4000450c,0xffffffff,0,unsigned>;
+    namespace Spis1Pselmiso{    ///<Pin select for MISO.
+        using Addr = Register::Address<0x4000450c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepselmosi{    ///<Pin select for MOSI.
-        using Addr = Register::Address<0x40004510,0xffffffff,0,unsigned>;
+    namespace Spis1Pselmosi{    ///<Pin select for MOSI.
+        using Addr = Register::Address<0x40004510,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepselcsn{    ///<Pin select for CSN.
-        using Addr = Register::Address<0x40004514,0xffffffff,0,unsigned>;
+    namespace Spis1Pselcsn{    ///<Pin select for CSN.
+        using Addr = Register::Address<0x40004514,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxdptr{    ///<RX data pointer.
-        using Addr = Register::Address<0x40004534,0xffffffff,0,unsigned>;
+    namespace Spis1Rxdptr{    ///<RX data pointer.
+        using Addr = Register::Address<0x40004534,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemaxrx{    ///<Maximum number of bytes in the receive buffer.
-        using Addr = Register::Address<0x40004538,0xffffff00,0,unsigned>;
+    namespace Spis1Maxrx{    ///<Maximum number of bytes in the receive buffer.
+        using Addr = Register::Address<0x40004538,0xffffff00,0x00000000,unsigned>;
         ///Maximum number of bytes in the receive buffer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> maxrx{}; 
     }
-    namespace Noneamountrx{    ///<Number of bytes received in last granted transaction.
-        using Addr = Register::Address<0x4000453c,0xffffff00,0,unsigned>;
+    namespace Spis1Amountrx{    ///<Number of bytes received in last granted transaction.
+        using Addr = Register::Address<0x4000453c,0xffffff00,0x00000000,unsigned>;
         ///Number of bytes received in last granted transaction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> amountrx{}; 
     }
-    namespace Nonetxdptr{    ///<TX data pointer.
-        using Addr = Register::Address<0x40004544,0xffffffff,0,unsigned>;
+    namespace Spis1Txdptr{    ///<TX data pointer.
+        using Addr = Register::Address<0x40004544,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemaxtx{    ///<Maximum number of bytes in the transmit buffer.
-        using Addr = Register::Address<0x40004548,0xffffff00,0,unsigned>;
+    namespace Spis1Maxtx{    ///<Maximum number of bytes in the transmit buffer.
+        using Addr = Register::Address<0x40004548,0xffffff00,0x00000000,unsigned>;
         ///Maximum number of bytes in the transmit buffer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> maxtx{}; 
     }
-    namespace Noneamounttx{    ///<Number of bytes transmitted in last granted transaction.
-        using Addr = Register::Address<0x4000454c,0xffffff00,0,unsigned>;
+    namespace Spis1Amounttx{    ///<Number of bytes transmitted in last granted transaction.
+        using Addr = Register::Address<0x4000454c,0xffffff00,0x00000000,unsigned>;
         ///Number of bytes transmitted in last granted transaction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> amounttx{}; 
     }
-    namespace Noneconfig{    ///<Configuration register.
-        using Addr = Register::Address<0x40004554,0xfffffff8,0,unsigned>;
+    namespace Spis1Config{    ///<Configuration register.
+        using Addr = Register::Address<0x40004554,0xfffffff8,0x00000000,unsigned>;
         ///Bit order.
         enum class OrderVal {
             msbfirst=0x00000000,     ///<Most significant bit transmitted out first.
@@ -201,18 +201,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activelow> activelow{};
         }
     }
-    namespace Nonedef{    ///<Default character.
-        using Addr = Register::Address<0x4000455c,0xffffff00,0,unsigned>;
+    namespace Spis1Def{    ///<Default character.
+        using Addr = Register::Address<0x4000455c,0xffffff00,0x00000000,unsigned>;
         ///Default character.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> def{}; 
     }
-    namespace Noneorc{    ///<Over-read character.
-        using Addr = Register::Address<0x400045c0,0xffffff00,0,unsigned>;
+    namespace Spis1Orc{    ///<Over-read character.
+        using Addr = Register::Address<0x400045c0,0xffffff00,0x00000000,unsigned>;
         ///Over-read character.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> orc{}; 
     }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x40004ffc,0xfffffffe,0,unsigned>;
+    namespace Spis1Power{    ///<Peripheral power control.
+        using Addr = Register::Address<0x40004ffc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.

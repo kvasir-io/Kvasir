@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4002d000,0xcffef8f8,0,unsigned>;
+    namespace Clkctrl0Control{    ///<Module Control
+        using Addr = Register::Address<0x4002d000,0xcffef8f8,0x00000000,unsigned>;
         ///AHB Clock Source Select. 
         enum class AhbselVal {
             lposc0=0x00000000,     ///<AHB clock source is the Low-Power Oscillator.
@@ -71,14 +71,14 @@ namespace Kvasir {
             notSet=0x00000000,     ///<AHB and APB oscillators are not busy.
             set=0x00000001,     ///<AHB and APB oscillators are busy and the AHBSEL, AHBDIV, and APBDIV fields should not be modified.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,ObusyfVal> obusyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ObusyfVal> obusyf{}; 
         namespace ObusyfValC{
             constexpr Register::FieldValue<decltype(obusyf)::Type,ObusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(obusyf)::Type,ObusyfVal::set> set{};
         }
     }
-    namespace Noneahbclkg{    ///<AHB Clock Gate
-        using Addr = Register::Address<0x4002d010,0xffffffe0,0,unsigned>;
+    namespace Clkctrl0Ahbclkg{    ///<AHB Clock Gate
+        using Addr = Register::Address<0x4002d010,0xffffffe0,0x00000000,unsigned>;
         ///RAM Clock Enable. 
         enum class RamcenVal {
             disabled=0x00000000,     ///<Disable the AHB clock to the RAM.
@@ -130,8 +130,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usb0bcen)::Type,Usb0bcenVal::enabled> enabled{};
         }
     }
-    namespace Noneapbclkg0{    ///<APB Clock Gate 0
-        using Addr = Register::Address<0x4002d020,0x80000000,0,unsigned>;
+    namespace Clkctrl0Apbclkg0{    ///<APB Clock Gate 0
+        using Addr = Register::Address<0x4002d020,0x80000000,0x00000000,unsigned>;
         ///PLL Module Clock Enable. 
         enum class Pll0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the PLL0 registers (default).
@@ -443,8 +443,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flctrlcen)::Type,FlctrlcenVal::enabled> enabled{};
         }
     }
-    namespace Noneapbclkg1{    ///<APB Clock Gate 1
-        using Addr = Register::Address<0x4002d030,0xfffffff8,0,unsigned>;
+    namespace Clkctrl0Apbclkg1{    ///<APB Clock Gate 1
+        using Addr = Register::Address<0x4002d030,0xfffffff8,0x00000000,unsigned>;
         ///Miscellaneous 0 Clock Enable. 
         enum class Misc0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the RSTSRC0, LOCK0, VMON0, VREG0, LDO0, VREF0, EXTOSC0, LPOSC0, EXTVREG0, IVC0 and RTC0 modules (default).
@@ -476,8 +476,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(misc2cen)::Type,Misc2cenVal::enabled> enabled{};
         }
     }
-    namespace Nonepm3cn{    ///<Power Mode 3 Clock Control
-        using Addr = Register::Address<0x4002d040,0xfffefff8,0,unsigned>;
+    namespace Clkctrl0Pm3cn{    ///<Power Mode 3 Clock Control
+        using Addr = Register::Address<0x4002d040,0xfffefff8,0x00000000,unsigned>;
         ///Power Mode 3 Fast-Wake Clock Source. 
         enum class Pm3cselVal {
             lposc0=0x00000000,     ///<Power Mode 3 clock source is the Low-Power Oscillator.

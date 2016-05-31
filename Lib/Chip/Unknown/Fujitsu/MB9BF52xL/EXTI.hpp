@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //External Interrupt and NMI Control
-    namespace Noneenir{    ///<Enable Interrupt Request Register
-        using Addr = Register::Address<0x40030000,0xff800f00,0,unsigned>;
+    namespace ExtiEnir{    ///<Enable Interrupt Request Register
+        using Addr = Register::Address<0x40030000,0xff800f00,0x00000000,unsigned>;
         ///Bit22 of ENIR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> en22{}; 
         ///Bit21 of ENIR
@@ -43,8 +43,8 @@ namespace Kvasir {
         ///Bit0 of ENIR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en0{}; 
     }
-    namespace Noneeirr{    ///<External Interrupt Request Register
-        using Addr = Register::Address<0x40030004,0xff800f00,0,unsigned>;
+    namespace ExtiEirr{    ///<External Interrupt Request Register
+        using Addr = Register::Address<0x40030004,0xff800f00,0x00000000,unsigned>;
         ///Bit22 of EIRR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> er22{}; 
         ///Bit21 of EIRR
@@ -60,32 +60,32 @@ namespace Kvasir {
         ///Bit16 of EIRR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> er16{}; 
         ///Bit15 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> er15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er15{}; 
         ///Bit14 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> er14{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er14{}; 
         ///Bit13 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> er13{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er13{}; 
         ///Bit12 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> er12{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er12{}; 
         ///Bit7 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> er7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er7{}; 
         ///Bit6 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> er6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er6{}; 
         ///Bit5 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> er5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er5{}; 
         ///Bit4 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> er4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er4{}; 
         ///Bit3 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> er3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er3{}; 
         ///Bit2 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> er2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er2{}; 
         ///Bit1 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> er1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er1{}; 
         ///Bit0 of EIRR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> er0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> er0{}; 
     }
-    namespace Noneeicl{    ///<External Interrupt Clear Register
-        using Addr = Register::Address<0x40030008,0xff800f00,0,unsigned>;
+    namespace ExtiEicl{    ///<External Interrupt Clear Register
+        using Addr = Register::Address<0x40030008,0xff800f00,0x00000000,unsigned>;
         ///Bit22 of EICL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ecl22{}; 
         ///Bit21 of EICL
@@ -125,8 +125,8 @@ namespace Kvasir {
         ///Bit0 of EICL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ecl0{}; 
     }
-    namespace Noneelvr{    ///<External Interrupt Level Register
-        using Addr = Register::Address<0x4003000c,0x00ff0000,0,unsigned>;
+    namespace ExtiElvr{    ///<External Interrupt Level Register
+        using Addr = Register::Address<0x4003000c,0x00ff0000,0x00000000,unsigned>;
         ///Bit31 of ELVR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lb15{}; 
         ///Bit30 of ELVR
@@ -176,8 +176,8 @@ namespace Kvasir {
         ///Bit0 of ELVR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> la0{}; 
     }
-    namespace Noneelvr1{    ///<External Interrupt Level Register 1
-        using Addr = Register::Address<0x40030010,0xffffc000,0,unsigned>;
+    namespace ExtiElvr1{    ///<External Interrupt Level Register 1
+        using Addr = Register::Address<0x40030010,0xffffc000,0x00000000,unsigned>;
         ///Bit13 of ELVR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> lb22{}; 
         ///Bit12 of ELVR1
@@ -207,13 +207,13 @@ namespace Kvasir {
         ///Bit0 of ELVR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> la16{}; 
     }
-    namespace Nonenmirr{    ///<Non Maskable Interrupt Request Register
-        using Addr = Register::Address<0x40030014,0xfffffffe,0,unsigned char>;
+    namespace ExtiNmirr{    ///<Non Maskable Interrupt Request Register
+        using Addr = Register::Address<0x40030014,0xfffffffe,0x00000000,unsigned char>;
         ///NMI interrupt request detection bit 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> nr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nr{}; 
     }
-    namespace Nonenmicl{    ///<Non Maskable Interrupt Clear Register
-        using Addr = Register::Address<0x40030018,0xfffffffe,0,unsigned char>;
+    namespace ExtiNmicl{    ///<Non Maskable Interrupt Clear Register
+        using Addr = Register::Address<0x40030018,0xfffffffe,0x00000000,unsigned char>;
         ///NMI interrupt cause clear bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ncl{}; 
     }

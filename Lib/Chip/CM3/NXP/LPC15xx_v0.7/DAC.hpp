@@ -1,14 +1,18 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //12-bit DAC Modification  
-    namespace Noneval{    ///<D/A Converter Value Register. This register contains the digital value to be converted to analog.
-        using Addr = Register::Address<0x40004000,0xffff000f,0,unsigned>;
+    namespace DacVal{    ///<D/A Converter Value Register. This register contains the digital value to be converted to analog.
+        using Addr = Register::Address<0x40004000,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Software should only write zeros to unused bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///The voltage on the DAC_OUT pin (with respect to VSSA) is VALUE  x ((VREFP - V REFN)/4096) + VREFN.  This voltage will be stable the selected settling time (specified by the BIAS field in the DAC Control Register) after this field is modified.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> value{}; 
+        ///Reserved. Software should only write zeros to unused bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectrl{    ///<DAC Control register. This register contains bits to configure DAC operation and the interrupt/dma request flag.
-        using Addr = Register::Address<0x40004004,0xffffe000,0,unsigned>;
+    namespace DacCtrl{    ///<DAC Control register. This register contains bits to configure DAC operation and the interrupt/dma request flag.
+        using Addr = Register::Address<0x40004004,0x00000000,0x00000000,unsigned>;
         ///Interrupt/DMA request flag. This bit is read-only. 0 = This bit is cleared upon any write to the DACVAL register. 1 = This bit is set by hardware only if a hardware trigger has been selected as follows: - If the internal timer is selected, this bit will be set when the timer times-out.  - If an external trigger input is selected, this bit will be set when a transition of the specified polarity is detected on the selected input.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> intDmaFlag{}; 
         ///Hardware Trigger Source: If anyof these hardware trigger sources are selected, an interrupt/dma request will be generated when the specified trigger occurs. In addition, if double-buffering is enabled (the DBLBUF_ENA' bit is set), the DACVAL register will be loaded from the pre-buffer at the same time.
@@ -67,10 +71,14 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> shutoffFlag{}; 
         ///These bits permit trading-off longer DAC settling times to achieve reduced power consumption. The default setting provides maximum speed but also maximum power.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,10),Register::ReadWriteAccess,unsigned> bias{}; 
+        ///Reserved. Software should only write zeros to unused bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,13),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecntval{    ///<DAC Counter Value register. This register contains the reload value for the internal DAC DMA/Interrupt timer.
-        using Addr = Register::Address<0x40004008,0xffff0000,0,unsigned>;
+    namespace DacCntval{    ///<DAC Counter Value register. This register contains the reload value for the internal DAC DMA/Interrupt timer.
+        using Addr = Register::Address<0x40004008,0x00000000,0x00000000,unsigned>;
         ///16-bit reload value for the internal DAC interrupt/DMA timer. The timer will overflow at the fixed rate of the system clock divided by CNTVAL+1.  Upon each overflow an interrupt/dma request will be generated and the DAC VAL register contents will be updated if double-buffering is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cntval{}; 
+        ///Reserved. Software should only write zeros to unused bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

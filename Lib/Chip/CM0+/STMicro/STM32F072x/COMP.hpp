@@ -3,7 +3,7 @@
 namespace Kvasir {
 //Comparator
     namespace CompCsr{    ///<control and status register
-        using Addr = Register::Address<0x4001001c,0x00020080,0,unsigned>;
+        using Addr = Register::Address<0x4001001c,0x00020080,0x00000000,unsigned>;
         ///Comparator 1 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp1en{}; 
         ///COMP1_INP_DAC

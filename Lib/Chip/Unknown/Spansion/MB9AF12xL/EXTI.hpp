@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // peripheral EXTI 
-    namespace Noneenir{    ///< register ENIR 
-        using Addr = Register::Address<0x40030000,0xff800f00,0,unsigned>;
+    namespace ExtiEnir{    ///< register ENIR 
+        using Addr = Register::Address<0x40030000,0xff800f00,0x00000000,unsigned>;
         /// bitfield EN22 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> en22{}; 
         /// bitfield EN21 
@@ -43,8 +43,8 @@ namespace Kvasir {
         /// bitfield EN0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en0{}; 
     }
-    namespace Noneeirr{    ///< register EIRR 
-        using Addr = Register::Address<0x40030004,0xff800f00,0,unsigned>;
+    namespace ExtiEirr{    ///< register EIRR 
+        using Addr = Register::Address<0x40030004,0xff800f00,0x00000000,unsigned>;
         /// bitfield ER22 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> er22{}; 
         /// bitfield ER21 
@@ -84,8 +84,8 @@ namespace Kvasir {
         /// bitfield ER0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> er0{}; 
     }
-    namespace Noneeicl{    ///< register EICL 
-        using Addr = Register::Address<0x40030008,0xff800f00,0,unsigned>;
+    namespace ExtiEicl{    ///< register EICL 
+        using Addr = Register::Address<0x40030008,0xff800f00,0x00000000,unsigned>;
         /// bitfield ECL22 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ecl22{}; 
         /// bitfield ECL21 
@@ -125,8 +125,8 @@ namespace Kvasir {
         /// bitfield ECL0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ecl0{}; 
     }
-    namespace Noneelvr{    ///< register ELVR 
-        using Addr = Register::Address<0x4003000c,0x00ff0000,0,unsigned>;
+    namespace ExtiElvr{    ///< register ELVR 
+        using Addr = Register::Address<0x4003000c,0x00ff0000,0x00000000,unsigned>;
         /// bitfield LB15 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lb15{}; 
         /// bitfield LA15 
@@ -176,8 +176,8 @@ namespace Kvasir {
         /// bitfield LA0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> la0{}; 
     }
-    namespace Noneelvr1{    ///< register ELVR1 
-        using Addr = Register::Address<0x40030010,0xffffc000,0,unsigned>;
+    namespace ExtiElvr1{    ///< register ELVR1 
+        using Addr = Register::Address<0x40030010,0xffffc000,0x00000000,unsigned>;
         /// bitfield LB22 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> lb22{}; 
         /// bitfield LA22 
@@ -207,13 +207,13 @@ namespace Kvasir {
         /// bitfield LA16 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> la16{}; 
     }
-    namespace Nonenmirr{    ///< register NMIRR 
-        using Addr = Register::Address<0x40030014,0xfffffffe,0,unsigned char>;
+    namespace ExtiNmirr{    ///< register NMIRR 
+        using Addr = Register::Address<0x40030014,0xfffffffe,0x00000000,unsigned char>;
         /// bitfield NR 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> nr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nr{}; 
     }
-    namespace Nonenmicl{    ///< register NMICL 
-        using Addr = Register::Address<0x40030018,0xfffffffe,0,unsigned char>;
+    namespace ExtiNmicl{    ///< register NMICL 
+        using Addr = Register::Address<0x40030018,0xfffffffe,0x00000000,unsigned char>;
         /// bitfield NCL 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ncl{}; 
     }

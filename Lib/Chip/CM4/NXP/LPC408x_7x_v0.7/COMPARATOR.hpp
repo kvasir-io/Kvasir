@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Comparators
-    namespace Nonectrl{    ///<Comparator block control register
-        using Addr = Register::Address<0x40020000,0xffff0c00,0,unsigned>;
+    namespace ComparatorCtrl{    ///<Comparator block control register
+        using Addr = Register::Address<0x40020000,0x00000000,0x00000000,unsigned>;
         ///Controls the current source used by the comparators. These bits must be set when either comparator is used.
         enum class CmppdirefVal {
             disabled=0x00000000,     ///<The comparator current source is disabled.
@@ -80,6 +80,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpExtReset)::Type,CmpextresetVal::intreset> intreset{};
             constexpr Register::FieldValue<decltype(cmpExtReset)::Type,CmpextresetVal::cmpResetin> cmpResetin{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Selects the input for Timer 0 capture input 2.
         enum class Cmpt0cap2Val {
             comp0=0x00000000,     ///<T0CAP2 is connected to comparator 0 level output.
@@ -120,9 +122,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpT1cap3)::Type,Cmpt1cap3Val::comp1> comp1{};
             constexpr Register::FieldValue<decltype(cmpT1cap3)::Type,Cmpt1cap3Val::comp0> comp0{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectrl0{    ///<Comparator 0 control register
-        using Addr = Register::Address<0x40020004,0xe0800880,0,unsigned>;
+    namespace ComparatorCtrl0{    ///<Comparator 0 control register
+        using Addr = Register::Address<0x40020004,0x00000000,0x00000000,unsigned>;
         ///Comparator 0 enable control.
         enum class Cmp0enVal {
             disabled=0x00000000,     ///<Comparator 0 disabled.
@@ -171,6 +175,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0Vm)::Type,Cmp0vmVal::internal09VBand> internal09VBand{};
             constexpr Register::FieldValue<decltype(cmp0Vm)::Type,Cmp0vmVal::temperatureSensor> temperatureSensor{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Comparator 0 VP input select.
         enum class Cmp0vpVal {
             vrefDivider0=0x00000000,     ///<Vref divider 0.
@@ -193,6 +199,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0Vp)::Type,Cmp0vpVal::internal09VBand> internal09VBand{};
             constexpr Register::FieldValue<decltype(cmp0Vp)::Type,Cmp0vpVal::temperatureSensor> temperatureSensor{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Comparator 0 output synchronization control.
         enum class Cmp0syncVal {
             direct=0x00000000,     ///<The comparator 0 output is used directly.
@@ -283,11 +291,15 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0Vladref)::Type,Cmp0vladrefVal::vrefCmpPin> vrefCmpPin{};
             constexpr Register::FieldValue<decltype(cmp0Vladref)::Type,Cmp0vladrefVal::vddaPin> vddaPin{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Voltage ladder value for comparator 0. The reference voltage Vref depends on the setting of CMP0_VLADREF (either VDD(3V3) or voltage on pin VREF_CMP). 00000 = Vss. 00001 = 1 x  Vref0 / 31. 00010 = 2 x Vref0 / 31. ... 11111 = Vref0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> cmp0Vsel{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectrl1{    ///<Comparator 1 control register
-        using Addr = Register::Address<0x40020008,0xe0800880,0,unsigned>;
+    namespace ComparatorCtrl1{    ///<Comparator 1 control register
+        using Addr = Register::Address<0x40020008,0x00000000,0x00000000,unsigned>;
         ///Comparator 1 enable control.
         enum class Cmp1enVal {
             disabled=0x00000000,     ///<Comparator 1 disabled.
@@ -336,6 +348,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1Vm)::Type,Cmp1vmVal::internal09VBand> internal09VBand{};
             constexpr Register::FieldValue<decltype(cmp1Vm)::Type,Cmp1vmVal::temperatureSensor> temperatureSensor{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Comparator 1 VP input select.
         enum class Cmp1vpVal {
             vrefDivider0=0x00000000,     ///<Vref divider 0.
@@ -358,6 +372,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1Vp)::Type,Cmp1vpVal::internal09VBand> internal09VBand{};
             constexpr Register::FieldValue<decltype(cmp1Vp)::Type,Cmp1vpVal::temperatureSensor> temperatureSensor{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Comparator 1 output synchronization control.
         enum class Cmp1syncVal {
             direct=0x00000000,     ///<The comparator 1 output is used directly.
@@ -448,7 +464,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1Vladref)::Type,Cmp1vladrefVal::vrefCmpPin> vrefCmpPin{};
             constexpr Register::FieldValue<decltype(cmp1Vladref)::Type,Cmp1vladrefVal::vddaPin> vddaPin{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Voltage ladder value for comparator 1. The reference voltage Vref depends on the setting of CMP1_VLADREF (either VDD(3V3) or voltage on pin VREF_CMP). 00000 = Vss. 00001 = 1 x Vref1 / 31. 00010 = 2 x Vref1 / 31. ... 11111 = Vref1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> cmp1Vsel{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

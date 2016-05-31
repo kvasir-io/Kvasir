@@ -1,13 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // Power Management Unit (PMU)  
-    namespace Nonepcon{    ///<Power control register
-        using Addr = Register::Address<0x40038000,0xfffff6f0,0,unsigned>;
+    namespace PmuPcon{    ///<Power control register
+        using Addr = Register::Address<0x40038000,0x00000000,0x00000000,unsigned>;
         ///Power mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> pm{}; 
         ///A 1 in this bit prevents entry to Deep power-down mode when 0x3 is written to the PM field above, the SLEEPDEEP bit is set, and a WFI is executed. Execution continues after the WFI if this bit is 1.  This bit is cleared only by power-on reset, so writing a one to this bit locks the part in a mode in which Deep power-down mode is blocked.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> nodpd{}; 
+        ///Reserved. Do not write ones to this bit.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Sleep mode flag
         enum class SleepflagVal {
             nopowerdown=0x00000000,     ///<Read: No power-down mode entered. LPC11U1x is in Active mode. Write: No effect.
@@ -18,6 +20,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::nopowerdown> nopowerdown{};
             constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::powerdown> powerdown{};
         }
+        ///Reserved. Do not write ones to this bit.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Deep power-down flag
         enum class DpdflagVal {
             dpnotentered=0x00000000,     ///<Read: Deep power-down mode  not entered. Write: No effect.
@@ -28,29 +32,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpdflag)::Type,DpdflagVal::dpnotentered> dpnotentered{};
             constexpr Register::FieldValue<decltype(dpdflag)::Type,DpdflagVal::dpentered> dpentered{};
         }
+        ///Reserved. Do not write ones to this bit.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonegpreg0{    ///<General purpose register 0
-        using Addr = Register::Address<0x40038004,0x00000000,0,unsigned>;
-        ///Data retained during Deep power-down mode.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpdata{}; 
-    }
-    namespace Nonegpreg1{    ///<General purpose register 0
-        using Addr = Register::Address<0x40038008,0x00000000,0,unsigned>;
-        ///Data retained during Deep power-down mode.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpdata{}; 
-    }
-    namespace Nonegpreg2{    ///<General purpose register 0
-        using Addr = Register::Address<0x4003800c,0x00000000,0,unsigned>;
-        ///Data retained during Deep power-down mode.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpdata{}; 
-    }
-    namespace Nonegpreg3{    ///<General purpose register 0
-        using Addr = Register::Address<0x40038010,0x00000000,0,unsigned>;
-        ///Data retained during Deep power-down mode.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpdata{}; 
-    }
-    namespace Nonegpreg4{    ///<General purpose register 4
-        using Addr = Register::Address<0x40038014,0x000003ff,0,unsigned>;
+    namespace PmuGpreg4{    ///<General purpose register 4
+        using Addr = Register::Address<0x40038014,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Do not write ones to this bit.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///WAKEUP pin hysteresis enable
         enum class WakeuphysVal {
             disabled=0x00000000,     ///<Hysteresis for WAKEUP pin disabled.
@@ -63,5 +51,25 @@ namespace Kvasir {
         }
         ///Data retained during Deep power-down mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> gpdata{}; 
+    }
+    namespace PmuGpreg0{    ///<General purpose register 0
+        using Addr = Register::Address<0x40038004,0x00000000,0x00000000,unsigned>;
+        ///Data retained during Deep power-down mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpdata{}; 
+    }
+    namespace PmuGpreg1{    ///<General purpose register 0
+        using Addr = Register::Address<0x40038008,0x00000000,0x00000000,unsigned>;
+        ///Data retained during Deep power-down mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpdata{}; 
+    }
+    namespace PmuGpreg2{    ///<General purpose register 0
+        using Addr = Register::Address<0x4003800c,0x00000000,0x00000000,unsigned>;
+        ///Data retained during Deep power-down mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpdata{}; 
+    }
+    namespace PmuGpreg3{    ///<General purpose register 0
+        using Addr = Register::Address<0x40038010,0x00000000,0x00000000,unsigned>;
+        ///Data retained during Deep power-down mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpdata{}; 
     }
 }

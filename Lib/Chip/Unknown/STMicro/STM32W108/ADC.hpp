@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog to Digital Converter
-    namespace NoneadcIsr{    ///<ADC interrupt status register
-        using Addr = Register::Address<0x4000a810,0xffffffe1,0,unsigned>;
+    namespace AdcAdcIsr{    ///<ADC interrupt status register
+        using Addr = Register::Address<0x4000a810,0xffffffe1,0x00000000,unsigned>;
         ///DMAOVF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dmaovf{}; 
         ///SAT
@@ -13,8 +13,8 @@ namespace Kvasir {
         ///DMABHF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dmabhf{}; 
     }
-    namespace NoneadcIer{    ///<ADC interrupt enable register
-        using Addr = Register::Address<0x4000a850,0xffffffe1,0,unsigned>;
+    namespace AdcAdcIer{    ///<ADC interrupt enable register
+        using Addr = Register::Address<0x4000a850,0xffffffe1,0x00000000,unsigned>;
         ///DMAOVFIE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dmaovfie{}; 
         ///SATIE
@@ -24,8 +24,8 @@ namespace Kvasir {
         ///DMABHFIE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dmabhfie{}; 
     }
-    namespace NoneadcCr{    ///<ADC control register
-        using Addr = Register::Address<0x4000d004,0xffff0002,0,unsigned>;
+    namespace AdcAdcCr{    ///<ADC control register
+        using Addr = Register::Address<0x4000d004,0xffff0002,0x00000000,unsigned>;
         ///SMP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,unsigned> smp{}; 
         ///HVSELP
@@ -41,54 +41,49 @@ namespace Kvasir {
         ///ADON
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> adon{}; 
     }
-    namespace NoneadcOffsetr{    ///<ADC offset register
-        using Addr = Register::Address<0x4000d008,0xffff0000,0,unsigned>;
+    namespace AdcAdcOffsetr{    ///<ADC offset register
+        using Addr = Register::Address<0x4000d008,0xffff0000,0x00000000,unsigned>;
         ///OFFSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> offset{}; 
     }
-    namespace NoneadcGainr{    ///<ADC gain register
-        using Addr = Register::Address<0x4000d00c,0xffff0000,0,unsigned>;
+    namespace AdcAdcGainr{    ///<ADC gain register
+        using Addr = Register::Address<0x4000d00c,0xffff0000,0x00000000,unsigned>;
         ///GAIN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gain{}; 
     }
-    namespace NoneadcDmacr{    ///<ADC DMA control register
-        using Addr = Register::Address<0x4000d010,0xffffffec,0,unsigned>;
-        ///Write 1 to reset the ADC
-              DMA
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rst{}; 
+    namespace AdcAdcDmacr{    ///<ADC DMA control register
+        using Addr = Register::Address<0x4000d010,0xffffffec,0x00000000,unsigned>;
+        ///Write 1 to reset the ADC              DMA
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rst{}; 
         ///Selects DMA mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autowrap{}; 
         ///Loads the DMA buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> load{}; 
     }
-    namespace NoneadcDmasr{    ///<ADC DMA status register
-        using Addr = Register::Address<0x4000d014,0xfffffffc,0,unsigned>;
+    namespace AdcAdcDmasr{    ///<ADC DMA status register
+        using Addr = Register::Address<0x4000d014,0xfffffffc,0x00000000,unsigned>;
         ///AOVF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> aovf{}; 
         ///ACT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> act{}; 
     }
-    namespace NoneadcDmamsar{    ///<ADC DMA memory start address
-          register
-        using Addr = Register::Address<0x4000d018,0xffffe000,0,unsigned>;
+    namespace AdcAdcDmamsar{    ///<ADC DMA memory start address          register
+        using Addr = Register::Address<0x4000d018,0xffffe000,0x00000000,unsigned>;
         ///MSA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> msa{}; 
     }
-    namespace NoneadcDmandtr{    ///<ADC DMA number of data to transfer
-          register
-        using Addr = Register::Address<0x4000d01c,0xffffe000,0,unsigned>;
+    namespace AdcAdcDmandtr{    ///<ADC DMA number of data to transfer          register
+        using Addr = Register::Address<0x4000d01c,0xffffe000,0x00000000,unsigned>;
         ///NDT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> ndt{}; 
     }
-    namespace NoneadcDmamnar{    ///<ADC DMA memory next address
-          register
-        using Addr = Register::Address<0x4000d020,0xffffc001,0,unsigned>;
+    namespace AdcAdcDmamnar{    ///<ADC DMA memory next address          register
+        using Addr = Register::Address<0x4000d020,0xffffc001,0x00000000,unsigned>;
         ///MNA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,1),Register::ReadWriteAccess,unsigned> mna{}; 
     }
-    namespace NoneadcDmacndtr{    ///<ADC DMA count number of data transferred
-          register
-        using Addr = Register::Address<0x4000d024,0xffffe000,0,unsigned>;
+    namespace AdcAdcDmacndtr{    ///<ADC DMA count number of data transferred          register
+        using Addr = Register::Address<0x4000d024,0xffffe000,0x00000000,unsigned>;
         ///CNDT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> cndt{}; 
     }

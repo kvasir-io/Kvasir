@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Clock Generator (CG)
-    namespace Nonesyscr{    ///<System Control Register
-        using Addr = Register::Address<0x400f3000,0xffecc8f8,0,unsigned>;
+    namespace CgSyscr{    ///<System Control Register
+        using Addr = Register::Address<0x400f3000,0xffecc8f8,0x00000000,unsigned>;
         ///GEAR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> gear{}; 
         ///PRCK
@@ -15,12 +15,12 @@ namespace Kvasir {
         ///FCSTOP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> fcstop{}; 
     }
-    namespace Noneosccr{    ///<Oscillation Control Register
-        using Addr = Register::Address<0x400f3004,0x000030f4,0,unsigned>;
+    namespace CgOsccr{    ///<Oscillation Control Register
+        using Addr = Register::Address<0x400f3004,0x000030f4,0x00000000,unsigned>;
         ///WUEON
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wueon{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wueon{}; 
         ///WUEF
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wuef{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wuef{}; 
         ///WUPSEL1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> wupsel1{}; 
         ///XEN1
@@ -44,8 +44,8 @@ namespace Kvasir {
         ///WUPT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> wupt{}; 
     }
-    namespace Nonestbycr{    ///<Standby Control Register
-        using Addr = Register::Address<0x400f3008,0xfffefcf8,0,unsigned>;
+    namespace CgStbycr{    ///<Standby Control Register
+        using Addr = Register::Address<0x400f3008,0xfffefcf8,0x00000000,unsigned>;
         ///STBY
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> stby{}; 
         ///RXEN
@@ -55,25 +55,25 @@ namespace Kvasir {
         ///DRVE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> drve{}; 
     }
-    namespace Noneehclksel{    ///<External High-speed clock select register
-        using Addr = Register::Address<0x400f300c,0xfffffffe,0,unsigned>;
+    namespace CgEhclksel{    ///<External High-speed clock select register
+        using Addr = Register::Address<0x400f300c,0xfffffffe,0x00000000,unsigned>;
         ///EHCLKSEL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ehclksel{}; 
     }
-    namespace Nonecksel{    ///<System Clock Selection Register
-        using Addr = Register::Address<0x400f3010,0xfffffffc,0,unsigned>;
+    namespace CgCksel{    ///<System Clock Selection Register
+        using Addr = Register::Address<0x400f3010,0xfffffffc,0x00000000,unsigned>;
         ///SYSCKFLG
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sysckflg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sysckflg{}; 
         ///SYSCK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sysck{}; 
     }
-    namespace Noneicrcg{    ///<CG Interrupt Request Clear Register
-        using Addr = Register::Address<0x400f3014,0xffffffe0,0,unsigned>;
+    namespace CgIcrcg{    ///<CG Interrupt Request Clear Register
+        using Addr = Register::Address<0x400f3014,0xffffffe0,0x00000000,unsigned>;
         ///ICRCG
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> icrcg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> icrcg{}; 
     }
-    namespace Nonerstflg{    ///<Reset Flag Register
-        using Addr = Register::Address<0x400f301c,0xffffffea,0,unsigned>;
+    namespace CgRstflg{    ///<Reset Flag Register
+        using Addr = Register::Address<0x400f301c,0xffffffea,0x00000000,unsigned>;
         ///PINRSTF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pinrstf{}; 
         ///WDTRSTF
@@ -81,45 +81,45 @@ namespace Kvasir {
         ///DBGRSTF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dbgrstf{}; 
     }
-    namespace Noneimcga{    ///<CG Interrupt Mode Control Register A
-        using Addr = Register::Address<0x400f3020,0x82828282,0,unsigned>;
+    namespace CgImcga{    ///<CG Interrupt Mode Control Register A
+        using Addr = Register::Address<0x400f3020,0x82828282,0x00000000,unsigned>;
         ///INT0EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> int0en{}; 
         ///EMST0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> emst0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> emst0{}; 
         ///EMCG0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> emcg0{}; 
         ///INT1EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> int1en{}; 
         ///EMST1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> emst1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> emst1{}; 
         ///EMCG1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> emcg1{}; 
         ///INT2EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> int2en{}; 
         ///EMST2
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> emst2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> emst2{}; 
         ///EMCG2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> emcg2{}; 
         ///INT3EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> int3en{}; 
         ///EMST3
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> emst3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> emst3{}; 
         ///EMCG3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,unsigned> emcg3{}; 
     }
-    namespace Noneimcgb{    ///<CG Interrupt Mode Control Register B
-        using Addr = Register::Address<0x400f3024,0xffff8282,0,unsigned>;
+    namespace CgImcgb{    ///<CG Interrupt Mode Control Register B
+        using Addr = Register::Address<0x400f3024,0xffff8282,0x00000000,unsigned>;
         ///INT4EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> int4en{}; 
         ///EMST4
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> emst4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> emst4{}; 
         ///EMCG4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> emcg4{}; 
         ///INT5EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> int5en{}; 
         ///EMST5
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> emst5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> emst5{}; 
         ///EMCG5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> emcg5{}; 
     }

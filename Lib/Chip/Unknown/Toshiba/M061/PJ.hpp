@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General Purpose Input_Output Port (PJ)
-    namespace Nonedata{    ///<PJ Data Register
-        using Addr = Register::Address<0x400c0900,0xffffffc0,0,unsigned>;
+    namespace PjData{    ///<PJ Data Register
+        using Addr = Register::Address<0x400c0900,0xffffffc0,0x00000000,unsigned>;
         ///PJ0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0{}; 
         ///PJ1
@@ -17,8 +17,8 @@ namespace Kvasir {
         ///PJ5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pj5{}; 
     }
-    namespace Nonecr{    ///<PJ Control Register
-        using Addr = Register::Address<0x400c0904,0xffffffe0,0,unsigned>;
+    namespace PjCr{    ///<PJ Control Register
+        using Addr = Register::Address<0x400c0904,0xffffffe0,0x00000000,unsigned>;
         ///PJ0C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0c{}; 
         ///PJ1C
@@ -30,8 +30,8 @@ namespace Kvasir {
         ///PJ4C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4c{}; 
     }
-    namespace Nonefr1{    ///<PJ Function Register 1
-        using Addr = Register::Address<0x400c0908,0xffffffc0,0,unsigned>;
+    namespace PjFr1{    ///<PJ Function Register 1
+        using Addr = Register::Address<0x400c0908,0xffffffc0,0x00000000,unsigned>;
         ///PJ0F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0f1{}; 
         ///PJ1F1
@@ -45,8 +45,8 @@ namespace Kvasir {
         ///PJ5F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pj5f1{}; 
     }
-    namespace Nonefr2{    ///<PJ Function Register 2
-        using Addr = Register::Address<0x400c090c,0xffffffcb,0,unsigned>;
+    namespace PjFr2{    ///<PJ Function Register 2
+        using Addr = Register::Address<0x400c090c,0xffffffcb,0x00000000,unsigned>;
         ///PJ2F2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pj2f2{}; 
         ///PJ4F2
@@ -54,8 +54,8 @@ namespace Kvasir {
         ///PJ5F2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pj5f2{}; 
     }
-    namespace Noneod{    ///<PJ OPJn Drain Control Register
-        using Addr = Register::Address<0x400c0928,0xffffffe0,0,unsigned>;
+    namespace PjOd{    ///<PJ OPJn Drain Control Register
+        using Addr = Register::Address<0x400c0928,0xffffffe0,0x00000000,unsigned>;
         ///PJ0OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0od{}; 
         ///PJ1OD
@@ -67,8 +67,8 @@ namespace Kvasir {
         ///PJ4OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4od{}; 
     }
-    namespace Nonepup{    ///<PJ Pull-Up Control Register
-        using Addr = Register::Address<0x400c092c,0xffffffe0,0,unsigned>;
+    namespace PjPup{    ///<PJ Pull-Up Control Register
+        using Addr = Register::Address<0x400c092c,0xffffffe0,0x00000000,unsigned>;
         ///PJ0UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0up{}; 
         ///PJ1UP
@@ -80,8 +80,8 @@ namespace Kvasir {
         ///PJ4UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4up{}; 
     }
-    namespace Nonepdn{    ///<PJ Pull-Down Control Register
-        using Addr = Register::Address<0x400c0930,0xffffffe0,0,unsigned>;
+    namespace PjPdn{    ///<PJ Pull-Down Control Register
+        using Addr = Register::Address<0x400c0930,0xffffffe0,0x00000000,unsigned>;
         ///PJ0DN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0dn{}; 
         ///PJ1DN
@@ -93,8 +93,8 @@ namespace Kvasir {
         ///PJ4DN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4dn{}; 
     }
-    namespace Noneie{    ///<PJ Input Enable Control Register
-        using Addr = Register::Address<0x400c0938,0xffffffc0,0,unsigned>;
+    namespace PjIe{    ///<PJ Input Enable Control Register
+        using Addr = Register::Address<0x400c0938,0xffffffc0,0x00000000,unsigned>;
         ///PJ0IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0ie{}; 
         ///PJ1IE

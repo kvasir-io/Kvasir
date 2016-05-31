@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Memory Protection Unit.
-    namespace Noneperr0{    ///<Configuration of peripherals in mpu regions.
-        using Addr = Register::Address<0x40000528,0x3ff00020,0,unsigned>;
+    namespace MpuPerr0{    ///<Configuration of peripherals in mpu regions.
+        using Addr = Register::Address<0x40000528,0x3ff00020,0x00000000,unsigned>;
         ///POWER_CLOCK region configuration.
         enum class PowerclockVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
@@ -215,11 +215,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ppi)::Type,PpiVal::inregion1> inregion1{};
         }
     }
-    namespace Nonerlenr0{    ///<Length of RAM region 0.
-        using Addr = Register::Address<0x4000052c,0xffffffff,0,unsigned>;
+    namespace MpuRlenr0{    ///<Length of RAM region 0.
+        using Addr = Register::Address<0x4000052c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneprotenset0{    ///<Erase and write protection bit enable set register.
-        using Addr = Register::Address<0x40000600,0x00000000,0,unsigned>;
+    namespace MpuProtenset0{    ///<Erase and write protection bit enable set register.
+        using Addr = Register::Address<0x40000600,0x00000000,0x00000000,unsigned>;
         ///Protection enable for region 0.
         enum class Protreg0Val {
             disabled=0x00000000,     ///<Protection disabled.
@@ -605,8 +605,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(protreg31)::Type,Protreg31Val::set> set{};
         }
     }
-    namespace Noneprotenset1{    ///<Erase and write protection bit enable set register.
-        using Addr = Register::Address<0x40000604,0x00000000,0,unsigned>;
+    namespace MpuProtenset1{    ///<Erase and write protection bit enable set register.
+        using Addr = Register::Address<0x40000604,0x00000000,0x00000000,unsigned>;
         ///Protection enable for region 32.
         enum class Protreg32Val {
             disabled=0x00000000,     ///<Protection disabled.
@@ -992,8 +992,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(protreg63)::Type,Protreg63Val::set> set{};
         }
     }
-    namespace Nonedisableindebug{    ///<Disable erase and write protection mechanism in debug mode.
-        using Addr = Register::Address<0x40000608,0xfffffffe,0,unsigned>;
+    namespace MpuDisableindebug{    ///<Disable erase and write protection mechanism in debug mode.
+        using Addr = Register::Address<0x40000608,0xfffffffe,0x00000000,unsigned>;
         ///Disable protection mechanism in debug mode.
         enum class DisableindebugVal {
             enabled=0x00000000,     ///<Protection enabled.
@@ -1005,8 +1005,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disableindebug)::Type,DisableindebugVal::disabled> disabled{};
         }
     }
-    namespace Noneprotblocksize{    ///<Erase and write protection block size.
-        using Addr = Register::Address<0x4000060c,0xfffffffc,0,unsigned>;
+    namespace MpuProtblocksize{    ///<Erase and write protection block size.
+        using Addr = Register::Address<0x4000060c,0xfffffffc,0x00000000,unsigned>;
         ///Erase and write protection block size.
         enum class ProtblocksizeVal {
             v4k=0x00000000,     ///<Erase and write protection block size is 4k.

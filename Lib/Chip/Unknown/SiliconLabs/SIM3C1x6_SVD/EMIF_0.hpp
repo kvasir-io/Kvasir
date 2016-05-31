@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40026000,0xffffffec,0,unsigned>;
+    namespace Emif0Control{    ///<Module Control
+        using Addr = Register::Address<0x40026000,0xffffffec,0x00000000,unsigned>;
         ///Interface 0 Enable. 
         enum class If0enVal {
             disabled=0x00000000,     ///<Disable interface 0.
@@ -35,14 +35,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(offsten)::Type,OffstenVal::enabled> enabled{};
         }
     }
-    namespace Nonestatus{    ///<Module Status
-        using Addr = Register::Address<0x40026020,0xfffffffc,0,unsigned>;
+    namespace Emif0Status{    ///<Module Status
+        using Addr = Register::Address<0x40026020,0xfffffffc,0x00000000,unsigned>;
         ///EMIF OFF Status. 
         enum class OffstsVal {
             on=0x00000000,     ///<The EMIF bus is active.
             off=0x00000001,     ///<The EMIF is in the off bus state.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,OffstsVal> offsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,OffstsVal> offsts{}; 
         namespace OffstsValC{
             constexpr Register::FieldValue<decltype(offsts)::Type,OffstsVal::on> on{};
             constexpr Register::FieldValue<decltype(offsts)::Type,OffstsVal::off> off{};
@@ -52,14 +52,14 @@ namespace Kvasir {
             notIdle=0x00000000,     ///<The EMIF has not been idle for four cycles.
             idle=0x00000001,     ///<The EMIF has been idle for four four cycles.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IdlestsVal> idlests{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,IdlestsVal> idlests{}; 
         namespace IdlestsValC{
             constexpr Register::FieldValue<decltype(idlests)::Type,IdlestsVal::notIdle> notIdle{};
             constexpr Register::FieldValue<decltype(idlests)::Type,IdlestsVal::idle> idle{};
         }
     }
-    namespace Noneconfig0{    ///<Interface Configuration
-        using Addr = Register::Address<0x40026080,0xfffeeee2,0,unsigned>;
+    namespace Emif0Config0{    ///<Interface Configuration
+        using Addr = Register::Address<0x40026080,0xfffeeee2,0x00000000,unsigned>;
         ///Interface Bus Data Width. 
         enum class BuswidthVal {
             v8bit=0x00000000,     ///<The data bus is 8-bits wide.
@@ -131,8 +131,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(klren)::Type,KlrenVal::enabled> enabled{};
         }
     }
-    namespace Noneifrt0{    ///<Interface Read Timing
-        using Addr = Register::Address<0x40026090,0xffc0f000,0,unsigned>;
+    namespace Emif0Ifrt0{    ///<Interface Read Timing
+        using Addr = Register::Address<0x40026090,0xffc0f000,0x00000000,unsigned>;
         ///Interface Read Address Setup Delay . 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> raset{}; 
         ///Interface Read Address Hold Delay. 
@@ -142,8 +142,8 @@ namespace Kvasir {
         ///Interface Read Data Wait Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> rdwait{}; 
     }
-    namespace Noneifwt0{    ///<Interface Write Timing
-        using Addr = Register::Address<0x400260a0,0xffc0f000,0,unsigned>;
+    namespace Emif0Ifwt0{    ///<Interface Write Timing
+        using Addr = Register::Address<0x400260a0,0xffc0f000,0x00000000,unsigned>;
         ///Interface Write Address Setup Delay . 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waset{}; 
         ///Interface Write Address Hold Delay. 
@@ -153,8 +153,8 @@ namespace Kvasir {
         ///Interface Write Data Wait Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> wdwait{}; 
     }
-    namespace Noneifrcst0{    ///<Interface Read Control States
-        using Addr = Register::Address<0x400260b0,0xffff0000,0,unsigned>;
+    namespace Emif0Ifrcst0{    ///<Interface Read Control States
+        using Addr = Register::Address<0x400260b0,0xffff0000,0x00000000,unsigned>;
         ///Chip Select Read Address Setup State. 
         enum class CsrasVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the read address setup state.
@@ -316,8 +316,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alerdh)::Type,AlerdhVal::high> high{};
         }
     }
-    namespace Noneifwcst0{    ///<Interface Write Control States
-        using Addr = Register::Address<0x400260c0,0xffff0000,0,unsigned>;
+    namespace Emif0Ifwcst0{    ///<Interface Write Control States
+        using Addr = Register::Address<0x400260c0,0xffff0000,0x00000000,unsigned>;
         ///Chip Select Write Address Setup State. 
         enum class CswasVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the write address setup state.
@@ -479,8 +479,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alewdh)::Type,AlewdhVal::high> high{};
         }
     }
-    namespace Noneconfig1{    ///<Interface Configuration
-        using Addr = Register::Address<0x40026100,0xfffeeee2,0,unsigned>;
+    namespace Emif0Config1{    ///<Interface Configuration
+        using Addr = Register::Address<0x40026100,0xfffeeee2,0x00000000,unsigned>;
         ///Interface Bus Data Width. 
         enum class BuswidthVal {
             v8bit=0x00000000,     ///<The data bus is 8-bits wide.
@@ -552,8 +552,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(klren)::Type,KlrenVal::enabled> enabled{};
         }
     }
-    namespace Noneifrt1{    ///<Interface Read Timing
-        using Addr = Register::Address<0x40026110,0xffc0f000,0,unsigned>;
+    namespace Emif0Ifrt1{    ///<Interface Read Timing
+        using Addr = Register::Address<0x40026110,0xffc0f000,0x00000000,unsigned>;
         ///Interface Read Address Setup Delay . 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> raset{}; 
         ///Interface Read Address Hold Delay. 
@@ -563,8 +563,8 @@ namespace Kvasir {
         ///Interface Read Data Wait Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> rdwait{}; 
     }
-    namespace Noneifwt1{    ///<Interface Write Timing
-        using Addr = Register::Address<0x40026120,0xffc0f000,0,unsigned>;
+    namespace Emif0Ifwt1{    ///<Interface Write Timing
+        using Addr = Register::Address<0x40026120,0xffc0f000,0x00000000,unsigned>;
         ///Interface Write Address Setup Delay . 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waset{}; 
         ///Interface Write Address Hold Delay. 
@@ -574,8 +574,8 @@ namespace Kvasir {
         ///Interface Write Data Wait Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> wdwait{}; 
     }
-    namespace Noneifrcst1{    ///<Interface Read Control States
-        using Addr = Register::Address<0x40026130,0xffff0000,0,unsigned>;
+    namespace Emif0Ifrcst1{    ///<Interface Read Control States
+        using Addr = Register::Address<0x40026130,0xffff0000,0x00000000,unsigned>;
         ///Chip Select Read Address Setup State. 
         enum class CsrasVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the read address setup state.
@@ -737,8 +737,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alerdh)::Type,AlerdhVal::high> high{};
         }
     }
-    namespace Noneifwcst1{    ///<Interface Write Control States
-        using Addr = Register::Address<0x40026140,0xffff0000,0,unsigned>;
+    namespace Emif0Ifwcst1{    ///<Interface Write Control States
+        using Addr = Register::Address<0x40026140,0xffff0000,0x00000000,unsigned>;
         ///Chip Select Write Address Setup State. 
         enum class CswasVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the write address setup state.

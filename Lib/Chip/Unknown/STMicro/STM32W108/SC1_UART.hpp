@@ -1,11 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//Serial controller 1 (Universal Asynchronous
-      Receiver/Transmitter)
-    namespace Nonesc1Uartsr{    ///<Serial controller UART status
-          register
-        using Addr = Register::Address<0x4000c848,0xffffff80,0,unsigned>;
+//Serial controller 1 (Universal Asynchronous      Receiver/Transmitter)
+    namespace Sc1UartSc1Uartsr{    ///<Serial controller UART status          register
+        using Addr = Register::Address<0x4000c848,0xffffff80,0x00000000,unsigned>;
         ///IDLE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> idle{}; 
         ///PE
@@ -21,9 +19,8 @@ namespace Kvasir {
         ///CTS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cts{}; 
     }
-    namespace Nonesc1Uartcr{    ///<Serial controller UART control
-          register
-        using Addr = Register::Address<0x4000c85c,0xffffff80,0,unsigned>;
+    namespace Sc1UartSc1Uartcr{    ///<Serial controller UART control          register
+        using Addr = Register::Address<0x4000c85c,0xffffff80,0x00000000,unsigned>;
         ///AHFCE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ahfce{}; 
         ///HFCE
@@ -39,15 +36,13 @@ namespace Kvasir {
         ///nRTS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> nrts{}; 
     }
-    namespace Nonesc1Uartbrr1{    ///<Serial controller UART baud rate register
-          1
-        using Addr = Register::Address<0x4000c868,0xffff0000,0,unsigned>;
+    namespace Sc1UartSc1Uartbrr1{    ///<Serial controller UART baud rate register          1
+        using Addr = Register::Address<0x4000c868,0xffff0000,0x00000000,unsigned>;
         ///N
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> n{}; 
     }
-    namespace Nonesc1Uartbrr2{    ///<Serial controller UART baud rate register
-          2
-        using Addr = Register::Address<0x4000c86c,0xfffffffe,0,unsigned>;
+    namespace Sc1UartSc1Uartbrr2{    ///<Serial controller UART baud rate register          2
+        using Addr = Register::Address<0x4000c86c,0xfffffffe,0x00000000,unsigned>;
         ///F
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> f{}; 
     }

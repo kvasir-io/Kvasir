@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Operational amplifiers
-    namespace Nonecsr{    ///<control/status register
-        using Addr = Register::Address<0x40007c5c,0x00000000,0,unsigned>;
+    namespace OpampCsr{    ///<control/status register
+        using Addr = Register::Address<0x40007c5c,0x00000000,0x00000000,unsigned>;
         ///OPAMP3 calibration output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> opa3calout{}; 
         ///OPAMP2 calibration output
@@ -14,22 +14,17 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> aopRange{}; 
         ///Switch 7 for OPAMP2 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> s7sel2{}; 
-        ///Switch SanA enable for
-              OPAMP3
+        ///Switch SanA enable for              OPAMP3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> anawsel3{}; 
-        ///Switch SanA enable for
-              OPAMP2
+        ///Switch SanA enable for              OPAMP2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> anawsel2{}; 
-        ///Switch SanA enable for
-              OPAMP1
+        ///Switch SanA enable for              OPAMP1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> anawsel1{}; 
         ///OPAMP3 low power mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> opa3lpm{}; 
-        ///OPAMP3 offset calibration for N
-              differential pair
+        ///OPAMP3 offset calibration for N              differential pair
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> opa3calH{}; 
-        ///OPAMP3 offset Calibration for P
-              differential pair
+        ///OPAMP3 offset Calibration for P              differential pair
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> opa3calL{}; 
         ///Switch 6 for OPAMP3 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> s6sel3{}; 
@@ -43,11 +38,9 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> opa3pd{}; 
         ///OPAMP2 low power mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> opa2lpm{}; 
-        ///OPAMP2 offset calibration for N
-              differential pair
+        ///OPAMP2 offset calibration for N              differential pair
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> opa2calH{}; 
-        ///OPAMP2 offset Calibration for P
-              differential pair
+        ///OPAMP2 offset Calibration for P              differential pair
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> opa2calL{}; 
         ///Switch 6 for OPAMP2 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> s6sel2{}; 
@@ -61,11 +54,9 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> opa2pd{}; 
         ///OPAMP1 low power mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> opa1lpm{}; 
-        ///OPAMP1 offset calibration for N
-              differential pair
+        ///OPAMP1 offset calibration for N              differential pair
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> opa1calH{}; 
-        ///OPAMP1 offset calibration for P
-              differential pair
+        ///OPAMP1 offset calibration for P              differential pair
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> opa1calL{}; 
         ///Switch 6 for OPAMP1 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> s6sel1{}; 
@@ -78,33 +69,24 @@ namespace Kvasir {
         ///OPAMP1 power down
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> opa1pd{}; 
     }
-    namespace Noneotr{    ///<offset trimming register for normal
-          mode
-        using Addr = Register::Address<0x40007c60,0x40000000,0,unsigned>;
-        ///Select user or factory trimming
-              value
+    namespace OpampOtr{    ///<offset trimming register for normal          mode
+        using Addr = Register::Address<0x40007c60,0x40000000,0x00000000,unsigned>;
+        ///Select user or factory trimming              value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> otUser{}; 
-        ///OPAMP3, 10-bit offset trim value for
-              normal mode
+        ///OPAMP3, 10-bit offset trim value for              normal mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,20),Register::ReadWriteAccess,unsigned> ao3OptOffsetTrim{}; 
-        ///OPAMP2, 10-bit offset trim value for
-              normal mode
+        ///OPAMP2, 10-bit offset trim value for              normal mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,10),Register::ReadWriteAccess,unsigned> ao2OptOffsetTrim{}; 
-        ///OPAMP1, 10-bit offset trim value for
-              normal mode
+        ///OPAMP1, 10-bit offset trim value for              normal mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> ao1OptOffsetTrim{}; 
     }
-    namespace Nonelpotr{    ///<OPAMP offset trimming register for low power
-          mode
-        using Addr = Register::Address<0x40007c64,0xc0000000,0,unsigned>;
-        ///OPAMP3, 10-bit offset trim value for low
-              power mode
+    namespace OpampLpotr{    ///<OPAMP offset trimming register for low power          mode
+        using Addr = Register::Address<0x40007c64,0xc0000000,0x00000000,unsigned>;
+        ///OPAMP3, 10-bit offset trim value for low              power mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,20),Register::ReadWriteAccess,unsigned> ao3OptOffsetTrimLp{}; 
-        ///OPAMP2, 10-bit offset trim value for low
-              power mode
+        ///OPAMP2, 10-bit offset trim value for low              power mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,10),Register::ReadWriteAccess,unsigned> ao2OptOffsetTrimLp{}; 
-        ///OPAMP1, 10-bit offset trim value for low
-              power mode
+        ///OPAMP1, 10-bit offset trim value for low              power mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> ao1OptOffsetTrimLp{}; 
     }
 }

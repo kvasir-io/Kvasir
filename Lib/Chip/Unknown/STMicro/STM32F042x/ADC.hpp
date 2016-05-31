@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog-to-digital converter
-    namespace Noneisr{    ///<interrupt and status register
-        using Addr = Register::Address<0x40012400,0xffffff60,0,unsigned>;
+    namespace AdcIsr{    ///<interrupt and status register
+        using Addr = Register::Address<0x40012400,0xffffff60,0x00000000,unsigned>;
         ///Analog watchdog flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> awd{}; 
         ///ADC overrun
@@ -17,8 +17,8 @@ namespace Kvasir {
         ///ADC ready
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> adrdy{}; 
     }
-    namespace Noneier{    ///<interrupt enable register
-        using Addr = Register::Address<0x40012404,0xffffff60,0,unsigned>;
+    namespace AdcIer{    ///<interrupt enable register
+        using Addr = Register::Address<0x40012404,0xffffff60,0x00000000,unsigned>;
         ///Analog watchdog interrupt               enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> awdie{}; 
         ///Overrun interrupt enable
@@ -32,8 +32,8 @@ namespace Kvasir {
         ///ADC ready interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> adrdyie{}; 
     }
-    namespace Nonecr{    ///<control register
-        using Addr = Register::Address<0x40012408,0x7fffffe8,0,unsigned>;
+    namespace AdcCr{    ///<control register
+        using Addr = Register::Address<0x40012408,0x7fffffe8,0x00000000,unsigned>;
         ///ADC calibration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> adcal{}; 
         ///ADC stop conversion               command
@@ -45,8 +45,8 @@ namespace Kvasir {
         ///ADC enable command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> aden{}; 
     }
-    namespace Nonecfgr1{    ///<configuration register 1
-        using Addr = Register::Address<0x4001240c,0x833e0200,0,unsigned>;
+    namespace AdcCfgr1{    ///<configuration register 1
+        using Addr = Register::Address<0x4001240c,0x833e0200,0x00000000,unsigned>;
         ///Analog watchdog channel               selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,26),Register::ReadWriteAccess,unsigned> awdch{}; 
         ///Analog watchdog enable
@@ -78,27 +78,27 @@ namespace Kvasir {
         ///Direct memory access               enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmaen{}; 
     }
-    namespace Nonecfgr2{    ///<configuration register 2
-        using Addr = Register::Address<0x40012410,0x3fffffff,0,unsigned>;
+    namespace AdcCfgr2{    ///<configuration register 2
+        using Addr = Register::Address<0x40012410,0x3fffffff,0x00000000,unsigned>;
         ///JITOFF_D4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> jitoffD4{}; 
         ///JITOFF_D2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> jitoffD2{}; 
     }
-    namespace Nonesmpr{    ///<sampling time register
-        using Addr = Register::Address<0x40012414,0xfffffff8,0,unsigned>;
+    namespace AdcSmpr{    ///<sampling time register
+        using Addr = Register::Address<0x40012414,0xfffffff8,0x00000000,unsigned>;
         ///Sampling time selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> smpr{}; 
     }
-    namespace Nonetr{    ///<watchdog threshold register
-        using Addr = Register::Address<0x40012420,0xf000f000,0,unsigned>;
+    namespace AdcTr{    ///<watchdog threshold register
+        using Addr = Register::Address<0x40012420,0xf000f000,0x00000000,unsigned>;
         ///Analog watchdog higher               threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,16),Register::ReadWriteAccess,unsigned> ht{}; 
         ///Analog watchdog lower               threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> lt{}; 
     }
-    namespace Nonechselr{    ///<channel selection register
-        using Addr = Register::Address<0x40012428,0xfff80000,0,unsigned>;
+    namespace AdcChselr{    ///<channel selection register
+        using Addr = Register::Address<0x40012428,0xfff80000,0x00000000,unsigned>;
         ///Channel-x selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> chsel18{}; 
         ///Channel-x selection
@@ -138,13 +138,13 @@ namespace Kvasir {
         ///Channel-x selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chsel0{}; 
     }
-    namespace Nonedr{    ///<data register
-        using Addr = Register::Address<0x40012440,0xffff0000,0,unsigned>;
+    namespace AdcDr{    ///<data register
+        using Addr = Register::Address<0x40012440,0xffff0000,0x00000000,unsigned>;
         ///Converted data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Noneccr{    ///<common configuration register
-        using Addr = Register::Address<0x40012708,0xfe3fffff,0,unsigned>;
+    namespace AdcCcr{    ///<common configuration register
+        using Addr = Register::Address<0x40012708,0xfe3fffff,0x00000000,unsigned>;
         ///VBAT enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> vbaten{}; 
         ///Temperature sensor enable

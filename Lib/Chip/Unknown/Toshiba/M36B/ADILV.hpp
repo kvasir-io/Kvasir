@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //ADC
-    namespace Nonetrgsel{    ///<Trigger Select Register
-        using Addr = Register::Address<0x40066010,0xffff00fe,0,unsigned>;
+    namespace AdilvTrgsel{    ///<Trigger Select Register
+        using Addr = Register::Address<0x40066010,0xffff00fe,0x00000000,unsigned>;
         ///TRGSELEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> trgselen{}; 
         ///TRGSEL

@@ -1,98 +1,79 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General purpose I/O
-    namespace Nonecrl{    ///<Port configuration register low
-          (GPIOn_CRL)
-        using Addr = Register::Address<0x40010800,0x00000000,0,unsigned>;
+    namespace GpioaCrl{    ///<Port configuration register low          (GPIOn_CRL)
+        using Addr = Register::Address<0x40010800,0x00000000,0x00000000,unsigned>;
         ///Port n.0 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> mode0{}; 
-        ///Port n.0 configuration
-              bits
+        ///Port n.0 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> cnf0{}; 
         ///Port n.1 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> mode1{}; 
-        ///Port n.1 configuration
-              bits
+        ///Port n.1 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> cnf1{}; 
         ///Port n.2 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> mode2{}; 
-        ///Port n.2 configuration
-              bits
+        ///Port n.2 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> cnf2{}; 
         ///Port n.3 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> mode3{}; 
-        ///Port n.3 configuration
-              bits
+        ///Port n.3 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> cnf3{}; 
         ///Port n.4 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> mode4{}; 
-        ///Port n.4 configuration
-              bits
+        ///Port n.4 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> cnf4{}; 
         ///Port n.5 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> mode5{}; 
-        ///Port n.5 configuration
-              bits
+        ///Port n.5 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,unsigned> cnf5{}; 
         ///Port n.6 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> mode6{}; 
-        ///Port n.6 configuration
-              bits
+        ///Port n.6 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> cnf6{}; 
         ///Port n.7 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> mode7{}; 
-        ///Port n.7 configuration
-              bits
+        ///Port n.7 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> cnf7{}; 
     }
-    namespace Nonecrh{    ///<Port configuration register high
-          (GPIOn_CRL)
-        using Addr = Register::Address<0x40010804,0x00000000,0,unsigned>;
+    namespace GpioaCrh{    ///<Port configuration register high          (GPIOn_CRL)
+        using Addr = Register::Address<0x40010804,0x00000000,0x00000000,unsigned>;
         ///Port n.8 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> mode8{}; 
-        ///Port n.8 configuration
-              bits
+        ///Port n.8 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> cnf8{}; 
         ///Port n.9 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> mode9{}; 
-        ///Port n.9 configuration
-              bits
+        ///Port n.9 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> cnf9{}; 
         ///Port n.10 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> mode10{}; 
-        ///Port n.10 configuration
-              bits
+        ///Port n.10 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> cnf10{}; 
         ///Port n.11 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> mode11{}; 
-        ///Port n.11 configuration
-              bits
+        ///Port n.11 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> cnf11{}; 
         ///Port n.12 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> mode12{}; 
-        ///Port n.12 configuration
-              bits
+        ///Port n.12 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> cnf12{}; 
         ///Port n.13 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> mode13{}; 
-        ///Port n.13 configuration
-              bits
+        ///Port n.13 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,unsigned> cnf13{}; 
         ///Port n.14 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> mode14{}; 
-        ///Port n.14 configuration
-              bits
+        ///Port n.14 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> cnf14{}; 
         ///Port n.15 mode bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> mode15{}; 
-        ///Port n.15 configuration
-              bits
+        ///Port n.15 configuration              bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> cnf15{}; 
     }
-    namespace Noneidr{    ///<Port input data register
-          (GPIOn_IDR)
-        using Addr = Register::Address<0x40010808,0xffff0000,0,unsigned>;
+    namespace GpioaIdr{    ///<Port input data register          (GPIOn_IDR)
+        using Addr = Register::Address<0x40010808,0xffff0000,0x00000000,unsigned>;
         ///Port input data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> idr0{}; 
         ///Port input data
@@ -126,9 +107,8 @@ namespace Kvasir {
         ///Port input data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> idr15{}; 
     }
-    namespace Noneodr{    ///<Port output data register
-          (GPIOn_ODR)
-        using Addr = Register::Address<0x4001080c,0xffff0000,0,unsigned>;
+    namespace GpioaOdr{    ///<Port output data register          (GPIOn_ODR)
+        using Addr = Register::Address<0x4001080c,0xffff0000,0x00000000,unsigned>;
         ///Port output data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> odr0{}; 
         ///Port output data
@@ -162,9 +142,8 @@ namespace Kvasir {
         ///Port output data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> odr15{}; 
     }
-    namespace Nonebsrr{    ///<Port bit set/reset register
-          (GPIOn_BSRR)
-        using Addr = Register::Address<0x40010810,0x00000000,0,unsigned>;
+    namespace GpioaBsrr{    ///<Port bit set/reset register          (GPIOn_BSRR)
+        using Addr = Register::Address<0x40010810,0x00000000,0x00000000,unsigned>;
         ///Set bit 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bs0{}; 
         ///Set bit 1
@@ -230,9 +209,8 @@ namespace Kvasir {
         ///Reset bit 15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> br15{}; 
     }
-    namespace Nonebrr{    ///<Port bit reset register
-          (GPIOn_BRR)
-        using Addr = Register::Address<0x40010814,0xffff0000,0,unsigned>;
+    namespace GpioaBrr{    ///<Port bit reset register          (GPIOn_BRR)
+        using Addr = Register::Address<0x40010814,0xffff0000,0x00000000,unsigned>;
         ///Reset bit 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> br0{}; 
         ///Reset bit 1
@@ -266,9 +244,8 @@ namespace Kvasir {
         ///Reset bit 15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> br15{}; 
     }
-    namespace Nonelckr{    ///<Port configuration lock
-          register
-        using Addr = Register::Address<0x40010818,0xfffe0000,0,unsigned>;
+    namespace GpioaLckr{    ///<Port configuration lock          register
+        using Addr = Register::Address<0x40010818,0xfffe0000,0x00000000,unsigned>;
         ///Port A Lock bit 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lck0{}; 
         ///Port A Lock bit 1

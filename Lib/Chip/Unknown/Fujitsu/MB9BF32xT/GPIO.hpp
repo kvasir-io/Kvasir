@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General-purpose I/O ports
-    namespace Nonepfr0{    ///<Port function setting register 0
-        using Addr = Register::Address<0x40033000,0xfffffc00,0,unsigned>;
+    namespace GpioPfr0{    ///<Port function setting register 0
+        using Addr = Register::Address<0x40033000,0xfffffc00,0x00000000,unsigned>;
         ///Bit9 of PFR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> p9{}; 
         ///Bit8 of PFR0
@@ -25,8 +25,8 @@ namespace Kvasir {
         ///Bit0 of PFR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfr1{    ///<Port function setting register 1
-        using Addr = Register::Address<0x40033004,0xffff0000,0,unsigned>;
+    namespace GpioPfr1{    ///<Port function setting register 1
+        using Addr = Register::Address<0x40033004,0xffff0000,0x00000000,unsigned>;
         ///Bit15 of PFR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pf{}; 
         ///Bit14 of PFR1
@@ -60,8 +60,8 @@ namespace Kvasir {
         ///Bit0 of PFR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfr2{    ///<Port function setting register 2
-        using Addr = Register::Address<0x40033008,0xfffffc00,0,unsigned>;
+    namespace GpioPfr2{    ///<Port function setting register 2
+        using Addr = Register::Address<0x40033008,0xfffffc00,0x00000000,unsigned>;
         ///Bit9 of PFR2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> p9{}; 
         ///Bit8 of PFR2
@@ -83,8 +83,8 @@ namespace Kvasir {
         ///Bit0 of PFR2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfr3{    ///<Port function setting register 3
-        using Addr = Register::Address<0x4003300c,0xffff0000,0,unsigned>;
+    namespace GpioPfr3{    ///<Port function setting register 3
+        using Addr = Register::Address<0x4003300c,0xffff0000,0x00000000,unsigned>;
         ///Bit15 of PFR3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pf{}; 
         ///Bit14 of PFR3
@@ -118,8 +118,8 @@ namespace Kvasir {
         ///Bit0 of PFR3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfr4{    ///<Port function setting register 4
-        using Addr = Register::Address<0x40033010,0xffff8000,0,unsigned>;
+    namespace GpioPfr4{    ///<Port function setting register 4
+        using Addr = Register::Address<0x40033010,0xffff8000,0x00000000,unsigned>;
         ///Bit14 of PFR4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> pe{}; 
         ///Bit13 of PFR4
@@ -151,8 +151,8 @@ namespace Kvasir {
         ///Bit0 of PFR4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfr5{    ///<Port function setting register 5
-        using Addr = Register::Address<0x40033014,0xffffc000,0,unsigned>;
+    namespace GpioPfr5{    ///<Port function setting register 5
+        using Addr = Register::Address<0x40033014,0xffffc000,0x00000000,unsigned>;
         ///Bit13 of PFR5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pd{}; 
         ///Bit12 of PFR5
@@ -182,8 +182,8 @@ namespace Kvasir {
         ///Bit0 of PFR5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfr6{    ///<Port function setting register 6
-        using Addr = Register::Address<0x40033018,0xfffffff8,0,unsigned>;
+    namespace GpioPfr6{    ///<Port function setting register 6
+        using Addr = Register::Address<0x40033018,0xfffffff8,0x00000000,unsigned>;
         ///Bit2 of PFR6
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> p2{}; 
         ///Bit1 of PFR6
@@ -191,8 +191,8 @@ namespace Kvasir {
         ///Bit0 of PFR6
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfr7{    ///<Port function setting register 7
-        using Addr = Register::Address<0x4003301c,0xffff0000,0,unsigned>;
+    namespace GpioPfr7{    ///<Port function setting register 7
+        using Addr = Register::Address<0x4003301c,0xffff0000,0x00000000,unsigned>;
         ///Bit15 of PFR7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pf{}; 
         ///Bit14 of PFR7
@@ -226,8 +226,8 @@ namespace Kvasir {
         ///Bit0 of PFR7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfr8{    ///<Port function setting register 8
-        using Addr = Register::Address<0x40033020,0xfffffff0,0,unsigned>;
+    namespace GpioPfr8{    ///<Port function setting register 8
+        using Addr = Register::Address<0x40033020,0xfffffff0,0x00000000,unsigned>;
         ///Bit3 of PFR8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> p3{}; 
         ///Bit2 of PFR8
@@ -237,8 +237,8 @@ namespace Kvasir {
         ///Bit0 of PFR8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfr9{    ///<Port function setting register 9
-        using Addr = Register::Address<0x40033024,0xffffffc0,0,unsigned>;
+    namespace GpioPfr9{    ///<Port function setting register 9
+        using Addr = Register::Address<0x40033024,0xffffffc0,0x00000000,unsigned>;
         ///Bit5 of PFR9
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> p5{}; 
         ///Bit4 of PFR9
@@ -252,8 +252,8 @@ namespace Kvasir {
         ///Bit0 of PFR9
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfra{    ///<Port function setting register A
-        using Addr = Register::Address<0x40033028,0xffffffc0,0,unsigned>;
+    namespace GpioPfra{    ///<Port function setting register A
+        using Addr = Register::Address<0x40033028,0xffffffc0,0x00000000,unsigned>;
         ///Bit5 of PFRA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> p5{}; 
         ///Bit4 of PFRA
@@ -267,8 +267,8 @@ namespace Kvasir {
         ///Bit0 of PFRA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfrb{    ///<Port function setting register B
-        using Addr = Register::Address<0x4003302c,0xffffff00,0,unsigned>;
+    namespace GpioPfrb{    ///<Port function setting register B
+        using Addr = Register::Address<0x4003302c,0xffffff00,0x00000000,unsigned>;
         ///Bit7 of PFRB
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> p7{}; 
         ///Bit6 of PFRB
@@ -286,8 +286,8 @@ namespace Kvasir {
         ///Bit0 of PFRB
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfrc{    ///<Port function setting register C
-        using Addr = Register::Address<0x40033030,0xffff0000,0,unsigned>;
+    namespace GpioPfrc{    ///<Port function setting register C
+        using Addr = Register::Address<0x40033030,0xffff0000,0x00000000,unsigned>;
         ///Bit15 of PFRC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pf{}; 
         ///Bit14 of PFRC
@@ -321,8 +321,8 @@ namespace Kvasir {
         ///Bit0 of PFRC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfrd{    ///<Port function setting register D
-        using Addr = Register::Address<0x40033034,0xfffffff0,0,unsigned>;
+    namespace GpioPfrd{    ///<Port function setting register D
+        using Addr = Register::Address<0x40033034,0xfffffff0,0x00000000,unsigned>;
         ///Bit3 of PFRD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> p3{}; 
         ///Bit2 of PFRD
@@ -332,8 +332,8 @@ namespace Kvasir {
         ///Bit0 of PFRD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfre{    ///<Port function setting register E
-        using Addr = Register::Address<0x40033038,0xfffffff2,0,unsigned>;
+    namespace GpioPfre{    ///<Port function setting register E
+        using Addr = Register::Address<0x40033038,0xfffffff2,0x00000000,unsigned>;
         ///Bit3 of PFRE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> p3{}; 
         ///Bit2 of PFRE
@@ -341,8 +341,8 @@ namespace Kvasir {
         ///Bit0 of PFRE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepfrf{    ///<Port function setting register F
-        using Addr = Register::Address<0x4003303c,0xffffff80,0,unsigned>;
+    namespace GpioPfrf{    ///<Port function setting register F
+        using Addr = Register::Address<0x4003303c,0xffffff80,0x00000000,unsigned>;
         ///Bit6 of PFRF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> p6{}; 
         ///Bit5 of PFRF
@@ -358,56 +358,56 @@ namespace Kvasir {
         ///Bit0 of PFRF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Nonepcr0{    ///<Pull-up Setting Register 0
-        using Addr = Register::Address<0x40033100,0xffffffff,0,unsigned>;
+    namespace GpioPcr0{    ///<Pull-up Setting Register 0
+        using Addr = Register::Address<0x40033100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcr1{    ///<Pull-up Setting Register 1
-        using Addr = Register::Address<0x40033104,0xffffffff,0,unsigned>;
+    namespace GpioPcr1{    ///<Pull-up Setting Register 1
+        using Addr = Register::Address<0x40033104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcr2{    ///<Pull-up Setting Register 2
-        using Addr = Register::Address<0x40033108,0xffffffff,0,unsigned>;
+    namespace GpioPcr2{    ///<Pull-up Setting Register 2
+        using Addr = Register::Address<0x40033108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcr3{    ///<Pull-up Setting Register 3
-        using Addr = Register::Address<0x4003310c,0xffffffff,0,unsigned>;
+    namespace GpioPcr3{    ///<Pull-up Setting Register 3
+        using Addr = Register::Address<0x4003310c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcr4{    ///<Pull-up Setting Register 4
-        using Addr = Register::Address<0x40033110,0xffffffff,0,unsigned>;
+    namespace GpioPcr4{    ///<Pull-up Setting Register 4
+        using Addr = Register::Address<0x40033110,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcr5{    ///<Pull-up Setting Register 5
-        using Addr = Register::Address<0x40033114,0xffffffff,0,unsigned>;
+    namespace GpioPcr5{    ///<Pull-up Setting Register 5
+        using Addr = Register::Address<0x40033114,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcr6{    ///<Pull-up Setting Register 6
-        using Addr = Register::Address<0x40033118,0xffffffff,0,unsigned>;
+    namespace GpioPcr6{    ///<Pull-up Setting Register 6
+        using Addr = Register::Address<0x40033118,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcr7{    ///<Pull-up Setting Register 7
-        using Addr = Register::Address<0x4003311c,0xffffffff,0,unsigned>;
+    namespace GpioPcr7{    ///<Pull-up Setting Register 7
+        using Addr = Register::Address<0x4003311c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcr8{    ///<Pull-up Setting Register 8
-        using Addr = Register::Address<0x40033120,0xffffffff,0,unsigned>;
+    namespace GpioPcr8{    ///<Pull-up Setting Register 8
+        using Addr = Register::Address<0x40033120,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcr9{    ///<Pull-up Setting Register 9
-        using Addr = Register::Address<0x40033124,0xffffffff,0,unsigned>;
+    namespace GpioPcr9{    ///<Pull-up Setting Register 9
+        using Addr = Register::Address<0x40033124,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcra{    ///<Pull-up Setting Register A
-        using Addr = Register::Address<0x40033128,0xffffffff,0,unsigned>;
+    namespace GpioPcra{    ///<Pull-up Setting Register A
+        using Addr = Register::Address<0x40033128,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcrb{    ///<Pull-up Setting Register B
-        using Addr = Register::Address<0x4003312c,0xffffffff,0,unsigned>;
+    namespace GpioPcrb{    ///<Pull-up Setting Register B
+        using Addr = Register::Address<0x4003312c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcrc{    ///<Pull-up Setting Register C
-        using Addr = Register::Address<0x40033130,0xffffffff,0,unsigned>;
+    namespace GpioPcrc{    ///<Pull-up Setting Register C
+        using Addr = Register::Address<0x40033130,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcrd{    ///<Pull-up Setting Register D
-        using Addr = Register::Address<0x40033134,0xffffffff,0,unsigned>;
+    namespace GpioPcrd{    ///<Pull-up Setting Register D
+        using Addr = Register::Address<0x40033134,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcre{    ///<Pull-up Setting Register E
-        using Addr = Register::Address<0x40033138,0xffffffff,0,unsigned>;
+    namespace GpioPcre{    ///<Pull-up Setting Register E
+        using Addr = Register::Address<0x40033138,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepcrf{    ///<Pull-up Setting Register F
-        using Addr = Register::Address<0x4003313c,0xffffffff,0,unsigned>;
+    namespace GpioPcrf{    ///<Pull-up Setting Register F
+        using Addr = Register::Address<0x4003313c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddr0{    ///<Port input/output direction setting register 0
-        using Addr = Register::Address<0x40033200,0xfffffc00,0,unsigned>;
+    namespace GpioDdr0{    ///<Port input/output direction setting register 0
+        using Addr = Register::Address<0x40033200,0xfffffc00,0x00000000,unsigned>;
         ///Bit9 of DDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> p9{}; 
         ///Bit8 of DDR0
@@ -429,149 +429,149 @@ namespace Kvasir {
         ///Bit0 of DDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
     }
-    namespace Noneddr1{    ///<Port input/output direction setting register 1
-        using Addr = Register::Address<0x40033204,0xffffffff,0,unsigned>;
+    namespace GpioDdr1{    ///<Port input/output direction setting register 1
+        using Addr = Register::Address<0x40033204,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddr2{    ///<Port input/output direction setting register 2
-        using Addr = Register::Address<0x40033208,0xffffffff,0,unsigned>;
+    namespace GpioDdr2{    ///<Port input/output direction setting register 2
+        using Addr = Register::Address<0x40033208,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddr3{    ///<Port input/output direction setting register 3
-        using Addr = Register::Address<0x4003320c,0xffffffff,0,unsigned>;
+    namespace GpioDdr3{    ///<Port input/output direction setting register 3
+        using Addr = Register::Address<0x4003320c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddr4{    ///<Port input/output direction setting register 4
-        using Addr = Register::Address<0x40033210,0xffffffff,0,unsigned>;
+    namespace GpioDdr4{    ///<Port input/output direction setting register 4
+        using Addr = Register::Address<0x40033210,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddr5{    ///<Port input/output direction setting register 5
-        using Addr = Register::Address<0x40033214,0xffffffff,0,unsigned>;
+    namespace GpioDdr5{    ///<Port input/output direction setting register 5
+        using Addr = Register::Address<0x40033214,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddr6{    ///<Port input/output direction setting register 6
-        using Addr = Register::Address<0x40033218,0xffffffff,0,unsigned>;
+    namespace GpioDdr6{    ///<Port input/output direction setting register 6
+        using Addr = Register::Address<0x40033218,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddr7{    ///<Port input/output direction setting register 7
-        using Addr = Register::Address<0x4003321c,0xffffffff,0,unsigned>;
+    namespace GpioDdr7{    ///<Port input/output direction setting register 7
+        using Addr = Register::Address<0x4003321c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddr8{    ///<Port input/output direction setting register 8
-        using Addr = Register::Address<0x40033220,0xffffffff,0,unsigned>;
+    namespace GpioDdr8{    ///<Port input/output direction setting register 8
+        using Addr = Register::Address<0x40033220,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddr9{    ///<Port input/output direction setting register 9
-        using Addr = Register::Address<0x40033224,0xffffffff,0,unsigned>;
+    namespace GpioDdr9{    ///<Port input/output direction setting register 9
+        using Addr = Register::Address<0x40033224,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddra{    ///<Port input/output direction setting register A
-        using Addr = Register::Address<0x40033228,0xffffffff,0,unsigned>;
+    namespace GpioDdra{    ///<Port input/output direction setting register A
+        using Addr = Register::Address<0x40033228,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddrb{    ///<Port input/output direction setting register B
-        using Addr = Register::Address<0x4003322c,0xffffffff,0,unsigned>;
+    namespace GpioDdrb{    ///<Port input/output direction setting register B
+        using Addr = Register::Address<0x4003322c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddrc{    ///<Port input/output direction setting register C
-        using Addr = Register::Address<0x40033230,0xffffffff,0,unsigned>;
+    namespace GpioDdrc{    ///<Port input/output direction setting register C
+        using Addr = Register::Address<0x40033230,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddrd{    ///<Port input/output direction setting register D
-        using Addr = Register::Address<0x40033234,0xffffffff,0,unsigned>;
+    namespace GpioDdrd{    ///<Port input/output direction setting register D
+        using Addr = Register::Address<0x40033234,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddre{    ///<Port input/output direction setting register E
-        using Addr = Register::Address<0x40033238,0xffffffff,0,unsigned>;
+    namespace GpioDdre{    ///<Port input/output direction setting register E
+        using Addr = Register::Address<0x40033238,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneddrf{    ///<Port input/output direction setting register F
-        using Addr = Register::Address<0x4003323c,0xffffffff,0,unsigned>;
+    namespace GpioDdrf{    ///<Port input/output direction setting register F
+        using Addr = Register::Address<0x4003323c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdir0{    ///<Port input data register 0
-        using Addr = Register::Address<0x40033300,0xffffffff,0,unsigned>;
+    namespace GpioPdir0{    ///<Port input data register 0
+        using Addr = Register::Address<0x40033300,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdir1{    ///<Port input data register 1
-        using Addr = Register::Address<0x40033304,0xffffffff,0,unsigned>;
+    namespace GpioPdir1{    ///<Port input data register 1
+        using Addr = Register::Address<0x40033304,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdir2{    ///<Port input data register 2
-        using Addr = Register::Address<0x40033308,0xffffffff,0,unsigned>;
+    namespace GpioPdir2{    ///<Port input data register 2
+        using Addr = Register::Address<0x40033308,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdir3{    ///<Port input data register 3
-        using Addr = Register::Address<0x4003330c,0xffffffff,0,unsigned>;
+    namespace GpioPdir3{    ///<Port input data register 3
+        using Addr = Register::Address<0x4003330c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdir4{    ///<Port input data register 4
-        using Addr = Register::Address<0x40033310,0xffffffff,0,unsigned>;
+    namespace GpioPdir4{    ///<Port input data register 4
+        using Addr = Register::Address<0x40033310,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdir5{    ///<Port input data register 5
-        using Addr = Register::Address<0x40033314,0xffffffff,0,unsigned>;
+    namespace GpioPdir5{    ///<Port input data register 5
+        using Addr = Register::Address<0x40033314,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdir6{    ///<Port input data register 6
-        using Addr = Register::Address<0x40033318,0xffffffff,0,unsigned>;
+    namespace GpioPdir6{    ///<Port input data register 6
+        using Addr = Register::Address<0x40033318,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdir7{    ///<Port input data register 7
-        using Addr = Register::Address<0x4003331c,0xffffffff,0,unsigned>;
+    namespace GpioPdir7{    ///<Port input data register 7
+        using Addr = Register::Address<0x4003331c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdir8{    ///<Port input data register 8
-        using Addr = Register::Address<0x40033320,0xffffffff,0,unsigned>;
+    namespace GpioPdir8{    ///<Port input data register 8
+        using Addr = Register::Address<0x40033320,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdir9{    ///<Port input data register 9
-        using Addr = Register::Address<0x40033324,0xffffffff,0,unsigned>;
+    namespace GpioPdir9{    ///<Port input data register 9
+        using Addr = Register::Address<0x40033324,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdira{    ///<Port input data register A
-        using Addr = Register::Address<0x40033328,0xffffffff,0,unsigned>;
+    namespace GpioPdira{    ///<Port input data register A
+        using Addr = Register::Address<0x40033328,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdirb{    ///<Port input data register B
-        using Addr = Register::Address<0x4003332c,0xffffffff,0,unsigned>;
+    namespace GpioPdirb{    ///<Port input data register B
+        using Addr = Register::Address<0x4003332c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdirc{    ///<Port input data register C
-        using Addr = Register::Address<0x40033330,0xffffffff,0,unsigned>;
+    namespace GpioPdirc{    ///<Port input data register C
+        using Addr = Register::Address<0x40033330,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdird{    ///<Port input data register D
-        using Addr = Register::Address<0x40033334,0xffffffff,0,unsigned>;
+    namespace GpioPdird{    ///<Port input data register D
+        using Addr = Register::Address<0x40033334,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdire{    ///<Port input data register E
-        using Addr = Register::Address<0x40033338,0xffffffff,0,unsigned>;
+    namespace GpioPdire{    ///<Port input data register E
+        using Addr = Register::Address<0x40033338,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdirf{    ///<Port input data register F
-        using Addr = Register::Address<0x4003333c,0xffffffff,0,unsigned>;
+    namespace GpioPdirf{    ///<Port input data register F
+        using Addr = Register::Address<0x4003333c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdor0{    ///<Port output data register 0
-        using Addr = Register::Address<0x40033400,0xffffffff,0,unsigned>;
+    namespace GpioPdor0{    ///<Port output data register 0
+        using Addr = Register::Address<0x40033400,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdor1{    ///<Port output data register 1
-        using Addr = Register::Address<0x40033404,0xffffffff,0,unsigned>;
+    namespace GpioPdor1{    ///<Port output data register 1
+        using Addr = Register::Address<0x40033404,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdor2{    ///<Port output data register 2
-        using Addr = Register::Address<0x40033408,0xffffffff,0,unsigned>;
+    namespace GpioPdor2{    ///<Port output data register 2
+        using Addr = Register::Address<0x40033408,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdor3{    ///<Port output data register 3
-        using Addr = Register::Address<0x4003340c,0xffffffff,0,unsigned>;
+    namespace GpioPdor3{    ///<Port output data register 3
+        using Addr = Register::Address<0x4003340c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdor4{    ///<Port output data register 4
-        using Addr = Register::Address<0x40033410,0xffffffff,0,unsigned>;
+    namespace GpioPdor4{    ///<Port output data register 4
+        using Addr = Register::Address<0x40033410,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdor5{    ///<Port output data register 5
-        using Addr = Register::Address<0x40033414,0xffffffff,0,unsigned>;
+    namespace GpioPdor5{    ///<Port output data register 5
+        using Addr = Register::Address<0x40033414,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdor6{    ///<Port output data register 6
-        using Addr = Register::Address<0x40033418,0xffffffff,0,unsigned>;
+    namespace GpioPdor6{    ///<Port output data register 6
+        using Addr = Register::Address<0x40033418,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdor7{    ///<Port output data register 7
-        using Addr = Register::Address<0x4003341c,0xffffffff,0,unsigned>;
+    namespace GpioPdor7{    ///<Port output data register 7
+        using Addr = Register::Address<0x4003341c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdor8{    ///<Port output data register 8
-        using Addr = Register::Address<0x40033420,0xffffffff,0,unsigned>;
+    namespace GpioPdor8{    ///<Port output data register 8
+        using Addr = Register::Address<0x40033420,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdor9{    ///<Port output data register 9
-        using Addr = Register::Address<0x40033424,0xffffffff,0,unsigned>;
+    namespace GpioPdor9{    ///<Port output data register 9
+        using Addr = Register::Address<0x40033424,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdora{    ///<Port output data register A
-        using Addr = Register::Address<0x40033428,0xffffffff,0,unsigned>;
+    namespace GpioPdora{    ///<Port output data register A
+        using Addr = Register::Address<0x40033428,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdorb{    ///<Port output data register B
-        using Addr = Register::Address<0x4003342c,0xffffffff,0,unsigned>;
+    namespace GpioPdorb{    ///<Port output data register B
+        using Addr = Register::Address<0x4003342c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdorc{    ///<Port output data register C
-        using Addr = Register::Address<0x40033430,0xffffffff,0,unsigned>;
+    namespace GpioPdorc{    ///<Port output data register C
+        using Addr = Register::Address<0x40033430,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdord{    ///<Port output data register D
-        using Addr = Register::Address<0x40033434,0xffffffff,0,unsigned>;
+    namespace GpioPdord{    ///<Port output data register D
+        using Addr = Register::Address<0x40033434,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdore{    ///<Port output data register E
-        using Addr = Register::Address<0x40033438,0xffffffff,0,unsigned>;
+    namespace GpioPdore{    ///<Port output data register E
+        using Addr = Register::Address<0x40033438,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepdorf{    ///<Port output data register F
-        using Addr = Register::Address<0x4003343c,0xffffffff,0,unsigned>;
+    namespace GpioPdorf{    ///<Port output data register F
+        using Addr = Register::Address<0x4003343c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneade{    ///<Analog input setting register
-        using Addr = Register::Address<0x40033500,0x00000000,0,unsigned>;
+    namespace GpioAde{    ///<Analog input setting register
+        using Addr = Register::Address<0x40033500,0x00000000,0x00000000,unsigned>;
         ///Bit31 of ADE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> an31{}; 
         ///Bit30 of ADE
@@ -637,8 +637,8 @@ namespace Kvasir {
         ///Bit0 of ADE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> an0{}; 
     }
-    namespace Nonespsr{    ///<Special port setting register
-        using Addr = Register::Address<0x40033580,0xffffffe0,0,unsigned>;
+    namespace GpioSpsr{    ///<Special port setting register
+        using Addr = Register::Address<0x40033580,0xffffffe0,0x00000000,unsigned>;
         ///USBch0 pin setting bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> usb0c{}; 
         ///Main clock(oscillation) pin setting bit
@@ -646,8 +646,8 @@ namespace Kvasir {
         ///Sub clock(oscillation) pin setting bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> subxc{}; 
     }
-    namespace Noneepfr00{    ///<Extended pin function setting register 00
-        using Addr = Register::Address<0x40033600,0xfcfcfd08,0,unsigned>;
+    namespace GpioEpfr00{    ///<Extended pin function setting register 00
+        using Addr = Register::Address<0x40033600,0xfcfcfd08,0x00000000,unsigned>;
         ///TRACED function select bit1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> trc1e{}; 
         ///TRACED function select bit0
@@ -667,8 +667,8 @@ namespace Kvasir {
         ///NMIX function select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> nmis{}; 
     }
-    namespace Noneepfr01{    ///<Extended pin function setting register 01
-        using Addr = Register::Address<0x40033604,0x0000e000,0,unsigned>;
+    namespace GpioEpfr01{    ///<Extended pin function setting register 01
+        using Addr = Register::Address<0x40033604,0x0000e000,0x00000000,unsigned>;
         ///IC03 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> ic03s{}; 
         ///IC02 input select bit
@@ -696,14 +696,14 @@ namespace Kvasir {
         ///RTO00E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> rto00e{}; 
     }
-    namespace Noneepfr02{    ///<Extended pin function setting register 02
-        using Addr = Register::Address<0x40033608,0xffffffff,0,unsigned>;
+    namespace GpioEpfr02{    ///<Extended pin function setting register 02
+        using Addr = Register::Address<0x40033608,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneepfr03{    ///<Extended pin function setting register 03
-        using Addr = Register::Address<0x4003360c,0xffffffff,0,unsigned>;
+    namespace GpioEpfr03{    ///<Extended pin function setting register 03
+        using Addr = Register::Address<0x4003360c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneepfr04{    ///<Extended pin function setting register 04
-        using Addr = Register::Address<0x40033610,0xc0c3c083,0,unsigned>;
+    namespace GpioEpfr04{    ///<Extended pin function setting register 04
+        using Addr = Register::Address<0x40033610,0xc0c3c083,0x00000000,unsigned>;
         ///TIOB3 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> tiob3s{}; 
         ///TIOA3E output select bit
@@ -725,8 +725,8 @@ namespace Kvasir {
         ///TIOA0 output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tioa0e{}; 
     }
-    namespace Noneepfr05{    ///<Extended pin function setting register 05
-        using Addr = Register::Address<0x40033614,0xc0c3c0c3,0,unsigned>;
+    namespace GpioEpfr05{    ///<Extended pin function setting register 05
+        using Addr = Register::Address<0x40033614,0xc0c3c0c3,0x00000000,unsigned>;
         ///TIOB7 input select Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> tiob7s{}; 
         ///TIOA7E output select bit
@@ -748,8 +748,8 @@ namespace Kvasir {
         ///TIOA4 output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tioa4e{}; 
     }
-    namespace Noneepfr06{    ///<Extended pin function setting register 06
-        using Addr = Register::Address<0x40033618,0x00000000,0,unsigned>;
+    namespace GpioEpfr06{    ///<Extended pin function setting register 06
+        using Addr = Register::Address<0x40033618,0x00000000,0x00000000,unsigned>;
         ///External interrupt 15 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> eint15s{}; 
         ///External interrupt 14 input select bit
@@ -783,8 +783,8 @@ namespace Kvasir {
         ///External interrupt 0 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> eint00s{}; 
     }
-    namespace Noneepfr07{    ///<Extended pin function setting register 07
-        using Addr = Register::Address<0x4003361c,0xf000000f,0,unsigned>;
+    namespace GpioEpfr07{    ///<Extended pin function setting register 07
+        using Addr = Register::Address<0x4003361c,0xf000000f,0x00000000,unsigned>;
         ///SCK3 input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> sck3b{}; 
         ///SOT3B input/output select bit
@@ -810,8 +810,8 @@ namespace Kvasir {
         ///SIN0S input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> sin0s{}; 
     }
-    namespace Noneepfr08{    ///<Extended pin function setting register 08
-        using Addr = Register::Address<0x40033620,0xf0000000,0,unsigned>;
+    namespace GpioEpfr08{    ///<Extended pin function setting register 08
+        using Addr = Register::Address<0x40033620,0xf0000000,0x00000000,unsigned>;
         ///SCK7 input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> sck7b{}; 
         ///SOT7B input/output select bit
@@ -841,8 +841,8 @@ namespace Kvasir {
         ///RTS4E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> rts4e{}; 
     }
-    namespace Noneepfr09{    ///<Extended pin function setting register 09
-        using Addr = Register::Address<0x40033624,0xfff00000,0,unsigned>;
+    namespace GpioEpfr09{    ///<Extended pin function setting register 09
+        using Addr = Register::Address<0x40033624,0xfff00000,0x00000000,unsigned>;
         ///ADTRG1 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> adtrg1s{}; 
         ///ADTRG0 input select bit
@@ -860,8 +860,8 @@ namespace Kvasir {
         ///QAIN0S input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> qain0s{}; 
     }
-    namespace Noneepfr10{    ///<Extended pin function setting register 10
-        using Addr = Register::Address<0x40033628,0x00000000,0,unsigned>;
+    namespace GpioEpfr10{    ///<Extended pin function setting register 10
+        using Addr = Register::Address<0x40033628,0x00000000,0x00000000,unsigned>;
         ///UEA24E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> uea24e{}; 
         ///UEA23E output select bit
@@ -927,8 +927,8 @@ namespace Kvasir {
         ///UEDEFB input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> uedefb{}; 
     }
-    namespace Noneepfr11{    ///<Extended pin function setting register 11
-        using Addr = Register::Address<0x4003362c,0xfc000000,0,unsigned>;
+    namespace GpioEpfr11{    ///<Extended pin function setting register 11
+        using Addr = Register::Address<0x4003362c,0xfc000000,0x00000000,unsigned>;
         ///UERLC relocation select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> uerlc{}; 
         ///UED15B input/output select bit
@@ -982,8 +982,8 @@ namespace Kvasir {
         ///UEALEE output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> uealee{}; 
     }
-    namespace Noneepfr12{    ///<Extended pin function setting register 12
-        using Addr = Register::Address<0x40033630,0xc0c3c0c3,0,unsigned>;
+    namespace GpioEpfr12{    ///<Extended pin function setting register 12
+        using Addr = Register::Address<0x40033630,0xc0c3c0c3,0x00000000,unsigned>;
         ///TIOB11 Input Select bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> tiob11s{}; 
         ///TIOA11 Output Select bits
@@ -1005,8 +1005,8 @@ namespace Kvasir {
         ///TIOA8 Output Select bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tioa8e{}; 
     }
-    namespace Noneepfr13{    ///<Extended pin function setting register 13
-        using Addr = Register::Address<0x40033634,0xc0c3c0c3,0,unsigned>;
+    namespace GpioEpfr13{    ///<Extended pin function setting register 13
+        using Addr = Register::Address<0x40033634,0xc0c3c0c3,0x00000000,unsigned>;
         ///TIOB15 Input Select bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> tiob15s{}; 
         ///TIOA15 Output Select bits
@@ -1028,11 +1028,11 @@ namespace Kvasir {
         ///TIOA12 Output Select bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tioa12e{}; 
     }
-    namespace Noneepfr14{    ///<Extended pin function setting register 14
-        using Addr = Register::Address<0x40033638,0xffffffff,0,unsigned>;
+    namespace GpioEpfr14{    ///<Extended pin function setting register 14
+        using Addr = Register::Address<0x40033638,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneepfr15{    ///<Extended pin function setting register 15
-        using Addr = Register::Address<0x4003363c,0x00000000,0,unsigned>;
+    namespace GpioEpfr15{    ///<Extended pin function setting register 15
+        using Addr = Register::Address<0x4003363c,0x00000000,0x00000000,unsigned>;
         ///External interrupt 31 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> eint31s{}; 
         ///External interrupt 30 input select bit
@@ -1066,8 +1066,8 @@ namespace Kvasir {
         ///External interrupt 16 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> eint16s{}; 
     }
-    namespace Noneepfr16{    ///<Extended pin function setting register 16
-        using Addr = Register::Address<0x40033640,0xf000000f,0,unsigned>;
+    namespace GpioEpfr16{    ///<Extended pin function setting register 16
+        using Addr = Register::Address<0x40033640,0xf000000f,0x00000000,unsigned>;
         ///SCK11 input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> sck11b{}; 
         ///SOT11B input/output select bit
@@ -1093,8 +1093,8 @@ namespace Kvasir {
         ///SIN8S input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> sin8s{}; 
     }
-    namespace Noneepfr17{    ///<Extended pin function setting register 17
-        using Addr = Register::Address<0x40033644,0xf000000f,0,unsigned>;
+    namespace GpioEpfr17{    ///<Extended pin function setting register 17
+        using Addr = Register::Address<0x40033644,0xf000000f,0x00000000,unsigned>;
         ///SCK7 input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> sck15b{}; 
         ///SOT7B input/output select bit
@@ -1120,59 +1120,59 @@ namespace Kvasir {
         ///SIN4S input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> sin12s{}; 
     }
-    namespace Noneepfr18{    ///<Extended pin function setting register 18
-        using Addr = Register::Address<0x40033648,0xfffffff0,0,unsigned>;
+    namespace GpioEpfr18{    ///<Extended pin function setting register 18
+        using Addr = Register::Address<0x40033648,0xfffffff0,0x00000000,unsigned>;
         ///CEC1 Input/Output Select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> cecr1b{}; 
         ///CEC0 Input/Output Select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> cecr0b{}; 
     }
-    namespace Nonepzr0{    ///<Port Pseudo Open Drain Setting Register 0
-        using Addr = Register::Address<0x40033700,0xffffffff,0,unsigned>;
+    namespace GpioPzr0{    ///<Port Pseudo Open Drain Setting Register 0
+        using Addr = Register::Address<0x40033700,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzr1{    ///<Port Pseudo Open Drain Setting Register 1
-        using Addr = Register::Address<0x40033704,0xffffffff,0,unsigned>;
+    namespace GpioPzr1{    ///<Port Pseudo Open Drain Setting Register 1
+        using Addr = Register::Address<0x40033704,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzr2{    ///<Port Pseudo Open Drain Setting Register 2
-        using Addr = Register::Address<0x40033708,0xffffffff,0,unsigned>;
+    namespace GpioPzr2{    ///<Port Pseudo Open Drain Setting Register 2
+        using Addr = Register::Address<0x40033708,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzr3{    ///<Port Pseudo Open Drain Setting Register 3
-        using Addr = Register::Address<0x4003370c,0xffffffff,0,unsigned>;
+    namespace GpioPzr3{    ///<Port Pseudo Open Drain Setting Register 3
+        using Addr = Register::Address<0x4003370c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzr4{    ///<Port Pseudo Open Drain Setting Register 4
-        using Addr = Register::Address<0x40033710,0xffffffff,0,unsigned>;
+    namespace GpioPzr4{    ///<Port Pseudo Open Drain Setting Register 4
+        using Addr = Register::Address<0x40033710,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzr5{    ///<Port Pseudo Open Drain Setting Register 5
-        using Addr = Register::Address<0x40033714,0xffffffff,0,unsigned>;
+    namespace GpioPzr5{    ///<Port Pseudo Open Drain Setting Register 5
+        using Addr = Register::Address<0x40033714,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzr6{    ///<Port Pseudo Open Drain Setting Register 6
-        using Addr = Register::Address<0x40033718,0xffffffff,0,unsigned>;
+    namespace GpioPzr6{    ///<Port Pseudo Open Drain Setting Register 6
+        using Addr = Register::Address<0x40033718,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzr7{    ///<Port Pseudo Open Drain Setting Register 7
-        using Addr = Register::Address<0x4003371c,0xffffffff,0,unsigned>;
+    namespace GpioPzr7{    ///<Port Pseudo Open Drain Setting Register 7
+        using Addr = Register::Address<0x4003371c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzr8{    ///<Port Pseudo Open Drain Setting Register 8
-        using Addr = Register::Address<0x40033720,0xffffffff,0,unsigned>;
+    namespace GpioPzr8{    ///<Port Pseudo Open Drain Setting Register 8
+        using Addr = Register::Address<0x40033720,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzr9{    ///<Port Pseudo Open Drain Setting Register 9
-        using Addr = Register::Address<0x40033724,0xffffffff,0,unsigned>;
+    namespace GpioPzr9{    ///<Port Pseudo Open Drain Setting Register 9
+        using Addr = Register::Address<0x40033724,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzra{    ///<Port Pseudo Open Drain Setting Register A
-        using Addr = Register::Address<0x40033728,0xffffffff,0,unsigned>;
+    namespace GpioPzra{    ///<Port Pseudo Open Drain Setting Register A
+        using Addr = Register::Address<0x40033728,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzrb{    ///<Port Pseudo Open Drain Setting Register B
-        using Addr = Register::Address<0x4003372c,0xffffffff,0,unsigned>;
+    namespace GpioPzrb{    ///<Port Pseudo Open Drain Setting Register B
+        using Addr = Register::Address<0x4003372c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzrc{    ///<Port Pseudo Open Drain Setting Register C
-        using Addr = Register::Address<0x40033730,0xffffffff,0,unsigned>;
+    namespace GpioPzrc{    ///<Port Pseudo Open Drain Setting Register C
+        using Addr = Register::Address<0x40033730,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzrd{    ///<Port Pseudo Open Drain Setting Register D
-        using Addr = Register::Address<0x40033734,0xffffffff,0,unsigned>;
+    namespace GpioPzrd{    ///<Port Pseudo Open Drain Setting Register D
+        using Addr = Register::Address<0x40033734,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzre{    ///<Port Pseudo Open Drain Setting Register E
-        using Addr = Register::Address<0x40033738,0xffffffff,0,unsigned>;
+    namespace GpioPzre{    ///<Port Pseudo Open Drain Setting Register E
+        using Addr = Register::Address<0x40033738,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepzrf{    ///<Port Pseudo Open Drain Setting Register F
-        using Addr = Register::Address<0x4003373c,0xffffffff,0,unsigned>;
+    namespace GpioPzrf{    ///<Port Pseudo Open Drain Setting Register F
+        using Addr = Register::Address<0x4003373c,0xffffffff,0x00000000,unsigned>;
     }
 }

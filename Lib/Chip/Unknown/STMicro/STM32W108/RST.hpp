@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Reset event
-    namespace NonerstSr{    ///<Reset Status Register
-        using Addr = Register::Address<0x4000002c,0xffffff00,0,unsigned>;
+    namespace RstRstSr{    ///<Reset Status Register
+        using Addr = Register::Address<0x4000002c,0xffffff00,0x00000000,unsigned>;
         ///LKUP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> lkup{}; 
         ///OBFAIL

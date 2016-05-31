@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40030000,0xfffffffc,0,unsigned>;
+    namespace Wdtimer0Control{    ///<Module Control
+        using Addr = Register::Address<0x40030000,0xfffffffc,0x00000000,unsigned>;
         ///Early Warning Interrupt Enable. 
         enum class EwienVal {
             disabled=0x00000000,     ///<Disable the early warning interrupt (EWI).
@@ -25,14 +25,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
         }
     }
-    namespace Nonestatus{    ///<Module Status
-        using Addr = Register::Address<0x40030010,0xffffffe0,0,unsigned>;
+    namespace Wdtimer0Status{    ///<Module Status
+        using Addr = Register::Address<0x40030010,0xffffffe0,0x00000000,unsigned>;
         ///Key Status. 
         enum class KeystsVal {
             idle=0x00000000,     ///<No keys have been processed by the interface.
             ready=0x00000001,     ///<The attention key has been received and the module is awaiting a command.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,KeystsVal> keysts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,KeystsVal> keysts{}; 
         namespace KeystsValC{
             constexpr Register::FieldValue<decltype(keysts)::Type,KeystsVal::idle> idle{};
             constexpr Register::FieldValue<decltype(keysts)::Type,KeystsVal::ready> ready{};
@@ -42,7 +42,7 @@ namespace Kvasir {
             readOnly=0x00000000,     ///<The watchdog timer registers are currently read-only.
             readWrite=0x00000001,     ///<A write transaction can be performed on the module registers.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,PrivstsVal> privsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PrivstsVal> privsts{}; 
         namespace PrivstsValC{
             constexpr Register::FieldValue<decltype(privsts)::Type,PrivstsVal::readOnly> readOnly{};
             constexpr Register::FieldValue<decltype(privsts)::Type,PrivstsVal::readWrite> readWrite{};
@@ -62,7 +62,7 @@ namespace Kvasir {
             lt=0x00000000,     ///<The counter is currently less than the reset threshold (RTH) value.
             gte=0x00000001,     ///<The counter is currently greater than or equal to the reset threshold (RTH) value.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RthfVal> rthf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RthfVal> rthf{}; 
         namespace RthfValC{
             constexpr Register::FieldValue<decltype(rthf)::Type,RthfVal::lt> lt{};
             constexpr Register::FieldValue<decltype(rthf)::Type,RthfVal::gte> gte{};
@@ -72,21 +72,21 @@ namespace Kvasir {
             idle=0x00000000,     ///<An update completed or is not pending. The EWTH and RTH fields can be written.
             updating=0x00000001,     ///<An update of the threshold register is occurring. The EWTH and RTH fields should not be modified until hardware clears UPDSTS to 0.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,UpdstsVal> updsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,UpdstsVal> updsts{}; 
         namespace UpdstsValC{
             constexpr Register::FieldValue<decltype(updsts)::Type,UpdstsVal::idle> idle{};
             constexpr Register::FieldValue<decltype(updsts)::Type,UpdstsVal::updating> updating{};
         }
     }
-    namespace Nonethreshold{    ///<Threshold Values
-        using Addr = Register::Address<0x40030020,0x00000000,0,unsigned>;
+    namespace Wdtimer0Threshold{    ///<Threshold Values
+        using Addr = Register::Address<0x40030020,0x00000000,0x00000000,unsigned>;
         ///Early Warning Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ewth{}; 
         ///Reset Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> rth{}; 
     }
-    namespace Nonewdtkey{    ///<Module Key
-        using Addr = Register::Address<0x40030030,0xffffff00,0,unsigned>;
+    namespace Wdtimer0Wdtkey{    ///<Module Key
+        using Addr = Register::Address<0x40030030,0xffffff00,0x00000000,unsigned>;
         ///Watchdog Timer Key. 
         enum class KeyVal {
             attn=0x000000a5,     ///<Attention key to start the command sequence.
@@ -96,7 +96,7 @@ namespace Kvasir {
             write=0x000000f1,     ///<Allow one write access to the module registers.
             lock=0x000000ff,     ///<Lock the module from any other writes until the next system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,KeyVal> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,KeyVal> key{}; 
         namespace KeyValC{
             constexpr Register::FieldValue<decltype(key)::Type,KeyVal::attn> attn{};
             constexpr Register::FieldValue<decltype(key)::Type,KeyVal::reset> reset{};

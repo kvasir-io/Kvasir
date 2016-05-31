@@ -1,23 +1,27 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //NVIC
-    namespace Noneictr{    ///<ICTR
-        using Addr = Register::Address<0xe000e004,0xffffffe0,0,unsigned>;
+    namespace NvicIctr{    ///<ICTR
+        using Addr = Register::Address<0xe000e004,0x00000000,0x00000000,unsigned>;
         ///INTLINESNUM
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> intlinesnum{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneactlr{    ///<ACTLR
-        using Addr = Register::Address<0xe000e008,0xfffffff8,0,unsigned>;
+    namespace NvicActlr{    ///<ACTLR
+        using Addr = Register::Address<0xe000e008,0x00000000,0x00000000,unsigned>;
         ///DISMCYCINT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dismcycint{}; 
         ///DISDEFWBUF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> disdefwbuf{}; 
         ///DISFOLD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> disfold{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneiser0{    ///<ISER0
-        using Addr = Register::Address<0xe000e100,0x00000000,0,unsigned>;
+    namespace NvicIser0{    ///<ISER0
+        using Addr = Register::Address<0xe000e100,0x00000000,0x00000000,unsigned>;
         ///SETENA0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> setena0{}; 
         ///SETENA1
@@ -83,8 +87,8 @@ namespace Kvasir {
         ///SETENA31
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> setena31{}; 
     }
-    namespace Noneiser1{    ///<ISER1
-        using Addr = Register::Address<0xe000e104,0xffff0000,0,unsigned>;
+    namespace NvicIser1{    ///<ISER1
+        using Addr = Register::Address<0xe000e104,0x00000000,0x00000000,unsigned>;
         ///SETENA32
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> setena32{}; 
         ///SETENA33
@@ -117,9 +121,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> setena46{}; 
         ///SETENA47
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> setena47{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneicer0{    ///<ICER0
-        using Addr = Register::Address<0xe000e180,0x00000000,0,unsigned>;
+    namespace NvicIcer0{    ///<ICER0
+        using Addr = Register::Address<0xe000e180,0x00000000,0x00000000,unsigned>;
         ///CLRENA0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> clrena0{}; 
         ///CLRENA1
@@ -185,8 +191,8 @@ namespace Kvasir {
         ///CLRENA31
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> clrena31{}; 
     }
-    namespace Noneicer1{    ///<ICER1
-        using Addr = Register::Address<0xe000e184,0xffff0000,0,unsigned>;
+    namespace NvicIcer1{    ///<ICER1
+        using Addr = Register::Address<0xe000e184,0x00000000,0x00000000,unsigned>;
         ///CLRENA32
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> clrena32{}; 
         ///CLRENA33
@@ -219,9 +225,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> clrena46{}; 
         ///CLRENA47
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> clrena47{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneispr0{    ///<ISPR0
-        using Addr = Register::Address<0xe000e200,0x00000000,0,unsigned>;
+    namespace NvicIspr0{    ///<ISPR0
+        using Addr = Register::Address<0xe000e200,0x00000000,0x00000000,unsigned>;
         ///SETPEND0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> setpend0{}; 
         ///SETPEND1
@@ -287,8 +295,8 @@ namespace Kvasir {
         ///SETPEND31
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> setpend31{}; 
     }
-    namespace Noneispr1{    ///<ISPR1
-        using Addr = Register::Address<0xe000e204,0xffff0000,0,unsigned>;
+    namespace NvicIspr1{    ///<ISPR1
+        using Addr = Register::Address<0xe000e204,0x00000000,0x00000000,unsigned>;
         ///SETPEND32
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> setpend32{}; 
         ///SETPEND33
@@ -321,9 +329,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> setpend46{}; 
         ///SETPEND47
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> setpend47{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneicpr0{    ///<ICPR0
-        using Addr = Register::Address<0xe000e280,0x00000000,0,unsigned>;
+    namespace NvicIcpr0{    ///<ICPR0
+        using Addr = Register::Address<0xe000e280,0x00000000,0x00000000,unsigned>;
         ///CLRPEND0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> clrpend0{}; 
         ///CLRPEND1
@@ -389,8 +399,8 @@ namespace Kvasir {
         ///CLRPEND31
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> clrpend31{}; 
     }
-    namespace Noneicpr1{    ///<ICPR1
-        using Addr = Register::Address<0xe000e284,0xffff0000,0,unsigned>;
+    namespace NvicIcpr1{    ///<ICPR1
+        using Addr = Register::Address<0xe000e284,0x00000000,0x00000000,unsigned>;
         ///CLRPEND32
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> clrpend32{}; 
         ///CLRPEND33
@@ -423,9 +433,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> clrpend46{}; 
         ///CLRPEND47
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> clrpend47{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneiabr0{    ///<IABR0
-        using Addr = Register::Address<0xe000e300,0x00000000,0,unsigned>;
+    namespace NvicIabr0{    ///<IABR0
+        using Addr = Register::Address<0xe000e300,0x00000000,0x00000000,unsigned>;
         ///ACTIVE0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> active0{}; 
         ///ACTIVE1
@@ -491,8 +503,8 @@ namespace Kvasir {
         ///ACTIVE31
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> active31{}; 
     }
-    namespace Noneiabr1{    ///<IABR1
-        using Addr = Register::Address<0xe000e304,0xffff0000,0,unsigned>;
+    namespace NvicIabr1{    ///<IABR1
+        using Addr = Register::Address<0xe000e304,0x00000000,0x00000000,unsigned>;
         ///ACTIVE32
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> active32{}; 
         ///ACTIVE33
@@ -525,9 +537,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> active46{}; 
         ///ACTIVE47
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> active47{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneip0{    ///<IP0
-        using Addr = Register::Address<0xe000e400,0x00000000,0,unsigned>;
+    namespace NvicIp0{    ///<IP0
+        using Addr = Register::Address<0xe000e400,0x00000000,0x00000000,unsigned>;
         ///PRI_0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri0{}; 
         ///PRI_1
@@ -537,8 +551,8 @@ namespace Kvasir {
         ///PRI_3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri3{}; 
     }
-    namespace Noneip1{    ///<IP1
-        using Addr = Register::Address<0xe000e404,0x00000000,0,unsigned>;
+    namespace NvicIp1{    ///<IP1
+        using Addr = Register::Address<0xe000e404,0x00000000,0x00000000,unsigned>;
         ///PRI_4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri4{}; 
         ///PRI_5
@@ -548,8 +562,8 @@ namespace Kvasir {
         ///PRI_7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri7{}; 
     }
-    namespace Noneip2{    ///<IP2
-        using Addr = Register::Address<0xe000e408,0x00000000,0,unsigned>;
+    namespace NvicIp2{    ///<IP2
+        using Addr = Register::Address<0xe000e408,0x00000000,0x00000000,unsigned>;
         ///PRI_8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri8{}; 
         ///PRI_9
@@ -559,8 +573,8 @@ namespace Kvasir {
         ///PRI_11
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri11{}; 
     }
-    namespace Noneip3{    ///<IP3
-        using Addr = Register::Address<0xe000e40c,0x00000000,0,unsigned>;
+    namespace NvicIp3{    ///<IP3
+        using Addr = Register::Address<0xe000e40c,0x00000000,0x00000000,unsigned>;
         ///PRI_12
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri12{}; 
         ///PRI_13
@@ -570,8 +584,8 @@ namespace Kvasir {
         ///PRI_15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri15{}; 
     }
-    namespace Noneip4{    ///<IP4
-        using Addr = Register::Address<0xe000e410,0x00000000,0,unsigned>;
+    namespace NvicIp4{    ///<IP4
+        using Addr = Register::Address<0xe000e410,0x00000000,0x00000000,unsigned>;
         ///PRI_16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri16{}; 
         ///PRI_17
@@ -581,8 +595,8 @@ namespace Kvasir {
         ///PRI_19
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri19{}; 
     }
-    namespace Noneip5{    ///<IP5
-        using Addr = Register::Address<0xe000e414,0x00000000,0,unsigned>;
+    namespace NvicIp5{    ///<IP5
+        using Addr = Register::Address<0xe000e414,0x00000000,0x00000000,unsigned>;
         ///PRI_20
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri20{}; 
         ///PRI_21
@@ -592,8 +606,8 @@ namespace Kvasir {
         ///PRI_23
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri23{}; 
     }
-    namespace Noneip6{    ///<IP6
-        using Addr = Register::Address<0xe000e418,0x00000000,0,unsigned>;
+    namespace NvicIp6{    ///<IP6
+        using Addr = Register::Address<0xe000e418,0x00000000,0x00000000,unsigned>;
         ///PRI_24
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri24{}; 
         ///PRI_25
@@ -603,8 +617,8 @@ namespace Kvasir {
         ///PRI_27
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri27{}; 
     }
-    namespace Noneip7{    ///<IP7
-        using Addr = Register::Address<0xe000e41c,0x00000000,0,unsigned>;
+    namespace NvicIp7{    ///<IP7
+        using Addr = Register::Address<0xe000e41c,0x00000000,0x00000000,unsigned>;
         ///PRI_28
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri28{}; 
         ///PRI_29
@@ -614,8 +628,8 @@ namespace Kvasir {
         ///PRI_31
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri31{}; 
     }
-    namespace Noneip8{    ///<IP8
-        using Addr = Register::Address<0xe000e420,0x00000000,0,unsigned>;
+    namespace NvicIp8{    ///<IP8
+        using Addr = Register::Address<0xe000e420,0x00000000,0x00000000,unsigned>;
         ///PRI_32
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri32{}; 
         ///PRI_33
@@ -625,8 +639,8 @@ namespace Kvasir {
         ///PRI_35
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri35{}; 
     }
-    namespace Noneip9{    ///<IP9
-        using Addr = Register::Address<0xe000e424,0x00000000,0,unsigned>;
+    namespace NvicIp9{    ///<IP9
+        using Addr = Register::Address<0xe000e424,0x00000000,0x00000000,unsigned>;
         ///PRI_36
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri36{}; 
         ///PRI_37
@@ -636,8 +650,8 @@ namespace Kvasir {
         ///PRI_39
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri39{}; 
     }
-    namespace Noneip10{    ///<IP10
-        using Addr = Register::Address<0xe000e428,0x00000000,0,unsigned>;
+    namespace NvicIp10{    ///<IP10
+        using Addr = Register::Address<0xe000e428,0x00000000,0x00000000,unsigned>;
         ///PRI_40
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri40{}; 
         ///PRI_41
@@ -647,8 +661,8 @@ namespace Kvasir {
         ///PRI_43
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri43{}; 
     }
-    namespace Noneip11{    ///<IP11
-        using Addr = Register::Address<0xe000e42c,0x00000000,0,unsigned>;
+    namespace NvicIp11{    ///<IP11
+        using Addr = Register::Address<0xe000e42c,0x00000000,0x00000000,unsigned>;
         ///PRI_44
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri44{}; 
         ///PRI_45
@@ -658,8 +672,8 @@ namespace Kvasir {
         ///PRI_47
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri47{}; 
     }
-    namespace Nonecpuid{    ///<CPUID
-        using Addr = Register::Address<0xe000ed00,0x000f0000,0,unsigned>;
+    namespace NvicCpuid{    ///<CPUID
+        using Addr = Register::Address<0xe000ed00,0x000f0000,0x00000000,unsigned>;
         ///REVISION
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> revision{}; 
         ///PARTNO
@@ -669,8 +683,8 @@ namespace Kvasir {
         ///IMPLEMENTER
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> implementer{}; 
     }
-    namespace Noneicsr{    ///<ICSR
-        using Addr = Register::Address<0xe000ed04,0x61000600,0,unsigned>;
+    namespace NvicIcsr{    ///<ICSR
+        using Addr = Register::Address<0xe000ed04,0x61000600,0x00000000,unsigned>;
         ///VECTACTIVE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> vectactive{}; 
         ///RETTOBASE
@@ -692,15 +706,17 @@ namespace Kvasir {
         ///NMIPENDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> nmipendset{}; 
     }
-    namespace Nonevtor{    ///<VTOR
-        using Addr = Register::Address<0xe000ed08,0xc000007f,0,unsigned>;
+    namespace NvicVtor{    ///<VTOR
+        using Addr = Register::Address<0xe000ed08,0x0000007f,0x00000000,unsigned>;
         ///TBLOFF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,7),Register::ReadWriteAccess,unsigned> tbloff{}; 
         ///TBLBASE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> tblbase{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneaircr{    ///<AIRCR
-        using Addr = Register::Address<0xe000ed0c,0x000078f8,0,unsigned>;
+    namespace NvicAircr{    ///<AIRCR
+        using Addr = Register::Address<0xe000ed0c,0x000078f8,0x00000000,unsigned>;
         ///VECTRESET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vectreset{}; 
         ///VECTCLRACTIVE
@@ -714,8 +730,8 @@ namespace Kvasir {
         ///VECTKEY
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> vectkey{}; 
     }
-    namespace Noneshp0{    ///<SHP0
-        using Addr = Register::Address<0xe000ed18,0x00000000,0,unsigned>;
+    namespace NvicShp0{    ///<SHP0
+        using Addr = Register::Address<0xe000ed18,0x00000000,0x00000000,unsigned>;
         ///PRI_4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri4{}; 
         ///PRI_5
@@ -725,8 +741,8 @@ namespace Kvasir {
         ///PRI_7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri7{}; 
     }
-    namespace Noneshp1{    ///<SHP1
-        using Addr = Register::Address<0xe000ed1c,0x00000000,0,unsigned>;
+    namespace NvicShp1{    ///<SHP1
+        using Addr = Register::Address<0xe000ed1c,0x00000000,0x00000000,unsigned>;
         ///PRI_8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri8{}; 
         ///PRI_9
@@ -736,8 +752,8 @@ namespace Kvasir {
         ///PRI_11
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri11{}; 
     }
-    namespace Noneshp2{    ///<SHP2
-        using Addr = Register::Address<0xe000ed20,0x00000000,0,unsigned>;
+    namespace NvicShp2{    ///<SHP2
+        using Addr = Register::Address<0xe000ed20,0x00000000,0x00000000,unsigned>;
         ///PRI_12
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri12{}; 
         ///PRI_13
@@ -747,8 +763,8 @@ namespace Kvasir {
         ///PRI_15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri15{}; 
     }
-    namespace Noneshcsr{    ///<SHCSR
-        using Addr = Register::Address<0xe000ed24,0xfff80274,0,unsigned>;
+    namespace NvicShcsr{    ///<SHCSR
+        using Addr = Register::Address<0xe000ed24,0x00000274,0x00000000,unsigned>;
         ///MEMFAULTACT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> memfaultact{}; 
         ///BUSFAULTACT
@@ -777,10 +793,14 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> busfaultena{}; 
         ///USGFAULTENA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> usgfaultena{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestir{    ///<STIR
-        using Addr = Register::Address<0xe000ef00,0xfffffe00,0,unsigned>;
+    namespace NvicStir{    ///<STIR
+        using Addr = Register::Address<0xe000ef00,0x00000000,0x00000000,unsigned>;
         ///INTID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> intid{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

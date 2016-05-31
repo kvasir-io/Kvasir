@@ -1,19 +1,19 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //I2S
-    namespace Nonerxfdat{    ///<Receive FIFO Register
-        using Addr = Register::Address<0x4006c000,0x00000000,0,unsigned>;
+    namespace I2s0Rxfdat{    ///<Receive FIFO Register
+        using Addr = Register::Address<0x4006c000,0x00000000,0x00000000,unsigned>;
         ///Words received from the serial bus are written to the receive FIFO
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
     }
-    namespace Nonetxfdat{    ///<Transmit FIFO Register
-        using Addr = Register::Address<0x4006c004,0x00000000,0,unsigned>;
+    namespace I2s0Txfdat{    ///<Transmit FIFO Register
+        using Addr = Register::Address<0x4006c004,0x00000000,0x00000000,unsigned>;
         ///As long as the transmit FIFO is not full, the words to be transmitted can be written.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txdata{}; 
     }
-    namespace Nonecntreg{    ///<Control Register
-        using Addr = Register::Address<0x4006c008,0x00008000,0,unsigned>;
+    namespace I2s0Cntreg{    ///<Control Register
+        using Addr = Register::Address<0x4006c008,0x00008000,0x00000000,unsigned>;
         ///When operating in master mode, this sets the clock division ratio for output.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> ckrt{}; 
         ///Following the valid data of the frame, it can insert OVERHEAD bits to enable adjustment of the frame rate.
@@ -49,8 +49,8 @@ namespace Kvasir {
         ///This sets the polarity of the I2SWS pin
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fspl{}; 
     }
-    namespace Nonemcr0reg{    ///<Channel Control Register 0
-        using Addr = Register::Address<0x4006c00c,0x80008000,0,unsigned>;
+    namespace I2s0Mcr0reg{    ///<Channel Control Register 0
+        using Addr = Register::Address<0x4006c00c,0x80008000,0x00000000,unsigned>;
         ///This sets the number of channels for subframe 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,26),Register::ReadWriteAccess,unsigned> s1chn{}; 
         ///This sets the channel length of the channels that make up subframe 1
@@ -64,8 +64,8 @@ namespace Kvasir {
         ///This sets the word length of the channels that make up subframe 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> s0wdl{}; 
     }
-    namespace Nonemcr1reg{    ///<Channel Control Register 1
-        using Addr = Register::Address<0x4006c010,0x00000000,0,unsigned>;
+    namespace I2s0Mcr1reg{    ///<Channel Control Register 1
+        using Addr = Register::Address<0x4006c010,0x00000000,0x00000000,unsigned>;
         ///This controls the enable/disable state of the channel 31 in subframe 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> s0ch31{}; 
         ///This controls the enable/disable state of the channel 30 in subframe 0
@@ -131,8 +131,8 @@ namespace Kvasir {
         ///This controls the enable/disable state of the channel 0 in subframe 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> s0ch00{}; 
     }
-    namespace Nonemcr2reg{    ///<Channel Control Register 2
-        using Addr = Register::Address<0x4006c014,0x00000000,0,unsigned>;
+    namespace I2s0Mcr2reg{    ///<Channel Control Register 2
+        using Addr = Register::Address<0x4006c014,0x00000000,0x00000000,unsigned>;
         ///This controls the enable/disable state of the channel 31 in subframe 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> s1ch31{}; 
         ///This controls the enable/disable state of the channel 30 in subframe 1
@@ -198,8 +198,8 @@ namespace Kvasir {
         ///This controls the enable/disable state of the channel 0 in subframe 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> s1ch00{}; 
     }
-    namespace Noneoprreg{    ///<Operation Control Register
-        using Addr = Register::Address<0x4006c018,0xfefefffe,0,unsigned>;
+    namespace I2s0Oprreg{    ///<Operation Control Register
+        using Addr = Register::Address<0x4006c018,0xfefefffe,0x00000000,unsigned>;
         ///This sets the enabled/disabled state of the receive operation
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> rxenb{}; 
         ///This sets the enabled/disabled state of the transmit operation
@@ -207,13 +207,13 @@ namespace Kvasir {
         ///This enables or disables the I2S interface
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> start{}; 
     }
-    namespace Nonesrst{    ///<Soft Reset Register
-        using Addr = Register::Address<0x4006c01c,0xfffffffe,0,unsigned>;
+    namespace I2s0Srst{    ///<Soft Reset Register
+        using Addr = Register::Address<0x4006c01c,0xfffffffe,0x00000000,unsigned>;
         ///Soft reset bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> srst{}; 
     }
-    namespace Noneintcnt{    ///<Interrupt Control Register
-        using Addr = Register::Address<0x4006c020,0x80c0f0c0,0,unsigned>;
+    namespace I2s0Intcnt{    ///<Interrupt Control Register
+        using Addr = Register::Address<0x4006c020,0x80c0f0c0,0x00000000,unsigned>;
         ///This bit masks the transmit FIFO underflow interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> txud1m{}; 
         ///This bit masks the transmit channel block size error interrupt
@@ -247,12 +247,12 @@ namespace Kvasir {
         ///This bit sets the receive FIFO threshold value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> rfth{}; 
     }
-    namespace Nonestatus{    ///<Status Register
-        using Addr = Register::Address<0x4006c024,0x00f00000,0,unsigned>;
+    namespace I2s0Status{    ///<Status Register
+        using Addr = Register::Address<0x4006c024,0x00f00000,0x00000000,unsigned>;
         ///If the block size of the DMA transmit channel is set to a value larger than the transmit FIFO threshold value, this bit is set to 1.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> tberr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tberr{}; 
         ///If the block size of the DMA receive channel is set to a value larger than the receive FIFO threshold value, this bit is set to 1.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> rberr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rberr{}; 
         ///This indicates that a frame error has occurred
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> ferr{}; 
         ///This is set to 1 when the transmit FIFO underflows at the frame start
@@ -268,18 +268,18 @@ namespace Kvasir {
         ///This is the interrupt flag based on the receive timer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> eopi{}; 
         ///This indicates the status of the serial transmit control unit
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> bsy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> bsy{}; 
         ///This is set to 1 when the transmit FIFO empty slot meets or exceeds the threshold value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> txfi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txfi{}; 
         ///This is set to 1 when the receive FIFO data count meets or exceeds the threshold value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rxfi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxfi{}; 
         ///This indicates the data count in the transmit FIFO
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> txnum{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txnum{}; 
         ///This indicates the data count in the receive FIFO
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxnum{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxnum{}; 
     }
-    namespace Nonedmaact{    ///<DMA Startup Register
-        using Addr = Register::Address<0x4006c028,0xfefefefe,0,unsigned>;
+    namespace I2s0Dmaact{    ///<DMA Startup Register
+        using Addr = Register::Address<0x4006c028,0xfefefefe,0x00000000,unsigned>;
         ///This sets the operation mode of TXDREQ
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> tl1e0{}; 
         ///This bit is enabled when the same register TL1E0=0
@@ -289,8 +289,8 @@ namespace Kvasir {
         ///This bit is enabled when the same register RL1E0=0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdmact{}; 
     }
-    namespace Nonetstreg{    ///<Test Register
-        using Addr = Register::Address<0x4006c02c,0xfffffffe,0,unsigned>;
+    namespace I2s0Tstreg{    ///<Test Register
+        using Addr = Register::Address<0x4006c02c,0xfffffffe,0x00000000,unsigned>;
         ///This sets the loopback mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lbmd{}; 
     }

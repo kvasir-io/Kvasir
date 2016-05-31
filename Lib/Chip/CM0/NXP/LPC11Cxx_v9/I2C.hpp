@@ -1,9 +1,11 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //I2C-bus interface
-    namespace Noneconset{    ///<I2C Control Set Register. When a one is written to a bit of this register, the corresponding bit in the I2C control register is set. Writing a zero has no effect on the corresponding bit in the I2C control register.
-        using Addr = Register::Address<0x40000000,0xffffff83,0,unsigned>;
+    namespace I2cConset{    ///<I2C Control Set Register. When a one is written to a bit of this register, the corresponding bit in the I2C control register is set. Writing a zero has no effect on the corresponding bit in the I2C control register.
+        using Addr = Register::Address<0x40000000,0x00000000,0x00000000,unsigned>;
+        ///Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Assert acknowledge flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> aa{}; 
         ///I2C interrupt flag.
@@ -14,47 +16,69 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sta{}; 
         ///I2C interface enable.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> i2en{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,7),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestat{    ///<I2C Status Register. During I2C operation, this register provides detailed status codes that allow software to determine the next action needed.
-        using Addr = Register::Address<0x40000004,0xffffff07,0,unsigned>;
+    namespace I2cStat{    ///<I2C Status Register. During I2C operation, this register provides detailed status codes that allow software to determine the next action needed.
+        using Addr = Register::Address<0x40000004,0x00000000,0x00000000,unsigned>;
+        ///These bits are unused and are always 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///These bits give the actual status information about the I 2C interface.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::ReadWriteAccess,unsigned> status{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedat{    ///<I2C Data Register. During master or slave transmit mode, data to be transmitted is written to this register. During master or slave receive mode, data that has been received may be read from this register.
-        using Addr = Register::Address<0x40000008,0xffffff00,0,unsigned>;
+    namespace I2cDat{    ///<I2C Data Register. During master or slave transmit mode, data to be transmitted is written to this register. During master or slave receive mode, data that has been received may be read from this register.
+        using Addr = Register::Address<0x40000008,0x00000000,0x00000000,unsigned>;
         ///This register holds data values that have been received or are to be transmitted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneadr0{    ///<I2C Slave Address Register 0. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.
-        using Addr = Register::Address<0x4000000c,0xffffff00,0,unsigned>;
+    namespace I2cAdr0{    ///<I2C Slave Address Register 0. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.
+        using Addr = Register::Address<0x4000000c,0x00000000,0x00000000,unsigned>;
         ///General Call enable bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gc{}; 
         ///The I2C device address for slave mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> address{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesclh{    ///<SCH Duty Cycle Register High Half Word. Determines the high time of the I2C clock.
-        using Addr = Register::Address<0x40000010,0xffff0000,0,unsigned>;
+    namespace I2cSclh{    ///<SCH Duty Cycle Register High Half Word. Determines the high time of the I2C clock.
+        using Addr = Register::Address<0x40000010,0x00000000,0x00000000,unsigned>;
         ///Count for SCL HIGH time period selection.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> sclh{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonescll{    ///<SCL Duty Cycle Register Low Half Word. Determines the low time of the I2C clock. I2nSCLL and I2nSCLH together determine the clock frequency generated by an I2C master and certain times used in slave mode.
-        using Addr = Register::Address<0x40000014,0xffff0000,0,unsigned>;
+    namespace I2cScll{    ///<SCL Duty Cycle Register Low Half Word. Determines the low time of the I2C clock. I2nSCLL and I2nSCLH together determine the clock frequency generated by an I2C master and certain times used in slave mode.
+        using Addr = Register::Address<0x40000014,0x00000000,0x00000000,unsigned>;
         ///Count for SCL low time period selection.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> scll{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneconclr{    ///<I2C Control Clear Register. When a one is written to a bit of this register, the corresponding bit in the I2C control register is cleared. Writing a zero has no effect on the corresponding bit in the I2C control register.
-        using Addr = Register::Address<0x40000018,0xffffff93,0,unsigned>;
+    namespace I2cConclr{    ///<I2C Control Clear Register. When a one is written to a bit of this register, the corresponding bit in the I2C control register is cleared. Writing a zero has no effect on the corresponding bit in the I2C control register.
+        using Addr = Register::Address<0x40000018,0x00000000,0x00000000,unsigned>;
+        ///Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Assert acknowledge Clear bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> aac{}; 
         ///I2C interrupt Clear bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sic{}; 
+        ///Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///START flag Clear bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> stac{}; 
         ///I2C interface Disable bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> i2enc{}; 
+        ///Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemmctrl{    ///<Monitor mode control register.
-        using Addr = Register::Address<0x4000001c,0xfffffff8,0,unsigned>;
+    namespace I2cMmctrl{    ///<Monitor mode control register.
+        using Addr = Register::Address<0x4000001c,0x00000000,0x00000000,unsigned>;
         ///Monitor mode enable.
         enum class MmenaVal {
             monitorModeDisable=0x00000000,     ///<Monitor mode disabled.
@@ -85,51 +109,77 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(matchAll)::Type,MatchallVal::match> match{};
             constexpr Register::FieldValue<decltype(matchAll)::Type,MatchallVal::anyaddress> anyaddress{};
         }
+        ///Reserved. The value read from reserved bits is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneadr1{    ///<I2C Slave Address Register 1. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.
-        using Addr = Register::Address<0x40000020,0xffffff00,0,unsigned>;
-        ///General Call enable bit.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gc{}; 
-        ///The I2C device address for slave mode.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> address{}; 
-    }
-    namespace Noneadr2{    ///<I2C Slave Address Register 1. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.
-        using Addr = Register::Address<0x40000024,0xffffff00,0,unsigned>;
-        ///General Call enable bit.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gc{}; 
-        ///The I2C device address for slave mode.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> address{}; 
-    }
-    namespace Noneadr3{    ///<I2C Slave Address Register 1. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.
-        using Addr = Register::Address<0x40000028,0xffffff00,0,unsigned>;
-        ///General Call enable bit.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gc{}; 
-        ///The I2C device address for slave mode.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> address{}; 
-    }
-    namespace NonedataBuffer{    ///<Data buffer register. The contents of the 8 MSBs of the I2DAT shift register will be transferred to the DATA_BUFFER automatically after every nine bits (8 bits of data plus ACK or NACK) has been received on the bus.
-        using Addr = Register::Address<0x4000002c,0xffffff00,0,unsigned>;
+    namespace I2cDataBuffer{    ///<Data buffer register. The contents of the 8 MSBs of the I2DAT shift register will be transferred to the DATA_BUFFER automatically after every nine bits (8 bits of data plus ACK or NACK) has been received on the bus.
+        using Addr = Register::Address<0x4000002c,0x00000000,0x00000000,unsigned>;
         ///This register holds contents of the 8 MSBs of the DAT shift register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemask0{    ///<I2C Slave address mask register 0. This mask register is associated with I2ADR0 to determine an address match. The mask register has no effect when comparing to the General Call address (0000000).
-        using Addr = Register::Address<0x40000030,0xffffff01,0,unsigned>;
+    namespace I2cAdr1{    ///<I2C Slave Address Register 1. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.
+        using Addr = Register::Address<0x40000020,0x00000000,0x00000000,unsigned>;
+        ///General Call enable bit.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gc{}; 
+        ///The I2C device address for slave mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> address{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace I2cAdr2{    ///<I2C Slave Address Register 1. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.
+        using Addr = Register::Address<0x40000024,0x00000000,0x00000000,unsigned>;
+        ///General Call enable bit.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gc{}; 
+        ///The I2C device address for slave mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> address{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace I2cAdr3{    ///<I2C Slave Address Register 1. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.
+        using Addr = Register::Address<0x40000028,0x00000000,0x00000000,unsigned>;
+        ///General Call enable bit.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gc{}; 
+        ///The I2C device address for slave mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> address{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace I2cMask0{    ///<I2C Slave address mask register 0. This mask register is associated with I2ADR0 to determine an address match. The mask register has no effect when comparing to the General Call address (0000000).
+        using Addr = Register::Address<0x40000030,0x00000000,0x00000000,unsigned>;
+        ///Reserved. User software should not write ones to reserved bits. This bit reads always back as 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Mask bits.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> mask{}; 
+        ///Reserved. The value read from reserved bits is undefined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemask1{    ///<I2C Slave address mask register 0. This mask register is associated with I2ADR0 to determine an address match. The mask register has no effect when comparing to the General Call address (0000000).
-        using Addr = Register::Address<0x40000034,0xffffff01,0,unsigned>;
+    namespace I2cMask1{    ///<I2C Slave address mask register 0. This mask register is associated with I2ADR0 to determine an address match. The mask register has no effect when comparing to the General Call address (0000000).
+        using Addr = Register::Address<0x40000034,0x00000000,0x00000000,unsigned>;
+        ///Reserved. User software should not write ones to reserved bits. This bit reads always back as 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Mask bits.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> mask{}; 
+        ///Reserved. The value read from reserved bits is undefined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemask2{    ///<I2C Slave address mask register 0. This mask register is associated with I2ADR0 to determine an address match. The mask register has no effect when comparing to the General Call address (0000000).
-        using Addr = Register::Address<0x40000038,0xffffff01,0,unsigned>;
+    namespace I2cMask2{    ///<I2C Slave address mask register 0. This mask register is associated with I2ADR0 to determine an address match. The mask register has no effect when comparing to the General Call address (0000000).
+        using Addr = Register::Address<0x40000038,0x00000000,0x00000000,unsigned>;
+        ///Reserved. User software should not write ones to reserved bits. This bit reads always back as 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Mask bits.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> mask{}; 
+        ///Reserved. The value read from reserved bits is undefined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemask3{    ///<I2C Slave address mask register 0. This mask register is associated with I2ADR0 to determine an address match. The mask register has no effect when comparing to the General Call address (0000000).
-        using Addr = Register::Address<0x4000003c,0xffffff01,0,unsigned>;
+    namespace I2cMask3{    ///<I2C Slave address mask register 0. This mask register is associated with I2ADR0 to determine an address match. The mask register has no effect when comparing to the General Call address (0000000).
+        using Addr = Register::Address<0x4000003c,0x00000000,0x00000000,unsigned>;
+        ///Reserved. User software should not write ones to reserved bits. This bit reads always back as 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Mask bits.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> mask{}; 
+        ///Reserved. The value read from reserved bits is undefined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

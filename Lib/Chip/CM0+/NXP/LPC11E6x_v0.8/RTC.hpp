@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Real-Time Clock (RTC)
-    namespace Nonectrl{    ///<RTC control register
-        using Addr = Register::Address<0x40024000,0xffffff00,0,unsigned>;
+    namespace RtcCtrl{    ///<RTC control register
+        using Addr = Register::Address<0x40024000,0x00000000,0x00000000,unsigned>;
         ///Software reset control
         enum class SwresetVal {
             notInReset=0x00000000,     ///<Not in reset. The RTC is not held in reset. This bit must be cleared prior to configuring or initiating any operation of the RTC.
@@ -84,20 +84,24 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtcEn)::Type,RtcenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(rtcEn)::Type,RtcenVal::enable> enable{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonematch{    ///<RTC match register
-        using Addr = Register::Address<0x40024004,0x00000000,0,unsigned>;
+    namespace RtcMatch{    ///<RTC match register
+        using Addr = Register::Address<0x40024004,0x00000000,0x00000000,unsigned>;
         ///Contains the match value against which the 1 Hz RTC timer will be compared to generate set the alarm flag RTC_ALARM and generate an alarm interrupt/wake-up if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> matval{}; 
     }
-    namespace Nonecount{    ///<RTC counter register
-        using Addr = Register::Address<0x40024008,0x00000000,0,unsigned>;
+    namespace RtcCount{    ///<RTC counter register
+        using Addr = Register::Address<0x40024008,0x00000000,0x00000000,unsigned>;
         ///A read reflects the current value of the main, 1 Hz RTC timer. A write loads a new initial value into the timer.  The RTC counter will count up continuously at a 1 Hz rate once the RTC Software Reset is removed (by clearing bit 0 of the CTRL register). Only write to this register when the RTC1HZ_EN bit in the RTC CTRL Register is 0. The counter increments one second after the RTC1HZ_EN bit is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> val{}; 
     }
-    namespace Nonewake{    ///<RTC high-resolution/wake-up timer control register
-        using Addr = Register::Address<0x4002400c,0xffff0000,0,unsigned>;
+    namespace RtcWake{    ///<RTC high-resolution/wake-up timer control register
+        using Addr = Register::Address<0x4002400c,0x00000000,0x00000000,unsigned>;
         ///A read reflects the current value of the high-resolution/wake-up timer. A write pre-loads a start count value into the wake-up timer and initializes a count-down sequence.   Do not write to this register while counting is in progress.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

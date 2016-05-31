@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10430 Chapter title=LPC18xx Event router Modification date=1/20/2011 Major revision=0 Minor revision=7 
-    namespace Nonehilo{    ///<Level configuration register
-        using Addr = Register::Address<0x40044000,0xfff60800,0,unsigned>;
+    namespace EventrouterHilo{    ///<Level configuration register
+        using Addr = Register::Address<0x40044000,0x00000000,0x00000000,unsigned>;
         ///Level detect mode for WAKEUP0 event.
         enum class Wakeup0lVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 0 in the EDGE register is 0. Detect falling edge if bit 0 in the EDGE register is 1.
@@ -114,6 +114,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usb1L)::Type,Usb1lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(usb1L)::Type,Usb1lVal::detectHighLevelIf> detectHighLevelIf{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Level detect mode for C_CAN event.
         enum class CanlVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 12 in the EDGE register is 0. Detect falling edge if bit 12 in the EDGE register is 1.
@@ -164,6 +166,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tim14L)::Type,Tim14lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(tim14L)::Type,Tim14lVal::detectHighLevelIf> detectHighLevelIf{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Level detect mode for RESET event.
         enum class ResetlVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 17 in the EDGE register is 0. Detect falling edge if bit 17 in the EDGE register is 1.
@@ -174,9 +178,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resetL)::Type,ResetlVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(resetL)::Type,ResetlVal::detectHighLevelIf> detectHighLevelIf{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneedge{    ///<Edge configuration
-        using Addr = Register::Address<0x40044004,0xfff60800,0,unsigned>;
+    namespace EventrouterEdge{    ///<Edge configuration
+        using Addr = Register::Address<0x40044004,0x00000000,0x00000000,unsigned>;
         ///Edge detect mode for WAKEUP0 event.
         enum class Wakeup0eVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -287,6 +293,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usb1E)::Type,Usb1eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(usb1E)::Type,Usb1eVal::edgeDetectDetect> edgeDetectDetect{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Edge/level detect mode for C_CAN event. The corresponding bit in the EDGE register must be 0.
         enum class CaneVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -337,6 +345,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tim14E)::Type,Tim14eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(tim14E)::Type,Tim14eVal::edgeDetectDetect> edgeDetectDetect{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Edge/level detect mode for RESET event. The corresponding bit in the EDGE register must be 0.
         enum class ReseteVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -347,9 +357,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resetE)::Type,ReseteVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(resetE)::Type,ReseteVal::edgeDetectDetect> edgeDetectDetect{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclrEn{    ///<Event clear enable register
-        using Addr = Register::Address<0x40044fd8,0xfff60800,0,unsigned>;
+    namespace EventrouterClrEn{    ///<Event clear enable register
+        using Addr = Register::Address<0x40044fd8,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 to this bit clears the event enable bit 0 in the ENABLE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wakeup0Clren{}; 
         ///Writing a 1 to this bit clears the event enable bit 1 in the ENABLE register.
@@ -372,6 +384,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> usb0Clren{}; 
         ///Writing a 1 to this bit clears the event enable bit 10 in the ENABLE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> usb1Clren{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a 1 to this bit clears the event enable bit 12 in the ENABLE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> canClren{}; 
         ///Writing a 1 to this bit clears the event enable bit 13 in the ENABLE register.
@@ -382,11 +396,15 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> qeiClren{}; 
         ///Writing a 1 to this bit clears the event enable bit 16 in the ENABLE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tim14Clren{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a 1 to this bit clears the event enable bit 19 in the ENABLE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> resetClren{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesetEn{    ///<Event set enable register
-        using Addr = Register::Address<0x40044fdc,0xfff60800,0,unsigned>;
+    namespace EventrouterSetEn{    ///<Event set enable register
+        using Addr = Register::Address<0x40044fdc,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 to this bit sets the event enable bit 0 in the ENABLE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wakeup0Seten{}; 
         ///Writing a 1 to this bit sets the event enable bit 1 in the ENABLE register.
@@ -409,6 +427,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> usb0Seten{}; 
         ///Writing a 1 to this bit sets the event enable bit 10 in the ENABLE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> usb1Seten{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a 1 to this bit sets the event enable bit 12 in the ENABLE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> canSeten{}; 
         ///Writing a 1 to this bit sets the event enable bit 13 in the ENABLE register.
@@ -419,11 +439,15 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> qeiSeten{}; 
         ///Writing a 1 to this bit sets the event enable bit 16 in the ENABLE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tim14Seten{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a 1 to this bit sets the event enable bit 19 in the ENABLE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> resetSeten{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestatus{    ///<Status register
-        using Addr = Register::Address<0x40044fe0,0xfff60800,0,unsigned>;
+    namespace EventrouterStatus{    ///<Status register
+        using Addr = Register::Address<0x40044fe0,0x00000000,0x00000000,unsigned>;
         ///A 1 in this bit shows that the WAKEUP0 event has been raised.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wakeup0St{}; 
         ///A 1 in this bit shows that the WAKEUP1 event has been raised.
@@ -446,6 +470,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> usb0St{}; 
         ///A 1 in this bit shows that the USB1 event has been raised.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> usb1St{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///A 1 in this bit shows that the C_CAN event has been raised.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> canSt{}; 
         ///A 1 in this bit shows that the combined timer 2 output event has been raised.
@@ -456,11 +482,15 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> qeiSt{}; 
         ///A 1 in this bit shows that the combined timer 14 output event has been raised.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tim14St{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///A 1 in this bit shows that the  event has been raised.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> resetSt{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneenable{    ///<Enable register
-        using Addr = Register::Address<0x40044fe4,0xfff60800,0,unsigned>;
+    namespace EventrouterEnable{    ///<Enable register
+        using Addr = Register::Address<0x40044fe4,0x00000000,0x00000000,unsigned>;
         ///A 1 in this bit shows that the WAKEUP0 event has been enabled. This event wakes up the chip and contributes to the event router interrupt when bit 0 = 1 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wakeup0En{}; 
         ///A 1 in this bit shows that the WAKEUP1 event has been enabled. This event wakes up the chip and contributes to the event router interrupt when bit 0 = 1 in the STATUS register.
@@ -483,6 +513,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> usb0En{}; 
         ///A 1 in this bit shows that the USB1 event has been enabled. This event wakes up the chip and contributes to the event router interrupt when bit 0 = 1 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> usb1En{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///A 1 in this bit shows that the CAN event has been enabled. This event wakes up the chip and contributes to the event router interrupt when bit 0 = 1 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> canEn{}; 
         ///A 1 in this bit shows that the TIM2 event has been enabled. This event wakes up the chip and contributes to the event router interrupt when bit 0 = 1 in the STATUS register.
@@ -493,11 +525,15 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> qeiEn{}; 
         ///A 1 in this bit shows that the TIM14 event has been enabled. This event wakes up the chip and contributes to the event router interrupt when bit 0 = 1 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tim14En{}; 
+        ///tbd.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///A 1 in this bit shows that the RESET event has been enabled. This event wakes up the chip and contributes to the event router interrupt when bit 0 = 1 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> resetEn{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclrStat{    ///<Clear register
-        using Addr = Register::Address<0x40044fe8,0xfff60800,0,unsigned>;
+    namespace EventrouterClrStat{    ///<Clear register
+        using Addr = Register::Address<0x40044fe8,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 to this bit clears the STATUS event bit 0 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wakeup0Clrst{}; 
         ///Writing a 1 to this bit clears the STATUS event bit 1 in the STATUS register.
@@ -520,6 +556,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> usb0Clrst{}; 
         ///Writing a 1 to this bit clears the STATUS event bit 10 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> usb1Clrst{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a 1 to this bit clears the STATUS event bit 12 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> canClrst{}; 
         ///Writing a 1 to this bit clears the STATUS event bit 13 in the STATUS register.
@@ -530,11 +568,15 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> qeiClrst{}; 
         ///Writing a 1 to this bit clears the STATUS event bit 16 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tim14Clrst{}; 
+        ///tbd.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a 1 to this bit clears the STATUS event bit 19 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> resetClrst{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonesetStat{    ///<Set register
-        using Addr = Register::Address<0x40044fec,0xfff60800,0,unsigned>;
+    namespace EventrouterSetStat{    ///<Set register
+        using Addr = Register::Address<0x40044fec,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 to this bit sets the STATUS event bit 0 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wakeup0Setst{}; 
         ///Writing a 1 to this bit sets the STATUS event bit 1 in the STATUS register.
@@ -557,6 +599,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> usb0Setst{}; 
         ///Writing a 1 to this bit sets the STATUS event bit 10 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> usb1Setst{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a 1 to this bit sets the STATUS event bit 12 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> canSetst{}; 
         ///Writing a 1 to this bit sets the STATUS event bit 13 in the STATUS register.
@@ -567,7 +611,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> qeiSetst{}; 
         ///Writing a 1 to this bit sets the STATUS event bit 16 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tim14Setst{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a 1 to this bit sets the STATUS event bit 19 in the STATUS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> resetSetst{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

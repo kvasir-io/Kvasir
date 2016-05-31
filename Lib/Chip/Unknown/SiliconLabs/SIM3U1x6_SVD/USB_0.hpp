@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonefaddr{    ///<Function Address
-        using Addr = Register::Address<0x40018000,0xffffff00,0,unsigned>;
+    namespace Usb0Faddr{    ///<Function Address
+        using Addr = Register::Address<0x40018000,0xffffff00,0x00000000,unsigned>;
         ///Function Address. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> faddr{}; 
         ///Function Address Update. 
@@ -11,14 +11,14 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The last address written to FADDR is in effect.
             set=0x00000001,     ///<The last address written to FADDR is not yet in effect.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,FaddrupdVal> faddrupd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FaddrupdVal> faddrupd{}; 
         namespace FaddrupdValC{
             constexpr Register::FieldValue<decltype(faddrupd)::Type,FaddrupdVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(faddrupd)::Type,FaddrupdVal::set> set{};
         }
     }
-    namespace Nonepower{    ///<Power Control
-        using Addr = Register::Address<0x40018010,0xffffff40,0,unsigned>;
+    namespace Usb0Power{    ///<Power Control
+        using Addr = Register::Address<0x40018010,0xffffff40,0x00000000,unsigned>;
         ///Suspend Detection Enable. 
         enum class SusdenVal {
             disabled=0x00000000,     ///<Disable suspend detection. The USB module will ignore suspend signaling on the bus.
@@ -34,15 +34,15 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The USB module is not in suspend mode.
             set=0x00000001,     ///<The USB module is in suspend mode.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SusmdfVal> susmdf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SusmdfVal> susmdf{}; 
         namespace SusmdfValC{
             constexpr Register::FieldValue<decltype(susmdf)::Type,SusmdfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(susmdf)::Type,SusmdfVal::set> set{};
         }
         ///Force Resume. 
         enum class ResumeVal {
-            stop=0x00000000,     ///<None
-            generate=0x00000001,     ///<None
+            stop=0x00000000,     ///<
+            generate=0x00000001,     ///<
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ResumeVal> resume{}; 
         namespace ResumeValC{
@@ -54,7 +54,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<Reset signaling is not present on the bus.
             set=0x00000001,     ///<Reset signaling detected on the bus.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RstdetfVal> rstdetf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RstdetfVal> rstdetf{}; 
         namespace RstdetfValC{
             constexpr Register::FieldValue<decltype(rstdetf)::Type,RstdetfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rstdetf)::Type,RstdetfVal::set> set{};
@@ -90,8 +90,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isoupdmd)::Type,IsoupdmdVal::sendOnSof> sendOnSof{};
         }
     }
-    namespace Noneioint{    ///<IN/OUT Endpoint Interrupt Flags
-        using Addr = Register::Address<0x40018020,0xffe1ffe0,0,unsigned>;
+    namespace Usb0Ioint{    ///<IN/OUT Endpoint Interrupt Flags
+        using Addr = Register::Address<0x40018020,0xffe1ffe0,0x00000000,unsigned>;
         ///Endpoint 0 Interrupt Flag. 
         enum class Ep0iVal {
             notSet=0x00000000,     ///<Read: Endpoint 0 interrupt has not occurred. Write: No effect.
@@ -183,8 +183,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(out4i)::Type,Out4iVal::set> set{};
         }
     }
-    namespace Nonecmint{    ///<Common Interrupt Flags
-        using Addr = Register::Address<0x40018030,0xfffffff0,0,unsigned>;
+    namespace Usb0Cmint{    ///<Common Interrupt Flags
+        using Addr = Register::Address<0x40018030,0xfffffff0,0x00000000,unsigned>;
         ///Suspend Interrupt Flag. 
         enum class SusiVal {
             notSet=0x00000000,     ///<Read: Suspend interrupt has not occurred. Write: No effect.
@@ -226,8 +226,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sofi)::Type,SofiVal::set> set{};
         }
     }
-    namespace Noneiointe{    ///<IN/OUT Endpoint Interrupt Control
-        using Addr = Register::Address<0x40018040,0xffe1ffe0,0,unsigned>;
+    namespace Usb0Iointe{    ///<IN/OUT Endpoint Interrupt Control
+        using Addr = Register::Address<0x40018040,0xffe1ffe0,0x00000000,unsigned>;
         ///Endpoint 0 Interrupt Enable. 
         enum class Ep0ienVal {
             disabled=0x00000000,     ///<Disable the Endpoint 0 interrupt.
@@ -319,8 +319,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(out4ien)::Type,Out4ienVal::enabled> enabled{};
         }
     }
-    namespace Nonecmintepe{    ///<Common Interrupt and Endpoint Control
-        using Addr = Register::Address<0x40018050,0xffe0fff0,0,unsigned>;
+    namespace Usb0Cmintepe{    ///<Common Interrupt and Endpoint Control
+        using Addr = Register::Address<0x40018050,0xffe0fff0,0x00000000,unsigned>;
         ///Suspend Interrupt Enable. 
         enum class SusienVal {
             disabled=0x00000000,     ///<Disable the Suspend interrupt.
@@ -412,8 +412,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ep4en)::Type,Ep4enVal::enabled> enabled{};
         }
     }
-    namespace Nonecrcontrol{    ///<Clock Recovery Control
-        using Addr = Register::Address<0x40018060,0xffffff0f,0,unsigned>;
+    namespace Usb0Crcontrol{    ///<Clock Recovery Control
+        using Addr = Register::Address<0x40018060,0xffffff0f,0x00000000,unsigned>;
         ///Oscillator Open-Loop Mode Enable. 
         enum class OlenVal {
             disabled=0x00000000,     ///<Do not freeze the USB oscillator output frequency (closed loop mode).
@@ -455,19 +455,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cren)::Type,CrenVal::enabled> enabled{};
         }
     }
-    namespace Noneframe{    ///<Frame Number
-        using Addr = Register::Address<0x40018070,0xfffff800,0,unsigned>;
+    namespace Usb0Frame{    ///<Frame Number
+        using Addr = Register::Address<0x40018070,0xfffff800,0x00000000,unsigned>;
         ///Frame Number. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> framenum{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> framenum{}; 
     }
-    namespace Nonetcontrol{    ///<Transceiver Control
-        using Addr = Register::Address<0x40018200,0xffffff00,0,unsigned>;
+    namespace Usb0Tcontrol{    ///<Transceiver Control
+        using Addr = Register::Address<0x40018200,0xffffff00,0x00000000,unsigned>;
         ///D- Signal State. 
         enum class DnVal {
             logic0=0x00000000,     ///<D- signal currently at logic 0.
             logic1=0x00000001,     ///<D- signal currently at logic 1.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DnVal> dn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DnVal> dn{}; 
         namespace DnValC{
             constexpr Register::FieldValue<decltype(dn)::Type,DnVal::logic0> logic0{};
             constexpr Register::FieldValue<decltype(dn)::Type,DnVal::logic1> logic1{};
@@ -477,7 +477,7 @@ namespace Kvasir {
             logic0=0x00000000,     ///<D+ signal currently at logic 0.
             logic1=0x00000001,     ///<D+ signal currently at logic 1.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpVal> dp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DpVal> dp{}; 
         namespace DpValC{
             constexpr Register::FieldValue<decltype(dp)::Type,DpVal::logic0> logic0{};
             constexpr Register::FieldValue<decltype(dp)::Type,DpVal::logic1> logic1{};
@@ -487,7 +487,7 @@ namespace Kvasir {
             diff0=0x00000000,     ///<Differential 0 signalling is present on the bus.
             diff1=0x00000001,     ///<Differential 1 signalling is present on the bus.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DfrecVal> dfrec{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DfrecVal> dfrec{}; 
         namespace DfrecValC{
             constexpr Register::FieldValue<decltype(dfrec)::Type,DfrecVal::diff0> diff0{};
             constexpr Register::FieldValue<decltype(dfrec)::Type,DfrecVal::diff1> diff1{};
@@ -537,8 +537,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(puen)::Type,PuenVal::enabled> enabled{};
         }
     }
-    namespace Noneclksel{    ///<Module Clock Select
-        using Addr = Register::Address<0x40018300,0xffffff8c,0,unsigned>;
+    namespace Usb0Clksel{    ///<Module Clock Select
+        using Addr = Register::Address<0x40018300,0xffffff8c,0x00000000,unsigned>;
         ///USB Clock Select. 
         enum class ClkselVal {
             usbnosc=0x00000000,     ///<Select the USB Oscillator as the USB clock.
@@ -570,14 +570,14 @@ namespace Kvasir {
             notSet=0x00000000,     ///<Do not reset the USB module.
             set=0x00000001,     ///<Reset the USB module.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ResetVal> reset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ResetVal> reset{}; 
         namespace ResetValC{
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::set> set{};
         }
     }
-    namespace Noneosccontrol{    ///<Oscillator Control
-        using Addr = Register::Address<0x40018310,0xffffff5f,0,unsigned>;
+    namespace Usb0Osccontrol{    ///<Oscillator Control
+        using Addr = Register::Address<0x40018310,0xffffff5f,0x00000000,unsigned>;
         ///USB Oscillator Suspend. 
         enum class SuspendVal {
             disabled=0x00000000,     ///<The USB oscillator is not suspended.
@@ -599,8 +599,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::enabled> enabled{};
         }
     }
-    namespace Noneafadjust{    ///<Oscillator Additional Frequency Adjust
-        using Addr = Register::Address<0x40018320,0xffffff80,0,unsigned>;
+    namespace Usb0Afadjust{    ///<Oscillator Additional Frequency Adjust
+        using Addr = Register::Address<0x40018320,0xffffff80,0x00000000,unsigned>;
         ///USB Oscillator Fine Output Frequency Adjust. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> finefadj{}; 
         ///USB Oscillator Dithering Enable. 
@@ -614,18 +614,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dithen)::Type,DithenVal::enabled> enabled{};
         }
     }
-    namespace Nonefadjust{    ///<Oscillator Frequency Adjust
-        using Addr = Register::Address<0x40018330,0xffffff80,0,unsigned>;
+    namespace Usb0Fadjust{    ///<Oscillator Frequency Adjust
+        using Addr = Register::Address<0x40018330,0xffffff80,0x00000000,unsigned>;
         ///Oscillator Output Frequency Adjust. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> fadj{}; 
     }
-    namespace Nonedmafifo{    ///<DMA Data FIFO Access
-        using Addr = Register::Address<0x40018400,0x00000000,0,unsigned>;
+    namespace Usb0Dmafifo{    ///<DMA Data FIFO Access
+        using Addr = Register::Address<0x40018400,0x00000000,0x00000000,unsigned>;
         ///DMA Data FIFO Access. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dmafifo{}; 
     }
-    namespace Nonedmacontrol{    ///<DMA Control
-        using Addr = Register::Address<0x40018410,0xffffff0f,0,unsigned>;
+    namespace Usb0Dmacontrol{    ///<DMA Control
+        using Addr = Register::Address<0x40018410,0xffffff0f,0x00000000,unsigned>;
         ///USB DMA Debug Mode. 
         enum class DbgmdVal {
             run=0x00000000,     ///<The USB module will continue to operate while the core is halted in debug mode.
@@ -651,7 +651,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The DMA buffer is not busy.
             set=0x00000001,     ///<The DMA buffer is busy reading or writing an 8-word packet.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DbusyfVal> dbusyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DbusyfVal> dbusyf{}; 
         namespace DbusyfValC{
             constexpr Register::FieldValue<decltype(dbusyf)::Type,DbusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dbusyf)::Type,DbusyfVal::set> set{};
@@ -665,14 +665,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dfifofl)::Type,DfifoflVal::set> set{};
         }
     }
-    namespace Noneep0control{    ///<Endpoint 0 Control
-        using Addr = Register::Address<0x40018810,0xffffff00,0,unsigned>;
+    namespace Usb0Ep0control{    ///<Endpoint 0 Control
+        using Addr = Register::Address<0x40018810,0xffffff00,0x00000000,unsigned>;
         ///OUT Packet Ready Interrupt Flag. 
         enum class OprdyiVal {
             notSet=0x00000000,     ///<A packet is not available.
             set=0x00000001,     ///<A packet is available.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,OprdyiVal> oprdyi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,OprdyiVal> oprdyi{}; 
         namespace OprdyiValC{
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::set> set{};
@@ -712,7 +712,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The current packet is not the last packet of setup.
             set=0x00000001,     ///<The current packet is the last packet of setup.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SuendiVal> suendi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SuendiVal> suendi{}; 
         namespace SuendiValC{
             constexpr Register::FieldValue<decltype(suendi)::Type,SuendiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(suendi)::Type,SuendiVal::set> set{};
@@ -748,25 +748,25 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(suendis)::Type,SuendisVal::set> set{};
         }
     }
-    namespace Noneep0count{    ///<Endpoint 0 Data Count
-        using Addr = Register::Address<0x40018820,0xffffff80,0,unsigned>;
+    namespace Usb0Ep0count{    ///<Endpoint 0 Data Count
+        using Addr = Register::Address<0x40018820,0xffffff80,0x00000000,unsigned>;
         ///Endpoint 0 OUT Data Count. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
-    namespace Noneep0fifo{    ///<Endpoint 0 Data FIFO Access
-        using Addr = Register::Address<0x40018830,0x00000000,0,unsigned>;
+    namespace Usb0Ep0fifo{    ///<Endpoint 0 Data FIFO Access
+        using Addr = Register::Address<0x40018830,0x00000000,0x00000000,unsigned>;
         ///Endpoint 0 Data FIFO. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifo{}; 
     }
-    namespace Noneepmpsize1{    ///<Endpoint Maximum Packet Size
-        using Addr = Register::Address<0x40018880,0xff00ff00,0,unsigned>;
+    namespace Usb0Epmpsize1{    ///<Endpoint Maximum Packet Size
+        using Addr = Register::Address<0x40018880,0xff00ff00,0x00000000,unsigned>;
         ///IN Maximum Packet Size. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> imaxp{}; 
         ///OUT Maximum Packet Size. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> omaxp{}; 
     }
-    namespace Noneepcontrol1{    ///<Endpoint Control
-        using Addr = Register::Address<0x40018890,0x0f000380,0,unsigned>;
+    namespace Usb0Epcontrol1{    ///<Endpoint Control
+        using Addr = Register::Address<0x40018890,0x0f000380,0x00000000,unsigned>;
         ///IN Packet Ready Indicator. 
         enum class IprdyiVal {
             notSet=0x00000000,     ///<The packet has been sent or there is an open FIFO slot.
@@ -1014,25 +1014,25 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::enabled> enabled{};
         }
     }
-    namespace Noneepcount1{    ///<Endpoint Data Count
-        using Addr = Register::Address<0x400188a0,0xfffffc00,0,unsigned>;
+    namespace Usb0Epcount1{    ///<Endpoint Data Count
+        using Addr = Register::Address<0x400188a0,0xfffffc00,0x00000000,unsigned>;
         ///Endpoint OUT Data Count. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
-    namespace Noneepfifo1{    ///<Endpoint Data FIFO Access
-        using Addr = Register::Address<0x400188b0,0x00000000,0,unsigned>;
+    namespace Usb0Epfifo1{    ///<Endpoint Data FIFO Access
+        using Addr = Register::Address<0x400188b0,0x00000000,0x00000000,unsigned>;
         ///Endpoint Data FIFO. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifo{}; 
     }
-    namespace Noneepmpsize2{    ///<Endpoint Maximum Packet Size
-        using Addr = Register::Address<0x40018900,0xff00ff00,0,unsigned>;
+    namespace Usb0Epmpsize2{    ///<Endpoint Maximum Packet Size
+        using Addr = Register::Address<0x40018900,0xff00ff00,0x00000000,unsigned>;
         ///IN Maximum Packet Size. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> imaxp{}; 
         ///OUT Maximum Packet Size. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> omaxp{}; 
     }
-    namespace Noneepcontrol2{    ///<Endpoint Control
-        using Addr = Register::Address<0x40018910,0x0f000380,0,unsigned>;
+    namespace Usb0Epcontrol2{    ///<Endpoint Control
+        using Addr = Register::Address<0x40018910,0x0f000380,0x00000000,unsigned>;
         ///IN Packet Ready Indicator. 
         enum class IprdyiVal {
             notSet=0x00000000,     ///<The packet has been sent or there is an open FIFO slot.
@@ -1280,25 +1280,25 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::enabled> enabled{};
         }
     }
-    namespace Noneepcount2{    ///<Endpoint Data Count
-        using Addr = Register::Address<0x40018920,0xfffffc00,0,unsigned>;
+    namespace Usb0Epcount2{    ///<Endpoint Data Count
+        using Addr = Register::Address<0x40018920,0xfffffc00,0x00000000,unsigned>;
         ///Endpoint OUT Data Count. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
-    namespace Noneepfifo2{    ///<Endpoint Data FIFO Access
-        using Addr = Register::Address<0x40018930,0x00000000,0,unsigned>;
+    namespace Usb0Epfifo2{    ///<Endpoint Data FIFO Access
+        using Addr = Register::Address<0x40018930,0x00000000,0x00000000,unsigned>;
         ///Endpoint Data FIFO. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifo{}; 
     }
-    namespace Noneepmpsize3{    ///<Endpoint Maximum Packet Size
-        using Addr = Register::Address<0x40018980,0xff00ff00,0,unsigned>;
+    namespace Usb0Epmpsize3{    ///<Endpoint Maximum Packet Size
+        using Addr = Register::Address<0x40018980,0xff00ff00,0x00000000,unsigned>;
         ///IN Maximum Packet Size. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> imaxp{}; 
         ///OUT Maximum Packet Size. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> omaxp{}; 
     }
-    namespace Noneepcontrol3{    ///<Endpoint Control
-        using Addr = Register::Address<0x40018990,0x0f000380,0,unsigned>;
+    namespace Usb0Epcontrol3{    ///<Endpoint Control
+        using Addr = Register::Address<0x40018990,0x0f000380,0x00000000,unsigned>;
         ///IN Packet Ready Indicator. 
         enum class IprdyiVal {
             notSet=0x00000000,     ///<The packet has been sent or there is an open FIFO slot.
@@ -1546,25 +1546,25 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::enabled> enabled{};
         }
     }
-    namespace Noneepcount3{    ///<Endpoint Data Count
-        using Addr = Register::Address<0x400189a0,0xfffffc00,0,unsigned>;
+    namespace Usb0Epcount3{    ///<Endpoint Data Count
+        using Addr = Register::Address<0x400189a0,0xfffffc00,0x00000000,unsigned>;
         ///Endpoint OUT Data Count. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
-    namespace Noneepfifo3{    ///<Endpoint Data FIFO Access
-        using Addr = Register::Address<0x400189b0,0x00000000,0,unsigned>;
+    namespace Usb0Epfifo3{    ///<Endpoint Data FIFO Access
+        using Addr = Register::Address<0x400189b0,0x00000000,0x00000000,unsigned>;
         ///Endpoint Data FIFO. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifo{}; 
     }
-    namespace Noneepmpsize4{    ///<Endpoint Maximum Packet Size
-        using Addr = Register::Address<0x40018a00,0xff00ff00,0,unsigned>;
+    namespace Usb0Epmpsize4{    ///<Endpoint Maximum Packet Size
+        using Addr = Register::Address<0x40018a00,0xff00ff00,0x00000000,unsigned>;
         ///IN Maximum Packet Size. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> imaxp{}; 
         ///OUT Maximum Packet Size. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> omaxp{}; 
     }
-    namespace Noneepcontrol4{    ///<Endpoint Control
-        using Addr = Register::Address<0x40018a10,0x0f000380,0,unsigned>;
+    namespace Usb0Epcontrol4{    ///<Endpoint Control
+        using Addr = Register::Address<0x40018a10,0x0f000380,0x00000000,unsigned>;
         ///IN Packet Ready Indicator. 
         enum class IprdyiVal {
             notSet=0x00000000,     ///<The packet has been sent or there is an open FIFO slot.
@@ -1812,13 +1812,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::enabled> enabled{};
         }
     }
-    namespace Noneepcount4{    ///<Endpoint Data Count
-        using Addr = Register::Address<0x40018a20,0xfffffc00,0,unsigned>;
+    namespace Usb0Epcount4{    ///<Endpoint Data Count
+        using Addr = Register::Address<0x40018a20,0xfffffc00,0x00000000,unsigned>;
         ///Endpoint OUT Data Count. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
-    namespace Noneepfifo4{    ///<Endpoint Data FIFO Access
-        using Addr = Register::Address<0x40018a30,0x00000000,0,unsigned>;
+    namespace Usb0Epfifo4{    ///<Endpoint Data FIFO Access
+        using Addr = Register::Address<0x40018a30,0x00000000,0x00000000,unsigned>;
         ///Endpoint Data FIFO. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifo{}; 
     }

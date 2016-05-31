@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Peripheral Clock Gating
-    namespace Nonecken0{    ///<Peripheral Function Clock Control Register 0
-        using Addr = Register::Address<0x4003c100,0xeaf00000,0,unsigned>;
+    namespace ClkGatingCken0{    ///<Peripheral Function Clock Control Register 0
+        using Addr = Register::Address<0x4003c100,0xeaf00000,0x00000000,unsigned>;
         ///Settings for operation clock supplying and gating to GPIO function
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> giock{}; 
         ///Settings for operation clock supplying and gating of external bus interface function
@@ -51,8 +51,8 @@ namespace Kvasir {
         ///Settings for operation clock supply and gating to multi-function serial interface ch.0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsck0{}; 
     }
-    namespace Nonemrst0{    ///<Peripheral Function Reset Control Register 0
-        using Addr = Register::Address<0x4003c104,0xfaf00000,0,unsigned>;
+    namespace ClkGatingMrst0{    ///<Peripheral Function Reset Control Register 0
+        using Addr = Register::Address<0x4003c104,0xfaf00000,0x00000000,unsigned>;
         ///Reset control for external bus interface
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> exbrst{}; 
         ///Reset control of DMAC
@@ -98,8 +98,8 @@ namespace Kvasir {
         ///Control of software reset of multi-function serial interface ch.0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsrst0{}; 
     }
-    namespace Nonecken1{    ///<Peripheral Function Clock Control Register 1
-        using Addr = Register::Address<0x4003c110,0xfff0f0f0,0,unsigned>;
+    namespace ClkGatingCken1{    ///<Peripheral Function Clock Control Register 1
+        using Addr = Register::Address<0x4003c110,0xfff0f0f0,0x00000000,unsigned>;
         ///Reset control of quad counter unit 3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> qduck3{}; 
         ///Reset control of quad counter unit 2
@@ -125,8 +125,8 @@ namespace Kvasir {
         ///Settings operation clock supply and gating to base timer 0/1/2/3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> btmck0{}; 
     }
-    namespace Nonemrst1{    ///<Peripheral Function Reset Control Register 1
-        using Addr = Register::Address<0x4003c114,0xfff0f0f0,0,unsigned>;
+    namespace ClkGatingMrst1{    ///<Peripheral Function Reset Control Register 1
+        using Addr = Register::Address<0x4003c114,0xfff0f0f0,0x00000000,unsigned>;
         ///Reset control of quad counter unit 3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> qdurst3{}; 
         ///Reset control of quad counter unit 2
@@ -152,8 +152,8 @@ namespace Kvasir {
         ///Reset control of base timer 0/1/2/3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> btmrst0{}; 
     }
-    namespace Nonecken2{    ///<Peripheral Function Clock Control Register 2
-        using Addr = Register::Address<0x4003c120,0xececfe8c,0,unsigned>;
+    namespace ClkGatingCken2{    ///<Peripheral Function Clock Control Register 2
+        using Addr = Register::Address<0x4003c120,0xececfe8c,0x00000000,unsigned>;
         ///28
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> qspick{}; 
         ///25
@@ -179,8 +179,8 @@ namespace Kvasir {
         ///Settings for operation clock supply and gating of USB(function/host) ch.0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usbck0{}; 
     }
-    namespace Nonemrst2{    ///<Peripheral Function Reset Control Register 2
-        using Addr = Register::Address<0x4003c124,0xececfe8c,0,unsigned>;
+    namespace ClkGatingMrst2{    ///<Peripheral Function Reset Control Register 2
+        using Addr = Register::Address<0x4003c124,0xececfe8c,0x00000000,unsigned>;
         ///28
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> qspirst{}; 
         ///25

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //External Bus Interface
-    namespace Nonemode0{    ///<Mode Register 0
-        using Addr = Register::Address<0x4003f000,0xffffc400,0,unsigned>;
+    namespace ExbusMode0{    ///<Mode Register 0
+        using Addr = Register::Address<0x4003f000,0xffffc400,0x00000000,unsigned>;
         ///select how to set the MOEX width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> moexeup{}; 
         ///select a CS assertion from the start of accessing to the end of address output
@@ -29,29 +29,29 @@ namespace Kvasir {
         ///specify Data Width 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> wdth{}; 
     }
-    namespace Nonemode1{    ///<Mode Register 1
-        using Addr = Register::Address<0x4003f004,0xffffffff,0,unsigned>;
+    namespace ExbusMode1{    ///<Mode Register 1
+        using Addr = Register::Address<0x4003f004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemode2{    ///<Mode Register 2
-        using Addr = Register::Address<0x4003f008,0xffffffff,0,unsigned>;
+    namespace ExbusMode2{    ///<Mode Register 2
+        using Addr = Register::Address<0x4003f008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemode3{    ///<Mode Register 3
-        using Addr = Register::Address<0x4003f00c,0xffffffff,0,unsigned>;
+    namespace ExbusMode3{    ///<Mode Register 3
+        using Addr = Register::Address<0x4003f00c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemode4{    ///<Mode Register 4
-        using Addr = Register::Address<0x4003f010,0xffffffff,0,unsigned>;
+    namespace ExbusMode4{    ///<Mode Register 4
+        using Addr = Register::Address<0x4003f010,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemode5{    ///<Mode Register 5
-        using Addr = Register::Address<0x4003f014,0xffffffff,0,unsigned>;
+    namespace ExbusMode5{    ///<Mode Register 5
+        using Addr = Register::Address<0x4003f014,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemode6{    ///<Mode Register 6
-        using Addr = Register::Address<0x4003f018,0xffffffff,0,unsigned>;
+    namespace ExbusMode6{    ///<Mode Register 6
+        using Addr = Register::Address<0x4003f018,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonemode7{    ///<Mode Register 7
-        using Addr = Register::Address<0x4003f01c,0xffffffff,0,unsigned>;
+    namespace ExbusMode7{    ///<Mode Register 7
+        using Addr = Register::Address<0x4003f01c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetim0{    ///<Timing Register 0
-        using Addr = Register::Address<0x4003f020,0x00000000,0,unsigned>;
+    namespace ExbusTim0{    ///<Timing Register 0
+        using Addr = Register::Address<0x4003f020,0x00000000,0x00000000,unsigned>;
         ///Write Idle Cycle 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> widlc{}; 
         ///Write Enable Cycle
@@ -69,85 +69,85 @@ namespace Kvasir {
         ///Read Access Cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> racc{}; 
     }
-    namespace Nonetim1{    ///<Timing Register 1
-        using Addr = Register::Address<0x4003f024,0xffffffff,0,unsigned>;
+    namespace ExbusTim1{    ///<Timing Register 1
+        using Addr = Register::Address<0x4003f024,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetim2{    ///<Timing Register 2
-        using Addr = Register::Address<0x4003f028,0xffffffff,0,unsigned>;
+    namespace ExbusTim2{    ///<Timing Register 2
+        using Addr = Register::Address<0x4003f028,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetim3{    ///<Timing Register 3
-        using Addr = Register::Address<0x4003f02c,0xffffffff,0,unsigned>;
+    namespace ExbusTim3{    ///<Timing Register 3
+        using Addr = Register::Address<0x4003f02c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetim4{    ///<Timing Register 4
-        using Addr = Register::Address<0x4003f030,0xffffffff,0,unsigned>;
+    namespace ExbusTim4{    ///<Timing Register 4
+        using Addr = Register::Address<0x4003f030,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetim5{    ///<Timing Register 5
-        using Addr = Register::Address<0x4003f034,0xffffffff,0,unsigned>;
+    namespace ExbusTim5{    ///<Timing Register 5
+        using Addr = Register::Address<0x4003f034,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetim6{    ///<Timing Register 6
-        using Addr = Register::Address<0x4003f038,0xffffffff,0,unsigned>;
+    namespace ExbusTim6{    ///<Timing Register 6
+        using Addr = Register::Address<0x4003f038,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetim7{    ///<Timing Register 7
-        using Addr = Register::Address<0x4003f03c,0xffffffff,0,unsigned>;
+    namespace ExbusTim7{    ///<Timing Register 7
+        using Addr = Register::Address<0x4003f03c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonearea0{    ///<Area Register 0
-        using Addr = Register::Address<0x4003f040,0xff80ff00,0,unsigned>;
+    namespace ExbusArea0{    ///<Area Register 0
+        using Addr = Register::Address<0x4003f040,0xff80ff00,0x00000000,unsigned>;
         ///address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
         ///Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace Nonearea1{    ///<Area Register 1
-        using Addr = Register::Address<0x4003f044,0xff80ff00,0,unsigned>;
+    namespace ExbusArea1{    ///<Area Register 1
+        using Addr = Register::Address<0x4003f044,0xff80ff00,0x00000000,unsigned>;
         ///address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
         ///Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace Nonearea2{    ///<Area Register 2
-        using Addr = Register::Address<0x4003f048,0xff80ff00,0,unsigned>;
+    namespace ExbusArea2{    ///<Area Register 2
+        using Addr = Register::Address<0x4003f048,0xff80ff00,0x00000000,unsigned>;
         ///address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
         ///Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace Nonearea3{    ///<Area Register 3
-        using Addr = Register::Address<0x4003f04c,0xff80ff00,0,unsigned>;
+    namespace ExbusArea3{    ///<Area Register 3
+        using Addr = Register::Address<0x4003f04c,0xff80ff00,0x00000000,unsigned>;
         ///address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
         ///Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace Nonearea4{    ///<Area Register 4
-        using Addr = Register::Address<0x4003f050,0xff80ff00,0,unsigned>;
+    namespace ExbusArea4{    ///<Area Register 4
+        using Addr = Register::Address<0x4003f050,0xff80ff00,0x00000000,unsigned>;
         ///address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
         ///Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace Nonearea5{    ///<Area Register 5
-        using Addr = Register::Address<0x4003f054,0xff80ff00,0,unsigned>;
+    namespace ExbusArea5{    ///<Area Register 5
+        using Addr = Register::Address<0x4003f054,0xff80ff00,0x00000000,unsigned>;
         ///address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
         ///Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace Nonearea6{    ///<Area Register 6
-        using Addr = Register::Address<0x4003f058,0xff80ff00,0,unsigned>;
+    namespace ExbusArea6{    ///<Area Register 6
+        using Addr = Register::Address<0x4003f058,0xff80ff00,0x00000000,unsigned>;
         ///address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
         ///Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace Nonearea7{    ///<Area Register 7
-        using Addr = Register::Address<0x4003f05c,0xff80ff00,0,unsigned>;
+    namespace ExbusArea7{    ///<Area Register 7
+        using Addr = Register::Address<0x4003f05c,0xff80ff00,0x00000000,unsigned>;
         ///address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
         ///Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace Noneatim0{    ///<ALE Timing Register 0
-        using Addr = Register::Address<0x4003f060,0xfffff000,0,unsigned>;
+    namespace ExbusAtim0{    ///<ALE Timing Register 0
+        using Addr = Register::Address<0x4003f060,0xfffff000,0x00000000,unsigned>;
         ///Address Latch Enable Width 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> alew{}; 
         ///Address Latch Enable Setup cycle
@@ -155,29 +155,29 @@ namespace Kvasir {
         ///Address Latch Cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> alc{}; 
     }
-    namespace Noneatim1{    ///<ALE Timing Register 1
-        using Addr = Register::Address<0x4003f064,0xffffffff,0,unsigned>;
+    namespace ExbusAtim1{    ///<ALE Timing Register 1
+        using Addr = Register::Address<0x4003f064,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneatim2{    ///<ALE Timing Register 2
-        using Addr = Register::Address<0x4003f068,0xffffffff,0,unsigned>;
+    namespace ExbusAtim2{    ///<ALE Timing Register 2
+        using Addr = Register::Address<0x4003f068,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneatim3{    ///<ALE Timing Register 3
-        using Addr = Register::Address<0x4003f06c,0xffffffff,0,unsigned>;
+    namespace ExbusAtim3{    ///<ALE Timing Register 3
+        using Addr = Register::Address<0x4003f06c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneatim4{    ///<ALE Timing Register 4
-        using Addr = Register::Address<0x4003f070,0xffffffff,0,unsigned>;
+    namespace ExbusAtim4{    ///<ALE Timing Register 4
+        using Addr = Register::Address<0x4003f070,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneatim5{    ///<ALE Timing Register 5
-        using Addr = Register::Address<0x4003f074,0xffffffff,0,unsigned>;
+    namespace ExbusAtim5{    ///<ALE Timing Register 5
+        using Addr = Register::Address<0x4003f074,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneatim6{    ///<ALE Timing Register 6
-        using Addr = Register::Address<0x4003f078,0xffffffff,0,unsigned>;
+    namespace ExbusAtim6{    ///<ALE Timing Register 6
+        using Addr = Register::Address<0x4003f078,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneatim7{    ///<ALE Timing Register 7
-        using Addr = Register::Address<0x4003f07c,0xffffffff,0,unsigned>;
+    namespace ExbusAtim7{    ///<ALE Timing Register 7
+        using Addr = Register::Address<0x4003f07c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonesdmode{    ///<SDRAM Mode Register
-        using Addr = Register::Address<0x4003f100,0xfffe00c8,0,unsigned>;
+    namespace ExbusSdmode{    ///<SDRAM Mode Register
+        using Addr = Register::Address<0x4003f100,0xfffe00c8,0x00000000,unsigned>;
         ///MSDCLK OFF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> msdclkoff{}; 
         ///Bank Address Select
@@ -193,8 +193,8 @@ namespace Kvasir {
         ///SDRAM ON
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sdon{}; 
     }
-    namespace Nonereftim{    ///<Refresh Timer Register
-        using Addr = Register::Address<0x4003f104,0xfe000000,0,unsigned>;
+    namespace ExbusReftim{    ///<Refresh Timer Register
+        using Addr = Register::Address<0x4003f104,0xfe000000,0x00000000,unsigned>;
         ///Pre-Refresh
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pref{}; 
         ///Number of Refresh
@@ -202,13 +202,13 @@ namespace Kvasir {
         ///Refresh Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> refc{}; 
     }
-    namespace Nonepwrdwn{    ///<Power Down Count Register
-        using Addr = Register::Address<0x4003f108,0xffff0000,0,unsigned>;
+    namespace ExbusPwrdwn{    ///<Power Down Count Register
+        using Addr = Register::Address<0x4003f108,0xffff0000,0x00000000,unsigned>;
         ///Power Down Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pdc{}; 
     }
-    namespace Nonesdtim{    ///<SDRAM Timing Register
-        using Addr = Register::Address<0x4003f10c,0x7c00000c,0,unsigned>;
+    namespace ExbusSdtim{    ///<SDRAM Timing Register
+        using Addr = Register::Address<0x4003f10c,0x7c00000c,0x00000000,unsigned>;
         ///Buffer readout bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> boff{}; 
         ///Data-in to Precharge Lead Time
@@ -226,10 +226,10 @@ namespace Kvasir {
         ///CAS Latency
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> cl{}; 
     }
-    namespace Nonesdcmd{    ///<SDRAM Command Register
-        using Addr = Register::Address<0x4003f110,0x7fe00000,0,unsigned>;
+    namespace ExbusSdcmd{    ///<SDRAM Command Register
+        using Addr = Register::Address<0x4003f110,0x7fe00000,0x00000000,unsigned>;
         ///Pend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pend{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pend{}; 
         ///SDRAM CKE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> sdcke{}; 
         ///SDRAM Chip Select
@@ -243,8 +243,8 @@ namespace Kvasir {
         ///SDRAM ADress
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> sdad{}; 
     }
-    namespace Nonememcerr{    ///<Memory Controller Register
-        using Addr = Register::Address<0x4003f200,0xfffffff0,0,unsigned>;
+    namespace ExbusMemcerr{    ///<Memory Controller Register
+        using Addr = Register::Address<0x4003f200,0xfffffff0,0x00000000,unsigned>;
         ///SDRAM error Interrupt ON
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sdion{}; 
         ///SRAM/Flash error Interrupt ON
@@ -254,30 +254,30 @@ namespace Kvasir {
         ///SRAM/Flash Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sfer{}; 
     }
-    namespace Nonedclkr{    ///<Division Clock Register
-        using Addr = Register::Address<0x4003f300,0xffffffe0,0,unsigned>;
+    namespace ExbusDclkr{    ///<Division Clock Register
+        using Addr = Register::Address<0x4003f300,0xffffffe0,0x00000000,unsigned>;
         ///MCLK ON
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mclkon{}; 
         ///MCLK Division Ratio Setup
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mdiv{}; 
     }
-    namespace Noneest{    ///<Error Status Register
-        using Addr = Register::Address<0x4003f304,0xfffffffe,0,unsigned>;
+    namespace ExbusEst{    ///<Error Status Register
+        using Addr = Register::Address<0x4003f304,0xfffffffe,0x00000000,unsigned>;
         ///WERR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> werr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> werr{}; 
     }
-    namespace Nonewead{    ///<Write Error Address Register
-        using Addr = Register::Address<0x4003f308,0x00000000,0,unsigned>;
+    namespace ExbusWead{    ///<Write Error Address Register
+        using Addr = Register::Address<0x4003f308,0x00000000,0x00000000,unsigned>;
         ///ADDR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> addr{}; 
     }
-    namespace Noneesclr{    ///<Error Status Clear Register
-        using Addr = Register::Address<0x4003f30c,0xfffffffe,0,unsigned>;
+    namespace ExbusEsclr{    ///<Error Status Clear Register
+        using Addr = Register::Address<0x4003f30c,0xfffffffe,0x00000000,unsigned>;
         ///Write Error Clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> werrclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> werrclr{}; 
     }
-    namespace Noneamode{    ///<Access Mode Register
-        using Addr = Register::Address<0x4003f310,0xfffffffe,0,unsigned>;
+    namespace ExbusAmode{    ///<Access Mode Register
+        using Addr = Register::Address<0x4003f310,0xfffffffe,0x00000000,unsigned>;
         ///WAEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> waen{}; 
     }

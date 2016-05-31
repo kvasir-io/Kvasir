@@ -1,21 +1,21 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SPI Slave 0
-    namespace NonetasksAcquire{    ///<Acquire SPI semaphore
-        using Addr = Register::Address<0x40003024,0xffffffff,0,unsigned>;
+    namespace Spis0TasksAcquire{    ///<Acquire SPI semaphore
+        using Addr = Register::Address<0x40003024,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksRelease{    ///<Release SPI semaphore, enabling the SPI slave to acquire it
-        using Addr = Register::Address<0x40003028,0xffffffff,0,unsigned>;
+    namespace Spis0TasksRelease{    ///<Release SPI semaphore, enabling the SPI slave to acquire it
+        using Addr = Register::Address<0x40003028,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEnd{    ///<Granted transaction completed
-        using Addr = Register::Address<0x40003104,0xffffffff,0,unsigned>;
+    namespace Spis0EventsEnd{    ///<Granted transaction completed
+        using Addr = Register::Address<0x40003104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsAcquired{    ///<Semaphore acquired
-        using Addr = Register::Address<0x40003128,0xffffffff,0,unsigned>;
+    namespace Spis0EventsAcquired{    ///<Semaphore acquired
+        using Addr = Register::Address<0x40003128,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x40003200,0xfffffffb,0,unsigned>;
+    namespace Spis0Shorts{    ///<Shortcut register
+        using Addr = Register::Address<0x40003200,0xfffffffb,0x00000000,unsigned>;
         ///Shortcut between EVENTS_END event and TASKS_ACQUIRE task
         enum class EndacquireVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -27,8 +27,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endAcquire)::Type,EndacquireVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40003304,0xfffffbfd,0,unsigned>;
+    namespace Spis0Intenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40003304,0xfffffbfd,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_END event
         enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -54,8 +54,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40003308,0xfffffbfd,0,unsigned>;
+    namespace Spis0Intenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40003308,0xfffffbfd,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_END event
         enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -81,8 +81,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::clear> clear{};
         }
     }
-    namespace Nonesemstat{    ///<Semaphore status register
-        using Addr = Register::Address<0x40003400,0xfffffffc,0,unsigned>;
+    namespace Spis0Semstat{    ///<Semaphore status register
+        using Addr = Register::Address<0x40003400,0xfffffffc,0x00000000,unsigned>;
         ///Semaphore status
         enum class SemstatVal {
             free=0x00000000,     ///<Semaphore is free
@@ -98,8 +98,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(semstat)::Type,SemstatVal::cpupending> cpupending{};
         }
     }
-    namespace Nonestatus{    ///<Status from last transaction
-        using Addr = Register::Address<0x40003440,0xfffffffc,0,unsigned>;
+    namespace Spis0Status{    ///<Status from last transaction
+        using Addr = Register::Address<0x40003440,0xfffffffc,0x00000000,unsigned>;
         ///TX buffer over-read detected, and prevented
         enum class OverreadVal {
             notpresent=0x00000000,     ///<Read: error not present
@@ -125,13 +125,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overflow)::Type,OverflowVal::clear> clear{};
         }
     }
-    namespace Noneenable{    ///<Enable SPI slave
-        using Addr = Register::Address<0x40003500,0xfffffff0,0,unsigned>;
+    namespace Spis0Enable{    ///<Enable SPI slave
+        using Addr = Register::Address<0x40003500,0xfffffff0,0x00000000,unsigned>;
         ///Enable or disable SPI slave
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> enable{}; 
     }
-    namespace Noneconfig{    ///<Configuration register
-        using Addr = Register::Address<0x40003554,0xfffffff8,0,unsigned>;
+    namespace Spis0Config{    ///<Configuration register
+        using Addr = Register::Address<0x40003554,0xfffffff8,0x00000000,unsigned>;
         ///Bit order
         enum class OrderVal {
             msbfirst=0x00000000,     ///<Most significant bit shifted out first
@@ -163,13 +163,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activelow> activelow{};
         }
     }
-    namespace Nonedef{    ///<Default character. Character clocked out in case of an ignored transaction.
-        using Addr = Register::Address<0x4000355c,0xffffff00,0,unsigned>;
+    namespace Spis0Def{    ///<Default character. Character clocked out in case of an ignored transaction.
+        using Addr = Register::Address<0x4000355c,0xffffff00,0x00000000,unsigned>;
         ///Default character. Character clocked out in case of an ignored transaction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> def{}; 
     }
-    namespace Noneorc{    ///<Over-read character
-        using Addr = Register::Address<0x400035c0,0xffffff00,0,unsigned>;
+    namespace Spis0Orc{    ///<Over-read character
+        using Addr = Register::Address<0x400035c0,0xffffff00,0x00000000,unsigned>;
         ///Over-read character. Character clocked out after an over-read of the transmit buffer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> orc{}; 
     }

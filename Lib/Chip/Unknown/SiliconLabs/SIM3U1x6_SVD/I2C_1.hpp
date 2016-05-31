@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4000a000,0x10000000,0,unsigned>;
+    namespace I2c1Control{    ///<Module Control
+        using Addr = Register::Address<0x4000a000,0x10000000,0x00000000,unsigned>;
         ///Busy Flag. 
         enum class BusyfVal {
             notSet=0x00000000,     ///<A transaction is not currently taking place.
             set=0x00000001,     ///<A transaction is currently taking place.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BusyfVal> busyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BusyfVal> busyf{}; 
         namespace BusyfValC{
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::set> set{};
@@ -29,7 +29,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<Arbitration lost error has not occurred.
             set=0x00000001,     ///<Arbitration lost error occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ArblfVal> arblf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ArblfVal> arblf{}; 
         namespace ArblfValC{
             constexpr Register::FieldValue<decltype(arblf)::Type,ArblfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(arblf)::Type,ArblfVal::set> set{};
@@ -39,7 +39,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<ACK has not been requested.
             set=0x00000001,     ///<ACK requested.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,AckrqfVal> ackrqf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AckrqfVal> ackrqf{}; 
         namespace AckrqfValC{
             constexpr Register::FieldValue<decltype(ackrqf)::Type,AckrqfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ackrqf)::Type,AckrqfVal::set> set{};
@@ -69,7 +69,7 @@ namespace Kvasir {
             receive=0x00000000,     ///<Module is in receiver mode.
             transmit=0x00000001,     ///<Module is in transmitter mode.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TxmdfVal> txmdf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxmdfVal> txmdf{}; 
         namespace TxmdfValC{
             constexpr Register::FieldValue<decltype(txmdf)::Type,TxmdfVal::receive> receive{};
             constexpr Register::FieldValue<decltype(txmdf)::Type,TxmdfVal::transmit> transmit{};
@@ -79,7 +79,7 @@ namespace Kvasir {
             slave=0x00000000,     ///<Module is operating in Slave mode.
             master=0x00000001,     ///<Module is operating in Master mode.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,MsmdfVal> msmdf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,MsmdfVal> msmdf{}; 
         namespace MsmdfValC{
             constexpr Register::FieldValue<decltype(msmdf)::Type,MsmdfVal::slave> slave{};
             constexpr Register::FieldValue<decltype(msmdf)::Type,MsmdfVal::master> master{};
@@ -209,7 +209,7 @@ namespace Kvasir {
             slaveAddress=0x00000000,     ///<Slave address detected.
             generalCall=0x00000001,     ///<General Call address detected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,SlvafVal> slvaf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SlvafVal> slvaf{}; 
         namespace SlvafValC{
             constexpr Register::FieldValue<decltype(slvaf)::Type,SlvafVal::slaveAddress> slaveAddress{};
             constexpr Register::FieldValue<decltype(slvaf)::Type,SlvafVal::generalCall> generalCall{};
@@ -315,8 +315,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cen)::Type,I2cenVal::enabled> enabled{};
         }
     }
-    namespace Noneconfig{    ///<Module Configuration
-        using Addr = Register::Address<0x4000a010,0x400c00c0,0,unsigned>;
+    namespace I2c1Config{    ///<Module Configuration
+        using Addr = Register::Address<0x4000a010,0x400c00c0,0x00000000,unsigned>;
         ///I2C Clock Scaler. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> scaler{}; 
         ///Stop Interrupt Enable. 
@@ -422,7 +422,7 @@ namespace Kvasir {
         ///Transfer Byte Count. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> bc{}; 
         ///Transfer Byte Pointer. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,unsigned> bp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> bp{}; 
         ///I2C Timer Byte 0 Run. 
         enum class T0runVal {
             stop=0x00000000,     ///<Stop Timer Byte 0.
@@ -488,23 +488,23 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timeren)::Type,TimerenVal::enabled> enabled{};
         }
     }
-    namespace Nonesaddress{    ///<Slave Address
-        using Addr = Register::Address<0x4000a020,0xfffff801,0,unsigned>;
+    namespace I2c1Saddress{    ///<Slave Address
+        using Addr = Register::Address<0x4000a020,0xfffff801,0x00000000,unsigned>;
         ///Slave Address. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> address{}; 
     }
-    namespace Nonesmask{    ///<Slave Address Mask
-        using Addr = Register::Address<0x4000a030,0xfffff801,0,unsigned>;
+    namespace I2c1Smask{    ///<Slave Address Mask
+        using Addr = Register::Address<0x4000a030,0xfffff801,0x00000000,unsigned>;
         ///Slave Address Mask. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> mask{}; 
     }
-    namespace Nonedata{    ///<Data Buffer Access
-        using Addr = Register::Address<0x4000a040,0x00000000,0,unsigned>;
+    namespace I2c1Data{    ///<Data Buffer Access
+        using Addr = Register::Address<0x4000a040,0x00000000,0x00000000,unsigned>;
         ///Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonetimer{    ///<Timer Data
-        using Addr = Register::Address<0x4000a050,0x00000000,0,unsigned>;
+    namespace I2c1Timer{    ///<Timer Data
+        using Addr = Register::Address<0x4000a050,0x00000000,0x00000000,unsigned>;
         ///Timer Byte 0. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> t0{}; 
         ///Timer Byte 1. 
@@ -514,8 +514,8 @@ namespace Kvasir {
         ///Timer Byte 3. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> t3{}; 
     }
-    namespace Nonetimerrl{    ///<Timer Reload Values
-        using Addr = Register::Address<0x4000a060,0x00000000,0,unsigned>;
+    namespace I2c1Timerrl{    ///<Timer Reload Values
+        using Addr = Register::Address<0x4000a060,0x00000000,0x00000000,unsigned>;
         ///Timer Byte 0 Reload Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> t0rl{}; 
         ///Timer Byte 1 Reload Value. 
@@ -525,8 +525,8 @@ namespace Kvasir {
         ///Timer Byte 3 Reload Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> t3rl{}; 
     }
-    namespace Nonesconfig{    ///<SCL Signal Configuration
-        using Addr = Register::Address<0x4000a070,0xfff00000,0,unsigned>;
+    namespace I2c1Sconfig{    ///<SCL Signal Configuration
+        using Addr = Register::Address<0x4000a070,0xfff00000,0x00000000,unsigned>;
         ///Data Setup Time Extension. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> setup{}; 
         ///Data Hold Time Extension. 
@@ -534,6 +534,6 @@ namespace Kvasir {
         ///SCL Low Time Extension. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scll{}; 
         ///SCL Low Timer Bits [3:0]. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> sclltimer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sclltimer{}; 
     }
 }

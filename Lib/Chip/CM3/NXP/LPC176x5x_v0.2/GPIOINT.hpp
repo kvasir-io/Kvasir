@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //GPIO
-    namespace Nonestatus{    ///<GPIO overall Interrupt Status.
-        using Addr = Register::Address<0x40028080,0xfffffffa,0,unsigned>;
+    namespace GpiointStatus{    ///<GPIO overall Interrupt Status.
+        using Addr = Register::Address<0x40028080,0x00000000,0x00000000,unsigned>;
         ///Port 0 GPIO interrupt pending.
         enum class P0intVal {
             noPendingInterrupt=0x00000000,     ///<No pending interrupts on Port 0.
@@ -14,6 +14,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p0int)::Type,P0intVal::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(p0int)::Type,P0intVal::atLeastOnePending> atLeastOnePending{};
         }
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 2 GPIO interrupt pending.
         enum class P2intVal {
             noPendingInterrupt=0x00000000,     ///<No pending interrupts on Port 2.
@@ -24,9 +26,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p2int)::Type,P2intVal::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(p2int)::Type,P2intVal::atLeastOnePending> atLeastOnePending{};
         }
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestatr0{    ///<GPIO Interrupt Status for Rising edge for Port 0.
-        using Addr = Register::Address<0x40028084,0x80000000,0,unsigned>;
+    namespace GpiointStatr0{    ///<GPIO Interrupt Status for Rising edge for Port 0.
+        using Addr = Register::Address<0x40028084,0x00000000,0x00000000,unsigned>;
         ///Status of Rising Edge Interrupt for P0[0]. 0 = No rising edge detected. 1 = Rising edge interrupt generated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p00rei{}; 
         ///Status of Rising Edge Interrupt for P0[1]. 0 = No rising edge detected. 1 = Rising edge interrupt generated.
@@ -89,9 +93,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> p029rei{}; 
         ///Status of Rising Edge Interrupt for P0[30]. 0 = No rising edge detected. 1 = Rising edge interrupt generated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> p030rei{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestatf0{    ///<GPIO Interrupt Status for Falling edge for Port 0.
-        using Addr = Register::Address<0x40028088,0x80000000,0,unsigned>;
+    namespace GpiointStatf0{    ///<GPIO Interrupt Status for Falling edge for Port 0.
+        using Addr = Register::Address<0x40028088,0x00000000,0x00000000,unsigned>;
         ///Status of Falling Edge Interrupt for P0[0]. 0 = No falling edge detected. 1 = Falling edge interrupt generated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p00fei{}; 
         ///Status of Falling Edge Interrupt for P0[1]. 0 = No falling edge detected. 1 = Falling edge interrupt generated.
@@ -154,9 +160,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> p029fei{}; 
         ///Status of Falling Edge Interrupt for P0[30]. 0 = No falling edge detected. 1 = Falling edge interrupt generated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> p030fei{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneclr0{    ///<GPIO Interrupt Clear.
-        using Addr = Register::Address<0x4002808c,0x80000000,0,unsigned>;
+    namespace GpiointClr0{    ///<GPIO Interrupt Clear.
+        using Addr = Register::Address<0x4002808c,0x00000000,0x00000000,unsigned>;
         ///Clear GPIO port Interrupts for P0[0]. 0 = No effect. 1 = Clear corresponding bits in IOnINTSTATR and IOnSTATF.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p00ci{}; 
         ///Clear GPIO port Interrupts for P0[1]. 0 = No effect. 1 = Clear corresponding bits in IOnINTSTATR and IOnSTATF.
@@ -219,9 +227,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> p029ci{}; 
         ///Clear GPIO port Interrupts for P0[30]. 0 = No effect. 1 = Clear corresponding bits in IOnINTSTATR and IOnSTATF.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> p030ci{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneenr0{    ///<GPIO Interrupt Enable for Rising edge for Port 0.
-        using Addr = Register::Address<0x40028090,0x80000000,0,unsigned>;
+    namespace GpiointEnr0{    ///<GPIO Interrupt Enable for Rising edge for Port 0.
+        using Addr = Register::Address<0x40028090,0x00000000,0x00000000,unsigned>;
         ///Enable rising edge interrupt for P0[0]. 0 = Disable rising edge interrupt. 1 = Enable rising edge interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p00er{}; 
         ///Enable rising edge interrupt for P0[1]. 0 = Disable rising edge interrupt. 1 = Enable rising edge interrupt.
@@ -284,9 +294,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> p029er{}; 
         ///Enable rising edge interrupt for P0[30]. 0 = Disable rising edge interrupt. 1 = Enable rising edge interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> p030er{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneenf0{    ///<GPIO Interrupt Enable for Falling edge for Port 0.
-        using Addr = Register::Address<0x40028094,0x80000000,0,unsigned>;
+    namespace GpiointEnf0{    ///<GPIO Interrupt Enable for Falling edge for Port 0.
+        using Addr = Register::Address<0x40028094,0x00000000,0x00000000,unsigned>;
         ///Enable falling edge interrupt for P0[0]. 0 = Disable falling edge interrupt. 1 = Enable falling edge interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p00ef{}; 
         ///Enable falling edge interrupt for P0[1]. 0 = Disable falling edge interrupt. 1 = Enable falling edge interrupt.
@@ -349,9 +361,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> p029ef{}; 
         ///Enable falling edge interrupt for P0[30]. 0 = Disable falling edge interrupt. 1 = Enable falling edge interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> p030ef{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestatr2{    ///<GPIO Interrupt Status for Rising edge for Port 0.
-        using Addr = Register::Address<0x400280a4,0xffffc000,0,unsigned>;
+    namespace GpiointStatr2{    ///<GPIO Interrupt Status for Rising edge for Port 0.
+        using Addr = Register::Address<0x400280a4,0x00000000,0x00000000,unsigned>;
         ///Status of Rising Edge Interrupt for P2[0]. 0 = No rising edge detected. 1 = Rising edge interrupt generated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p20rei{}; 
         ///Status of Rising Edge Interrupt for P2[1]. 0 = No rising edge detected. 1 = Rising edge interrupt generated.
@@ -380,9 +394,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> p212rei{}; 
         ///Status of Rising Edge Interrupt for P2[13]. 0 = No rising edge detected. 1 = Rising edge interrupt generated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> p213rei{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestatf2{    ///<GPIO Interrupt Status for Falling edge for Port 0.
-        using Addr = Register::Address<0x400280a8,0xffffc000,0,unsigned>;
+    namespace GpiointStatf2{    ///<GPIO Interrupt Status for Falling edge for Port 0.
+        using Addr = Register::Address<0x400280a8,0x00000000,0x00000000,unsigned>;
         ///Status of Falling Edge Interrupt for P2[0]. 0 = No falling edge detected. 1 = Falling edge interrupt generated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p20fei{}; 
         ///Status of Falling Edge Interrupt for P2[1]. 0 = No falling edge detected. 1 = Falling edge interrupt generated.
@@ -411,9 +427,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> p212fei{}; 
         ///Status of Falling Edge Interrupt for P2[13]. 0 = No falling edge detected. 1 = Falling edge interrupt generated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> p213fei{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneclr2{    ///<GPIO Interrupt Clear.
-        using Addr = Register::Address<0x400280ac,0xffffc000,0,unsigned>;
+    namespace GpiointClr2{    ///<GPIO Interrupt Clear.
+        using Addr = Register::Address<0x400280ac,0x00000000,0x00000000,unsigned>;
         ///Clear GPIO port Interrupts for P2[0]. 0 = No effect. 1 = Clear corresponding bits in IOnINTSTATR and IOnSTATF.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p20ci{}; 
         ///Clear GPIO port Interrupts for P2[1]. 0 = No effect. 1 = Clear corresponding bits in IOnINTSTATR and IOnSTATF.
@@ -442,9 +460,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> p212ci{}; 
         ///Clear GPIO port Interrupts for P2[13]. 0 = No effect. 1 = Clear corresponding bits in IOnINTSTATR and IOnSTATF.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> p213ci{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneenr2{    ///<GPIO Interrupt Enable for Rising edge for Port 0.
-        using Addr = Register::Address<0x400280b0,0xffffc000,0,unsigned>;
+    namespace GpiointEnr2{    ///<GPIO Interrupt Enable for Rising edge for Port 0.
+        using Addr = Register::Address<0x400280b0,0x00000000,0x00000000,unsigned>;
         ///Enable rising edge interrupt for P2[0]. 0 = Disable rising edge interrupt. 1 = Enable rising edge interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p20er{}; 
         ///Enable rising edge interrupt for P2[1]. 0 = Disable rising edge interrupt. 1 = Enable rising edge interrupt.
@@ -473,9 +493,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> p212er{}; 
         ///Enable rising edge interrupt for P2[13]. 0 = Disable rising edge interrupt. 1 = Enable rising edge interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> p213er{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneenf2{    ///<GPIO Interrupt Enable for Falling edge for Port 0.
-        using Addr = Register::Address<0x400280b4,0xffffc000,0,unsigned>;
+    namespace GpiointEnf2{    ///<GPIO Interrupt Enable for Falling edge for Port 0.
+        using Addr = Register::Address<0x400280b4,0x00000000,0x00000000,unsigned>;
         ///Enable falling edge interrupt for P2[0]. 0 = Disable falling edge interrupt. 1 = Enable falling edge interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p20ef{}; 
         ///Enable falling edge interrupt for P2[1]. 0 = Disable falling edge interrupt. 1 = Enable falling edge interrupt.
@@ -504,5 +526,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> p212ef{}; 
         ///Enable falling edge interrupt for P2[13]. 0 = Disable falling edge interrupt. 1 = Enable falling edge interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> p213ef{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

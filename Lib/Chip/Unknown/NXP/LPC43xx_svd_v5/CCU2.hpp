@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10430 Chapter title=LPC18xx Clock Control Unit (CCU) Modification date=1/21/2011 Major revision=0 Minor revision=7 
-    namespace Nonepm{    ///<Power mode register
-        using Addr = Register::Address<0x40052000,0xfffffffe,0,unsigned>;
+    namespace Ccu2Pm{    ///<Power mode register
+        using Addr = Register::Address<0x40052000,0x00000000,0x00000000,unsigned>;
         ///Initiate power-down mode
         enum class PdVal {
             normalOperation=0x00000000,     ///<Normal operation.
@@ -14,9 +14,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::normalOperation> normalOperation{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::clocksWithWakeUp> clocksWithWakeUp{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseStat{    ///<CCU base clocks status register
-        using Addr = Register::Address<0x40052004,0xffffff81,0,unsigned>;
+    namespace Ccu2BaseStat{    ///<CCU base clocks status register
+        using Addr = Register::Address<0x40052004,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Base clock indicator for BASE_UART3_CLK 0 = All branch clocks switched off. 1 = At least one branch clock running.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> baseUart3Clk{}; 
         ///Base clock indicator for BASE_UART2_CLK 0 = All branch clocks switched off. 1 = At least one branch clock running.
@@ -29,9 +33,13 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> baseSsp1Clk{}; 
         ///Base clock indicator for BASE_SSP0_CLK 0 = All branch clocks switched off. 1 = At least one branch clock running.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> baseSsp0Clk{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApllCfg{    ///<CLK_APLL clock configuration register
-        using Addr = Register::Address<0x40052100,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApllCfg{    ///<CLK_APLL clock configuration register
+        using Addr = Register::Address<0x40052100,0x00000000,0x00000000,unsigned>;
         ///Run enable
         enum class RunVal {
             clockIsDisabled=0x00000000,     ///<Clock is disabled.
@@ -62,9 +70,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb2Usart3Cfg{    ///<CLK_APB2_USART3 clock configuration register
-        using Addr = Register::Address<0x40052200,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb2Usart3Cfg{    ///<CLK_APB2_USART3 clock configuration register
+        using Addr = Register::Address<0x40052200,0x00000000,0x00000000,unsigned>;
         ///Run enable
         enum class RunVal {
             clockIsDisabled=0x00000000,     ///<Clock is disabled.
@@ -95,9 +105,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb2Usart2Cfg{    ///<CLK_APB2_USART2 clock configuration register
-        using Addr = Register::Address<0x40052300,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb2Usart2Cfg{    ///<CLK_APB2_USART2 clock configuration register
+        using Addr = Register::Address<0x40052300,0x00000000,0x00000000,unsigned>;
         ///Run enable
         enum class RunVal {
             clockIsDisabled=0x00000000,     ///<Clock is disabled.
@@ -128,9 +140,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb0Uart1BusCfg{    ///<CLK_APB2_UART1 clock configuration register
-        using Addr = Register::Address<0x40052400,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb0Uart1BusCfg{    ///<CLK_APB2_UART1 clock configuration register
+        using Addr = Register::Address<0x40052400,0x00000000,0x00000000,unsigned>;
         ///Run enable
         enum class RunVal {
             clockIsDisabled=0x00000000,     ///<Clock is disabled.
@@ -161,9 +175,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb0Usart0Cfg{    ///<CLK_APB2_USART0 clock configuration register
-        using Addr = Register::Address<0x40052500,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb0Usart0Cfg{    ///<CLK_APB2_USART0 clock configuration register
+        using Addr = Register::Address<0x40052500,0x00000000,0x00000000,unsigned>;
         ///Run enable
         enum class RunVal {
             clockIsDisabled=0x00000000,     ///<Clock is disabled.
@@ -194,9 +210,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb0Ssp0Cfg{    ///<CLK_APB0_SSP0 clock configuration register
-        using Addr = Register::Address<0x40052700,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb0Ssp0Cfg{    ///<CLK_APB0_SSP0 clock configuration register
+        using Addr = Register::Address<0x40052700,0x00000000,0x00000000,unsigned>;
         ///Run enable
         enum class RunVal {
             clockIsDisabled=0x00000000,     ///<Clock is disabled.
@@ -227,9 +245,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb2Ssp1Cfg{    ///<CLK_APB2_SSP1 clock configuration register
-        using Addr = Register::Address<0x40052600,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb2Ssp1Cfg{    ///<CLK_APB2_SSP1 clock configuration register
+        using Addr = Register::Address<0x40052600,0x00000000,0x00000000,unsigned>;
         ///Run enable
         enum class RunVal {
             clockIsDisabled=0x00000000,     ///<Clock is disabled.
@@ -260,9 +280,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkSdioCfg{    ///<CLK_SDIO clock configuration register
-        using Addr = Register::Address<0x40052800,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkSdioCfg{    ///<CLK_SDIO clock configuration register
+        using Addr = Register::Address<0x40052800,0x00000000,0x00000000,unsigned>;
         ///Run enable
         enum class RunVal {
             clockIsDisabled=0x00000000,     ///<Clock is disabled.
@@ -293,77 +315,95 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApllStat{    ///<CLK_APLL clock status register
-        using Addr = Register::Address<0x40052104,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApllStat{    ///<CLK_APLL clock status register
+        using Addr = Register::Address<0x40052104,0x00000000,0x00000000,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb2Usart3Stat{    ///<CLK_APB2_USART3 clock status register
-        using Addr = Register::Address<0x40052204,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb2Usart3Stat{    ///<CLK_APB2_USART3 clock status register
+        using Addr = Register::Address<0x40052204,0x00000000,0x00000000,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb2Usart2Stat{    ///<CLK_APB2_USART clock status register
-        using Addr = Register::Address<0x40052304,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb2Usart2Stat{    ///<CLK_APB2_USART clock status register
+        using Addr = Register::Address<0x40052304,0x00000000,0x00000000,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb0Uart1Stat{    ///<CLK_APB0_UART1 clock status register
-        using Addr = Register::Address<0x40052404,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb0Uart1Stat{    ///<CLK_APB0_UART1 clock status register
+        using Addr = Register::Address<0x40052404,0x00000000,0x00000000,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb0Usart0Stat{    ///<CLK_APB0_USART0 clock status register
-        using Addr = Register::Address<0x40052504,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb0Usart0Stat{    ///<CLK_APB0_USART0 clock status register
+        using Addr = Register::Address<0x40052504,0x00000000,0x00000000,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb2Ssp1Stat{    ///<CLK_APB2_SSP1 clock status register
-        using Addr = Register::Address<0x40052604,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb2Ssp1Stat{    ///<CLK_APB2_SSP1 clock status register
+        using Addr = Register::Address<0x40052604,0x00000000,0x00000000,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkApb0Ssp0Stat{    ///<CLK_APB0_SSP0 clock status register
-        using Addr = Register::Address<0x40052704,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkApb0Ssp0Stat{    ///<CLK_APB0_SSP0 clock status register
+        using Addr = Register::Address<0x40052704,0x00000000,0x00000000,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneclkSdioStat{    ///<CLK_SDIO clock status register
-        using Addr = Register::Address<0x40052804,0xfffffff8,0,unsigned>;
+    namespace Ccu2ClkSdioStat{    ///<CLK_SDIO clock status register
+        using Addr = Register::Address<0x40052804,0x00000000,0x00000000,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

@@ -1,18 +1,18 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Random Number Generator
-    namespace NonetasksStart{    ///<Task starting the random number generator
-        using Addr = Register::Address<0x4000d000,0xffffffff,0,unsigned>;
+    namespace RngTasksStart{    ///<Task starting the random number generator
+        using Addr = Register::Address<0x4000d000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Task stopping the random number generator
-        using Addr = Register::Address<0x4000d004,0xffffffff,0,unsigned>;
+    namespace RngTasksStop{    ///<Task stopping the random number generator
+        using Addr = Register::Address<0x4000d004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsValrdy{    ///<Event being generated for every new random number written to the VALUE register
-        using Addr = Register::Address<0x4000d100,0xffffffff,0,unsigned>;
+    namespace RngEventsValrdy{    ///<Event being generated for every new random number written to the VALUE register
+        using Addr = Register::Address<0x4000d100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x4000d200,0xfffffffe,0,unsigned>;
+    namespace RngShorts{    ///<Shortcut register
+        using Addr = Register::Address<0x4000d200,0xfffffffe,0x00000000,unsigned>;
         ///Shortcut between EVENTS_VALRDY event and TASKS_STOP task
         enum class ValrdystopVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -24,8 +24,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(valrdyStop)::Type,ValrdystopVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x4000d304,0xfffffffe,0,unsigned>;
+    namespace RngIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x4000d304,0xfffffffe,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_VALRDY event
         enum class ValrdyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -39,8 +39,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x4000d308,0xfffffffe,0,unsigned>;
+    namespace RngIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x4000d308,0xfffffffe,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_VALRDY event
         enum class ValrdyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -54,8 +54,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::clear> clear{};
         }
     }
-    namespace Noneconfig{    ///<Configuration register
-        using Addr = Register::Address<0x4000d504,0xfffffffe,0,unsigned>;
+    namespace RngConfig{    ///<Configuration register
+        using Addr = Register::Address<0x4000d504,0xfffffffe,0x00000000,unsigned>;
         ///Bias correction
         enum class DercenVal {
             disabled=0x00000000,     ///<Disabled
@@ -67,8 +67,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dercen)::Type,DercenVal::enabled> enabled{};
         }
     }
-    namespace Nonevalue{    ///<Output random number
-        using Addr = Register::Address<0x4000d508,0xffffff00,0,unsigned>;
+    namespace RngValue{    ///<Output random number
+        using Addr = Register::Address<0x4000d508,0xffffff00,0x00000000,unsigned>;
         ///Generated random number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> value{}; 
     }

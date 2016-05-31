@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40023000,0xf8880000,0,unsigned>;
+    namespace Capsense0Control{    ///<Module Control
+        using Addr = Register::Address<0x40023000,0xf8880000,0x00000000,unsigned>;
         ///Start and Busy Flag. 
         enum class BusyfVal {
             idle=0x00000000,     ///<Read: A capacitive sensing conversion is complete or a conversion is not currently in progress. Write: No effect.
@@ -197,7 +197,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The capacitive sensing result did not cause a compare threshold interrupt.
             set=0x00000001,     ///<The capacitive sensing result caused a compare threshold interrupt.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,CmpiVal> cmpi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CmpiVal> cmpi{}; 
         namespace CmpiValC{
             constexpr Register::FieldValue<decltype(cmpi)::Type,CmpiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmpi)::Type,CmpiVal::set> set{};
@@ -217,14 +217,14 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The CAPSENSEn module has not completed a scan since the last time EOSI was cleared.
             set=0x00000001,     ///<The CAPSENSEn module completed a scan.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,EosiVal> eosi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,EosiVal> eosi{}; 
         namespace EosiValC{
             constexpr Register::FieldValue<decltype(eosi)::Type,EosiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(eosi)::Type,EosiVal::set> set{};
         }
     }
-    namespace Nonemode{    ///<Measurement Mode
-        using Addr = Register::Address<0x40023010,0xfff88808,0,unsigned>;
+    namespace Capsense0Mode{    ///<Measurement Mode
+        using Addr = Register::Address<0x40023010,0xfff88808,0x00000000,unsigned>;
         ///Capacitance Gain Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> cgsel{}; 
         ///Double Reset Select. 
@@ -238,23 +238,23 @@ namespace Kvasir {
         ///Low Pass Filter Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> lpfsel{}; 
     }
-    namespace Nonedata{    ///<Measurement Data
-        using Addr = Register::Address<0x40023020,0xffff0000,0,unsigned>;
+    namespace Capsense0Data{    ///<Measurement Data
+        using Addr = Register::Address<0x40023020,0xffff0000,0x00000000,unsigned>;
         ///Capacitive Sensing Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonescan{    ///<Channel Scan Enable
-        using Addr = Register::Address<0x40023030,0xffff0000,0,unsigned>;
+    namespace Capsense0Scan{    ///<Channel Scan Enable
+        using Addr = Register::Address<0x40023030,0xffff0000,0x00000000,unsigned>;
         ///Channel Scan Enable. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> scanen{}; 
     }
-    namespace Nonecsth{    ///<Compare Threshold
-        using Addr = Register::Address<0x40023040,0xffff0000,0,unsigned>;
+    namespace Capsense0Csth{    ///<Compare Threshold
+        using Addr = Register::Address<0x40023040,0xffff0000,0x00000000,unsigned>;
         ///Compare Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> csth{}; 
     }
-    namespace Nonemux{    ///<Mux Channel Select
-        using Addr = Register::Address<0x40023050,0xffffff70,0,unsigned>;
+    namespace Capsense0Mux{    ///<Mux Channel Select
+        using Addr = Register::Address<0x40023050,0xffffff70,0x00000000,unsigned>;
         ///Mux Channel Select. 
         enum class CsmxVal {
             csn0=0x00000000,     ///<Select CSn.0 (PB0.2).

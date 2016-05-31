@@ -1,42 +1,42 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //I2C compatible Two-Wire Master Interface with EasyDMA 0
-    namespace NonetasksStartrx{    ///<Start TWI receive sequence
-        using Addr = Register::Address<0x40003000,0xffffffff,0,unsigned>;
+    namespace Twim0TasksStartrx{    ///<Start TWI receive sequence
+        using Addr = Register::Address<0x40003000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStarttx{    ///<Start TWI transmit sequence
-        using Addr = Register::Address<0x40003008,0xffffffff,0,unsigned>;
+    namespace Twim0TasksStarttx{    ///<Start TWI transmit sequence
+        using Addr = Register::Address<0x40003008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop TWI transaction
-        using Addr = Register::Address<0x40003014,0xffffffff,0,unsigned>;
+    namespace Twim0TasksStop{    ///<Stop TWI transaction
+        using Addr = Register::Address<0x40003014,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksSuspend{    ///<Suspend TWI transaction
-        using Addr = Register::Address<0x4000301c,0xffffffff,0,unsigned>;
+    namespace Twim0TasksSuspend{    ///<Suspend TWI transaction
+        using Addr = Register::Address<0x4000301c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksResume{    ///<Resume TWI transaction
-        using Addr = Register::Address<0x40003020,0xffffffff,0,unsigned>;
+    namespace Twim0TasksResume{    ///<Resume TWI transaction
+        using Addr = Register::Address<0x40003020,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStopped{    ///<TWI stopped
-        using Addr = Register::Address<0x40003104,0xffffffff,0,unsigned>;
+    namespace Twim0EventsStopped{    ///<TWI stopped
+        using Addr = Register::Address<0x40003104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsError{    ///<TWI error
-        using Addr = Register::Address<0x40003124,0xffffffff,0,unsigned>;
+    namespace Twim0EventsError{    ///<TWI error
+        using Addr = Register::Address<0x40003124,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsRxstarted{    ///<Receive sequence started
-        using Addr = Register::Address<0x4000314c,0xffffffff,0,unsigned>;
+    namespace Twim0EventsRxstarted{    ///<Receive sequence started
+        using Addr = Register::Address<0x4000314c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsTxstarted{    ///<Transmit sequence started
-        using Addr = Register::Address<0x40003150,0xffffffff,0,unsigned>;
+    namespace Twim0EventsTxstarted{    ///<Transmit sequence started
+        using Addr = Register::Address<0x40003150,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsLastrx{    ///<Byte boundary, starting to receive the last byte
-        using Addr = Register::Address<0x4000315c,0xffffffff,0,unsigned>;
+    namespace Twim0EventsLastrx{    ///<Byte boundary, starting to receive the last byte
+        using Addr = Register::Address<0x4000315c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsLasttx{    ///<Byte boundary, starting to transmit the last byte
-        using Addr = Register::Address<0x40003160,0xffffffff,0,unsigned>;
+    namespace Twim0EventsLasttx{    ///<Byte boundary, starting to transmit the last byte
+        using Addr = Register::Address<0x40003160,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x40003200,0xffffe87f,0,unsigned>;
+    namespace Twim0Shorts{    ///<Shortcut register
+        using Addr = Register::Address<0x40003200,0xffffe87f,0x00000000,unsigned>;
         ///Shortcut between EVENTS_LASTTX event and TASKS_STARTRX task
         enum class LasttxstartrxVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -88,8 +88,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lastrxStop)::Type,LastrxstopVal::enabled> enabled{};
         }
     }
-    namespace Noneinten{    ///<Enable or disable interrupt
-        using Addr = Register::Address<0x40003300,0xfe67fdfd,0,unsigned>;
+    namespace Twim0Inten{    ///<Enable or disable interrupt
+        using Addr = Register::Address<0x40003300,0xfe67fdfd,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Disable
@@ -151,8 +151,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lasttx)::Type,LasttxVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40003304,0xfe67fdfd,0,unsigned>;
+    namespace Twim0Intenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40003304,0xfe67fdfd,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -226,8 +226,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lasttx)::Type,LasttxVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40003308,0xfe67fdfd,0,unsigned>;
+    namespace Twim0Intenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40003308,0xfe67fdfd,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -301,8 +301,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lasttx)::Type,LasttxVal::clear> clear{};
         }
     }
-    namespace Noneerrorsrc{    ///<Error source
-        using Addr = Register::Address<0x400034c4,0xfffffff9,0,unsigned>;
+    namespace Twim0Errorsrc{    ///<Error source
+        using Addr = Register::Address<0x400034c4,0xfffffff9,0x00000000,unsigned>;
         ///NACK received after sending the address (write '1' to clear)
         enum class AnackVal {
             notreceived=0x00000000,     ///<Error did not occur
@@ -324,18 +324,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dnack)::Type,DnackVal::received> received{};
         }
     }
-    namespace Noneenable{    ///<Enable TWIM
-        using Addr = Register::Address<0x40003500,0xfffffff0,0,unsigned>;
+    namespace Twim0Enable{    ///<Enable TWIM
+        using Addr = Register::Address<0x40003500,0xfffffff0,0x00000000,unsigned>;
         ///Enable or disable TWIM
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> enable{}; 
     }
-    namespace Nonefrequency{    ///<TWI frequency
-        using Addr = Register::Address<0x40003524,0x00000000,0,unsigned>;
+    namespace Twim0Frequency{    ///<TWI frequency
+        using Addr = Register::Address<0x40003524,0x00000000,0x00000000,unsigned>;
         ///TWI master clock frequency
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> frequency{}; 
     }
-    namespace Noneaddress{    ///<Address used in the TWI transfer
-        using Addr = Register::Address<0x40003588,0xffffff80,0,unsigned>;
+    namespace Twim0Address{    ///<Address used in the TWI transfer
+        using Addr = Register::Address<0x40003588,0xffffff80,0x00000000,unsigned>;
         ///Address used in the TWI transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> address{}; 
     }

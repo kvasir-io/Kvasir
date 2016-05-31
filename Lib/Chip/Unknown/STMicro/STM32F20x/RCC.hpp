@@ -1,120 +1,86 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Reset and clock control
-    namespace Nonecr{    ///<clock control register
-        using Addr = Register::Address<0x40023800,0xf0f00004,0,unsigned>;
+    namespace RccCr{    ///<clock control register
+        using Addr = Register::Address<0x40023800,0xf0f00004,0x00000000,unsigned>;
         ///PLLI2S clock ready flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> plli2srdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> plli2srdy{}; 
         ///PLLI2S enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> plli2son{}; 
-        ///Main PLL (PLL) clock ready
-              flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> pllrdy{}; 
+        ///Main PLL (PLL) clock ready              flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pllrdy{}; 
         ///Main PLL (PLL) enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pllon{}; 
-        ///Clock security system
-              enable
+        ///Clock security system              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> csson{}; 
         ///HSE clock bypass
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> hsebyp{}; 
         ///HSE clock ready flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> hserdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hserdy{}; 
         ///HSE clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> hseon{}; 
-        ///Internal high-speed clock
-              calibration
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> hsical{}; 
-        ///Internal high-speed clock
-              trimming
+        ///Internal high-speed clock              calibration
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hsical{}; 
+        ///Internal high-speed clock              trimming
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::ReadWriteAccess,unsigned> hsitrim{}; 
-        ///Internal high-speed clock ready
-              flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hsirdy{}; 
-        ///Internal high-speed clock
-              enable
+        ///Internal high-speed clock ready              flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hsirdy{}; 
+        ///Internal high-speed clock              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> hsion{}; 
     }
-    namespace Nonepllcfgr{    ///<PLL configuration register
-        using Addr = Register::Address<0x40023804,0xf0bc8000,0,unsigned>;
-        ///Main PLL (PLL) division factor for USB
-              OTG FS, SDIO and random number generator
-              clocks
+    namespace RccPllcfgr{    ///<PLL configuration register
+        using Addr = Register::Address<0x40023804,0xf0bc8000,0x00000000,unsigned>;
+        ///Main PLL (PLL) division factor for USB              OTG FS, SDIO and random number generator              clocks
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> pllq3{}; 
-        ///Main PLL (PLL) division factor for USB
-              OTG FS, SDIO and random number generator
-              clocks
+        ///Main PLL (PLL) division factor for USB              OTG FS, SDIO and random number generator              clocks
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> pllq2{}; 
-        ///Main PLL (PLL) division factor for USB
-              OTG FS, SDIO and random number generator
-              clocks
+        ///Main PLL (PLL) division factor for USB              OTG FS, SDIO and random number generator              clocks
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> pllq1{}; 
-        ///Main PLL (PLL) division factor for USB
-              OTG FS, SDIO and random number generator
-              clocks
+        ///Main PLL (PLL) division factor for USB              OTG FS, SDIO and random number generator              clocks
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pllq0{}; 
-        ///Main PLL(PLL) and audio PLL (PLLI2S)
-              entry clock source
+        ///Main PLL(PLL) and audio PLL (PLLI2S)              entry clock source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> pllsrc{}; 
-        ///Main PLL (PLL) division factor for main
-              system clock
+        ///Main PLL (PLL) division factor for main              system clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> pllp1{}; 
-        ///Main PLL (PLL) division factor for main
-              system clock
+        ///Main PLL (PLL) division factor for main              system clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pllp0{}; 
-        ///Main PLL (PLL) multiplication factor for
-              VCO
+        ///Main PLL (PLL) multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> plln8{}; 
-        ///Main PLL (PLL) multiplication factor for
-              VCO
+        ///Main PLL (PLL) multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> plln7{}; 
-        ///Main PLL (PLL) multiplication factor for
-              VCO
+        ///Main PLL (PLL) multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> plln6{}; 
-        ///Main PLL (PLL) multiplication factor for
-              VCO
+        ///Main PLL (PLL) multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> plln5{}; 
-        ///Main PLL (PLL) multiplication factor for
-              VCO
+        ///Main PLL (PLL) multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> plln4{}; 
-        ///Main PLL (PLL) multiplication factor for
-              VCO
+        ///Main PLL (PLL) multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> plln3{}; 
-        ///Main PLL (PLL) multiplication factor for
-              VCO
+        ///Main PLL (PLL) multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> plln2{}; 
-        ///Main PLL (PLL) multiplication factor for
-              VCO
+        ///Main PLL (PLL) multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> plln1{}; 
-        ///Main PLL (PLL) multiplication factor for
-              VCO
+        ///Main PLL (PLL) multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> plln0{}; 
-        ///Division factor for the main PLL (PLL)
-              and audio PLL (PLLI2S) input clock
+        ///Division factor for the main PLL (PLL)              and audio PLL (PLLI2S) input clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pllm5{}; 
-        ///Division factor for the main PLL (PLL)
-              and audio PLL (PLLI2S) input clock
+        ///Division factor for the main PLL (PLL)              and audio PLL (PLLI2S) input clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pllm4{}; 
-        ///Division factor for the main PLL (PLL)
-              and audio PLL (PLLI2S) input clock
+        ///Division factor for the main PLL (PLL)              and audio PLL (PLLI2S) input clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pllm3{}; 
-        ///Division factor for the main PLL (PLL)
-              and audio PLL (PLLI2S) input clock
+        ///Division factor for the main PLL (PLL)              and audio PLL (PLLI2S) input clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pllm2{}; 
-        ///Division factor for the main PLL (PLL)
-              and audio PLL (PLLI2S) input clock
+        ///Division factor for the main PLL (PLL)              and audio PLL (PLLI2S) input clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pllm1{}; 
-        ///Division factor for the main PLL (PLL)
-              and audio PLL (PLLI2S) input clock
+        ///Division factor for the main PLL (PLL)              and audio PLL (PLLI2S) input clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pllm0{}; 
     }
-    namespace Nonecfgr{    ///<clock configuration register
-        using Addr = Register::Address<0x40023808,0x00000300,0,unsigned>;
-        ///Microcontroller clock output
-              2
+    namespace RccCfgr{    ///<clock configuration register
+        using Addr = Register::Address<0x40023808,0x00000300,0x00000000,unsigned>;
+        ///Microcontroller clock output              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> mco21{}; 
-        ///Microcontroller clock output
-              2
+        ///Microcontroller clock output              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> mco20{}; 
         ///MCO2 prescaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> mco2pre2{}; 
@@ -130,44 +96,31 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> mco1pre0{}; 
         ///I2S clock selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> i2ssrc{}; 
-        ///Microcontroller clock output
-              1
+        ///Microcontroller clock output              1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> mco11{}; 
-        ///Microcontroller clock output
-              1
+        ///Microcontroller clock output              1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> mco10{}; 
-        ///HSE division factor for RTC
-              clock
+        ///HSE division factor for RTC              clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rtcpre4{}; 
-        ///HSE division factor for RTC
-              clock
+        ///HSE division factor for RTC              clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rtcpre3{}; 
-        ///HSE division factor for RTC
-              clock
+        ///HSE division factor for RTC              clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rtcpre2{}; 
-        ///HSE division factor for RTC
-              clock
+        ///HSE division factor for RTC              clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rtcpre1{}; 
-        ///HSE division factor for RTC
-              clock
+        ///HSE division factor for RTC              clock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rtcpre0{}; 
-        ///APB high-speed prescaler
-              (APB2)
+        ///APB high-speed prescaler              (APB2)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ppre22{}; 
-        ///APB high-speed prescaler
-              (APB2)
+        ///APB high-speed prescaler              (APB2)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ppre21{}; 
-        ///APB high-speed prescaler
-              (APB2)
+        ///APB high-speed prescaler              (APB2)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ppre20{}; 
-        ///APB Low speed prescaler
-              (APB1)
+        ///APB Low speed prescaler              (APB1)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ppre12{}; 
-        ///APB Low speed prescaler
-              (APB1)
+        ///APB Low speed prescaler              (APB1)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ppre11{}; 
-        ///APB Low speed prescaler
-              (APB1)
+        ///APB Low speed prescaler              (APB1)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ppre10{}; 
         ///AHB prescaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> hpre3{}; 
@@ -178,38 +131,33 @@ namespace Kvasir {
         ///AHB prescaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> hpre0{}; 
         ///System clock switch status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sws1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sws1{}; 
         ///System clock switch status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> sws0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sws0{}; 
         ///System clock switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sw1{}; 
         ///System clock switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sw0{}; 
     }
-    namespace Nonecir{    ///<clock interrupt register
-        using Addr = Register::Address<0x4002380c,0xff40c040,0,unsigned>;
-        ///Clock security system interrupt
-              clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> cssc{}; 
-        ///PLLI2S ready interrupt
-              clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> plli2srdyc{}; 
-        ///Main PLL(PLL) ready interrupt
-              clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> pllrdyc{}; 
+    namespace RccCir{    ///<clock interrupt register
+        using Addr = Register::Address<0x4002380c,0xff40c040,0x00000000,unsigned>;
+        ///Clock security system interrupt              clear
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cssc{}; 
+        ///PLLI2S ready interrupt              clear
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> plli2srdyc{}; 
+        ///Main PLL(PLL) ready interrupt              clear
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pllrdyc{}; 
         ///HSE ready interrupt clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> hserdyc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hserdyc{}; 
         ///HSI ready interrupt clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> hsirdyc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hsirdyc{}; 
         ///LSE ready interrupt clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> lserdyc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lserdyc{}; 
         ///LSI ready interrupt clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> lsirdyc{}; 
-        ///PLLI2S ready interrupt
-              enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lsirdyc{}; 
+        ///PLLI2S ready interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> plli2srdyie{}; 
-        ///Main PLL (PLL) ready interrupt
-              enable
+        ///Main PLL (PLL) ready interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> pllrdyie{}; 
         ///HSE ready interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> hserdyie{}; 
@@ -219,26 +167,23 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> lserdyie{}; 
         ///LSI ready interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> lsirdyie{}; 
-        ///Clock security system interrupt
-              flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cssf{}; 
-        ///PLLI2S ready interrupt
-              flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> plli2srdyf{}; 
-        ///Main PLL (PLL) ready interrupt
-              flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pllrdyf{}; 
+        ///Clock security system interrupt              flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cssf{}; 
+        ///PLLI2S ready interrupt              flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> plli2srdyf{}; 
+        ///Main PLL (PLL) ready interrupt              flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pllrdyf{}; 
         ///HSE ready interrupt flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> hserdyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hserdyf{}; 
         ///HSI ready interrupt flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hsirdyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hsirdyf{}; 
         ///LSE ready interrupt flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lserdyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lserdyf{}; 
         ///LSI ready interrupt flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lsirdyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lsirdyf{}; 
     }
-    namespace Noneahb1rstr{    ///<AHB1 peripheral reset register
-        using Addr = Register::Address<0x40023810,0xdd9fee00,0,unsigned>;
+    namespace RccAhb1rstr{    ///<AHB1 peripheral reset register
+        using Addr = Register::Address<0x40023810,0xdd9fee00,0x00000000,unsigned>;
         ///USB OTG HS module reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> otghsrst{}; 
         ///Ethernet MAC reset
@@ -268,24 +213,22 @@ namespace Kvasir {
         ///IO port A reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gpioarst{}; 
     }
-    namespace Noneahb2rstr{    ///<AHB2 peripheral reset register
-        using Addr = Register::Address<0x40023814,0xffffff3e,0,unsigned>;
+    namespace RccAhb2rstr{    ///<AHB2 peripheral reset register
+        using Addr = Register::Address<0x40023814,0xffffff3e,0x00000000,unsigned>;
         ///USB OTG FS module reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> otgfsrst{}; 
-        ///Random number generator module
-              reset
+        ///Random number generator module              reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rngrst{}; 
         ///Camera interface reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dcmirst{}; 
     }
-    namespace Noneahb3rstr{    ///<AHB3 peripheral reset register
-        using Addr = Register::Address<0x40023818,0xfffffffe,0,unsigned>;
-        ///Flexible static memory controller module
-              reset
+    namespace RccAhb3rstr{    ///<AHB3 peripheral reset register
+        using Addr = Register::Address<0x40023818,0xfffffffe,0x00000000,unsigned>;
+        ///Flexible static memory controller module              reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fsmcrst{}; 
     }
-    namespace Noneapb1rstr{    ///<APB1 peripheral reset register
-        using Addr = Register::Address<0x40023820,0xc9013600,0,unsigned>;
+    namespace RccApb1rstr{    ///<APB1 peripheral reset register
+        using Addr = Register::Address<0x40023820,0xc9013600,0x00000000,unsigned>;
         ///DAC reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> dacrst{}; 
         ///Power interface reset
@@ -333,23 +276,21 @@ namespace Kvasir {
         ///TIM2 reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tim2rst{}; 
     }
-    namespace Noneapb2rstr{    ///<APB2 peripheral reset register
-        using Addr = Register::Address<0x40023824,0xfff8a6cc,0,unsigned>;
+    namespace RccApb2rstr{    ///<APB2 peripheral reset register
+        using Addr = Register::Address<0x40023824,0xfff8a6cc,0x00000000,unsigned>;
         ///TIM11 reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> tim11rst{}; 
         ///TIM10 reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> tim10rst{}; 
         ///TIM9 reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tim9rst{}; 
-        ///System configuration controller
-              reset
+        ///System configuration controller              reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> syscfgrst{}; 
         ///SPI 1 reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> spi1rst{}; 
         ///SDIO reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> sdiorst{}; 
-        ///ADC interface reset (common to all
-              ADCs)
+        ///ADC interface reset (common to all              ADCs)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> adcrst{}; 
         ///USART6 reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> usart6rst{}; 
@@ -360,20 +301,17 @@ namespace Kvasir {
         ///TIM1 reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tim1rst{}; 
     }
-    namespace Noneahb1enr{    ///<AHB1 peripheral clock register
-        using Addr = Register::Address<0x40023830,0x819bee00,0,unsigned>;
-        ///USB OTG HSULPI clock
-              enable
+    namespace RccAhb1enr{    ///<AHB1 peripheral clock register
+        using Addr = Register::Address<0x40023830,0x819bee00,0x00000000,unsigned>;
+        ///USB OTG HSULPI clock              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> otghsulpien{}; 
         ///USB OTG HS clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> otghsen{}; 
         ///Ethernet PTP clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> ethmacptpen{}; 
-        ///Ethernet Reception clock
-              enable
+        ///Ethernet Reception clock              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> ethmacrxen{}; 
-        ///Ethernet Transmission clock
-              enable
+        ///Ethernet Transmission clock              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> ethmactxen{}; 
         ///Ethernet MAC clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> ethmacen{}; 
@@ -381,8 +319,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> dma2en{}; 
         ///DMA1 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> dma1en{}; 
-        ///Backup SRAM interface clock
-              enable
+        ///Backup SRAM interface clock              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> bkpsramen{}; 
         ///CRC clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> crcen{}; 
@@ -405,31 +342,25 @@ namespace Kvasir {
         ///IO port A clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gpioaen{}; 
     }
-    namespace Noneahb2enr{    ///<AHB2 peripheral clock enable
-          register
-        using Addr = Register::Address<0x40023834,0xffffff3e,0,unsigned>;
+    namespace RccAhb2enr{    ///<AHB2 peripheral clock enable          register
+        using Addr = Register::Address<0x40023834,0xffffff3e,0x00000000,unsigned>;
         ///USB OTG FS clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> otgfsen{}; 
-        ///Random number generator clock
-              enable
+        ///Random number generator clock              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rngen{}; 
         ///Camera interface enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dcmien{}; 
     }
-    namespace Noneahb3enr{    ///<AHB3 peripheral clock enable
-          register
-        using Addr = Register::Address<0x40023838,0xfffffffe,0,unsigned>;
-        ///Flexible static memory controller module
-              clock enable
+    namespace RccAhb3enr{    ///<AHB3 peripheral clock enable          register
+        using Addr = Register::Address<0x40023838,0xfffffffe,0x00000000,unsigned>;
+        ///Flexible static memory controller module              clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fsmcen{}; 
     }
-    namespace Noneapb1enr{    ///<APB1 peripheral clock enable
-          register
-        using Addr = Register::Address<0x40023840,0xc9013600,0,unsigned>;
+    namespace RccApb1enr{    ///<APB1 peripheral clock enable          register
+        using Addr = Register::Address<0x40023840,0xc9013600,0x00000000,unsigned>;
         ///DAC interface clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> dacen{}; 
-        ///Power interface clock
-              enable
+        ///Power interface clock              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> pwren{}; 
         ///CAN 2 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> can2en{}; 
@@ -453,8 +384,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> spi3en{}; 
         ///SPI2 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> spi2en{}; 
-        ///Window watchdog clock
-              enable
+        ///Window watchdog clock              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> wwdgen{}; 
         ///TIM14 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> tim14en{}; 
@@ -475,17 +405,15 @@ namespace Kvasir {
         ///TIM2 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tim2en{}; 
     }
-    namespace Noneapb2enr{    ///<APB2 peripheral clock enable
-          register
-        using Addr = Register::Address<0x40023844,0xfff8a0cc,0,unsigned>;
+    namespace RccApb2enr{    ///<APB2 peripheral clock enable          register
+        using Addr = Register::Address<0x40023844,0xfff8a0cc,0x00000000,unsigned>;
         ///TIM11 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> tim11en{}; 
         ///TIM10 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> tim10en{}; 
         ///TIM9 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tim9en{}; 
-        ///System configuration controller clock
-              enable
+        ///System configuration controller clock              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> syscfgen{}; 
         ///SPI1 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> spi1en{}; 
@@ -506,216 +434,148 @@ namespace Kvasir {
         ///TIM1 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tim1en{}; 
     }
-    namespace Noneahb1lpenr{    ///<AHB1 peripheral clock enable in low power
-          mode register
-        using Addr = Register::Address<0x40023850,0x81986e00,0,unsigned>;
-        ///USB OTG HS ULPI clock enable during
-              Sleep mode
+    namespace RccAhb1lpenr{    ///<AHB1 peripheral clock enable in low power          mode register
+        using Addr = Register::Address<0x40023850,0x81986e00,0x00000000,unsigned>;
+        ///USB OTG HS ULPI clock enable during              Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> otghsulpilpen{}; 
-        ///USB OTG HS clock enable during Sleep
-              mode
+        ///USB OTG HS clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> otghslpen{}; 
-        ///Ethernet PTP clock enable during Sleep
-              mode
+        ///Ethernet PTP clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> ethmacptplpen{}; 
-        ///Ethernet reception clock enable during
-              Sleep mode
+        ///Ethernet reception clock enable during              Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> ethmacrxlpen{}; 
-        ///Ethernet transmission clock enable
-              during Sleep mode
+        ///Ethernet transmission clock enable              during Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> ethmactxlpen{}; 
-        ///Ethernet MAC clock enable during Sleep
-              mode
+        ///Ethernet MAC clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> ethmaclpen{}; 
-        ///DMA2 clock enable during Sleep
-              mode
+        ///DMA2 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> dma2lpen{}; 
-        ///DMA1 clock enable during Sleep
-              mode
+        ///DMA1 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> dma1lpen{}; 
-        ///Backup SRAM interface clock enable
-              during Sleep mode
+        ///Backup SRAM interface clock enable              during Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> bkpsramlpen{}; 
-        ///SRAM 2 interface clock enable during
-              Sleep mode
+        ///SRAM 2 interface clock enable during              Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> sram2lpen{}; 
-        ///SRAM 1interface clock enable during
-              Sleep mode
+        ///SRAM 1interface clock enable during              Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> sram1lpen{}; 
-        ///Flash interface clock enable during
-              Sleep mode
+        ///Flash interface clock enable during              Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> flitflpen{}; 
-        ///CRC clock enable during Sleep
-              mode
+        ///CRC clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> crclpen{}; 
-        ///IO port I clock enable during Sleep
-              mode
+        ///IO port I clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> gpioilpen{}; 
-        ///IO port H clock enable during Sleep
-              mode
+        ///IO port H clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> gpiohlpen{}; 
-        ///IO port G clock enable during Sleep
-              mode
+        ///IO port G clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> gpioglpen{}; 
-        ///IO port F clock enable during Sleep
-              mode
+        ///IO port F clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> gpioflpen{}; 
-        ///IO port E clock enable during Sleep
-              mode
+        ///IO port E clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> gpioelpen{}; 
-        ///IO port D clock enable during Sleep
-              mode
+        ///IO port D clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> gpiodlpen{}; 
-        ///IO port C clock enable during Sleep
-              mode
+        ///IO port C clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> gpioclpen{}; 
-        ///IO port B clock enable during Sleep
-              mode
+        ///IO port B clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> gpioblpen{}; 
-        ///IO port A clock enable during sleep
-              mode
+        ///IO port A clock enable during sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gpioalpen{}; 
     }
-    namespace Noneahb2lpenr{    ///<AHB2 peripheral clock enable in low power
-          mode register
-        using Addr = Register::Address<0x40023854,0xffffff3e,0,unsigned>;
-        ///USB OTG FS clock enable during Sleep
-              mode
+    namespace RccAhb2lpenr{    ///<AHB2 peripheral clock enable in low power          mode register
+        using Addr = Register::Address<0x40023854,0xffffff3e,0x00000000,unsigned>;
+        ///USB OTG FS clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> otgfslpen{}; 
-        ///Random number generator clock enable
-              during Sleep mode
+        ///Random number generator clock enable              during Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rnglpen{}; 
-        ///Camera interface enable during Sleep
-              mode
+        ///Camera interface enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dcmilpen{}; 
     }
-    namespace Noneahb3lpenr{    ///<AHB3 peripheral clock enable in low power
-          mode register
-        using Addr = Register::Address<0x40023858,0xfffffffe,0,unsigned>;
-        ///Flexible static memory controller module
-              clock enable during Sleep mode
+    namespace RccAhb3lpenr{    ///<AHB3 peripheral clock enable in low power          mode register
+        using Addr = Register::Address<0x40023858,0xfffffffe,0x00000000,unsigned>;
+        ///Flexible static memory controller module              clock enable during Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fsmclpen{}; 
     }
-    namespace Noneapb1lpenr{    ///<APB1 peripheral clock enable in low power
-          mode register
-        using Addr = Register::Address<0x40023860,0xc9013600,0,unsigned>;
-        ///DAC interface clock enable during Sleep
-              mode
+    namespace RccApb1lpenr{    ///<APB1 peripheral clock enable in low power          mode register
+        using Addr = Register::Address<0x40023860,0xc9013600,0x00000000,unsigned>;
+        ///DAC interface clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> daclpen{}; 
-        ///Power interface clock enable during
-              Sleep mode
+        ///Power interface clock enable during              Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> pwrlpen{}; 
-        ///CAN 2 clock enable during Sleep
-              mode
+        ///CAN 2 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> can2lpen{}; 
-        ///CAN 1 clock enable during Sleep
-              mode
+        ///CAN 1 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> can1lpen{}; 
-        ///I2C3 clock enable during Sleep
-              mode
+        ///I2C3 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> i2c3lpen{}; 
-        ///I2C2 clock enable during Sleep
-              mode
+        ///I2C2 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> i2c2lpen{}; 
-        ///I2C1 clock enable during Sleep
-              mode
+        ///I2C1 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> i2c1lpen{}; 
-        ///UART5 clock enable during Sleep
-              mode
+        ///UART5 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> uart5lpen{}; 
-        ///UART4 clock enable during Sleep
-              mode
+        ///UART4 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> uart4lpen{}; 
-        ///USART3 clock enable during Sleep
-              mode
+        ///USART3 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> usart3lpen{}; 
-        ///USART2 clock enable during Sleep
-              mode
+        ///USART2 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> usart2lpen{}; 
-        ///SPI3 clock enable during Sleep
-              mode
+        ///SPI3 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> spi3lpen{}; 
-        ///SPI2 clock enable during Sleep
-              mode
+        ///SPI2 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> spi2lpen{}; 
-        ///Window watchdog clock enable during
-              Sleep mode
+        ///Window watchdog clock enable during              Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> wwdglpen{}; 
-        ///TIM14 clock enable during Sleep
-              mode
+        ///TIM14 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> tim14lpen{}; 
-        ///TIM13 clock enable during Sleep
-              mode
+        ///TIM13 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tim13lpen{}; 
-        ///TIM12 clock enable during Sleep
-              mode
+        ///TIM12 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tim12lpen{}; 
-        ///TIM7 clock enable during Sleep
-              mode
+        ///TIM7 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tim7lpen{}; 
-        ///TIM6 clock enable during Sleep
-              mode
+        ///TIM6 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tim6lpen{}; 
-        ///TIM5 clock enable during Sleep
-              mode
+        ///TIM5 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tim5lpen{}; 
-        ///TIM4 clock enable during Sleep
-              mode
+        ///TIM4 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tim4lpen{}; 
-        ///TIM3 clock enable during Sleep
-              mode
+        ///TIM3 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tim3lpen{}; 
-        ///TIM2 clock enable during Sleep
-              mode
+        ///TIM2 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tim2lpen{}; 
     }
-    namespace Noneapb2lpenr{    ///<APB2 peripheral clock enabled in low power
-          mode register
-        using Addr = Register::Address<0x40023864,0xfff8a0cc,0,unsigned>;
-        ///TIM11 clock enable during Sleep
-              mode
+    namespace RccApb2lpenr{    ///<APB2 peripheral clock enabled in low power          mode register
+        using Addr = Register::Address<0x40023864,0xfff8a0cc,0x00000000,unsigned>;
+        ///TIM11 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> tim11lpen{}; 
-        ///TIM10 clock enable during Sleep
-              mode
+        ///TIM10 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> tim10lpen{}; 
-        ///TIM9 clock enable during sleep
-              mode
+        ///TIM9 clock enable during sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tim9lpen{}; 
-        ///System configuration controller clock
-              enable during Sleep mode
+        ///System configuration controller clock              enable during Sleep mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> syscfglpen{}; 
-        ///SPI 1 clock enable during Sleep
-              mode
+        ///SPI 1 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> spi1lpen{}; 
-        ///SDIO clock enable during Sleep
-              mode
+        ///SDIO clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> sdiolpen{}; 
-        ///ADC 3 clock enable during Sleep
-              mode
+        ///ADC 3 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> adc3lpen{}; 
-        ///ADC2 clock enable during Sleep
-              mode
+        ///ADC2 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> adc2lpen{}; 
-        ///ADC1 clock enable during Sleep
-              mode
+        ///ADC1 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> adc1lpen{}; 
-        ///USART6 clock enable during Sleep
-              mode
+        ///USART6 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> usart6lpen{}; 
-        ///USART1 clock enable during Sleep
-              mode
+        ///USART1 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> usart1lpen{}; 
-        ///TIM8 clock enable during Sleep
-              mode
+        ///TIM8 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tim8lpen{}; 
-        ///TIM1 clock enable during Sleep
-              mode
+        ///TIM1 clock enable during Sleep              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tim1lpen{}; 
     }
-    namespace Nonebdcr{    ///<Backup domain control register
-        using Addr = Register::Address<0x40023870,0xfffe7cf8,0,unsigned>;
-        ///Backup domain software
-              reset
+    namespace RccBdcr{    ///<Backup domain control register
+        using Addr = Register::Address<0x40023870,0xfffe7cf8,0x00000000,unsigned>;
+        ///Backup domain software              reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> bdrst{}; 
         ///RTC clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rtcen{}; 
@@ -723,25 +583,20 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rtcsel1{}; 
         ///RTC clock source selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rtcsel0{}; 
-        ///External low-speed oscillator
-              bypass
+        ///External low-speed oscillator              bypass
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> lsebyp{}; 
-        ///External low-speed oscillator
-              ready
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lserdy{}; 
-        ///External low-speed oscillator
-              enable
+        ///External low-speed oscillator              ready
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lserdy{}; 
+        ///External low-speed oscillator              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lseon{}; 
     }
-    namespace Nonecsr{    ///<clock control & status
-          register
-        using Addr = Register::Address<0x40023874,0x00fffffc,0,unsigned>;
+    namespace RccCsr{    ///<clock control & status          register
+        using Addr = Register::Address<0x40023874,0x00fffffc,0x00000000,unsigned>;
         ///Low-power reset flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lpwrrstf{}; 
         ///Window watchdog reset flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> wwdgrstf{}; 
-        ///Independent watchdog reset
-              flag
+        ///Independent watchdog reset              flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> wdgrstf{}; 
         ///Software reset flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> sftrstf{}; 
@@ -753,18 +608,14 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> borrstf{}; 
         ///Remove reset flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> rmvf{}; 
-        ///Internal low-speed oscillator
-              ready
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lsirdy{}; 
-        ///Internal low-speed oscillator
-              enable
+        ///Internal low-speed oscillator              ready
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lsirdy{}; 
+        ///Internal low-speed oscillator              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lsion{}; 
     }
-    namespace Nonesscgr{    ///<spread spectrum clock generation
-          register
-        using Addr = Register::Address<0x40023880,0x30000000,0,unsigned>;
-        ///Spread spectrum modulation
-              enable
+    namespace RccSscgr{    ///<spread spectrum clock generation          register
+        using Addr = Register::Address<0x40023880,0x30000000,0x00000000,unsigned>;
+        ///Spread spectrum modulation              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> sscgen{}; 
         ///Spread Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> spreadsel{}; 
@@ -773,43 +624,31 @@ namespace Kvasir {
         ///Modulation period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> modper{}; 
     }
-    namespace Noneplli2scfgr{    ///<PLLI2S configuration register
-        using Addr = Register::Address<0x40023884,0x8fff803f,0,unsigned>;
-        ///PLLI2S multiplication factor for
-              VCO
+    namespace RccPlli2scfgr{    ///<PLLI2S configuration register
+        using Addr = Register::Address<0x40023884,0x8fff803f,0x00000000,unsigned>;
+        ///PLLI2S multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> plli2sn0{}; 
-        ///PLLI2S multiplication factor for
-              VCO
+        ///PLLI2S multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> plli2sn1{}; 
-        ///PLLI2S multiplication factor for
-              VCO
+        ///PLLI2S multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> plli2sn2{}; 
-        ///PLLI2S multiplication factor for
-              VCO
+        ///PLLI2S multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> plli2sn3{}; 
-        ///PLLI2S multiplication factor for
-              VCO
+        ///PLLI2S multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> plli2sn4{}; 
-        ///PLLI2S multiplication factor for
-              VCO
+        ///PLLI2S multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> plli2sn5{}; 
-        ///PLLI2S multiplication factor for
-              VCO
+        ///PLLI2S multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> plli2sn6{}; 
-        ///PLLI2S multiplication factor for
-              VCO
+        ///PLLI2S multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> plli2sn7{}; 
-        ///PLLI2S multiplication factor for
-              VCO
+        ///PLLI2S multiplication factor for              VCO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> plli2sn8{}; 
-        ///PLLI2S division factor for I2S
-              clocks
+        ///PLLI2S division factor for I2S              clocks
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> plli2sr0{}; 
-        ///PLLI2S division factor for I2S
-              clocks
+        ///PLLI2S division factor for I2S              clocks
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> plli2sr1{}; 
-        ///PLLI2S division factor for I2S
-              clocks
+        ///PLLI2S division factor for I2S              clocks
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> plli2sr2{}; 
     }
 }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // peripheral DAC 
-    namespace Nonedadr0{    ///< register DADR0 
-        using Addr = Register::Address<0x40028000,0xfffffc00,0,unsigned>;
+    namespace DacDadr0{    ///< register DADR0 
+        using Addr = Register::Address<0x40028000,0xfffffc00,0x00000000,unsigned>;
         /// bitfield DA9 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> da9{}; 
         /// bitfield DA8 
@@ -25,13 +25,13 @@ namespace Kvasir {
         /// bitfield DA0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> da0{}; 
     }
-    namespace Nonedacr0{    ///< register DACR0 
-        using Addr = Register::Address<0x40028002,0xfffffffe,0,unsigned char>;
+    namespace DacDacr0{    ///< register DACR0 
+        using Addr = Register::Address<0x40028002,0xfffffffe,0x00000000,unsigned char>;
         /// bitfield DAE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dae{}; 
     }
-    namespace Nonedadr1{    ///< register DADR1 
-        using Addr = Register::Address<0x40028004,0xfffffc00,0,unsigned>;
+    namespace DacDadr1{    ///< register DADR1 
+        using Addr = Register::Address<0x40028004,0xfffffc00,0x00000000,unsigned>;
         /// bitfield DA9 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> da9{}; 
         /// bitfield DA8 
@@ -53,8 +53,8 @@ namespace Kvasir {
         /// bitfield DA0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> da0{}; 
     }
-    namespace Nonedacr1{    ///< register DACR1 
-        using Addr = Register::Address<0x40028006,0xfffffffe,0,unsigned char>;
+    namespace DacDacr1{    ///< register DACR1 
+        using Addr = Register::Address<0x40028006,0xfffffffe,0x00000000,unsigned char>;
         /// bitfield DAE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dae{}; 
     }

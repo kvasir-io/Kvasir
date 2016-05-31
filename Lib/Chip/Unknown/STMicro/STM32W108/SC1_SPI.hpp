@@ -1,11 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//Serial controller 1 (Serial peripheral
-      interface)
-    namespace Nonesc1Spisr{    ///<Serial controller SPI status
-          register
-        using Addr = Register::Address<0x4000c840,0xfffffff0,0,unsigned>;
+//Serial controller 1 (Serial peripheral      interface)
+    namespace Sc1SpiSc1Spisr{    ///<Serial controller SPI status          register
+        using Addr = Register::Address<0x4000c840,0xfffffff0,0x00000000,unsigned>;
         ///IDLE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> idle{}; 
         ///TXE
@@ -15,9 +13,8 @@ namespace Kvasir {
         ///OVF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ovf{}; 
     }
-    namespace Nonesc1Spicr{    ///<Serial controller SPI control
-          register
-        using Addr = Register::Address<0x4000c858,0xffffffc0,0,unsigned>;
+    namespace Sc1SpiSc1Spicr{    ///<Serial controller SPI control          register
+        using Addr = Register::Address<0x4000c858,0xffffffc0,0x00000000,unsigned>;
         ///RXMODE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxmode{}; 
         ///MSTR

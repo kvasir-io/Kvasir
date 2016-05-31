@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // Windowed Watchdog Timer (WWDT) 
-    namespace Nonemod{    ///<Watchdog mode register. This register determines the basic mode and status of the Watchdog Timer.
-        using Addr = Register::Address<0x40000000,0xffffffe0,0,unsigned>;
+    namespace WwdtMod{    ///<Watchdog mode register. This register determines the basic mode and status of the Watchdog Timer.
+        using Addr = Register::Address<0x40000000,0xffffff00,0x00000000,unsigned>;
         ///Watchdog enable bit. This bit is Set Only. See Table 652.
         enum class WdenVal {
             stop=0x00000000,     ///<The watchdog timer is stopped.
@@ -38,30 +38,40 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wdprotect)::Type,WdprotectVal::change> change{};
             constexpr Register::FieldValue<decltype(wdprotect)::Type,WdprotectVal::changeWCnt> changeWCnt{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetc{    ///<Watchdog timer constant register. The value in this register determines the time-out value.
-        using Addr = Register::Address<0x40000004,0xff000000,0,unsigned>;
+    namespace WwdtTc{    ///<Watchdog timer constant register. The value in this register determines the time-out value.
+        using Addr = Register::Address<0x40000004,0x00000000,0x00000000,unsigned>;
         ///Watchdog time-out interval.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> count{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonefeed{    ///<Watchdog feed sequence register. Writing 0xAA followed by 0x55 to this register reloads the Watchdog timer with the value contained in WDTC.
-        using Addr = Register::Address<0x40000008,0xffffff00,0,unsigned>;
+    namespace WwdtFeed{    ///<Watchdog feed sequence register. Writing 0xAA followed by 0x55 to this register reloads the Watchdog timer with the value contained in WDTC.
+        using Addr = Register::Address<0x40000008,0xffffff00,0x00000000,unsigned>;
         ///Feed value should be 0xAA followed by 0x55.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> feed{}; 
     }
-    namespace Nonetv{    ///<Watchdog timer value register. This register reads out the current value of the Watchdog timer.
-        using Addr = Register::Address<0x4000000c,0xff000000,0,unsigned>;
+    namespace WwdtTv{    ///<Watchdog timer value register. This register reads out the current value of the Watchdog timer.
+        using Addr = Register::Address<0x4000000c,0x00000000,0x00000000,unsigned>;
         ///Counter timer value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> count{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonewarnint{    ///<Watchdog Warning Interrupt compare value.
-        using Addr = Register::Address<0x40000014,0xfffffc00,0,unsigned>;
+    namespace WwdtWarnint{    ///<Watchdog Warning Interrupt compare value.
+        using Addr = Register::Address<0x40000014,0x00000000,0x00000000,unsigned>;
         ///Watchdog warning interrupt compare value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> warnint{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonewindow{    ///<Watchdog Window compare value.
-        using Addr = Register::Address<0x40000018,0xff000000,0,unsigned>;
+    namespace WwdtWindow{    ///<Watchdog Window compare value.
+        using Addr = Register::Address<0x40000018,0x00000000,0x00000000,unsigned>;
         ///Watchdog window value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> window{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

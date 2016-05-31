@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Clock recovery system
-    namespace Nonecr{    ///<control register
-        using Addr = Register::Address<0x40006c00,0xffffc010,0,unsigned>;
+    namespace CrsCr{    ///<control register
+        using Addr = Register::Address<0x40006c00,0xffffc010,0x00000000,unsigned>;
         ///HSI48 oscillator smooth               trimming
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> trim{}; 
         ///Generate software SYNC               event
@@ -21,8 +21,8 @@ namespace Kvasir {
         ///SYNC event OK interrupt               enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> syncokie{}; 
     }
-    namespace Nonecfgr{    ///<configuration register
-        using Addr = Register::Address<0x40006c04,0x48000000,0,unsigned>;
+    namespace CrsCfgr{    ///<configuration register
+        using Addr = Register::Address<0x40006c04,0x48000000,0x00000000,unsigned>;
         ///SYNC polarity selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> syncpol{}; 
         ///SYNC signal source               selection
@@ -34,8 +34,8 @@ namespace Kvasir {
         ///Counter reload value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> reload{}; 
     }
-    namespace Noneisr{    ///<interrupt and status register
-        using Addr = Register::Address<0x40006c08,0x000078f0,0,unsigned>;
+    namespace CrsIsr{    ///<interrupt and status register
+        using Addr = Register::Address<0x40006c08,0x000078f0,0x00000000,unsigned>;
         ///Frequency error capture
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> fecap{}; 
         ///Frequency error direction
@@ -55,8 +55,8 @@ namespace Kvasir {
         ///SYNC event OK flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> syncokf{}; 
     }
-    namespace Noneicr{    ///<interrupt flag clear register
-        using Addr = Register::Address<0x40006c0c,0xfffffff0,0,unsigned>;
+    namespace CrsIcr{    ///<interrupt flag clear register
+        using Addr = Register::Address<0x40006c0c,0xfffffff0,0x00000000,unsigned>;
         ///Expected SYNC clear flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> esyncc{}; 
         ///Error clear flag

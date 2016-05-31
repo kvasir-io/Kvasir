@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // peripheral USB0 
-    namespace Noneudcc{    ///< register UDCC 
-        using Addr = Register::Address<0x40042120,0xffffff04,0,unsigned>;
+    namespace Usb0Udcc{    ///< register UDCC 
+        using Addr = Register::Address<0x40042120,0xffffff04,0x00000000,unsigned>;
         /// bitfield RST 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rst{}; 
         /// bitfield RESUM 
@@ -19,15 +19,15 @@ namespace Kvasir {
         /// bitfield PWC 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pwc{}; 
     }
-    namespace Noneep0c{    ///< register EP0C 
-        using Addr = Register::Address<0x40042124,0xfffffd80,0,unsigned>;
+    namespace Usb0Ep0c{    ///< register EP0C 
+        using Addr = Register::Address<0x40042124,0xfffffd80,0x00000000,unsigned>;
         /// bitfield STAL 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> stal{}; 
         /// bitfield PKS0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> pks0{}; 
     }
-    namespace Noneep1c{    ///< register EP1C 
-        using Addr = Register::Address<0x40042128,0xffff0000,0,unsigned>;
+    namespace Usb0Ep1c{    ///< register EP1C 
+        using Addr = Register::Address<0x40042128,0xffff0000,0x00000000,unsigned>;
         /// bitfield EPEN 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> epen{}; 
         /// bitfield TYPE 
@@ -43,8 +43,8 @@ namespace Kvasir {
         /// bitfield PKS 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> pks{}; 
     }
-    namespace Noneep2c{    ///< register EP2C 
-        using Addr = Register::Address<0x4004212c,0xffff0180,0,unsigned>;
+    namespace Usb0Ep2c{    ///< register EP2C 
+        using Addr = Register::Address<0x4004212c,0xffff0180,0x00000000,unsigned>;
         /// bitfield EPEN 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> epen{}; 
         /// bitfield TYPE 
@@ -60,22 +60,22 @@ namespace Kvasir {
         /// bitfield PKS 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> pks{}; 
     }
-    namespace Noneep3c{    ///< register EP3C 
-        using Addr = Register::Address<0x40042130,0xffffffff,0,unsigned>;
+    namespace Usb0Ep3c{    ///< register EP3C 
+        using Addr = Register::Address<0x40042130,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneep4c{    ///< register EP4C 
-        using Addr = Register::Address<0x40042134,0xffffffff,0,unsigned>;
+    namespace Usb0Ep4c{    ///< register EP4C 
+        using Addr = Register::Address<0x40042134,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneep5c{    ///< register EP5C 
-        using Addr = Register::Address<0x40042138,0xffffffff,0,unsigned>;
+    namespace Usb0Ep5c{    ///< register EP5C 
+        using Addr = Register::Address<0x40042138,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonetmsp{    ///< register TMSP 
-        using Addr = Register::Address<0x4004213c,0xfffff800,0,unsigned>;
+    namespace Usb0Tmsp{    ///< register TMSP 
+        using Addr = Register::Address<0x4004213c,0xfffff800,0x00000000,unsigned>;
         /// bitfield TMSP 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> tmsp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tmsp{}; 
     }
-    namespace Noneudcs{    ///< register UDCS 
-        using Addr = Register::Address<0x40042140,0xffffffc0,0,unsigned char>;
+    namespace Usb0Udcs{    ///< register UDCS 
+        using Addr = Register::Address<0x40042140,0xffffffc0,0x00000000,unsigned char>;
         /// bitfield SUSP 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> susp{}; 
         /// bitfield SOF 
@@ -89,8 +89,8 @@ namespace Kvasir {
         /// bitfield CONF 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> conf{}; 
     }
-    namespace Noneudcie{    ///< register UDCIE 
-        using Addr = Register::Address<0x40042141,0xffffffc0,0,unsigned char>;
+    namespace Usb0Udcie{    ///< register UDCIE 
+        using Addr = Register::Address<0x40042141,0xffffffc0,0x00000000,unsigned char>;
         /// bitfield SUSPIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> suspie{}; 
         /// bitfield SOFIE 
@@ -100,12 +100,12 @@ namespace Kvasir {
         /// bitfield WKUPIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wkupie{}; 
         /// bitfield CONFN 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> confn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> confn{}; 
         /// bitfield CONFIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> confie{}; 
     }
-    namespace Noneep0is{    ///< register EP0IS 
-        using Addr = Register::Address<0x40042144,0xffff3bff,0,unsigned>;
+    namespace Usb0Ep0is{    ///< register EP0IS 
+        using Addr = Register::Address<0x40042144,0xffff3bff,0x00000000,unsigned>;
         /// bitfield BFINI 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> bfini{}; 
         /// bitfield DRQIIE 
@@ -113,8 +113,8 @@ namespace Kvasir {
         /// bitfield DRQI 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> drqi{}; 
     }
-    namespace Noneep0os{    ///< register EP0OS 
-        using Addr = Register::Address<0x40042148,0xffff1980,0,unsigned>;
+    namespace Usb0Ep0os{    ///< register EP0OS 
+        using Addr = Register::Address<0x40042148,0xffff1980,0x00000000,unsigned>;
         /// bitfield BFINI 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> bfini{}; 
         /// bitfield DRQOIE 
@@ -126,10 +126,10 @@ namespace Kvasir {
         /// bitfield SPK 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> spk{}; 
         /// bitfield SIZE 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> size{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> size{}; 
     }
-    namespace Noneep1s{    ///< register EP1S 
-        using Addr = Register::Address<0x4004214c,0xffff1000,0,unsigned>;
+    namespace Usb0Ep1s{    ///< register EP1S 
+        using Addr = Register::Address<0x4004214c,0xffff1000,0x00000000,unsigned>;
         /// bitfield BFINI 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> bfini{}; 
         /// bitfield DRQIE 
@@ -137,16 +137,16 @@ namespace Kvasir {
         /// bitfield SPKIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> spkie{}; 
         /// bitfield BUSY 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> busy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> busy{}; 
         /// bitfield DRQ 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> drq{}; 
         /// bitfield SPK 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> spk{}; 
         /// bitfield SIZE 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> size{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> size{}; 
     }
-    namespace Noneep2s{    ///< register EP2S 
-        using Addr = Register::Address<0x40042150,0xffff1180,0,unsigned>;
+    namespace Usb0Ep2s{    ///< register EP2S 
+        using Addr = Register::Address<0x40042150,0xffff1180,0x00000000,unsigned>;
         /// bitfield BFINI 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> bfini{}; 
         /// bitfield DRQIE 
@@ -154,45 +154,45 @@ namespace Kvasir {
         /// bitfield SPKIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> spkie{}; 
         /// bitfield BUSY 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> busy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> busy{}; 
         /// bitfield DRQ 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> drq{}; 
         /// bitfield SPK 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> spk{}; 
         /// bitfield SIZE 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> size{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> size{}; 
     }
-    namespace Noneep3s{    ///< register EP3S 
-        using Addr = Register::Address<0x40042154,0xffffffff,0,unsigned>;
+    namespace Usb0Ep3s{    ///< register EP3S 
+        using Addr = Register::Address<0x40042154,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneep4s{    ///< register EP4S 
-        using Addr = Register::Address<0x40042158,0xffffffff,0,unsigned>;
+    namespace Usb0Ep4s{    ///< register EP4S 
+        using Addr = Register::Address<0x40042158,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneep5s{    ///< register EP5S 
-        using Addr = Register::Address<0x4004215c,0xffffffff,0,unsigned>;
+    namespace Usb0Ep5s{    ///< register EP5S 
+        using Addr = Register::Address<0x4004215c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneep0dt{    ///< register EP0DT 
-        using Addr = Register::Address<0x40042160,0xffff0000,0,unsigned>;
+    namespace Usb0Ep0dt{    ///< register EP0DT 
+        using Addr = Register::Address<0x40042160,0xffff0000,0x00000000,unsigned>;
         /// bitfield BFDT 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> bfdt{}; 
     }
-    namespace Noneep1dt{    ///< register EP1DT 
-        using Addr = Register::Address<0x40042164,0xffffffff,0,unsigned>;
+    namespace Usb0Ep1dt{    ///< register EP1DT 
+        using Addr = Register::Address<0x40042164,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneep2dt{    ///< register EP2DT 
-        using Addr = Register::Address<0x40042168,0xffffffff,0,unsigned>;
+    namespace Usb0Ep2dt{    ///< register EP2DT 
+        using Addr = Register::Address<0x40042168,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneep3dt{    ///< register EP3DT 
-        using Addr = Register::Address<0x4004216c,0xffffffff,0,unsigned>;
+    namespace Usb0Ep3dt{    ///< register EP3DT 
+        using Addr = Register::Address<0x4004216c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneep4dt{    ///< register EP4DT 
-        using Addr = Register::Address<0x40042170,0xffffffff,0,unsigned>;
+    namespace Usb0Ep4dt{    ///< register EP4DT 
+        using Addr = Register::Address<0x40042170,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneep5dt{    ///< register EP5DT 
-        using Addr = Register::Address<0x40042174,0xffffffff,0,unsigned>;
+    namespace Usb0Ep5dt{    ///< register EP5DT 
+        using Addr = Register::Address<0x40042174,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonehcnt{    ///< register HCNT 
-        using Addr = Register::Address<0x40042100,0xfffff800,0,unsigned>;
+    namespace Usb0Hcnt{    ///< register HCNT 
+        using Addr = Register::Address<0x40042100,0xfffff800,0x00000000,unsigned>;
         /// bitfield SOFSTEP 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> sofstep{}; 
         /// bitfield CANCEL 
@@ -216,8 +216,8 @@ namespace Kvasir {
         /// bitfield HOST 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> host{}; 
     }
-    namespace Nonehirq{    ///< register HIRQ 
-        using Addr = Register::Address<0x40042104,0xffffff40,0,unsigned char>;
+    namespace Usb0Hirq{    ///< register HIRQ 
+        using Addr = Register::Address<0x40042104,0xffffff40,0x00000000,unsigned char>;
         /// bitfield TCAN 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tcan{}; 
         /// bitfield RWKIRQ 
@@ -233,8 +233,8 @@ namespace Kvasir {
         /// bitfield SOFIRQ 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sofirq{}; 
     }
-    namespace Noneherr{    ///< register HERR 
-        using Addr = Register::Address<0x40042105,0xffffff00,0,unsigned char>;
+    namespace Usb0Herr{    ///< register HERR 
+        using Addr = Register::Address<0x40042105,0xffffff00,0x00000000,unsigned char>;
         /// bitfield LSTSOF 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> lstsof{}; 
         /// bitfield RERR 
@@ -250,8 +250,8 @@ namespace Kvasir {
         /// bitfield HS 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> hs{}; 
     }
-    namespace Nonehstate{    ///< register HSTATE 
-        using Addr = Register::Address<0x40042108,0xffffffc0,0,unsigned char>;
+    namespace Usb0Hstate{    ///< register HSTATE 
+        using Addr = Register::Address<0x40042108,0xffffffc0,0x00000000,unsigned char>;
         /// bitfield ALIVE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> alive{}; 
         /// bitfield CLKSEL 
@@ -261,48 +261,48 @@ namespace Kvasir {
         /// bitfield SUSP 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> susp{}; 
         /// bitfield TMODE 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tmode{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tmode{}; 
         /// bitfield CSTAT 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cstat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cstat{}; 
     }
-    namespace Nonehfcomp{    ///< register HFCOMP 
-        using Addr = Register::Address<0x40042109,0xffffff00,0,unsigned char>;
+    namespace Usb0Hfcomp{    ///< register HFCOMP 
+        using Addr = Register::Address<0x40042109,0xffffff00,0x00000000,unsigned char>;
         /// bitfield FRAMECOMP 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> framecomp{}; 
     }
-    namespace Nonehrtimer{    ///< register HRTIMER 
-        using Addr = Register::Address<0x4004210c,0xffff0000,0,unsigned>;
+    namespace Usb0Hrtimer{    ///< register HRTIMER 
+        using Addr = Register::Address<0x4004210c,0xffff0000,0x00000000,unsigned>;
         /// bitfield RTIMER1 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> rtimer1{}; 
         /// bitfield RTIMER0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rtimer0{}; 
     }
-    namespace Nonehrtimer2{    ///< register HRTIMER2 
-        using Addr = Register::Address<0x40042110,0xfffffffc,0,unsigned char>;
+    namespace Usb0Hrtimer2{    ///< register HRTIMER2 
+        using Addr = Register::Address<0x40042110,0xfffffffc,0x00000000,unsigned char>;
         /// bitfield RTIMER2 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> rtimer2{}; 
     }
-    namespace Nonehadr{    ///< register HADR 
-        using Addr = Register::Address<0x40042111,0xffffff80,0,unsigned char>;
+    namespace Usb0Hadr{    ///< register HADR 
+        using Addr = Register::Address<0x40042111,0xffffff80,0x00000000,unsigned char>;
         /// bitfield ADDRESS 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> address{}; 
     }
-    namespace Noneheof{    ///< register HEOF 
-        using Addr = Register::Address<0x40042114,0xffffc000,0,unsigned>;
+    namespace Usb0Heof{    ///< register HEOF 
+        using Addr = Register::Address<0x40042114,0xffffc000,0x00000000,unsigned>;
         /// bitfield EOF1 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> eof1{}; 
         /// bitfield EOF0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> eof0{}; 
     }
-    namespace Nonehframe{    ///< register HFRAME 
-        using Addr = Register::Address<0x40042118,0xfffff800,0,unsigned>;
+    namespace Usb0Hframe{    ///< register HFRAME 
+        using Addr = Register::Address<0x40042118,0xfffff800,0x00000000,unsigned>;
         /// bitfield FRAME1 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> frame1{}; 
         /// bitfield FRAME0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> frame0{}; 
     }
-    namespace Nonehtoken{    ///< register HTOKEN 
-        using Addr = Register::Address<0x4004211c,0xffffff00,0,unsigned char>;
+    namespace Usb0Htoken{    ///< register HTOKEN 
+        using Addr = Register::Address<0x4004211c,0xffffff00,0x00000000,unsigned char>;
         /// bitfield TGGL 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tggl{}; 
         /// bitfield TKNEN 

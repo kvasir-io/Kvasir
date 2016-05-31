@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40038000,0x3ef0f00c,0,unsigned>;
+    namespace Lptimer0Control{    ///<Module Control
+        using Addr = Register::Address<0x40038000,0x3ef0f00c,0x00000000,unsigned>;
         ///Count Mode. 
         enum class CmdVal {
             free=0x00000000,     ///<The timer is free running mode on the RTCn module clock (RTCnOSC or LFOSCn).
@@ -159,13 +159,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::start> start{};
         }
     }
-    namespace Nonedata{    ///<Timer and Comparator Data
-        using Addr = Register::Address<0x40038010,0xffff0000,0,unsigned>;
+    namespace Lptimer0Data{    ///<Timer and Comparator Data
+        using Addr = Register::Address<0x40038010,0xffff0000,0x00000000,unsigned>;
         ///Timer and Comparator Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonestatus{    ///<Module Status
-        using Addr = Register::Address<0x40038020,0xfffffffc,0,unsigned>;
+    namespace Lptimer0Status{    ///<Module Status
+        using Addr = Register::Address<0x40038020,0xfffffffc,0x00000000,unsigned>;
         ///Timer Overflow Interrupt Flag. 
         enum class OvfiVal {
             notSet=0x00000000,     ///<A timer overflow has not occurred.

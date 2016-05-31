@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //DMAC Registers
-    namespace Nonedmacr{    ///<Entire DMAC Configuration Register
-        using Addr = Register::Address<0x40060000,0x20ffffff,0,unsigned>;
+    namespace DmacDmacr{    ///<Entire DMAC Configuration Register
+        using Addr = Register::Address<0x40060000,0x20ffffff,0x00000000,unsigned>;
         ///DMA Enable (all-channel operation enable bit) 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> de{}; 
         ///DMA Stop
@@ -13,8 +13,8 @@ namespace Kvasir {
         ///DMA Halt (All-channel pause bit) 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> dh{}; 
     }
-    namespace Nonedmaca0{    ///<Configuration A Register
-        using Addr = Register::Address<0x40060010,0x00700000,0,unsigned>;
+    namespace DmacDmaca0{    ///<Configuration A Register
+        using Addr = Register::Address<0x40060010,0x00700000,0x00000000,unsigned>;
         ///Enable bit (individual-channel operation enable bit)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eb{}; 
         ///Pause bit (individual-channel pause bit) 
@@ -28,8 +28,8 @@ namespace Kvasir {
         ///Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tc{}; 
     }
-    namespace Nonedmacb0{    ///<Configuration B Register
-        using Addr = Register::Address<0x40060014,0xc000fffe,0,unsigned>;
+    namespace DmacDmacb0{    ///<Configuration B Register
+        using Addr = Register::Address<0x40060014,0xc000fffe,0x00000000,unsigned>;
         ///Mode Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> ms{}; 
         ///Transfer Width 
@@ -53,46 +53,46 @@ namespace Kvasir {
         ///Enable bit Mask (EB bit clear mask)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> em{}; 
     }
-    namespace Nonedmacsa0{    ///<Transfer Source Address Register
-        using Addr = Register::Address<0x40060018,0xffffffff,0,unsigned>;
+    namespace DmacDmacsa0{    ///<Transfer Source Address Register
+        using Addr = Register::Address<0x40060018,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacda0{    ///<Transfer Destination Address Register
-        using Addr = Register::Address<0x4006001c,0xffffffff,0,unsigned>;
+    namespace DmacDmacda0{    ///<Transfer Destination Address Register
+        using Addr = Register::Address<0x4006001c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmaca1{    ///<Configuration A Register 1
-        using Addr = Register::Address<0x40060020,0xffffffff,0,unsigned>;
+    namespace DmacDmaca1{    ///<Configuration A Register 1
+        using Addr = Register::Address<0x40060020,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacb1{    ///<Configuration B Register 1
-        using Addr = Register::Address<0x40060024,0xffffffff,0,unsigned>;
+    namespace DmacDmacb1{    ///<Configuration B Register 1
+        using Addr = Register::Address<0x40060024,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacsa1{    ///<Transfer Source Address Register 1
-        using Addr = Register::Address<0x40060028,0xffffffff,0,unsigned>;
+    namespace DmacDmacsa1{    ///<Transfer Source Address Register 1
+        using Addr = Register::Address<0x40060028,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacda1{    ///<Transfer Destination Address Register 1
-        using Addr = Register::Address<0x4006002c,0xffffffff,0,unsigned>;
+    namespace DmacDmacda1{    ///<Transfer Destination Address Register 1
+        using Addr = Register::Address<0x4006002c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmaca2{    ///<Configuration A Register 2
-        using Addr = Register::Address<0x40060030,0xffffffff,0,unsigned>;
+    namespace DmacDmaca2{    ///<Configuration A Register 2
+        using Addr = Register::Address<0x40060030,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacb2{    ///<Configuration B Register 2
-        using Addr = Register::Address<0x40060034,0xffffffff,0,unsigned>;
+    namespace DmacDmacb2{    ///<Configuration B Register 2
+        using Addr = Register::Address<0x40060034,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacsa2{    ///<Transfer Source Address Register 2
-        using Addr = Register::Address<0x40060038,0xffffffff,0,unsigned>;
+    namespace DmacDmacsa2{    ///<Transfer Source Address Register 2
+        using Addr = Register::Address<0x40060038,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacda2{    ///<Transfer Destination Address Register 2
-        using Addr = Register::Address<0x4006003c,0xffffffff,0,unsigned>;
+    namespace DmacDmacda2{    ///<Transfer Destination Address Register 2
+        using Addr = Register::Address<0x4006003c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmaca3{    ///<Configuration A Register 3
-        using Addr = Register::Address<0x40060040,0xffffffff,0,unsigned>;
+    namespace DmacDmaca3{    ///<Configuration A Register 3
+        using Addr = Register::Address<0x40060040,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacb3{    ///<Configuration B Register 3
-        using Addr = Register::Address<0x40060044,0xffffffff,0,unsigned>;
+    namespace DmacDmacb3{    ///<Configuration B Register 3
+        using Addr = Register::Address<0x40060044,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacsa3{    ///<Transfer Source Address Register 3
-        using Addr = Register::Address<0x40060048,0xffffffff,0,unsigned>;
+    namespace DmacDmacsa3{    ///<Transfer Source Address Register 3
+        using Addr = Register::Address<0x40060048,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedmacda3{    ///<Transfer Destination Address Register 3
-        using Addr = Register::Address<0x4006004c,0xffffffff,0,unsigned>;
+    namespace DmacDmacda3{    ///<Transfer Destination Address Register 3
+        using Addr = Register::Address<0x4006004c,0xffffffff,0x00000000,unsigned>;
     }
 }

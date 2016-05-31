@@ -1,16 +1,16 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Debug support
-    namespace NonedbgmcuIdcode{    ///<IDCODE
-        using Addr = Register::Address<0xe0042000,0x0000f000,0,unsigned>;
+    namespace DbgDbgmcuIdcode{    ///<IDCODE
+        using Addr = Register::Address<0xe0042000,0x0000f000,0x00000000,unsigned>;
         ///DEV_ID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> devId{}; 
         ///REV_ID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> revId{}; 
     }
-    namespace NonedbgmcuCr{    ///<Control Register
-        using Addr = Register::Address<0xe0042004,0xffffff18,0,unsigned>;
+    namespace DbgDbgmcuCr{    ///<Control Register
+        using Addr = Register::Address<0xe0042004,0xffffff18,0x00000000,unsigned>;
         ///DBG_SLEEP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dbgSleep{}; 
         ///DBG_STOP
@@ -22,8 +22,8 @@ namespace Kvasir {
         ///TRACE_MODE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> traceMode{}; 
     }
-    namespace NonedbgmcuApb1Fz{    ///<Debug MCU APB1 Freeze registe
-        using Addr = Register::Address<0xe0042008,0xff1fe3f0,0,unsigned>;
+    namespace DbgDbgmcuApb1Fz{    ///<Debug MCU APB1 Freeze registe
+        using Addr = Register::Address<0xe0042008,0xff1fe3f0,0x00000000,unsigned>;
         ///DBG_TIM2_STOP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dbgTim2Stop{}; 
         ///DBG_TIM3 _STOP
@@ -32,8 +32,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dbgTim4Stop{}; 
         ///DBG_TIM5_STOP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dbgTim5Stop{}; 
-        ///RTC stopped when Core is
-              halted
+        ///RTC stopped when Core is              halted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> dbgRtcStop{}; 
         ///DBG_WWDG_STOP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dbgWwdgStop{}; 
@@ -46,19 +45,15 @@ namespace Kvasir {
         ///DBG_J2C3SMBUS_TIMEOUT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> dbgI2c3smbusTimeout{}; 
     }
-    namespace NonedbgmcuApb2Fz{    ///<Debug MCU APB2 Freeze registe
-        using Addr = Register::Address<0xe004200c,0xfff8fffe,0,unsigned>;
-        ///TIM1 counter stopped when core is
-              halted
+    namespace DbgDbgmcuApb2Fz{    ///<Debug MCU APB2 Freeze registe
+        using Addr = Register::Address<0xe004200c,0xfff8fffe,0x00000000,unsigned>;
+        ///TIM1 counter stopped when core is              halted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dbgTim1Stop{}; 
-        ///TIM9 counter stopped when core is
-              halted
+        ///TIM9 counter stopped when core is              halted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dbgTim9Stop{}; 
-        ///TIM10 counter stopped when core is
-              halted
+        ///TIM10 counter stopped when core is              halted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dbgTim10Stop{}; 
-        ///TIM11 counter stopped when core is
-              halted
+        ///TIM11 counter stopped when core is              halted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> dbgTim11Stop{}; 
     }
 }

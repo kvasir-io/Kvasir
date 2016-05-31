@@ -1,33 +1,41 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10430 Chapter title=LPC18xx USB0 Host/Device/OTG controller Modification date=1/19/2011 Major revision=0 Minor revision=7 
-    namespace Nonecaplength{    ///<Capability register length
-        using Addr = Register::Address<0x40006100,0xff000000,0,unsigned>;
+    namespace Usb0Caplength{    ///<Capability register length
+        using Addr = Register::Address<0x40006100,0x00000000,0x00000000,unsigned>;
         ///Indicates offset to add to the register base address at the beginning of the Operational Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> caplength{}; 
         ///BCD encoding of the EHCI revision number supported by this host controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> hciversion{}; 
+        ///These bits are reserved and should be set to zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonehcsparams{    ///<Host controller structural parameters
-        using Addr = Register::Address<0x40006104,0xf00e00e0,0,unsigned>;
+    namespace Usb0Hcsparams{    ///<Host controller structural parameters
+        using Addr = Register::Address<0x40006104,0x00000000,0x00000000,unsigned>;
         ///Number of downstream ports. This field specifies the number of physical downstream ports implemented on this host controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> nPorts{}; 
         ///Port Power Control. This field indicates whether the host controller implementation includes port power control.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ppc{}; 
+        ///These bits are reserved and should be set to zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Number of Ports per Companion Controller. This field indicates the number of ports supported per internal Companion Controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> nPcc{}; 
         ///Number of Companion Controller. This field indicates the number of companion controllers associated with this USB2.0 host controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> nCc{}; 
         ///Port indicators. This bit indicates whether the ports support port indicator control.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pi{}; 
+        ///These bits are reserved and should be set to zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Number of Ports per Transaction Translator. This field indicates the number of ports assigned to each transaction translator within the USB2.0 host controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> nPtt{}; 
         ///Number of Transaction Translators. This field indicates the number of embedded transaction translators associated with the USB2.0 host controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> nTt{}; 
+        ///These bits are reserved and should be set to zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonehccparams{    ///<Host controller capability parameters
-        using Addr = Register::Address<0x40006108,0xffff0008,0,unsigned>;
+    namespace Usb0Hccparams{    ///<Host controller capability parameters
+        using Addr = Register::Address<0x40006108,0x00000008,0x00000000,unsigned>;
         ///64-bit Addressing Capability. If zero, no 64-bit addressing capability is supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> adc{}; 
         ///Programmable Frame List Flag. If set to one, then the system software can specify and use a smaller frame list and configure the host controller via the USBCMD register Frame List Size field. The frame list must always be aligned on a 4K-boundary. This requirement ensures that the frame list is always physically contiguous.
@@ -38,14 +46,16 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> ist{}; 
         ///EHCI Extended Capabilities Pointer. This optional field indicates the existence of a capabilities list.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> eecp{}; 
+        ///These bits are reserved and should be set to zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedciversion{    ///<Device interface version number
-        using Addr = Register::Address<0x40006120,0xffff0000,0,unsigned>;
+    namespace Usb0Dciversion{    ///<Device interface version number
+        using Addr = Register::Address<0x40006120,0xffff0000,0x00000000,unsigned>;
         ///The device controller interface conforms to the two-byte BCD encoding of the interface version number contained in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dciversion{}; 
     }
-    namespace NoneusbcmdD{    ///<USB command (device mode)
-        using Addr = Register::Address<0x40006140,0xff009ffc,0,unsigned>;
+    namespace Usb0UsbcmdD{    ///<USB command (device mode)
+        using Addr = Register::Address<0x40006140,0x00000000,0x00000000,unsigned>;
         ///Run/Stop
         enum class RsVal {
             detach=0x00000000,     ///<Writing a 0 to this bit will cause a detach event.
@@ -66,15 +76,37 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rst)::Type,RstVal::resetcomplete> resetcomplete{};
             constexpr Register::FieldValue<decltype(rst)::Type,RstVal::reset> reset{};
         }
+        ///Not used in device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in device mode. Writing a one to this bit when the device mode is selected, will have undefined results.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved. These bits should be set to 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in Device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.These bits should be set to 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in Device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.These bits should be set to 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Setup trip wire  During handling a setup packet, this bit is used as a semaphore to ensure that the setup data payload of 8 bytes is extracted from a QH by the DCD without being corrupted. If the setup lockout mode is off (see USBMODE register) then there exists a hazard when new setup data arrives while the DCD is copying the setup data payload from the QH for a previous setup packet. This bit is set and cleared by software and will be cleared by hardware when a hazard exists. (See Section 18.10).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> sutw{}; 
         ///Add dTD trip wire This bit is used as a semaphore to ensure the to proper addition of a new dTD to an active (primed) endpoint's linked list. This bit is set and cleared by software during the process of adding a new dTD. See also Section 18.10. This bit shall also be cleared by hardware when its state machine is hazard region for which adding a dTD to a primed endpoint may go unrecognized.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> atdtw{}; 
+        ///Not used in device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Interrupt threshold control. The system software uses this field to set the maximum rate at which the host/device controller will issue interrupts. ITC contains the maximum interrupt interval measured in micro-frames. Valid values are shown below. All other values are reserved. 0x0 = Immediate (no threshold) 0x1 = 1 micro frame. 0x2 = 2 micro frames. 0x8 = 8 micro frames. 0x10 = 16 micro frames. 0x20 = 32 micro frames. 0x40 = 64 micro frames.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> itc{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneusbcmdH{    ///<USB command (host mode)
-        using Addr = Register::Address<0x40006140,0xff007480,0,unsigned>;
+    namespace Usb0UsbcmdH{    ///<USB command (host mode)
+        using Addr = Register::Address<0x40006140,0x00000000,0x00000000,unsigned>;
         ///Run/Stop
         enum class RsVal {
             halt=0x00000000,     ///<When this bit is set to 0, the Host Controller completes the current transaction on the USB and then halts. The HC Halted bit in the status register indicates when the Host Controller has finished the transaction and has entered the stopped state. Software should not write a one to this field unless the host controller is in the Halted state (i.e. HCHalted in the USBSTS register is a one).
@@ -129,8 +161,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iaa)::Type,IaaVal::theHostController> theHostController{};
             constexpr Register::FieldValue<decltype(iaa)::Type,IaaVal::softwareMustWrite> softwareMustWrite{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Asynchronous schedule park mode Contains a count of the number of successive transactions the host controller is allowed to execute from a high-speed queue head on the Asynchronous schedule before continuing traversal of the Asynchronous schedule. Valid values are 0x1 to 0x3.  Software must not write 00 to this bit when Park Mode Enable is one as this will result in undefined behavior.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> asp10{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Asynchronous Schedule Park Mode Enable
         enum class AspeVal {
             parkModeIsDisable=0x00000000,     ///<Park mode is disabled.
@@ -141,13 +177,21 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aspe)::Type,AspeVal::parkModeIsDisable> parkModeIsDisable{};
             constexpr Register::FieldValue<decltype(aspe)::Type,AspeVal::parkModeIsEnabled> parkModeIsEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in Host mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Bit 2 of the Frame List Size bits. See Table 220.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> fs2{}; 
         ///Interrupt threshold control. The system software uses this field to set the maximum rate at which the host/device controller will issue interrupts. ITC contains the maximum interrupt interval measured in micro-frames. Valid values are shown below. All other values are reserved. 0x0 = Immediate (no threshold) 0x1 = 1 micro frame. 0x2 = 2 micro frames. 0x8 = 8 micro frames. 0x10 = 16 micro frames. 0x20 = 32 micro frames. 0x40 = 64 micro frames.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> itc{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneusbstsD{    ///<USB status (device mode)
-        using Addr = Register::Address<0x40006144,0xfffefe18,0,unsigned>;
+    namespace Usb0UsbstsD{    ///<USB status (device mode)
+        using Addr = Register::Address<0x40006144,0x00000000,0x00000000,unsigned>;
         ///USB interrupt
         enum class UiVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -178,6 +222,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pci)::Type,PciVal::st> st{};
             constexpr Register::FieldValue<decltype(pci)::Type,PciVal::clear> clear{};
         }
+        ///Not used in Device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Not used in Device mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> aai{}; 
         ///USB reset received
@@ -210,6 +258,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sli)::Type,SliVal::st> st{};
             constexpr Register::FieldValue<decltype(sli)::Type,SliVal::clear> clear{};
         }
+        ///Reserved. Software should only write 0 to reserved bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in Device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in Device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in Device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in Device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///NAK interrupt bit
         enum class NakiVal {
             st=0x00000000,     ///<This bit is automatically cleared by hardware when the all the enabled TX/RX Endpoint NAK bits are cleared.
@@ -220,9 +278,17 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(naki)::Type,NakiVal::st> st{};
             constexpr Register::FieldValue<decltype(naki)::Type,NakiVal::clear> clear{};
         }
+        ///Reserved. Software should only write 0 to reserved bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in Device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in Device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved. Software should only write 0 to reserved bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneusbstsH{    ///<USB status (host mode)
-        using Addr = Register::Address<0x40006144,0xfff30f50,0,unsigned>;
+    namespace Usb0UsbstsH{    ///<USB status (host mode)
+        using Addr = Register::Address<0x40006144,0x00000000,0x00000000,unsigned>;
         ///USB interrupt (USBINT)
         enum class UiVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -263,6 +329,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fri)::Type,FriVal::st> st{};
             constexpr Register::FieldValue<decltype(fri)::Type,FriVal::clear> clear{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Interrupt on async advance
         enum class AaiVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -273,6 +341,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aai)::Type,AaiVal::st> st{};
             constexpr Register::FieldValue<decltype(aai)::Type,AaiVal::clear> clear{};
         }
+        ///Not used by the Host controller.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///SOF received
         enum class SriVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -283,6 +353,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sri)::Type,SriVal::st> st{};
             constexpr Register::FieldValue<decltype(sri)::Type,SriVal::clear> clear{};
         }
+        ///Not used by the Host controller.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///HCHalted
         enum class HchVal {
             rs=0x00000000,     ///<The RS bit in USBCMD is set to zero. Set by the host controller.
@@ -323,6 +397,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(as)::Type,AsVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(as)::Type,AsVal::disabled> disabled{};
         }
+        ///Not used on Host mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///USB host asynchronous interrupt (USBHSTASYNCINT)
         enum class UaiVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -343,26 +421,44 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(upi)::Type,UpiVal::st> st{};
             constexpr Register::FieldValue<decltype(upi)::Type,UpiVal::clear> clear{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneusbintrD{    ///<USB interrupt enable (device mode)
-        using Addr = Register::Address<0x40006148,0xfffefe38,0,unsigned>;
+    namespace Usb0UsbintrD{    ///<USB interrupt enable (device mode)
+        using Addr = Register::Address<0x40006148,0x00000000,0x00000000,unsigned>;
         ///USB interrupt enable When this bit is one, and the USBINT bit in the USBSTS register is one, the host/device controller will issue an interrupt at the next interrupt threshold. The interrupt is acknowledged by software clearing the USBINT bit in USBSTS.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ue{}; 
         ///USB error interrupt enable When this bit is a one, and the USBERRINT bit in the USBSTS register is a one, the host/device controller will issue an interrupt at the next interrupt threshold. The interrupt is acknowledged by software clearing the USBERRINT bit in the USBSTS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> uee{}; 
         ///Port change detect enable When this bit is a one, and the Port Change Detect bit in the USBSTS register is a one, the host/device controller will issue an interrupt. The interrupt is acknowledged by software clearing the Port Change Detect bit in USBSTS.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pce{}; 
+        ///Not used by the Device controller.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used by the Device controller.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///USB reset enable When this bit is a one, and the USB Reset Received bit in the USBSTS register is a one, the device controller will issue an interrupt. The interrupt is acknowledged by software clearing the USB Reset Received bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ure{}; 
         ///SOF received enable When this bit is a one, and the SOF Received bit in the USBSTS register is a one, the device controller will issue an interrupt. The interrupt is acknowledged by software clearing the SOF Received bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> sre{}; 
         ///Sleep enable When this bit is a one, and the DCSuspend bit in the USBSTS register transitions, the device controller will issue an interrupt. The interrupt is acknowledged by software writing a one to the DCSuspend bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sle{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///NAK interrupt enable This bit is set by software if it wants to enable the hardware interrupt for the NAK Interrupt bit. If both this bit and the corresponding NAK Interrupt bit are set, a hardware interrupt is generated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> nake{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used by the Device controller.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used by the Device controller.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneusbintrH{    ///<USB interrupt enable (host mode)
-        using Addr = Register::Address<0x40006148,0xfff3ff50,0,unsigned>;
+    namespace Usb0UsbintrH{    ///<USB interrupt enable (host mode)
+        using Addr = Register::Address<0x40006148,0x00000000,0x00000000,unsigned>;
         ///USB interrupt enable When this bit is one, and the USBINT bit in the USBSTS register is one, the host/device controller will issue an interrupt at the next interrupt threshold. The interrupt is acknowledged by software clearing the USBINT bit in USBSTS.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ue{}; 
         ///USB error interrupt enable When this bit is a one, and the USBERRINT bit in the USBSTS register is a one, the host/device controller will issue an interrupt at the next interrupt threshold. The interrupt is acknowledged by software clearing the USBERRINT bit in the USBSTS register.
@@ -371,31 +467,51 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pce{}; 
         ///Frame list rollover enable When this bit is a one, and the Frame List Rollover bit in the USBSTS register is a one, the host controller will issue an interrupt. The interrupt is acknowledged by software clearing the Frame List Rollover bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> fre{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Interrupt on asynchronous advance enable When this bit is a one, and the Interrupt on Async Advance bit in the USBSTS register is a one, the host controller will issue an interrupt at the next interrupt threshold. The interrupt is acknowledged by software clearing the Interrupt on Async Advance bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> aae{}; 
+        ///Not used by the Host controller.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///If this bit is one and the SRI bit in the USBSTS register is one, the host controller will issue an interrupt. In host mode, the SRI bit will be set every 125 ms and can be used by the host controller as a time base. The interrupt is acknowledged by software clearing the SRI bit in the USBSTS register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> sre{}; 
+        ///Not used by the Host controller.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used by the host controller.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///USB host asynchronous interrupt enable When this bit is a one, and the USBHSTASYNCINT bit in the USBSTS register is a one, the host controller will issue an interrupt at the next interrupt threshold. The interrupt is acknowledged by software clearing the USBHSTASYNCINT bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> uaie{}; 
         ///USB host periodic interrupt enable When this bit is a one, and the USBHSTPERINT bit in the USBSTS register is a one, the host controller will issue an interrupt at the next interrupt threshold. The interrupt is acknowledged by software clearing the USBHSTPERINT bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> upia{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonefrindexD{    ///<USB frame index (device mode)
-        using Addr = Register::Address<0x4000614c,0xffffc000,0,unsigned>;
+    namespace Usb0FrindexD{    ///<USB frame index (device mode)
+        using Addr = Register::Address<0x4000614c,0x00000000,0x00000000,unsigned>;
         ///Current micro frame number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> frindex20{}; 
         ///Current frame number of the last frame transmitted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,3),Register::ReadWriteAccess,unsigned> frindex133{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonefrindexH{    ///<USB frame index (host mode)
-        using Addr = Register::Address<0x4000614c,0xffffe000,0,unsigned>;
+    namespace Usb0FrindexH{    ///<USB frame index (host mode)
+        using Addr = Register::Address<0x4000614c,0x00000000,0x00000000,unsigned>;
         ///Current micro frame number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> frindex20{}; 
         ///Frame list current index.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,3),Register::ReadWriteAccess,unsigned> frindex123{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,13),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedeviceaddr{    ///<USB device address (device mode)
-        using Addr = Register::Address<0x40006154,0x00ffffff,0,unsigned>;
+    namespace Usb0Deviceaddr{    ///<USB device address (device mode)
+        using Addr = Register::Address<0x40006154,0x00000000,0x00000000,unsigned>;
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Device address advance
         enum class UsbadraVal {
             instantaneous=0x00000000,     ///<Any write to USBADR are instantaneous.
@@ -409,49 +525,67 @@ namespace Kvasir {
         ///USB device address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,25),Register::ReadWriteAccess,unsigned> usbadr{}; 
     }
-    namespace Noneperiodiclistbase{    ///<Frame list base address (host mode)
-        using Addr = Register::Address<0x40006154,0x00000fff,0,unsigned>;
+    namespace Usb0Periodiclistbase{    ///<Frame list base address (host mode)
+        using Addr = Register::Address<0x40006154,0x00000000,0x00000000,unsigned>;
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Base Address (Low) These bits correspond to the memory address signals 31:12.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> perbase3112{}; 
     }
-    namespace Noneendpointlistaddr{    ///<Address of endpoint list in memory
-        using Addr = Register::Address<0x40006158,0x000007ff,0,unsigned>;
+    namespace Usb0Endpointlistaddr{    ///<Address of endpoint list in memory
+        using Addr = Register::Address<0x40006158,0x00000000,0x00000000,unsigned>;
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Endpoint list pointer (low) These bits correspond to memory address signals 31:11, respectively. This field will reference a list of up to 4 Queue Heads (QH). (i.e. one queue head per endpoint and direction.)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> epbase3111{}; 
     }
-    namespace Noneasynclistaddr{    ///<Address of endpoint list in memory
-        using Addr = Register::Address<0x40006158,0x0000001f,0,unsigned>;
+    namespace Usb0Asynclistaddr{    ///<Address of endpoint list in memory
+        using Addr = Register::Address<0x40006158,0x00000000,0x00000000,unsigned>;
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Link pointer (Low) LPL These bits correspond to memory address signals 31:5, respectively. This field may only reference a Queue Head (OH).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> asybase315{}; 
     }
-    namespace Nonettctrl{    ///<Asynchronous buffer status for embedded TT (host mode)
-        using Addr = Register::Address<0x4000615c,0x80ffffff,0,unsigned>;
+    namespace Usb0Ttctrl{    ///<Asynchronous buffer status for embedded TT (host mode)
+        using Addr = Register::Address<0x4000615c,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Hub address when FS or LS device are connected directly.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,24),Register::ReadWriteAccess,unsigned> ttha{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneburstsize{    ///<Programmable burst size
-        using Addr = Register::Address<0x40006160,0xffff0000,0,unsigned>;
+    namespace Usb0Burstsize{    ///<Programmable burst size
+        using Addr = Register::Address<0x40006160,0x00000000,0x00000000,unsigned>;
         ///Programmable RX burst length This register represents the maximum length of a burst in 32-bit words while moving data from the USB bus to system memory.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxpburst{}; 
         ///Programmable TX burst length This register represents the maximum length of a burst in 32-bit words while moving data from system memory to the USB bus.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> txpburst{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxfilltuning{    ///<Host transmit pre-buffer packet tuning (host mode)
-        using Addr = Register::Address<0x40006164,0xffc0e000,0,unsigned>;
+    namespace Usb0Txfilltuning{    ///<Host transmit pre-buffer packet tuning (host mode)
+        using Addr = Register::Address<0x40006164,0x00000000,0x00000000,unsigned>;
         ///FIFO burst threshold This register controls the number of data bursts that are posted to the TX latency FIFO in host mode before the packet begins on to the bus. The minimum value is 2 and this value should be a low as possible to maximize USB performance. A higher value can be used in systems with unpredictable latency and/or insufficient bandwidth where the FIFO may underrun because the data transferred from the latency FIFO to USB occurs before it can be replenished from system memory. This value is ignored if the Stream Disable bit in USBMODE register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txschoh{}; 
         ///Scheduler health counter This register increments when the host controller fails to fill the TX latency FIFO to the level programmed by TXFIFOTHRES before running out of time to send the packet before the next Start-Of-Frame . This health counter measures the number of times this occurs to provide feedback to selecting a proper TXSCHOH. Writing to this register will clear the counter. The maximum value is 31.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> txscheatlth{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Scheduler overhead This register adds an additional fixed offset to the schedule time estimator described above as Tff. As an approximation, the value chosen for this register should limit the number of back-off events captured in the TXSCHHEALTH to less than 10 per second in a highly utilized bus. Choosing a value that is too high for this register is not desired as it can needlessly reduce USB utilization. The time unit represented in this register is 1.267  ms when a device is connected in High-Speed Mode for OTG and SPH. The time unit represented in this register is 6.333  ms when a device is connected in Low/Full Speed Mode for OTG and SPH.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> txfifothres{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonebinterval{    ///<Length of virtual frame
-        using Addr = Register::Address<0x40006174,0xfffffff0,0,unsigned>;
+    namespace Usb0Binterval{    ///<Length of virtual frame
+        using Addr = Register::Address<0x40006174,0x00000000,0x00000000,unsigned>;
         ///bInterval value (see Section 18.7.7)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> bint{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptnak{    ///<Endpoint NAK (device mode)
-        using Addr = Register::Address<0x40006178,0xffc0ffc0,0,unsigned>;
+    namespace Usb0Endptnak{    ///<Endpoint NAK (device mode)
+        using Addr = Register::Address<0x40006178,0x00000000,0x00000000,unsigned>;
         ///Rx endpoint NAK Each RX endpoint has one bit in this field. The bit is set when the device sends a NAK handshake on a received OUT or PING token for the corresponding endpoint. Bit 5 corresponds to endpoint 5. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eprn0{}; 
         ///Rx endpoint NAK Each RX endpoint has one bit in this field. The bit is set when the device sends a NAK handshake on a received OUT or PING token for the corresponding endpoint. Bit 5 corresponds to endpoint 5. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
@@ -464,6 +598,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> eprn4{}; 
         ///Rx endpoint NAK Each RX endpoint has one bit in this field. The bit is set when the device sends a NAK handshake on a received OUT or PING token for the corresponding endpoint. Bit 5 corresponds to endpoint 5. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> eprn5{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint NAK Each TX endpoint has one bit in this field. The bit is set when the device sends a NAK handshake on a received IN token for the corresponding endpoint. Bit 3 corresponds to endpoint 3. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> eptn0{}; 
         ///Tx endpoint NAK Each TX endpoint has one bit in this field. The bit is set when the device sends a NAK handshake on a received IN token for the corresponding endpoint. Bit 3 corresponds to endpoint 3. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
@@ -476,9 +612,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> eptn4{}; 
         ///Tx endpoint NAK Each TX endpoint has one bit in this field. The bit is set when the device sends a NAK handshake on a received IN token for the corresponding endpoint. Bit 3 corresponds to endpoint 3. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> eptn5{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptnaken{    ///<Endpoint NAK Enable (device mode)
-        using Addr = Register::Address<0x4000617c,0xffc0ffc0,0,unsigned>;
+    namespace Usb0Endptnaken{    ///<Endpoint NAK Enable (device mode)
+        using Addr = Register::Address<0x4000617c,0x00000000,0x00000000,unsigned>;
         ///Rx endpoint NAK enable Each bit enables the corresponding RX NAK bit. If this bit is set and the corresponding RX endpoint NAK bit is set, the NAK interrupt bit is set. Bit 5 corresponds to endpoint 5. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eprne0{}; 
         ///Rx endpoint NAK enable Each bit enables the corresponding RX NAK bit. If this bit is set and the corresponding RX endpoint NAK bit is set, the NAK interrupt bit is set. Bit 5 corresponds to endpoint 5. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
@@ -491,6 +629,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> eprne4{}; 
         ///Rx endpoint NAK enable Each bit enables the corresponding RX NAK bit. If this bit is set and the corresponding RX endpoint NAK bit is set, the NAK interrupt bit is set. Bit 5 corresponds to endpoint 5. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> eprne5{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint NAK Each bit enables the corresponding TX NAK bit. If this bit is set and the corresponding TX endpoint NAK bit is set, the NAK interrupt bit is set. Bit 5 corresponds to endpoint 5. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> eptne0{}; 
         ///Tx endpoint NAK Each bit enables the corresponding TX NAK bit. If this bit is set and the corresponding TX endpoint NAK bit is set, the NAK interrupt bit is set. Bit 5 corresponds to endpoint 5. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
@@ -503,9 +643,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> eptne4{}; 
         ///Tx endpoint NAK Each bit enables the corresponding TX NAK bit. If this bit is set and the corresponding TX endpoint NAK bit is set, the NAK interrupt bit is set. Bit 5 corresponds to endpoint 5. ... Bit 1 corresponds to endpoint 1. Bit 0 corresponds to endpoint 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> eptne5{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneportsc1D{    ///<Port 1 status/control (device mode)
-        using Addr = Register::Address<0x40006184,0xf2703c32,0,unsigned>;
+    namespace Usb0Portsc1D{    ///<Port 1 status/control (device mode)
+        using Addr = Register::Address<0x40006184,0x00000000,0x00000000,unsigned>;
         ///Current connect status
         enum class CcsVal {
             deviceNotAttached=0x00000000,     ///<Device not attached A zero indicates that the device did not attach successfully or was forcibly disconnected by the software writing a zero to the Run bit in the USBCMD register. It does not state the device being disconnected or suspended.
@@ -516,10 +658,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccs)::Type,CcsVal::deviceNotAttached> deviceNotAttached{};
             constexpr Register::FieldValue<decltype(ccs)::Type,CcsVal::deviceAttachedA> deviceAttachedA{};
         }
+        ///Not used in device mode
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port enable. This bit is always 1. The device port is always enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pe{}; 
         ///Port enable/disable change This bit is always 0. The device port is always enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pec{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Force port resume After the device has been in Suspend State for 5 ms or more, software must set this bit to one to drive resume signaling before clearing. The Device Controller will set this bit to one if a J-to-K transition is detected while the port is in the Suspend state. The bit will be cleared when the device returns to normal operation. When this bit transitions to a one because a J-to-K transition detected, the Port Change Detect bit in the USBSTS register is set to one as well.
         enum class FprVal {
             noResumeKState=0x00000000,     ///<No resume (K-state) detected/driven on port.
@@ -560,6 +706,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hsp)::Type,HspVal::notHighsspeed> notHighsspeed{};
             constexpr Register::FieldValue<decltype(hsp)::Type,HspVal::highspeed> highspeed{};
         }
+        ///Not used in device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port indicator control Writing to this field effects the value of the USB0_IND[1:0] pins.
         enum class Pic10Val {
             off=0x00000000,     ///<Port indicators are off.
@@ -594,6 +746,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptc30)::Type,Ptc30Val::forceEnableHs> forceEnableHs{};
             constexpr Register::FieldValue<decltype(ptc30)::Type,Ptc30Val::forceEnableFs> forceEnableFs{};
         }
+        ///Not used in device mode. This bit is always 0 in device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in device mode. This bit is always 0 in device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Not used in device mode. This bit is always 0 in device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///PHY low power suspend - clock disable (PLPSCD) In device mode, The PHY can be put into Low Power Suspend - Clock Disable when the device is not running (USBCMD Run/Stop = 0) or the host has signaled suspend (PORTSC SUSPEND = 1). Low power suspend will be cleared automatically when the host has signaled resume. Before forcing a resume from the device, the device controller driver must clear this bit.
         enum class PhcdVal {
             enable=0x00000000,     ///<Writing a 0 enables the PHY clock. Reading a 0 indicates the status of the PHY clock (enabled).
@@ -614,6 +772,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfsc)::Type,PfscVal::anyspeed> anyspeed{};
             constexpr Register::FieldValue<decltype(pfsc)::Type,PfscVal::fullspeed> fullspeed{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port speed This register field indicates the speed at which the port is operating.
         enum class PspdVal {
             fullSpeed=0x00000000,     ///<Full-speed
@@ -626,9 +786,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pspd)::Type,PspdVal::invalidInDeviceMo> invalidInDeviceMo{};
             constexpr Register::FieldValue<decltype(pspd)::Type,PspdVal::highSpeed> highSpeed{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneportsc1H{    ///<Port 1 status/control (host mode)
-        using Addr = Register::Address<0x40006184,0xf2002000,0,unsigned>;
+    namespace Usb0Portsc1H{    ///<Port 1 status/control (host mode)
+        using Addr = Register::Address<0x40006184,0xf0000000,0x00000000,unsigned>;
         ///Current connect status This value reflects the current state of the port and may not correspond directly to the event that caused the CSC bit to be set. This bit is 0 if PP (Port Power bit) is 0. Software clears this bit by writing a 1 to it.
         enum class CcsVal {
             noDeviceIsPresent=0x00000000,     ///<No device is present.
@@ -745,6 +907,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pp)::Type,PpVal::portPowerOff> portPowerOff{};
             constexpr Register::FieldValue<decltype(pp)::Type,PpVal::portPowerOn> portPowerOn{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port indicator control Writing to this field effects the value of the pins USB0_IND1 and USB0_IND0.
         enum class Pic10Val {
             portIndicatorsAre=0x00000000,     ///<Port indicators are off.
@@ -831,6 +995,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfsc)::Type,PfscVal::portConnectsAtAny> portConnectsAtAny{};
             constexpr Register::FieldValue<decltype(pfsc)::Type,PfscVal::writingThisBitTo> writingThisBitTo{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port speed This register field indicates the speed at which the port is operating. For HS mode operation in the host controller and HS/FS operation in the device controller the port routing steers data to the Protocol engine. For FS and LS mode operation in the host controller, the port routing steers data to the Protocol Engine w/ Embedded Transaction Translator.
         enum class PspdVal {
             fullSpeed=0x00000000,     ///<Full-speed
@@ -844,8 +1010,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pspd)::Type,PspdVal::highSpeed> highSpeed{};
         }
     }
-    namespace Noneotgsc{    ///<OTG status and control
-        using Addr = Register::Address<0x400061a4,0x80808000,0,unsigned>;
+    namespace Usb0Otgsc{    ///<OTG status and control
+        using Addr = Register::Address<0x400061a4,0x00000000,0x00000000,unsigned>;
         ///VBUS_Discharge Setting this bit to 1 causes VBUS to discharge through a resistor.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vd{}; 
         ///VBUS_Charge Setting this bit to 1 causes the VBUS line to be charged. This is used for VBUS pulsing during SRP.
@@ -908,6 +1074,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ms1t{}; 
         ///Data bus pulsing status Reading a 1 indicates that data bus pulsing is detected on the port.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dps{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///USB ID interrupt status This bit is set when a change on the ID input has been detected. Software must write a 1 to this bit to clear it.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> idis{}; 
         ///A-VBUS valid interrupt status This bit is set then VBUS has either risen above or fallen below the A-VBUS valid threshold (4.4 V on an A-device). Software must write a 1 to this bit to clear it.
@@ -922,6 +1090,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ms1s{}; 
         ///Data pulse interrupt status This bit is set when data bus pulsing occurs on DP or DM. Data bus pulsing is only detected when the CM bit in USBMODE = Host (11) and the PortPower bit in PORTSC = Off (0). Software must write a 1 to this bit to clear it.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> dpis{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///USB ID interrupt enable Setting this bit enables the interrupt. Writing a 0 disables the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> idie{}; 
         ///A-VBUS valid interrupt enable Setting this bit enables the A-VBUS valid interrupt. Writing a 0 disables the interrupt.
@@ -936,9 +1106,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> ms1e{}; 
         ///Data pulse interrupt enable Setting this bit enables the data pulse interrupt. Writing a 0 disables the interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> dpie{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneusbmodeD{    ///<USB device mode (device mode)
-        using Addr = Register::Address<0x400061a8,0xffffffe0,0,unsigned>;
+    namespace Usb0UsbmodeD{    ///<USB device mode (device mode)
+        using Addr = Register::Address<0x400061a8,0x00000000,0x00000000,unsigned>;
         ///Controller mode The controller defaults to an idle state and needs to be initialized to the desired operating mode after reset. This register can only be written once after reset. If it is necessary to switch modes, software must reset the controller by writing to the RESET bit in the USBCMD register before reprogramming this register.
         enum class Cm10Val {
             idle=0x00000000,     ///<Idle
@@ -981,9 +1153,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdis)::Type,SdisVal::notDisabled> notDisabled{};
             constexpr Register::FieldValue<decltype(sdis)::Type,SdisVal::disabledSettingTh> disabledSettingTh{};
         }
+        ///Not used in device mode.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneusbmodeH{    ///<USB mode (host mode)
-        using Addr = Register::Address<0x400061a8,0xffffffc8,0,unsigned>;
+    namespace Usb0UsbmodeH{    ///<USB mode (host mode)
+        using Addr = Register::Address<0x400061a8,0x00000000,0x00000000,unsigned>;
         ///Controller mode The controller defaults to an idle state and needs to be initialized to the desired operating mode after reset. This register can only be written once after reset. If it is necessary to switch modes, software must reset the controller by writing to the RESET bit in the USBCMD register before reprogramming this register.
         enum class CmVal {
             idle=0x00000000,     ///<Idle
@@ -1006,6 +1182,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(es)::Type,EsVal::littleEndianFirst> littleEndianFirst{};
             constexpr Register::FieldValue<decltype(es)::Type,EsVal::bigEndianFirstBy> bigEndianFirstBy{};
         }
+        ///Not used in host mode
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Stream disable mode  The use of this feature substantially limits the overall USB performance that can be achieved.
         enum class SdisVal {
             notDisabled=0x00000000,     ///<Not disabled
@@ -1026,9 +1204,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbps)::Type,VbpsVal::low> low{};
             constexpr Register::FieldValue<decltype(vbps)::Type,VbpsVal::high> high{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptsetupstat{    ///<Endpoint setup status
-        using Addr = Register::Address<0x400061ac,0xffffffc0,0,unsigned>;
+    namespace Usb0Endptsetupstat{    ///<Endpoint setup status
+        using Addr = Register::Address<0x400061ac,0x00000000,0x00000000,unsigned>;
         ///Setup endpoint status for logical endpoints 0 to 5. For every setup transaction that is received, a corresponding bit in this register is set to one. Software must clear or acknowledge the setup transfer by writing a one to a respective bit after it has read the setup data from Queue head. The response to a setup packet as in the order of operations and total response time is crucial to limit bus time outs while the setup lockout mechanism is engaged.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> endptsetupstat0{}; 
         ///Setup endpoint status for logical endpoints 0 to 5. For every setup transaction that is received, a corresponding bit in this register is set to one. Software must clear or acknowledge the setup transfer by writing a one to a respective bit after it has read the setup data from Queue head. The response to a setup packet as in the order of operations and total response time is crucial to limit bus time outs while the setup lockout mechanism is engaged.
@@ -1041,9 +1221,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endptsetupstat4{}; 
         ///Setup endpoint status for logical endpoints 0 to 5. For every setup transaction that is received, a corresponding bit in this register is set to one. Software must clear or acknowledge the setup transfer by writing a one to a respective bit after it has read the setup data from Queue head. The response to a setup packet as in the order of operations and total response time is crucial to limit bus time outs while the setup lockout mechanism is engaged.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endptsetupstat5{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptprime{    ///<Endpoint initialization
-        using Addr = Register::Address<0x400061b0,0xffc0ffc0,0,unsigned>;
+    namespace Usb0Endptprime{    ///<Endpoint initialization
+        using Addr = Register::Address<0x400061b0,0x00000000,0x00000000,unsigned>;
         ///Prime endpoint receive buffer for physical OUT endpoints 5 to 0. For each OUT endpoint, a corresponding bit is set to 1 by software to request a buffer be prepared for a receive operation for when a USB host initiates a USB OUT transaction. Software should write a one to the corresponding bit whenever posting a new transfer descriptor to an endpoint. Hardware will automatically use this bit to begin parsing for a new transfer descriptor from the queue head and prepare a receive buffer. Hardware will clear this bit when the associated endpoint(s) is (are) successfully primed. PERB0 = endpoint 0 ... PERB5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> perb0{}; 
         ///Prime endpoint receive buffer for physical OUT endpoints 5 to 0. For each OUT endpoint, a corresponding bit is set to 1 by software to request a buffer be prepared for a receive operation for when a USB host initiates a USB OUT transaction. Software should write a one to the corresponding bit whenever posting a new transfer descriptor to an endpoint. Hardware will automatically use this bit to begin parsing for a new transfer descriptor from the queue head and prepare a receive buffer. Hardware will clear this bit when the associated endpoint(s) is (are) successfully primed. PERB0 = endpoint 0 ... PERB5 = endpoint 5
@@ -1056,6 +1238,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> perb4{}; 
         ///Prime endpoint receive buffer for physical OUT endpoints 5 to 0. For each OUT endpoint, a corresponding bit is set to 1 by software to request a buffer be prepared for a receive operation for when a USB host initiates a USB OUT transaction. Software should write a one to the corresponding bit whenever posting a new transfer descriptor to an endpoint. Hardware will automatically use this bit to begin parsing for a new transfer descriptor from the queue head and prepare a receive buffer. Hardware will clear this bit when the associated endpoint(s) is (are) successfully primed. PERB0 = endpoint 0 ... PERB5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> perb5{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Prime endpoint transmit buffer for physical IN endpoints 5 to 0. For each IN endpoint a corresponding bit is set to one by software to request a buffer be prepared for a transmit operation in order to respond to a USB IN/INTERRUPT transaction. Software should write a one to the corresponding bit when posting a new transfer descriptor to an endpoint. Hardware will automatically use this bit to begin parsing for a new transfer descriptor from the queue head and prepare a transmit buffer. Hardware will clear this bit when the associated endpoint(s) is (are) successfully primed.  PETB0 = endpoint 0 ... PETB5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> petb0{}; 
         ///Prime endpoint transmit buffer for physical IN endpoints 5 to 0. For each IN endpoint a corresponding bit is set to one by software to request a buffer be prepared for a transmit operation in order to respond to a USB IN/INTERRUPT transaction. Software should write a one to the corresponding bit when posting a new transfer descriptor to an endpoint. Hardware will automatically use this bit to begin parsing for a new transfer descriptor from the queue head and prepare a transmit buffer. Hardware will clear this bit when the associated endpoint(s) is (are) successfully primed.  PETB0 = endpoint 0 ... PETB5 = endpoint 5
@@ -1068,9 +1252,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> petb4{}; 
         ///Prime endpoint transmit buffer for physical IN endpoints 5 to 0. For each IN endpoint a corresponding bit is set to one by software to request a buffer be prepared for a transmit operation in order to respond to a USB IN/INTERRUPT transaction. Software should write a one to the corresponding bit when posting a new transfer descriptor to an endpoint. Hardware will automatically use this bit to begin parsing for a new transfer descriptor from the queue head and prepare a transmit buffer. Hardware will clear this bit when the associated endpoint(s) is (are) successfully primed.  PETB0 = endpoint 0 ... PETB5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> petb5{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptflush{    ///<Endpoint de-initialization
-        using Addr = Register::Address<0x400061b4,0xffc0ffc0,0,unsigned>;
+    namespace Usb0Endptflush{    ///<Endpoint de-initialization
+        using Addr = Register::Address<0x400061b4,0x00000000,0x00000000,unsigned>;
         ///Flush endpoint receive buffer for physical OUT endpoints 5 to 0. Writing a one to a bit(s) will clear any primed buffers. FERB0 = endpoint 0 ... FERB5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ferb0{}; 
         ///Flush endpoint receive buffer for physical OUT endpoints 5 to 0. Writing a one to a bit(s) will clear any primed buffers. FERB0 = endpoint 0 ... FERB5 = endpoint 5
@@ -1083,6 +1269,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ferb4{}; 
         ///Flush endpoint receive buffer for physical OUT endpoints 5 to 0. Writing a one to a bit(s) will clear any primed buffers. FERB0 = endpoint 0 ... FERB5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ferb5{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Flush endpoint transmit buffer for physical IN endpoints 5 to 0. Writing a one to a bit(s) will clear any primed buffers.  FETB0 = endpoint 0 ... FETB5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> fetb0{}; 
         ///Flush endpoint transmit buffer for physical IN endpoints 5 to 0. Writing a one to a bit(s) will clear any primed buffers.  FETB0 = endpoint 0 ... FETB5 = endpoint 5
@@ -1095,9 +1283,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> fetb4{}; 
         ///Flush endpoint transmit buffer for physical IN endpoints 5 to 0. Writing a one to a bit(s) will clear any primed buffers.  FETB0 = endpoint 0 ... FETB5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> fetb5{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptstat{    ///<Endpoint status
-        using Addr = Register::Address<0x400061b8,0xffc0ffc0,0,unsigned>;
+    namespace Usb0Endptstat{    ///<Endpoint status
+        using Addr = Register::Address<0x400061b8,0x00000000,0x00000000,unsigned>;
         ///Endpoint receive buffer ready for physical OUT endpoints 5 to 0. This bit is set to 1 by hardware as a response to receiving a command from a corresponding bit in the ENDPTPRIME register. ERBR0 = endpoint 0 ... ERBR5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> erbr0{}; 
         ///Endpoint receive buffer ready for physical OUT endpoints 5 to 0. This bit is set to 1 by hardware as a response to receiving a command from a corresponding bit in the ENDPTPRIME register. ERBR0 = endpoint 0 ... ERBR5 = endpoint 5
@@ -1110,6 +1300,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> erbr4{}; 
         ///Endpoint receive buffer ready for physical OUT endpoints 5 to 0. This bit is set to 1 by hardware as a response to receiving a command from a corresponding bit in the ENDPTPRIME register. ERBR0 = endpoint 0 ... ERBR5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> erbr5{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Endpoint transmit buffer ready for physical IN endpoints 3 to 0. This bit is set to 1 by hardware as a response to receiving a command from a corresponding bit in the ENDPTPRIME register. ETBR0 = endpoint 0 ... ETBR5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> etbr0{}; 
         ///Endpoint transmit buffer ready for physical IN endpoints 3 to 0. This bit is set to 1 by hardware as a response to receiving a command from a corresponding bit in the ENDPTPRIME register. ETBR0 = endpoint 0 ... ETBR5 = endpoint 5
@@ -1122,9 +1314,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> etbr4{}; 
         ///Endpoint transmit buffer ready for physical IN endpoints 3 to 0. This bit is set to 1 by hardware as a response to receiving a command from a corresponding bit in the ENDPTPRIME register. ETBR0 = endpoint 0 ... ETBR5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> etbr5{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptcomplete{    ///<Endpoint complete
-        using Addr = Register::Address<0x400061bc,0xffc0ffc0,0,unsigned>;
+    namespace Usb0Endptcomplete{    ///<Endpoint complete
+        using Addr = Register::Address<0x400061bc,0x00000000,0x00000000,unsigned>;
         ///Endpoint receive complete event for physical OUT endpoints 5 to 0. This bit is set to 1 by hardware when receive event (OUT/SETUP) occurred. ERCE0 = endpoint 0 ... ERCE5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> erce0{}; 
         ///Endpoint receive complete event for physical OUT endpoints 5 to 0. This bit is set to 1 by hardware when receive event (OUT/SETUP) occurred. ERCE0 = endpoint 0 ... ERCE5 = endpoint 5
@@ -1137,6 +1331,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> erce4{}; 
         ///Endpoint receive complete event for physical OUT endpoints 5 to 0. This bit is set to 1 by hardware when receive event (OUT/SETUP) occurred. ERCE0 = endpoint 0 ... ERCE5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> erce5{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Endpoint transmit complete event for physical IN endpoints 5 to 0. This bit is set to 1 by hardware when a transmit event (IN/INTERRUPT) occurred. ETCE0 = endpoint 0 ... ETCE5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> etce0{}; 
         ///Endpoint transmit complete event for physical IN endpoints 5 to 0. This bit is set to 1 by hardware when a transmit event (IN/INTERRUPT) occurred. ETCE0 = endpoint 0 ... ETCE5 = endpoint 5
@@ -1149,9 +1345,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> etce4{}; 
         ///Endpoint transmit complete event for physical IN endpoints 5 to 0. This bit is set to 1 by hardware when a transmit event (IN/INTERRUPT) occurred. ETCE0 = endpoint 0 ... ETCE5 = endpoint 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> etce5{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptctrl0{    ///<Endpoint control 0
-        using Addr = Register::Address<0x400061c0,0xff72ff72,0,unsigned>;
+    namespace Usb0Endptctrl0{    ///<Endpoint control 0
+        using Addr = Register::Address<0x400061c0,0x00000000,0x00000000,unsigned>;
         ///Rx endpoint stall
         enum class RxsVal {
             endpointOk=0x00000000,     ///<Endpoint ok.
@@ -1162,10 +1360,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointOk> endpointOk{};
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Endpoint type Endpoint 0 is always a control endpoint.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> rxt10{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Rx endpoint enable Endpoint enabled. Control endpoint 0 is always enabled. This bit is always 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rxe{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint stall
         enum class TxsVal {
             endpointOk=0x00000000,     ///<Endpoint ok.
@@ -1176,13 +1380,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointOk> endpointOk{};
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Endpoint type Endpoint 0 is always a control endpoint.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> txt10{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint enable Endpoint enabled. Control endpoint 0 is always enabled. This bit is always 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> txe{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptctrl1{    ///<Endpoint control 
-        using Addr = Register::Address<0x400061c4,0xff12ff12,0,unsigned>;
+    namespace Usb0Endptctrl1{    ///<Endpoint control 
+        using Addr = Register::Address<0x400061c4,0x00000000,0x00000000,unsigned>;
         ///Rx endpoint stall
         enum class RxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1193,6 +1403,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Endpoint type
         enum class RxtVal {
             control=0x00000000,     ///<Control
@@ -1205,6 +1417,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::isochronous> isochronous{};
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::bulk> bulk{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Rx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class RxiVal {
             disabled=0x00000000,     ///<Disabled
@@ -1227,6 +1441,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointEnabled> endpointEnabled{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint stall
         enum class TxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint, and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1237,6 +1453,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint type
         enum class Txt10Val {
             control=0x00000000,     ///<Control
@@ -1251,6 +1469,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txt10)::Type,Txt10Val::bulk> bulk{};
             constexpr Register::FieldValue<decltype(txt10)::Type,Txt10Val::interrupt> interrupt{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class TxiVal {
             enabled=0x00000000,     ///<Enabled
@@ -1273,9 +1493,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointEnabled> endpointEnabled{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptctrl2{    ///<Endpoint control 
-        using Addr = Register::Address<0x400061c8,0xff12ff12,0,unsigned>;
+    namespace Usb0Endptctrl2{    ///<Endpoint control 
+        using Addr = Register::Address<0x400061c8,0x00000000,0x00000000,unsigned>;
         ///Rx endpoint stall
         enum class RxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1286,6 +1508,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Endpoint type
         enum class RxtVal {
             control=0x00000000,     ///<Control
@@ -1298,6 +1522,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::isochronous> isochronous{};
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::bulk> bulk{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Rx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class RxiVal {
             disabled=0x00000000,     ///<Disabled
@@ -1320,6 +1546,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointEnabled> endpointEnabled{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint stall
         enum class TxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint, and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1330,6 +1558,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint type
         enum class Txt10Val {
             control=0x00000000,     ///<Control
@@ -1344,6 +1574,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txt10)::Type,Txt10Val::bulk> bulk{};
             constexpr Register::FieldValue<decltype(txt10)::Type,Txt10Val::interrupt> interrupt{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class TxiVal {
             enabled=0x00000000,     ///<Enabled
@@ -1366,9 +1598,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointEnabled> endpointEnabled{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptctrl3{    ///<Endpoint control 
-        using Addr = Register::Address<0x400061cc,0xff12ff12,0,unsigned>;
+    namespace Usb0Endptctrl3{    ///<Endpoint control 
+        using Addr = Register::Address<0x400061cc,0x00000000,0x00000000,unsigned>;
         ///Rx endpoint stall
         enum class RxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1379,6 +1613,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Endpoint type
         enum class RxtVal {
             control=0x00000000,     ///<Control
@@ -1391,6 +1627,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::isochronous> isochronous{};
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::bulk> bulk{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Rx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class RxiVal {
             disabled=0x00000000,     ///<Disabled
@@ -1413,6 +1651,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointEnabled> endpointEnabled{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint stall
         enum class TxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint, and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1423,6 +1663,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint type
         enum class Txt10Val {
             control=0x00000000,     ///<Control
@@ -1437,6 +1679,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txt10)::Type,Txt10Val::bulk> bulk{};
             constexpr Register::FieldValue<decltype(txt10)::Type,Txt10Val::interrupt> interrupt{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class TxiVal {
             enabled=0x00000000,     ///<Enabled
@@ -1459,9 +1703,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointEnabled> endpointEnabled{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptctrl4{    ///<Endpoint control 
-        using Addr = Register::Address<0x400061d0,0xff12ff12,0,unsigned>;
+    namespace Usb0Endptctrl4{    ///<Endpoint control 
+        using Addr = Register::Address<0x400061d0,0x00000000,0x00000000,unsigned>;
         ///Rx endpoint stall
         enum class RxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1472,6 +1718,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Endpoint type
         enum class RxtVal {
             control=0x00000000,     ///<Control
@@ -1484,6 +1732,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::isochronous> isochronous{};
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::bulk> bulk{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Rx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class RxiVal {
             disabled=0x00000000,     ///<Disabled
@@ -1506,6 +1756,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointEnabled> endpointEnabled{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint stall
         enum class TxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint, and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1516,6 +1768,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint type
         enum class Txt10Val {
             control=0x00000000,     ///<Control
@@ -1530,6 +1784,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txt10)::Type,Txt10Val::bulk> bulk{};
             constexpr Register::FieldValue<decltype(txt10)::Type,Txt10Val::interrupt> interrupt{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class TxiVal {
             enabled=0x00000000,     ///<Enabled
@@ -1552,9 +1808,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointEnabled> endpointEnabled{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneendptctrl5{    ///<Endpoint control 
-        using Addr = Register::Address<0x400061d4,0xff12ff12,0,unsigned>;
+    namespace Usb0Endptctrl5{    ///<Endpoint control 
+        using Addr = Register::Address<0x400061d4,0x00000000,0x00000000,unsigned>;
         ///Rx endpoint stall
         enum class RxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1565,6 +1823,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Endpoint type
         enum class RxtVal {
             control=0x00000000,     ///<Control
@@ -1577,6 +1837,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::isochronous> isochronous{};
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::bulk> bulk{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Rx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class RxiVal {
             disabled=0x00000000,     ///<Disabled
@@ -1599,6 +1861,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointEnabled> endpointEnabled{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint stall
         enum class TxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint, and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1609,6 +1873,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointStalledSof> endpointStalledSof{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx endpoint type
         enum class Txt10Val {
             control=0x00000000,     ///<Control
@@ -1623,6 +1889,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txt10)::Type,Txt10Val::bulk> bulk{};
             constexpr Register::FieldValue<decltype(txt10)::Type,Txt10Val::interrupt> interrupt{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Tx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class TxiVal {
             enabled=0x00000000,     ///<Enabled
@@ -1645,5 +1913,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointEnabled> endpointEnabled{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

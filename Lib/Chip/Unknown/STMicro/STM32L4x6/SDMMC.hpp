@@ -1,40 +1,36 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//Secure digital input/output
-      interface
-    namespace Nonepower{    ///<power control register
-        using Addr = Register::Address<0x40012800,0xfffffffc,0,unsigned>;
+//Secure digital input/output      interface
+    namespace SdmmcPower{    ///<power control register
+        using Addr = Register::Address<0x40012800,0xfffffffc,0x00000000,unsigned>;
         ///PWRCTRL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> pwrctrl{}; 
     }
-    namespace Noneclkcr{    ///<SDI clock control register
-        using Addr = Register::Address<0x40012804,0xffff8000,0,unsigned>;
+    namespace SdmmcClkcr{    ///<SDI clock control register
+        using Addr = Register::Address<0x40012804,0xffff8000,0x00000000,unsigned>;
         ///HW Flow Control enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> hwfcEn{}; 
-        ///SDIO_CK dephasing selection
-              bit
+        ///SDIO_CK dephasing selection              bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> negedge{}; 
         ///Wide bus mode enable bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,unsigned> widbus{}; 
-        ///Clock divider bypass enable
-              bit
+        ///Clock divider bypass enable              bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bypass{}; 
-        ///Power saving configuration
-              bit
+        ///Power saving configuration              bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> pwrsav{}; 
         ///Clock enable bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> clken{}; 
         ///Clock divide factor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
     }
-    namespace Nonearg{    ///<argument register
-        using Addr = Register::Address<0x40012808,0x00000000,0,unsigned>;
+    namespace SdmmcArg{    ///<argument register
+        using Addr = Register::Address<0x40012808,0x00000000,0x00000000,unsigned>;
         ///Command argument
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cmdarg{}; 
     }
-    namespace Nonecmd{    ///<command register
-        using Addr = Register::Address<0x4001280c,0xffff8000,0,unsigned>;
+    namespace SdmmcCmd{    ///<command register
+        using Addr = Register::Address<0x4001280c,0xffff8000,0x00000000,unsigned>;
         ///CE-ATA command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ceAtacmd{}; 
         ///not Interrupt Enable
@@ -43,57 +39,54 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> encmdcompl{}; 
         ///SD I/O suspend command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> sdiosuspend{}; 
-        ///Command path state machine (CPSM) Enable
-              bit
+        ///Command path state machine (CPSM) Enable              bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cpsmen{}; 
-        ///CPSM Waits for ends of data transfer
-              (CmdPend internal signal)
+        ///CPSM Waits for ends of data transfer              (CmdPend internal signal)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> waitpend{}; 
-        ///CPSM waits for interrupt
-              request
+        ///CPSM waits for interrupt              request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> waitint{}; 
         ///Wait for response bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> waitresp{}; 
         ///Command index
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> cmdindex{}; 
     }
-    namespace Nonerespcmd{    ///<command response register
-        using Addr = Register::Address<0x40012810,0xffffffc0,0,unsigned>;
+    namespace SdmmcRespcmd{    ///<command response register
+        using Addr = Register::Address<0x40012810,0xffffffc0,0x00000000,unsigned>;
         ///Response command index
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> respcmd{}; 
     }
-    namespace Noneresp1{    ///<response 1..4 register
-        using Addr = Register::Address<0x40012814,0x00000000,0,unsigned>;
+    namespace SdmmcResp1{    ///<response 1..4 register
+        using Addr = Register::Address<0x40012814,0x00000000,0x00000000,unsigned>;
         ///see Table 132
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cardstatus1{}; 
     }
-    namespace Noneresp2{    ///<response 1..4 register
-        using Addr = Register::Address<0x40012818,0x00000000,0,unsigned>;
+    namespace SdmmcResp2{    ///<response 1..4 register
+        using Addr = Register::Address<0x40012818,0x00000000,0x00000000,unsigned>;
         ///see Table 132
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cardstatus2{}; 
     }
-    namespace Noneresp3{    ///<response 1..4 register
-        using Addr = Register::Address<0x4001281c,0x00000000,0,unsigned>;
+    namespace SdmmcResp3{    ///<response 1..4 register
+        using Addr = Register::Address<0x4001281c,0x00000000,0x00000000,unsigned>;
         ///see Table 132
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cardstatus3{}; 
     }
-    namespace Noneresp4{    ///<response 1..4 register
-        using Addr = Register::Address<0x40012820,0x00000000,0,unsigned>;
+    namespace SdmmcResp4{    ///<response 1..4 register
+        using Addr = Register::Address<0x40012820,0x00000000,0x00000000,unsigned>;
         ///see Table 132
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cardstatus4{}; 
     }
-    namespace Nonedtimer{    ///<data timer register
-        using Addr = Register::Address<0x40012824,0x00000000,0,unsigned>;
+    namespace SdmmcDtimer{    ///<data timer register
+        using Addr = Register::Address<0x40012824,0x00000000,0x00000000,unsigned>;
         ///Data timeout period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> datatime{}; 
     }
-    namespace Nonedlen{    ///<data length register
-        using Addr = Register::Address<0x40012828,0xfe000000,0,unsigned>;
+    namespace SdmmcDlen{    ///<data length register
+        using Addr = Register::Address<0x40012828,0xfe000000,0x00000000,unsigned>;
         ///Data length value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,0),Register::ReadWriteAccess,unsigned> datalength{}; 
     }
-    namespace Nonedctrl{    ///<data control register
-        using Addr = Register::Address<0x4001282c,0xfffff000,0,unsigned>;
+    namespace SdmmcDctrl{    ///<data control register
+        using Addr = Register::Address<0x4001282c,0xfffff000,0x00000000,unsigned>;
         ///SD I/O enable functions
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> sdioen{}; 
         ///Read wait mode
@@ -106,32 +99,27 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> dblocksize{}; 
         ///DMA enable bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dmaen{}; 
-        ///Data transfer mode selection 1: Stream
-              or SDIO multibyte data transfer
+        ///Data transfer mode selection 1: Stream              or SDIO multibyte data transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dtmode{}; 
-        ///Data transfer direction
-              selection
+        ///Data transfer direction              selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dtdir{}; 
         ///DTEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dten{}; 
     }
-    namespace Nonedcount{    ///<data counter register
-        using Addr = Register::Address<0x40012830,0xfe000000,0,unsigned>;
+    namespace SdmmcDcount{    ///<data counter register
+        using Addr = Register::Address<0x40012830,0xfe000000,0x00000000,unsigned>;
         ///Data count value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,0),Register::ReadWriteAccess,unsigned> datacount{}; 
     }
-    namespace Nonesta{    ///<status register
-        using Addr = Register::Address<0x40012834,0xff000000,0,unsigned>;
-        ///CE-ATA command completion signal
-              received for CMD61
+    namespace SdmmcSta{    ///<status register
+        using Addr = Register::Address<0x40012834,0xff000000,0x00000000,unsigned>;
+        ///CE-ATA command completion signal              received for CMD61
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ceataend{}; 
         ///SDIO interrupt received
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> sdioit{}; 
-        ///Data available in receive
-              FIFO
+        ///Data available in receive              FIFO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> rxdavl{}; 
-        ///Data available in transmit
-              FIFO
+        ///Data available in transmit              FIFO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> txdavl{}; 
         ///Receive FIFO empty
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rxfifoe{}; 
@@ -141,53 +129,41 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rxfifof{}; 
         ///Transmit FIFO full
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> txfifof{}; 
-        ///Receive FIFO half full: there are at
-              least 8 words in the FIFO
+        ///Receive FIFO half full: there are at              least 8 words in the FIFO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxfifohf{}; 
-        ///Transmit FIFO half empty: at least 8
-              words can be written into the FIFO
+        ///Transmit FIFO half empty: at least 8              words can be written into the FIFO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> txfifohe{}; 
         ///Data receive in progress
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rxact{}; 
         ///Data transmit in progress
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txact{}; 
-        ///Command transfer in
-              progress
+        ///Command transfer in              progress
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> cmdact{}; 
-        ///Data block sent/received (CRC check
-              passed)
+        ///Data block sent/received (CRC check              passed)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> dbckend{}; 
-        ///Start bit not detected on all data
-              signals in wide bus mode
+        ///Start bit not detected on all data              signals in wide bus mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> stbiterr{}; 
-        ///Data end (data counter, SDIDCOUNT, is
-              zero)
+        ///Data end (data counter, SDIDCOUNT, is              zero)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dataend{}; 
-        ///Command sent (no response
-              required)
+        ///Command sent (no response              required)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cmdsent{}; 
-        ///Command response received (CRC check
-              passed)
+        ///Command response received (CRC check              passed)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> cmdrend{}; 
-        ///Received FIFO overrun
-              error
+        ///Received FIFO overrun              error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxoverr{}; 
-        ///Transmit FIFO underrun
-              error
+        ///Transmit FIFO underrun              error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txunderr{}; 
         ///Data timeout
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dtimeout{}; 
         ///Command response timeout
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ctimeout{}; 
-        ///Data block sent/received (CRC check
-              failed)
+        ///Data block sent/received (CRC check              failed)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dcrcfail{}; 
-        ///Command response received (CRC check
-              failed)
+        ///Command response received (CRC check              failed)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ccrcfail{}; 
     }
-    namespace Noneicr{    ///<interrupt clear register
-        using Addr = Register::Address<0x40012838,0xff3ff800,0,unsigned>;
+    namespace SdmmcIcr{    ///<interrupt clear register
+        using Addr = Register::Address<0x40012838,0xff3ff800,0x00000000,unsigned>;
         ///CEATAEND flag clear bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ceataendc{}; 
         ///SDIOIT flag clear bit
@@ -215,90 +191,65 @@ namespace Kvasir {
         ///CCRCFAIL flag clear bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ccrcfailc{}; 
     }
-    namespace Nonemask{    ///<mask register
-        using Addr = Register::Address<0x4001283c,0xff000000,0,unsigned>;
-        ///CE-ATA command completion signal
-              received interrupt enable
+    namespace SdmmcMask{    ///<mask register
+        using Addr = Register::Address<0x4001283c,0xff000000,0x00000000,unsigned>;
+        ///CE-ATA command completion signal              received interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ceataendie{}; 
-        ///SDIO mode interrupt received interrupt
-              enable
+        ///SDIO mode interrupt received interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> sdioitie{}; 
-        ///Data available in Rx FIFO interrupt
-              enable
+        ///Data available in Rx FIFO interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> rxdavlie{}; 
-        ///Data available in Tx FIFO interrupt
-              enable
+        ///Data available in Tx FIFO interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> txdavlie{}; 
-        ///Rx FIFO empty interrupt
-              enable
+        ///Rx FIFO empty interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rxfifoeie{}; 
-        ///Tx FIFO empty interrupt
-              enable
+        ///Tx FIFO empty interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> txfifoeie{}; 
-        ///Rx FIFO full interrupt
-              enable
+        ///Rx FIFO full interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rxfifofie{}; 
-        ///Tx FIFO full interrupt
-              enable
+        ///Tx FIFO full interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> txfifofie{}; 
-        ///Rx FIFO half full interrupt
-              enable
+        ///Rx FIFO half full interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxfifohfie{}; 
-        ///Tx FIFO half empty interrupt
-              enable
+        ///Tx FIFO half empty interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> txfifoheie{}; 
-        ///Data receive acting interrupt
-              enable
+        ///Data receive acting interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rxactie{}; 
-        ///Data transmit acting interrupt
-              enable
+        ///Data transmit acting interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txactie{}; 
-        ///Command acting interrupt
-              enable
+        ///Command acting interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> cmdactie{}; 
-        ///Data block end interrupt
-              enable
+        ///Data block end interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> dbckendie{}; 
-        ///Start bit error interrupt
-              enable
+        ///Start bit error interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> stbiterrie{}; 
         ///Data end interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dataendie{}; 
-        ///Command sent interrupt
-              enable
+        ///Command sent interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cmdsentie{}; 
-        ///Command response received interrupt
-              enable
+        ///Command response received interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> cmdrendie{}; 
-        ///Rx FIFO overrun error interrupt
-              enable
+        ///Rx FIFO overrun error interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxoverrie{}; 
-        ///Tx FIFO underrun error interrupt
-              enable
+        ///Tx FIFO underrun error interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txunderrie{}; 
-        ///Data timeout interrupt
-              enable
+        ///Data timeout interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dtimeoutie{}; 
-        ///Command timeout interrupt
-              enable
+        ///Command timeout interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ctimeoutie{}; 
-        ///Data CRC fail interrupt
-              enable
+        ///Data CRC fail interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dcrcfailie{}; 
-        ///Command CRC fail interrupt
-              enable
+        ///Command CRC fail interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ccrcfailie{}; 
     }
-    namespace Nonefifocnt{    ///<FIFO counter register
-        using Addr = Register::Address<0x40012848,0xff000000,0,unsigned>;
-        ///Remaining number of words to be written
-              to or read from the FIFO
+    namespace SdmmcFifocnt{    ///<FIFO counter register
+        using Addr = Register::Address<0x40012848,0xff000000,0x00000000,unsigned>;
+        ///Remaining number of words to be written              to or read from the FIFO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> fifocount{}; 
     }
-    namespace Nonefifo{    ///<data FIFO register
-        using Addr = Register::Address<0x40012880,0x00000000,0,unsigned>;
-        ///Receive and transmit FIFO
-              data
+    namespace SdmmcFifo{    ///<data FIFO register
+        using Addr = Register::Address<0x40012880,0x00000000,0x00000000,unsigned>;
+        ///Receive and transmit FIFO              data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifodata{}; 
     }
 }

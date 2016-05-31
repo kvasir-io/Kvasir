@@ -1,18 +1,18 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Random Number Generator.
-    namespace NonetasksStart{    ///<Start the random number generator.
-        using Addr = Register::Address<0x4000d000,0xffffffff,0,unsigned>;
+    namespace RngTasksStart{    ///<Start the random number generator.
+        using Addr = Register::Address<0x4000d000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop the random number generator.
-        using Addr = Register::Address<0x4000d004,0xffffffff,0,unsigned>;
+    namespace RngTasksStop{    ///<Stop the random number generator.
+        using Addr = Register::Address<0x4000d004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsValrdy{    ///<New random number generated and written to VALUE register.
-        using Addr = Register::Address<0x4000d100,0xffffffff,0,unsigned>;
+    namespace RngEventsValrdy{    ///<New random number generated and written to VALUE register.
+        using Addr = Register::Address<0x4000d100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcuts for the RNG.
-        using Addr = Register::Address<0x4000d200,0xfffffffe,0,unsigned>;
+    namespace RngShorts{    ///<Shortcuts for the RNG.
+        using Addr = Register::Address<0x4000d200,0xfffffffe,0x00000000,unsigned>;
         ///Shortcut between VALRDY event and STOP task.
         enum class ValrdystopVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -24,8 +24,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(valrdyStop)::Type,ValrdystopVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Interrupt enable set register
-        using Addr = Register::Address<0x4000d304,0xfffffffe,0,unsigned>;
+    namespace RngIntenset{    ///<Interrupt enable set register
+        using Addr = Register::Address<0x4000d304,0xfffffffe,0x00000000,unsigned>;
         ///Enable interrupt on VALRDY event.
         enum class ValrdyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -39,8 +39,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register
-        using Addr = Register::Address<0x4000d308,0xfffffffe,0,unsigned>;
+    namespace RngIntenclr{    ///<Interrupt enable clear register
+        using Addr = Register::Address<0x4000d308,0xfffffffe,0x00000000,unsigned>;
         ///Disable interrupt on VALRDY event.
         enum class ValrdyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -54,8 +54,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::clear> clear{};
         }
     }
-    namespace Noneconfig{    ///<Configuration register.
-        using Addr = Register::Address<0x4000d504,0xfffffffe,0,unsigned>;
+    namespace RngConfig{    ///<Configuration register.
+        using Addr = Register::Address<0x4000d504,0xfffffffe,0x00000000,unsigned>;
         ///Digital error correction enable.
         enum class DercenVal {
             disabled=0x00000000,     ///<Digital error correction disabled.
@@ -67,13 +67,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dercen)::Type,DercenVal::enabled> enabled{};
         }
     }
-    namespace Nonevalue{    ///<RNG random number.
-        using Addr = Register::Address<0x4000d508,0xffffff00,0,unsigned>;
+    namespace RngValue{    ///<RNG random number.
+        using Addr = Register::Address<0x4000d508,0xffffff00,0x00000000,unsigned>;
         ///Generated random number.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> value{}; 
     }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x4000dffc,0xfffffffe,0,unsigned>;
+    namespace RngPower{    ///<Peripheral power control.
+        using Addr = Register::Address<0x4000dffc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.

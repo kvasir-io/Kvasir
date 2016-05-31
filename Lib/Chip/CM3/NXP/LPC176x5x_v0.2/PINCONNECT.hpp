@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Pin connect block
-    namespace Nonepinsel0{    ///<Pin function select register 0.
-        using Addr = Register::Address<0x4002c000,0x3f000000,0,unsigned>;
+    namespace PinconnectPinsel0{    ///<Pin function select register 0.
+        using Addr = Register::Address<0x4002c000,0x00000000,0x00000000,unsigned>;
         ///Pin function select P0.0.
         enum class P00Val {
             gpioP0=0x00000000,     ///<GPIO P0.0
@@ -168,6 +168,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p011)::Type,P011Val::scl2> scl2{};
             constexpr Register::FieldValue<decltype(p011)::Type,P011Val::mat3> mat3{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Pin function select P0.15.
         enum class P015Val {
             gpioP0=0x00000000,     ///<GPIO P0.15
@@ -183,8 +185,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p015)::Type,P015Val::sck> sck{};
         }
     }
-    namespace Nonepinsel1{    ///<Pin function select register 1.
-        using Addr = Register::Address<0x4002c004,0xc0000000,0,unsigned>;
+    namespace PinconnectPinsel1{    ///<Pin function select register 1.
+        using Addr = Register::Address<0x4002c004,0x00000000,0x00000000,unsigned>;
         ///Pin function select P0.16.
         enum class P016Val {
             gpioP0=0x00000000,     ///<GPIO P0.16
@@ -375,9 +377,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p030)::Type,P030Val::gpioP0> gpioP0{};
             constexpr Register::FieldValue<decltype(p030)::Type,P030Val::usbDm> usbDm{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepinsel2{    ///<Pin function select register 2.
-        using Addr = Register::Address<0x4002c008,0x3f00fcf0,0,unsigned>;
+    namespace PinconnectPinsel2{    ///<Pin function select register 2.
+        using Addr = Register::Address<0x4002c008,0x00000000,0x00000000,unsigned>;
         ///Pin function select P1.0.
         enum class P10Val {
             gpioP1=0x00000000,     ///<GPIO P1.0
@@ -398,6 +402,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p11)::Type,P11Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p11)::Type,P11Val::enetTxd1> enetTxd1{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Pin function select P1.4.
         enum class P14Val {
             gpioP1=0x00000000,     ///<GPIO P1.4.
@@ -408,6 +414,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p14)::Type,P14Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p14)::Type,P14Val::enetTxEn> enetTxEn{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Pin function select P1.8.
         enum class P18Val {
             gpioP1=0x00000000,     ///<GPIO P1.8.
@@ -438,6 +446,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p110)::Type,P110Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p110)::Type,P110Val::enetRxd1> enetRxd1{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Pin function select P1.14.
         enum class P114Val {
             gpioP1=0x00000000,     ///<GPIO P1.14
@@ -448,6 +458,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p114)::Type,P114Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p114)::Type,P114Val::enetRxEr> enetRxEr{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Pin function select P1.15.
         enum class P115Val {
             gpioP1=0x00000000,     ///<GPIO P1.15
@@ -459,8 +471,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p115)::Type,P115Val::enetRefClk> enetRefClk{};
         }
     }
-    namespace Nonepinsel3{    ///<Pin function select register 3.
-        using Addr = Register::Address<0x4002c00c,0x00000000,0,unsigned>;
+    namespace PinconnectPinsel3{    ///<Pin function select register 3.
+        using Addr = Register::Address<0x4002c00c,0x00000000,0x00000000,unsigned>;
         ///Pin function select P1.16.
         enum class P116Val {
             gpioP1=0x00000000,     ///<GPIO P1.16
@@ -672,8 +684,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p131)::Type,P131Val::ad0> ad0{};
         }
     }
-    namespace Nonepinsel4{    ///<Pin function select register 4
-        using Addr = Register::Address<0x4002c010,0xf0000000,0,unsigned>;
+    namespace PinconnectPinsel4{    ///<Pin function select register 4
+        using Addr = Register::Address<0x4002c010,0x00000000,0x00000000,unsigned>;
         ///Pin function select P2.0.
         enum class P20Val {
             gpioP2=0x00000000,     ///<GPIO P2.0
@@ -846,9 +858,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p213)::Type,P213Val::eint3> eint3{};
             constexpr Register::FieldValue<decltype(p213)::Type,P213Val::i2stxSda> i2stxSda{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepinsel7{    ///<Pin function select register 7
-        using Addr = Register::Address<0x4002c01c,0xffc3ffff,0,unsigned>;
+    namespace PinconnectPinsel7{    ///<Pin function select register 7
+        using Addr = Register::Address<0x4002c01c,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Pin function select P3.25.
         enum class P325Val {
             gpioP3=0x00000000,     ///<GPIO P3.25
@@ -875,9 +891,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p326)::Type,P326Val::mat0> mat0{};
             constexpr Register::FieldValue<decltype(p326)::Type,P326Val::pwm1> pwm1{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepinsel9{    ///<Pin function select register 9
-        using Addr = Register::Address<0x4002c024,0xf0ffffff,0,unsigned>;
+    namespace PinconnectPinsel9{    ///<Pin function select register 9
+        using Addr = Register::Address<0x4002c024,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Pin function select P4.28.
         enum class P428Val {
             gpioP4=0x00000000,     ///<GPIO P4.28
@@ -906,9 +926,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p429)::Type,P429Val::mat2> mat2{};
             constexpr Register::FieldValue<decltype(p429)::Type,P429Val::rxd3> rxd3{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepinsel10{    ///<Pin function select register 10
-        using Addr = Register::Address<0x4002c028,0xfffffff7,0,unsigned>;
+    namespace PinconnectPinsel10{    ///<Pin function select register 10
+        using Addr = Register::Address<0x4002c028,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Software should not write 1 to these bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///TPIU interface pins control.
         enum class TpiuctrlVal {
             disabled=0x00000000,     ///<Disabled. TPIU interface is disabled.
@@ -919,9 +943,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tpiuctrl)::Type,TpiuctrlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tpiuctrl)::Type,TpiuctrlVal::enabled> enabled{};
         }
+        ///Reserved. Software should not write 1 to these bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepinmode0{    ///<Pin mode select register 0
-        using Addr = Register::Address<0x4002c040,0x3f000000,0,unsigned>;
+    namespace PinconnectPinmode0{    ///<Pin mode select register 0
+        using Addr = Register::Address<0x4002c040,0x00000000,0x00000000,unsigned>;
         ///Port 0 pin 0 on-chip pull-up/down resistor control.
         enum class P000modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.0 pin has a pull-up resistor enabled.
@@ -1090,6 +1116,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p011mode)::Type,P011modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p011mode)::Type,P011modeVal::pullDown> pullDown{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 0 pin 15 control.
         enum class P015modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.15 pin has a pull-up resistor enabled.
@@ -1105,8 +1133,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p015mode)::Type,P015modeVal::pullDown> pullDown{};
         }
     }
-    namespace Nonepinmode1{    ///<Pin mode select register 1
-        using Addr = Register::Address<0x4002c044,0xffc00000,0,unsigned>;
+    namespace PinconnectPinmode1{    ///<Pin mode select register 1
+        using Addr = Register::Address<0x4002c044,0x00000000,0x00000000,unsigned>;
         ///Port 1 pin 16 control.
         enum class P016modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.16 pin has a pull-up resistor enabled.
@@ -1261,9 +1289,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p026mode)::Type,P026modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p026mode)::Type,P026modeVal::pullDown> pullDown{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,22),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepinmode2{    ///<Pin mode select register 2
-        using Addr = Register::Address<0x4002c048,0x0fc0fcf0,0,unsigned>;
+    namespace PinconnectPinmode2{    ///<Pin mode select register 2
+        using Addr = Register::Address<0x4002c048,0x00000000,0x00000000,unsigned>;
         ///Port 1 pin 0 control.
         enum class P100modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.0 pin has a pull-up resistor enabled.
@@ -1292,6 +1324,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p101mode)::Type,P101modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p101mode)::Type,P101modeVal::pullDown> pullDown{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 1 pin 4 control.
         enum class P104modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.4 pin has a pull-up resistor enabled.
@@ -1306,6 +1340,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p104mode)::Type,P104modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p104mode)::Type,P104modeVal::pullDown> pullDown{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 1 pin 8 control.
         enum class P108modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.8 pin has a pull-up resistor enabled.
@@ -1348,6 +1384,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p110mode)::Type,P110modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p110mode)::Type,P110modeVal::pullDown> pullDown{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,22),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 1 pin 14 control.
         enum class P114modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.14 pin has a pull-up resistor enabled.
@@ -1377,8 +1415,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p115mode)::Type,P115modeVal::pullDown> pullDown{};
         }
     }
-    namespace Nonepinmode3{    ///<Pin mode select register 3.
-        using Addr = Register::Address<0x4002c04c,0x00000000,0,unsigned>;
+    namespace PinconnectPinmode3{    ///<Pin mode select register 3.
+        using Addr = Register::Address<0x4002c04c,0x00000000,0x00000000,unsigned>;
         ///Port 1 pin 16 control.
         enum class P116modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.16 pin has a pull-up resistor enabled.
@@ -1604,8 +1642,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p131mode)::Type,P131modeVal::pullDown> pullDown{};
         }
     }
-    namespace Nonepinmode4{    ///<Pin mode select register 4
-        using Addr = Register::Address<0x4002c050,0xf0000000,0,unsigned>;
+    namespace PinconnectPinmode4{    ///<Pin mode select register 4
+        using Addr = Register::Address<0x4002c050,0x00000000,0x00000000,unsigned>;
         ///Port 2 pin 0 control.
         enum class P200modeVal {
             pullUp=0x00000000,     ///<Pull-up. P2.0 pin has a pull-up resistor enabled.
@@ -1802,9 +1840,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p213mode)::Type,P213modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p213mode)::Type,P213modeVal::pullDown> pullDown{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepinmode7{    ///<Pin mode select register 7
-        using Addr = Register::Address<0x4002c05c,0xffc3ffff,0,unsigned>;
+    namespace PinconnectPinmode7{    ///<Pin mode select register 7
+        using Addr = Register::Address<0x4002c05c,0x00000000,0x00000000,unsigned>;
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 3 pin 25 control.
         enum class P325modeVal {
             pullUp=0x00000000,     ///<Pull-up. P3.25 pin has a pull-up resistor enabled.
@@ -1833,9 +1875,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p326mode)::Type,P326modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p326mode)::Type,P326modeVal::pullDown> pullDown{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepinmode9{    ///<Pin mode select register 9
-        using Addr = Register::Address<0x4002c064,0xf0ffffff,0,unsigned>;
+    namespace PinconnectPinmode9{    ///<Pin mode select register 9
+        using Addr = Register::Address<0x4002c064,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 4 pin 28 control.
         enum class P428modeVal {
             pullUp=0x00000000,     ///<Pull-up. P4.28 pin has a pull-up resistor enabled.
@@ -1864,9 +1910,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p429mode)::Type,P429modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p429mode)::Type,P429modeVal::pullDown> pullDown{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonepinmodeOd0{    ///<Open drain mode control register 0
-        using Addr = Register::Address<0x4002c068,0x98007000,0,unsigned>;
+    namespace PinconnectPinmodeOd0{    ///<Open drain mode control register 0
+        using Addr = Register::Address<0x4002c068,0x00000000,0x00000000,unsigned>;
         ///Port 0 pin 0 open drain mode control. Pins may potentially be used for I2C-buses using standard port pins. If so, they should be configured for open drain mode via the related bits in PINMODE_OD0.
         enum class P000odVal {
             normal=0x00000000,     ///<Normal. P0.0 pin is in the normal (not open drain) mode.
@@ -1987,6 +2035,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p011od)::Type,P011odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p011od)::Type,P011odVal::openDrain> openDrain{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 0 pin 15 open drain mode control
         enum class P015odVal {
             normal=0x00000000,     ///<Normal. P0.15 pin is in the normal (not open drain) mode.
@@ -2107,6 +2157,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p026od)::Type,P026odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p026od)::Type,P026odVal::openDrain> openDrain{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,27),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 0 pin 29 open drain mode control
         enum class P029odVal {
             normal=0x00000000,     ///<Normal. P0.29 pin is in the normal (not open drain) mode.
@@ -2127,9 +2179,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p030od)::Type,P030odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p030od)::Type,P030odVal::openDrain> openDrain{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonepinmodeOd1{    ///<Open drain mode control register 1
-        using Addr = Register::Address<0x4002c06c,0x000038ec,0,unsigned>;
+    namespace PinconnectPinmodeOd1{    ///<Open drain mode control register 1
+        using Addr = Register::Address<0x4002c06c,0x00000000,0x00000000,unsigned>;
         ///Port 1 pin 0 open drain mode control.
         enum class P100odVal {
             normal=0x00000000,     ///<Normal. P1.0 pin is in the normal (not open drain) mode.
@@ -2150,6 +2204,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p101od)::Type,P101odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p101od)::Type,P101odVal::openDrain> openDrain{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 1 pin 4 open drain mode control, see P1.00OD
         enum class P104odVal {
             normal=0x00000000,     ///<Normal. P1.4 pin is in the normal (not open drain) mode.
@@ -2160,6 +2216,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p104od)::Type,P104odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p104od)::Type,P104odVal::openDrain> openDrain{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 1 pin 8 open drain mode control, see P1.00OD
         enum class P108odVal {
             normal=0x00000000,     ///<Normal. P1.8 pin is in the normal (not open drain) mode.
@@ -2190,6 +2248,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p110od)::Type,P110odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p110od)::Type,P110odVal::openDrain> openDrain{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 1 pin 14 open drain mode control, see P1.00OD
         enum class P114odVal {
             normal=0x00000000,     ///<Normal. P1.14 pin is in the normal (not open drain) mode.
@@ -2371,8 +2431,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p131od)::Type,P131odVal::openDrain> openDrain{};
         }
     }
-    namespace NonepinmodeOd2{    ///<Open drain mode control register 2
-        using Addr = Register::Address<0x4002c070,0xffffc000,0,unsigned>;
+    namespace PinconnectPinmodeOd2{    ///<Open drain mode control register 2
+        using Addr = Register::Address<0x4002c070,0x00000000,0x00000000,unsigned>;
         ///Port 2 pin 0 open drain mode control.
         enum class P200odVal {
             normal=0x00000000,     ///<Normal. P2.0 pin is in the normal (not open drain) mode.
@@ -2513,9 +2573,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p213od)::Type,P213odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p213od)::Type,P213odVal::openDrain> openDrain{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonepinmodeOd3{    ///<Open drain mode control register 3
-        using Addr = Register::Address<0x4002c074,0xf9ffffff,0,unsigned>;
+    namespace PinconnectPinmodeOd3{    ///<Open drain mode control register 3
+        using Addr = Register::Address<0x4002c074,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 3 pin 25 open drain mode control.
         enum class P325odVal {
             normal=0x00000000,     ///<Normal. P3.25 pin is in the normal (not open drain) mode.
@@ -2528,9 +2592,13 @@ namespace Kvasir {
         }
         ///Port 3 pin 26 open drain mode control, see P3.25OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> p326od{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,27),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonepinmodeOd4{    ///<Open drain mode control register 4
-        using Addr = Register::Address<0x4002c078,0xcfffffff,0,unsigned>;
+    namespace PinconnectPinmodeOd4{    ///<Open drain mode control register 4
+        using Addr = Register::Address<0x4002c078,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Port 4 pin 28 open drain mode control.
         enum class P428odVal {
             normal=0x00000000,     ///<Normal. P4.28 pin is in the normal (not open drain) mode.
@@ -2543,9 +2611,11 @@ namespace Kvasir {
         }
         ///Port 4 pin 29 open drain mode control, see P4.28OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> p429od{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2cpadcfg{    ///<I2C Pin Configuration register
-        using Addr = Register::Address<0x4002c07c,0xfffffff0,0,unsigned>;
+    namespace PinconnectI2cpadcfg{    ///<I2C Pin Configuration register
+        using Addr = Register::Address<0x4002c07c,0x00000000,0x00000000,unsigned>;
         ///Drive mode control for the SDA0 pin, P0.27.
         enum class Sdadrv0Val {
             standard=0x00000000,     ///<Standard. The SDA0 pin is in the standard drive mode.
@@ -2586,5 +2656,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scli2c0)::Type,Scli2c0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(scli2c0)::Type,Scli2c0Val::disabled> disabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }
