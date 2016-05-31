@@ -1,9 +1,100 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Inter-IC Sound Interface
+    namespace I2sCtrla{    ///<Control A
+        using Addr = Register::Address<0x42005000,0xffffffc0,0x00000000,unsigned char>;
+        ///Software Reset
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
+        ///Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        ///Clock Unit 0 Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cken0{}; 
+        ///Clock Unit 1 Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cken1{}; 
+        ///Serializer 0 Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> seren0{}; 
+        ///Serializer 1 Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> seren1{}; 
+    }
+    namespace I2sIntenclr{    ///<Interrupt Enable Clear
+        using Addr = Register::Address<0x4200500c,0xffffcccc,0x00000000,unsigned>;
+        ///Receive Ready 0 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy0{}; 
+        ///Receive Ready 1 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxrdy1{}; 
+        ///Receive Overrun 0 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxor0{}; 
+        ///Receive Overrun 1 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxor1{}; 
+        ///Transmit Ready 0 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txrdy0{}; 
+        ///Transmit Ready 1 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txrdy1{}; 
+        ///Transmit Underrun 0 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txur0{}; 
+        ///Transmit Underrun 1 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txur1{}; 
+    }
+    namespace I2sIntenset{    ///<Interrupt Enable Set
+        using Addr = Register::Address<0x42005010,0xffffcccc,0x00000000,unsigned>;
+        ///Receive Ready 0 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy0{}; 
+        ///Receive Ready 1 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxrdy1{}; 
+        ///Receive Overrun 0 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxor0{}; 
+        ///Receive Overrun 1 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxor1{}; 
+        ///Transmit Ready 0 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txrdy0{}; 
+        ///Transmit Ready 1 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txrdy1{}; 
+        ///Transmit Underrun 0 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txur0{}; 
+        ///Transmit Underrun 1 Interrupt Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txur1{}; 
+    }
+    namespace I2sIntflag{    ///<Interrupt Flag Status and Clear
+        using Addr = Register::Address<0x42005014,0xffffcccc,0x00000000,unsigned>;
+        ///Receive Ready 0
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy0{}; 
+        ///Receive Ready 1
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxrdy1{}; 
+        ///Receive Overrun 0
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxor0{}; 
+        ///Receive Overrun 1
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxor1{}; 
+        ///Transmit Ready 0
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txrdy0{}; 
+        ///Transmit Ready 1
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txrdy1{}; 
+        ///Transmit Underrun 0
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txur0{}; 
+        ///Transmit Underrun 1
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txur1{}; 
+    }
+    namespace I2sSyncbusy{    ///<Synchronization Status
+        using Addr = Register::Address<0x42005018,0xfffffcc0,0x00000000,unsigned>;
+        ///Software Reset Synchronization Status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
+        ///Enable Synchronization Status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        ///Clock Unit 0 Enable Synchronization Status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cken0{}; 
+        ///Clock Unit 1 Enable Synchronization Status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cken1{}; 
+        ///Serializer 0 Enable Synchronization Status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> seren0{}; 
+        ///Serializer 1 Enable Synchronization Status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> seren1{}; 
+        ///Data 0 Synchronization Status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> data0{}; 
+        ///Data 1 Synchronization Status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> data1{}; 
+    }
     namespace I2sClkctrl0{    ///<Clock Unit n Control
-        using Addr = Register::Address<0x42005004,0x0002e600,0,unsigned>;
+        using Addr = Register::Address<0x42005004,0x0002e600,0x00000000,unsigned>;
         ///Slot Size
         enum class SlotsizeVal {
             v8=0x00000000,     ///<8-bit Slot for Clock Unit n
@@ -90,7 +181,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> mckoutinv{}; 
     }
     namespace I2sClkctrl1{    ///<Clock Unit n Control
-        using Addr = Register::Address<0x42005008,0x0002e600,0,unsigned>;
+        using Addr = Register::Address<0x42005008,0x0002e600,0x00000000,unsigned>;
         ///Slot Size
         enum class SlotsizeVal {
             v8=0x00000000,     ///<8-bit Slot for Clock Unit n
@@ -176,90 +267,18 @@ namespace Kvasir {
         ///Master Clock Output Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> mckoutinv{}; 
     }
-    namespace I2sCtrla{    ///<Control A
-        using Addr = Register::Address<0x42005000,0xffffffc0,0,unsigned char>;
-        ///Software Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
-        ///Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
-        ///Clock Unit 0 Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cken0{}; 
-        ///Clock Unit 1 Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cken1{}; 
-        ///Serializer 0 Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> seren0{}; 
-        ///Serializer 1 Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> seren1{}; 
-    }
     namespace I2sData0{    ///<Data n
-        using Addr = Register::Address<0x42005030,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x42005030,0x00000000,0x00000000,unsigned>;
         ///Sample Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
     namespace I2sData1{    ///<Data n
-        using Addr = Register::Address<0x42005034,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x42005034,0x00000000,0x00000000,unsigned>;
         ///Sample Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace I2sIntenclr{    ///<Interrupt Enable Clear
-        using Addr = Register::Address<0x4200500c,0xffffcccc,0,unsigned>;
-        ///Receive Ready 0 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy0{}; 
-        ///Receive Ready 1 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxrdy1{}; 
-        ///Receive Overrun 0 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxor0{}; 
-        ///Receive Overrun 1 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxor1{}; 
-        ///Transmit Ready 0 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txrdy0{}; 
-        ///Transmit Ready 1 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txrdy1{}; 
-        ///Transmit Underrun 0 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txur0{}; 
-        ///Transmit Underrun 1 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txur1{}; 
-    }
-    namespace I2sIntenset{    ///<Interrupt Enable Set
-        using Addr = Register::Address<0x42005010,0xffffcccc,0,unsigned>;
-        ///Receive Ready 0 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy0{}; 
-        ///Receive Ready 1 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxrdy1{}; 
-        ///Receive Overrun 0 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxor0{}; 
-        ///Receive Overrun 1 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxor1{}; 
-        ///Transmit Ready 0 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txrdy0{}; 
-        ///Transmit Ready 1 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txrdy1{}; 
-        ///Transmit Underrun 0 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txur0{}; 
-        ///Transmit Underrun 1 Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txur1{}; 
-    }
-    namespace I2sIntflag{    ///<Interrupt Flag Status and Clear
-        using Addr = Register::Address<0x42005014,0xffffcccc,0,unsigned>;
-        ///Receive Ready 0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy0{}; 
-        ///Receive Ready 1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxrdy1{}; 
-        ///Receive Overrun 0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxor0{}; 
-        ///Receive Overrun 1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxor1{}; 
-        ///Transmit Ready 0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txrdy0{}; 
-        ///Transmit Ready 1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txrdy1{}; 
-        ///Transmit Underrun 0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txur0{}; 
-        ///Transmit Underrun 1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txur1{}; 
-    }
     namespace I2sSerctrl0{    ///<Serializer n Control
-        using Addr = Register::Address<0x42005020,0xf8000840,0,unsigned>;
+        using Addr = Register::Address<0x42005020,0xf8000840,0x00000000,unsigned>;
         ///Serializer Mode
         enum class SermodeVal {
             rx=0x00000000,     ///<Receive
@@ -410,7 +429,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> rxloop{}; 
     }
     namespace I2sSerctrl1{    ///<Serializer n Control
-        using Addr = Register::Address<0x42005024,0xf8000840,0,unsigned>;
+        using Addr = Register::Address<0x42005024,0xf8000840,0x00000000,unsigned>;
         ///Serializer Mode
         enum class SermodeVal {
             rx=0x00000000,     ///<Receive
@@ -559,24 +578,5 @@ namespace Kvasir {
         }
         ///Loop-back Test Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> rxloop{}; 
-    }
-    namespace I2sSyncbusy{    ///<Synchronization Status
-        using Addr = Register::Address<0x42005018,0xfffffcc0,0,unsigned>;
-        ///Software Reset Synchronization Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
-        ///Enable Synchronization Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
-        ///Clock Unit 0 Enable Synchronization Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cken0{}; 
-        ///Clock Unit 1 Enable Synchronization Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cken1{}; 
-        ///Serializer 0 Enable Synchronization Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> seren0{}; 
-        ///Serializer 1 Enable Synchronization Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> seren1{}; 
-        ///Data 0 Synchronization Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> data0{}; 
-        ///Data 1 Synchronization Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> data1{}; 
     }
 }

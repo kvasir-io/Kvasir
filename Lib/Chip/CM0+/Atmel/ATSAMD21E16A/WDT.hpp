@@ -1,14 +1,14 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Watchdog Timer
     namespace WdtClear{    ///<Clear
-        using Addr = Register::Address<0x40001008,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40001008,0xffffff00,0x00000000,unsigned char>;
         ///Watchdog Clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clear{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> clear{}; 
     }
     namespace WdtConfig{    ///<Configuration
-        using Addr = Register::Address<0x40001001,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40001001,0xffffff00,0x00000000,unsigned char>;
         ///Time-Out Period
         enum class PerVal {
             v0x0=0x00000000,     ///<8 clock cycles
@@ -71,7 +71,7 @@ namespace Kvasir {
         }
     }
     namespace WdtCtrl{    ///<Control
-        using Addr = Register::Address<0x40001000,0xffffff79,0,unsigned char>;
+        using Addr = Register::Address<0x40001000,0xffffff79,0x00000000,unsigned char>;
         ///Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
         ///Watchdog Timer Window Mode Enable
@@ -80,7 +80,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> alwayson{}; 
     }
     namespace WdtEwctrl{    ///<Early Warning Interrupt Control
-        using Addr = Register::Address<0x40001002,0xfffffff0,0,unsigned char>;
+        using Addr = Register::Address<0x40001002,0xfffffff0,0x00000000,unsigned char>;
         ///Early Warning Interrupt Time Offset
         enum class EwoffsetVal {
             v0x0=0x00000000,     ///<8 clock cycles
@@ -113,23 +113,23 @@ namespace Kvasir {
         }
     }
     namespace WdtIntenclr{    ///<Interrupt Enable Clear
-        using Addr = Register::Address<0x40001004,0xfffffffe,0,unsigned char>;
+        using Addr = Register::Address<0x40001004,0xfffffffe,0x00000000,unsigned char>;
         ///Early Warning Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ew{}; 
     }
     namespace WdtIntenset{    ///<Interrupt Enable Set
-        using Addr = Register::Address<0x40001005,0xfffffffe,0,unsigned char>;
+        using Addr = Register::Address<0x40001005,0xfffffffe,0x00000000,unsigned char>;
         ///Early Warning Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ew{}; 
     }
     namespace WdtIntflag{    ///<Interrupt Flag Status and Clear
-        using Addr = Register::Address<0x40001006,0xfffffffe,0,unsigned char>;
+        using Addr = Register::Address<0x40001006,0xfffffffe,0x00000000,unsigned char>;
         ///Early Warning
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ew{}; 
     }
     namespace WdtStatus{    ///<Status
-        using Addr = Register::Address<0x40001007,0xffffff7f,0,unsigned char>;
+        using Addr = Register::Address<0x40001007,0xffffff7f,0x00000000,unsigned char>;
         ///Synchronization Busy
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> syncbusy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> syncbusy{}; 
     }
 }
