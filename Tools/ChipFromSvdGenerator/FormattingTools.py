@@ -35,7 +35,10 @@ def formatEnumValue(input):
     return formatVariable(input)
 
 def formatComment(input):
-    return input.replace('\r','').replace('\n','')
+    if input:
+        return input.replace('\r','').replace('\n','')
+    return ""
+
     
 def useEnumeratedValues(values,fieldWidth):
     if values is not None:
