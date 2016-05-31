@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog comparator
     namespace Acmp1Cs{    ///<ACMP Control and Status Register
-        using Addr = Register::Address<0x40074000,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40074000,0xffffff00,0x00000000,unsigned char>;
         ///ACMP MOD
         enum class AcmodVal {
             v00=0x00000000,     ///<ACMP interrupt on output falling edge.
@@ -29,7 +29,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acope)::Type,AcopeVal::v1> v1{};
         }
         ///ACMP Output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> aco{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> aco{}; 
         ///ACMP Interrupt Enable
         enum class AcieVal {
             v0=0x00000000,     ///<Disable the ACMP Interrupt.
@@ -64,7 +64,7 @@ namespace Kvasir {
         }
     }
     namespace Acmp1C0{    ///<ACMP Control Register 0
-        using Addr = Register::Address<0x40074001,0xffffffcc,0,unsigned char>;
+        using Addr = Register::Address<0x40074001,0xffffffcc,0x00000000,unsigned char>;
         ///ACMP Negative Input Select
         enum class AcnselVal {
             v00=0x00000000,     ///<External reference 0
@@ -95,7 +95,7 @@ namespace Kvasir {
         }
     }
     namespace Acmp1C1{    ///<ACMP Control Register 1
-        using Addr = Register::Address<0x40074002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40074002,0xffffff00,0x00000000,unsigned char>;
         ///DAC Output Level Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> dacval{}; 
         ///DAC Reference Select
@@ -120,7 +120,7 @@ namespace Kvasir {
         }
     }
     namespace Acmp1C2{    ///<ACMP Control Register 2
-        using Addr = Register::Address<0x40074003,0xfffffff8,0,unsigned char>;
+        using Addr = Register::Address<0x40074003,0xfffffff8,0x00000000,unsigned char>;
         ///ACMP Input Pin Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> acipe{}; 
     }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General Purpose Operational Amplifier
     namespace Opamp0C0{    ///<Control Register 0
-        using Addr = Register::Address<0x400f5000,0xffffff3c,0,unsigned char>;
+        using Addr = Register::Address<0x400f5000,0xffffff3c,0x00000000,unsigned char>;
         ///OPAMP Mode Select
         enum class ModeVal {
             v00=0x00000000,     ///<Buffer
@@ -40,14 +40,14 @@ namespace Kvasir {
         }
     }
     namespace Opamp0C1{    ///<Control Register 1
-        using Addr = Register::Address<0x400f5001,0xffffffe0,0,unsigned char>;
+        using Addr = Register::Address<0x400f5001,0xffffffe0,0x00000000,unsigned char>;
         ///Gains Selector
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ampri{}; 
         ///Gains Selector
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> amprf{}; 
     }
     namespace Opamp0C2{    ///<Control Register 2
-        using Addr = Register::Address<0x400f5002,0xffffff88,0,unsigned char>;
+        using Addr = Register::Address<0x400f5002,0xffffff88,0x00000000,unsigned char>;
         ///Amplifier Negative Input Terminal Selector.
         enum class AmpnselVal {
             v000=0x00000000,     ///<Negative input 0

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Oscillator
     namespace Osc1Cr{    ///<OSC Control Register
-        using Addr = Register::Address<0x400e5000,0xffffff50,0,unsigned char>;
+        using Addr = Register::Address<0x400e5000,0xffffff00,0x00000000,unsigned char>;
         ///Oscillator 16 pF Capacitor Load Configure
         enum class Sc16pVal {
             v0=0x00000000,     ///<Disable the selection.
@@ -44,6 +44,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sc2p)::Type,Sc2pVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sc2p)::Type,Sc2pVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///External Reference Stop Enable
         enum class ErefstenVal {
             v0=0x00000000,     ///<External reference clock is disabled in Stop mode.
@@ -54,6 +56,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erefsten)::Type,ErefstenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erefsten)::Type,ErefstenVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///External Reference Enable
         enum class ErclkenVal {
             v0=0x00000000,     ///<External reference clock is inactive.

@@ -194,6 +194,16 @@ namespace Kvasir {
         ///Nonvolatile Option
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> opt{}; 
     }
+    namespace FtfeFeprot{    ///<EEPROM Protection Register
+        using Addr = Register::Address<0x40020016,0xffffff00,0x00000000,unsigned char>;
+        ///EEPROM Region Protect
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> eprot{}; 
+    }
+    namespace FtfeFdprot{    ///<Data Flash Protection Register
+        using Addr = Register::Address<0x40020017,0xffffff00,0x00000000,unsigned char>;
+        ///Data Flash Region Protect
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dprot{}; 
+    }
     namespace FtfeFccob3{    ///<Flash Common Command Object Registers
         using Addr = Register::Address<0x40020004,0xffffff00,0x00000000,unsigned char>;
         ///no description available
@@ -273,15 +283,5 @@ namespace Kvasir {
         using Addr = Register::Address<0x40020013,0xffffff00,0x00000000,unsigned char>;
         ///Program Flash Region Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> prot{}; 
-    }
-    namespace FtfeFeprot{    ///<EEPROM Protection Register
-        using Addr = Register::Address<0x40020016,0xffffff00,0x00000000,unsigned char>;
-        ///EEPROM Region Protect
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> eprot{}; 
-    }
-    namespace FtfeFdprot{    ///<Data Flash Protection Register
-        using Addr = Register::Address<0x40020017,0xffffff00,0x00000000,unsigned char>;
-        ///Data Flash Region Protect
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dprot{}; 
     }
 }

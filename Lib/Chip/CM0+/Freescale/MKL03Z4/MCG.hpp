@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Multipurpose Clock Generator Lite
     namespace McgC1{    ///<MCG Control Register 1
-        using Addr = Register::Address<0x40064000,0xffffff3c,0,unsigned char>;
+        using Addr = Register::Address<0x40064000,0xffffff3c,0x00000000,unsigned char>;
         ///Internal Reference Stop Enable
         enum class IrefstenVal {
             v0=0x00000000,     ///<LIRC is disabled in Stop mode.
@@ -40,7 +40,7 @@ namespace Kvasir {
         }
     }
     namespace McgC2{    ///<MCG Control Register 2
-        using Addr = Register::Address<0x40064001,0xfffffffa,0,unsigned char>;
+        using Addr = Register::Address<0x40064001,0xfffffffa,0x00000000,unsigned char>;
         ///Low-frequency Internal Reference Clock Select
         enum class IrcsVal {
             v0=0x00000000,     ///<LIRC is in 2 MHz mode.
@@ -63,13 +63,13 @@ namespace Kvasir {
         }
     }
     namespace McgS{    ///<MCG Status Register
-        using Addr = Register::Address<0x40064006,0xfffffff1,0,unsigned char>;
+        using Addr = Register::Address<0x40064006,0xfffffff1,0x00000000,unsigned char>;
         ///OSC Initialization Status
         enum class Oscinit0Val {
             v0=0x00000000,     ///<OSC is not ready.
             v1=0x00000001,     ///<OSC clock is ready.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Oscinit0Val> oscinit0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Oscinit0Val> oscinit0{}; 
         namespace Oscinit0ValC{
             constexpr Register::FieldValue<decltype(oscinit0)::Type,Oscinit0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(oscinit0)::Type,Oscinit0Val::v1> v1{};
@@ -80,7 +80,7 @@ namespace Kvasir {
             v01=0x00000001,     ///<LIRC clock is selected as the main clock source, and MCG_Lite works at LIRC2M or LIRC8M mode.
             v10=0x00000002,     ///<External clock is selected as the main clock source, and MCG_Lite works at EXT mode.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,ClkstVal> clkst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClkstVal> clkst{}; 
         namespace ClkstValC{
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v00> v00{};
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v01> v01{};
@@ -88,7 +88,7 @@ namespace Kvasir {
         }
     }
     namespace McgSc{    ///<MCG Status and Control Register
-        using Addr = Register::Address<0x40064008,0xfffffff1,0,unsigned char>;
+        using Addr = Register::Address<0x40064008,0xfffffff1,0x00000000,unsigned char>;
         ///Low-frequency Internal Reference Clock Divider
         enum class FcrdivVal {
             v000=0x00000000,     ///<Division factor is 1.
@@ -113,7 +113,7 @@ namespace Kvasir {
         }
     }
     namespace McgMc{    ///<MCG Miscellaneous Control Register
-        using Addr = Register::Address<0x40064018,0xffffff78,0,unsigned char>;
+        using Addr = Register::Address<0x40064018,0xffffff78,0x00000000,unsigned char>;
         ///Second Low-frequency Internal Reference Clock Divider
         enum class Lircdiv2Val {
             v000=0x00000000,     ///<Division factor is 1.

@@ -480,6 +480,194 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bdtba{}; 
     }
+    namespace Usb0Usbctrl{    ///<USB Control register
+        using Addr = Register::Address<0x40072100,0xffffff3f,0x00000000,unsigned char>;
+        ///no description available
+        enum class PdeVal {
+            v0=0x00000000,     ///<Weak pulldowns are disabled on D+ and D-.
+            v1=0x00000001,     ///<Weak pulldowns are enabled on D+ and D-.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PdeVal> pde{}; 
+        namespace PdeValC{
+            constexpr Register::FieldValue<decltype(pde)::Type,PdeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pde)::Type,PdeVal::v1> v1{};
+        }
+        ///no description available
+        enum class SuspVal {
+            v0=0x00000000,     ///<USB transceiver is not in suspend state.
+            v1=0x00000001,     ///<USB transceiver is in suspend state.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SuspVal> susp{}; 
+        namespace SuspValC{
+            constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::v1> v1{};
+        }
+    }
+    namespace Usb0Observe{    ///<USB OTG Observe register
+        using Addr = Register::Address<0x40072104,0xffffff2f,0x00000000,unsigned char>;
+        ///no description available
+        enum class DmpdVal {
+            v0=0x00000000,     ///<D- pulldown disabled.
+            v1=0x00000001,     ///<D- pulldown enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DmpdVal> dmpd{}; 
+        namespace DmpdValC{
+            constexpr Register::FieldValue<decltype(dmpd)::Type,DmpdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmpd)::Type,DmpdVal::v1> v1{};
+        }
+        ///no description available
+        enum class DppdVal {
+            v0=0x00000000,     ///<D+ pulldown disabled.
+            v1=0x00000001,     ///<D+ pulldown enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DppdVal> dppd{}; 
+        namespace DppdValC{
+            constexpr Register::FieldValue<decltype(dppd)::Type,DppdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dppd)::Type,DppdVal::v1> v1{};
+        }
+        ///no description available
+        enum class DppuVal {
+            v0=0x00000000,     ///<D+ pullup disabled.
+            v1=0x00000001,     ///<D+ pullup enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DppuVal> dppu{}; 
+        namespace DppuValC{
+            constexpr Register::FieldValue<decltype(dppu)::Type,DppuVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dppu)::Type,DppuVal::v1> v1{};
+        }
+    }
+    namespace Usb0Control{    ///<USB OTG Control register
+        using Addr = Register::Address<0x40072108,0xffffffef,0x00000000,unsigned char>;
+        ///no description available
+        enum class DppullupnonotgVal {
+            v0=0x00000000,     ///<DP Pullup in non-OTG device mode is not enabled.
+            v1=0x00000001,     ///<DP Pullup in non-OTG device mode is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DppullupnonotgVal> dppullupnonotg{}; 
+        namespace DppullupnonotgValC{
+            constexpr Register::FieldValue<decltype(dppullupnonotg)::Type,DppullupnonotgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dppullupnonotg)::Type,DppullupnonotgVal::v1> v1{};
+        }
+    }
+    namespace Usb0Usbtrc0{    ///<USB Transceiver Control register 0
+        using Addr = Register::Address<0x4007210c,0xffffff58,0x00000000,unsigned char>;
+        ///USB Asynchronous Interrupt
+        enum class UsbresumeintVal {
+            v0=0x00000000,     ///<No interrupt was generated.
+            v1=0x00000001,     ///<Interrupt was generated because of the USB asynchronous interrupt.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,UsbresumeintVal> usbResumeInt{}; 
+        namespace UsbresumeintValC{
+            constexpr Register::FieldValue<decltype(usbResumeInt)::Type,UsbresumeintVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(usbResumeInt)::Type,UsbresumeintVal::v1> v1{};
+        }
+        ///Synchronous USB Interrupt Detect
+        enum class SyncdetVal {
+            v0=0x00000000,     ///<Synchronous interrupt has not been detected.
+            v1=0x00000001,     ///<Synchronous interrupt has been detected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SyncdetVal> syncDet{}; 
+        namespace SyncdetValC{
+            constexpr Register::FieldValue<decltype(syncDet)::Type,SyncdetVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(syncDet)::Type,SyncdetVal::v1> v1{};
+        }
+        ///Combined USB Clock Recovery interrupt status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> usbClkRecoveryInt{}; 
+        ///Asynchronous Resume Interrupt Enable
+        enum class UsbresmenVal {
+            v0=0x00000000,     ///<USB asynchronous wakeup from suspend mode disabled.
+            v1=0x00000001,     ///<USB asynchronous wakeup from suspend mode enabled. The asynchronous resume interrupt differs from the synchronous resume interrupt in that it asynchronously detects K-state using the unfiltered state of the D+ and D- pins. This interrupt should only be enabled when the Transceiver is suspended.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,UsbresmenVal> usbresmen{}; 
+        namespace UsbresmenValC{
+            constexpr Register::FieldValue<decltype(usbresmen)::Type,UsbresmenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(usbresmen)::Type,UsbresmenVal::v1> v1{};
+        }
+        ///USB Reset
+        enum class UsbresetVal {
+            v0=0x00000000,     ///<Normal USB module operation.
+            v1=0x00000001,     ///<Returns the USB module to its reset state.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,UsbresetVal> usbreset{}; 
+        namespace UsbresetValC{
+            constexpr Register::FieldValue<decltype(usbreset)::Type,UsbresetVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(usbreset)::Type,UsbresetVal::v1> v1{};
+        }
+    }
+    namespace Usb0Usbfrmadjust{    ///<Frame Adjust Register
+        using Addr = Register::Address<0x40072114,0xffffff00,0x00000000,unsigned char>;
+        ///Frame Adjustment
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> adj{}; 
+    }
+    namespace Usb0ClkRecoverCtrl{    ///<USB Clock recovery control
+        using Addr = Register::Address<0x40072140,0xffffff1f,0x00000000,unsigned char>;
+        ///Restart from IFR trim value
+        enum class RestartifrtrimenVal {
+            v0=0x00000000,     ///<Trim fine adjustment always works based on the previous updated trim fine value (default)
+            v1=0x00000001,     ///<Trim fine restarts from the IFR trim value whenever bus_reset/bus_resume is detected or module enable is desasserted
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RestartifrtrimenVal> restartIfrtrimEn{}; 
+        namespace RestartifrtrimenValC{
+            constexpr Register::FieldValue<decltype(restartIfrtrimEn)::Type,RestartifrtrimenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(restartIfrtrimEn)::Type,RestartifrtrimenVal::v1> v1{};
+        }
+        ///Reset/resume to rough phase enable
+        enum class ResetresumeroughenVal {
+            v0=0x00000000,     ///<Always works in tracking phase after the 1st time rough to track transition (default)
+            v1=0x00000001,     ///<Go back to rough stage whenever bus reset or bus resume occurs
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ResetresumeroughenVal> resetResumeRoughEn{}; 
+        namespace ResetresumeroughenValC{
+            constexpr Register::FieldValue<decltype(resetResumeRoughEn)::Type,ResetresumeroughenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(resetResumeRoughEn)::Type,ResetresumeroughenVal::v1> v1{};
+        }
+        ///Crystal-less USB enable
+        enum class ClockrecoverenVal {
+            v0=0x00000000,     ///<Disable clock recovery block (default)
+            v1=0x00000001,     ///<Enable clock recovery block
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ClockrecoverenVal> clockRecoverEn{}; 
+        namespace ClockrecoverenValC{
+            constexpr Register::FieldValue<decltype(clockRecoverEn)::Type,ClockrecoverenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(clockRecoverEn)::Type,ClockrecoverenVal::v1> v1{};
+        }
+    }
+    namespace Usb0ClkRecoverIrcEn{    ///<IRC48M oscillator enable register
+        using Addr = Register::Address<0x40072144,0xfffffffc,0x00000000,unsigned char>;
+        ///IRC48M regulator enable
+        enum class RegenVal {
+            v0=0x00000000,     ///<IRC48M local regulator is disabled
+            v1=0x00000001,     ///<IRC48M local regulator is enabled (default)
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RegenVal> regEn{}; 
+        namespace RegenValC{
+            constexpr Register::FieldValue<decltype(regEn)::Type,RegenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(regEn)::Type,RegenVal::v1> v1{};
+        }
+        ///IRC48M enable
+        enum class IrcenVal {
+            v0=0x00000000,     ///<Disable the IRC48M module (default)
+            v1=0x00000001,     ///<Enable the IRC48M module
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrcenVal> ircEn{}; 
+        namespace IrcenValC{
+            constexpr Register::FieldValue<decltype(ircEn)::Type,IrcenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ircEn)::Type,IrcenVal::v1> v1{};
+        }
+    }
+    namespace Usb0ClkRecoverIntStatus{    ///<Clock recovery separated interrupt status
+        using Addr = Register::Address<0x4007215c,0xffffffef,0x00000000,unsigned char>;
+        ///no description available
+        enum class OvferrorVal {
+            v0=0x00000000,     ///<No interrupt is reported
+            v1=0x00000001,     ///<Unmasked interrupt has been generated
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OvferrorVal> ovfError{}; 
+        namespace OvferrorValC{
+            constexpr Register::FieldValue<decltype(ovfError)::Type,OvferrorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ovfError)::Type,OvferrorVal::v1> v1{};
+        }
+    }
     namespace Usb0Endpt0{    ///<Endpoint Control register
         using Addr = Register::Address<0x400720c0,0xffffff20,0x00000000,unsigned char>;
         ///no description available
@@ -751,193 +939,5 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> retrydis{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> hostwohub{}; 
-    }
-    namespace Usb0Usbctrl{    ///<USB Control register
-        using Addr = Register::Address<0x40072100,0xffffff3f,0x00000000,unsigned char>;
-        ///no description available
-        enum class PdeVal {
-            v0=0x00000000,     ///<Weak pulldowns are disabled on D+ and D-.
-            v1=0x00000001,     ///<Weak pulldowns are enabled on D+ and D-.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PdeVal> pde{}; 
-        namespace PdeValC{
-            constexpr Register::FieldValue<decltype(pde)::Type,PdeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pde)::Type,PdeVal::v1> v1{};
-        }
-        ///no description available
-        enum class SuspVal {
-            v0=0x00000000,     ///<USB transceiver is not in suspend state.
-            v1=0x00000001,     ///<USB transceiver is in suspend state.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SuspVal> susp{}; 
-        namespace SuspValC{
-            constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::v1> v1{};
-        }
-    }
-    namespace Usb0Observe{    ///<USB OTG Observe register
-        using Addr = Register::Address<0x40072104,0xffffff2f,0x00000000,unsigned char>;
-        ///no description available
-        enum class DmpdVal {
-            v0=0x00000000,     ///<D- pulldown disabled.
-            v1=0x00000001,     ///<D- pulldown enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DmpdVal> dmpd{}; 
-        namespace DmpdValC{
-            constexpr Register::FieldValue<decltype(dmpd)::Type,DmpdVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmpd)::Type,DmpdVal::v1> v1{};
-        }
-        ///no description available
-        enum class DppdVal {
-            v0=0x00000000,     ///<D+ pulldown disabled.
-            v1=0x00000001,     ///<D+ pulldown enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DppdVal> dppd{}; 
-        namespace DppdValC{
-            constexpr Register::FieldValue<decltype(dppd)::Type,DppdVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dppd)::Type,DppdVal::v1> v1{};
-        }
-        ///no description available
-        enum class DppuVal {
-            v0=0x00000000,     ///<D+ pullup disabled.
-            v1=0x00000001,     ///<D+ pullup enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DppuVal> dppu{}; 
-        namespace DppuValC{
-            constexpr Register::FieldValue<decltype(dppu)::Type,DppuVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dppu)::Type,DppuVal::v1> v1{};
-        }
-    }
-    namespace Usb0Control{    ///<USB OTG Control register
-        using Addr = Register::Address<0x40072108,0xffffffef,0x00000000,unsigned char>;
-        ///no description available
-        enum class DppullupnonotgVal {
-            v0=0x00000000,     ///<DP Pullup in non-OTG device mode is not enabled.
-            v1=0x00000001,     ///<DP Pullup in non-OTG device mode is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DppullupnonotgVal> dppullupnonotg{}; 
-        namespace DppullupnonotgValC{
-            constexpr Register::FieldValue<decltype(dppullupnonotg)::Type,DppullupnonotgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dppullupnonotg)::Type,DppullupnonotgVal::v1> v1{};
-        }
-    }
-    namespace Usb0Usbtrc0{    ///<USB Transceiver Control register 0
-        using Addr = Register::Address<0x4007210c,0xffffff58,0x00000000,unsigned char>;
-        ///USB Asynchronous Interrupt
-        enum class UsbresumeintVal {
-            v0=0x00000000,     ///<No interrupt was generated.
-            v1=0x00000001,     ///<Interrupt was generated because of the USB asynchronous interrupt.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,UsbresumeintVal> usbResumeInt{}; 
-        namespace UsbresumeintValC{
-            constexpr Register::FieldValue<decltype(usbResumeInt)::Type,UsbresumeintVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(usbResumeInt)::Type,UsbresumeintVal::v1> v1{};
-        }
-        ///Synchronous USB Interrupt Detect
-        enum class SyncdetVal {
-            v0=0x00000000,     ///<Synchronous interrupt has not been detected.
-            v1=0x00000001,     ///<Synchronous interrupt has been detected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SyncdetVal> syncDet{}; 
-        namespace SyncdetValC{
-            constexpr Register::FieldValue<decltype(syncDet)::Type,SyncdetVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(syncDet)::Type,SyncdetVal::v1> v1{};
-        }
-        ///Combined USB Clock Recovery interrupt status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> usbClkRecoveryInt{}; 
-        ///Asynchronous Resume Interrupt Enable
-        enum class UsbresmenVal {
-            v0=0x00000000,     ///<USB asynchronous wakeup from suspend mode disabled.
-            v1=0x00000001,     ///<USB asynchronous wakeup from suspend mode enabled. The asynchronous resume interrupt differs from the synchronous resume interrupt in that it asynchronously detects K-state using the unfiltered state of the D+ and D- pins. This interrupt should only be enabled when the Transceiver is suspended.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,UsbresmenVal> usbresmen{}; 
-        namespace UsbresmenValC{
-            constexpr Register::FieldValue<decltype(usbresmen)::Type,UsbresmenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(usbresmen)::Type,UsbresmenVal::v1> v1{};
-        }
-        ///USB Reset
-        enum class UsbresetVal {
-            v0=0x00000000,     ///<Normal USB module operation.
-            v1=0x00000001,     ///<Returns the USB module to its reset state.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,UsbresetVal> usbreset{}; 
-        namespace UsbresetValC{
-            constexpr Register::FieldValue<decltype(usbreset)::Type,UsbresetVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(usbreset)::Type,UsbresetVal::v1> v1{};
-        }
-    }
-    namespace Usb0Usbfrmadjust{    ///<Frame Adjust Register
-        using Addr = Register::Address<0x40072114,0xffffff00,0x00000000,unsigned char>;
-        ///Frame Adjustment
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> adj{}; 
-    }
-    namespace Usb0ClkRecoverCtrl{    ///<USB Clock recovery control
-        using Addr = Register::Address<0x40072140,0xffffff1f,0x00000000,unsigned char>;
-        ///Restart from IFR trim value
-        enum class RestartifrtrimenVal {
-            v0=0x00000000,     ///<Trim fine adjustment always works based on the previous updated trim fine value (default)
-            v1=0x00000001,     ///<Trim fine restarts from the IFR trim value whenever bus_reset/bus_resume is detected or module enable is desasserted
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RestartifrtrimenVal> restartIfrtrimEn{}; 
-        namespace RestartifrtrimenValC{
-            constexpr Register::FieldValue<decltype(restartIfrtrimEn)::Type,RestartifrtrimenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(restartIfrtrimEn)::Type,RestartifrtrimenVal::v1> v1{};
-        }
-        ///Reset/resume to rough phase enable
-        enum class ResetresumeroughenVal {
-            v0=0x00000000,     ///<Always works in tracking phase after the 1st time rough to track transition (default)
-            v1=0x00000001,     ///<Go back to rough stage whenever bus reset or bus resume occurs
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ResetresumeroughenVal> resetResumeRoughEn{}; 
-        namespace ResetresumeroughenValC{
-            constexpr Register::FieldValue<decltype(resetResumeRoughEn)::Type,ResetresumeroughenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(resetResumeRoughEn)::Type,ResetresumeroughenVal::v1> v1{};
-        }
-        ///Crystal-less USB enable
-        enum class ClockrecoverenVal {
-            v0=0x00000000,     ///<Disable clock recovery block (default)
-            v1=0x00000001,     ///<Enable clock recovery block
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ClockrecoverenVal> clockRecoverEn{}; 
-        namespace ClockrecoverenValC{
-            constexpr Register::FieldValue<decltype(clockRecoverEn)::Type,ClockrecoverenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(clockRecoverEn)::Type,ClockrecoverenVal::v1> v1{};
-        }
-    }
-    namespace Usb0ClkRecoverIrcEn{    ///<IRC48M oscillator enable register
-        using Addr = Register::Address<0x40072144,0xfffffffc,0x00000000,unsigned char>;
-        ///IRC48M regulator enable
-        enum class RegenVal {
-            v0=0x00000000,     ///<IRC48M local regulator is disabled
-            v1=0x00000001,     ///<IRC48M local regulator is enabled (default)
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RegenVal> regEn{}; 
-        namespace RegenValC{
-            constexpr Register::FieldValue<decltype(regEn)::Type,RegenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(regEn)::Type,RegenVal::v1> v1{};
-        }
-        ///IRC48M enable
-        enum class IrcenVal {
-            v0=0x00000000,     ///<Disable the IRC48M module (default)
-            v1=0x00000001,     ///<Enable the IRC48M module
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrcenVal> ircEn{}; 
-        namespace IrcenValC{
-            constexpr Register::FieldValue<decltype(ircEn)::Type,IrcenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ircEn)::Type,IrcenVal::v1> v1{};
-        }
-    }
-    namespace Usb0ClkRecoverIntStatus{    ///<Clock recovery separated interrupt status
-        using Addr = Register::Address<0x4007215c,0xffffffef,0x00000000,unsigned char>;
-        ///no description available
-        enum class OvferrorVal {
-            v0=0x00000000,     ///<No interrupt is reported
-            v1=0x00000001,     ///<Unmasked interrupt has been generated
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OvferrorVal> ovfError{}; 
-        namespace OvferrorValC{
-            constexpr Register::FieldValue<decltype(ovfError)::Type,OvferrorVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ovfError)::Type,OvferrorVal::v1> v1{};
-        }
     }
 }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Port control and interrupts
     namespace PortIoflt0{    ///<Port Filter Register 0
-        using Addr = Register::Address<0x40049000,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40049000,0x00000000,0x00000000,unsigned>;
         ///Filter Selection for Input from PTA
         enum class FltaVal {
             v00=0x00000000,     ///<BUSCLK
@@ -232,7 +232,7 @@ namespace Kvasir {
         }
     }
     namespace PortIoflt1{    ///<Port Filter Register 1
-        using Addr = Register::Address<0x40049004,0xffff000c,0,unsigned>;
+        using Addr = Register::Address<0x40049004,0xffff000c,0x00000000,unsigned>;
         ///Filter Selection for Input from PTI
         enum class FltiVal {
             v00=0x00000000,     ///<BUSCLK
@@ -333,7 +333,7 @@ namespace Kvasir {
         }
     }
     namespace PortPue0{    ///<Port Pullup Enable Register 0
-        using Addr = Register::Address<0x40049008,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40049008,0x00000000,0x00000000,unsigned>;
         ///Pull Enable for Port A Bit 0
         enum class Ptape0Val {
             v0=0x00000000,     ///<Pullup is disabled for port A bit 0.
@@ -656,7 +656,7 @@ namespace Kvasir {
         }
     }
     namespace PortPue1{    ///<Port Pullup Enable Register 1
-        using Addr = Register::Address<0x4004900c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4004900c,0x00000000,0x00000000,unsigned>;
         ///Pull Enable for Port E Bit 0
         enum class Ptepe0Val {
             v0=0x00000000,     ///<Pullup is disabled for port E bit 0.
@@ -979,7 +979,7 @@ namespace Kvasir {
         }
     }
     namespace PortPue2{    ///<Port Pullup Enable Register 2
-        using Addr = Register::Address<0x40049010,0xffffff80,0,unsigned>;
+        using Addr = Register::Address<0x40049010,0xffffff80,0x00000000,unsigned>;
         ///Pull Enable for Port I Bit 0
         enum class Ptipe0Val {
             v0=0x00000000,     ///<Pullup is disabled for port I bit 0.
@@ -1052,7 +1052,7 @@ namespace Kvasir {
         }
     }
     namespace PortHdrve{    ///<Port High Drive Enable Register
-        using Addr = Register::Address<0x40049014,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40049014,0xffffff00,0x00000000,unsigned>;
         ///High Current Drive Capability of PTB4
         enum class Ptb4Val {
             v0=0x00000000,     ///<PTB4 is disabled to offer high current drive capability.

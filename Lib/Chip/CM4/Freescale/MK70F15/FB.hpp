@@ -1,39 +1,52 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //FlexBus external bus interface
+    namespace FbCspmcr{    ///<Chip select port multiplexing control register
+        using Addr = Register::Address<0x4000c060,0x00000fff,0x00000000,unsigned>;
+        ///FlexBus signal group 5 multiplex control
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> group5{}; 
+        ///FlexBus signal group 4 multiplex control
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> group4{}; 
+        ///FlexBus signal group 3 multiplex control
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> group3{}; 
+        ///FlexBus signal group 2 multiplex control
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> group2{}; 
+        ///FlexBus signal group 1 multiplex control
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> group1{}; 
+    }
     namespace FbCsar0{    ///<Chip select address register
-        using Addr = Register::Address<0x4000c000,0x0000ffff,0,unsigned>;
+        using Addr = Register::Address<0x4000c000,0x0000ffff,0x00000000,unsigned>;
         ///Base address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ba{}; 
     }
     namespace FbCsar1{    ///<Chip select address register
-        using Addr = Register::Address<0x4000c00c,0x0000ffff,0,unsigned>;
+        using Addr = Register::Address<0x4000c00c,0x0000ffff,0x00000000,unsigned>;
         ///Base address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ba{}; 
     }
     namespace FbCsar2{    ///<Chip select address register
-        using Addr = Register::Address<0x4000c018,0x0000ffff,0,unsigned>;
+        using Addr = Register::Address<0x4000c018,0x0000ffff,0x00000000,unsigned>;
         ///Base address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ba{}; 
     }
     namespace FbCsar3{    ///<Chip select address register
-        using Addr = Register::Address<0x4000c024,0x0000ffff,0,unsigned>;
+        using Addr = Register::Address<0x4000c024,0x0000ffff,0x00000000,unsigned>;
         ///Base address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ba{}; 
     }
     namespace FbCsar4{    ///<Chip select address register
-        using Addr = Register::Address<0x4000c030,0x0000ffff,0,unsigned>;
+        using Addr = Register::Address<0x4000c030,0x0000ffff,0x00000000,unsigned>;
         ///Base address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ba{}; 
     }
     namespace FbCsar5{    ///<Chip select address register
-        using Addr = Register::Address<0x4000c03c,0x0000ffff,0,unsigned>;
+        using Addr = Register::Address<0x4000c03c,0x0000ffff,0x00000000,unsigned>;
         ///Base address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ba{}; 
     }
     namespace FbCsmr0{    ///<Chip select mask register
-        using Addr = Register::Address<0x4000c004,0x0000fefe,0,unsigned>;
+        using Addr = Register::Address<0x4000c004,0x0000fefe,0x00000000,unsigned>;
         ///Valid
         enum class VVal {
             v0=0x00000000,     ///<Chip select invalid
@@ -58,7 +71,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
     }
     namespace FbCsmr1{    ///<Chip select mask register
-        using Addr = Register::Address<0x4000c010,0x0000fefe,0,unsigned>;
+        using Addr = Register::Address<0x4000c010,0x0000fefe,0x00000000,unsigned>;
         ///Valid
         enum class VVal {
             v0=0x00000000,     ///<Chip select invalid
@@ -83,7 +96,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
     }
     namespace FbCsmr2{    ///<Chip select mask register
-        using Addr = Register::Address<0x4000c01c,0x0000fefe,0,unsigned>;
+        using Addr = Register::Address<0x4000c01c,0x0000fefe,0x00000000,unsigned>;
         ///Valid
         enum class VVal {
             v0=0x00000000,     ///<Chip select invalid
@@ -108,7 +121,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
     }
     namespace FbCsmr3{    ///<Chip select mask register
-        using Addr = Register::Address<0x4000c028,0x0000fefe,0,unsigned>;
+        using Addr = Register::Address<0x4000c028,0x0000fefe,0x00000000,unsigned>;
         ///Valid
         enum class VVal {
             v0=0x00000000,     ///<Chip select invalid
@@ -133,7 +146,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
     }
     namespace FbCsmr4{    ///<Chip select mask register
-        using Addr = Register::Address<0x4000c034,0x0000fefe,0,unsigned>;
+        using Addr = Register::Address<0x4000c034,0x0000fefe,0x00000000,unsigned>;
         ///Valid
         enum class VVal {
             v0=0x00000000,     ///<Chip select invalid
@@ -158,7 +171,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
     }
     namespace FbCsmr5{    ///<Chip select mask register
-        using Addr = Register::Address<0x4000c040,0x0000fefe,0,unsigned>;
+        using Addr = Register::Address<0x4000c040,0x0000fefe,0x00000000,unsigned>;
         ///Valid
         enum class VVal {
             v0=0x00000000,     ///<Chip select invalid
@@ -183,7 +196,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
     }
     namespace FbCscr0{    ///<Chip select control register
-        using Addr = Register::Address<0x4000c008,0x03000007,0,unsigned>;
+        using Addr = Register::Address<0x4000c008,0x03000007,0x00000000,unsigned>;
         ///Burst-write enable
         enum class BstwVal {
             v0=0x00000000,     ///<Break data larger than the specified port size into individual, port-sized, non-burst writes. For example, a longword write to an 8-bit port takes four byte writes.
@@ -316,7 +329,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
     }
     namespace FbCscr1{    ///<Chip select control register
-        using Addr = Register::Address<0x4000c014,0x03000007,0,unsigned>;
+        using Addr = Register::Address<0x4000c014,0x03000007,0x00000000,unsigned>;
         ///Burst-write enable
         enum class BstwVal {
             v0=0x00000000,     ///<Break data larger than the specified port size into individual, port-sized, non-burst writes. For example, a longword write to an 8-bit port takes four byte writes.
@@ -449,7 +462,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
     }
     namespace FbCscr2{    ///<Chip select control register
-        using Addr = Register::Address<0x4000c020,0x03000007,0,unsigned>;
+        using Addr = Register::Address<0x4000c020,0x03000007,0x00000000,unsigned>;
         ///Burst-write enable
         enum class BstwVal {
             v0=0x00000000,     ///<Break data larger than the specified port size into individual, port-sized, non-burst writes. For example, a longword write to an 8-bit port takes four byte writes.
@@ -582,7 +595,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
     }
     namespace FbCscr3{    ///<Chip select control register
-        using Addr = Register::Address<0x4000c02c,0x03000007,0,unsigned>;
+        using Addr = Register::Address<0x4000c02c,0x03000007,0x00000000,unsigned>;
         ///Burst-write enable
         enum class BstwVal {
             v0=0x00000000,     ///<Break data larger than the specified port size into individual, port-sized, non-burst writes. For example, a longword write to an 8-bit port takes four byte writes.
@@ -715,7 +728,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
     }
     namespace FbCscr4{    ///<Chip select control register
-        using Addr = Register::Address<0x4000c038,0x03000007,0,unsigned>;
+        using Addr = Register::Address<0x4000c038,0x03000007,0x00000000,unsigned>;
         ///Burst-write enable
         enum class BstwVal {
             v0=0x00000000,     ///<Break data larger than the specified port size into individual, port-sized, non-burst writes. For example, a longword write to an 8-bit port takes four byte writes.
@@ -848,7 +861,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
     }
     namespace FbCscr5{    ///<Chip select control register
-        using Addr = Register::Address<0x4000c044,0x03000007,0,unsigned>;
+        using Addr = Register::Address<0x4000c044,0x03000007,0x00000000,unsigned>;
         ///Burst-write enable
         enum class BstwVal {
             v0=0x00000000,     ///<Break data larger than the specified port size into individual, port-sized, non-burst writes. For example, a longword write to an 8-bit port takes four byte writes.
@@ -979,18 +992,5 @@ namespace Kvasir {
         }
         ///Secondary wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
-    }
-    namespace FbCspmcr{    ///<Chip select port multiplexing control register
-        using Addr = Register::Address<0x4000c060,0x00000fff,0,unsigned>;
-        ///FlexBus signal group 5 multiplex control
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> group5{}; 
-        ///FlexBus signal group 4 multiplex control
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> group4{}; 
-        ///FlexBus signal group 3 multiplex control
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> group3{}; 
-        ///FlexBus signal group 2 multiplex control
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> group2{}; 
-        ///FlexBus signal group 1 multiplex control
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> group1{}; 
     }
 }

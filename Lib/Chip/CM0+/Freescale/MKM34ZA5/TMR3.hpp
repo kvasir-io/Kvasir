@@ -1,39 +1,39 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Quad Timer
     namespace Tmr3Comp1{    ///<Timer Channel Compare Register 1
-        using Addr = Register::Address<0x4005a000,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a000,0xffff0000,0x00000000,unsigned>;
         ///Comparison Value 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> comparison1{}; 
     }
     namespace Tmr3Comp2{    ///<Timer Channel Compare Register 2
-        using Addr = Register::Address<0x4005a002,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a002,0xffff0000,0x00000000,unsigned>;
         ///Comparison Value 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> comparison2{}; 
     }
     namespace Tmr3Capt{    ///<Timer Channel Capture Register
-        using Addr = Register::Address<0x4005a004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a004,0xffff0000,0x00000000,unsigned>;
         ///Capture Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> capture{}; 
     }
     namespace Tmr3Load{    ///<Timer Channel Load Register
-        using Addr = Register::Address<0x4005a006,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a006,0xffff0000,0x00000000,unsigned>;
         ///Timer Load Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> load{}; 
     }
     namespace Tmr3Hold{    ///<Timer Channel Hold Register
-        using Addr = Register::Address<0x4005a008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a008,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> hold{}; 
     }
     namespace Tmr3Cntr{    ///<Timer Channel Counter Register
-        using Addr = Register::Address<0x4005a00a,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a00a,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> counter{}; 
     }
     namespace Tmr3Ctrl{    ///<Timer Channel Control Register
-        using Addr = Register::Address<0x4005a00c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a00c,0xffff0000,0x00000000,unsigned>;
         ///Output Mode
         enum class OutmodeVal {
             v000=0x00000000,     ///<Asserted while counter is active
@@ -172,7 +172,7 @@ namespace Kvasir {
         }
     }
     namespace Tmr3Sctrl{    ///<Timer Channel Status and Control Register
-        using Addr = Register::Address<0x4005a00e,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a00e,0xffff0000,0x00000000,unsigned>;
         ///Output Enable
         enum class OenVal {
             v0=0x00000000,     ///<The external pin is configured as an input.
@@ -194,7 +194,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ops)::Type,OpsVal::v1> v1{};
         }
         ///Force OFLAG Output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> force{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> force{}; 
         ///Forced OFLAG Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> val{}; 
         ///Enable External OFLAG Force
@@ -216,7 +216,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(captureMode)::Type,CapturemodeVal::v11> v11{};
         }
         ///External Input Signal
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> input{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> input{}; 
         ///Input Polarity Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ips{}; 
         ///Input Edge Flag Interrupt Enable
@@ -233,17 +233,17 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tcf{}; 
     }
     namespace Tmr3Cmpld1{    ///<Timer Channel Comparator Load Register 1
-        using Addr = Register::Address<0x4005a010,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a010,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> comparatorLoad1{}; 
     }
     namespace Tmr3Cmpld2{    ///<Timer Channel Comparator Load Register 2
-        using Addr = Register::Address<0x4005a012,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a012,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> comparatorLoad2{}; 
     }
     namespace Tmr3Csctrl{    ///<Timer Channel Comparator Status and Control Register
-        using Addr = Register::Address<0x4005a014,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005a014,0xffff0000,0x00000000,unsigned>;
         ///Compare Load Control 1
         enum class Cl1Val {
             v00=0x00000000,     ///<Never preload
@@ -281,7 +281,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The OFLAG signal is low.
             v1=0x00000001,     ///<The OFLAG signal is high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,OflagVal> oflag{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,OflagVal> oflag{}; 
         namespace OflagValC{
             constexpr Register::FieldValue<decltype(oflag)::Type,OflagVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oflag)::Type,OflagVal::v1> v1{};
@@ -291,7 +291,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The last count was in the DOWN direction.
             v1=0x00000001,     ///<The last count was in the UP direction.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,UpVal> up{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,UpVal> up{}; 
         namespace UpValC{
             constexpr Register::FieldValue<decltype(up)::Type,UpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(up)::Type,UpVal::v1> v1{};
@@ -352,7 +352,7 @@ namespace Kvasir {
         }
     }
     namespace Tmr3Filt{    ///<Timer Channel Input Filter Register
-        using Addr = Register::Address<0x4005a016,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0x4005a016,0xfffff800,0x00000000,unsigned>;
         ///Input Filter Sample Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> filtPer{}; 
         ///Input Filter Sample Count

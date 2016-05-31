@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Programmable Delay Block
     namespace Pdb0Sc{    ///<Status and Control Register
-        using Addr = Register::Address<0x40036000,0xfff00010,0,unsigned>;
+        using Addr = Register::Address<0x40036000,0xfff00010,0x00000000,unsigned>;
         ///Load OK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ldok{}; 
         ///Continuous Mode Enable
@@ -123,7 +123,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
         }
         ///Software Trigger
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> swtrig{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> swtrig{}; 
         ///PDB Sequence Error Interrupt Enable
         enum class PdbeieVal {
             v0=0x00000000,     ///<PDB sequence error interrupt disabled.
@@ -150,22 +150,22 @@ namespace Kvasir {
         }
     }
     namespace Pdb0Mod{    ///<Modulus Register
-        using Addr = Register::Address<0x40036004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40036004,0xffff0000,0x00000000,unsigned>;
         ///PDB Modulus.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
     }
     namespace Pdb0Cnt{    ///<Counter Register
-        using Addr = Register::Address<0x40036008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40036008,0xffff0000,0x00000000,unsigned>;
         ///PDB Counter
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cnt{}; 
     }
     namespace Pdb0Idly{    ///<Interrupt Delay Register
-        using Addr = Register::Address<0x4003600c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003600c,0xffff0000,0x00000000,unsigned>;
         ///PDB Interrupt Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> idly{}; 
     }
     namespace Pdb0Chc1{    ///<Channel n Control Register 1
-        using Addr = Register::Address<0x40036010,0xff000000,0,unsigned>;
+        using Addr = Register::Address<0x40036010,0xff000000,0x00000000,unsigned>;
         ///PDB Channel Pre-Trigger Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> en{}; 
         ///PDB Channel Pre-Trigger Output Select
@@ -174,36 +174,36 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> bb{}; 
     }
     namespace Pdb0Chs{    ///<Channel n Status Register
-        using Addr = Register::Address<0x40036014,0xff00ff00,0,unsigned>;
+        using Addr = Register::Address<0x40036014,0xff00ff00,0x00000000,unsigned>;
         ///PDB Channel Sequence Error Flags
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> err{}; 
         ///PDB Channel Flags
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> cf{}; 
     }
     namespace Pdb0Chdly0{    ///<Channel n Delay 0 Register
-        using Addr = Register::Address<0x40036018,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40036018,0xffff0000,0x00000000,unsigned>;
         ///PDB Channel Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly{}; 
     }
     namespace Pdb0Chdly1{    ///<Channel n Delay 1 Register
-        using Addr = Register::Address<0x4003601c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003601c,0xffff0000,0x00000000,unsigned>;
         ///PDB Channel Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly{}; 
     }
     namespace Pdb0Poen{    ///<Pulse-Out n Enable Register
-        using Addr = Register::Address<0x40036190,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40036190,0xffffff00,0x00000000,unsigned>;
         ///PDB Pulse-Out Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> poen{}; 
     }
     namespace Pdb0Po0dly{    ///<Pulse-Out n Delay Register
-        using Addr = Register::Address<0x40036194,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40036194,0x00000000,0x00000000,unsigned>;
         ///PDB Pulse-Out Delay 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly2{}; 
         ///PDB Pulse-Out Delay 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> dly1{}; 
     }
     namespace Pdb0Po1dly{    ///<Pulse-Out n Delay Register
-        using Addr = Register::Address<0x40036198,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40036198,0x00000000,0x00000000,unsigned>;
         ///PDB Pulse-Out Delay 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly2{}; 
         ///PDB Pulse-Out Delay 1

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //High-Speed Comparator (CMP), Voltage Reference (VREF) Digital-to-Analog Converter (DAC), and Analog Mux (ANMUX)
     namespace Cmp2Cr0{    ///<CMP Control Register 0
-        using Addr = Register::Address<0x40052000,0xffffff8e,0,unsigned char>;
+        using Addr = Register::Address<0x40052000,0xffffff00,0x00000000,unsigned char>;
         ///Comparator hard block hysteresis control
         enum class HystctrVal {
             v0=0x00000000,     ///<Level 0
@@ -14,6 +14,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hystctr)::Type,HystctrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hystctr)::Type,HystctrVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Filter Sample Count
         enum class FiltercntVal {
             v000=0x00000000,     ///<Filter is disabled. If SE = 1, then COUT is a logic zero (this is not a legal state, and is not recommended). If SE = 0, COUT = COUTA.
@@ -36,9 +38,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v110> v110{};
             constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v111> v111{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace Cmp2Cr1{    ///<CMP Control Register 1
-        using Addr = Register::Address<0x40052001,0xffffff20,0,unsigned char>;
+        using Addr = Register::Address<0x40052001,0xffffff00,0x00000000,unsigned char>;
         ///Comparator Module Enable
         enum class EnVal {
             v0=0x00000000,     ///<Analog Comparator disabled.
@@ -89,6 +93,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmode)::Type,PmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pmode)::Type,PmodeVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Windowing Enable
         enum class WeVal {
             v0=0x00000000,     ///<Windowing mode not selected.
@@ -111,14 +117,14 @@ namespace Kvasir {
         }
     }
     namespace Cmp2Fpr{    ///<CMP Filter Period Register
-        using Addr = Register::Address<0x40052002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40052002,0xffffff00,0x00000000,unsigned char>;
         ///Filter Sample Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> filtPer{}; 
     }
     namespace Cmp2Scr{    ///<CMP Status and Control Register
-        using Addr = Register::Address<0x40052003,0xffffffa0,0,unsigned char>;
+        using Addr = Register::Address<0x40052003,0xffffff00,0x00000000,unsigned char>;
         ///Analog Comparator Output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cout{}; 
         ///Analog Comparator Flag Falling
         enum class CffVal {
             v0=0x00000000,     ///<Falling edge on COUT has not been detected.
@@ -159,6 +165,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ier)::Type,IerVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ier)::Type,IerVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///DMA Enable Control
         enum class DmaenVal {
             v0=0x00000000,     ///<DMA disabled.
@@ -169,9 +177,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace Cmp2Daccr{    ///<DAC Control Register
-        using Addr = Register::Address<0x40052004,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40052004,0xffffff00,0x00000000,unsigned char>;
         ///DAC Output Voltage Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> vosel{}; 
         ///Supply Voltage Reference Source Select
@@ -196,7 +206,7 @@ namespace Kvasir {
         }
     }
     namespace Cmp2Muxcr{    ///<MUX Control Register
-        using Addr = Register::Address<0x40052005,0xffffffcc,0,unsigned char>;
+        using Addr = Register::Address<0x40052005,0xffffff00,0x00000000,unsigned char>;
         ///Minus Input MUX Control
         enum class MselVal {
             v00=0x00000000,     ///<IN0
@@ -211,6 +221,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v11> v11{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Plus Input MUX Control
         enum class PselVal {
             v00=0x00000000,     ///<IN0
@@ -225,10 +237,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v11> v11{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace Cmp2Muxpe{    ///<MUX Pin Enable Register
-        using Addr = Register::Address<0x40052006,0xfffffff8,0,unsigned char>;
+        using Addr = Register::Address<0x40052006,0xffffff00,0x00000000,unsigned char>;
         ///Positive Input Pin Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> inpe{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
 }

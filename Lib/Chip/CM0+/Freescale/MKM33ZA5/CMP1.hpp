@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //High-Speed Comparator (CMP), Voltage Reference (VREF) Digital-to-Analog Converter (DAC), and Analog Mux (ANMUX)
     namespace Cmp1Cr0{    ///<CMP Control Register 0
-        using Addr = Register::Address<0x40072008,0xffffff8c,0,unsigned char>;
+        using Addr = Register::Address<0x40072008,0xffffff8c,0x00000000,unsigned char>;
         ///Comparator hard block hysteresis control
         enum class HystctrVal {
             v00=0x00000000,     ///<Level 0
@@ -42,7 +42,7 @@ namespace Kvasir {
         }
     }
     namespace Cmp1Cr1{    ///<CMP Control Register 1
-        using Addr = Register::Address<0x40072009,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40072009,0xffffff00,0x00000000,unsigned char>;
         ///Comparator Module Enable
         enum class EnVal {
             v0=0x00000000,     ///<Analog Comparator is disabled.
@@ -125,14 +125,14 @@ namespace Kvasir {
         }
     }
     namespace Cmp1Fpr{    ///<CMP Filter Period Register
-        using Addr = Register::Address<0x4007200a,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007200a,0xffffff00,0x00000000,unsigned char>;
         ///Filter Sample Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> filtPer{}; 
     }
     namespace Cmp1Scr{    ///<CMP Status and Control Register
-        using Addr = Register::Address<0x4007200b,0xffffffa0,0,unsigned char>;
+        using Addr = Register::Address<0x4007200b,0xffffffa0,0x00000000,unsigned char>;
         ///Analog Comparator Output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cout{}; 
         ///Analog Comparator Flag Falling
         enum class CffVal {
             v0=0x00000000,     ///<Falling-edge on COUT has not been detected.
@@ -185,7 +185,7 @@ namespace Kvasir {
         }
     }
     namespace Cmp1Daccr{    ///<DAC Control Register
-        using Addr = Register::Address<0x4007200c,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007200c,0xffffff00,0x00000000,unsigned char>;
         ///DAC Output Voltage Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> vosel{}; 
         ///Supply Voltage Reference Source Select
@@ -210,7 +210,7 @@ namespace Kvasir {
         }
     }
     namespace Cmp1Muxcr{    ///<MUX Control Register
-        using Addr = Register::Address<0x4007200d,0xffffffc0,0,unsigned char>;
+        using Addr = Register::Address<0x4007200d,0xffffffc0,0x00000000,unsigned char>;
         ///Minus Input Mux Control
         enum class MselVal {
             v000=0x00000000,     ///<IN0

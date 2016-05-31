@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Periodic Interrupt Timer
     namespace PitMcr{    ///<PIT Module Control Register
-        using Addr = Register::Address<0x40037000,0xfffffffc,0,unsigned>;
+        using Addr = Register::Address<0x40037000,0xfffffffc,0x00000000,unsigned>;
         ///Freeze
         enum class FrzVal {
             v0=0x00000000,     ///<Timers continue to run in Debug mode.
@@ -26,27 +26,27 @@ namespace Kvasir {
         }
     }
     namespace PitLdval0{    ///<Timer Load Value Register
-        using Addr = Register::Address<0x40037100,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40037100,0x00000000,0x00000000,unsigned>;
         ///Timer Start Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
     }
     namespace PitLdval1{    ///<Timer Load Value Register
-        using Addr = Register::Address<0x40037110,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40037110,0x00000000,0x00000000,unsigned>;
         ///Timer Start Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
     }
     namespace PitCval0{    ///<Current Timer Value Register
-        using Addr = Register::Address<0x40037104,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40037104,0x00000000,0x00000000,unsigned>;
         ///Current Timer Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tvl{}; 
     }
     namespace PitCval1{    ///<Current Timer Value Register
-        using Addr = Register::Address<0x40037114,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40037114,0x00000000,0x00000000,unsigned>;
         ///Current Timer Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tvl{}; 
     }
     namespace PitTctrl0{    ///<Timer Control Register
-        using Addr = Register::Address<0x40037108,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0x40037108,0xfffffff8,0x00000000,unsigned>;
         ///Timer Enable
         enum class TenVal {
             v0=0x00000000,     ///<Timer n is disabled.
@@ -79,7 +79,7 @@ namespace Kvasir {
         }
     }
     namespace PitTctrl1{    ///<Timer Control Register
-        using Addr = Register::Address<0x40037118,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0x40037118,0xfffffff8,0x00000000,unsigned>;
         ///Timer Enable
         enum class TenVal {
             v0=0x00000000,     ///<Timer n is disabled.
@@ -112,7 +112,7 @@ namespace Kvasir {
         }
     }
     namespace PitTflg0{    ///<Timer Flag Register
-        using Addr = Register::Address<0x4003710c,0xfffffffe,0,unsigned>;
+        using Addr = Register::Address<0x4003710c,0xfffffffe,0x00000000,unsigned>;
         ///Timer Interrupt Flag
         enum class TifVal {
             v0=0x00000000,     ///<Timeout has not yet occurred.
@@ -125,7 +125,7 @@ namespace Kvasir {
         }
     }
     namespace PitTflg1{    ///<Timer Flag Register
-        using Addr = Register::Address<0x4003711c,0xfffffffe,0,unsigned>;
+        using Addr = Register::Address<0x4003711c,0xfffffffe,0x00000000,unsigned>;
         ///Timer Interrupt Flag
         enum class TifVal {
             v0=0x00000000,     ///<Timeout has not yet occurred.

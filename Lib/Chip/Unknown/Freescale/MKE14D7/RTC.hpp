@@ -1,9 +1,11 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Real-time counter
     namespace RtcSc{    ///<RTC Status and Control Register
-        using Addr = Register::Address<0x4002d000,0xffff380f,0,unsigned>;
+        using Addr = Register::Address<0x4002d000,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Real-Time Counter Output
         enum class RtcoVal {
             v0=0x00000000,     ///<Real-time counter output disabled.
@@ -66,6 +68,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v110> v110{};
             constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v111> v111{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Real-Time Clock Source Select
         enum class RtclksVal {
             v00=0x00000000,     ///<External clock source.
@@ -80,15 +84,21 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtclks)::Type,RtclksVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rtclks)::Type,RtclksVal::v11> v11{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace RtcMod{    ///<RTC Modulo Register
-        using Addr = Register::Address<0x4002d004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4002d004,0x00000000,0x00000000,unsigned>;
         ///RTC Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace RtcCnt{    ///<RTC Counter Register
-        using Addr = Register::Address<0x4002d008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4002d008,0x00000000,0x00000000,unsigned>;
         ///RTC Count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cnt{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
 }

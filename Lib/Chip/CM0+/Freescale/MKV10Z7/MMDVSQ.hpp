@@ -1,25 +1,25 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Memory-Mapped Divide and Square Root
     namespace MmdvsqDend{    ///<Dividend Register
-        using Addr = Register::Address<0xf0004000,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0xf0004000,0x00000000,0x00000000,unsigned>;
         ///Dividend
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dividend{}; 
     }
     namespace MmdvsqDsor{    ///<Divisor Register
-        using Addr = Register::Address<0xf0004004,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0xf0004004,0x00000000,0x00000000,unsigned>;
         ///Divisor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> divisor{}; 
     }
     namespace MmdvsqCsr{    ///<Control/Status Register
-        using Addr = Register::Address<0xf0004008,0x1fffffc0,0,unsigned>;
+        using Addr = Register::Address<0xf0004008,0x1fffffc0,0x00000000,unsigned>;
         ///Start
         enum class SrtVal {
             v0=0x00000000,     ///<No operation initiated
             v1=0x00000001,     ///<If CSR[DFS] = 1, then initiate a divide calculation, else ignore
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SrtVal> srt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SrtVal> srt{}; 
         namespace SrtValC{
             constexpr Register::FieldValue<decltype(srt)::Type,SrtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(srt)::Type,SrtVal::v1> v1{};
@@ -59,7 +59,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The last divide operation had a non-zero divisor, that is, DSOR != 0
             v1=0x00000001,     ///<The last divide operation had a zero divisor, that is, DSOR = 0
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DzVal> dz{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DzVal> dz{}; 
         namespace DzValC{
             constexpr Register::FieldValue<decltype(dz)::Type,DzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dz)::Type,DzVal::v1> v1{};
@@ -79,7 +79,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Current or last MMDVSQ operation was not a square root
             v1=0x00000001,     ///<Current or last MMDVSQ operation was a square root
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,SqrtVal> sqrt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SqrtVal> sqrt{}; 
         namespace SqrtValC{
             constexpr Register::FieldValue<decltype(sqrt)::Type,SqrtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sqrt)::Type,SqrtVal::v1> v1{};
@@ -89,7 +89,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Current or last MMDVSQ operation was not a divide
             v1=0x00000001,     ///<Current or last MMDVSQ operation was a divide
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DivVal> div{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DivVal> div{}; 
         namespace DivValC{
             constexpr Register::FieldValue<decltype(div)::Type,DivVal::v0> v0{};
             constexpr Register::FieldValue<decltype(div)::Type,DivVal::v1> v1{};
@@ -99,19 +99,19 @@ namespace Kvasir {
             v0=0x00000000,     ///<MMDVSQ is idle
             v1=0x00000001,     ///<MMDVSQ is busy performing a divide or square root calculation
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,BusyVal> busy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BusyVal> busy{}; 
         namespace BusyValC{
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v1> v1{};
         }
     }
     namespace MmdvsqRes{    ///<Result Register
-        using Addr = Register::Address<0xf000400c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0xf000400c,0x00000000,0x00000000,unsigned>;
         ///Result
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> result{}; 
     }
     namespace MmdvsqRcnd{    ///<Radicand Register
-        using Addr = Register::Address<0xf0004010,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0xf0004010,0x00000000,0x00000000,unsigned>;
         ///Radicand
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> radicand{}; 
     }

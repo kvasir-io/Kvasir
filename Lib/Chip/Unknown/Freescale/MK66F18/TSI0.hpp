@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Touch sense input
     namespace Tsi0Gencs{    ///<TSI General Control and Status Register
-        using Addr = Register::Address<0x40045000,0x60000000,0,unsigned>;
+        using Addr = Register::Address<0x40045000,0x00000000,0x00000000,unsigned>;
         ///End-of-Scan DMA Transfer Request Enable Only
         enum class EosdmeoVal {
             v0=0x00000000,     ///<Do not enable the End-of-Scan DMA transfer request only. Depending on ESOR state, either Out-of-Range or End-of-Scan can trigger a DMA transfer request and interrupt.
@@ -39,7 +39,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No scan in progress.
             v1=0x00000001,     ///<Scan in progress.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ScnipVal> scnip{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ScnipVal> scnip{}; 
         namespace ScnipValC{
             constexpr Register::FieldValue<decltype(scnip)::Type,ScnipVal::v0> v0{};
             constexpr Register::FieldValue<decltype(scnip)::Type,ScnipVal::v1> v1{};
@@ -246,19 +246,23 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esor)::Type,EsorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esor)::Type,EsorVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Out of Range Flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> outrgf{}; 
     }
     namespace Tsi0Data{    ///<TSI DATA Register
-        using Addr = Register::Address<0x40045004,0x0f3f0000,0,unsigned>;
+        using Addr = Register::Address<0x40045004,0x00000000,0x00000000,unsigned>;
         ///TSI Conversion Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tsicnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tsicnt{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Software Trigger Start
         enum class SwtsVal {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<Start a scan to determine which channel is specified by TSI_DATA[TSICH].
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,SwtsVal> swts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SwtsVal> swts{}; 
         namespace SwtsValC{
             constexpr Register::FieldValue<decltype(swts)::Type,SwtsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swts)::Type,SwtsVal::v1> v1{};
@@ -273,6 +277,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///TSICH
         enum class TsichVal {
             v0000=0x00000000,     ///<Channel 0.
@@ -313,7 +319,7 @@ namespace Kvasir {
         }
     }
     namespace Tsi0Tshd{    ///<TSI Threshold Register
-        using Addr = Register::Address<0x40045008,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40045008,0x00000000,0x00000000,unsigned>;
         ///TSI Wakeup Channel Low-threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> thresl{}; 
         ///TSI Wakeup Channel High-threshold

@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Intelligent event controller
     namespace IeventDrl{    ///<iEvent Data Register: Low
-        using Addr = Register::Address<0x40019000,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40019000,0x00000000,0x00000000,unsigned>;
         ///Event Inputs {A0}
         enum class Ina0Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ina0Val> inA0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ina0Val> inA0{}; 
         namespace Ina0ValC{
             constexpr Register::FieldValue<decltype(inA0)::Type,Ina0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inA0)::Type,Ina0Val::v1> v1{};
@@ -19,7 +19,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Inb0Val> inB0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Inb0Val> inB0{}; 
         namespace Inb0ValC{
             constexpr Register::FieldValue<decltype(inB0)::Type,Inb0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inB0)::Type,Inb0Val::v1> v1{};
@@ -29,7 +29,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Inc0Val> inC0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Inc0Val> inC0{}; 
         namespace Inc0ValC{
             constexpr Register::FieldValue<decltype(inC0)::Type,Inc0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inC0)::Type,Inc0Val::v1> v1{};
@@ -39,7 +39,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ind0Val> inD0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ind0Val> inD0{}; 
         namespace Ind0ValC{
             constexpr Register::FieldValue<decltype(inD0)::Type,Ind0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inD0)::Type,Ind0Val::v1> v1{};
@@ -53,7 +53,7 @@ namespace Kvasir {
             v101=0x00000005,     ///<The channel is waiting for the selected input signals to be negated before rearming; FSM = wfclr.
             v111=0x00000007,     ///<The event output has been acknowledged; done signals are broadcast during 1-cycle state; FSM = done.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,Outputfsm0Val> outputFsm0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Outputfsm0Val> outputFsm0{}; 
         namespace Outputfsm0ValC{
             constexpr Register::FieldValue<decltype(outputFsm0)::Type,Outputfsm0Val::v000> v000{};
             constexpr Register::FieldValue<decltype(outputFsm0)::Type,Outputfsm0Val::v001> v001{};
@@ -76,7 +76,7 @@ namespace Kvasir {
         enum class Ina1Val {
             v0=0x00000000,     ///<The state of the event input was negated.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ina1Val> inA1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ina1Val> inA1{}; 
         namespace Ina1ValC{
             constexpr Register::FieldValue<decltype(inA1)::Type,Ina1Val::v0> v0{};
         }
@@ -85,7 +85,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Inb1Val> inB1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Inb1Val> inB1{}; 
         namespace Inb1ValC{
             constexpr Register::FieldValue<decltype(inB1)::Type,Inb1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inB1)::Type,Inb1Val::v1> v1{};
@@ -95,7 +95,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Inc1Val> inC1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Inc1Val> inC1{}; 
         namespace Inc1ValC{
             constexpr Register::FieldValue<decltype(inC1)::Type,Inc1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inC1)::Type,Inc1Val::v1> v1{};
@@ -105,7 +105,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ind1Val> inD1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ind1Val> inD1{}; 
         namespace Ind1ValC{
             constexpr Register::FieldValue<decltype(inD1)::Type,Ind1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inD1)::Type,Ind1Val::v1> v1{};
@@ -119,7 +119,7 @@ namespace Kvasir {
             v101=0x00000005,     ///<The channel is waiting for the selected input signals to be negated before rearming; FSM = wfclr.
             v111=0x00000007,     ///<The event output has been acknowledged; done signals are broadcast during 1-cycle state; FSM = done.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,Outputfsm1Val> outputFsm1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Outputfsm1Val> outputFsm1{}; 
         namespace Outputfsm1ValC{
             constexpr Register::FieldValue<decltype(outputFsm1)::Type,Outputfsm1Val::v000> v000{};
             constexpr Register::FieldValue<decltype(outputFsm1)::Type,Outputfsm1Val::v001> v001{};
@@ -143,7 +143,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Ina2Val> inA2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ina2Val> inA2{}; 
         namespace Ina2ValC{
             constexpr Register::FieldValue<decltype(inA2)::Type,Ina2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inA2)::Type,Ina2Val::v1> v1{};
@@ -153,7 +153,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Inb2Val> inB2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Inb2Val> inB2{}; 
         namespace Inb2ValC{
             constexpr Register::FieldValue<decltype(inB2)::Type,Inb2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inB2)::Type,Inb2Val::v1> v1{};
@@ -163,7 +163,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Inc2Val> inC2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Inc2Val> inC2{}; 
         namespace Inc2ValC{
             constexpr Register::FieldValue<decltype(inC2)::Type,Inc2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inC2)::Type,Inc2Val::v1> v1{};
@@ -173,7 +173,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Ind2Val> inD2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ind2Val> inD2{}; 
         namespace Ind2ValC{
             constexpr Register::FieldValue<decltype(inD2)::Type,Ind2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inD2)::Type,Ind2Val::v1> v1{};
@@ -187,7 +187,7 @@ namespace Kvasir {
             v101=0x00000005,     ///<The channel is waiting for the selected input signals to be negated before rearming; FSM = wfclr.
             v111=0x00000007,     ///<The event output has been acknowledged; done signals are broadcast during 1-cycle state; FSM = done.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,Outputfsm2Val> outputFsm2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Outputfsm2Val> outputFsm2{}; 
         namespace Outputfsm2ValC{
             constexpr Register::FieldValue<decltype(outputFsm2)::Type,Outputfsm2Val::v000> v000{};
             constexpr Register::FieldValue<decltype(outputFsm2)::Type,Outputfsm2Val::v001> v001{};
@@ -211,7 +211,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Ina3Val> inA3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ina3Val> inA3{}; 
         namespace Ina3ValC{
             constexpr Register::FieldValue<decltype(inA3)::Type,Ina3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inA3)::Type,Ina3Val::v1> v1{};
@@ -221,7 +221,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Inb3Val> inB3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Inb3Val> inB3{}; 
         namespace Inb3ValC{
             constexpr Register::FieldValue<decltype(inB3)::Type,Inb3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inB3)::Type,Inb3Val::v1> v1{};
@@ -231,7 +231,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Inc3Val> inC3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Inc3Val> inC3{}; 
         namespace Inc3ValC{
             constexpr Register::FieldValue<decltype(inC3)::Type,Inc3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inC3)::Type,Inc3Val::v1> v1{};
@@ -241,7 +241,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,Ind3Val> inD3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ind3Val> inD3{}; 
         namespace Ind3ValC{
             constexpr Register::FieldValue<decltype(inD3)::Type,Ind3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inD3)::Type,Ind3Val::v1> v1{};
@@ -255,7 +255,7 @@ namespace Kvasir {
             v101=0x00000005,     ///<The channel is waiting for the selected input signals to be negated before rearming; FSM = wfclr.
             v111=0x00000007,     ///<The event output has been acknowledged; done signals are broadcast during 1-cycle state; FSM = done.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,Outputfsm3Val> outputFsm3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Outputfsm3Val> outputFsm3{}; 
         namespace Outputfsm3ValC{
             constexpr Register::FieldValue<decltype(outputFsm3)::Type,Outputfsm3Val::v000> v000{};
             constexpr Register::FieldValue<decltype(outputFsm3)::Type,Outputfsm3Val::v001> v001{};
@@ -276,7 +276,7 @@ namespace Kvasir {
         }
     }
     namespace IeventCrl{    ///<iEvent Control Register: Low
-        using Addr = Register::Address<0x40019080,0x70707070,0,unsigned>;
+        using Addr = Register::Address<0x40019080,0x00000000,0x00000000,unsigned>;
         ///Output Channel Type 0
         enum class Type0Val {
             v00=0x00000000,     ///<The channel is disabled.
@@ -311,6 +311,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ddb0)::Type,Ddb0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ddb0)::Type,Ddb0Val::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Read-Only 0
         enum class Ro0Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
@@ -355,6 +357,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ddb1)::Type,Ddb1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ddb1)::Type,Ddb1Val::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Read-Only 1
         enum class Ro1Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
@@ -399,6 +403,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ddb2)::Type,Ddb2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ddb2)::Type,Ddb2Val::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Read-Only 2
         enum class Ro2Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
@@ -443,6 +449,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ddb3)::Type,Ddb3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ddb3)::Type,Ddb3Val::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Read-Only 3
         enum class Ro3Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
@@ -455,7 +463,7 @@ namespace Kvasir {
         }
     }
     namespace IeventImxcr0{    ///<iEvent Input Mux Configuration Register
-        using Addr = Register::Address<0x40019100,0xf0f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x40019100,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class DselectVal {
             v0000=0x00000000,     ///<Select input[0] as D.
@@ -475,7 +483,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as D.
             v1111=0x0000000f,     ///<Select input[15] as D.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,DselectVal> dSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DselectVal> dSelect{}; 
         namespace DselectValC{
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v0001> v0001{};
@@ -495,6 +503,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
             v0001=0x00000001,     ///<Select input[1] as C.
@@ -513,7 +523,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as C.
             v1111=0x0000000f,     ///<Select input[15] as C.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,CselectVal> cSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CselectVal> cSelect{}; 
         namespace CselectValC{
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v0001> v0001{};
@@ -533,6 +543,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class BselectVal {
             v0000=0x00000000,     ///<Select input[0] as B.
             v0001=0x00000001,     ///<Select input[1] as B.
@@ -551,7 +563,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as B.
             v1111=0x0000000f,     ///<Select input[15] as B.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,BselectVal> bSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BselectVal> bSelect{}; 
         namespace BselectValC{
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v0001> v0001{};
@@ -571,6 +583,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
             v0001=0x00000001,     ///<Select input[1] as A.
@@ -589,7 +603,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as A.
             v1111=0x0000000f,     ///<Select input[15] as A.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,AselectVal> aSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AselectVal> aSelect{}; 
         namespace AselectValC{
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v0001> v0001{};
@@ -608,9 +622,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1111> v1111{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace IeventImxcr1{    ///<iEvent Input Mux Configuration Register
-        using Addr = Register::Address<0x40019108,0xf0f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x40019108,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class DselectVal {
             v0000=0x00000000,     ///<Select input[0] as D.
@@ -630,7 +646,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as D.
             v1111=0x0000000f,     ///<Select input[15] as D.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,DselectVal> dSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DselectVal> dSelect{}; 
         namespace DselectValC{
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v0001> v0001{};
@@ -650,6 +666,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
             v0001=0x00000001,     ///<Select input[1] as C.
@@ -668,7 +686,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as C.
             v1111=0x0000000f,     ///<Select input[15] as C.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,CselectVal> cSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CselectVal> cSelect{}; 
         namespace CselectValC{
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v0001> v0001{};
@@ -688,6 +706,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class BselectVal {
             v0000=0x00000000,     ///<Select input[0] as B.
             v0001=0x00000001,     ///<Select input[1] as B.
@@ -706,7 +726,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as B.
             v1111=0x0000000f,     ///<Select input[15] as B.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,BselectVal> bSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BselectVal> bSelect{}; 
         namespace BselectValC{
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v0001> v0001{};
@@ -726,6 +746,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
             v0001=0x00000001,     ///<Select input[1] as A.
@@ -744,7 +766,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as A.
             v1111=0x0000000f,     ///<Select input[15] as A.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,AselectVal> aSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AselectVal> aSelect{}; 
         namespace AselectValC{
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v0001> v0001{};
@@ -763,9 +785,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1111> v1111{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace IeventImxcr2{    ///<iEvent Input Mux Configuration Register
-        using Addr = Register::Address<0x40019110,0xf0f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x40019110,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class DselectVal {
             v0000=0x00000000,     ///<Select input[0] as D.
@@ -785,7 +809,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as D.
             v1111=0x0000000f,     ///<Select input[15] as D.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,DselectVal> dSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DselectVal> dSelect{}; 
         namespace DselectValC{
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v0001> v0001{};
@@ -805,6 +829,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
             v0001=0x00000001,     ///<Select input[1] as C.
@@ -823,7 +849,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as C.
             v1111=0x0000000f,     ///<Select input[15] as C.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,CselectVal> cSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CselectVal> cSelect{}; 
         namespace CselectValC{
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v0001> v0001{};
@@ -843,6 +869,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class BselectVal {
             v0000=0x00000000,     ///<Select input[0] as B.
             v0001=0x00000001,     ///<Select input[1] as B.
@@ -861,7 +889,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as B.
             v1111=0x0000000f,     ///<Select input[15] as B.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,BselectVal> bSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BselectVal> bSelect{}; 
         namespace BselectValC{
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v0001> v0001{};
@@ -881,6 +909,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
             v0001=0x00000001,     ///<Select input[1] as A.
@@ -899,7 +929,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as A.
             v1111=0x0000000f,     ///<Select input[15] as A.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,AselectVal> aSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AselectVal> aSelect{}; 
         namespace AselectValC{
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v0001> v0001{};
@@ -918,9 +948,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1111> v1111{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace IeventImxcr3{    ///<iEvent Input Mux Configuration Register
-        using Addr = Register::Address<0x40019118,0xf0f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x40019118,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class DselectVal {
             v0000=0x00000000,     ///<Select input[0] as D.
@@ -940,7 +972,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as D.
             v1111=0x0000000f,     ///<Select input[15] as D.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,DselectVal> dSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DselectVal> dSelect{}; 
         namespace DselectValC{
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v0001> v0001{};
@@ -960,6 +992,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
             v0001=0x00000001,     ///<Select input[1] as C.
@@ -978,7 +1012,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as C.
             v1111=0x0000000f,     ///<Select input[15] as C.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,CselectVal> cSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CselectVal> cSelect{}; 
         namespace CselectValC{
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v0001> v0001{};
@@ -998,6 +1032,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class BselectVal {
             v0000=0x00000000,     ///<Select input[0] as B.
             v0001=0x00000001,     ///<Select input[1] as B.
@@ -1016,7 +1052,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as B.
             v1111=0x0000000f,     ///<Select input[15] as B.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,BselectVal> bSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BselectVal> bSelect{}; 
         namespace BselectValC{
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v0001> v0001{};
@@ -1036,6 +1072,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1111> v1111{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
             v0001=0x00000001,     ///<Select input[1] as A.
@@ -1054,7 +1092,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as A.
             v1111=0x0000000f,     ///<Select input[15] as A.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,AselectVal> aSelect{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AselectVal> aSelect{}; 
         namespace AselectValC{
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v0001> v0001{};
@@ -1073,9 +1111,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1111> v1111{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace IeventBfecr0{    ///<iEvent Boolean Function Eva1ation Configuration Register
-        using Addr = Register::Address<0x40019104,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40019104,0x00000000,0x00000000,unsigned>;
         ///Product Term 3, D input Configuration
         enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
@@ -1302,7 +1342,7 @@ namespace Kvasir {
         }
     }
     namespace IeventBfecr1{    ///<iEvent Boolean Function Eva1ation Configuration Register
-        using Addr = Register::Address<0x4001910c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4001910c,0x00000000,0x00000000,unsigned>;
         ///Product Term 3, D input Configuration
         enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
@@ -1529,7 +1569,7 @@ namespace Kvasir {
         }
     }
     namespace IeventBfecr2{    ///<iEvent Boolean Function Eva1ation Configuration Register
-        using Addr = Register::Address<0x40019114,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40019114,0x00000000,0x00000000,unsigned>;
         ///Product Term 3, D input Configuration
         enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
@@ -1756,7 +1796,7 @@ namespace Kvasir {
         }
     }
     namespace IeventBfecr3{    ///<iEvent Boolean Function Eva1ation Configuration Register
-        using Addr = Register::Address<0x4001911c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4001911c,0x00000000,0x00000000,unsigned>;
         ///Product Term 3, D input Configuration
         enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.

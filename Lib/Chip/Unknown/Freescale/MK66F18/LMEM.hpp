@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Local Memory Controller
     namespace LmemPcccr{    ///<Cache control register
-        using Addr = Register::Address<0xe0082000,0x70fffff0,0,unsigned>;
+        using Addr = Register::Address<0xe0082000,0x00000000,0x00000000,unsigned>;
         ///Cache enable
         enum class EncacheVal {
             v0=0x00000000,     ///<Cache disabled
@@ -28,6 +28,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pccr2{}; 
         ///Forces no allocation on cache misses (must also have ACCR2 asserted)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pccr3{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Invalidate Way 0
         enum class Invw0Val {
             v0=0x00000000,     ///<No operation
@@ -68,6 +70,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pushw1)::Type,Pushw1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pushw1)::Type,Pushw1Val::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Initiate Cache Command
         enum class GoVal {
             v0=0x00000000,     ///<Write: no effect. Read: no cache command active.
@@ -80,7 +84,7 @@ namespace Kvasir {
         }
     }
     namespace LmemPcclcr{    ///<Cache line control register
-        using Addr = Register::Address<0xe0082004,0xf08eb002,0,unsigned>;
+        using Addr = Register::Address<0xe0082004,0x00000000,0x00000000,unsigned>;
         ///Initiate Cache Line Command
         enum class LgoVal {
             v0=0x00000000,     ///<Write: no effect. Read: no line command active.
@@ -91,8 +95,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lgo)::Type,LgoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lgo)::Type,LgoVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Cache address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,2),Register::ReadWriteAccess,unsigned> cacheaddr{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Way select
         enum class WselVal {
             v0=0x00000000,     ///<Way 0
@@ -103,6 +111,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wsel)::Type,WselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wsel)::Type,WselVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Tag/Data Select
         enum class TdselVal {
             v0=0x00000000,     ///<Data
@@ -113,12 +123,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdsel)::Type,TdselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tdsel)::Type,TdselVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Line Command Initial Valid Bit
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> lcivb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lcivb{}; 
         ///Line Command Initial Modified Bit
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> lcimb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lcimb{}; 
         ///Line Command Way
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> lcway{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lcway{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Line Command
         enum class LcmdVal {
             v00=0x00000000,     ///<Search and read or write
@@ -153,9 +167,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lacc)::Type,LaccVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lacc)::Type,LaccVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LmemPccsar{    ///<Cache search address register
-        using Addr = Register::Address<0xe0082008,0x00000002,0,unsigned>;
+        using Addr = Register::Address<0xe0082008,0x00000000,0x00000000,unsigned>;
         ///Initiate Cache Line Command
         enum class LgoVal {
             v0=0x00000000,     ///<Write: no effect. Read: no line command active.
@@ -166,16 +182,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lgo)::Type,LgoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lgo)::Type,LgoVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Physical Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> phyaddr{}; 
     }
     namespace LmemPcccvr{    ///<Cache read/write value register
-        using Addr = Register::Address<0xe008200c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0xe008200c,0x00000000,0x00000000,unsigned>;
         ///Cache read/write Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
     namespace LmemPccrmr{    ///<Cache regions mode register
-        using Addr = Register::Address<0xe0082020,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0xe0082020,0x00000000,0x00000000,unsigned>;
         ///Region 15 mode
         enum class R15Val {
             v00=0x00000000,     ///<Non-cacheable

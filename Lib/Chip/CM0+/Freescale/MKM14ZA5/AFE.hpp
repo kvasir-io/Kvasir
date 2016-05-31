@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //This section describes the ADC registers.
     namespace AfeCh0Cfr{    ///<Channel0 Configuration Register
-        using Addr = Register::Address<0x40030000,0x1ec581ff,0,unsigned>;
+        using Addr = Register::Address<0x40030000,0x1ec581ff,0x00000000,unsigned>;
         ///Hardware Trigger Select
         enum class HwtrgVal {
             v0=0x00000000,     ///<Software trigger select
@@ -122,7 +122,7 @@ namespace Kvasir {
         }
     }
     namespace AfeCh1Cfr{    ///<Channel1 Configuration Register
-        using Addr = Register::Address<0x40030004,0x1ec581ff,0,unsigned>;
+        using Addr = Register::Address<0x40030004,0x1ec581ff,0x00000000,unsigned>;
         ///Hardware Trigger Select
         enum class HwtrgVal {
             v0=0x00000000,     ///<Software trigger select
@@ -241,7 +241,7 @@ namespace Kvasir {
         }
     }
     namespace AfeCh2Cfr{    ///<Channel2 Configuration Register
-        using Addr = Register::Address<0x40030008,0x1ffd81ff,0,unsigned>;
+        using Addr = Register::Address<0x40030008,0x1ffd81ff,0x00000000,unsigned>;
         ///Hardware Trigger Select
         enum class HwtrgVal {
             v0=0x00000000,     ///<Software trigger select
@@ -332,7 +332,7 @@ namespace Kvasir {
         }
     }
     namespace AfeCh3Cfr{    ///<Channel3 Configuration Register
-        using Addr = Register::Address<0x4003000c,0x1ffd81ff,0,unsigned>;
+        using Addr = Register::Address<0x4003000c,0x1ffd81ff,0x00000000,unsigned>;
         ///Hardware Trigger Select
         enum class HwtrgVal {
             v0=0x00000000,     ///<Software trigger select
@@ -423,7 +423,7 @@ namespace Kvasir {
         }
     }
     namespace AfeCr{    ///<Control Register
-        using Addr = Register::Address<0x40030018,0x059b01ff,0,unsigned>;
+        using Addr = Register::Address<0x40030018,0x059b01ff,0x00000000,unsigned>;
         ///Start up count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,9),Register::ReadWriteAccess,unsigned> strtupCnt{}; 
         ///Result Format
@@ -437,7 +437,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resultFormat)::Type,ResultformatVal::v1> v1{};
         }
         ///Delay OK
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> dlyOk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dlyOk{}; 
         ///Software Reset
         enum class RstbVal {
             v0=0x00000000,     ///<All ADCs, PGAs and Decimation filters are disabled. Clock Configuration bits will be reset.
@@ -459,13 +459,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpmEn)::Type,LpmenVal::v1> v1{};
         }
         ///Software Trigger3
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> softTrg3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> softTrg3{}; 
         ///Software Trigger2
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> softTrg2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> softTrg2{}; 
         ///Software Trigger1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> softTrg1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> softTrg1{}; 
         ///Software Trigger0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> softTrg0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> softTrg0{}; 
         ///AFE Master Enable
         enum class MstrenVal {
             v0=0x00000000,     ///<All ADCs are disabled.
@@ -478,7 +478,7 @@ namespace Kvasir {
         }
     }
     namespace AfeCkr{    ///<Clock Configuration Register
-        using Addr = Register::Address<0x4003001c,0x0f9fffff,0,unsigned>;
+        using Addr = Register::Address<0x4003001c,0x0f9fffff,0x00000000,unsigned>;
         ///Clock Source Select
         enum class ClsVal {
             v00=0x00000000,     ///<mod_clk0
@@ -519,7 +519,7 @@ namespace Kvasir {
         }
     }
     namespace AfeDi{    ///<DMA and Interrupt Register
-        using Addr = Register::Address<0x40030020,0x087fffff,0,unsigned>;
+        using Addr = Register::Address<0x40030020,0x087fffff,0x00000000,unsigned>;
         ///Interrupt Enable 3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> inten3{}; 
         ///Interrupt Enable 2
@@ -538,61 +538,61 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dmaen0{}; 
     }
     namespace AfeCh0Dr{    ///<Channel0 Delay Register
-        using Addr = Register::Address<0x4003002c,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0x4003002c,0xfffff800,0x00000000,unsigned>;
         ///Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> dly{}; 
     }
     namespace AfeCh1Dr{    ///<Channel1 Delay Register
-        using Addr = Register::Address<0x40030030,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0x40030030,0xfffff800,0x00000000,unsigned>;
         ///Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> dly{}; 
     }
     namespace AfeCh2Dr{    ///<Channel2 Delay Register
-        using Addr = Register::Address<0x40030034,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0x40030034,0xfffff800,0x00000000,unsigned>;
         ///Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> dly{}; 
     }
     namespace AfeCh3Dr{    ///<Channel3 Delay Register
-        using Addr = Register::Address<0x40030038,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0x40030038,0xfffff800,0x00000000,unsigned>;
         ///Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> dly{}; 
     }
     namespace AfeCh0Rr{    ///<Channel0 Result Register
-        using Addr = Register::Address<0x40030044,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40030044,0x00000000,0x00000000,unsigned>;
         ///Sample Data Result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> sdr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sdr{}; 
         ///Sign Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::ReadWriteAccess,unsigned> signBits{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> signBits{}; 
     }
     namespace AfeCh1Rr{    ///<Channel1 Result Register
-        using Addr = Register::Address<0x40030048,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40030048,0x00000000,0x00000000,unsigned>;
         ///Sample Data Result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> sdr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sdr{}; 
         ///Sign Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::ReadWriteAccess,unsigned> signBits{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> signBits{}; 
     }
     namespace AfeCh2Rr{    ///<Channel2 Result Register
-        using Addr = Register::Address<0x4003004c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4003004c,0x00000000,0x00000000,unsigned>;
         ///Sample Data result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> sdr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sdr{}; 
         ///Sign Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::ReadWriteAccess,unsigned> signBits{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> signBits{}; 
     }
     namespace AfeCh3Rr{    ///<Channel3 Result Register
-        using Addr = Register::Address<0x40030050,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40030050,0x00000000,0x00000000,unsigned>;
         ///Sample Data result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> sdr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sdr{}; 
         ///Sign Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::ReadWriteAccess,unsigned> signBits{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> signBits{}; 
     }
     namespace AfeSr{    ///<Status Register
-        using Addr = Register::Address<0x4003005c,0x0e10ffff,0,unsigned>;
+        using Addr = Register::Address<0x4003005c,0x0e10ffff,0x00000000,unsigned>;
         ///AFE Ready4
         enum class Rdy3Val {
             v0=0x00000000,     ///<AFE Channel3 is disabled or has not completed its start up period
             v1=0x00000001,     ///<AFE Channel3 is ready to initiate conversions.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Rdy3Val> rdy3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rdy3Val> rdy3{}; 
         namespace Rdy3ValC{
             constexpr Register::FieldValue<decltype(rdy3)::Type,Rdy3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rdy3)::Type,Rdy3Val::v1> v1{};
@@ -602,7 +602,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<AFE Channel2 is disabled or has not completed its start up period
             v1=0x00000001,     ///<AFE Channel2 is ready to initiate conversions.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Rdy2Val> rdy2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rdy2Val> rdy2{}; 
         namespace Rdy2ValC{
             constexpr Register::FieldValue<decltype(rdy2)::Type,Rdy2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rdy2)::Type,Rdy2Val::v1> v1{};
@@ -612,7 +612,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<AFE Channel1 is disabled or has not completed its start up period
             v1=0x00000001,     ///<AFE Channel1 is ready to initiate conversions.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Rdy1Val> rdy1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rdy1Val> rdy1{}; 
         namespace Rdy1ValC{
             constexpr Register::FieldValue<decltype(rdy1)::Type,Rdy1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rdy1)::Type,Rdy1Val::v1> v1{};
@@ -622,26 +622,26 @@ namespace Kvasir {
             v0=0x00000000,     ///<AFE Channel0 is disabled or has not completed its start up period
             v1=0x00000001,     ///<AFE Channel0 is ready to initiate conversions.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Rdy0Val> rdy0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rdy0Val> rdy0{}; 
         namespace Rdy0ValC{
             constexpr Register::FieldValue<decltype(rdy0)::Type,Rdy0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rdy0)::Type,Rdy0Val::v1> v1{};
         }
         ///Overflow Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ovr3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ovr3{}; 
         ///Overflow Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ovr2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ovr2{}; 
         ///Overflow Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ovr1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ovr1{}; 
         ///Overflow Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> ovr0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ovr0{}; 
         ///Conversion Complete
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> coc3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> coc3{}; 
         ///Conversion Complete
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> coc2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> coc2{}; 
         ///Conversion Complete
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> coc1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> coc1{}; 
         ///Conversion Complete
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> coc0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> coc0{}; 
     }
 }

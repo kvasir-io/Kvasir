@@ -1,357 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog-to-Digital Converter
-    namespace AdcSc1a{    ///<ADC Status and Control Registers 1
-        using Addr = Register::Address<0x4002b000,0xffffff20,0,unsigned>;
-        ///Input channel select
-        enum class AdchVal {
-            v00000=0x00000000,     ///<AD0 is selected as input.
-            v00001=0x00000001,     ///<AD1 is selected as input.
-            v00010=0x00000002,     ///<AD2 is selected as input.
-            v00011=0x00000003,     ///<AD3 is selected as input.
-            v00100=0x00000004,     ///<AD4 is selected as input.
-            v00101=0x00000005,     ///<AD5 is selected as input.
-            v00110=0x00000006,     ///<AD6 is selected as input.
-            v00111=0x00000007,     ///<AD7 is selected as input.
-            v01000=0x00000008,     ///<AD8 is selected as input.
-            v01001=0x00000009,     ///<AD9 is selected as input.
-            v01010=0x0000000a,     ///<AD10 is selected as input.
-            v01011=0x0000000b,     ///<AD11 is selected as input.
-            v01100=0x0000000c,     ///<AD12 is selected as input.
-            v01101=0x0000000d,     ///<AD13 is selected as input.
-            v01110=0x0000000e,     ///<AD14 is selected as input.
-            v01111=0x0000000f,     ///<AD15 is selected as input.
-            v10000=0x00000010,     ///<AD16 is selected as input.
-            v10001=0x00000011,     ///<AD17 is selected as input.
-            v10010=0x00000012,     ///<AD18 is selected as input.
-            v10011=0x00000013,     ///<AD19 is selected as input.
-            v10100=0x00000014,     ///<AD20 is selected as input.
-            v10101=0x00000015,     ///<AD21 is selected as input.
-            v10110=0x00000016,     ///<AD22 is selected as input.
-            v10111=0x00000017,     ///<AD23 is selected as input.
-            v11010=0x0000001a,     ///<Temp Sensor (single-ended) is selected as input.
-            v11011=0x0000001b,     ///<Bandgap (single-ended) is selected as input.
-            v11101=0x0000001d,     ///<VREFSH is selected as input. Voltage reference selected is determined by SC2[REFSEL].
-            v11110=0x0000001e,     ///<VREFSL is selected as input. Voltage reference selected is determined by SC2[REFSEL].
-            v11111=0x0000001f,     ///<Module is disabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,AdchVal> adch{}; 
-        namespace AdchValC{
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00000> v00000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00001> v00001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00010> v00010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00011> v00011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00100> v00100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00101> v00101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00110> v00110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00111> v00111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01000> v01000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01001> v01001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01010> v01010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01100> v01100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01101> v01101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01110> v01110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01111> v01111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10000> v10000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10001> v10001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10010> v10010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10011> v10011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10100> v10100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10101> v10101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10110> v10110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10111> v10111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11010> v11010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11011> v11011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11101> v11101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
-        }
-        ///Interrupt Enable
-        enum class AienVal {
-            v0=0x00000000,     ///<Conversion complete interrupt is disabled.
-            v1=0x00000001,     ///<Conversion complete interrupt is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AienVal> aien{}; 
-        namespace AienValC{
-            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
-        }
-        ///Conversion Complete Flag
-        enum class CocoVal {
-            v0=0x00000000,     ///<Conversion is not completed.
-            v1=0x00000001,     ///<Conversion is completed.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CocoVal> coco{}; 
-        namespace CocoValC{
-            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
-        }
-    }
-    namespace AdcSc1b{    ///<ADC Status and Control Registers 1
-        using Addr = Register::Address<0x4002b004,0xffffff20,0,unsigned>;
-        ///Input channel select
-        enum class AdchVal {
-            v00000=0x00000000,     ///<AD0 is selected as input.
-            v00001=0x00000001,     ///<AD1 is selected as input.
-            v00010=0x00000002,     ///<AD2 is selected as input.
-            v00011=0x00000003,     ///<AD3 is selected as input.
-            v00100=0x00000004,     ///<AD4 is selected as input.
-            v00101=0x00000005,     ///<AD5 is selected as input.
-            v00110=0x00000006,     ///<AD6 is selected as input.
-            v00111=0x00000007,     ///<AD7 is selected as input.
-            v01000=0x00000008,     ///<AD8 is selected as input.
-            v01001=0x00000009,     ///<AD9 is selected as input.
-            v01010=0x0000000a,     ///<AD10 is selected as input.
-            v01011=0x0000000b,     ///<AD11 is selected as input.
-            v01100=0x0000000c,     ///<AD12 is selected as input.
-            v01101=0x0000000d,     ///<AD13 is selected as input.
-            v01110=0x0000000e,     ///<AD14 is selected as input.
-            v01111=0x0000000f,     ///<AD15 is selected as input.
-            v10000=0x00000010,     ///<AD16 is selected as input.
-            v10001=0x00000011,     ///<AD17 is selected as input.
-            v10010=0x00000012,     ///<AD18 is selected as input.
-            v10011=0x00000013,     ///<AD19 is selected as input.
-            v10100=0x00000014,     ///<AD20 is selected as input.
-            v10101=0x00000015,     ///<AD21 is selected as input.
-            v10110=0x00000016,     ///<AD22 is selected as input.
-            v10111=0x00000017,     ///<AD23 is selected as input.
-            v11010=0x0000001a,     ///<Temp Sensor (single-ended) is selected as input.
-            v11011=0x0000001b,     ///<Bandgap (single-ended) is selected as input.
-            v11101=0x0000001d,     ///<VREFSH is selected as input. Voltage reference selected is determined by SC2[REFSEL].
-            v11110=0x0000001e,     ///<VREFSL is selected as input. Voltage reference selected is determined by SC2[REFSEL].
-            v11111=0x0000001f,     ///<Module is disabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,AdchVal> adch{}; 
-        namespace AdchValC{
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00000> v00000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00001> v00001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00010> v00010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00011> v00011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00100> v00100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00101> v00101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00110> v00110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00111> v00111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01000> v01000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01001> v01001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01010> v01010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01100> v01100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01101> v01101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01110> v01110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01111> v01111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10000> v10000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10001> v10001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10010> v10010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10011> v10011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10100> v10100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10101> v10101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10110> v10110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10111> v10111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11010> v11010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11011> v11011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11101> v11101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
-        }
-        ///Interrupt Enable
-        enum class AienVal {
-            v0=0x00000000,     ///<Conversion complete interrupt is disabled.
-            v1=0x00000001,     ///<Conversion complete interrupt is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AienVal> aien{}; 
-        namespace AienValC{
-            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
-        }
-        ///Conversion Complete Flag
-        enum class CocoVal {
-            v0=0x00000000,     ///<Conversion is not completed.
-            v1=0x00000001,     ///<Conversion is completed.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CocoVal> coco{}; 
-        namespace CocoValC{
-            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
-        }
-    }
-    namespace AdcSc1c{    ///<ADC Status and Control Registers 1
-        using Addr = Register::Address<0x4002b008,0xffffff20,0,unsigned>;
-        ///Input channel select
-        enum class AdchVal {
-            v00000=0x00000000,     ///<AD0 is selected as input.
-            v00001=0x00000001,     ///<AD1 is selected as input.
-            v00010=0x00000002,     ///<AD2 is selected as input.
-            v00011=0x00000003,     ///<AD3 is selected as input.
-            v00100=0x00000004,     ///<AD4 is selected as input.
-            v00101=0x00000005,     ///<AD5 is selected as input.
-            v00110=0x00000006,     ///<AD6 is selected as input.
-            v00111=0x00000007,     ///<AD7 is selected as input.
-            v01000=0x00000008,     ///<AD8 is selected as input.
-            v01001=0x00000009,     ///<AD9 is selected as input.
-            v01010=0x0000000a,     ///<AD10 is selected as input.
-            v01011=0x0000000b,     ///<AD11 is selected as input.
-            v01100=0x0000000c,     ///<AD12 is selected as input.
-            v01101=0x0000000d,     ///<AD13 is selected as input.
-            v01110=0x0000000e,     ///<AD14 is selected as input.
-            v01111=0x0000000f,     ///<AD15 is selected as input.
-            v10000=0x00000010,     ///<AD16 is selected as input.
-            v10001=0x00000011,     ///<AD17 is selected as input.
-            v10010=0x00000012,     ///<AD18 is selected as input.
-            v10011=0x00000013,     ///<AD19 is selected as input.
-            v10100=0x00000014,     ///<AD20 is selected as input.
-            v10101=0x00000015,     ///<AD21 is selected as input.
-            v10110=0x00000016,     ///<AD22 is selected as input.
-            v10111=0x00000017,     ///<AD23 is selected as input.
-            v11010=0x0000001a,     ///<Temp Sensor (single-ended) is selected as input.
-            v11011=0x0000001b,     ///<Bandgap (single-ended) is selected as input.
-            v11101=0x0000001d,     ///<VREFSH is selected as input. Voltage reference selected is determined by SC2[REFSEL].
-            v11110=0x0000001e,     ///<VREFSL is selected as input. Voltage reference selected is determined by SC2[REFSEL].
-            v11111=0x0000001f,     ///<Module is disabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,AdchVal> adch{}; 
-        namespace AdchValC{
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00000> v00000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00001> v00001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00010> v00010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00011> v00011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00100> v00100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00101> v00101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00110> v00110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00111> v00111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01000> v01000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01001> v01001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01010> v01010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01100> v01100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01101> v01101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01110> v01110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01111> v01111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10000> v10000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10001> v10001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10010> v10010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10011> v10011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10100> v10100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10101> v10101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10110> v10110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10111> v10111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11010> v11010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11011> v11011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11101> v11101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
-        }
-        ///Interrupt Enable
-        enum class AienVal {
-            v0=0x00000000,     ///<Conversion complete interrupt is disabled.
-            v1=0x00000001,     ///<Conversion complete interrupt is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AienVal> aien{}; 
-        namespace AienValC{
-            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
-        }
-        ///Conversion Complete Flag
-        enum class CocoVal {
-            v0=0x00000000,     ///<Conversion is not completed.
-            v1=0x00000001,     ///<Conversion is completed.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CocoVal> coco{}; 
-        namespace CocoValC{
-            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
-        }
-    }
-    namespace AdcSc1d{    ///<ADC Status and Control Registers 1
-        using Addr = Register::Address<0x4002b00c,0xffffff20,0,unsigned>;
-        ///Input channel select
-        enum class AdchVal {
-            v00000=0x00000000,     ///<AD0 is selected as input.
-            v00001=0x00000001,     ///<AD1 is selected as input.
-            v00010=0x00000002,     ///<AD2 is selected as input.
-            v00011=0x00000003,     ///<AD3 is selected as input.
-            v00100=0x00000004,     ///<AD4 is selected as input.
-            v00101=0x00000005,     ///<AD5 is selected as input.
-            v00110=0x00000006,     ///<AD6 is selected as input.
-            v00111=0x00000007,     ///<AD7 is selected as input.
-            v01000=0x00000008,     ///<AD8 is selected as input.
-            v01001=0x00000009,     ///<AD9 is selected as input.
-            v01010=0x0000000a,     ///<AD10 is selected as input.
-            v01011=0x0000000b,     ///<AD11 is selected as input.
-            v01100=0x0000000c,     ///<AD12 is selected as input.
-            v01101=0x0000000d,     ///<AD13 is selected as input.
-            v01110=0x0000000e,     ///<AD14 is selected as input.
-            v01111=0x0000000f,     ///<AD15 is selected as input.
-            v10000=0x00000010,     ///<AD16 is selected as input.
-            v10001=0x00000011,     ///<AD17 is selected as input.
-            v10010=0x00000012,     ///<AD18 is selected as input.
-            v10011=0x00000013,     ///<AD19 is selected as input.
-            v10100=0x00000014,     ///<AD20 is selected as input.
-            v10101=0x00000015,     ///<AD21 is selected as input.
-            v10110=0x00000016,     ///<AD22 is selected as input.
-            v10111=0x00000017,     ///<AD23 is selected as input.
-            v11010=0x0000001a,     ///<Temp Sensor (single-ended) is selected as input.
-            v11011=0x0000001b,     ///<Bandgap (single-ended) is selected as input.
-            v11101=0x0000001d,     ///<VREFSH is selected as input. Voltage reference selected is determined by SC2[REFSEL].
-            v11110=0x0000001e,     ///<VREFSL is selected as input. Voltage reference selected is determined by SC2[REFSEL].
-            v11111=0x0000001f,     ///<Module is disabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,AdchVal> adch{}; 
-        namespace AdchValC{
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00000> v00000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00001> v00001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00010> v00010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00011> v00011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00100> v00100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00101> v00101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00110> v00110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00111> v00111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01000> v01000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01001> v01001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01010> v01010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01100> v01100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01101> v01101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01110> v01110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01111> v01111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10000> v10000{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10001> v10001{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10010> v10010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10011> v10011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10100> v10100{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10101> v10101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10110> v10110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10111> v10111{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11010> v11010{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11011> v11011{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11101> v11101{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
-            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
-        }
-        ///Interrupt Enable
-        enum class AienVal {
-            v0=0x00000000,     ///<Conversion complete interrupt is disabled.
-            v1=0x00000001,     ///<Conversion complete interrupt is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AienVal> aien{}; 
-        namespace AienValC{
-            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
-        }
-        ///Conversion Complete Flag
-        enum class CocoVal {
-            v0=0x00000000,     ///<Conversion is not completed.
-            v1=0x00000001,     ///<Conversion is completed.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CocoVal> coco{}; 
-        namespace CocoValC{
-            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
-        }
-    }
     namespace AdcCfg1{    ///<ADC Configuration Register 1
-        using Addr = Register::Address<0x4002b010,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4002b010,0xffffff00,0x00000000,unsigned>;
         ///Input Clock Select
         enum class AdiclkVal {
             v00=0x00000000,     ///<Bus clock
@@ -416,7 +68,7 @@ namespace Kvasir {
         }
     }
     namespace AdcCfg2{    ///<ADC Configuration Register 2
-        using Addr = Register::Address<0x4002b014,0xffffffe0,0,unsigned>;
+        using Addr = Register::Address<0x4002b014,0xffffffe0,0x00000000,unsigned>;
         ///Long Sample Time Select
         enum class AdlstsVal {
             v00=0x00000000,     ///<Default longest sample time; 20 extra ADCK cycles; 24 ADCK cycles total.
@@ -462,38 +114,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(muxsel)::Type,MuxselVal::v1> v1{};
         }
     }
-    namespace AdcRa{    ///<ADC Data Result Register
-        using Addr = Register::Address<0x4002b018,0xffff0000,0,unsigned>;
-        ///Data result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> d{}; 
-    }
-    namespace AdcRb{    ///<ADC Data Result Register
-        using Addr = Register::Address<0x4002b01c,0xffff0000,0,unsigned>;
-        ///Data result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> d{}; 
-    }
-    namespace AdcRc{    ///<ADC Data Result Register
-        using Addr = Register::Address<0x4002b020,0xffff0000,0,unsigned>;
-        ///Data result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> d{}; 
-    }
-    namespace AdcRd{    ///<ADC Data Result Register
-        using Addr = Register::Address<0x4002b024,0xffff0000,0,unsigned>;
-        ///Data result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> d{}; 
-    }
-    namespace AdcCv1{    ///<Compare Value Registers
-        using Addr = Register::Address<0x4002b028,0xffff0000,0,unsigned>;
-        ///Compare Value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cv{}; 
-    }
-    namespace AdcCv2{    ///<Compare Value Registers
-        using Addr = Register::Address<0x4002b02c,0xffff0000,0,unsigned>;
-        ///Compare Value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cv{}; 
-    }
     namespace AdcSc2{    ///<Status and Control Register 2
-        using Addr = Register::Address<0x4002b030,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4002b030,0xffffff00,0x00000000,unsigned>;
         ///Voltage Reference Selection
         enum class RefselVal {
             v00=0x00000000,     ///<Default voltage reference pin pair, that is, external pins VREFH and VREFL
@@ -561,14 +183,14 @@ namespace Kvasir {
             v0=0x00000000,     ///<Conversion not in progress.
             v1=0x00000001,     ///<Conversion in progress.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdactVal> adact{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AdactVal> adact{}; 
         namespace AdactValC{
             constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v1> v1{};
         }
     }
     namespace AdcSc3{    ///<Status and Control Register 3
-        using Addr = Register::Address<0x4002b034,0xffffff30,0,unsigned>;
+        using Addr = Register::Address<0x4002b034,0xffffff30,0x00000000,unsigned>;
         ///Hardware Average Select
         enum class AvgsVal {
             v00=0x00000000,     ///<4 samples averaged.
@@ -608,7 +230,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Calibration completed normally.
             v1=0x00000001,     ///<Calibration failed. ADC accuracy specifications are not guaranteed.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CalfVal> calf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CalfVal> calf{}; 
         namespace CalfValC{
             constexpr Register::FieldValue<decltype(calf)::Type,CalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(calf)::Type,CalfVal::v1> v1{};
@@ -617,48 +239,426 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cal{}; 
     }
     namespace AdcOfs{    ///<ADC Offset Correction Register
-        using Addr = Register::Address<0x4002b038,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4002b038,0xffff0000,0x00000000,unsigned>;
         ///Offset Error Correction Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ofs{}; 
     }
     namespace AdcPg{    ///<ADC Plus-Side Gain Register
-        using Addr = Register::Address<0x4002b03c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4002b03c,0xffff0000,0x00000000,unsigned>;
         ///Plus-Side Gain
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pg{}; 
     }
     namespace AdcClpd{    ///<ADC Plus-Side General Calibration Value Register
-        using Addr = Register::Address<0x4002b044,0xffffffc0,0,unsigned>;
+        using Addr = Register::Address<0x4002b044,0xffffffc0,0x00000000,unsigned>;
         ///Calibration Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> clpd{}; 
     }
     namespace AdcClps{    ///<ADC Plus-Side General Calibration Value Register
-        using Addr = Register::Address<0x4002b048,0xffffffc0,0,unsigned>;
+        using Addr = Register::Address<0x4002b048,0xffffffc0,0x00000000,unsigned>;
         ///Calibration Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> clps{}; 
     }
     namespace AdcClp4{    ///<ADC Plus-Side General Calibration Value Register
-        using Addr = Register::Address<0x4002b04c,0xfffffc00,0,unsigned>;
+        using Addr = Register::Address<0x4002b04c,0xfffffc00,0x00000000,unsigned>;
         ///Calibration Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> clp4{}; 
     }
     namespace AdcClp3{    ///<ADC Plus-Side General Calibration Value Register
-        using Addr = Register::Address<0x4002b050,0xfffffe00,0,unsigned>;
+        using Addr = Register::Address<0x4002b050,0xfffffe00,0x00000000,unsigned>;
         ///Calibration Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> clp3{}; 
     }
     namespace AdcClp2{    ///<ADC Plus-Side General Calibration Value Register
-        using Addr = Register::Address<0x4002b054,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4002b054,0xffffff00,0x00000000,unsigned>;
         ///Calibration Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clp2{}; 
     }
     namespace AdcClp1{    ///<ADC Plus-Side General Calibration Value Register
-        using Addr = Register::Address<0x4002b058,0xffffff80,0,unsigned>;
+        using Addr = Register::Address<0x4002b058,0xffffff80,0x00000000,unsigned>;
         ///Calibration Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> clp1{}; 
     }
     namespace AdcClp0{    ///<ADC Plus-Side General Calibration Value Register
-        using Addr = Register::Address<0x4002b05c,0xffffffc0,0,unsigned>;
+        using Addr = Register::Address<0x4002b05c,0xffffffc0,0x00000000,unsigned>;
         ///Calibration Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> clp0{}; 
+    }
+    namespace AdcSc1a{    ///<ADC Status and Control Registers 1
+        using Addr = Register::Address<0x4002b000,0xffffff20,0x00000000,unsigned>;
+        ///Input channel select
+        enum class AdchVal {
+            v00000=0x00000000,     ///<AD0 is selected as input.
+            v00001=0x00000001,     ///<AD1 is selected as input.
+            v00010=0x00000002,     ///<AD2 is selected as input.
+            v00011=0x00000003,     ///<AD3 is selected as input.
+            v00100=0x00000004,     ///<AD4 is selected as input.
+            v00101=0x00000005,     ///<AD5 is selected as input.
+            v00110=0x00000006,     ///<AD6 is selected as input.
+            v00111=0x00000007,     ///<AD7 is selected as input.
+            v01000=0x00000008,     ///<AD8 is selected as input.
+            v01001=0x00000009,     ///<AD9 is selected as input.
+            v01010=0x0000000a,     ///<AD10 is selected as input.
+            v01011=0x0000000b,     ///<AD11 is selected as input.
+            v01100=0x0000000c,     ///<AD12 is selected as input.
+            v01101=0x0000000d,     ///<AD13 is selected as input.
+            v01110=0x0000000e,     ///<AD14 is selected as input.
+            v01111=0x0000000f,     ///<AD15 is selected as input.
+            v10000=0x00000010,     ///<AD16 is selected as input.
+            v10001=0x00000011,     ///<AD17 is selected as input.
+            v10010=0x00000012,     ///<AD18 is selected as input.
+            v10011=0x00000013,     ///<AD19 is selected as input.
+            v10100=0x00000014,     ///<AD20 is selected as input.
+            v10101=0x00000015,     ///<AD21 is selected as input.
+            v10110=0x00000016,     ///<AD22 is selected as input.
+            v10111=0x00000017,     ///<AD23 is selected as input.
+            v11010=0x0000001a,     ///<Temp Sensor (single-ended) is selected as input.
+            v11011=0x0000001b,     ///<Bandgap (single-ended) is selected as input.
+            v11101=0x0000001d,     ///<VREFSH is selected as input. Voltage reference selected is determined by SC2[REFSEL].
+            v11110=0x0000001e,     ///<VREFSL is selected as input. Voltage reference selected is determined by SC2[REFSEL].
+            v11111=0x0000001f,     ///<Module is disabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,AdchVal> adch{}; 
+        namespace AdchValC{
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00000> v00000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00001> v00001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00010> v00010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00011> v00011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00100> v00100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00101> v00101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00110> v00110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00111> v00111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01000> v01000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01001> v01001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01010> v01010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01100> v01100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01101> v01101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01110> v01110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01111> v01111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10000> v10000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10001> v10001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10010> v10010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10011> v10011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10100> v10100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10101> v10101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10110> v10110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10111> v10111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11010> v11010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11011> v11011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11101> v11101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
+        }
+        ///Interrupt Enable
+        enum class AienVal {
+            v0=0x00000000,     ///<Conversion complete interrupt is disabled.
+            v1=0x00000001,     ///<Conversion complete interrupt is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AienVal> aien{}; 
+        namespace AienValC{
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
+        }
+        ///Conversion Complete Flag
+        enum class CocoVal {
+            v0=0x00000000,     ///<Conversion is not completed.
+            v1=0x00000001,     ///<Conversion is completed.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CocoVal> coco{}; 
+        namespace CocoValC{
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
+        }
+    }
+    namespace AdcSc1b{    ///<ADC Status and Control Registers 1
+        using Addr = Register::Address<0x4002b004,0xffffff20,0x00000000,unsigned>;
+        ///Input channel select
+        enum class AdchVal {
+            v00000=0x00000000,     ///<AD0 is selected as input.
+            v00001=0x00000001,     ///<AD1 is selected as input.
+            v00010=0x00000002,     ///<AD2 is selected as input.
+            v00011=0x00000003,     ///<AD3 is selected as input.
+            v00100=0x00000004,     ///<AD4 is selected as input.
+            v00101=0x00000005,     ///<AD5 is selected as input.
+            v00110=0x00000006,     ///<AD6 is selected as input.
+            v00111=0x00000007,     ///<AD7 is selected as input.
+            v01000=0x00000008,     ///<AD8 is selected as input.
+            v01001=0x00000009,     ///<AD9 is selected as input.
+            v01010=0x0000000a,     ///<AD10 is selected as input.
+            v01011=0x0000000b,     ///<AD11 is selected as input.
+            v01100=0x0000000c,     ///<AD12 is selected as input.
+            v01101=0x0000000d,     ///<AD13 is selected as input.
+            v01110=0x0000000e,     ///<AD14 is selected as input.
+            v01111=0x0000000f,     ///<AD15 is selected as input.
+            v10000=0x00000010,     ///<AD16 is selected as input.
+            v10001=0x00000011,     ///<AD17 is selected as input.
+            v10010=0x00000012,     ///<AD18 is selected as input.
+            v10011=0x00000013,     ///<AD19 is selected as input.
+            v10100=0x00000014,     ///<AD20 is selected as input.
+            v10101=0x00000015,     ///<AD21 is selected as input.
+            v10110=0x00000016,     ///<AD22 is selected as input.
+            v10111=0x00000017,     ///<AD23 is selected as input.
+            v11010=0x0000001a,     ///<Temp Sensor (single-ended) is selected as input.
+            v11011=0x0000001b,     ///<Bandgap (single-ended) is selected as input.
+            v11101=0x0000001d,     ///<VREFSH is selected as input. Voltage reference selected is determined by SC2[REFSEL].
+            v11110=0x0000001e,     ///<VREFSL is selected as input. Voltage reference selected is determined by SC2[REFSEL].
+            v11111=0x0000001f,     ///<Module is disabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,AdchVal> adch{}; 
+        namespace AdchValC{
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00000> v00000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00001> v00001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00010> v00010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00011> v00011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00100> v00100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00101> v00101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00110> v00110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00111> v00111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01000> v01000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01001> v01001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01010> v01010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01100> v01100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01101> v01101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01110> v01110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01111> v01111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10000> v10000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10001> v10001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10010> v10010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10011> v10011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10100> v10100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10101> v10101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10110> v10110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10111> v10111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11010> v11010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11011> v11011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11101> v11101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
+        }
+        ///Interrupt Enable
+        enum class AienVal {
+            v0=0x00000000,     ///<Conversion complete interrupt is disabled.
+            v1=0x00000001,     ///<Conversion complete interrupt is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AienVal> aien{}; 
+        namespace AienValC{
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
+        }
+        ///Conversion Complete Flag
+        enum class CocoVal {
+            v0=0x00000000,     ///<Conversion is not completed.
+            v1=0x00000001,     ///<Conversion is completed.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CocoVal> coco{}; 
+        namespace CocoValC{
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
+        }
+    }
+    namespace AdcSc1c{    ///<ADC Status and Control Registers 1
+        using Addr = Register::Address<0x4002b008,0xffffff20,0x00000000,unsigned>;
+        ///Input channel select
+        enum class AdchVal {
+            v00000=0x00000000,     ///<AD0 is selected as input.
+            v00001=0x00000001,     ///<AD1 is selected as input.
+            v00010=0x00000002,     ///<AD2 is selected as input.
+            v00011=0x00000003,     ///<AD3 is selected as input.
+            v00100=0x00000004,     ///<AD4 is selected as input.
+            v00101=0x00000005,     ///<AD5 is selected as input.
+            v00110=0x00000006,     ///<AD6 is selected as input.
+            v00111=0x00000007,     ///<AD7 is selected as input.
+            v01000=0x00000008,     ///<AD8 is selected as input.
+            v01001=0x00000009,     ///<AD9 is selected as input.
+            v01010=0x0000000a,     ///<AD10 is selected as input.
+            v01011=0x0000000b,     ///<AD11 is selected as input.
+            v01100=0x0000000c,     ///<AD12 is selected as input.
+            v01101=0x0000000d,     ///<AD13 is selected as input.
+            v01110=0x0000000e,     ///<AD14 is selected as input.
+            v01111=0x0000000f,     ///<AD15 is selected as input.
+            v10000=0x00000010,     ///<AD16 is selected as input.
+            v10001=0x00000011,     ///<AD17 is selected as input.
+            v10010=0x00000012,     ///<AD18 is selected as input.
+            v10011=0x00000013,     ///<AD19 is selected as input.
+            v10100=0x00000014,     ///<AD20 is selected as input.
+            v10101=0x00000015,     ///<AD21 is selected as input.
+            v10110=0x00000016,     ///<AD22 is selected as input.
+            v10111=0x00000017,     ///<AD23 is selected as input.
+            v11010=0x0000001a,     ///<Temp Sensor (single-ended) is selected as input.
+            v11011=0x0000001b,     ///<Bandgap (single-ended) is selected as input.
+            v11101=0x0000001d,     ///<VREFSH is selected as input. Voltage reference selected is determined by SC2[REFSEL].
+            v11110=0x0000001e,     ///<VREFSL is selected as input. Voltage reference selected is determined by SC2[REFSEL].
+            v11111=0x0000001f,     ///<Module is disabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,AdchVal> adch{}; 
+        namespace AdchValC{
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00000> v00000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00001> v00001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00010> v00010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00011> v00011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00100> v00100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00101> v00101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00110> v00110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00111> v00111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01000> v01000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01001> v01001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01010> v01010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01100> v01100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01101> v01101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01110> v01110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01111> v01111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10000> v10000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10001> v10001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10010> v10010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10011> v10011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10100> v10100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10101> v10101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10110> v10110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10111> v10111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11010> v11010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11011> v11011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11101> v11101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
+        }
+        ///Interrupt Enable
+        enum class AienVal {
+            v0=0x00000000,     ///<Conversion complete interrupt is disabled.
+            v1=0x00000001,     ///<Conversion complete interrupt is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AienVal> aien{}; 
+        namespace AienValC{
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
+        }
+        ///Conversion Complete Flag
+        enum class CocoVal {
+            v0=0x00000000,     ///<Conversion is not completed.
+            v1=0x00000001,     ///<Conversion is completed.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CocoVal> coco{}; 
+        namespace CocoValC{
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
+        }
+    }
+    namespace AdcSc1d{    ///<ADC Status and Control Registers 1
+        using Addr = Register::Address<0x4002b00c,0xffffff20,0x00000000,unsigned>;
+        ///Input channel select
+        enum class AdchVal {
+            v00000=0x00000000,     ///<AD0 is selected as input.
+            v00001=0x00000001,     ///<AD1 is selected as input.
+            v00010=0x00000002,     ///<AD2 is selected as input.
+            v00011=0x00000003,     ///<AD3 is selected as input.
+            v00100=0x00000004,     ///<AD4 is selected as input.
+            v00101=0x00000005,     ///<AD5 is selected as input.
+            v00110=0x00000006,     ///<AD6 is selected as input.
+            v00111=0x00000007,     ///<AD7 is selected as input.
+            v01000=0x00000008,     ///<AD8 is selected as input.
+            v01001=0x00000009,     ///<AD9 is selected as input.
+            v01010=0x0000000a,     ///<AD10 is selected as input.
+            v01011=0x0000000b,     ///<AD11 is selected as input.
+            v01100=0x0000000c,     ///<AD12 is selected as input.
+            v01101=0x0000000d,     ///<AD13 is selected as input.
+            v01110=0x0000000e,     ///<AD14 is selected as input.
+            v01111=0x0000000f,     ///<AD15 is selected as input.
+            v10000=0x00000010,     ///<AD16 is selected as input.
+            v10001=0x00000011,     ///<AD17 is selected as input.
+            v10010=0x00000012,     ///<AD18 is selected as input.
+            v10011=0x00000013,     ///<AD19 is selected as input.
+            v10100=0x00000014,     ///<AD20 is selected as input.
+            v10101=0x00000015,     ///<AD21 is selected as input.
+            v10110=0x00000016,     ///<AD22 is selected as input.
+            v10111=0x00000017,     ///<AD23 is selected as input.
+            v11010=0x0000001a,     ///<Temp Sensor (single-ended) is selected as input.
+            v11011=0x0000001b,     ///<Bandgap (single-ended) is selected as input.
+            v11101=0x0000001d,     ///<VREFSH is selected as input. Voltage reference selected is determined by SC2[REFSEL].
+            v11110=0x0000001e,     ///<VREFSL is selected as input. Voltage reference selected is determined by SC2[REFSEL].
+            v11111=0x0000001f,     ///<Module is disabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,AdchVal> adch{}; 
+        namespace AdchValC{
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00000> v00000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00001> v00001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00010> v00010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00011> v00011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00100> v00100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00101> v00101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00110> v00110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00111> v00111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01000> v01000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01001> v01001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01010> v01010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01100> v01100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01101> v01101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01110> v01110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01111> v01111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10000> v10000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10001> v10001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10010> v10010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10011> v10011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10100> v10100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10101> v10101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10110> v10110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10111> v10111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11010> v11010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11011> v11011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11101> v11101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
+        }
+        ///Interrupt Enable
+        enum class AienVal {
+            v0=0x00000000,     ///<Conversion complete interrupt is disabled.
+            v1=0x00000001,     ///<Conversion complete interrupt is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AienVal> aien{}; 
+        namespace AienValC{
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
+        }
+        ///Conversion Complete Flag
+        enum class CocoVal {
+            v0=0x00000000,     ///<Conversion is not completed.
+            v1=0x00000001,     ///<Conversion is completed.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CocoVal> coco{}; 
+        namespace CocoValC{
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
+        }
+    }
+    namespace AdcRa{    ///<ADC Data Result Register
+        using Addr = Register::Address<0x4002b018,0xffff0000,0x00000000,unsigned>;
+        ///Data result
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> d{}; 
+    }
+    namespace AdcRb{    ///<ADC Data Result Register
+        using Addr = Register::Address<0x4002b01c,0xffff0000,0x00000000,unsigned>;
+        ///Data result
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> d{}; 
+    }
+    namespace AdcRc{    ///<ADC Data Result Register
+        using Addr = Register::Address<0x4002b020,0xffff0000,0x00000000,unsigned>;
+        ///Data result
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> d{}; 
+    }
+    namespace AdcRd{    ///<ADC Data Result Register
+        using Addr = Register::Address<0x4002b024,0xffff0000,0x00000000,unsigned>;
+        ///Data result
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> d{}; 
+    }
+    namespace AdcCv1{    ///<Compare Value Registers
+        using Addr = Register::Address<0x4002b028,0xffff0000,0x00000000,unsigned>;
+        ///Compare Value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cv{}; 
+    }
+    namespace AdcCv2{    ///<Compare Value Registers
+        using Addr = Register::Address<0x4002b02c,0xffff0000,0x00000000,unsigned>;
+        ///Compare Value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cv{}; 
     }
 }

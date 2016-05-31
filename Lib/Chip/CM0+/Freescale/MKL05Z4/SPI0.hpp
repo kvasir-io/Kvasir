@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Serial Peripheral Interface
     namespace Spi0C1{    ///<SPI control register 1
-        using Addr = Register::Address<0x40076000,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40076000,0xffffff00,0x00000000,unsigned char>;
         ///LSB first (shifter direction)
         enum class LsbfeVal {
             v0=0x00000000,     ///<SPI serial data transfers start with most significant bit
@@ -86,7 +86,7 @@ namespace Kvasir {
         }
     }
     namespace Spi0C2{    ///<SPI control register 2
-        using Addr = Register::Address<0x40076001,0xffffff40,0,unsigned char>;
+        using Addr = Register::Address<0x40076001,0xffffff40,0x00000000,unsigned char>;
         ///SPI pin control 0
         enum class Spc0Val {
             v0=0x00000000,     ///<SPI uses separate pins for data input and data output (pin mode is normal). In master mode of operation: MISO is master in and MOSI is master out. In slave mode of operation: MISO is slave out and MOSI is slave in.
@@ -159,7 +159,7 @@ namespace Kvasir {
         }
     }
     namespace Spi0Br{    ///<SPI baud rate register
-        using Addr = Register::Address<0x40076002,0xffffff80,0,unsigned char>;
+        using Addr = Register::Address<0x40076002,0xffffff80,0x00000000,unsigned char>;
         ///SPI baud rate divisor
         enum class SprVal {
             v0000=0x00000000,     ///<Baud rate divisor is 2
@@ -208,13 +208,13 @@ namespace Kvasir {
         }
     }
     namespace Spi0S{    ///<SPI status register
-        using Addr = Register::Address<0x40076003,0xffffff0f,0,unsigned char>;
+        using Addr = Register::Address<0x40076003,0xffffff0f,0x00000000,unsigned char>;
         ///Master mode fault flag
         enum class ModfVal {
             v0=0x00000000,     ///<No mode fault error
             v1=0x00000001,     ///<Mode fault error detected
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ModfVal> modf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ModfVal> modf{}; 
         namespace ModfValC{
             constexpr Register::FieldValue<decltype(modf)::Type,ModfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(modf)::Type,ModfVal::v1> v1{};
@@ -224,7 +224,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<SPI transmit buffer not empty
             v1=0x00000001,     ///<SPI transmit buffer empty
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SptefVal> sptef{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SptefVal> sptef{}; 
         namespace SptefValC{
             constexpr Register::FieldValue<decltype(sptef)::Type,SptefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sptef)::Type,SptefVal::v1> v1{};
@@ -244,19 +244,19 @@ namespace Kvasir {
             v0=0x00000000,     ///<No data available in the receive data buffer
             v1=0x00000001,     ///<Data available in the receive data buffer
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SprfVal> sprf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SprfVal> sprf{}; 
         namespace SprfValC{
             constexpr Register::FieldValue<decltype(sprf)::Type,SprfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sprf)::Type,SprfVal::v1> v1{};
         }
     }
     namespace Spi0D{    ///<SPI data register
-        using Addr = Register::Address<0x40076005,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40076005,0xffffff00,0x00000000,unsigned char>;
         ///Data (low byte)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
     }
     namespace Spi0M{    ///<SPI match register
-        using Addr = Register::Address<0x40076007,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40076007,0xffffff00,0x00000000,unsigned char>;
         ///Hardware compare value (low byte)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
     }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Pulse Width Timer
     namespace PwtR1{    ///<Pulse Width Timer Register 1
-        using Addr = Register::Address<0x40033000,0x00000004,0,unsigned>;
+        using Addr = Register::Address<0x40033000,0x00000004,0x00000000,unsigned>;
         ///PWT Counter Overflow
         enum class PwtovVal {
             v0=0x00000000,     ///<PWT counter no overflow.
@@ -29,7 +29,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No action taken.
             v1=0x00000001,     ///<Writing 1 to this field will perform soft reset to PWT.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,PwtsrVal> pwtsr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PwtsrVal> pwtsr{}; 
         namespace PwtsrValC{
             constexpr Register::FieldValue<decltype(pwtsr)::Type,PwtsrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pwtsr)::Type,PwtsrVal::v1> v1{};
@@ -135,13 +135,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclks)::Type,PclksVal::v1> v1{};
         }
         ///Positive Pulse Width
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ppw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ppw{}; 
     }
     namespace PwtR2{    ///<Pulse Width Timer Register 2
-        using Addr = Register::Address<0x40033004,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40033004,0x00000000,0x00000000,unsigned>;
         ///Negative Pulse Width. It is suggested to use half-word (16-bit) or word (32-bit) to read out this value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> npw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> npw{}; 
         ///PWT Counter. It is suggested to use half-word (16-bit) or word (32-bit) to read out this value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pwtc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pwtc{}; 
     }
 }

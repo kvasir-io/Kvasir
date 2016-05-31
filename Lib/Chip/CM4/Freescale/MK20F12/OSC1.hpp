@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Oscillator
     namespace Osc1Cr{    ///<OSC Control Register
-        using Addr = Register::Address<0x400e5000,0xffffff50,0,unsigned char>;
+        using Addr = Register::Address<0x400e5000,0xffffff50,0x00000000,unsigned char>;
         ///Oscillator 16 pF Capacitor Load Configure
         enum class Sc16pVal {
             v0=0x00000000,     ///<Disable the selection.

@@ -2,6 +2,25 @@
 #include <Register/Utility.hpp>
 namespace Kvasir {
 //Pin Control and Interrupts
+    namespace PortbGpclr{    ///<Global Pin Control Low Register
+        using Addr = Register::Address<0x4004a080,0x00000000,0x00000000,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
+    }
+    namespace PortbGpchr{    ///<Global Pin Control High Register
+        using Addr = Register::Address<0x4004a084,0x00000000,0x00000000,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
+    }
+    namespace PortbIsfr{    ///<Interrupt Status Flag Register
+        using Addr = Register::Address<0x4004a0a0,0x00000000,0x00000000,unsigned>;
+        ///Interrupt Status Flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
+    }
     namespace PortbPcr0{    ///<Pin Control Register n
         using Addr = Register::Address<0x4004a000,0xfef07888,0x00000000,unsigned>;
         ///Pull Select
@@ -4129,24 +4148,5 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
         }
-    }
-    namespace PortbGpclr{    ///<Global Pin Control Low Register
-        using Addr = Register::Address<0x4004a080,0x00000000,0x00000000,unsigned>;
-        ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
-        ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
-    }
-    namespace PortbGpchr{    ///<Global Pin Control High Register
-        using Addr = Register::Address<0x4004a084,0x00000000,0x00000000,unsigned>;
-        ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
-        ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
-    }
-    namespace PortbIsfr{    ///<Interrupt Status Flag Register
-        using Addr = Register::Address<0x4004a0a0,0x00000000,0x00000000,unsigned>;
-        ///Interrupt Status Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
     }
 }

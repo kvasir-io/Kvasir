@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //High-Speed Comparator (CMP), Voltage Reference (VREF) Digital-to-Analog Converter (DAC), and Analog Mux (ANMUX)
     namespace Cmp2Cr0{    ///<CMP Control Register 0
-        using Addr = Register::Address<0x40073010,0xffffff8c,0,unsigned char>;
+        using Addr = Register::Address<0x40073010,0xffffff00,0x00000000,unsigned char>;
         ///Comparator hard block hysteresis control
         enum class HystctrVal {
             v00=0x00000000,     ///<Level 0
@@ -18,6 +18,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hystctr)::Type,HystctrVal::v10> v10{};
             constexpr Register::FieldValue<decltype(hystctr)::Type,HystctrVal::v11> v11{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Filter Sample Count
         enum class FiltercntVal {
             v000=0x00000000,     ///<Filter is disabled. If SE = 1, then COUT is a logic 0. This is not a legal state, and is not recommended. If SE = 0, COUT = COUTA.
@@ -40,9 +44,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v110> v110{};
             constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v111> v111{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace Cmp2Cr1{    ///<CMP Control Register 1
-        using Addr = Register::Address<0x40073011,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40073011,0xffffff00,0x00000000,unsigned char>;
         ///Comparator Module Enable
         enum class EnVal {
             v0=0x00000000,     ///<Analog Comparator is disabled.
@@ -125,14 +131,14 @@ namespace Kvasir {
         }
     }
     namespace Cmp2Fpr{    ///<CMP Filter Period Register
-        using Addr = Register::Address<0x40073012,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40073012,0xffffff00,0x00000000,unsigned char>;
         ///Filter Sample Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> filtPer{}; 
     }
     namespace Cmp2Scr{    ///<CMP Status and Control Register
-        using Addr = Register::Address<0x40073013,0xffffffa0,0,unsigned char>;
+        using Addr = Register::Address<0x40073013,0xffffff00,0x00000000,unsigned char>;
         ///Analog Comparator Output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cout{}; 
         ///Analog Comparator Flag Falling
         enum class CffVal {
             v0=0x00000000,     ///<Falling-edge on COUT has not been detected.
@@ -173,6 +179,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ier)::Type,IerVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ier)::Type,IerVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///DMA Enable Control
         enum class DmaenVal {
             v0=0x00000000,     ///<DMA is disabled.
@@ -183,9 +191,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace Cmp2Daccr{    ///<DAC Control Register
-        using Addr = Register::Address<0x40073014,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40073014,0xffffff00,0x00000000,unsigned char>;
         ///DAC Output Voltage Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> vosel{}; 
         ///Supply Voltage Reference Source Select
@@ -210,7 +220,7 @@ namespace Kvasir {
         }
     }
     namespace Cmp2Muxcr{    ///<MUX Control Register
-        using Addr = Register::Address<0x40073015,0xffffff40,0,unsigned char>;
+        using Addr = Register::Address<0x40073015,0xffffff00,0x00000000,unsigned char>;
         ///Minus Input Mux Control
         enum class MselVal {
             v000=0x00000000,     ///<IN0
@@ -255,6 +265,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v110> v110{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v111> v111{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Pass Through Mode Enable
         enum class PstmVal {
             v0=0x00000000,     ///<Pass Through Mode is disabled.

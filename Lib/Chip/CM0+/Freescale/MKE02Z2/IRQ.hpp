@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Interrupt
     namespace IrqSc{    ///<Interrupt Pin Request Status and Control Register
-        using Addr = Register::Address<0x40031000,0xffffff80,0,unsigned char>;
+        using Addr = Register::Address<0x40031000,0xffffff80,0x00000000,unsigned char>;
         ///IRQ Detection Mode
         enum class IrqmodVal {
             v0=0x00000000,     ///<IRQ event is detected only on falling/rising edges.
@@ -25,13 +25,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqie)::Type,IrqieVal::v1> v1{};
         }
         ///IRQ Acknowledge
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> irqack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> irqack{}; 
         ///IRQ Flag
         enum class IrqfVal {
             v0=0x00000000,     ///<No IRQ request
             v1=0x00000001,     ///<IRQ event is detected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,IrqfVal> irqf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,IrqfVal> irqf{}; 
         namespace IrqfValC{
             constexpr Register::FieldValue<decltype(irqf)::Type,IrqfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irqf)::Type,IrqfVal::v1> v1{};

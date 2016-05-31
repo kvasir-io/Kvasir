@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //DMA channel multiplexor
     namespace Dmamux0Chcfg0{    ///<Channel Configuration register
-        using Addr = Register::Address<0x40021000,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40021000,0xffffff00,0x00000000,unsigned char>;
         ///DMA Channel Source (Slot)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
         ///DMA Channel Trigger Enable
@@ -28,7 +28,7 @@ namespace Kvasir {
         }
     }
     namespace Dmamux0Chcfg1{    ///<Channel Configuration register
-        using Addr = Register::Address<0x40021001,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40021001,0xffffff00,0x00000000,unsigned char>;
         ///DMA Channel Source (Slot)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
         ///DMA Channel Trigger Enable
@@ -53,7 +53,7 @@ namespace Kvasir {
         }
     }
     namespace Dmamux0Chcfg2{    ///<Channel Configuration register
-        using Addr = Register::Address<0x40021002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40021002,0xffffff00,0x00000000,unsigned char>;
         ///DMA Channel Source (Slot)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
         ///DMA Channel Trigger Enable
@@ -78,7 +78,7 @@ namespace Kvasir {
         }
     }
     namespace Dmamux0Chcfg3{    ///<Channel Configuration register
-        using Addr = Register::Address<0x40021003,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40021003,0xffffff00,0x00000000,unsigned char>;
         ///DMA Channel Source (Slot)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
         ///DMA Channel Trigger Enable

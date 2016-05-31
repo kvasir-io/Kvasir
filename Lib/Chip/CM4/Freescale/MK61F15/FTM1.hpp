@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //FlexTimer Module
     namespace Ftm1Sc{    ///<Status and Control
-        using Addr = Register::Address<0x40039000,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40039000,0xffffff00,0x00000000,unsigned>;
         ///Prescale Factor Selection
         enum class PsVal {
             v000=0x00000000,     ///<Divide by 1
@@ -65,121 +65,29 @@ namespace Kvasir {
             v0=0x00000000,     ///<FTM counter has not overflowed.
             v1=0x00000001,     ///<FTM counter has overflowed.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TofVal> tof{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TofVal> tof{}; 
         namespace TofValC{
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v1> v1{};
         }
     }
     namespace Ftm1Cnt{    ///<Counter
-        using Addr = Register::Address<0x40039004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40039004,0xffff0000,0x00000000,unsigned>;
         ///Counter value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
     }
     namespace Ftm1Mod{    ///<Modulo
-        using Addr = Register::Address<0x40039008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40039008,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
     }
-    namespace Ftm1C0sc{    ///<Channel (n) Status and Control
-        using Addr = Register::Address<0x4003900c,0xffffff02,0,unsigned>;
-        ///DMA Enable
-        enum class DmaVal {
-            v0=0x00000000,     ///<Disable DMA transfers.
-            v1=0x00000001,     ///<Enable DMA transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
-        namespace DmaValC{
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
-        ///Channel Interrupt Enable
-        enum class ChieVal {
-            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
-            v1=0x00000001,     ///<Enable channel interrupts.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
-        namespace ChieValC{
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
-        }
-        ///Channel Flag
-        enum class ChfVal {
-            v0=0x00000000,     ///<No channel event has occurred.
-            v1=0x00000001,     ///<A channel event has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ChfVal> chf{}; 
-        namespace ChfValC{
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
-    }
-    namespace Ftm1C1sc{    ///<Channel (n) Status and Control
-        using Addr = Register::Address<0x40039014,0xffffff02,0,unsigned>;
-        ///DMA Enable
-        enum class DmaVal {
-            v0=0x00000000,     ///<Disable DMA transfers.
-            v1=0x00000001,     ///<Enable DMA transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
-        namespace DmaValC{
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
-        ///Channel Interrupt Enable
-        enum class ChieVal {
-            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
-            v1=0x00000001,     ///<Enable channel interrupts.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
-        namespace ChieValC{
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
-        }
-        ///Channel Flag
-        enum class ChfVal {
-            v0=0x00000000,     ///<No channel event has occurred.
-            v1=0x00000001,     ///<A channel event has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ChfVal> chf{}; 
-        namespace ChfValC{
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
-    }
-    namespace Ftm1C0v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x40039010,0xffff0000,0,unsigned>;
-        ///Channel Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-    }
-    namespace Ftm1C1v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x40039018,0xffff0000,0,unsigned>;
-        ///Channel Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-    }
     namespace Ftm1Cntin{    ///<Counter Initial Value
-        using Addr = Register::Address<0x4003904c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003904c,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> init{}; 
     }
     namespace Ftm1Status{    ///<Capture and Compare Status
-        using Addr = Register::Address<0x40039050,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40039050,0xffffff00,0x00000000,unsigned>;
         ///Channel 0 Flag
         enum class Ch0fVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -262,7 +170,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Mode{    ///<Features Mode Selection
-        using Addr = Register::Address<0x40039054,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40039054,0xffffff00,0x00000000,unsigned>;
         ///FTM Enable
         enum class FtmenVal {
             v0=0x00000000,     ///<Only the TPM-compatible registers (first set of registers) can be used without any restriction. Do not use the FTM-specific registers.
@@ -331,7 +239,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Sync{    ///<Synchronization
-        using Addr = Register::Address<0x40039058,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40039058,0xffffff00,0x00000000,unsigned>;
         ///Minimum loading point enable
         enum class CntminVal {
             v0=0x00000000,     ///<The minimum loading point is disabled.
@@ -414,7 +322,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Outinit{    ///<Initial State for Channels Output
-        using Addr = Register::Address<0x4003905c,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4003905c,0xffffff00,0x00000000,unsigned>;
         ///Channel 0 Output Initialization Value
         enum class Ch0oiVal {
             v0=0x00000000,     ///<The initialization value is 0.
@@ -497,7 +405,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Outmask{    ///<Output Mask
-        using Addr = Register::Address<0x40039060,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40039060,0xffffff00,0x00000000,unsigned>;
         ///Channel 0 Output Mask
         enum class Ch0omVal {
             v0=0x00000000,     ///<Channel output is not masked. It continues to operate normally.
@@ -580,7 +488,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Combine{    ///<Function for Linked Channels
-        using Addr = Register::Address<0x40039064,0x80808080,0,unsigned>;
+        using Addr = Register::Address<0x40039064,0x80808080,0x00000000,unsigned>;
         ///Combine Channels for n = 0
         enum class Combine0Val {
             v0=0x00000000,     ///<Channels (n) and (n+1) are independent.
@@ -863,7 +771,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Deadtime{    ///<Deadtime Insertion Control
-        using Addr = Register::Address<0x40039068,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40039068,0xffffff00,0x00000000,unsigned>;
         ///Deadtime Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> dtval{}; 
         ///Deadtime Prescaler Value
@@ -880,7 +788,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Exttrig{    ///<FTM External Trigger
-        using Addr = Register::Address<0x4003906c,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4003906c,0xffffff00,0x00000000,unsigned>;
         ///Channel 2 Trigger Enable
         enum class Ch2trigVal {
             v0=0x00000000,     ///<The generation of the channel trigger is disabled.
@@ -963,7 +871,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Pol{    ///<Channels Polarity
-        using Addr = Register::Address<0x40039070,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40039070,0xffffff00,0x00000000,unsigned>;
         ///Channel 0 Polarity
         enum class Pol0Val {
             v0=0x00000000,     ///<The channel polarity is active high.
@@ -1046,13 +954,13 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Fms{    ///<Fault Mode Status
-        using Addr = Register::Address<0x40039074,0xffffff10,0,unsigned>;
+        using Addr = Register::Address<0x40039074,0xffffff10,0x00000000,unsigned>;
         ///Fault Detection Flag 0
         enum class Faultf0Val {
             v0=0x00000000,     ///<No fault condition was detected at the fault input.
             v1=0x00000001,     ///<A fault condition was detected at the fault input.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Faultf0Val> faultf0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Faultf0Val> faultf0{}; 
         namespace Faultf0ValC{
             constexpr Register::FieldValue<decltype(faultf0)::Type,Faultf0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faultf0)::Type,Faultf0Val::v1> v1{};
@@ -1062,7 +970,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No fault condition was detected at the fault input.
             v1=0x00000001,     ///<A fault condition was detected at the fault input.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Faultf1Val> faultf1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Faultf1Val> faultf1{}; 
         namespace Faultf1ValC{
             constexpr Register::FieldValue<decltype(faultf1)::Type,Faultf1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faultf1)::Type,Faultf1Val::v1> v1{};
@@ -1072,7 +980,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No fault condition was detected at the fault input.
             v1=0x00000001,     ///<A fault condition was detected at the fault input.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Faultf2Val> faultf2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Faultf2Val> faultf2{}; 
         namespace Faultf2ValC{
             constexpr Register::FieldValue<decltype(faultf2)::Type,Faultf2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faultf2)::Type,Faultf2Val::v1> v1{};
@@ -1082,7 +990,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No fault condition was detected at the fault input.
             v1=0x00000001,     ///<A fault condition was detected at the fault input.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Faultf3Val> faultf3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Faultf3Val> faultf3{}; 
         namespace Faultf3ValC{
             constexpr Register::FieldValue<decltype(faultf3)::Type,Faultf3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faultf3)::Type,Faultf3Val::v1> v1{};
@@ -1092,7 +1000,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The logic OR of the enabled fault inputs is 0.
             v1=0x00000001,     ///<The logic OR of the enabled fault inputs is 1.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,FaultinVal> faultin{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FaultinVal> faultin{}; 
         namespace FaultinValC{
             constexpr Register::FieldValue<decltype(faultin)::Type,FaultinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(faultin)::Type,FaultinVal::v1> v1{};
@@ -1112,14 +1020,14 @@ namespace Kvasir {
             v0=0x00000000,     ///<No fault condition was detected.
             v1=0x00000001,     ///<A fault condition was detected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,FaultfVal> faultf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FaultfVal> faultf{}; 
         namespace FaultfValC{
             constexpr Register::FieldValue<decltype(faultf)::Type,FaultfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(faultf)::Type,FaultfVal::v1> v1{};
         }
     }
     namespace Ftm1Filter{    ///<Input Capture Filter Control
-        using Addr = Register::Address<0x40039078,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40039078,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 Input Filter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ch0fval{}; 
         ///Channel 1 Input Filter
@@ -1130,7 +1038,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> ch3fval{}; 
     }
     namespace Ftm1Fltctrl{    ///<Fault Control
-        using Addr = Register::Address<0x4003907c,0xfffff000,0,unsigned>;
+        using Addr = Register::Address<0x4003907c,0xfffff000,0x00000000,unsigned>;
         ///Fault Input 0 Enable
         enum class Fault0enVal {
             v0=0x00000000,     ///<Fault input is disabled.
@@ -1215,7 +1123,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> ffval{}; 
     }
     namespace Ftm1Qdctrl{    ///<Quadrature Decoder Control and Status
-        using Addr = Register::Address<0x40039080,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40039080,0xffffff00,0x00000000,unsigned>;
         ///Quadrature Decoder Mode Enable
         enum class QuadenVal {
             v0=0x00000000,     ///<Quadrature decoder mode is disabled.
@@ -1231,7 +1139,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<TOF bit was set on the bottom of counting. There was an FTM counter decrement and FTM counter changes from its minimum value (CNTIN register) to its maximum value (MOD register).
             v1=0x00000001,     ///<TOF bit was set on the top of counting. There was an FTM counter increment and FTM counter changes from its maximum value (MOD register) to its minimum value (CNTIN register).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TofdirVal> tofdir{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TofdirVal> tofdir{}; 
         namespace TofdirValC{
             constexpr Register::FieldValue<decltype(tofdir)::Type,TofdirVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tofdir)::Type,TofdirVal::v1> v1{};
@@ -1241,7 +1149,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Counting direction is decreasing (FTM counter decrement).
             v1=0x00000001,     ///<Counting direction is increasing (FTM counter increment).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,QuadirVal> quadir{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,QuadirVal> quadir{}; 
         namespace QuadirValC{
             constexpr Register::FieldValue<decltype(quadir)::Type,QuadirVal::v0> v0{};
             constexpr Register::FieldValue<decltype(quadir)::Type,QuadirVal::v1> v1{};
@@ -1298,7 +1206,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Conf{    ///<Configuration
-        using Addr = Register::Address<0x40039084,0xfffff920,0,unsigned>;
+        using Addr = Register::Address<0x40039084,0xfffff920,0x00000000,unsigned>;
         ///TOF Frequency
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> numtof{}; 
         ///BDM Mode
@@ -1325,7 +1233,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Fltpol{    ///<FTM Fault Input Polarity
-        using Addr = Register::Address<0x40039088,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x40039088,0xfffffff0,0x00000000,unsigned>;
         ///Fault Input 0 Polarity
         enum class Flt0polVal {
             v0=0x00000000,     ///<The fault input polarity is active high. A one at the fault input indicates a fault.
@@ -1368,7 +1276,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Synconf{    ///<Synchronization Configuration
-        using Addr = Register::Address<0x4003908c,0xffe0e04a,0,unsigned>;
+        using Addr = Register::Address<0x4003908c,0xffe0e04a,0x00000000,unsigned>;
         ///Hardware Trigger Mode
         enum class HwtrigmodeVal {
             v0=0x00000000,     ///<FTM clears the TRIGj bit when the hardware trigger j is detected.
@@ -1521,7 +1429,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Invctrl{    ///<FTM Inverting Control
-        using Addr = Register::Address<0x40039090,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x40039090,0xfffffff0,0x00000000,unsigned>;
         ///Pair Channels 0 Inverting Enable
         enum class Inv0enVal {
             v0=0x00000000,     ///<Inverting is disabled.
@@ -1564,7 +1472,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Swoctrl{    ///<FTM Software Output Control
-        using Addr = Register::Address<0x40039094,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40039094,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 Software Output Control Enable
         enum class Ch0ocVal {
             v0=0x00000000,     ///<The channel output is not affected by software output control.
@@ -1727,7 +1635,7 @@ namespace Kvasir {
         }
     }
     namespace Ftm1Pwmload{    ///<FTM PWM Load
-        using Addr = Register::Address<0x40039098,0xfffffd00,0,unsigned>;
+        using Addr = Register::Address<0x40039098,0xfffffd00,0x00000000,unsigned>;
         ///Channel 0 Select
         enum class Ch0selVal {
             v0=0x00000000,     ///<Do not include the channel in the matching process.
@@ -1818,5 +1726,97 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldok)::Type,LdokVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ldok)::Type,LdokVal::v1> v1{};
         }
+    }
+    namespace Ftm1C0sc{    ///<Channel (n) Status and Control
+        using Addr = Register::Address<0x4003900c,0xffffff02,0x00000000,unsigned>;
+        ///DMA Enable
+        enum class DmaVal {
+            v0=0x00000000,     ///<Disable DMA transfers.
+            v1=0x00000001,     ///<Enable DMA transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
+        namespace DmaValC{
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
+        }
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        ///Channel Interrupt Enable
+        enum class ChieVal {
+            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
+            v1=0x00000001,     ///<Enable channel interrupts.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
+        }
+        ///Channel Flag
+        enum class ChfVal {
+            v0=0x00000000,     ///<No channel event has occurred.
+            v1=0x00000001,     ///<A channel event has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
+        }
+    }
+    namespace Ftm1C1sc{    ///<Channel (n) Status and Control
+        using Addr = Register::Address<0x40039014,0xffffff02,0x00000000,unsigned>;
+        ///DMA Enable
+        enum class DmaVal {
+            v0=0x00000000,     ///<Disable DMA transfers.
+            v1=0x00000001,     ///<Enable DMA transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
+        namespace DmaValC{
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
+        }
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        ///Channel Interrupt Enable
+        enum class ChieVal {
+            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
+            v1=0x00000001,     ///<Enable channel interrupts.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
+        }
+        ///Channel Flag
+        enum class ChfVal {
+            v0=0x00000000,     ///<No channel event has occurred.
+            v1=0x00000001,     ///<A channel event has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
+        }
+    }
+    namespace Ftm1C0v{    ///<Channel (n) Value
+        using Addr = Register::Address<0x40039010,0xffff0000,0x00000000,unsigned>;
+        ///Channel Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+    }
+    namespace Ftm1C1v{    ///<Channel (n) Value
+        using Addr = Register::Address<0x40039018,0xffff0000,0x00000000,unsigned>;
+        ///Channel Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
     }
 }

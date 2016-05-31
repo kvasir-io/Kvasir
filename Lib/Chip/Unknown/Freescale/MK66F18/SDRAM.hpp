@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Synchronous DRAM Controller
     namespace SdramCtrl{    ///<Control Register
-        using Addr = Register::Address<0x4000f042,0xfffff000,0,unsigned>;
+        using Addr = Register::Address<0x4000f042,0xffff0000,0x00000000,unsigned>;
         ///Refresh count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rc{}; 
         ///Refresh timing
@@ -30,9 +30,17 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(is)::Type,IsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is)::Type,IsVal::v1> v1{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace SdramAc0{    ///<Address and Control Register
-        using Addr = Register::Address<0x4000f048,0x00034887,0,unsigned>;
+        using Addr = Register::Address<0x4000f048,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Initiate precharge all (pall) command.
         enum class IpVal {
             v0=0x00000000,     ///<Take no action.
@@ -67,10 +75,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(imrs)::Type,ImrsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(imrs)::Type,ImrsVal::v1> v1{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Command bit location
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> cbm{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///CAS Latency
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> casl{}; 
+        ///Should be cleared
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Refresh enable
         enum class ReVal {
             v0=0x00000000,     ///<Do not refresh associated DRAM block
@@ -81,11 +95,15 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(re)::Type,ReVal::v0> v0{};
             constexpr Register::FieldValue<decltype(re)::Type,ReVal::v1> v1{};
         }
+        ///Should be cleared
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Base address register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> ba{}; 
     }
     namespace SdramAc1{    ///<Address and Control Register
-        using Addr = Register::Address<0x4000f050,0x00034887,0,unsigned>;
+        using Addr = Register::Address<0x4000f050,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Initiate precharge all (pall) command.
         enum class IpVal {
             v0=0x00000000,     ///<Take no action.
@@ -120,10 +138,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(imrs)::Type,ImrsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(imrs)::Type,ImrsVal::v1> v1{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Command bit location
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> cbm{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///CAS Latency
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> casl{}; 
+        ///Should be cleared
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Refresh enable
         enum class ReVal {
             v0=0x00000000,     ///<Do not refresh associated DRAM block
@@ -134,11 +158,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(re)::Type,ReVal::v0> v0{};
             constexpr Register::FieldValue<decltype(re)::Type,ReVal::v1> v1{};
         }
+        ///Should be cleared
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Base address register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> ba{}; 
     }
     namespace SdramCm0{    ///<Control Mask
-        using Addr = Register::Address<0x4000f04c,0x0003fefe,0,unsigned>;
+        using Addr = Register::Address<0x4000f04c,0x00000000,0x00000000,unsigned>;
         ///Valid.
         enum class VVal {
             v0=0x00000000,     ///<Do not decode DRAM accesses.
@@ -149,6 +175,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v0> v0{};
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v1> v1{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Write protect.
         enum class WpVal {
             v0=0x00000000,     ///<Allow write accesses
@@ -159,11 +187,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v1> v1{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Base address mask.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> bam{}; 
     }
     namespace SdramCm1{    ///<Control Mask
-        using Addr = Register::Address<0x4000f054,0x0003fefe,0,unsigned>;
+        using Addr = Register::Address<0x4000f054,0x00000000,0x00000000,unsigned>;
         ///Valid.
         enum class VVal {
             v0=0x00000000,     ///<Do not decode DRAM accesses.
@@ -174,6 +204,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v0> v0{};
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v1> v1{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Write protect.
         enum class WpVal {
             v0=0x00000000,     ///<Allow write accesses
@@ -184,6 +216,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v1> v1{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Base address mask.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> bam{}; 
     }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Serial Peripheral Interface
     namespace Spi0Mcr{    ///<Module Configuration Register
-        using Addr = Register::Address<0x4002c000,0x02e000fe,0,unsigned>;
+        using Addr = Register::Address<0x4002c000,0x00000000,0x00000000,unsigned>;
         ///Halt
         enum class HaltVal {
             v0=0x00000000,     ///<Start transfers.
@@ -14,6 +14,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::v0> v0{};
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Sample Point
         enum class SmplptVal {
             v00=0x00000000,     ///<0 system clocks between SCK edge and SIN sample
@@ -33,7 +39,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Do not clear the RX FIFO counter.
             v1=0x00000001,     ///<Clear the RX FIFO counter.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,ClrrxfVal> clrRxf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClrrxfVal> clrRxf{}; 
         namespace ClrrxfValC{
             constexpr Register::FieldValue<decltype(clrRxf)::Type,ClrrxfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clrRxf)::Type,ClrrxfVal::v1> v1{};
@@ -43,7 +49,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Do not clear the TX FIFO counter.
             v1=0x00000001,     ///<Clear the TX FIFO counter.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,ClrtxfVal> clrTxf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClrtxfVal> clrTxf{}; 
         namespace ClrtxfValC{
             constexpr Register::FieldValue<decltype(clrTxf)::Type,ClrtxfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clrTxf)::Type,ClrtxfVal::v1> v1{};
@@ -90,6 +96,8 @@ namespace Kvasir {
         }
         ///Peripheral Chip Select x Inactive State
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> pcsis{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Receive FIFO Overflow Overwrite Enable
         enum class RooeVal {
             v0=0x00000000,     ///<Incoming data is ignored.
@@ -100,6 +108,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rooe)::Type,RooeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rooe)::Type,RooeVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Modified Timing Format Enable
         enum class MtfeVal {
             v0=0x00000000,     ///<Modified SPI transfer format disabled.
@@ -127,7 +137,7 @@ namespace Kvasir {
             v10=0x00000002,     ///<Reserved
             v11=0x00000003,     ///<Reserved
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,DconfVal> dconf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DconfVal> dconf{}; 
         namespace DconfValC{
             constexpr Register::FieldValue<decltype(dconf)::Type,DconfVal::v00> v00{};
             constexpr Register::FieldValue<decltype(dconf)::Type,DconfVal::v01> v01{};
@@ -156,12 +166,20 @@ namespace Kvasir {
         }
     }
     namespace Spi0Tcr{    ///<Transfer Count Register
-        using Addr = Register::Address<0x4002c008,0x0000ffff,0,unsigned>;
+        using Addr = Register::Address<0x4002c008,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///SPI Transfer Counter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> spiTcnt{}; 
     }
     namespace Spi0CtarSlave{    ///<Clock and Transfer Attributes Register (In Slave Mode)
-        using Addr = Register::Address<0x4002c00c,0x01ffffff,0,unsigned>;
+        using Addr = Register::Address<0x4002c00c,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Clock Phase
         enum class CphaVal {
             v0=0x00000000,     ///<Data is captured on the leading edge of SCK and changed on the following edge.
@@ -185,8 +203,285 @@ namespace Kvasir {
         ///Frame Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
     }
+    namespace Spi0Sr{    ///<DSPI Status Register
+        using Addr = Register::Address<0x4002c02c,0x00000000,0x00000000,unsigned>;
+        ///Pop Next Pointer
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> popnxtptr{}; 
+        ///RX FIFO Counter
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxctr{}; 
+        ///Transmit Next Pointer
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txnxtptr{}; 
+        ///TX FIFO Counter
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txctr{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Receive FIFO Drain Flag
+        enum class RfdfVal {
+            v0=0x00000000,     ///<RX FIFO is empty.
+            v1=0x00000001,     ///<RX FIFO is not empty.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,RfdfVal> rfdf{}; 
+        namespace RfdfValC{
+            constexpr Register::FieldValue<decltype(rfdf)::Type,RfdfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rfdf)::Type,RfdfVal::v1> v1{};
+        }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Receive FIFO Overflow Flag
+        enum class RfofVal {
+            v0=0x00000000,     ///<No Rx FIFO overflow.
+            v1=0x00000001,     ///<Rx FIFO overflow has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,RfofVal> rfof{}; 
+        namespace RfofValC{
+            constexpr Register::FieldValue<decltype(rfof)::Type,RfofVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rfof)::Type,RfofVal::v1> v1{};
+        }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Transmit FIFO Fill Flag
+        enum class TfffVal {
+            v0=0x00000000,     ///<TX FIFO is full.
+            v1=0x00000001,     ///<TX FIFO is not full.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,TfffVal> tfff{}; 
+        namespace TfffValC{
+            constexpr Register::FieldValue<decltype(tfff)::Type,TfffVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tfff)::Type,TfffVal::v1> v1{};
+        }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Transmit FIFO Underflow Flag
+        enum class TfufVal {
+            v0=0x00000000,     ///<No TX FIFO underflow.
+            v1=0x00000001,     ///<TX FIFO underflow has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,TfufVal> tfuf{}; 
+        namespace TfufValC{
+            constexpr Register::FieldValue<decltype(tfuf)::Type,TfufVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tfuf)::Type,TfufVal::v1> v1{};
+        }
+        ///End of Queue Flag
+        enum class EoqfVal {
+            v0=0x00000000,     ///<EOQ is not set in the executing command.
+            v1=0x00000001,     ///<EOQ is set in the executing SPI command.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,EoqfVal> eoqf{}; 
+        namespace EoqfValC{
+            constexpr Register::FieldValue<decltype(eoqf)::Type,EoqfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eoqf)::Type,EoqfVal::v1> v1{};
+        }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///TX and RX Status
+        enum class TxrxsVal {
+            v0=0x00000000,     ///<Transmit and receive operations are disabled (The module is in Stopped state).
+            v1=0x00000001,     ///<Transmit and receive operations are enabled (The module is in Running state).
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,TxrxsVal> txrxs{}; 
+        namespace TxrxsValC{
+            constexpr Register::FieldValue<decltype(txrxs)::Type,TxrxsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txrxs)::Type,TxrxsVal::v1> v1{};
+        }
+        ///Transfer Complete Flag
+        enum class TcfVal {
+            v0=0x00000000,     ///<Transfer not complete.
+            v1=0x00000001,     ///<Transfer complete.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,TcfVal> tcf{}; 
+        namespace TcfValC{
+            constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v1> v1{};
+        }
+    }
+    namespace Spi0Rser{    ///<DMA/Interrupt Request Select and Enable Register
+        using Addr = Register::Address<0x4002c030,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Receive FIFO Drain DMA or Interrupt Request Select
+        enum class RfdfdirsVal {
+            v0=0x00000000,     ///<Interrupt request.
+            v1=0x00000001,     ///<DMA request.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,RfdfdirsVal> rfdfDirs{}; 
+        namespace RfdfdirsValC{
+            constexpr Register::FieldValue<decltype(rfdfDirs)::Type,RfdfdirsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rfdfDirs)::Type,RfdfdirsVal::v1> v1{};
+        }
+        ///Receive FIFO Drain Request Enable
+        enum class RfdfreVal {
+            v0=0x00000000,     ///<RFDF interrupt or DMA requests are disabled.
+            v1=0x00000001,     ///<RFDF interrupt or DMA requests are enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,RfdfreVal> rfdfRe{}; 
+        namespace RfdfreValC{
+            constexpr Register::FieldValue<decltype(rfdfRe)::Type,RfdfreVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rfdfRe)::Type,RfdfreVal::v1> v1{};
+        }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Receive FIFO Overflow Request Enable
+        enum class RfofreVal {
+            v0=0x00000000,     ///<RFOF interrupt requests are disabled.
+            v1=0x00000001,     ///<RFOF interrupt requests are enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,RfofreVal> rfofRe{}; 
+        namespace RfofreValC{
+            constexpr Register::FieldValue<decltype(rfofRe)::Type,RfofreVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rfofRe)::Type,RfofreVal::v1> v1{};
+        }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Transmit FIFO Fill DMA or Interrupt Request Select
+        enum class TfffdirsVal {
+            v0=0x00000000,     ///<TFFF flag generates interrupt requests.
+            v1=0x00000001,     ///<TFFF flag generates DMA requests.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,TfffdirsVal> tfffDirs{}; 
+        namespace TfffdirsValC{
+            constexpr Register::FieldValue<decltype(tfffDirs)::Type,TfffdirsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tfffDirs)::Type,TfffdirsVal::v1> v1{};
+        }
+        ///Transmit FIFO Fill Request Enable
+        enum class TfffreVal {
+            v0=0x00000000,     ///<TFFF interrupts or DMA requests are disabled.
+            v1=0x00000001,     ///<TFFF interrupts or DMA requests are enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,TfffreVal> tfffRe{}; 
+        namespace TfffreValC{
+            constexpr Register::FieldValue<decltype(tfffRe)::Type,TfffreVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tfffRe)::Type,TfffreVal::v1> v1{};
+        }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Transmit FIFO Underflow Request Enable
+        enum class TfufreVal {
+            v0=0x00000000,     ///<TFUF interrupt requests are disabled.
+            v1=0x00000001,     ///<TFUF interrupt requests are enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,TfufreVal> tfufRe{}; 
+        namespace TfufreValC{
+            constexpr Register::FieldValue<decltype(tfufRe)::Type,TfufreVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tfufRe)::Type,TfufreVal::v1> v1{};
+        }
+        ///Finished Request Enable
+        enum class EoqfreVal {
+            v0=0x00000000,     ///<EOQF interrupt requests are disabled.
+            v1=0x00000001,     ///<EOQF interrupt requests are enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,EoqfreVal> eoqfRe{}; 
+        namespace EoqfreValC{
+            constexpr Register::FieldValue<decltype(eoqfRe)::Type,EoqfreVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eoqfRe)::Type,EoqfreVal::v1> v1{};
+        }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Transmission Complete Request Enable
+        enum class TcfreVal {
+            v0=0x00000000,     ///<TCF interrupt requests are disabled.
+            v1=0x00000001,     ///<TCF interrupt requests are enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,TcfreVal> tcfRe{}; 
+        namespace TcfreValC{
+            constexpr Register::FieldValue<decltype(tcfRe)::Type,TcfreVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tcfRe)::Type,TcfreVal::v1> v1{};
+        }
+    }
+    namespace Spi0Pushr{    ///<PUSH TX FIFO Register In Master Mode
+        using Addr = Register::Address<0x4002c034,0x00000000,0x00000000,unsigned>;
+        ///Transmit Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pcs{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///Clear Transfer Counter
+        enum class CtcntVal {
+            v0=0x00000000,     ///<Do not clear the TCR[TCNT] field.
+            v1=0x00000001,     ///<Clear the TCR[TCNT] field.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,CtcntVal> ctcnt{}; 
+        namespace CtcntValC{
+            constexpr Register::FieldValue<decltype(ctcnt)::Type,CtcntVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ctcnt)::Type,CtcntVal::v1> v1{};
+        }
+        ///End Of Queue
+        enum class EoqVal {
+            v0=0x00000000,     ///<The SPI data is not the last data to transfer.
+            v1=0x00000001,     ///<The SPI data is the last data to transfer.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,EoqVal> eoq{}; 
+        namespace EoqValC{
+            constexpr Register::FieldValue<decltype(eoq)::Type,EoqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eoq)::Type,EoqVal::v1> v1{};
+        }
+        ///Clock and Transfer Attributes Select
+        enum class CtasVal {
+            v000=0x00000000,     ///<CTAR0
+            v001=0x00000001,     ///<CTAR1
+            v010=0x00000002,     ///<Reserved
+            v011=0x00000003,     ///<Reserved
+            v100=0x00000004,     ///<Reserved
+            v101=0x00000005,     ///<Reserved
+            v110=0x00000006,     ///<Reserved
+            v111=0x00000007,     ///<Reserved
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,CtasVal> ctas{}; 
+        namespace CtasValC{
+            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v111> v111{};
+        }
+        ///Continuous Peripheral Chip Select Enable
+        enum class ContVal {
+            v0=0x00000000,     ///<Return PCSn signals to their inactive state between transfers.
+            v1=0x00000001,     ///<Keep PCSn signals asserted between transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,ContVal> cont{}; 
+        namespace ContValC{
+            constexpr Register::FieldValue<decltype(cont)::Type,ContVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cont)::Type,ContVal::v1> v1{};
+        }
+    }
+    namespace Spi0PushrSlave{    ///<PUSH TX FIFO Register In Slave Mode
+        using Addr = Register::Address<0x4002c034,0x00000000,0x00000000,unsigned>;
+        ///Transmit Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+    }
+    namespace Spi0Popr{    ///<POP RX FIFO Register
+        using Addr = Register::Address<0x4002c038,0x00000000,0x00000000,unsigned>;
+        ///Received Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
+    }
     namespace Spi0Ctar0{    ///<Clock and Transfer Attributes Register (In Master Mode)
-        using Addr = Register::Address<0x4002c00c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002c00c,0x00000000,0x00000000,unsigned>;
         ///Baud Rate Scaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> br{}; 
         ///Delay After Transfer Scaler
@@ -295,7 +590,7 @@ namespace Kvasir {
         }
     }
     namespace Spi0Ctar1{    ///<Clock and Transfer Attributes Register (In Master Mode)
-        using Addr = Register::Address<0x4002c010,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002c010,0x00000000,0x00000000,unsigned>;
         ///Baud Rate Scaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> br{}; 
         ///Delay After Transfer Scaler
@@ -403,285 +698,52 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v1> v1{};
         }
     }
-    namespace Spi0Sr{    ///<DSPI Status Register
-        using Addr = Register::Address<0x4002c02c,0x25f50000,0,unsigned>;
-        ///Pop Next Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> popnxtptr{}; 
-        ///RX FIFO Counter
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> rxctr{}; 
-        ///Transmit Next Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> txnxtptr{}; 
-        ///TX FIFO Counter
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> txctr{}; 
-        ///Receive FIFO Drain Flag
-        enum class RfdfVal {
-            v0=0x00000000,     ///<RX FIFO is empty.
-            v1=0x00000001,     ///<RX FIFO is not empty.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,RfdfVal> rfdf{}; 
-        namespace RfdfValC{
-            constexpr Register::FieldValue<decltype(rfdf)::Type,RfdfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rfdf)::Type,RfdfVal::v1> v1{};
-        }
-        ///Receive FIFO Overflow Flag
-        enum class RfofVal {
-            v0=0x00000000,     ///<No Rx FIFO overflow.
-            v1=0x00000001,     ///<Rx FIFO overflow has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,RfofVal> rfof{}; 
-        namespace RfofValC{
-            constexpr Register::FieldValue<decltype(rfof)::Type,RfofVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rfof)::Type,RfofVal::v1> v1{};
-        }
-        ///Transmit FIFO Fill Flag
-        enum class TfffVal {
-            v0=0x00000000,     ///<TX FIFO is full.
-            v1=0x00000001,     ///<TX FIFO is not full.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,TfffVal> tfff{}; 
-        namespace TfffValC{
-            constexpr Register::FieldValue<decltype(tfff)::Type,TfffVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tfff)::Type,TfffVal::v1> v1{};
-        }
-        ///Transmit FIFO Underflow Flag
-        enum class TfufVal {
-            v0=0x00000000,     ///<No TX FIFO underflow.
-            v1=0x00000001,     ///<TX FIFO underflow has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,TfufVal> tfuf{}; 
-        namespace TfufValC{
-            constexpr Register::FieldValue<decltype(tfuf)::Type,TfufVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tfuf)::Type,TfufVal::v1> v1{};
-        }
-        ///End of Queue Flag
-        enum class EoqfVal {
-            v0=0x00000000,     ///<EOQ is not set in the executing command.
-            v1=0x00000001,     ///<EOQ is set in the executing SPI command.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,EoqfVal> eoqf{}; 
-        namespace EoqfValC{
-            constexpr Register::FieldValue<decltype(eoqf)::Type,EoqfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(eoqf)::Type,EoqfVal::v1> v1{};
-        }
-        ///TX and RX Status
-        enum class TxrxsVal {
-            v0=0x00000000,     ///<Transmit and receive operations are disabled (The module is in Stopped state).
-            v1=0x00000001,     ///<Transmit and receive operations are enabled (The module is in Running state).
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,TxrxsVal> txrxs{}; 
-        namespace TxrxsValC{
-            constexpr Register::FieldValue<decltype(txrxs)::Type,TxrxsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(txrxs)::Type,TxrxsVal::v1> v1{};
-        }
-        ///Transfer Complete Flag
-        enum class TcfVal {
-            v0=0x00000000,     ///<Transfer not complete.
-            v1=0x00000001,     ///<Transfer complete.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,TcfVal> tcf{}; 
-        namespace TcfValC{
-            constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v1> v1{};
-        }
-    }
-    namespace Spi0Rser{    ///<DMA/Interrupt Request Select and Enable Register
-        using Addr = Register::Address<0x4002c030,0x64f4ffff,0,unsigned>;
-        ///Receive FIFO Drain DMA or Interrupt Request Select
-        enum class RfdfdirsVal {
-            v0=0x00000000,     ///<Interrupt request.
-            v1=0x00000001,     ///<DMA request.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,RfdfdirsVal> rfdfDirs{}; 
-        namespace RfdfdirsValC{
-            constexpr Register::FieldValue<decltype(rfdfDirs)::Type,RfdfdirsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rfdfDirs)::Type,RfdfdirsVal::v1> v1{};
-        }
-        ///Receive FIFO Drain Request Enable
-        enum class RfdfreVal {
-            v0=0x00000000,     ///<RFDF interrupt or DMA requests are disabled.
-            v1=0x00000001,     ///<RFDF interrupt or DMA requests are enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,RfdfreVal> rfdfRe{}; 
-        namespace RfdfreValC{
-            constexpr Register::FieldValue<decltype(rfdfRe)::Type,RfdfreVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rfdfRe)::Type,RfdfreVal::v1> v1{};
-        }
-        ///Receive FIFO Overflow Request Enable
-        enum class RfofreVal {
-            v0=0x00000000,     ///<RFOF interrupt requests are disabled.
-            v1=0x00000001,     ///<RFOF interrupt requests are enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,RfofreVal> rfofRe{}; 
-        namespace RfofreValC{
-            constexpr Register::FieldValue<decltype(rfofRe)::Type,RfofreVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rfofRe)::Type,RfofreVal::v1> v1{};
-        }
-        ///Transmit FIFO Fill DMA or Interrupt Request Select
-        enum class TfffdirsVal {
-            v0=0x00000000,     ///<TFFF flag generates interrupt requests.
-            v1=0x00000001,     ///<TFFF flag generates DMA requests.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,TfffdirsVal> tfffDirs{}; 
-        namespace TfffdirsValC{
-            constexpr Register::FieldValue<decltype(tfffDirs)::Type,TfffdirsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tfffDirs)::Type,TfffdirsVal::v1> v1{};
-        }
-        ///Transmit FIFO Fill Request Enable
-        enum class TfffreVal {
-            v0=0x00000000,     ///<TFFF interrupts or DMA requests are disabled.
-            v1=0x00000001,     ///<TFFF interrupts or DMA requests are enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,TfffreVal> tfffRe{}; 
-        namespace TfffreValC{
-            constexpr Register::FieldValue<decltype(tfffRe)::Type,TfffreVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tfffRe)::Type,TfffreVal::v1> v1{};
-        }
-        ///Transmit FIFO Underflow Request Enable
-        enum class TfufreVal {
-            v0=0x00000000,     ///<TFUF interrupt requests are disabled.
-            v1=0x00000001,     ///<TFUF interrupt requests are enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,TfufreVal> tfufRe{}; 
-        namespace TfufreValC{
-            constexpr Register::FieldValue<decltype(tfufRe)::Type,TfufreVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tfufRe)::Type,TfufreVal::v1> v1{};
-        }
-        ///Finished Request Enable
-        enum class EoqfreVal {
-            v0=0x00000000,     ///<EOQF interrupt requests are disabled.
-            v1=0x00000001,     ///<EOQF interrupt requests are enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,EoqfreVal> eoqfRe{}; 
-        namespace EoqfreValC{
-            constexpr Register::FieldValue<decltype(eoqfRe)::Type,EoqfreVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(eoqfRe)::Type,EoqfreVal::v1> v1{};
-        }
-        ///Transmission Complete Request Enable
-        enum class TcfreVal {
-            v0=0x00000000,     ///<TCF interrupt requests are disabled.
-            v1=0x00000001,     ///<TCF interrupt requests are enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,TcfreVal> tcfRe{}; 
-        namespace TcfreValC{
-            constexpr Register::FieldValue<decltype(tcfRe)::Type,TcfreVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tcfRe)::Type,TcfreVal::v1> v1{};
-        }
-    }
-    namespace Spi0Pushr{    ///<PUSH TX FIFO Register In Master Mode
-        using Addr = Register::Address<0x4002c034,0x03c00000,0,unsigned>;
-        ///Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
-        ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pcs{}; 
-        ///Clear Transfer Counter
-        enum class CtcntVal {
-            v0=0x00000000,     ///<Do not clear the TCR[TCNT] field.
-            v1=0x00000001,     ///<Clear the TCR[TCNT] field.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,CtcntVal> ctcnt{}; 
-        namespace CtcntValC{
-            constexpr Register::FieldValue<decltype(ctcnt)::Type,CtcntVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ctcnt)::Type,CtcntVal::v1> v1{};
-        }
-        ///End Of Queue
-        enum class EoqVal {
-            v0=0x00000000,     ///<The SPI data is not the last data to transfer.
-            v1=0x00000001,     ///<The SPI data is the last data to transfer.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,EoqVal> eoq{}; 
-        namespace EoqValC{
-            constexpr Register::FieldValue<decltype(eoq)::Type,EoqVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(eoq)::Type,EoqVal::v1> v1{};
-        }
-        ///Clock and Transfer Attributes Select
-        enum class CtasVal {
-            v000=0x00000000,     ///<CTAR0
-            v001=0x00000001,     ///<CTAR1
-            v010=0x00000002,     ///<Reserved
-            v011=0x00000003,     ///<Reserved
-            v100=0x00000004,     ///<Reserved
-            v101=0x00000005,     ///<Reserved
-            v110=0x00000006,     ///<Reserved
-            v111=0x00000007,     ///<Reserved
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,CtasVal> ctas{}; 
-        namespace CtasValC{
-            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(ctas)::Type,CtasVal::v111> v111{};
-        }
-        ///Continuous Peripheral Chip Select Enable
-        enum class ContVal {
-            v0=0x00000000,     ///<Return PCSn signals to their inactive state between transfers.
-            v1=0x00000001,     ///<Keep PCSn signals asserted between transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,ContVal> cont{}; 
-        namespace ContValC{
-            constexpr Register::FieldValue<decltype(cont)::Type,ContVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cont)::Type,ContVal::v1> v1{};
-        }
-    }
-    namespace Spi0PushrSlave{    ///<PUSH TX FIFO Register In Slave Mode
-        using Addr = Register::Address<0x4002c034,0x00000000,0,unsigned>;
-        ///Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txdata{}; 
-    }
-    namespace Spi0Popr{    ///<POP RX FIFO Register
-        using Addr = Register::Address<0x4002c038,0x00000000,0,unsigned>;
-        ///Received Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
-    }
     namespace Spi0Txfr0{    ///<DSPI Transmit FIFO Registers
-        using Addr = Register::Address<0x4002c03c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002c03c,0x00000000,0x00000000,unsigned>;
         ///Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txdata{}; 
         ///Transmit Command or Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txcmdTxdata{}; 
     }
     namespace Spi0Txfr1{    ///<DSPI Transmit FIFO Registers
-        using Addr = Register::Address<0x4002c040,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002c040,0x00000000,0x00000000,unsigned>;
         ///Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txdata{}; 
         ///Transmit Command or Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txcmdTxdata{}; 
     }
     namespace Spi0Txfr2{    ///<DSPI Transmit FIFO Registers
-        using Addr = Register::Address<0x4002c044,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002c044,0x00000000,0x00000000,unsigned>;
         ///Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txdata{}; 
         ///Transmit Command or Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txcmdTxdata{}; 
     }
     namespace Spi0Txfr3{    ///<DSPI Transmit FIFO Registers
-        using Addr = Register::Address<0x4002c048,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002c048,0x00000000,0x00000000,unsigned>;
         ///Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txdata{}; 
         ///Transmit Command or Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txcmdTxdata{}; 
     }
     namespace Spi0Rxfr0{    ///<DSPI Receive FIFO Registers
-        using Addr = Register::Address<0x4002c07c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002c07c,0x00000000,0x00000000,unsigned>;
         ///Receive Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
     }
     namespace Spi0Rxfr1{    ///<DSPI Receive FIFO Registers
-        using Addr = Register::Address<0x4002c080,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002c080,0x00000000,0x00000000,unsigned>;
         ///Receive Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
     }
     namespace Spi0Rxfr2{    ///<DSPI Receive FIFO Registers
-        using Addr = Register::Address<0x4002c084,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002c084,0x00000000,0x00000000,unsigned>;
         ///Receive Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
     }
     namespace Spi0Rxfr3{    ///<DSPI Receive FIFO Registers
-        using Addr = Register::Address<0x4002c088,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002c088,0x00000000,0x00000000,unsigned>;
         ///Receive Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
     }
 }

@@ -1,9 +1,11 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //USBPHY Register Reference Index
     namespace UsbphyPwd{    ///<USB PHY Power-Down Register
-        using Addr = Register::Address<0x400a2000,0xffe1e3ff,0,unsigned>;
+        using Addr = Register::Address<0x400a2000,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class TxpwdfsVal {
             v0=0x00000000,     ///<Normal operation.
@@ -34,6 +36,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class RxpwdenvVal {
             v0=0x00000000,     ///<Normal operation.
@@ -74,9 +78,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyPwdSet{    ///<USB PHY Power-Down Register
-        using Addr = Register::Address<0x400a2004,0xffe1e3ff,0,unsigned>;
+        using Addr = Register::Address<0x400a2004,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class TxpwdfsVal {
             v0=0x00000000,     ///<Normal operation.
@@ -107,6 +115,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class RxpwdenvVal {
             v0=0x00000000,     ///<Normal operation.
@@ -147,9 +157,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyPwdClr{    ///<USB PHY Power-Down Register
-        using Addr = Register::Address<0x400a2008,0xffe1e3ff,0,unsigned>;
+        using Addr = Register::Address<0x400a2008,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class TxpwdfsVal {
             v0=0x00000000,     ///<Normal operation.
@@ -180,6 +194,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class RxpwdenvVal {
             v0=0x00000000,     ///<Normal operation.
@@ -220,9 +236,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyPwdTog{    ///<USB PHY Power-Down Register
-        using Addr = Register::Address<0x400a200c,0xffe1e3ff,0,unsigned>;
+        using Addr = Register::Address<0x400a200c,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class TxpwdfsVal {
             v0=0x00000000,     ///<Normal operation.
@@ -253,6 +273,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class RxpwdenvVal {
             v0=0x00000000,     ///<Normal operation.
@@ -293,57 +315,95 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyTx{    ///<USB PHY Transmitter Control Register
-        using Addr = Register::Address<0x400a2010,0xe3f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x400a2010,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dCal{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> txcal45dm{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> txcal45dp{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,26),Register::ReadWriteAccess,unsigned> usbphyTxEdgectrl{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyTxSet{    ///<USB PHY Transmitter Control Register
-        using Addr = Register::Address<0x400a2014,0xe3f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x400a2014,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dCal{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> txcal45dm{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> txcal45dp{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,26),Register::ReadWriteAccess,unsigned> usbphyTxEdgectrl{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyTxClr{    ///<USB PHY Transmitter Control Register
-        using Addr = Register::Address<0x400a2018,0xe3f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x400a2018,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dCal{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> txcal45dm{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> txcal45dp{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,26),Register::ReadWriteAccess,unsigned> usbphyTxEdgectrl{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyTxTog{    ///<USB PHY Transmitter Control Register
-        using Addr = Register::Address<0x400a201c,0xe3f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x400a201c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dCal{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> txcal45dm{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> txcal45dp{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,26),Register::ReadWriteAccess,unsigned> usbphyTxEdgectrl{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyRx{    ///<USB PHY Receiver Control Register
-        using Addr = Register::Address<0x400a2020,0xffbfff88,0,unsigned>;
+        using Addr = Register::Address<0x400a2020,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> envadj{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> disconadj{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class RxdbypassVal {
             v0=0x00000000,     ///<Normal operation.
@@ -354,13 +414,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyRxSet{    ///<USB PHY Receiver Control Register
-        using Addr = Register::Address<0x400a2024,0xffbfff88,0,unsigned>;
+        using Addr = Register::Address<0x400a2024,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> envadj{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> disconadj{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class RxdbypassVal {
             v0=0x00000000,     ///<Normal operation.
@@ -371,13 +437,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyRxClr{    ///<USB PHY Receiver Control Register
-        using Addr = Register::Address<0x400a2028,0xffbfff88,0,unsigned>;
+        using Addr = Register::Address<0x400a2028,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> envadj{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> disconadj{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class RxdbypassVal {
             v0=0x00000000,     ///<Normal operation.
@@ -388,13 +460,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyRxTog{    ///<USB PHY Receiver Control Register
-        using Addr = Register::Address<0x400a202c,0xffbfff88,0,unsigned>;
+        using Addr = Register::Address<0x400a202c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> envadj{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> disconadj{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         enum class RxdbypassVal {
             v0=0x00000000,     ///<Normal operation.
@@ -405,17 +483,47 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyCtrl{    ///<USB PHY General Control Register
-        using Addr = Register::Address<0x400a2030,0x06e32ffd,0,unsigned>;
+        using Addr = Register::Address<0x400a2030,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enhostdiscondetect{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> devpluginIrq{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> enutmilevel2{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> enutmilevel3{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> autoresumeEn{}; 
         ///no description available
@@ -423,28 +531,66 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> enautoclrPhyPwd{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> fsdllRstEn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> otgIdValue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> fsdllRstEn{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> otgIdValue{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> hostForceLsSe0{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> utmiSuspendm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmiSuspendm{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> clkgate{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> sftrst{}; 
     }
     namespace UsbphyCtrlSet{    ///<USB PHY General Control Register
-        using Addr = Register::Address<0x400a2034,0x06e32ffd,0,unsigned>;
+        using Addr = Register::Address<0x400a2034,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enhostdiscondetect{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> devpluginIrq{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> enutmilevel2{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> enutmilevel3{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> autoresumeEn{}; 
         ///no description available
@@ -452,28 +598,66 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> enautoclrPhyPwd{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> fsdllRstEn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> otgIdValue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> fsdllRstEn{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> otgIdValue{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> hostForceLsSe0{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> utmiSuspendm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmiSuspendm{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> clkgate{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> sftrst{}; 
     }
     namespace UsbphyCtrlClr{    ///<USB PHY General Control Register
-        using Addr = Register::Address<0x400a2038,0x06e32ffd,0,unsigned>;
+        using Addr = Register::Address<0x400a2038,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enhostdiscondetect{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> devpluginIrq{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> enutmilevel2{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> enutmilevel3{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> autoresumeEn{}; 
         ///no description available
@@ -481,28 +665,66 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> enautoclrPhyPwd{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> fsdllRstEn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> otgIdValue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> fsdllRstEn{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> otgIdValue{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> hostForceLsSe0{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> utmiSuspendm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmiSuspendm{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> clkgate{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> sftrst{}; 
     }
     namespace UsbphyCtrlTog{    ///<USB PHY General Control Register
-        using Addr = Register::Address<0x400a203c,0x06e32ffd,0,unsigned>;
+        using Addr = Register::Address<0x400a203c,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enhostdiscondetect{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> devpluginIrq{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> enutmilevel2{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> enutmilevel3{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> autoresumeEn{}; 
         ///no description available
@@ -510,31 +732,51 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> enautoclrPhyPwd{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> fsdllRstEn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> otgIdValue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> fsdllRstEn{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> otgIdValue{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> hostForceLsSe0{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> utmiSuspendm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmiSuspendm{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> clkgate{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> sftrst{}; 
     }
     namespace UsbphyStatus{    ///<USB PHY Status Register
-        using Addr = Register::Address<0x400a2040,0xfffffab7,0,unsigned>;
+        using Addr = Register::Address<0x400a2040,0x00000000,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> hostdiscondetectStatus{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> devpluginStatus{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hostdiscondetectStatus{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> devpluginStatus{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> otgidStatus{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> resumeStatus{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> resumeStatus{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyDebug{    ///<USB PHY Debug Register
-        using Addr = Register::Address<0x400a2050,0x80e0e0c0,0,unsigned>;
+        using Addr = Register::Address<0x400a2050,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otgidpiolock{}; 
         ///no description available
@@ -543,12 +785,18 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> hstpulldown{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> enhstpulldown{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> tx2rxcount{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> entx2rxcount{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> squelchresetcount{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> ensquelchreset{}; 
         ///no description available
@@ -557,9 +805,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> hostResumeDebug{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> clkgate{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyDebugSet{    ///<USB PHY Debug Register
-        using Addr = Register::Address<0x400a2054,0x80e0e0c0,0,unsigned>;
+        using Addr = Register::Address<0x400a2054,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otgidpiolock{}; 
         ///no description available
@@ -568,12 +818,18 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> hstpulldown{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> enhstpulldown{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> tx2rxcount{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> entx2rxcount{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> squelchresetcount{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> ensquelchreset{}; 
         ///no description available
@@ -582,9 +838,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> hostResumeDebug{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> clkgate{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyDebugClr{    ///<USB PHY Debug Register
-        using Addr = Register::Address<0x400a2058,0x80e0e0c0,0,unsigned>;
+        using Addr = Register::Address<0x400a2058,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otgidpiolock{}; 
         ///no description available
@@ -593,12 +851,18 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> hstpulldown{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> enhstpulldown{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> tx2rxcount{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> entx2rxcount{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> squelchresetcount{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> ensquelchreset{}; 
         ///no description available
@@ -607,9 +871,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> hostResumeDebug{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> clkgate{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyDebugTog{    ///<USB PHY Debug Register
-        using Addr = Register::Address<0x400a205c,0x80e0e0c0,0,unsigned>;
+        using Addr = Register::Address<0x400a205c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otgidpiolock{}; 
         ///no description available
@@ -618,12 +884,18 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> hstpulldown{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> enhstpulldown{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> tx2rxcount{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> entx2rxcount{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> squelchresetcount{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> ensquelchreset{}; 
         ///no description available
@@ -632,18 +904,22 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> hostResumeDebug{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> clkgate{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyDebug0Status{    ///<UTMI Debug Status Register 0
-        using Addr = Register::Address<0x400a2060,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400a2060,0x00000000,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> loopBackFailCount{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> loopBackFailCount{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> utmiRxerrorFailCount{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmiRxerrorFailCount{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> squelchCount{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> squelchCount{}; 
     }
     namespace UsbphyDebug1{    ///<UTMI Debug Status Register 1
-        using Addr = Register::Address<0x400a2070,0xffff9fff,0,unsigned>;
+        using Addr = Register::Address<0x400a2070,0x00000000,0x00000000,unsigned>;
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         enum class EntailadjvdVal {
             v00=0x00000000,     ///<Delay is nominal
@@ -658,9 +934,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v10> v10{};
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v11> v11{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyDebug1Set{    ///<UTMI Debug Status Register 1
-        using Addr = Register::Address<0x400a2074,0xffff9fff,0,unsigned>;
+        using Addr = Register::Address<0x400a2074,0x00000000,0x00000000,unsigned>;
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         enum class EntailadjvdVal {
             v00=0x00000000,     ///<Delay is nominal
@@ -675,9 +955,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v10> v10{};
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v11> v11{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyDebug1Clr{    ///<UTMI Debug Status Register 1
-        using Addr = Register::Address<0x400a2078,0xffff9fff,0,unsigned>;
+        using Addr = Register::Address<0x400a2078,0x00000000,0x00000000,unsigned>;
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         enum class EntailadjvdVal {
             v00=0x00000000,     ///<Delay is nominal
@@ -692,9 +976,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v10> v10{};
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v11> v11{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyDebug1Tog{    ///<UTMI Debug Status Register 1
-        using Addr = Register::Address<0x400a207c,0xffff9fff,0,unsigned>;
+        using Addr = Register::Address<0x400a207c,0x00000000,0x00000000,unsigned>;
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         enum class EntailadjvdVal {
             v00=0x00000000,     ///<Delay is nominal
@@ -709,18 +997,20 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v10> v10{};
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v11> v11{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyVersion{    ///<UTMI RTL Version
-        using Addr = Register::Address<0x400a2080,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400a2080,0x00000000,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> step{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> step{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> minor{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> minor{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> major{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> major{}; 
     }
     namespace UsbphyPllSic{    ///<USB PHY PLL Control/Status Register
-        using Addr = Register::Address<0x400a20a0,0x7ffec7bc,0,unsigned>;
+        using Addr = Register::Address<0x400a20a0,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class PlldivselVal {
             v00=0x00000000,     ///<PLL reference frequency = 24MHz
@@ -732,7 +1022,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v01> v01{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pllEnUsbClks{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> pllHoldRingOff{}; 
         ///no description available
@@ -740,12 +1042,18 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pllEnable{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pllBypass{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pllLock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pllLock{}; 
     }
     namespace UsbphyPllSicSet{    ///<USB PHY PLL Control/Status Register
-        using Addr = Register::Address<0x400a20a4,0x7ffec7bc,0,unsigned>;
+        using Addr = Register::Address<0x400a20a4,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class PlldivselVal {
             v00=0x00000000,     ///<PLL reference frequency = 24MHz
@@ -757,7 +1065,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v01> v01{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pllEnUsbClks{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> pllHoldRingOff{}; 
         ///no description available
@@ -765,12 +1085,18 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pllEnable{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pllBypass{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pllLock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pllLock{}; 
     }
     namespace UsbphyPllSicClr{    ///<USB PHY PLL Control/Status Register
-        using Addr = Register::Address<0x400a20a8,0x7ffec7bc,0,unsigned>;
+        using Addr = Register::Address<0x400a20a8,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class PlldivselVal {
             v00=0x00000000,     ///<PLL reference frequency = 24MHz
@@ -782,7 +1108,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v01> v01{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pllEnUsbClks{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> pllHoldRingOff{}; 
         ///no description available
@@ -790,12 +1128,18 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pllEnable{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pllBypass{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pllLock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pllLock{}; 
     }
     namespace UsbphyPllSicTog{    ///<USB PHY PLL Control/Status Register
-        using Addr = Register::Address<0x400a20ac,0x7ffec7bc,0,unsigned>;
+        using Addr = Register::Address<0x400a20ac,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class PlldivselVal {
             v00=0x00000000,     ///<PLL reference frequency = 24MHz
@@ -807,7 +1151,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v01> v01{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pllEnUsbClks{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> pllHoldRingOff{}; 
         ///no description available
@@ -815,12 +1171,18 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pllEnable{}; 
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pllBypass{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pllLock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pllLock{}; 
     }
     namespace UsbphyUsb1VbusDetect{    ///<USB PHY VBUS Detect Control Register
-        using Addr = Register::Address<0x400a20c0,0xf38bfff8,0,unsigned>;
+        using Addr = Register::Address<0x400a20c0,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class VbusvalidthreshVal {
             v000=0x00000000,     ///<4.0 V
@@ -843,17 +1205,41 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v110> v110{};
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v111> v111{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> vbusvalidToSessvalid{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> pwrupCmps{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dischargeVbus{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> chargeVbus{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
     namespace UsbphyUsb1VbusDetectSet{    ///<USB PHY VBUS Detect Control Register
-        using Addr = Register::Address<0x400a20c4,0xf38bfff8,0,unsigned>;
+        using Addr = Register::Address<0x400a20c4,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class VbusvalidthreshVal {
             v000=0x00000000,     ///<4.0 V
@@ -876,17 +1262,41 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v110> v110{};
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v111> v111{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> vbusvalidToSessvalid{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> pwrupCmps{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dischargeVbus{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> chargeVbus{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
     namespace UsbphyUsb1VbusDetectClr{    ///<USB PHY VBUS Detect Control Register
-        using Addr = Register::Address<0x400a20c8,0xf38bfff8,0,unsigned>;
+        using Addr = Register::Address<0x400a20c8,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class VbusvalidthreshVal {
             v000=0x00000000,     ///<4.0 V
@@ -909,17 +1319,41 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v110> v110{};
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v111> v111{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> vbusvalidToSessvalid{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> pwrupCmps{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dischargeVbus{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> chargeVbus{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
     namespace UsbphyUsb1VbusDetectTog{    ///<USB PHY VBUS Detect Control Register
-        using Addr = Register::Address<0x400a20cc,0xf38bfff8,0,unsigned>;
+        using Addr = Register::Address<0x400a20cc,0x00000000,0x00000000,unsigned>;
         ///no description available
         enum class VbusvalidthreshVal {
             v000=0x00000000,     ///<4.0 V
@@ -942,30 +1376,56 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v110> v110{};
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v111> v111{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> vbusvalidToSessvalid{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> pwrupCmps{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dischargeVbus{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> chargeVbus{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
     namespace UsbphyUsb1VbusDetStat{    ///<USB PHY VBUS Detector Status Register
-        using Addr = Register::Address<0x400a20d0,0xffffffe0,0,unsigned>;
+        using Addr = Register::Address<0x400a20d0,0x00000000,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sessend{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sessend{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> bvalid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> bvalid{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> avalid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> avalid{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vbusValid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> vbusValid{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> vbusValid3v{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> vbusValid3v{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyAnactrl{    ///<USB PHY Analog Control Register
-        using Addr = Register::Address<0x400a2100,0x7fff0000,0,unsigned>;
+        using Addr = Register::Address<0x400a2100,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> testclkSel{}; 
         ///no description available
@@ -983,10 +1443,12 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> emphCurCtrl{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pfdStable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pfdStable{}; 
     }
     namespace UsbphyAnactrlSet{    ///<USB PHY Analog Control Register
-        using Addr = Register::Address<0x400a2104,0x7fff0000,0,unsigned>;
+        using Addr = Register::Address<0x400a2104,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> testclkSel{}; 
         ///no description available
@@ -1004,10 +1466,12 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> emphCurCtrl{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pfdStable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pfdStable{}; 
     }
     namespace UsbphyAnactrlClr{    ///<USB PHY Analog Control Register
-        using Addr = Register::Address<0x400a2108,0x7fff0000,0,unsigned>;
+        using Addr = Register::Address<0x400a2108,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> testclkSel{}; 
         ///no description available
@@ -1025,10 +1489,12 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> emphCurCtrl{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pfdStable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pfdStable{}; 
     }
     namespace UsbphyAnactrlTog{    ///<USB PHY Analog Control Register
-        using Addr = Register::Address<0x400a210c,0x7fff0000,0,unsigned>;
+        using Addr = Register::Address<0x400a210c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> testclkSel{}; 
         ///no description available
@@ -1046,10 +1512,12 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> emphCurCtrl{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pfdStable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pfdStable{}; 
     }
     namespace UsbphyUsb1Loopback{    ///<USB PHY Loopback Control/Status Register
-        using Addr = Register::Address<0x400a2110,0xff007e00,0,unsigned>;
+        using Addr = Register::Address<0x400a2110,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> utmiTeststart{}; 
         ///no description available
@@ -1065,16 +1533,20 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tstiTxHiz{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> utmoDigTst0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmoDigTst0{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> utmoDigTst1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmoDigTst1{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tstiHsfsModeEn{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> tstpkt{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyUsb1LoopbackSet{    ///<USB PHY Loopback Control/Status Register
-        using Addr = Register::Address<0x400a2114,0xff007e00,0,unsigned>;
+        using Addr = Register::Address<0x400a2114,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> utmiTeststart{}; 
         ///no description available
@@ -1090,16 +1562,20 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tstiTxHiz{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> utmoDigTst0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmoDigTst0{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> utmoDigTst1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmoDigTst1{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tstiHsfsModeEn{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> tstpkt{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyUsb1LoopbackClr{    ///<USB PHY Loopback Control/Status Register
-        using Addr = Register::Address<0x400a2118,0xff007e00,0,unsigned>;
+        using Addr = Register::Address<0x400a2118,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> utmiTeststart{}; 
         ///no description available
@@ -1115,16 +1591,20 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tstiTxHiz{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> utmoDigTst0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmoDigTst0{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> utmoDigTst1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmoDigTst1{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tstiHsfsModeEn{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> tstpkt{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyUsb1LoopbackTog{    ///<USB PHY Loopback Control/Status Register
-        using Addr = Register::Address<0x400a211c,0xff007e00,0,unsigned>;
+        using Addr = Register::Address<0x400a211c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> utmiTeststart{}; 
         ///no description available
@@ -1140,44 +1620,48 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tstiTxHiz{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> utmoDigTst0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmoDigTst0{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> utmoDigTst1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> utmoDigTst1{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tstiHsfsModeEn{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> tstpkt{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace UsbphyUsb1LoopbackHsfscnt{    ///<USB PHY Loopback Packet Number Select Register
-        using Addr = Register::Address<0x400a2120,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400a2120,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tstiHsNumber{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> tstiFsNumber{}; 
     }
     namespace UsbphyUsb1LoopbackHsfscntSet{    ///<USB PHY Loopback Packet Number Select Register
-        using Addr = Register::Address<0x400a2124,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400a2124,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tstiHsNumber{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> tstiFsNumber{}; 
     }
     namespace UsbphyUsb1LoopbackHsfscntClr{    ///<USB PHY Loopback Packet Number Select Register
-        using Addr = Register::Address<0x400a2128,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400a2128,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tstiHsNumber{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> tstiFsNumber{}; 
     }
     namespace UsbphyUsb1LoopbackHsfscntTog{    ///<USB PHY Loopback Packet Number Select Register
-        using Addr = Register::Address<0x400a212c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400a212c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tstiHsNumber{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> tstiFsNumber{}; 
     }
     namespace UsbphyTrimOverrideEn{    ///<USB PHY Trim Override Enable Register
-        using Addr = Register::Address<0x400a2130,0x0000ffe0,0,unsigned>;
+        using Addr = Register::Address<0x400a2130,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> trimDivSelOverride{}; 
         ///no description available
@@ -1188,19 +1672,21 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> trimTxCal45dpOverride{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> trimTxCal45dmOverride{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> trimPllCtrl0DivSel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimPllCtrl0DivSel{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> trimUsbRegEnvTailAdjVd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbRegEnvTailAdjVd{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> trimUsbphyTxDCal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxDCal{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trimUsbphyTxCal45dp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxCal45dp{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> trimUsbphyTxCal45dm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxCal45dm{}; 
     }
     namespace UsbphyTrimOverrideEnSet{    ///<USB PHY Trim Override Enable Register
-        using Addr = Register::Address<0x400a2134,0x0000ffe0,0,unsigned>;
+        using Addr = Register::Address<0x400a2134,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> trimDivSelOverride{}; 
         ///no description available
@@ -1211,19 +1697,21 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> trimTxCal45dpOverride{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> trimTxCal45dmOverride{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> trimPllCtrl0DivSel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimPllCtrl0DivSel{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> trimUsbRegEnvTailAdjVd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbRegEnvTailAdjVd{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> trimUsbphyTxDCal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxDCal{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trimUsbphyTxCal45dp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxCal45dp{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> trimUsbphyTxCal45dm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxCal45dm{}; 
     }
     namespace UsbphyTrimOverrideEnClr{    ///<USB PHY Trim Override Enable Register
-        using Addr = Register::Address<0x400a2138,0x0000ffe0,0,unsigned>;
+        using Addr = Register::Address<0x400a2138,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> trimDivSelOverride{}; 
         ///no description available
@@ -1234,19 +1722,21 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> trimTxCal45dpOverride{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> trimTxCal45dmOverride{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> trimPllCtrl0DivSel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimPllCtrl0DivSel{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> trimUsbRegEnvTailAdjVd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbRegEnvTailAdjVd{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> trimUsbphyTxDCal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxDCal{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trimUsbphyTxCal45dp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxCal45dp{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> trimUsbphyTxCal45dm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxCal45dm{}; 
     }
     namespace UsbphyTrimOverrideEnTog{    ///<USB PHY Trim Override Enable Register
-        using Addr = Register::Address<0x400a213c,0x0000ffe0,0,unsigned>;
+        using Addr = Register::Address<0x400a213c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> trimDivSelOverride{}; 
         ///no description available
@@ -1257,15 +1747,17 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> trimTxCal45dpOverride{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> trimTxCal45dmOverride{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> trimPllCtrl0DivSel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimPllCtrl0DivSel{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> trimUsbRegEnvTailAdjVd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbRegEnvTailAdjVd{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> trimUsbphyTxDCal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxDCal{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trimUsbphyTxCal45dp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxCal45dp{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> trimUsbphyTxCal45dm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trimUsbphyTxCal45dm{}; 
     }
 }

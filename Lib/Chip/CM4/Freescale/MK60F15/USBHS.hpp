@@ -1,155 +1,75 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //USB HS/FS/LS OTG Controller
     namespace UsbhsId{    ///<Identification Register
-        using Addr = Register::Address<0x40034000,0x0000c0c0,0,unsigned>;
+        using Addr = Register::Address<0x40034000,0x0000c0c0,0x00000000,unsigned>;
         ///Configuration number
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> id{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> id{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> nid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nid{}; 
         ///Tag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> tag{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tag{}; 
         ///Revision
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,21),Register::ReadWriteAccess,unsigned> revision{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> revision{}; 
         ///Version
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,25),Register::ReadWriteAccess,unsigned> version{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> version{}; 
         ///Version ID
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> versionid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> versionid{}; 
     }
     namespace UsbhsHwgeneral{    ///<General Hardware Parameters Register
-        using Addr = Register::Address<0x40034004,0xfffff83f,0,unsigned>;
+        using Addr = Register::Address<0x40034004,0xfffff83f,0x00000000,unsigned>;
         ///PHY Mode
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,6),Register::ReadWriteAccess,unsigned> phym{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> phym{}; 
         ///Serial mode
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> sm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sm{}; 
     }
     namespace UsbhsHwhost{    ///<Host Hardware Parameters Register
-        using Addr = Register::Address<0x40034008,0x0000fff0,0,unsigned>;
+        using Addr = Register::Address<0x40034008,0x0000fff0,0x00000000,unsigned>;
         ///Host Capable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> hc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hc{}; 
         ///Number of Ports
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> nport{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nport{}; 
         ///Transaction translator contexts.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> ttasy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ttasy{}; 
         ///Transaction translator periodic contexts.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> ttper{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ttper{}; 
     }
     namespace UsbhsHwdevice{    ///<Device Hardware Parameters Register
-        using Addr = Register::Address<0x4003400c,0xffffffc0,0,unsigned>;
+        using Addr = Register::Address<0x4003400c,0xffffffc0,0x00000000,unsigned>;
         ///Device Capable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dc{}; 
         ///Device endpoints.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,1),Register::ReadWriteAccess,unsigned> devep{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> devep{}; 
     }
     namespace UsbhsHwtxbuf{    ///<Transmit Buffer Hardware Parameters Register
-        using Addr = Register::Address<0x40034010,0x7f000000,0,unsigned>;
+        using Addr = Register::Address<0x40034010,0x7f000000,0x00000000,unsigned>;
         ///Transmit Burst.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txburst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txburst{}; 
         ///Transmit Address.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> txadd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txadd{}; 
         ///Transmit Channel Address
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> txchanadd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txchanadd{}; 
         ///Transmit local Context Registers
         enum class TxlcVal {
             v0=0x00000000,     ///<Store device transmit contexts in the TX FIFO
             v1=0x00000001,     ///<Store device transmit contexts in a register file
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,TxlcVal> txlc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxlcVal> txlc{}; 
         namespace TxlcValC{
             constexpr Register::FieldValue<decltype(txlc)::Type,TxlcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txlc)::Type,TxlcVal::v1> v1{};
         }
     }
     namespace UsbhsHwrxbuf{    ///<Receive Buffer Hardware Parameters Register
-        using Addr = Register::Address<0x40034014,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40034014,0xffff0000,0x00000000,unsigned>;
         ///Receive Burst.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxburst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxburst{}; 
         ///Receive Address.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> rxadd{}; 
-    }
-    namespace UsbhsGptimer0ld{    ///<General Purpose Timer n Load Register
-        using Addr = Register::Address<0x40034080,0xff000000,0,unsigned>;
-        ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> gptld{}; 
-    }
-    namespace UsbhsGptimer1ld{    ///<General Purpose Timer n Load Register
-        using Addr = Register::Address<0x40034088,0xff000000,0,unsigned>;
-        ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> gptld{}; 
-    }
-    namespace UsbhsGptimer0ctl{    ///<General Purpose Timer n Control Register
-        using Addr = Register::Address<0x40034084,0x3e000000,0,unsigned>;
-        ///Timer Count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> gptcnt{}; 
-        ///Timer Mode
-        enum class ModeVal {
-            v0=0x00000000,     ///<One shot
-            v1=0x00000001,     ///<Repeat
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,ModeVal> mode{}; 
-        namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v1> v1{};
-        }
-        ///Timer Reset
-        enum class RstVal {
-            v0=0x00000000,     ///<No action
-            v1=0x00000001,     ///<Load counter value
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,RstVal> rst{}; 
-        namespace RstValC{
-            constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v1> v1{};
-        }
-        ///Timer Run
-        enum class RunVal {
-            v0=0x00000000,     ///<Timer stop
-            v1=0x00000001,     ///<Timer run
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,RunVal> run{}; 
-        namespace RunValC{
-            constexpr Register::FieldValue<decltype(run)::Type,RunVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(run)::Type,RunVal::v1> v1{};
-        }
-    }
-    namespace UsbhsGptimer1ctl{    ///<General Purpose Timer n Control Register
-        using Addr = Register::Address<0x4003408c,0x3e000000,0,unsigned>;
-        ///Timer Count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> gptcnt{}; 
-        ///Timer Mode
-        enum class ModeVal {
-            v0=0x00000000,     ///<One shot
-            v1=0x00000001,     ///<Repeat
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,ModeVal> mode{}; 
-        namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v1> v1{};
-        }
-        ///Timer Reset
-        enum class RstVal {
-            v0=0x00000000,     ///<No action
-            v1=0x00000001,     ///<Load counter value
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,RstVal> rst{}; 
-        namespace RstValC{
-            constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v1> v1{};
-        }
-        ///Timer Run
-        enum class RunVal {
-            v0=0x00000000,     ///<Timer stop
-            v1=0x00000001,     ///<Timer run
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,RunVal> run{}; 
-        namespace RunValC{
-            constexpr Register::FieldValue<decltype(run)::Type,RunVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(run)::Type,RunVal::v1> v1{};
-        }
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxadd{}; 
     }
     namespace UsbhsUsbSbuscfg{    ///<System Bus Interface Configuration Register
-        using Addr = Register::Address<0x40034090,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0x40034090,0xfffffff8,0x00000000,unsigned>;
         ///Burst mode
         enum class BurstmodeVal {
             v000=0x00000000,     ///<INCR burst of unspecified length
@@ -174,80 +94,80 @@ namespace Kvasir {
         }
     }
     namespace UsbhsHciversion{    ///<Host Controller Interface Version and Capability Registers Length Register
-        using Addr = Register::Address<0x40034100,0x0000ff00,0,unsigned>;
+        using Addr = Register::Address<0x40034100,0x0000ff00,0x00000000,unsigned>;
         ///Capability registers length
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> caplength{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> caplength{}; 
         ///EHCI revision number
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> hciversion{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hciversion{}; 
     }
     namespace UsbhsHcsparams{    ///<Host Controller Structural Parameters Register
-        using Addr = Register::Address<0x40034104,0xf00e00e0,0,unsigned>;
+        using Addr = Register::Address<0x40034104,0xf00e00e0,0x00000000,unsigned>;
         ///Number of Ports
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> nPorts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nPorts{}; 
         ///Power Port Control
         enum class PpcVal {
             v1=0x00000001,     ///<Ports have power port switches
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,PpcVal> ppc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PpcVal> ppc{}; 
         namespace PpcValC{
             constexpr Register::FieldValue<decltype(ppc)::Type,PpcVal::v1> v1{};
         }
         ///Number Ports per CC
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> nPcc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nPcc{}; 
         ///Number of Companion Controllers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> nCc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nCc{}; 
         ///Port Indicators
         enum class PiVal {
             v0=0x00000000,     ///<No port indicator fields
             v1=0x00000001,     ///<The port status and control registers include a R/W field for controlling the state of the port indicator
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,PiVal> pi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PiVal> pi{}; 
         namespace PiValC{
             constexpr Register::FieldValue<decltype(pi)::Type,PiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pi)::Type,PiVal::v1> v1{};
         }
         ///Ports per Transaction Translator
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> nPtt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nPtt{}; 
         ///Number of Transaction Translators.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> nTt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nTt{}; 
     }
     namespace UsbhsHccparams{    ///<Host Controller Capability Parameters Register
-        using Addr = Register::Address<0x40034108,0xffff0008,0,unsigned>;
+        using Addr = Register::Address<0x40034108,0xffff0008,0x00000000,unsigned>;
         ///64-bit addressing capability.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> adc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> adc{}; 
         ///Programmable Frame List flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pfl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pfl{}; 
         ///Asynchronous Schedule Park capability
         enum class AspVal {
             v0=0x00000000,     ///<Park not supported.
             v1=0x00000001,     ///<Park supported.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,AspVal> asp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AspVal> asp{}; 
         namespace AspValC{
             constexpr Register::FieldValue<decltype(asp)::Type,AspVal::v0> v0{};
             constexpr Register::FieldValue<decltype(asp)::Type,AspVal::v1> v1{};
         }
         ///Isochronous Scheduling Threshold
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> ist{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ist{}; 
         ///EHCI Extended Capabilities Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> eecp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> eecp{}; 
     }
     namespace UsbhsDciversion{    ///<Device Controller Interface Version
-        using Addr = Register::Address<0x40034122,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40034122,0xffff0000,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dciversion{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dciversion{}; 
     }
     namespace UsbhsDccparams{    ///<Device Controller Capability Parameters
-        using Addr = Register::Address<0x40034124,0xfffffe60,0,unsigned>;
+        using Addr = Register::Address<0x40034124,0xfffffe60,0x00000000,unsigned>;
         ///Device Endpoint Number
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> den{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> den{}; 
         ///Device Capable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dc{}; 
         ///Host Capable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> hc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> hc{}; 
     }
     namespace UsbhsUsbcmd{    ///<USB Command Register
-        using Addr = Register::Address<0x40034140,0xff001480,0,unsigned>;
+        using Addr = Register::Address<0x40034140,0xff001480,0x00000000,unsigned>;
         ///Run/Stop
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rs{}; 
         ///Controller Reset
@@ -330,7 +250,7 @@ namespace Kvasir {
         }
     }
     namespace UsbhsUsbsts{    ///<USB Status Register
-        using Addr = Register::Address<0x40034144,0xfcf20a00,0,unsigned>;
+        using Addr = Register::Address<0x40034144,0xfcf20a00,0x00000000,unsigned>;
         ///USB Interrupt (USBINT)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ui{}; 
         ///USB Error Interrupt
@@ -390,13 +310,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sli)::Type,SliVal::v1> v1{};
         }
         ///ULPI Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ulpii{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ulpii{}; 
         ///Host Controller Halted
         enum class HchVal {
             v0=0x00000000,     ///<Running
             v1=0x00000001,     ///<Halted
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,HchVal> hch{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,HchVal> hch{}; 
         namespace HchValC{
             constexpr Register::FieldValue<decltype(hch)::Type,HchVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hch)::Type,HchVal::v1> v1{};
@@ -406,7 +326,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Non-empty asynchronous schedule
             v1=0x00000001,     ///<Empty asynchronous schedule
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,RclVal> rcl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RclVal> rcl{}; 
         namespace RclValC{
             constexpr Register::FieldValue<decltype(rcl)::Type,RclVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rcl)::Type,RclVal::v1> v1{};
@@ -416,7 +336,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Disabled
             v1=0x00000001,     ///<Enabled
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,PsVal> ps{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PsVal> ps{}; 
         namespace PsValC{
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
@@ -426,13 +346,13 @@ namespace Kvasir {
             v0=0x00000000,     ///<Disabled
             v1=0x00000001,     ///<Enabled
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,AsVal> as{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AsVal> as{}; 
         namespace AsValC{
             constexpr Register::FieldValue<decltype(as)::Type,AsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(as)::Type,AsVal::v1> v1{};
         }
         ///NAK Interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> naki{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> naki{}; 
         ///USB host Asynchronous Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> uai{}; 
         ///USB host Periodic Interrupt
@@ -459,7 +379,7 @@ namespace Kvasir {
         }
     }
     namespace UsbhsUsbintr{    ///<USB Interrupt Enable Register
-        using Addr = Register::Address<0x40034148,0xfcf2fa00,0,unsigned>;
+        using Addr = Register::Address<0x40034148,0xfcf2fa00,0x00000000,unsigned>;
         ///USB interrupt Enable
         enum class UeVal {
             v0=0x00000000,     ///<Disabled
@@ -588,14 +508,14 @@ namespace Kvasir {
         }
     }
     namespace UsbhsFrindex{    ///<Frame Index Register
-        using Addr = Register::Address<0x4003414c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4003414c,0x00000000,0x00000000,unsigned>;
         ///Frame Index
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> frindex{}; 
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reerved{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reerved{}; 
     }
     namespace UsbhsDeviceaddr{    ///<Device Address Register
-        using Addr = Register::Address<0x40034154,0x00ffffff,0,unsigned>;
+        using Addr = Register::Address<0x40034154,0x00ffffff,0x00000000,unsigned>;
         ///Device Address Advance
         enum class UsbadraVal {
             v0=0x00000000,     ///<Writes to USBADR are instantaneous.
@@ -610,36 +530,36 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,25),Register::ReadWriteAccess,unsigned> usbadr{}; 
     }
     namespace UsbhsPeriodiclistbase{    ///<Periodic Frame List Base Address Register
-        using Addr = Register::Address<0x40034154,0x00000fff,0,unsigned>;
+        using Addr = Register::Address<0x40034154,0x00000fff,0x00000000,unsigned>;
         ///Base address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> perbase{}; 
     }
     namespace UsbhsAsynclistaddr{    ///<Current Asynchronous List Address Register
-        using Addr = Register::Address<0x40034158,0x0000001f,0,unsigned>;
+        using Addr = Register::Address<0x40034158,0x0000001f,0x00000000,unsigned>;
         ///Link pointer low (LPL)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> asybase{}; 
     }
     namespace UsbhsEplistaddr{    ///<Endpoint List Address Register
-        using Addr = Register::Address<0x40034158,0x000007ff,0,unsigned>;
+        using Addr = Register::Address<0x40034158,0x000007ff,0x00000000,unsigned>;
         ///Endpoint list address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> epbase{}; 
     }
     namespace UsbhsTtctrl{    ///<Host TT Asynchronous Buffer Control
-        using Addr = Register::Address<0x4003415c,0x00ffffff,0,unsigned>;
+        using Addr = Register::Address<0x4003415c,0x00ffffff,0x00000000,unsigned>;
         ///TT Hub Address
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,24),Register::ReadWriteAccess,unsigned> ttha{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ttha{}; 
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> reerved{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reerved{}; 
     }
     namespace UsbhsBurstsize{    ///<Master Interface Data Burst Size Register
-        using Addr = Register::Address<0x40034160,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40034160,0xffff0000,0x00000000,unsigned>;
         ///Programable RX Burst length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxpburst{}; 
         ///Programable TX Burst length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> txpburst{}; 
     }
     namespace UsbhsTxfilltuning{    ///<Transmit FIFO Tuning Control Register
-        using Addr = Register::Address<0x40034164,0xffc0e080,0,unsigned>;
+        using Addr = Register::Address<0x40034164,0xffc0e080,0x00000000,unsigned>;
         ///Scheduler Overhead
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> txschoh{}; 
         ///Scheduler Health counter
@@ -648,11 +568,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> txfifothres{}; 
     }
     namespace UsbhsUlpiViewport{    ///<ULPI Register Access
-        using Addr = Register::Address<0x40034170,0x10000000,0,unsigned>;
+        using Addr = Register::Address<0x40034170,0x10000000,0x00000000,unsigned>;
         ///ULPI Data Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ulpiDatwr{}; 
         ///ULPI Data Read
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> ulpiDatrd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ulpiDatrd{}; 
         ///ULPI data Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> ulpiAddr{}; 
         ///ULPI Port number
@@ -683,30 +603,30 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ulpiWu{}; 
     }
     namespace UsbhsEndptnak{    ///<Endpoint NAK Register
-        using Addr = Register::Address<0x40034178,0xfff0fff0,0,unsigned>;
+        using Addr = Register::Address<0x40034178,0xfff0fff0,0x00000000,unsigned>;
         ///RX Endpoint NAK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> eprn{}; 
         ///TX Endpoint NAK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> eptn{}; 
     }
     namespace UsbhsEndptnaken{    ///<Endpoint NAK Enable Register
-        using Addr = Register::Address<0x4003417c,0xfff0fff0,0,unsigned>;
+        using Addr = Register::Address<0x4003417c,0xfff0fff0,0x00000000,unsigned>;
         ///RX Endpoint NAK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> eprne{}; 
         ///TX Endpoint NAK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> eptne{}; 
     }
     namespace UsbhsConfigflag{    ///<Configure Flag Register
-        using Addr = Register::Address<0x40034180,0xffffffff,0,unsigned>;
+        using Addr = Register::Address<0x40034180,0xffffffff,0x00000000,unsigned>;
     }
     namespace UsbhsPortsc1{    ///<Port Status and Control Registers
-        using Addr = Register::Address<0x40034184,0x32000000,0,unsigned>;
+        using Addr = Register::Address<0x40034184,0x32000000,0x00000000,unsigned>;
         ///Current Connect Status
         enum class CcsVal {
             v0=0x00000000,     ///<No device present (host mode) or attached (device mode)
             v1=0x00000001,     ///<Device is present (host mode) or attached (device mode)
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CcsVal> ccs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CcsVal> ccs{}; 
         namespace CcsValC{
             constexpr Register::FieldValue<decltype(ccs)::Type,CcsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ccs)::Type,CcsVal::v1> v1{};
@@ -738,7 +658,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Port not in over-current condition
             v1=0x00000001,     ///<Port currently in over-current condition
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OcaVal> oca{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,OcaVal> oca{}; 
         namespace OcaValC{
             constexpr Register::FieldValue<decltype(oca)::Type,OcaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oca)::Type,OcaVal::v1> v1{};
@@ -788,7 +708,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<FS or LS
             v1=0x00000001,     ///<HS
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,HspVal> hsp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,HspVal> hsp{}; 
         namespace HspValC{
             constexpr Register::FieldValue<decltype(hsp)::Type,HspVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hsp)::Type,HspVal::v1> v1{};
@@ -800,7 +720,7 @@ namespace Kvasir {
             v10=0x00000002,     ///<K-state
             v11=0x00000003,     ///<Undefined
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,LsVal> ls{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LsVal> ls{}; 
         namespace LsValC{
             constexpr Register::FieldValue<decltype(ls)::Type,LsVal::v00> v00{};
             constexpr Register::FieldValue<decltype(ls)::Type,LsVal::v01> v01{};
@@ -860,7 +780,7 @@ namespace Kvasir {
             v10=0x00000002,     ///<High speed
             v11=0x00000003,     ///<Undefined
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,PspdVal> pspd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PspdVal> pspd{}; 
         namespace PspdValC{
             constexpr Register::FieldValue<decltype(pspd)::Type,PspdVal::v00> v00{};
             constexpr Register::FieldValue<decltype(pspd)::Type,PspdVal::v01> v01{};
@@ -871,7 +791,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> pts{}; 
     }
     namespace UsbhsOtgsc{    ///<On-the-Go Status and Control Register
-        using Addr = Register::Address<0x400341a4,0x80808040,0,unsigned>;
+        using Addr = Register::Address<0x400341a4,0x80808040,0x00000000,unsigned>;
         ///VBUS Discharge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vd{}; 
         ///VBUS Charge
@@ -931,7 +851,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<A device
             v1=0x00000001,     ///<B device
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,IdVal> id{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,IdVal> id{}; 
         namespace IdValC{
             constexpr Register::FieldValue<decltype(id)::Type,IdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(id)::Type,IdVal::v1> v1{};
@@ -941,7 +861,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<VBus is below A VBus valid threshold
             v1=0x00000001,     ///<VBus is above A VBus valid threshold
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,AvvVal> avv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AvvVal> avv{}; 
         namespace AvvValC{
             constexpr Register::FieldValue<decltype(avv)::Type,AvvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avv)::Type,AvvVal::v1> v1{};
@@ -951,7 +871,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<VBus is below A session valid threshold
             v1=0x00000001,     ///<VBus is above A session valid threshold
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,AsvVal> asv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AsvVal> asv{}; 
         namespace AsvValC{
             constexpr Register::FieldValue<decltype(asv)::Type,AsvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(asv)::Type,AsvVal::v1> v1{};
@@ -961,7 +881,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<VBus is below B session valid threshold
             v1=0x00000001,     ///<VBus is above B session valid threshold
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,BsvVal> bsv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BsvVal> bsv{}; 
         namespace BsvValC{
             constexpr Register::FieldValue<decltype(bsv)::Type,BsvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsv)::Type,BsvVal::v1> v1{};
@@ -971,19 +891,19 @@ namespace Kvasir {
             v0=0x00000000,     ///<VBus is above B session end threshold
             v1=0x00000001,     ///<VBus is below B session end threshold
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,BseVal> bse{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BseVal> bse{}; 
         namespace BseValC{
             constexpr Register::FieldValue<decltype(bse)::Type,BseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bse)::Type,BseVal::v1> v1{};
         }
         ///1 Milli-Second timer Toggle
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> mst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mst{}; 
         ///Data bus Pulsing Status
         enum class DpsVal {
             v0=0x00000000,     ///<No pulsing on port
             v1=0x00000001,     ///<Pulsing detected on port
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,DpsVal> dps{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DpsVal> dps{}; 
         namespace DpsValC{
             constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v1> v1{};
@@ -1074,7 +994,7 @@ namespace Kvasir {
         }
     }
     namespace UsbhsUsbmode{    ///<USB Mode Register
-        using Addr = Register::Address<0x400341a8,0xffff8fe0,0,unsigned>;
+        using Addr = Register::Address<0x400341a8,0xffff8fe0,0x00000000,unsigned>;
         ///Controller Mode
         enum class CmVal {
             v00=0x00000000,     ///<Idle (default for the USBHS module)
@@ -1133,40 +1053,40 @@ namespace Kvasir {
         }
     }
     namespace UsbhsEpsetupsr{    ///<Endpoint Setup Status Register
-        using Addr = Register::Address<0x400341ac,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x400341ac,0xfffffff0,0x00000000,unsigned>;
         ///Setup Endpoint Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> epsetupstat{}; 
     }
     namespace UsbhsEpprime{    ///<Endpoint Initialization Register
-        using Addr = Register::Address<0x400341b0,0xfff0fff0,0,unsigned>;
+        using Addr = Register::Address<0x400341b0,0xfff0fff0,0x00000000,unsigned>;
         ///Prime Endpoint Receive Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> perb{}; 
         ///Prime Endpoint tTansmit Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> petb{}; 
     }
     namespace UsbhsEpflush{    ///<Endpoint Flush Register
-        using Addr = Register::Address<0x400341b4,0xfff0fff0,0,unsigned>;
+        using Addr = Register::Address<0x400341b4,0xfff0fff0,0x00000000,unsigned>;
         ///Flush Endpoint Receive Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ferb{}; 
         ///Flush Endpoint Transmit Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> fetb{}; 
     }
     namespace UsbhsEpsr{    ///<Endpoint Status Register
-        using Addr = Register::Address<0x400341b8,0xfff0fff0,0,unsigned>;
+        using Addr = Register::Address<0x400341b8,0xfff0fff0,0x00000000,unsigned>;
         ///Endpoint Receive Buffer Ready
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> erbr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> erbr{}; 
         ///Endpoint Transmit Buffer Ready
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> etbr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> etbr{}; 
     }
     namespace UsbhsEpcomplete{    ///<Endpoint Complete Register
-        using Addr = Register::Address<0x400341bc,0xfff0fff0,0,unsigned>;
+        using Addr = Register::Address<0x400341bc,0xfff0fff0,0x00000000,unsigned>;
         ///Endpoint Receive Complete Event
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> erce{}; 
         ///Endpoint Transmit Complete Event
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> etce{}; 
     }
     namespace UsbhsEpcr0{    ///<Endpoint Control Register 0
-        using Addr = Register::Address<0x400341c0,0xff72ff72,0,unsigned>;
+        using Addr = Register::Address<0x400341c0,0xff72ff72,0x00000000,unsigned>;
         ///RX endpoint Stall
         enum class RxsVal {
             v0=0x00000000,     ///<Endpoint OK
@@ -1181,7 +1101,7 @@ namespace Kvasir {
         enum class RxtVal {
             v00=0x00000000,     ///<Control
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,RxtVal> rxt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxtVal> rxt{}; 
         namespace RxtValC{
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v00> v00{};
         }
@@ -1189,7 +1109,7 @@ namespace Kvasir {
         enum class RxeVal {
             v1=0x00000001,     ///<Enabled
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxeVal> rxe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxeVal> rxe{}; 
         namespace RxeValC{
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v1> v1{};
         }
@@ -1207,7 +1127,7 @@ namespace Kvasir {
         enum class TxtVal {
             v00=0x00000000,     ///<Control
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,TxtVal> txt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxtVal> txt{}; 
         namespace TxtValC{
             constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v00> v00{};
         }
@@ -1215,310 +1135,13 @@ namespace Kvasir {
         enum class TxeVal {
             v1=0x00000001,     ///<Enable
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TxeVal> txe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxeVal> txe{}; 
         namespace TxeValC{
-            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v1> v1{};
-        }
-    }
-    namespace UsbhsEpcr1{    ///<Endpoint Control Register n
-        using Addr = Register::Address<0x400341c4,0xff10ff10,0,unsigned>;
-        ///RX endpoint Stall
-        enum class RxsVal {
-            v0=0x00000000,     ///<Endpoint OK
-            v1=0x00000001,     ///<Endpoint stalled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RxsVal> rxs{}; 
-        namespace RxsValC{
-            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v1> v1{};
-        }
-        ///RX endpoint Data sink
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxd{}; 
-        ///RX endpoint Type
-        enum class RxtVal {
-            v00=0x00000000,     ///<Control
-            v01=0x00000001,     ///<Isochronous
-            v10=0x00000002,     ///<Bulk
-            v11=0x00000003,     ///<Interrupt
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,RxtVal> rxt{}; 
-        namespace RxtValC{
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v11> v11{};
-        }
-        ///RX data toggle Inhibit
-        enum class RxiVal {
-            v0=0x00000000,     ///<PID sequencing enabled
-            v1=0x00000001,     ///<PID sequencing disabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RxiVal> rxi{}; 
-        namespace RxiValC{
-            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v1> v1{};
-        }
-        ///RX data toggle Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rxr{}; 
-        ///RX endpoint Enable
-        enum class RxeVal {
-            v0=0x00000000,     ///<Disabled
-            v1=0x00000001,     ///<Enabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxeVal> rxe{}; 
-        namespace RxeValC{
-            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v1> v1{};
-        }
-        ///TX endpoint Stall
-        enum class TxsVal {
-            v0=0x00000000,     ///<Endpoint OK
-            v1=0x00000001,     ///<Endpoint stalled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,TxsVal> txs{}; 
-        namespace TxsValC{
-            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v1> v1{};
-        }
-        ///TX endpoint Data source
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> txd{}; 
-        ///TX endpoint Type
-        enum class TxtVal {
-            v00=0x00000000,     ///<Control
-            v01=0x00000001,     ///<Isochronous
-            v10=0x00000002,     ///<Bulk
-            v11=0x00000003,     ///<Interrupt
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,TxtVal> txt{}; 
-        namespace TxtValC{
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v11> v11{};
-        }
-        ///TX data toggle Inhibit
-        enum class TxiVal {
-            v0=0x00000000,     ///<PID sequencing enabled
-            v1=0x00000001,     ///<PID sequencing disabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,TxiVal> txi{}; 
-        namespace TxiValC{
-            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v1> v1{};
-        }
-        ///TX data toggle Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> txr{}; 
-        ///TX endpoint Enable
-        enum class TxeVal {
-            v0=0x00000000,     ///<Disabled
-            v1=0x00000001,     ///<Enabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TxeVal> txe{}; 
-        namespace TxeValC{
-            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v1> v1{};
-        }
-    }
-    namespace UsbhsEpcr2{    ///<Endpoint Control Register n
-        using Addr = Register::Address<0x400341c8,0xff10ff10,0,unsigned>;
-        ///RX endpoint Stall
-        enum class RxsVal {
-            v0=0x00000000,     ///<Endpoint OK
-            v1=0x00000001,     ///<Endpoint stalled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RxsVal> rxs{}; 
-        namespace RxsValC{
-            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v1> v1{};
-        }
-        ///RX endpoint Data sink
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxd{}; 
-        ///RX endpoint Type
-        enum class RxtVal {
-            v00=0x00000000,     ///<Control
-            v01=0x00000001,     ///<Isochronous
-            v10=0x00000002,     ///<Bulk
-            v11=0x00000003,     ///<Interrupt
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,RxtVal> rxt{}; 
-        namespace RxtValC{
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v11> v11{};
-        }
-        ///RX data toggle Inhibit
-        enum class RxiVal {
-            v0=0x00000000,     ///<PID sequencing enabled
-            v1=0x00000001,     ///<PID sequencing disabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RxiVal> rxi{}; 
-        namespace RxiValC{
-            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v1> v1{};
-        }
-        ///RX data toggle Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rxr{}; 
-        ///RX endpoint Enable
-        enum class RxeVal {
-            v0=0x00000000,     ///<Disabled
-            v1=0x00000001,     ///<Enabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxeVal> rxe{}; 
-        namespace RxeValC{
-            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v1> v1{};
-        }
-        ///TX endpoint Stall
-        enum class TxsVal {
-            v0=0x00000000,     ///<Endpoint OK
-            v1=0x00000001,     ///<Endpoint stalled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,TxsVal> txs{}; 
-        namespace TxsValC{
-            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v1> v1{};
-        }
-        ///TX endpoint Data source
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> txd{}; 
-        ///TX endpoint Type
-        enum class TxtVal {
-            v00=0x00000000,     ///<Control
-            v01=0x00000001,     ///<Isochronous
-            v10=0x00000002,     ///<Bulk
-            v11=0x00000003,     ///<Interrupt
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,TxtVal> txt{}; 
-        namespace TxtValC{
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v11> v11{};
-        }
-        ///TX data toggle Inhibit
-        enum class TxiVal {
-            v0=0x00000000,     ///<PID sequencing enabled
-            v1=0x00000001,     ///<PID sequencing disabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,TxiVal> txi{}; 
-        namespace TxiValC{
-            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v1> v1{};
-        }
-        ///TX data toggle Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> txr{}; 
-        ///TX endpoint Enable
-        enum class TxeVal {
-            v0=0x00000000,     ///<Disabled
-            v1=0x00000001,     ///<Enabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TxeVal> txe{}; 
-        namespace TxeValC{
-            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v1> v1{};
-        }
-    }
-    namespace UsbhsEpcr3{    ///<Endpoint Control Register n
-        using Addr = Register::Address<0x400341cc,0xff10ff10,0,unsigned>;
-        ///RX endpoint Stall
-        enum class RxsVal {
-            v0=0x00000000,     ///<Endpoint OK
-            v1=0x00000001,     ///<Endpoint stalled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RxsVal> rxs{}; 
-        namespace RxsValC{
-            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v1> v1{};
-        }
-        ///RX endpoint Data sink
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxd{}; 
-        ///RX endpoint Type
-        enum class RxtVal {
-            v00=0x00000000,     ///<Control
-            v01=0x00000001,     ///<Isochronous
-            v10=0x00000002,     ///<Bulk
-            v11=0x00000003,     ///<Interrupt
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,RxtVal> rxt{}; 
-        namespace RxtValC{
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v11> v11{};
-        }
-        ///RX data toggle Inhibit
-        enum class RxiVal {
-            v0=0x00000000,     ///<PID sequencing enabled
-            v1=0x00000001,     ///<PID sequencing disabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RxiVal> rxi{}; 
-        namespace RxiValC{
-            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v1> v1{};
-        }
-        ///RX data toggle Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rxr{}; 
-        ///RX endpoint Enable
-        enum class RxeVal {
-            v0=0x00000000,     ///<Disabled
-            v1=0x00000001,     ///<Enabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxeVal> rxe{}; 
-        namespace RxeValC{
-            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v1> v1{};
-        }
-        ///TX endpoint Stall
-        enum class TxsVal {
-            v0=0x00000000,     ///<Endpoint OK
-            v1=0x00000001,     ///<Endpoint stalled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,TxsVal> txs{}; 
-        namespace TxsValC{
-            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v1> v1{};
-        }
-        ///TX endpoint Data source
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> txd{}; 
-        ///TX endpoint Type
-        enum class TxtVal {
-            v00=0x00000000,     ///<Control
-            v01=0x00000001,     ///<Isochronous
-            v10=0x00000002,     ///<Bulk
-            v11=0x00000003,     ///<Interrupt
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,TxtVal> txt{}; 
-        namespace TxtValC{
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v11> v11{};
-        }
-        ///TX data toggle Inhibit
-        enum class TxiVal {
-            v0=0x00000000,     ///<PID sequencing enabled
-            v1=0x00000001,     ///<PID sequencing disabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,TxiVal> txi{}; 
-        namespace TxiValC{
-            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v1> v1{};
-        }
-        ///TX data toggle Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> txr{}; 
-        ///TX endpoint Enable
-        enum class TxeVal {
-            v0=0x00000000,     ///<Disabled
-            v1=0x00000001,     ///<Enabled
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TxeVal> txe{}; 
-        namespace TxeValC{
-            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v1> v1{};
         }
     }
     namespace UsbhsUsbgenctrl{    ///<USB General Control Register
-        using Addr = Register::Address<0x40034200,0xffffffdc,0,unsigned>;
+        using Addr = Register::Address<0x40034200,0xffffffdc,0x00000000,unsigned>;
         ///Wakeup Interrupt Enable
         enum class WuieVal {
             v0=0x00000000,     ///<Disabled
@@ -1548,6 +1171,383 @@ namespace Kvasir {
         namespace WuintclrValC{
             constexpr Register::FieldValue<decltype(wuIntClr)::Type,WuintclrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wuIntClr)::Type,WuintclrVal::v1> v1{};
+        }
+    }
+    namespace UsbhsGptimer0ld{    ///<General Purpose Timer n Load Register
+        using Addr = Register::Address<0x40034080,0xff000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> gptld{}; 
+    }
+    namespace UsbhsGptimer1ld{    ///<General Purpose Timer n Load Register
+        using Addr = Register::Address<0x40034088,0xff000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> gptld{}; 
+    }
+    namespace UsbhsGptimer0ctl{    ///<General Purpose Timer n Control Register
+        using Addr = Register::Address<0x40034084,0x3e000000,0x00000000,unsigned>;
+        ///Timer Count
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gptcnt{}; 
+        ///Timer Mode
+        enum class ModeVal {
+            v0=0x00000000,     ///<One shot
+            v1=0x00000001,     ///<Repeat
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v1> v1{};
+        }
+        ///Timer Reset
+        enum class RstVal {
+            v0=0x00000000,     ///<No action
+            v1=0x00000001,     ///<Load counter value
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RstVal> rst{}; 
+        namespace RstValC{
+            constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v1> v1{};
+        }
+        ///Timer Run
+        enum class RunVal {
+            v0=0x00000000,     ///<Timer stop
+            v1=0x00000001,     ///<Timer run
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,RunVal> run{}; 
+        namespace RunValC{
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::v1> v1{};
+        }
+    }
+    namespace UsbhsGptimer1ctl{    ///<General Purpose Timer n Control Register
+        using Addr = Register::Address<0x4003408c,0x3e000000,0x00000000,unsigned>;
+        ///Timer Count
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gptcnt{}; 
+        ///Timer Mode
+        enum class ModeVal {
+            v0=0x00000000,     ///<One shot
+            v1=0x00000001,     ///<Repeat
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v1> v1{};
+        }
+        ///Timer Reset
+        enum class RstVal {
+            v0=0x00000000,     ///<No action
+            v1=0x00000001,     ///<Load counter value
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RstVal> rst{}; 
+        namespace RstValC{
+            constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v1> v1{};
+        }
+        ///Timer Run
+        enum class RunVal {
+            v0=0x00000000,     ///<Timer stop
+            v1=0x00000001,     ///<Timer run
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,RunVal> run{}; 
+        namespace RunValC{
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::v1> v1{};
+        }
+    }
+    namespace UsbhsEpcr1{    ///<Endpoint Control Register n
+        using Addr = Register::Address<0x400341c4,0xff10ff10,0x00000000,unsigned>;
+        ///RX endpoint Stall
+        enum class RxsVal {
+            v0=0x00000000,     ///<Endpoint OK
+            v1=0x00000001,     ///<Endpoint stalled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RxsVal> rxs{}; 
+        namespace RxsValC{
+            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v1> v1{};
+        }
+        ///RX endpoint Data sink
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxd{}; 
+        ///RX endpoint Type
+        enum class RxtVal {
+            v00=0x00000000,     ///<Control
+            v01=0x00000001,     ///<Isochronous
+            v10=0x00000002,     ///<Bulk
+            v11=0x00000003,     ///<Interrupt
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,RxtVal> rxt{}; 
+        namespace RxtValC{
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v11> v11{};
+        }
+        ///RX data toggle Inhibit
+        enum class RxiVal {
+            v0=0x00000000,     ///<PID sequencing enabled
+            v1=0x00000001,     ///<PID sequencing disabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RxiVal> rxi{}; 
+        namespace RxiValC{
+            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v1> v1{};
+        }
+        ///RX data toggle Reset
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxr{}; 
+        ///RX endpoint Enable
+        enum class RxeVal {
+            v0=0x00000000,     ///<Disabled
+            v1=0x00000001,     ///<Enabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxeVal> rxe{}; 
+        namespace RxeValC{
+            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v1> v1{};
+        }
+        ///TX endpoint Stall
+        enum class TxsVal {
+            v0=0x00000000,     ///<Endpoint OK
+            v1=0x00000001,     ///<Endpoint stalled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,TxsVal> txs{}; 
+        namespace TxsValC{
+            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v1> v1{};
+        }
+        ///TX endpoint Data source
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> txd{}; 
+        ///TX endpoint Type
+        enum class TxtVal {
+            v00=0x00000000,     ///<Control
+            v01=0x00000001,     ///<Isochronous
+            v10=0x00000002,     ///<Bulk
+            v11=0x00000003,     ///<Interrupt
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,TxtVal> txt{}; 
+        namespace TxtValC{
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v11> v11{};
+        }
+        ///TX data toggle Inhibit
+        enum class TxiVal {
+            v0=0x00000000,     ///<PID sequencing enabled
+            v1=0x00000001,     ///<PID sequencing disabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,TxiVal> txi{}; 
+        namespace TxiValC{
+            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v1> v1{};
+        }
+        ///TX data toggle Reset
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txr{}; 
+        ///TX endpoint Enable
+        enum class TxeVal {
+            v0=0x00000000,     ///<Disabled
+            v1=0x00000001,     ///<Enabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TxeVal> txe{}; 
+        namespace TxeValC{
+            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v1> v1{};
+        }
+    }
+    namespace UsbhsEpcr2{    ///<Endpoint Control Register n
+        using Addr = Register::Address<0x400341c8,0xff10ff10,0x00000000,unsigned>;
+        ///RX endpoint Stall
+        enum class RxsVal {
+            v0=0x00000000,     ///<Endpoint OK
+            v1=0x00000001,     ///<Endpoint stalled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RxsVal> rxs{}; 
+        namespace RxsValC{
+            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v1> v1{};
+        }
+        ///RX endpoint Data sink
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxd{}; 
+        ///RX endpoint Type
+        enum class RxtVal {
+            v00=0x00000000,     ///<Control
+            v01=0x00000001,     ///<Isochronous
+            v10=0x00000002,     ///<Bulk
+            v11=0x00000003,     ///<Interrupt
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,RxtVal> rxt{}; 
+        namespace RxtValC{
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v11> v11{};
+        }
+        ///RX data toggle Inhibit
+        enum class RxiVal {
+            v0=0x00000000,     ///<PID sequencing enabled
+            v1=0x00000001,     ///<PID sequencing disabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RxiVal> rxi{}; 
+        namespace RxiValC{
+            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v1> v1{};
+        }
+        ///RX data toggle Reset
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxr{}; 
+        ///RX endpoint Enable
+        enum class RxeVal {
+            v0=0x00000000,     ///<Disabled
+            v1=0x00000001,     ///<Enabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxeVal> rxe{}; 
+        namespace RxeValC{
+            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v1> v1{};
+        }
+        ///TX endpoint Stall
+        enum class TxsVal {
+            v0=0x00000000,     ///<Endpoint OK
+            v1=0x00000001,     ///<Endpoint stalled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,TxsVal> txs{}; 
+        namespace TxsValC{
+            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v1> v1{};
+        }
+        ///TX endpoint Data source
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> txd{}; 
+        ///TX endpoint Type
+        enum class TxtVal {
+            v00=0x00000000,     ///<Control
+            v01=0x00000001,     ///<Isochronous
+            v10=0x00000002,     ///<Bulk
+            v11=0x00000003,     ///<Interrupt
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,TxtVal> txt{}; 
+        namespace TxtValC{
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v11> v11{};
+        }
+        ///TX data toggle Inhibit
+        enum class TxiVal {
+            v0=0x00000000,     ///<PID sequencing enabled
+            v1=0x00000001,     ///<PID sequencing disabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,TxiVal> txi{}; 
+        namespace TxiValC{
+            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v1> v1{};
+        }
+        ///TX data toggle Reset
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txr{}; 
+        ///TX endpoint Enable
+        enum class TxeVal {
+            v0=0x00000000,     ///<Disabled
+            v1=0x00000001,     ///<Enabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TxeVal> txe{}; 
+        namespace TxeValC{
+            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v1> v1{};
+        }
+    }
+    namespace UsbhsEpcr3{    ///<Endpoint Control Register n
+        using Addr = Register::Address<0x400341cc,0xff10ff10,0x00000000,unsigned>;
+        ///RX endpoint Stall
+        enum class RxsVal {
+            v0=0x00000000,     ///<Endpoint OK
+            v1=0x00000001,     ///<Endpoint stalled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RxsVal> rxs{}; 
+        namespace RxsValC{
+            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::v1> v1{};
+        }
+        ///RX endpoint Data sink
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxd{}; 
+        ///RX endpoint Type
+        enum class RxtVal {
+            v00=0x00000000,     ///<Control
+            v01=0x00000001,     ///<Isochronous
+            v10=0x00000002,     ///<Bulk
+            v11=0x00000003,     ///<Interrupt
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,RxtVal> rxt{}; 
+        namespace RxtValC{
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v11> v11{};
+        }
+        ///RX data toggle Inhibit
+        enum class RxiVal {
+            v0=0x00000000,     ///<PID sequencing enabled
+            v1=0x00000001,     ///<PID sequencing disabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RxiVal> rxi{}; 
+        namespace RxiValC{
+            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::v1> v1{};
+        }
+        ///RX data toggle Reset
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxr{}; 
+        ///RX endpoint Enable
+        enum class RxeVal {
+            v0=0x00000000,     ///<Disabled
+            v1=0x00000001,     ///<Enabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxeVal> rxe{}; 
+        namespace RxeValC{
+            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::v1> v1{};
+        }
+        ///TX endpoint Stall
+        enum class TxsVal {
+            v0=0x00000000,     ///<Endpoint OK
+            v1=0x00000001,     ///<Endpoint stalled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,TxsVal> txs{}; 
+        namespace TxsValC{
+            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::v1> v1{};
+        }
+        ///TX endpoint Data source
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> txd{}; 
+        ///TX endpoint Type
+        enum class TxtVal {
+            v00=0x00000000,     ///<Control
+            v01=0x00000001,     ///<Isochronous
+            v10=0x00000002,     ///<Bulk
+            v11=0x00000003,     ///<Interrupt
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,TxtVal> txt{}; 
+        namespace TxtValC{
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::v11> v11{};
+        }
+        ///TX data toggle Inhibit
+        enum class TxiVal {
+            v0=0x00000000,     ///<PID sequencing enabled
+            v1=0x00000001,     ///<PID sequencing disabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,TxiVal> txi{}; 
+        namespace TxiValC{
+            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::v1> v1{};
+        }
+        ///TX data toggle Reset
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txr{}; 
+        ///TX endpoint Enable
+        enum class TxeVal {
+            v0=0x00000000,     ///<Disabled
+            v1=0x00000001,     ///<Enabled
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TxeVal> txe{}; 
+        namespace TxeValC{
+            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::v1> v1{};
         }
     }
 }

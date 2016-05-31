@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Reset Control Module
     namespace RcmSrs0{    ///<System Reset Status Register 0
-        using Addr = Register::Address<0x4007f000,0xffffff10,0,unsigned char>;
+        using Addr = Register::Address<0x4007f000,0xffffff00,0x00000000,unsigned char>;
         ///Low Leakage Wakeup Reset
         enum class WakeupVal {
             v0=0x00000000,     ///<Reset not caused by LLWU module wakeup source
             v1=0x00000001,     ///<Reset caused by LLWU module wakeup source
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,WakeupVal> wakeup{}; 
         namespace WakeupValC{
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::v1> v1{};
@@ -19,7 +19,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by LVD trip or POR
             v1=0x00000001,     ///<Reset caused by LVD trip or POR
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,LvdVal> lvd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LvdVal> lvd{}; 
         namespace LvdValC{
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v1> v1{};
@@ -29,7 +29,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by a loss of external clock.
             v1=0x00000001,     ///<Reset caused by a loss of external clock.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,LocVal> loc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LocVal> loc{}; 
         namespace LocValC{
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v1> v1{};
@@ -39,17 +39,19 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by a loss of lock in the PLL
             v1=0x00000001,     ///<Reset caused by a loss of lock in the PLL
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,LolVal> lol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LolVal> lol{}; 
         namespace LolValC{
             constexpr Register::FieldValue<decltype(lol)::Type,LolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lol)::Type,LolVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Watchdog
         enum class WdogVal {
             v0=0x00000000,     ///<Reset not caused by watchdog timeout
             v1=0x00000001,     ///<Reset caused by watchdog timeout
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,WdogVal> wdog{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,WdogVal> wdog{}; 
         namespace WdogValC{
             constexpr Register::FieldValue<decltype(wdog)::Type,WdogVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wdog)::Type,WdogVal::v1> v1{};
@@ -59,7 +61,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by external reset pin
             v1=0x00000001,     ///<Reset caused by external reset pin
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PinVal> pin{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PinVal> pin{}; 
         namespace PinValC{
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v1> v1{};
@@ -69,20 +71,20 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by POR
             v1=0x00000001,     ///<Reset caused by POR
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PorVal> por{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PorVal> por{}; 
         namespace PorValC{
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v1> v1{};
         }
     }
     namespace RcmSrs1{    ///<System Reset Status Register 1
-        using Addr = Register::Address<0x4007f001,0xffffffc0,0,unsigned char>;
+        using Addr = Register::Address<0x4007f001,0xffffff00,0x00000000,unsigned char>;
         ///JTAG Generated Reset
         enum class JtagVal {
             v0=0x00000000,     ///<Reset not caused by JTAG
             v1=0x00000001,     ///<Reset caused by JTAG
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,JtagVal> jtag{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,JtagVal> jtag{}; 
         namespace JtagValC{
             constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v0> v0{};
             constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v1> v1{};
@@ -92,7 +94,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by core LOCKUP event
             v1=0x00000001,     ///<Reset caused by core LOCKUP event
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,LockupVal> lockup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LockupVal> lockup{}; 
         namespace LockupValC{
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v1> v1{};
@@ -102,7 +104,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by software setting of SYSRESETREQ bit
             v1=0x00000001,     ///<Reset caused by software setting of SYSRESETREQ bit
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwVal> sw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SwVal> sw{}; 
         namespace SwValC{
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v1> v1{};
@@ -112,7 +114,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by host debugger system setting of the System Reset Request bit
             v1=0x00000001,     ///<Reset caused by host debugger system setting of the System Reset Request bit
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,MdmapVal> mdmAp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,MdmapVal> mdmAp{}; 
         namespace MdmapValC{
             constexpr Register::FieldValue<decltype(mdmAp)::Type,MdmapVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mdmAp)::Type,MdmapVal::v1> v1{};
@@ -122,7 +124,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by EzPort receiving the RESET command while the device is in EzPort mode
             v1=0x00000001,     ///<Reset caused by EzPort receiving the RESET command while the device is in EzPort mode
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,EzptVal> ezpt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,EzptVal> ezpt{}; 
         namespace EzptValC{
             constexpr Register::FieldValue<decltype(ezpt)::Type,EzptVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ezpt)::Type,EzptVal::v1> v1{};
@@ -132,14 +134,18 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by peripheral failure to acknowledge attempt to enter stop mode
             v1=0x00000001,     ///<Reset caused by peripheral failure to acknowledge attempt to enter stop mode
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SackerrVal> sackerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SackerrVal> sackerr{}; 
         namespace SackerrValC{
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace RcmRpfc{    ///<Reset Pin Filter Control register
-        using Addr = Register::Address<0x4007f004,0xfffffff8,0,unsigned char>;
+        using Addr = Register::Address<0x4007f004,0xffffff00,0x00000000,unsigned char>;
         ///Reset Pin Filter Select in Run and Wait Modes
         enum class RstfltsrwVal {
             v00=0x00000000,     ///<All filtering disabled
@@ -164,9 +170,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace RcmRpfw{    ///<Reset Pin Filter Width register
-        using Addr = Register::Address<0x4007f005,0xffffffe0,0,unsigned char>;
+        using Addr = Register::Address<0x4007f005,0xffffff00,0x00000000,unsigned char>;
         ///Reset Pin Filter Bus Clock Select
         enum class RstfltselVal {
             v00000=0x00000000,     ///<Bus clock filter count is 1
@@ -237,22 +245,28 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstfltsel)::Type,RstfltselVal::v11110> v11110{};
             constexpr Register::FieldValue<decltype(rstfltsel)::Type,RstfltselVal::v11111> v11111{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace RcmMr{    ///<Mode Register
-        using Addr = Register::Address<0x4007f007,0xfffffffd,0,unsigned char>;
+        using Addr = Register::Address<0x4007f007,0xffffff00,0x00000000,unsigned char>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///EZP_MS_B pin state
         enum class EzpmsVal {
             v0=0x00000000,     ///<Pin deasserted (logic 1)
             v1=0x00000001,     ///<Pin asserted (logic 0)
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EzpmsVal> ezpMs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,EzpmsVal> ezpMs{}; 
         namespace EzpmsValC{
             constexpr Register::FieldValue<decltype(ezpMs)::Type,EzpmsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ezpMs)::Type,EzpmsVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace RcmSsrs0{    ///<Sticky System Reset Status Register 0
-        using Addr = Register::Address<0x4007f008,0xffffff10,0,unsigned char>;
+        using Addr = Register::Address<0x4007f008,0xffffff00,0x00000000,unsigned char>;
         ///Sticky Low Leakage Wakeup Reset
         enum class SwakeupVal {
             v0=0x00000000,     ///<Reset not caused by LLWU module wakeup source
@@ -293,6 +307,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slol)::Type,SlolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slol)::Type,SlolVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Sticky Watchdog
         enum class SwdogVal {
             v0=0x00000000,     ///<Reset not caused by watchdog timeout
@@ -325,7 +341,7 @@ namespace Kvasir {
         }
     }
     namespace RcmSsrs1{    ///<Sticky System Reset Status Register 1
-        using Addr = Register::Address<0x4007f009,0xffffffc0,0,unsigned char>;
+        using Addr = Register::Address<0x4007f009,0xffffff00,0x00000000,unsigned char>;
         ///Sticky JTAG Generated Reset
         enum class SjtagVal {
             v0=0x00000000,     ///<Reset not caused by JTAG
@@ -386,5 +402,9 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssackerr)::Type,SsackerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ssackerr)::Type,SsackerrVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

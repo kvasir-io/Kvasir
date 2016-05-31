@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Power management
     namespace PmcSpmsc1{    ///<System Power Management Status and Control 1 Register
-        using Addr = Register::Address<0x4007d000,0xffffff02,0,unsigned char>;
+        using Addr = Register::Address<0x4007d000,0xffffff02,0x00000000,unsigned char>;
         ///Bandgap Buffer Enable
         enum class BgbeVal {
             v0=0x00000000,     ///<Bandgap buffer is disabled.
@@ -55,20 +55,20 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lvwie)::Type,LvwieVal::v1> v1{};
         }
         ///Low-Voltage Warning Acknowledge
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> lvwack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lvwack{}; 
         ///Low-Voltage Warning Flag
         enum class LvwfVal {
             v0=0x00000000,     ///<Low-voltage warning is not present.
             v1=0x00000001,     ///<Low-voltage warning is present or was present.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LvwfVal> lvwf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LvwfVal> lvwf{}; 
         namespace LvwfValC{
             constexpr Register::FieldValue<decltype(lvwf)::Type,LvwfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lvwf)::Type,LvwfVal::v1> v1{};
         }
     }
     namespace PmcSpmsc2{    ///<System Power Management Status and Control 2 Register
-        using Addr = Register::Address<0x4007d001,0xffffff8f,0,unsigned char>;
+        using Addr = Register::Address<0x4007d001,0xffffff8f,0x00000000,unsigned char>;
         ///Low-Voltage Warning Voltage Select
         enum class LvwvVal {
             v00=0x00000000,     ///<Low trip point is selected (VLVW = VLVW1).

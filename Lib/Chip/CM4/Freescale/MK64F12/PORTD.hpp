@@ -2,6 +2,48 @@
 #include <Register/Utility.hpp>
 namespace Kvasir {
 //Pin Control and Interrupts
+    namespace PortdGpclr{    ///<Global Pin Control Low Register
+        using Addr = Register::Address<0x4004c080,0x00000000,0x00000000,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
+    }
+    namespace PortdGpchr{    ///<Global Pin Control High Register
+        using Addr = Register::Address<0x4004c084,0x00000000,0x00000000,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
+    }
+    namespace PortdIsfr{    ///<Interrupt Status Flag Register
+        using Addr = Register::Address<0x4004c0a0,0x00000000,0x00000000,unsigned>;
+        ///Interrupt Status Flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
+    }
+    namespace PortdDfer{    ///<Digital Filter Enable Register
+        using Addr = Register::Address<0x4004c0c0,0x00000000,0x00000000,unsigned>;
+        ///Digital Filter Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dfe{}; 
+    }
+    namespace PortdDfcr{    ///<Digital Filter Clock Register
+        using Addr = Register::Address<0x4004c0c4,0xfffffffe,0x00000000,unsigned>;
+        ///Clock Source
+        enum class CsVal {
+            v0=0x00000000,     ///<Digital filters are clocked by the bus clock.
+            v1=0x00000001,     ///<Digital filters are clocked by the 1 kHz LPO clock.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CsVal> cs{}; 
+        namespace CsValC{
+            constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v1> v1{};
+        }
+    }
+    namespace PortdDfwr{    ///<Digital Filter Width Register
+        using Addr = Register::Address<0x4004c0c8,0xffffffe0,0x00000000,unsigned>;
+        ///Filter Length
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> filt{}; 
+    }
     namespace PortdPcr0{    ///<Pin Control Register n
         using Addr = Register::Address<0x4004c000,0xfef07888,0x00000000,unsigned>;
         ///Pull Select
@@ -4129,47 +4171,5 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
         }
-    }
-    namespace PortdGpclr{    ///<Global Pin Control Low Register
-        using Addr = Register::Address<0x4004c080,0x00000000,0x00000000,unsigned>;
-        ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
-        ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
-    }
-    namespace PortdGpchr{    ///<Global Pin Control High Register
-        using Addr = Register::Address<0x4004c084,0x00000000,0x00000000,unsigned>;
-        ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
-        ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
-    }
-    namespace PortdIsfr{    ///<Interrupt Status Flag Register
-        using Addr = Register::Address<0x4004c0a0,0x00000000,0x00000000,unsigned>;
-        ///Interrupt Status Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
-    }
-    namespace PortdDfer{    ///<Digital Filter Enable Register
-        using Addr = Register::Address<0x4004c0c0,0x00000000,0x00000000,unsigned>;
-        ///Digital Filter Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dfe{}; 
-    }
-    namespace PortdDfcr{    ///<Digital Filter Clock Register
-        using Addr = Register::Address<0x4004c0c4,0xfffffffe,0x00000000,unsigned>;
-        ///Clock Source
-        enum class CsVal {
-            v0=0x00000000,     ///<Digital filters are clocked by the bus clock.
-            v1=0x00000001,     ///<Digital filters are clocked by the 1 kHz LPO clock.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CsVal> cs{}; 
-        namespace CsValC{
-            constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v1> v1{};
-        }
-    }
-    namespace PortdDfwr{    ///<Digital Filter Width Register
-        using Addr = Register::Address<0x4004c0c8,0xffffffe0,0x00000000,unsigned>;
-        ///Filter Length
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> filt{}; 
     }
 }
