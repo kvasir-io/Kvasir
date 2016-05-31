@@ -1,9 +1,28 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Pin Control and Interrupts
+    namespace PortcGpclr{    ///<Global Pin Control Low Register
+        using Addr = Register::Address<0x40048080,0x00000000,0x00000000,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
+    }
+    namespace PortcGpchr{    ///<Global Pin Control High Register
+        using Addr = Register::Address<0x40048084,0x00000000,0x00000000,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
+    }
+    namespace PortcIsfr{    ///<Interrupt Status Flag Register
+        using Addr = Register::Address<0x400480a0,0x00000000,0x00000000,unsigned>;
+        ///Interrupt Status Flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
+    }
     namespace PortcPcr0{    ///<Pin Control Register n
-        using Addr = Register::Address<0x40048000,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x40048000,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -102,7 +121,7 @@ namespace Kvasir {
         }
     }
     namespace PortcPcr1{    ///<Pin Control Register n
-        using Addr = Register::Address<0x40048004,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x40048004,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -201,7 +220,7 @@ namespace Kvasir {
         }
     }
     namespace PortcPcr2{    ///<Pin Control Register n
-        using Addr = Register::Address<0x40048008,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x40048008,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -300,7 +319,7 @@ namespace Kvasir {
         }
     }
     namespace PortcPcr3{    ///<Pin Control Register n
-        using Addr = Register::Address<0x4004800c,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x4004800c,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -399,7 +418,7 @@ namespace Kvasir {
         }
     }
     namespace PortcPcr4{    ///<Pin Control Register n
-        using Addr = Register::Address<0x40048010,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x40048010,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -498,7 +517,7 @@ namespace Kvasir {
         }
     }
     namespace PortcPcr5{    ///<Pin Control Register n
-        using Addr = Register::Address<0x40048014,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x40048014,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -597,7 +616,7 @@ namespace Kvasir {
         }
     }
     namespace PortcPcr6{    ///<Pin Control Register n
-        using Addr = Register::Address<0x40048018,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x40048018,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -696,7 +715,7 @@ namespace Kvasir {
         }
     }
     namespace PortcPcr7{    ///<Pin Control Register n
-        using Addr = Register::Address<0x4004801c,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x4004801c,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -793,24 +812,5 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
         }
-    }
-    namespace PortcGpclr{    ///<Global Pin Control Low Register
-        using Addr = Register::Address<0x40048080,0x00000000,0,unsigned>;
-        ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gpwd{}; 
-        ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> gpwe{}; 
-    }
-    namespace PortcGpchr{    ///<Global Pin Control High Register
-        using Addr = Register::Address<0x40048084,0x00000000,0,unsigned>;
-        ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gpwd{}; 
-        ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> gpwe{}; 
-    }
-    namespace PortcIsfr{    ///<Interrupt Status Flag Register
-        using Addr = Register::Address<0x400480a0,0x00000000,0,unsigned>;
-        ///Interrupt Status Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
     }
 }

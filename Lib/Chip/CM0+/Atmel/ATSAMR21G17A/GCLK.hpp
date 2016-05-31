@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Generic Clock Generator
     namespace GclkClkctrl{    ///<Generic Clock Control
-        using Addr = Register::Address<0x40000c02,0xffff30c0,0,unsigned>;
+        using Addr = Register::Address<0x40000c02,0xffff30c0,0x00000000,unsigned>;
         ///Generic Clock Selection ID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> id{}; 
         ///Generic Clock Generator
@@ -34,12 +34,12 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> wrtlock{}; 
     }
     namespace GclkCtrl{    ///<Control
-        using Addr = Register::Address<0x40000c00,0xfffffffe,0,unsigned char>;
+        using Addr = Register::Address<0x40000c00,0xfffffffe,0x00000000,unsigned char>;
         ///Software Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
     }
     namespace GclkGenctrl{    ///<Generic Clock Generator Control
-        using Addr = Register::Address<0x40000c04,0xffc0e0f0,0,unsigned>;
+        using Addr = Register::Address<0x40000c04,0xffc0e0f0,0x00000000,unsigned>;
         ///Generic Clock Generator Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> id{}; 
         ///Source Select
@@ -78,15 +78,15 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> runstdby{}; 
     }
     namespace GclkGendiv{    ///<Generic Clock Generator Division
-        using Addr = Register::Address<0x40000c08,0xff0000f0,0,unsigned>;
+        using Addr = Register::Address<0x40000c08,0xff0000f0,0x00000000,unsigned>;
         ///Generic Clock Generator Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> id{}; 
         ///Division Factor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> div{}; 
     }
     namespace GclkStatus{    ///<Status
-        using Addr = Register::Address<0x40000c01,0xffffff7f,0,unsigned char>;
+        using Addr = Register::Address<0x40000c01,0xffffff7f,0x00000000,unsigned char>;
         ///Synchronization Busy Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> syncbusy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> syncbusy{}; 
     }
 }

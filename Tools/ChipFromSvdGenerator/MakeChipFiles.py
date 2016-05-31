@@ -102,12 +102,13 @@ def parsePeripheral(peripheral, ext):
     out = ""
     if peripheral.description is not None:
         out += "//%s\n" % (Ft.formatComment(peripheral.description))
-    out += parseRegisters(peripheral.registers, peripheral.base_address, peripheral.name, Ft.getKey(ext,['register']))
+    if peripheral.registers is not None:
+        out += parseRegisters(peripheral.registers, peripheral.base_address, peripheral.name, Ft.getKey(ext,['register']))
     return out
     
 def parseFile(company,file):
     print("Parsing %s,%s " % (company,file))
-    parser = SVDParser.for_packaged_svd(company, file + ".svd",1,1)
+    parser = SVDParser.for_packaged_svd(company, file + ".svd",1)
     extention = []
     jsonPath = posixpath.join(posixpath.dirname(posixpath.abspath(__file__)),"Extention",company,file+".json")
     #print(jsonPath)
@@ -148,14 +149,14 @@ def parseFile(company,file):
     
 def parseAll(path):
     for root, dirs, files in os.walk(path):
-        print("processing: " + basename(root))
-        if len(files) and basename(root) != "ARM_SAMPLE":
+        print("processing: " + basename(root.replace('\\','/')))
+        if len(files) and basename(root.replace('\\','/')) != "ARM_SAMPLE":
             for file in files:
                 filename, file_extension = posixpath.splitext(file)
                 if file_extension == ".svd":
-                    parseFile(basename(root),filename)
+                    parseFile(basename(root.replace('\\','/')),filename)
 def parseCompany(path,company):
-    for root, dirs, files in os.walk(os.join(path,company)):
+    for root, dirs, files in os.walk(posixpath.join(path,company)):
         for file in files:
             filename, file_extension = posixpath.splitext(file)
             if file_extension == ".svd":
@@ -168,10 +169,11 @@ parser.add_argument('-c,--company', dest='company', help='company to parse')
 
 args = parser.parse_args()
 
+path = args.path.replace('\\','/')
 if args.file is None and args.company is None:
-    parseAll(args.path)
+    parseAll(path)
 elif args.file is None:
-    parseFolder(args.path, args.company)
+    parseCompany(path, args.company)
 elif args.company is not None:
     parseFile(args.company,args.file)
 

@@ -1,18 +1,18 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog to digital converter.
-    namespace NonetasksStart{    ///<Start an ADC conversion.
-        using Addr = Register::Address<0x40007000,0xffffffff,0,unsigned>;
+    namespace AdcTasksStart{    ///<Start an ADC conversion.
+        using Addr = Register::Address<0x40007000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop ADC.
-        using Addr = Register::Address<0x40007004,0xffffffff,0,unsigned>;
+    namespace AdcTasksStop{    ///<Stop ADC.
+        using Addr = Register::Address<0x40007004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEnd{    ///<ADC conversion complete.
-        using Addr = Register::Address<0x40007100,0xffffffff,0,unsigned>;
+    namespace AdcEventsEnd{    ///<ADC conversion complete.
+        using Addr = Register::Address<0x40007100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneintenset{    ///<Interrupt enable set register.
-        using Addr = Register::Address<0x40007304,0xfffffffe,0,unsigned>;
+    namespace AdcIntenset{    ///<Interrupt enable set register.
+        using Addr = Register::Address<0x40007304,0xfffffffe,0x00000000,unsigned>;
         ///Enable interrupt on END event.
         enum class EndVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -26,8 +26,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register.
-        using Addr = Register::Address<0x40007308,0xfffffffe,0,unsigned>;
+    namespace AdcIntenclr{    ///<Interrupt enable clear register.
+        using Addr = Register::Address<0x40007308,0xfffffffe,0x00000000,unsigned>;
         ///Disable interrupt on END event.
         enum class EndVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -41,8 +41,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
     }
-    namespace Nonebusy{    ///<ADC busy register.
-        using Addr = Register::Address<0x40007400,0xfffffffe,0,unsigned>;
+    namespace AdcBusy{    ///<ADC busy register.
+        using Addr = Register::Address<0x40007400,0xfffffffe,0x00000000,unsigned>;
         ///ADC busy register.
         enum class BusyVal {
             ready=0x00000000,     ///<No ongoing ADC conversion is taking place. ADC is ready.
@@ -54,8 +54,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::busy> busy{};
         }
     }
-    namespace Noneenable{    ///<ADC enable.
-        using Addr = Register::Address<0x40007500,0xfffffffc,0,unsigned>;
+    namespace AdcEnable{    ///<ADC enable.
+        using Addr = Register::Address<0x40007500,0xfffffffc,0x00000000,unsigned>;
         ///ADC enable.
         enum class EnableVal {
             disabled=0x00000000,     ///<ADC is disabled.
@@ -67,8 +67,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
-    namespace Noneconfig{    ///<ADC configuration register.
-        using Addr = Register::Address<0x40007504,0xfffc0080,0,unsigned>;
+    namespace AdcConfig{    ///<ADC configuration register.
+        using Addr = Register::Address<0x40007504,0xfffc0080,0x00000000,unsigned>;
         ///ADC resolution.
         enum class ResVal {
             v8bit=0x00000000,     ///<8bit ADC resolution.
@@ -148,13 +148,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::analogreference1> analogreference1{};
         }
     }
-    namespace Noneresult{    ///<Result of ADC conversion.
-        using Addr = Register::Address<0x40007508,0xfffffc00,0,unsigned>;
+    namespace AdcResult{    ///<Result of ADC conversion.
+        using Addr = Register::Address<0x40007508,0xfffffc00,0x00000000,unsigned>;
         ///Result of ADC conversion.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> result{}; 
     }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x40007ffc,0xfffffffe,0,unsigned>;
+    namespace AdcPower{    ///<Peripheral power control.
+        using Addr = Register::Address<0x40007ffc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.

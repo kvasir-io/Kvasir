@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //CKCU
-    namespace NoneckcuGcfgr{    ///<CKCU_GCFGR
-        using Addr = Register::Address<0x40088000,0x1fcffef0,0,unsigned>;
+    namespace CkcuCkcuGcfgr{    ///<CKCU_GCFGR
+        using Addr = Register::Address<0x40088000,0x1fcffef0,0x00000000,unsigned>;
         ///CKOUTSRC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ckoutsrc{}; 
         ///WDTSRC
@@ -15,8 +15,8 @@ namespace Kvasir {
         ///LPMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> lpmod{}; 
     }
-    namespace NoneckcuGccr{    ///<CKCU_GCCR
-        using Addr = Register::Address<0x40088004,0xfffcf1fc,0,unsigned>;
+    namespace CkcuCkcuGccr{    ///<CKCU_GCCR
+        using Addr = Register::Address<0x40088004,0x0000f1fc,0x00000000,unsigned>;
         ///SW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> sw{}; 
         ///PLLEN
@@ -29,9 +29,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> ckmen{}; 
         ///PSRCEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> psrcen{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuGcsr{    ///<CKCU_GCSR
-        using Addr = Register::Address<0x40088008,0xffffffc1,0,unsigned>;
+    namespace CkcuCkcuGcsr{    ///<CKCU_GCSR
+        using Addr = Register::Address<0x40088008,0x00000001,0x00000000,unsigned>;
         ///PLLRDY
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pllrdy{}; 
         ///HSERDY
@@ -42,9 +44,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> lserdy{}; 
         ///LSIRDY
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> lsirdy{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuGcir{    ///<CKCU_GCIR
-        using Addr = Register::Address<0x4008800c,0xff82ff82,0,unsigned>;
+    namespace CkcuCkcuGcir{    ///<CKCU_GCIR
+        using Addr = Register::Address<0x4008800c,0x0002ff82,0x00000000,unsigned>;
         ///CKSF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cksf{}; 
         ///PLLRDYF
@@ -69,38 +73,50 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> lserdyie{}; 
         ///LSIRDYIE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> lsirdyie{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,23),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuPllcfgr{    ///<CKCU_PLLCFGR
-        using Addr = Register::Address<0x40088018,0xe01fffff,0,unsigned>;
+    namespace CkcuCkcuPllcfgr{    ///<CKCU_PLLCFGR
+        using Addr = Register::Address<0x40088018,0x001fffff,0x00000000,unsigned>;
         ///POTD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,21),Register::ReadWriteAccess,unsigned> potd{}; 
         ///PFBD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,23),Register::ReadWriteAccess,unsigned> pfbd{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuPllcr{    ///<CKCU_PLLCR
-        using Addr = Register::Address<0x4008801c,0x7fffffff,0,unsigned>;
+    namespace CkcuCkcuPllcr{    ///<CKCU_PLLCR
+        using Addr = Register::Address<0x4008801c,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///PLLBPS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pllbps{}; 
     }
-    namespace NoneckcuAhbcfgr{    ///<CKCU_AHBCFGR
-        using Addr = Register::Address<0x40088020,0xfffffffc,0,unsigned>;
+    namespace CkcuCkcuAhbcfgr{    ///<CKCU_AHBCFGR
+        using Addr = Register::Address<0x40088020,0x00000000,0x00000000,unsigned>;
         ///AHBPRE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ahbpre{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuAhbccr{    ///<CKCU_AHBCCR
-        using Addr = Register::Address<0x40088024,0xfffffffa,0,unsigned>;
+    namespace CkcuCkcuAhbccr{    ///<CKCU_AHBCCR
+        using Addr = Register::Address<0x40088024,0x00000002,0x00000000,unsigned>;
         ///FMCEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fmcen{}; 
         ///SRAMEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> sramen{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuApbcfgr{    ///<CKCU_APBCFGR
-        using Addr = Register::Address<0x40088028,0xfff8ffff,0,unsigned>;
+    namespace CkcuCkcuApbcfgr{    ///<CKCU_APBCFGR
+        using Addr = Register::Address<0x40088028,0x0000ffff,0x00000000,unsigned>;
         ///ADCDIV
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> adcdiv{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuApbccr0{    ///<CKCU_APBCCR0
-        using Addr = Register::Address<0x4008802c,0xfffc3eee,0,unsigned>;
+    namespace CkcuCkcuApbccr0{    ///<CKCU_APBCCR0
+        using Addr = Register::Address<0x4008802c,0x00003eee,0x00000000,unsigned>;
         ///I2CEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> i2cen{}; 
         ///SPIEN
@@ -115,9 +131,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> paen{}; 
         ///PBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> pben{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuApbccr1{    ///<CKCU_APBCCR1
-        using Addr = Register::Address<0x40088030,0xfe3ffcaf,0,unsigned>;
+    namespace CkcuCkcuApbccr1{    ///<CKCU_APBCCR1
+        using Addr = Register::Address<0x40088030,0x003ffcaf,0x00000000,unsigned>;
         ///WDTEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> wdten{}; 
         ///RTCEN
@@ -132,23 +150,29 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> opa1en{}; 
         ///ADCEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> adcen{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,25),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuCkst{    ///<CKCU_CKST
-        using Addr = Register::Address<0x40088034,0xf8fcfeff,0,unsigned>;
+    namespace CkcuCkcuCkst{    ///<CKCU_CKST
+        using Addr = Register::Address<0x40088034,0x00fcfeff,0x00000000,unsigned>;
         ///PLLST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> pllst{}; 
         ///HSEST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> hsest{}; 
         ///HSIST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> hsist{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,27),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuLpcr{    ///<CKCU_LPCR
-        using Addr = Register::Address<0x40088300,0xfffffffe,0,unsigned>;
+    namespace CkcuCkcuLpcr{    ///<CKCU_LPCR
+        using Addr = Register::Address<0x40088300,0x00000000,0x00000000,unsigned>;
         ///BKISO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bkiso{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneckcuMcudbgcr{    ///<CKCU_MCUDBGCR
-        using Addr = Register::Address<0x40088304,0xffffba30,0,unsigned>;
+    namespace CkcuCkcuMcudbgcr{    ///<CKCU_MCUDBGCR
+        using Addr = Register::Address<0x40088304,0x00003a30,0x00000000,unsigned>;
         ///DBSLP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dbslp{}; 
         ///DBDSLP1
@@ -167,5 +191,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> dbspi{}; 
         ///DBDSLP2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dbdslp2{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

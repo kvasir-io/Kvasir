@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //ADC common registers
-    namespace Nonecsr{    ///<ADC Common status register
-        using Addr = Register::Address<0x40012300,0xffc0c0c0,0,unsigned>;
+    namespace AdcCommonCsr{    ///<ADC Common status register
+        using Addr = Register::Address<0x40012300,0xffc0c0c0,0x00000000,unsigned>;
         ///Overrun flag of ADC3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ovr3{}; 
         ///Regular channel Start flag of ADC               3
@@ -41,8 +41,8 @@ namespace Kvasir {
         ///Analog watchdog flag of ADC               1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> awd1{}; 
     }
-    namespace Noneccr{    ///<ADC common control register
-        using Addr = Register::Address<0x40012304,0xff3c10ff,0,unsigned>;
+    namespace AdcCommonCcr{    ///<ADC common control register
+        using Addr = Register::Address<0x40012304,0xff3c10ff,0x00000000,unsigned>;
         ///Temperature sensor and VREFINT               enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> tsvrefe{}; 
         ///VBAT enable

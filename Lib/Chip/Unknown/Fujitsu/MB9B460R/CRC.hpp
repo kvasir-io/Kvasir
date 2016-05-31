@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //CRC Registers
-    namespace Nonecrccr{    ///<CRC Control Register
-        using Addr = Register::Address<0x40039000,0xffffff80,0,unsigned char>;
+    namespace CrcCrccr{    ///<CRC Control Register
+        using Addr = Register::Address<0x40039000,0xffffff80,0x00000000,unsigned char>;
         ///Initialization bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> fxor{}; 
         ///Final XOR control bit
@@ -19,19 +19,19 @@ namespace Kvasir {
         ///CRC mode selection bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> init{}; 
     }
-    namespace Nonecrcinit{    ///<Initial Value Register
-        using Addr = Register::Address<0x40039004,0x00000000,0,unsigned>;
+    namespace CrcCrcinit{    ///<Initial Value Register
+        using Addr = Register::Address<0x40039004,0x00000000,0x00000000,unsigned>;
         ///Initial value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> d{}; 
     }
-    namespace Nonecrcin{    ///<Input Data Register
-        using Addr = Register::Address<0x40039008,0x00000000,0,unsigned>;
+    namespace CrcCrcin{    ///<Input Data Register
+        using Addr = Register::Address<0x40039008,0x00000000,0x00000000,unsigned>;
         ///Input data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> d{}; 
     }
-    namespace Nonecrcr{    ///<CRC Register
-        using Addr = Register::Address<0x4003900c,0x00000000,0,unsigned>;
+    namespace CrcCrcr{    ///<CRC Register
+        using Addr = Register::Address<0x4003900c,0x00000000,0x00000000,unsigned>;
         ///CRC Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> d{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> d{}; 
     }
 }

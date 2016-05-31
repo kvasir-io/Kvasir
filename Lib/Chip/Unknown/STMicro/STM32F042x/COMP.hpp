@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Comparator
-    namespace Nonecsr{    ///<control and status register
-        using Addr = Register::Address<0x4001001c,0x00020080,0,unsigned>;
+    namespace CompCsr{    ///<control and status register
+        using Addr = Register::Address<0x4001001c,0x00020080,0x00000000,unsigned>;
         ///Comparator 1 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp1en{}; 
         ///COMP1_INP_DAC
@@ -19,7 +19,7 @@ namespace Kvasir {
         ///Comparator 1 hysteresis
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> comp1hyst{}; 
         ///Comparator 1 output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> comp1out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> comp1out{}; 
         ///Comparator 1 lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> comp1lock{}; 
         ///Comparator 2 enable
@@ -37,7 +37,7 @@ namespace Kvasir {
         ///Comparator 2 hysteresis
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> comp2hyst{}; 
         ///Comparator 2 output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> comp2out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> comp2out{}; 
         ///Comparator 2 lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> comp2lock{}; 
     }

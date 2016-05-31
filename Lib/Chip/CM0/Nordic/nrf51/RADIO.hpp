@@ -1,63 +1,63 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //The radio.
-    namespace NonetasksTxen{    ///<Enable radio in TX mode.
-        using Addr = Register::Address<0x40001000,0xffffffff,0,unsigned>;
+    namespace RadioTasksTxen{    ///<Enable radio in TX mode.
+        using Addr = Register::Address<0x40001000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksRxen{    ///<Enable radio in RX mode.
-        using Addr = Register::Address<0x40001004,0xffffffff,0,unsigned>;
+    namespace RadioTasksRxen{    ///<Enable radio in RX mode.
+        using Addr = Register::Address<0x40001004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStart{    ///<Start radio.
-        using Addr = Register::Address<0x40001008,0xffffffff,0,unsigned>;
+    namespace RadioTasksStart{    ///<Start radio.
+        using Addr = Register::Address<0x40001008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop radio.
-        using Addr = Register::Address<0x4000100c,0xffffffff,0,unsigned>;
+    namespace RadioTasksStop{    ///<Stop radio.
+        using Addr = Register::Address<0x4000100c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksDisable{    ///<Disable radio.
-        using Addr = Register::Address<0x40001010,0xffffffff,0,unsigned>;
+    namespace RadioTasksDisable{    ///<Disable radio.
+        using Addr = Register::Address<0x40001010,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksRssistart{    ///<Start the RSSI and take one sample of the receive signal strength.
-        using Addr = Register::Address<0x40001014,0xffffffff,0,unsigned>;
+    namespace RadioTasksRssistart{    ///<Start the RSSI and take one sample of the receive signal strength.
+        using Addr = Register::Address<0x40001014,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksRssistop{    ///<Stop the RSSI measurement.
-        using Addr = Register::Address<0x40001018,0xffffffff,0,unsigned>;
+    namespace RadioTasksRssistop{    ///<Stop the RSSI measurement.
+        using Addr = Register::Address<0x40001018,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksBcstart{    ///<Start the bit counter.
-        using Addr = Register::Address<0x4000101c,0xffffffff,0,unsigned>;
+    namespace RadioTasksBcstart{    ///<Start the bit counter.
+        using Addr = Register::Address<0x4000101c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksBcstop{    ///<Stop the bit counter.
-        using Addr = Register::Address<0x40001020,0xffffffff,0,unsigned>;
+    namespace RadioTasksBcstop{    ///<Stop the bit counter.
+        using Addr = Register::Address<0x40001020,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsReady{    ///<Ready event.
-        using Addr = Register::Address<0x40001100,0xffffffff,0,unsigned>;
+    namespace RadioEventsReady{    ///<Ready event.
+        using Addr = Register::Address<0x40001100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsAddress{    ///<Address event.
-        using Addr = Register::Address<0x40001104,0xffffffff,0,unsigned>;
+    namespace RadioEventsAddress{    ///<Address event.
+        using Addr = Register::Address<0x40001104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsPayload{    ///<Payload event.
-        using Addr = Register::Address<0x40001108,0xffffffff,0,unsigned>;
+    namespace RadioEventsPayload{    ///<Payload event.
+        using Addr = Register::Address<0x40001108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEnd{    ///<End event.
-        using Addr = Register::Address<0x4000110c,0xffffffff,0,unsigned>;
+    namespace RadioEventsEnd{    ///<End event.
+        using Addr = Register::Address<0x4000110c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsDisabled{    ///<Disable event.
-        using Addr = Register::Address<0x40001110,0xffffffff,0,unsigned>;
+    namespace RadioEventsDisabled{    ///<Disable event.
+        using Addr = Register::Address<0x40001110,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsDevmatch{    ///<A device address match occurred on the last received packet.
-        using Addr = Register::Address<0x40001114,0xffffffff,0,unsigned>;
+    namespace RadioEventsDevmatch{    ///<A device address match occurred on the last received packet.
+        using Addr = Register::Address<0x40001114,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsDevmiss{    ///<No device address match occurred on the last received packet.
-        using Addr = Register::Address<0x40001118,0xffffffff,0,unsigned>;
+    namespace RadioEventsDevmiss{    ///<No device address match occurred on the last received packet.
+        using Addr = Register::Address<0x40001118,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsRssiend{    ///<Sampling of the receive signal strength complete. A new RSSI sample is ready for readout at the RSSISAMPLE register.
-        using Addr = Register::Address<0x4000111c,0xffffffff,0,unsigned>;
+    namespace RadioEventsRssiend{    ///<Sampling of the receive signal strength complete. A new RSSI sample is ready for readout at the RSSISAMPLE register.
+        using Addr = Register::Address<0x4000111c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsBcmatch{    ///<Bit counter reached bit count value specified in BCC register.
-        using Addr = Register::Address<0x40001128,0xffffffff,0,unsigned>;
+    namespace RadioEventsBcmatch{    ///<Bit counter reached bit count value specified in BCC register.
+        using Addr = Register::Address<0x40001128,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcuts for the radio.
-        using Addr = Register::Address<0x40001200,0xfffffe80,0,unsigned>;
+    namespace RadioShorts{    ///<Shortcuts for the radio.
+        using Addr = Register::Address<0x40001200,0xfffffe80,0x00000000,unsigned>;
         ///Shortcut between READY event and START task.
         enum class ReadystartVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -139,8 +139,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disabledRssistop)::Type,DisabledrssistopVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Interrupt enable set register.
-        using Addr = Register::Address<0x40001304,0xfffffb00,0,unsigned>;
+    namespace RadioIntenset{    ///<Interrupt enable set register.
+        using Addr = Register::Address<0x40001304,0xfffffb00,0x00000000,unsigned>;
         ///Enable interrupt on READY event.
         enum class ReadyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -250,8 +250,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcmatch)::Type,BcmatchVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register.
-        using Addr = Register::Address<0x40001308,0xfffffb00,0,unsigned>;
+    namespace RadioIntenclr{    ///<Interrupt enable clear register.
+        using Addr = Register::Address<0x40001308,0xfffffb00,0x00000000,unsigned>;
         ///Disable interrupt on READY event.
         enum class ReadyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -361,8 +361,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcmatch)::Type,BcmatchVal::clear> clear{};
         }
     }
-    namespace Nonecrcstatus{    ///<CRC status of received packet.
-        using Addr = Register::Address<0x40001400,0xfffffffe,0,unsigned>;
+    namespace RadioCrcstatus{    ///<CRC status of received packet.
+        using Addr = Register::Address<0x40001400,0xfffffffe,0x00000000,unsigned>;
         ///CRC status of received packet.
         enum class CrcstatusVal {
             crcerror=0x00000000,     ///<Packet received with CRC error.
@@ -374,31 +374,31 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crcstatus)::Type,CrcstatusVal::crcok> crcok{};
         }
     }
-    namespace Nonerxmatch{    ///<Received address.
-        using Addr = Register::Address<0x40001408,0xfffffff8,0,unsigned>;
+    namespace RadioRxmatch{    ///<Received address.
+        using Addr = Register::Address<0x40001408,0xfffffff8,0x00000000,unsigned>;
         ///Logical address in which previous packet was received.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> rxmatch{}; 
     }
-    namespace Nonerxcrc{    ///<Received CRC.
-        using Addr = Register::Address<0x4000140c,0xff000000,0,unsigned>;
+    namespace RadioRxcrc{    ///<Received CRC.
+        using Addr = Register::Address<0x4000140c,0xff000000,0x00000000,unsigned>;
         ///CRC field of previously received packet.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> rxcrc{}; 
     }
-    namespace Nonedai{    ///<Device address match index.
-        using Addr = Register::Address<0x40001410,0xfffffff8,0,unsigned>;
+    namespace RadioDai{    ///<Device address match index.
+        using Addr = Register::Address<0x40001410,0xfffffff8,0x00000000,unsigned>;
         ///Index (n) of device address (see DAB[n] and DAP[n]) that obtained an address match.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dai{}; 
     }
-    namespace Nonepacketptr{    ///<Packet pointer. Decision point: START task.
-        using Addr = Register::Address<0x40001504,0xffffffff,0,unsigned>;
+    namespace RadioPacketptr{    ///<Packet pointer. Decision point: START task.
+        using Addr = Register::Address<0x40001504,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonefrequency{    ///<Frequency.
-        using Addr = Register::Address<0x40001508,0xffffff80,0,unsigned>;
+    namespace RadioFrequency{    ///<Frequency.
+        using Addr = Register::Address<0x40001508,0xffffff80,0x00000000,unsigned>;
         ///Radio channel frequency offset in MHz: RF Frequency = 2400 + FREQUENCY (MHz). Decision point: TXEN or RXEN task. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> frequency{}; 
     }
-    namespace Nonetxpower{    ///<Output power.
-        using Addr = Register::Address<0x4000150c,0xffffff00,0,unsigned>;
+    namespace RadioTxpower{    ///<Output power.
+        using Addr = Register::Address<0x4000150c,0xffffff00,0x00000000,unsigned>;
         ///Radio output power. Decision point: TXEN task.
         enum class TxpowerVal {
             pos4dbm=0x00000004,     ///<+4dBm.
@@ -422,8 +422,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpower)::Type,TxpowerVal::neg30dbm> neg30dbm{};
         }
     }
-    namespace Nonemode{    ///<Data rate and modulation.
-        using Addr = Register::Address<0x40001510,0xfffffffc,0,unsigned>;
+    namespace RadioMode{    ///<Data rate and modulation.
+        using Addr = Register::Address<0x40001510,0xfffffffc,0x00000000,unsigned>;
         ///Radio data rate and modulation setting. Decision point: TXEN or RXEN task.
         enum class ModeVal {
             nrf1mbit=0x00000000,     ///<1Mbit/s Nordic propietary radio mode.
@@ -439,8 +439,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::ble1mbit> ble1mbit{};
         }
     }
-    namespace Nonepcnf0{    ///<Packet configuration 0.
-        using Addr = Register::Address<0x40001514,0xfff0fef0,0,unsigned>;
+    namespace RadioPcnf0{    ///<Packet configuration 0.
+        using Addr = Register::Address<0x40001514,0xfff0fef0,0x00000000,unsigned>;
         ///Length of length field in number of bits. Decision point: START task.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> lflen{}; 
         ///Length of S0 field in number of bytes. Decision point: START task.
@@ -448,8 +448,8 @@ namespace Kvasir {
         ///Length of S1 field in number of bits. Decision point: START task.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> s1len{}; 
     }
-    namespace Nonepcnf1{    ///<Packet configuration 1.
-        using Addr = Register::Address<0x40001518,0xfcf80000,0,unsigned>;
+    namespace RadioPcnf1{    ///<Packet configuration 1.
+        using Addr = Register::Address<0x40001518,0xfcf80000,0x00000000,unsigned>;
         ///Maximum length of packet payload in number of bytes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> maxlen{}; 
         ///Static length in number of bytes. Decision point: START task.
@@ -477,14 +477,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(whiteen)::Type,WhiteenVal::enabled> enabled{};
         }
     }
-    namespace Nonebase0{    ///<Radio base address 0. Decision point: START task.
-        using Addr = Register::Address<0x4000151c,0xffffffff,0,unsigned>;
+    namespace RadioBase0{    ///<Radio base address 0. Decision point: START task.
+        using Addr = Register::Address<0x4000151c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonebase1{    ///<Radio base address 1. Decision point: START task.
-        using Addr = Register::Address<0x40001520,0xffffffff,0,unsigned>;
+    namespace RadioBase1{    ///<Radio base address 1. Decision point: START task.
+        using Addr = Register::Address<0x40001520,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneprefix0{    ///<Prefixes bytes for logical addresses 0 to 3.
-        using Addr = Register::Address<0x40001524,0x00000000,0,unsigned>;
+    namespace RadioPrefix0{    ///<Prefixes bytes for logical addresses 0 to 3.
+        using Addr = Register::Address<0x40001524,0x00000000,0x00000000,unsigned>;
         ///Address prefix 0. Decision point: START task.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ap0{}; 
         ///Address prefix 1. Decision point: START task.
@@ -494,8 +494,8 @@ namespace Kvasir {
         ///Address prefix 3. Decision point: START task.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> ap3{}; 
     }
-    namespace Noneprefix1{    ///<Prefixes bytes for logical addresses 4 to 7.
-        using Addr = Register::Address<0x40001528,0x00000000,0,unsigned>;
+    namespace RadioPrefix1{    ///<Prefixes bytes for logical addresses 4 to 7.
+        using Addr = Register::Address<0x40001528,0x00000000,0x00000000,unsigned>;
         ///Address prefix 4. Decision point: START task.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ap4{}; 
         ///Address prefix 5. Decision point: START task.
@@ -505,13 +505,13 @@ namespace Kvasir {
         ///Address prefix 7. Decision point: START task.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> ap7{}; 
     }
-    namespace Nonetxaddress{    ///<Transmit address select.
-        using Addr = Register::Address<0x4000152c,0xfffffff8,0,unsigned>;
+    namespace RadioTxaddress{    ///<Transmit address select.
+        using Addr = Register::Address<0x4000152c,0xfffffff8,0x00000000,unsigned>;
         ///Logical address to be used when transmitting a packet. Decision point: START task.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> txaddress{}; 
     }
-    namespace Nonerxaddresses{    ///<Receive address select.
-        using Addr = Register::Address<0x40001530,0xffffff00,0,unsigned>;
+    namespace RadioRxaddresses{    ///<Receive address select.
+        using Addr = Register::Address<0x40001530,0xffffff00,0x00000000,unsigned>;
         ///Enable reception on logical address 0. Decision point: START task.
         enum class Addr0Val {
             disabled=0x00000000,     ///<Reception disabled.
@@ -593,8 +593,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addr7)::Type,Addr7Val::enabled> enabled{};
         }
     }
-    namespace Nonecrccnf{    ///<CRC configuration.
-        using Addr = Register::Address<0x40001534,0xfffffefc,0,unsigned>;
+    namespace RadioCrccnf{    ///<CRC configuration.
+        using Addr = Register::Address<0x40001534,0xfffffefc,0x00000000,unsigned>;
         ///CRC length. Decision point: START task.
         enum class LenVal {
             disabled=0x00000000,     ///<CRC calculation disabled.
@@ -620,18 +620,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(skipaddr)::Type,SkipaddrVal::skip> skip{};
         }
     }
-    namespace Nonecrcpoly{    ///<CRC polynomial.
-        using Addr = Register::Address<0x40001538,0xff000000,0,unsigned>;
+    namespace RadioCrcpoly{    ///<CRC polynomial.
+        using Addr = Register::Address<0x40001538,0xff000000,0x00000000,unsigned>;
         ///CRC polynomial. Decision point: START task.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> crcpoly{}; 
     }
-    namespace Nonecrcinit{    ///<CRC initial value.
-        using Addr = Register::Address<0x4000153c,0xff000000,0,unsigned>;
+    namespace RadioCrcinit{    ///<CRC initial value.
+        using Addr = Register::Address<0x4000153c,0xff000000,0x00000000,unsigned>;
         ///Initial value for CRC calculation. Decision point: START task.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> crcinit{}; 
     }
-    namespace Nonetest{    ///<Test features enable register.
-        using Addr = Register::Address<0x40001540,0xfffffffc,0,unsigned>;
+    namespace RadioTest{    ///<Test features enable register.
+        using Addr = Register::Address<0x40001540,0xfffffffc,0x00000000,unsigned>;
         ///Constant carrier. Decision point: TXEN task.
         enum class ConstcarrierVal {
             disabled=0x00000000,     ///<Constant carrier disabled.
@@ -653,18 +653,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(plllock)::Type,PlllockVal::enabled> enabled{};
         }
     }
-    namespace Nonetifs{    ///<Inter Frame Spacing in microseconds.
-        using Addr = Register::Address<0x40001544,0xffffff00,0,unsigned>;
+    namespace RadioTifs{    ///<Inter Frame Spacing in microseconds.
+        using Addr = Register::Address<0x40001544,0xffffff00,0x00000000,unsigned>;
         ///Inter frame spacing in microseconds. Decision point: START rask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tifs{}; 
     }
-    namespace Nonerssisample{    ///<RSSI sample.
-        using Addr = Register::Address<0x40001548,0xffffff80,0,unsigned>;
+    namespace RadioRssisample{    ///<RSSI sample.
+        using Addr = Register::Address<0x40001548,0xffffff80,0x00000000,unsigned>;
         ///RSSI sample result. The result is read as a positive value so that ReceivedSignalStrength = -RSSISAMPLE dBm
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rssisample{}; 
     }
-    namespace Nonestate{    ///<Current radio state.
-        using Addr = Register::Address<0x40001550,0xfffffff0,0,unsigned>;
+    namespace RadioState{    ///<Current radio state.
+        using Addr = Register::Address<0x40001550,0xfffffff0,0x00000000,unsigned>;
         ///Current radio state.
         enum class StateVal {
             disabled=0x00000000,     ///<Radio is in the Disabled state.
@@ -690,80 +690,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::txdisable> txdisable{};
         }
     }
-    namespace Nonedatawhiteiv{    ///<Data whitening initial value.
-        using Addr = Register::Address<0x40001554,0xffffff80,0,unsigned>;
+    namespace RadioDatawhiteiv{    ///<Data whitening initial value.
+        using Addr = Register::Address<0x40001554,0xffffff80,0x00000000,unsigned>;
         ///Data whitening initial value. Bit 0 corresponds to Position 0 of the LSFR, Bit 1 to position 5... Decision point: TXEN or RXEN task.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> datawhiteiv{}; 
     }
-    namespace Nonebcc{    ///<Bit counter compare.
-        using Addr = Register::Address<0x40001560,0xffffffff,0,unsigned>;
+    namespace RadioBcc{    ///<Bit counter compare.
+        using Addr = Register::Address<0x40001560,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonedab0{    ///<Device address base segment.
-        using Addr = Register::Address<0x40001600,0xffffffff,0,unsigned>;
-    }
-    namespace Nonedab1{    ///<Device address base segment.
-        using Addr = Register::Address<0x40001604,0xffffffff,0,unsigned>;
-    }
-    namespace Nonedab2{    ///<Device address base segment.
-        using Addr = Register::Address<0x40001608,0xffffffff,0,unsigned>;
-    }
-    namespace Nonedab3{    ///<Device address base segment.
-        using Addr = Register::Address<0x4000160c,0xffffffff,0,unsigned>;
-    }
-    namespace Nonedab4{    ///<Device address base segment.
-        using Addr = Register::Address<0x40001610,0xffffffff,0,unsigned>;
-    }
-    namespace Nonedab5{    ///<Device address base segment.
-        using Addr = Register::Address<0x40001614,0xffffffff,0,unsigned>;
-    }
-    namespace Nonedab6{    ///<Device address base segment.
-        using Addr = Register::Address<0x40001618,0xffffffff,0,unsigned>;
-    }
-    namespace Nonedab7{    ///<Device address base segment.
-        using Addr = Register::Address<0x4000161c,0xffffffff,0,unsigned>;
-    }
-    namespace Nonedap0{    ///<Device address prefix.
-        using Addr = Register::Address<0x40001620,0xffff0000,0,unsigned>;
-        ///Device address prefix.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
-    }
-    namespace Nonedap1{    ///<Device address prefix.
-        using Addr = Register::Address<0x40001624,0xffff0000,0,unsigned>;
-        ///Device address prefix.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
-    }
-    namespace Nonedap2{    ///<Device address prefix.
-        using Addr = Register::Address<0x40001628,0xffff0000,0,unsigned>;
-        ///Device address prefix.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
-    }
-    namespace Nonedap3{    ///<Device address prefix.
-        using Addr = Register::Address<0x4000162c,0xffff0000,0,unsigned>;
-        ///Device address prefix.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
-    }
-    namespace Nonedap4{    ///<Device address prefix.
-        using Addr = Register::Address<0x40001630,0xffff0000,0,unsigned>;
-        ///Device address prefix.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
-    }
-    namespace Nonedap5{    ///<Device address prefix.
-        using Addr = Register::Address<0x40001634,0xffff0000,0,unsigned>;
-        ///Device address prefix.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
-    }
-    namespace Nonedap6{    ///<Device address prefix.
-        using Addr = Register::Address<0x40001638,0xffff0000,0,unsigned>;
-        ///Device address prefix.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
-    }
-    namespace Nonedap7{    ///<Device address prefix.
-        using Addr = Register::Address<0x4000163c,0xffff0000,0,unsigned>;
-        ///Device address prefix.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
-    }
-    namespace Nonedacnf{    ///<Device address match configuration.
-        using Addr = Register::Address<0x40001640,0xffff0000,0,unsigned>;
+    namespace RadioDacnf{    ///<Device address match configuration.
+        using Addr = Register::Address<0x40001640,0xffff0000,0x00000000,unsigned>;
         ///Enable or disable device address matching using device address 0.
         enum class Ena0Val {
             disabled=0x00000000,     ///<Disabled.
@@ -861,28 +797,28 @@ namespace Kvasir {
         ///TxAdd for device address 7.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> txadd7{}; 
     }
-    namespace Noneoverride0{    ///<Trim value override register 0.
-        using Addr = Register::Address<0x40001724,0x00000000,0,unsigned>;
+    namespace RadioOverride0{    ///<Trim value override register 0.
+        using Addr = Register::Address<0x40001724,0x00000000,0x00000000,unsigned>;
         ///Trim value override 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> override0{}; 
     }
-    namespace Noneoverride1{    ///<Trim value override register 1.
-        using Addr = Register::Address<0x40001728,0x00000000,0,unsigned>;
+    namespace RadioOverride1{    ///<Trim value override register 1.
+        using Addr = Register::Address<0x40001728,0x00000000,0x00000000,unsigned>;
         ///Trim value override 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> override1{}; 
     }
-    namespace Noneoverride2{    ///<Trim value override register 2.
-        using Addr = Register::Address<0x4000172c,0x00000000,0,unsigned>;
+    namespace RadioOverride2{    ///<Trim value override register 2.
+        using Addr = Register::Address<0x4000172c,0x00000000,0x00000000,unsigned>;
         ///Trim value override 2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> override2{}; 
     }
-    namespace Noneoverride3{    ///<Trim value override register 3.
-        using Addr = Register::Address<0x40001730,0x00000000,0,unsigned>;
+    namespace RadioOverride3{    ///<Trim value override register 3.
+        using Addr = Register::Address<0x40001730,0x00000000,0x00000000,unsigned>;
         ///Trim value override 3.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> override3{}; 
     }
-    namespace Noneoverride4{    ///<Trim value override register 4.
-        using Addr = Register::Address<0x40001734,0x70000000,0,unsigned>;
+    namespace RadioOverride4{    ///<Trim value override register 4.
+        using Addr = Register::Address<0x40001734,0x70000000,0x00000000,unsigned>;
         ///Trim value override 4.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> override4{}; 
         ///Enable or disable override of default trim values.
@@ -896,8 +832,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x40001ffc,0xfffffffe,0,unsigned>;
+    namespace RadioPower{    ///<Peripheral power control.
+        using Addr = Register::Address<0x40001ffc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.
@@ -908,5 +844,69 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
         }
+    }
+    namespace RadioDab0{    ///<Device address base segment.
+        using Addr = Register::Address<0x40001600,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace RadioDab1{    ///<Device address base segment.
+        using Addr = Register::Address<0x40001604,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace RadioDab2{    ///<Device address base segment.
+        using Addr = Register::Address<0x40001608,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace RadioDab3{    ///<Device address base segment.
+        using Addr = Register::Address<0x4000160c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace RadioDab4{    ///<Device address base segment.
+        using Addr = Register::Address<0x40001610,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace RadioDab5{    ///<Device address base segment.
+        using Addr = Register::Address<0x40001614,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace RadioDab6{    ///<Device address base segment.
+        using Addr = Register::Address<0x40001618,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace RadioDab7{    ///<Device address base segment.
+        using Addr = Register::Address<0x4000161c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace RadioDap0{    ///<Device address prefix.
+        using Addr = Register::Address<0x40001620,0xffff0000,0x00000000,unsigned>;
+        ///Device address prefix.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+    }
+    namespace RadioDap1{    ///<Device address prefix.
+        using Addr = Register::Address<0x40001624,0xffff0000,0x00000000,unsigned>;
+        ///Device address prefix.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+    }
+    namespace RadioDap2{    ///<Device address prefix.
+        using Addr = Register::Address<0x40001628,0xffff0000,0x00000000,unsigned>;
+        ///Device address prefix.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+    }
+    namespace RadioDap3{    ///<Device address prefix.
+        using Addr = Register::Address<0x4000162c,0xffff0000,0x00000000,unsigned>;
+        ///Device address prefix.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+    }
+    namespace RadioDap4{    ///<Device address prefix.
+        using Addr = Register::Address<0x40001630,0xffff0000,0x00000000,unsigned>;
+        ///Device address prefix.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+    }
+    namespace RadioDap5{    ///<Device address prefix.
+        using Addr = Register::Address<0x40001634,0xffff0000,0x00000000,unsigned>;
+        ///Device address prefix.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+    }
+    namespace RadioDap6{    ///<Device address prefix.
+        using Addr = Register::Address<0x40001638,0xffff0000,0x00000000,unsigned>;
+        ///Device address prefix.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+    }
+    namespace RadioDap7{    ///<Device address prefix.
+        using Addr = Register::Address<0x4000163c,0xffff0000,0x00000000,unsigned>;
+        ///Device address prefix.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
     }
 }

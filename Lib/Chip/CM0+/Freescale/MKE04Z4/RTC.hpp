@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Real-time counter
     namespace RtcSc{    ///<RTC Status and Control Register
-        using Addr = Register::Address<0x4003d000,0xffff382f,0,unsigned>;
+        using Addr = Register::Address<0x4003d000,0xffff382f,0x00000000,unsigned>;
         ///Real-Time Counter Output
         enum class RtcoVal {
             v0=0x00000000,     ///<Real-time counter output disabled.
@@ -72,13 +72,13 @@ namespace Kvasir {
         }
     }
     namespace RtcMod{    ///<RTC Modulo Register
-        using Addr = Register::Address<0x4003d004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003d004,0xffff0000,0x00000000,unsigned>;
         ///RTC Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
     }
     namespace RtcCnt{    ///<RTC Counter Register
-        using Addr = Register::Address<0x4003d008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003d008,0xffff0000,0x00000000,unsigned>;
         ///RTC Count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cnt{}; 
     }
 }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Inter-integrated circuit
-    namespace Nonecr1{    ///<Control register 1
-        using Addr = Register::Address<0x40005c00,0xffff4004,0,unsigned>;
+    namespace I2c3Cr1{    ///<Control register 1
+        using Addr = Register::Address<0x40005c00,0xffff4004,0x00000000,unsigned>;
         ///Software reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> swrst{}; 
         ///SMBus alert
@@ -33,8 +33,8 @@ namespace Kvasir {
         ///Peripheral enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pe{}; 
     }
-    namespace Nonecr2{    ///<Control register 2
-        using Addr = Register::Address<0x40005c04,0xffffe0c0,0,unsigned>;
+    namespace I2c3Cr2{    ///<Control register 2
+        using Addr = Register::Address<0x40005c04,0xffffe0c0,0x00000000,unsigned>;
         ///DMA last transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> last{}; 
         ///DMA requests enable
@@ -48,8 +48,8 @@ namespace Kvasir {
         ///Peripheral clock frequency
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> freq{}; 
     }
-    namespace Noneoar1{    ///<Own address register 1
-        using Addr = Register::Address<0x40005c08,0xffff7c00,0,unsigned>;
+    namespace I2c3Oar1{    ///<Own address register 1
+        using Addr = Register::Address<0x40005c08,0xffff7c00,0x00000000,unsigned>;
         ///Addressing mode (slave               mode)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> addmode{}; 
         ///Interface address
@@ -59,20 +59,20 @@ namespace Kvasir {
         ///Interface address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> add0{}; 
     }
-    namespace Noneoar2{    ///<Own address register 2
-        using Addr = Register::Address<0x40005c0c,0xffffff00,0,unsigned>;
+    namespace I2c3Oar2{    ///<Own address register 2
+        using Addr = Register::Address<0x40005c0c,0xffffff00,0x00000000,unsigned>;
         ///Interface address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> add2{}; 
         ///Dual addressing mode               enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> endual{}; 
     }
-    namespace Nonedr{    ///<Data register
-        using Addr = Register::Address<0x40005c10,0xffffff00,0,unsigned>;
+    namespace I2c3Dr{    ///<Data register
+        using Addr = Register::Address<0x40005c10,0xffffff00,0x00000000,unsigned>;
         ///8-bit data register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dr{}; 
     }
-    namespace Nonesr1{    ///<Status register 1
-        using Addr = Register::Address<0x40005c14,0xffff2020,0,unsigned>;
+    namespace I2c3Sr1{    ///<Status register 1
+        using Addr = Register::Address<0x40005c14,0xffff2020,0x00000000,unsigned>;
         ///SMBus alert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> smbalert{}; 
         ///Timeout or Tlow error
@@ -88,22 +88,22 @@ namespace Kvasir {
         ///Bus error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> berr{}; 
         ///Data register empty               (transmitters)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txe{}; 
         ///Data register not empty               (receivers)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rxne{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxne{}; 
         ///Stop detection (slave               mode)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> stopf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> stopf{}; 
         ///10-bit header sent (Master               mode)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> add10{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> add10{}; 
         ///Byte transfer finished
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> btf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> btf{}; 
         ///Address sent (master mode)/matched               (slave mode)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> addr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> addr{}; 
         ///Start bit (Master mode)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sb{}; 
     }
-    namespace Nonesr2{    ///<Status register 2
-        using Addr = Register::Address<0x40005c18,0xffff0008,0,unsigned>;
+    namespace I2c3Sr2{    ///<Status register 2
+        using Addr = Register::Address<0x40005c18,0xffff0008,0x00000000,unsigned>;
         ///acket error checking               register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> pec{}; 
         ///Dual flag (Slave mode)
@@ -121,8 +121,8 @@ namespace Kvasir {
         ///Master/slave
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> msl{}; 
     }
-    namespace Noneccr{    ///<Clock control register
-        using Addr = Register::Address<0x40005c1c,0xffff3000,0,unsigned>;
+    namespace I2c3Ccr{    ///<Clock control register
+        using Addr = Register::Address<0x40005c1c,0xffff3000,0x00000000,unsigned>;
         ///I2C master mode selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> fS{}; 
         ///Fast mode duty cycle
@@ -130,8 +130,8 @@ namespace Kvasir {
         ///Clock control register in Fast/Standard               mode (Master mode)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> ccr{}; 
     }
-    namespace Nonetrise{    ///<TRISE register
-        using Addr = Register::Address<0x40005c20,0xffffffc0,0,unsigned>;
+    namespace I2c3Trise{    ///<TRISE register
+        using Addr = Register::Address<0x40005c20,0xffffffc0,0x00000000,unsigned>;
         ///Maximum rise time in Fast/Standard mode               (Master mode)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> trise{}; 
     }

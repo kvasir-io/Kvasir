@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // peripheral BT0 
-    namespace NonepwmTmcr{    ///< register PWM_TMCR 
-        using Addr = Register::Address<0x4002500c,0xffff8080,0,unsigned>;
+    namespace Bt0PwmTmcr{    ///< register PWM_TMCR 
+        using Addr = Register::Address<0x4002500c,0xffff8080,0x00000000,unsigned>;
         /// bitfield CKS2_0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> cks20{}; 
         /// bitfield RTGEN 
@@ -23,13 +23,13 @@ namespace Kvasir {
         /// bitfield STRG 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> strg{}; 
     }
-    namespace NonepwmTmcr2{    ///< register PWM_TMCR2 
-        using Addr = Register::Address<0x40025011,0xfffffffe,0,unsigned char>;
+    namespace Bt0PwmTmcr2{    ///< register PWM_TMCR2 
+        using Addr = Register::Address<0x40025011,0xfffffffe,0x00000000,unsigned char>;
         /// bitfield CKS3 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cks3{}; 
     }
-    namespace NonepwmStc{    ///< register PWM_STC 
-        using Addr = Register::Address<0x40025010,0xffffff88,0,unsigned char>;
+    namespace Bt0PwmStc{    ///< register PWM_STC 
+        using Addr = Register::Address<0x40025010,0xffffff88,0x00000000,unsigned char>;
         /// bitfield TGIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tgie{}; 
         /// bitfield DTIE 
@@ -43,17 +43,17 @@ namespace Kvasir {
         /// bitfield UDIR 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> udir{}; 
     }
-    namespace NonepwmPcsr{    ///< register PWM_PCSR 
-        using Addr = Register::Address<0x40025000,0xffffffff,0,unsigned>;
+    namespace Bt0PwmPcsr{    ///< register PWM_PCSR 
+        using Addr = Register::Address<0x40025000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonepwmPdut{    ///< register PWM_PDUT 
-        using Addr = Register::Address<0x40025004,0xffffffff,0,unsigned>;
+    namespace Bt0PwmPdut{    ///< register PWM_PDUT 
+        using Addr = Register::Address<0x40025004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonepwmTmr{    ///< register PWM_TMR 
-        using Addr = Register::Address<0x40025008,0xffffffff,0,unsigned>;
+    namespace Bt0PwmTmr{    ///< register PWM_TMR 
+        using Addr = Register::Address<0x40025008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneppgTmcr{    ///< register PPG_TMCR 
-        using Addr = Register::Address<0x4002500c,0xffff8080,0,unsigned>;
+    namespace Bt0PpgTmcr{    ///< register PPG_TMCR 
+        using Addr = Register::Address<0x4002500c,0xffff8080,0x00000000,unsigned>;
         /// bitfield CKS2_0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> cks20{}; 
         /// bitfield RTGEN 
@@ -73,13 +73,13 @@ namespace Kvasir {
         /// bitfield STRG 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> strg{}; 
     }
-    namespace NoneppgTmcr2{    ///< register PPG_TMCR2 
-        using Addr = Register::Address<0x40025011,0xfffffffd,0,unsigned char>;
+    namespace Bt0PpgTmcr2{    ///< register PPG_TMCR2 
+        using Addr = Register::Address<0x40025011,0xfffffffd,0x00000000,unsigned char>;
         /// bitfield CKS3 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cks3{}; 
     }
-    namespace NoneppgStc{    ///< register PPG_STC 
-        using Addr = Register::Address<0x40025010,0xffffffaa,0,unsigned char>;
+    namespace Bt0PpgStc{    ///< register PPG_STC 
+        using Addr = Register::Address<0x40025010,0xffffffaa,0x00000000,unsigned char>;
         /// bitfield TGIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tgie{}; 
         /// bitfield UDIE 
@@ -89,17 +89,17 @@ namespace Kvasir {
         /// bitfield UDIR 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> udir{}; 
     }
-    namespace NoneppgPrll{    ///< register PPG_PRLL 
-        using Addr = Register::Address<0x40025000,0xffffffff,0,unsigned>;
+    namespace Bt0PpgPrll{    ///< register PPG_PRLL 
+        using Addr = Register::Address<0x40025000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneppgPrlh{    ///< register PPG_PRLH 
-        using Addr = Register::Address<0x40025004,0xffffffff,0,unsigned>;
+    namespace Bt0PpgPrlh{    ///< register PPG_PRLH 
+        using Addr = Register::Address<0x40025004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneppgTmr{    ///< register PPG_TMR 
-        using Addr = Register::Address<0x40025008,0xffffffff,0,unsigned>;
+    namespace Bt0PpgTmr{    ///< register PPG_TMR 
+        using Addr = Register::Address<0x40025008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonertTmcr{    ///< register RT_TMCR 
-        using Addr = Register::Address<0x4002500c,0xffff8c00,0,unsigned>;
+    namespace Bt0RtTmcr{    ///< register RT_TMCR 
+        using Addr = Register::Address<0x4002500c,0xffff8c00,0x00000000,unsigned>;
         /// bitfield CKS2_0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> cks20{}; 
         /// bitfield EGS 
@@ -117,13 +117,13 @@ namespace Kvasir {
         /// bitfield STRG 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> strg{}; 
     }
-    namespace NonertTmcr2{    ///< register RT_TMCR2 
-        using Addr = Register::Address<0x40025011,0xfffffffe,0,unsigned char>;
+    namespace Bt0RtTmcr2{    ///< register RT_TMCR2 
+        using Addr = Register::Address<0x40025011,0xfffffffe,0x00000000,unsigned char>;
         /// bitfield CKS3 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cks3{}; 
     }
-    namespace NonertStc{    ///< register RT_STC 
-        using Addr = Register::Address<0x40025010,0xffffffaa,0,unsigned char>;
+    namespace Bt0RtStc{    ///< register RT_STC 
+        using Addr = Register::Address<0x40025010,0xffffffaa,0x00000000,unsigned char>;
         /// bitfield TGIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tgie{}; 
         /// bitfield UDIE 
@@ -133,14 +133,14 @@ namespace Kvasir {
         /// bitfield UDIR 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> udir{}; 
     }
-    namespace NonertPcsr{    ///< register RT_PCSR 
-        using Addr = Register::Address<0x40025000,0xffffffff,0,unsigned>;
+    namespace Bt0RtPcsr{    ///< register RT_PCSR 
+        using Addr = Register::Address<0x40025000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonertTmr{    ///< register RT_TMR 
-        using Addr = Register::Address<0x40025008,0xffffffff,0,unsigned>;
+    namespace Bt0RtTmr{    ///< register RT_TMR 
+        using Addr = Register::Address<0x40025008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonepwcTmcr{    ///< register PWC_TMCR 
-        using Addr = Register::Address<0x4002500c,0xffff8809,0,unsigned>;
+    namespace Bt0PwcTmcr{    ///< register PWC_TMCR 
+        using Addr = Register::Address<0x4002500c,0xffff8809,0x00000000,unsigned>;
         /// bitfield CKS2_0 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> cks20{}; 
         /// bitfield EGS 
@@ -154,25 +154,25 @@ namespace Kvasir {
         /// bitfield CTEN 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cten{}; 
     }
-    namespace NonepwcTmcr2{    ///< register PWC_TMCR2 
-        using Addr = Register::Address<0x40025011,0xfffffffe,0,unsigned char>;
+    namespace Bt0PwcTmcr2{    ///< register PWC_TMCR2 
+        using Addr = Register::Address<0x40025011,0xfffffffe,0x00000000,unsigned char>;
         /// bitfield CKS3 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cks3{}; 
     }
-    namespace NonepwcStc{    ///< register PWC_STC 
-        using Addr = Register::Address<0x40025010,0xffffff2a,0,unsigned char>;
+    namespace Bt0PwcStc{    ///< register PWC_STC 
+        using Addr = Register::Address<0x40025010,0xffffff2a,0x00000000,unsigned char>;
         /// bitfield ERR 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> err{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> err{}; 
         /// bitfield EDIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> edie{}; 
         /// bitfield OVIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ovie{}; 
         /// bitfield EDIR 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> edir{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> edir{}; 
         /// bitfield OVIR 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ovir{}; 
     }
-    namespace NonepwcDtbf{    ///< register PWC_DTBF 
-        using Addr = Register::Address<0x40025004,0xffffffff,0,unsigned>;
+    namespace Bt0PwcDtbf{    ///< register PWC_DTBF 
+        using Addr = Register::Address<0x40025004,0xffffffff,0x00000000,unsigned>;
     }
 }

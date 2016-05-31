@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4004b000,0x00700000,0,unsigned>;
+    namespace Dtm1Control{    ///<Module Control
+        using Addr = Register::Address<0x4004b000,0x00700000,0x00000000,unsigned>;
         ///Active State Counter. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> stcount{}; 
         ///Active State. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> st{}; 
         ///Last State. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> lastst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lastst{}; 
         ///Inhibit Signal Select. 
         enum class InhsselVal {
             dtmninh0=0x00000000,     ///<Select inhibit signal source DTMnINH.0.
@@ -63,7 +63,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The inhibit signal is inactive.
             set=0x00000001,     ///<The inhibit signal is active.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,InhfVal> inhf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,InhfVal> inhf{}; 
         namespace InhfValC{
             constexpr Register::FieldValue<decltype(inhf)::Type,InhfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(inhf)::Type,InhfVal::set> set{};
@@ -73,7 +73,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The destination peripheral did not request a DMA transfer.
             set=0x00000001,     ///<The destination peripheral requested a DMA transfer.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,DstreqfVal> dstreqf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DstreqfVal> dstreqf{}; 
         namespace DstreqfValC{
             constexpr Register::FieldValue<decltype(dstreqf)::Type,DstreqfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dstreqf)::Type,DstreqfVal::set> set{};
@@ -83,7 +83,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The source peripheral did not request a DMA transfer.
             set=0x00000001,     ///<The source peripheral requested a DMA transfer.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,SrcreqfVal> srcreqf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SrcreqfVal> srcreqf{}; 
         namespace SrcreqfValC{
             constexpr Register::FieldValue<decltype(srcreqf)::Type,SrcreqfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(srcreqf)::Type,SrcreqfVal::set> set{};
@@ -139,31 +139,31 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtmen)::Type,DtmenVal::enabled> enabled{};
         }
     }
-    namespace Nonetimeout{    ///<Module Timeout
-        using Addr = Register::Address<0x4004b010,0x00000000,0,unsigned>;
+    namespace Dtm1Timeout{    ///<Module Timeout
+        using Addr = Register::Address<0x4004b010,0x00000000,0x00000000,unsigned>;
         ///Timeout Counter Reload. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> toreload{}; 
         ///Timeout Counter. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> tocount{}; 
     }
-    namespace Nonemstcount{    ///<Master Counter
-        using Addr = Register::Address<0x4004b020,0xffff0000,0,unsigned>;
+    namespace Dtm1Mstcount{    ///<Master Counter
+        using Addr = Register::Address<0x4004b020,0xffff0000,0x00000000,unsigned>;
         ///Master Counter. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mstcount{}; 
     }
-    namespace Nonestateaddr{    ///<State Address
-        using Addr = Register::Address<0x4004b030,0x00000003,0,unsigned>;
+    namespace Dtm1Stateaddr{    ///<State Address
+        using Addr = Register::Address<0x4004b030,0x00000003,0x00000000,unsigned>;
         ///State Address. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> stateaddr{}; 
     }
-    namespace Nonestate{    ///<Active DTM State
-        using Addr = Register::Address<0x4004b040,0x00000000,0,unsigned>;
+    namespace Dtm1State{    ///<Active DTM State
+        using Addr = Register::Address<0x4004b040,0x00000000,0x00000000,unsigned>;
         ///Active State Counter Reload. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> streload{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> streload{}; 
         ///Secondary State. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> secst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> secst{}; 
         ///Primary State. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> prist{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> prist{}; 
         ///Destination Module. 
         enum class DstmodVal {
             dtmndst0=0x00000000,     ///<Select destination module DTMnDST.0.
@@ -183,7 +183,7 @@ namespace Kvasir {
             dtmndst14=0x0000000e,     ///<Select destination module DTMnDST.14.
             dtmndst15=0x0000000f,     ///<Select no destination module (DTMnDST.15).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,DstmodVal> dstmod{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DstmodVal> dstmod{}; 
         namespace DstmodValC{
             constexpr Register::FieldValue<decltype(dstmod)::Type,DstmodVal::dtmndst0> dtmndst0{};
             constexpr Register::FieldValue<decltype(dstmod)::Type,DstmodVal::dtmndst1> dtmndst1{};
@@ -221,7 +221,7 @@ namespace Kvasir {
             dtmnsrc14=0x0000000e,     ///<Select source module DTMnSRC.14.
             dtmnsrc15=0x0000000f,     ///<Select no source module (DTMnSRC.15).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,SrcmodVal> srcmod{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SrcmodVal> srcmod{}; 
         namespace SrcmodValC{
             constexpr Register::FieldValue<decltype(srcmod)::Type,SrcmodVal::dtmnsrc0> dtmnsrc0{};
             constexpr Register::FieldValue<decltype(srcmod)::Type,SrcmodVal::dtmnsrc1> dtmnsrc1{};
@@ -247,7 +247,7 @@ namespace Kvasir {
             chC=0x00000002,     ///<Select DTMn channel C for this state.
             chD=0x00000003,     ///<Select DTMn channel D for this state.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,DtmchselVal> dtmchsel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DtmchselVal> dtmchsel{}; 
         namespace DtmchselValC{
             constexpr Register::FieldValue<decltype(dtmchsel)::Type,DtmchselVal::chA> chA{};
             constexpr Register::FieldValue<decltype(dtmchsel)::Type,DtmchselVal::chB> chB{};
@@ -259,7 +259,7 @@ namespace Kvasir {
             activeLow=0x00000000,     ///<A logic low on the pin selected by INHSEL will allow the DTM to proceed.
             activeHigh=0x00000001,     ///<A logic high on the pin selected by INHSEL will allow the DTM to proceed.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,InhspolVal> inhspol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,InhspolVal> inhspol{}; 
         namespace InhspolValC{
             constexpr Register::FieldValue<decltype(inhspol)::Type,InhspolVal::activeLow> activeLow{};
             constexpr Register::FieldValue<decltype(inhspol)::Type,InhspolVal::activeHigh> activeHigh{};
@@ -269,7 +269,7 @@ namespace Kvasir {
             inactive=0x00000000,     ///<The DTM module does not ignore any DMA requests.
             active=0x00000001,     ///<The DTM module ignores all DMA requests until the inhibit signal selected by INHSSEL matches the polarity polarity set by INHSPOL.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,DtminhVal> dtminh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DtminhVal> dtminh{}; 
         namespace DtminhValC{
             constexpr Register::FieldValue<decltype(dtminh)::Type,DtminhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(dtminh)::Type,DtminhVal::active> active{};
@@ -279,7 +279,7 @@ namespace Kvasir {
             disabled=0x00000000,     ///<Disable master counter decrements.
             enabled=0x00000001,     ///<Enable master counter decrements.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,MstdecenVal> mstdecen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,MstdecenVal> mstdecen{}; 
         namespace MstdecenValC{
             constexpr Register::FieldValue<decltype(mstdecen)::Type,MstdecenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mstdecen)::Type,MstdecenVal::enabled> enabled{};
@@ -289,7 +289,7 @@ namespace Kvasir {
             disabled=0x00000000,     ///<Disable timeouts and timeout interrupts.
             enabled=0x00000001,     ///<Enable timeouts and timeout interrupts.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,ToerrienVal> toerrien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ToerrienVal> toerrien{}; 
         namespace ToerrienValC{
             constexpr Register::FieldValue<decltype(toerrien)::Type,ToerrienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(toerrien)::Type,ToerrienVal::enabled> enabled{};
@@ -299,7 +299,7 @@ namespace Kvasir {
             disabled=0x00000000,     ///<Disable secondary state transition interrupts.
             enabled=0x00000001,     ///<Enable secondary state transition interrupts.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,SecstienVal> secstien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SecstienVal> secstien{}; 
         namespace SecstienValC{
             constexpr Register::FieldValue<decltype(secstien)::Type,SecstienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(secstien)::Type,SecstienVal::enabled> enabled{};
@@ -309,7 +309,7 @@ namespace Kvasir {
             disabled=0x00000000,     ///<Disable primary state transition interrupts.
             enabled=0x00000001,     ///<Enable primary state transition interrupts.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,PristienVal> pristien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PristienVal> pristien{}; 
         namespace PristienValC{
             constexpr Register::FieldValue<decltype(pristien)::Type,PristienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pristien)::Type,PristienVal::enabled> enabled{};

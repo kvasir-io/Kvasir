@@ -1,29 +1,29 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Synchronous Serial Interface
     namespace I2s0Tx0{    ///<I2S Transmit Data Registers 0
-        using Addr = Register::Address<0x4002f000,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f000,0x00000000,0x00000000,unsigned>;
         ///I2S transmit data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tx0{}; 
     }
     namespace I2s0Tx1{    ///<I2S Transmit Data Registers 1
-        using Addr = Register::Address<0x4002f004,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f004,0x00000000,0x00000000,unsigned>;
         ///I2S transmit data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tx1{}; 
     }
     namespace I2s0Rx0{    ///<I2S Receive Data Registers 0
-        using Addr = Register::Address<0x4002f008,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f008,0x00000000,0x00000000,unsigned>;
         ///I2S Receive Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rx0{}; 
     }
     namespace I2s0Rx1{    ///<I2S Receive Data Registers 1
-        using Addr = Register::Address<0x4002f00c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f00c,0x00000000,0x00000000,unsigned>;
         ///I2S Receive Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rx1{}; 
     }
     namespace I2s0Cr{    ///<I2S Control Register
-        using Addr = Register::Address<0x4002f010,0xffffe000,0,unsigned>;
+        using Addr = Register::Address<0x4002f010,0xffffe000,0x00000000,unsigned>;
         ///I2S Enable.
         enum class I2senVal {
             v0=0x00000000,     ///<I2S is disabled.
@@ -150,13 +150,13 @@ namespace Kvasir {
         }
     }
     namespace I2s0Isr{    ///<I2S Interrupt Status Register
-        using Addr = Register::Address<0x4002f014,0xfe780000,0,unsigned>;
+        using Addr = Register::Address<0x4002f014,0xfe780000,0x00000000,unsigned>;
         ///Transmit FIFO Empty 0.
         enum class Tfe0Val {
             v0=0x00000000,     ///<Transmit FIFO0 has data for transmission.
             v1=0x00000001,     ///<Transmit FIFO0 is empty.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tfe0Val> tfe0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Tfe0Val> tfe0{}; 
         namespace Tfe0ValC{
             constexpr Register::FieldValue<decltype(tfe0)::Type,Tfe0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tfe0)::Type,Tfe0Val::v1> v1{};
@@ -166,7 +166,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Transmit FIFO1 has data for transmission.
             v1=0x00000001,     ///<Transmit FIFO1 is empty.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Tfe1Val> tfe1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Tfe1Val> tfe1{}; 
         namespace Tfe1ValC{
             constexpr Register::FieldValue<decltype(tfe1)::Type,Tfe1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tfe1)::Type,Tfe1Val::v1> v1{};
@@ -176,7 +176,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Space available in receive FIFO0.
             v1=0x00000001,     ///<Receive FIFO0 is full.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Rff0Val> rff0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rff0Val> rff0{}; 
         namespace Rff0ValC{
             constexpr Register::FieldValue<decltype(rff0)::Type,Rff0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rff0)::Type,Rff0Val::v1> v1{};
@@ -186,7 +186,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Space available in receive FIFO1.
             v1=0x00000001,     ///<Receive FIFO1 is full.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Rff1Val> rff1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rff1Val> rff1{}; 
         namespace Rff1ValC{
             constexpr Register::FieldValue<decltype(rff1)::Type,Rff1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rff1)::Type,Rff1Val::v1> v1{};
@@ -196,7 +196,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Current time slot is not last time slot of frame.
             v1=0x00000001,     ///<Current time slot is the last receive time slot of frame.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RlsVal> rls{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RlsVal> rls{}; 
         namespace RlsValC{
             constexpr Register::FieldValue<decltype(rls)::Type,RlsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rls)::Type,RlsVal::v1> v1{};
@@ -206,7 +206,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Current time slot is not last time slot of frame.
             v1=0x00000001,     ///<Current time slot is the last transmit time slot of frame.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TlsVal> tls{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TlsVal> tls{}; 
         namespace TlsValC{
             constexpr Register::FieldValue<decltype(tls)::Type,TlsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tls)::Type,TlsVal::v1> v1{};
@@ -216,7 +216,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No occurrence of receive frame sync.
             v1=0x00000001,     ///<Receive frame sync occurred during reception of next word in RX registers.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,RfsVal> rfs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RfsVal> rfs{}; 
         namespace RfsValC{
             constexpr Register::FieldValue<decltype(rfs)::Type,RfsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rfs)::Type,RfsVal::v1> v1{};
@@ -226,7 +226,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No occurrence of transmit frame sync.
             v1=0x00000001,     ///<Transmit frame sync occurred during transmission of last word written to TX registers.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TfsVal> tfs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TfsVal> tfs{}; 
         namespace TfsValC{
             constexpr Register::FieldValue<decltype(tfs)::Type,TfsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tfs)::Type,TfsVal::v1> v1{};
@@ -276,7 +276,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Data available for transmission.
             v1=0x00000001,     ///<Data needs to be written by the core for transmission.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tde0Val> tde0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Tde0Val> tde0{}; 
         namespace Tde0ValC{
             constexpr Register::FieldValue<decltype(tde0)::Type,Tde0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tde0)::Type,Tde0Val::v1> v1{};
@@ -286,7 +286,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Data available for transmission.
             v1=0x00000001,     ///<Data needs to be written by the core for transmission.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Tde1Val> tde1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Tde1Val> tde1{}; 
         namespace Tde1ValC{
             constexpr Register::FieldValue<decltype(tde1)::Type,Tde1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tde1)::Type,Tde1Val::v1> v1{};
@@ -296,7 +296,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No new data for core to read.
             v1=0x00000001,     ///<New data for core to read.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Rdr0Val> rdr0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rdr0Val> rdr0{}; 
         namespace Rdr0ValC{
             constexpr Register::FieldValue<decltype(rdr0)::Type,Rdr0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rdr0)::Type,Rdr0Val::v1> v1{};
@@ -306,7 +306,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No new data for core to read.
             v1=0x00000001,     ///<New data for core to read.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Rdr1Val> rdr1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rdr1Val> rdr1{}; 
         namespace Rdr1ValC{
             constexpr Register::FieldValue<decltype(rdr1)::Type,Rdr1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rdr1)::Type,Rdr1Val::v1> v1{};
@@ -316,7 +316,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No change in ATAG register.
             v1=0x00000001,     ///<ATAG register updated with different value.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,RxtVal> rxt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxtVal> rxt{}; 
         namespace RxtValC{
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::v1> v1{};
@@ -326,7 +326,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No change in ACDAT register.
             v1=0x00000001,     ///<ACDAT register updated with different value.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,CmdduVal> cmddu{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CmdduVal> cmddu{}; 
         namespace CmdduValC{
             constexpr Register::FieldValue<decltype(cmddu)::Type,CmdduVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cmddu)::Type,CmdduVal::v1> v1{};
@@ -336,7 +336,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No change in ACADD register.
             v1=0x00000001,     ///<ACADD register updated with different value.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,CmdauVal> cmdau{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CmdauVal> cmdau{}; 
         namespace CmdauValC{
             constexpr Register::FieldValue<decltype(cmdau)::Type,CmdauVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cmdau)::Type,CmdauVal::v1> v1{};
@@ -363,7 +363,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Ier{    ///<I2S Interrupt Enable Register
-        using Addr = Register::Address<0x4002f018,0xfe000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f018,0xfe000000,0x00000000,unsigned>;
         ///Enable Bit.
         enum class Tfe0enVal {
             v0=0x00000000,     ///<Corresponding status bit cannot issue interrupt.
@@ -616,7 +616,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Tcr{    ///<I2S Transmit Configuration Register
-        using Addr = Register::Address<0x4002f01c,0xfffffc00,0,unsigned>;
+        using Addr = Register::Address<0x4002f01c,0xfffffc00,0x00000000,unsigned>;
         ///Transmit Early Frame Sync.
         enum class TefsVal {
             v0=0x00000000,     ///<Transmit frame sync initiated as the first bit of data is transmitted.
@@ -719,7 +719,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Rcr{    ///<I2S Receive Configuration Register
-        using Addr = Register::Address<0x4002f020,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0x4002f020,0xfffff800,0x00000000,unsigned>;
         ///Receive Early Frame Sync.
         enum class RefsVal {
             v0=0x00000000,     ///<Receive frame sync initiated as the first bit of data is received.
@@ -832,7 +832,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Tccr{    ///<I2S Transmit Clock Control Registers
-        using Addr = Register::Address<0x4002f024,0xfff80000,0,unsigned>;
+        using Addr = Register::Address<0x4002f024,0xfff80000,0x00000000,unsigned>;
         ///Prescaler Modulus Select.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pm{}; 
         ///Frame Rate Divider Control.
@@ -897,7 +897,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Rccr{    ///<I2S Receive Clock Control Registers
-        using Addr = Register::Address<0x4002f028,0xfff80000,0,unsigned>;
+        using Addr = Register::Address<0x4002f028,0xfff80000,0x00000000,unsigned>;
         ///Prescaler Modulus Select.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pm{}; 
         ///Frame Rate Divider Control.
@@ -962,7 +962,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Fcsr{    ///<I2S FIFO Control/Status Register
-        using Addr = Register::Address<0x4002f02c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f02c,0x00000000,0x00000000,unsigned>;
         ///Transmit FIFO Empty WaterMark 0.
         enum class Tfwm0Val {
             v0001=0x00000001,     ///<TFE set when there are more than or equal to 1 empty slots in Transmit FIFO. (default) Transmit FIFO empty is set when TxFIFO <= 14 data.
@@ -1261,7 +1261,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Acnt{    ///<I2S AC97 Control Register
-        using Addr = Register::Address<0x4002f038,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0x4002f038,0xfffff800,0x00000000,unsigned>;
         ///AC97 Mode Enable.
         enum class Ac97enVal {
             v0=0x00000000,     ///<AC97 mode disabled.
@@ -1316,43 +1316,43 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,5),Register::ReadWriteAccess,unsigned> frdiv{}; 
     }
     namespace I2s0Acadd{    ///<I2S AC97 Command Address Register
-        using Addr = Register::Address<0x4002f03c,0xfff80000,0,unsigned>;
+        using Addr = Register::Address<0x4002f03c,0xfff80000,0x00000000,unsigned>;
         ///AC97 Command Address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,0),Register::ReadWriteAccess,unsigned> acadd{}; 
     }
     namespace I2s0Acdat{    ///<I2S AC97 Command Data Register
-        using Addr = Register::Address<0x4002f040,0xfff00000,0,unsigned>;
+        using Addr = Register::Address<0x4002f040,0xfff00000,0x00000000,unsigned>;
         ///AC97 Command Data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,0),Register::ReadWriteAccess,unsigned> acdat{}; 
     }
     namespace I2s0Atag{    ///<I2S AC97 Tag Register
-        using Addr = Register::Address<0x4002f044,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4002f044,0xffff0000,0x00000000,unsigned>;
         ///AC97 Tag Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> atag{}; 
     }
     namespace I2s0Tmsk{    ///<I2S Transmit Time Slot Mask Register
-        using Addr = Register::Address<0x4002f048,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f048,0x00000000,0x00000000,unsigned>;
         ///Transmit Mask.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tmsk{}; 
     }
     namespace I2s0Rmsk{    ///<I2S Receive Time Slot Mask Register
-        using Addr = Register::Address<0x4002f04c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f04c,0x00000000,0x00000000,unsigned>;
         ///Receive Mask.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rmsk{}; 
     }
     namespace I2s0Accst{    ///<I2S AC97 Channel Status Register
-        using Addr = Register::Address<0x4002f050,0xfffffc00,0,unsigned>;
+        using Addr = Register::Address<0x4002f050,0xfffffc00,0x00000000,unsigned>;
         ///AC97 Channel Status.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> accst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> accst{}; 
     }
     namespace I2s0Accen{    ///<I2S AC97 Channel Enable Register
-        using Addr = Register::Address<0x4002f054,0xfffffc00,0,unsigned>;
+        using Addr = Register::Address<0x4002f054,0xfffffc00,0x00000000,unsigned>;
         ///AC97 Channel Enable.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> accen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> accen{}; 
     }
     namespace I2s0Accdis{    ///<I2S AC97 Channel Disable Register
-        using Addr = Register::Address<0x4002f058,0xfffffc00,0,unsigned>;
+        using Addr = Register::Address<0x4002f058,0xfffffc00,0x00000000,unsigned>;
         ///AC97 Channel Disable.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> accdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> accdis{}; 
     }
 }

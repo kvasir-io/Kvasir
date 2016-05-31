@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Peripheral Clock Gating Registers
-    namespace Nonecken0{    ///<Peripheral Function Clock Control Register 0
-        using Addr = Register::Address<0x4003c100,0xeef00000,0,unsigned>;
+    namespace PcgCken0{    ///<Peripheral Function Clock Control Register 0
+        using Addr = Register::Address<0x4003c100,0xeef00000,0x00000000,unsigned>;
         ///Software clock control of GPIO/Fast GPIO function
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> giock{}; 
         ///Supplying and gating settings of DMAC operation clock
@@ -49,8 +49,8 @@ namespace Kvasir {
         ///Settings for operation clock supply and gating to multi-function serial interface ch.0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsck0{}; 
     }
-    namespace Nonemrst0{    ///<Peripheral Function Reset Control Register 0
-        using Addr = Register::Address<0x4003c104,0xfef00000,0,unsigned>;
+    namespace PcgMrst0{    ///<Peripheral Function Reset Control Register 0
+        using Addr = Register::Address<0x4003c104,0xfef00000,0x00000000,unsigned>;
         ///Reset control of DMAC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> dmarst{}; 
         ///Reset control of A/D converter unit 3
@@ -94,8 +94,8 @@ namespace Kvasir {
         ///Control of software reset of multi-function serial interface ch.0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsrst0{}; 
     }
-    namespace Nonecken1{    ///<Peripheral Function Clock Control Register 1
-        using Addr = Register::Address<0x4003c110,0xfff0f0f0,0,unsigned>;
+    namespace PcgCken1{    ///<Peripheral Function Clock Control Register 1
+        using Addr = Register::Address<0x4003c110,0xfff0f0f0,0x00000000,unsigned>;
         ///Settings for operation clock supply and gating of quad counter unit 3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> qduck3{}; 
         ///Settings for operation clock supply and gating of quad counter unit 2
@@ -121,8 +121,8 @@ namespace Kvasir {
         ///Settings operation clock supply and gating to base timer 0/1/2/3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> btmck0{}; 
     }
-    namespace Nonemrst1{    ///<Peripheral Function Reset Control Register 1
-        using Addr = Register::Address<0x4003c114,0xfff0f0f0,0,unsigned>;
+    namespace PcgMrst1{    ///<Peripheral Function Reset Control Register 1
+        using Addr = Register::Address<0x4003c114,0xfff0f0f0,0x00000000,unsigned>;
         ///Reset control of quad counter unit 3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> qdurst3{}; 
         ///Reset control of quad counter unit 2
@@ -148,15 +148,15 @@ namespace Kvasir {
         ///Reset control of base timer 0/1/2/3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> btmrst0{}; 
     }
-    namespace Nonecken2{    ///<Peripheral Function Clock Control Register 2
-        using Addr = Register::Address<0x4003c120,0xffffffcf,0,unsigned>;
+    namespace PcgCken2{    ///<Peripheral Function Clock Control Register 2
+        using Addr = Register::Address<0x4003c120,0xffffffcf,0x00000000,unsigned>;
         ///Peripheral Function Clock Control Register 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> canck1{}; 
         ///$
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> canck0{}; 
     }
-    namespace Nonemrst2{    ///<Peripheral Function Reset Control Register 2
-        using Addr = Register::Address<0x4003c124,0xffffffcf,0,unsigned>;
+    namespace PcgMrst2{    ///<Peripheral Function Reset Control Register 2
+        using Addr = Register::Address<0x4003c124,0xffffffcf,0x00000000,unsigned>;
         ///Peripheral Function Reset Control Register 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> canrst1{}; 
         ///$

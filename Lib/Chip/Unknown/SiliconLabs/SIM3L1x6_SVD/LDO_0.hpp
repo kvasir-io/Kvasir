@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Control
-        using Addr = Register::Address<0x40039000,0xff808080,0,unsigned>;
+    namespace Ldo0Control{    ///<Control
+        using Addr = Register::Address<0x40039000,0xff808080,0x00000000,unsigned>;
         ///Analog LDO Output Value Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> aldooval{}; 
         ///Analog LDO Bias Select. 

@@ -1,30 +1,46 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Liquid Crystal Display Controller
     namespace LcdcLssar{    ///<LCDC screen start address register
-        using Addr = Register::Address<0x400b6000,0x00000003,0,unsigned>;
+        using Addr = Register::Address<0x400b6000,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Screen start address of LCD panel
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ssa{}; 
     }
     namespace LcdcLsr{    ///<LCDC size register
-        using Addr = Register::Address<0x400b6004,0xf80ffc00,0,unsigned>;
+        using Addr = Register::Address<0x400b6004,0x00000000,0x00000000,unsigned>;
         ///Screen height
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> ymax{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Screen width divided by 16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,20),Register::ReadWriteAccess,unsigned> xmax{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLvpwr{    ///<LCDC virtual page width register
-        using Addr = Register::Address<0x400b6008,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0x400b6008,0x00000000,0x00000000,unsigned>;
         ///Virtual page width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> vpw{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLcpr{    ///<LCDC cursor position register
-        using Addr = Register::Address<0x400b600c,0x2c00fc00,0,unsigned>;
+        using Addr = Register::Address<0x400b600c,0x00000000,0x00000000,unsigned>;
         ///Cursor Y position
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> cyp{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Cursor X position
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> cxp{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Arithmetic operation control
         enum class OpVal {
             v0=0x00000000,     ///<Disable arithmetic operation
@@ -35,17 +51,25 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(op)::Type,OpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(op)::Type,OpVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Cursor control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> cc{}; 
     }
     namespace LcdcLcwhb{    ///<LCDC cursor width, height, and blink register
-        using Addr = Register::Address<0x400b6010,0x60e0ff00,0,unsigned>;
+        using Addr = Register::Address<0x400b6010,0x00000000,0x00000000,unsigned>;
         ///Blink divisor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bd{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Cursor height
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> ch{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Cursor width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> cw{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Blink enable
         enum class BkenVal {
             v0=0x00000000,     ///<Blink is disabled.
@@ -58,18 +82,22 @@ namespace Kvasir {
         }
     }
     namespace LcdcLccmr{    ///<LCDC color cursor mapping register
-        using Addr = Register::Address<0x400b6014,0xfffc0000,0,unsigned>;
+        using Addr = Register::Address<0x400b6014,0x00000000,0x00000000,unsigned>;
         ///Cursor blue field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> curColB{}; 
         ///Cursor green field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,6),Register::ReadWriteAccess,unsigned> curColG{}; 
         ///Cursor red field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,12),Register::ReadWriteAccess,unsigned> curColR{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLpcr{    ///<LCDC panel configuration register
-        using Addr = Register::Address<0x400b6018,0x00000040,0,unsigned>;
+        using Addr = Register::Address<0x400b6018,0x00000000,0x00000000,unsigned>;
         ///Pixel clock divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> pcd{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///LSCLK select
         enum class SclkselVal {
             v0=0x00000000,     ///<Disable OE and LSCLK in TFT mode when no data output.
@@ -240,30 +268,36 @@ namespace Kvasir {
         }
     }
     namespace LcdcLhcr{    ///<LCDC horizontal configuration register
-        using Addr = Register::Address<0x400b601c,0x03ff0000,0,unsigned>;
+        using Addr = Register::Address<0x400b601c,0x00000000,0x00000000,unsigned>;
         ///Wait between HSYNC and start of next line
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> hWait2{}; 
         ///Wait between OE and HSYNC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> hWait1{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Horizontal sync pulse width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> hWidth{}; 
     }
     namespace LcdcLvcr{    ///<LCDC vertical configuration register
-        using Addr = Register::Address<0x400b6020,0x03ff0000,0,unsigned>;
+        using Addr = Register::Address<0x400b6020,0x00000000,0x00000000,unsigned>;
         ///Wait between frames 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> vWait2{}; 
         ///Wait between frames 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> vWait1{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Vertical sync pulse width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> vWidth{}; 
     }
     namespace LcdcLpor{    ///<LCDC panning offset register
-        using Addr = Register::Address<0x400b6024,0xffffffe0,0,unsigned>;
+        using Addr = Register::Address<0x400b6024,0x00000000,0x00000000,unsigned>;
         ///Panning offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> pos{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLpccr{    ///<LCDC PWM contrast control register
-        using Addr = Register::Address<0x400b602c,0xffff7800,0,unsigned>;
+        using Addr = Register::Address<0x400b602c,0x00000000,0x00000000,unsigned>;
         ///Pulse-width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pw{}; 
         ///Contrast control enable
@@ -290,6 +324,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scr)::Type,ScrVal::v10> v10{};
             constexpr Register::FieldValue<decltype(scr)::Type,ScrVal::v11> v11{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///LD mask
         enum class LdmskVal {
             v0=0x00000000,     ///<LD [23:0] is normal.
@@ -300,13 +336,21 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldmsk)::Type,LdmskVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ldmsk)::Type,LdmskVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLdcr{    ///<LCDC DMA control register
-        using Addr = Register::Address<0x400b6030,0x7f80ff80,0,unsigned>;
+        using Addr = Register::Address<0x400b6030,0x00000000,0x00000000,unsigned>;
         ///DMA trigger mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> tm{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///DMA high mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> hm{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Burst length
         enum class BurstVal {
             v0=0x00000000,     ///<Burst length is dynamic.
@@ -319,7 +363,7 @@ namespace Kvasir {
         }
     }
     namespace LcdcLrmcr{    ///<LCDC refresh mode control register
-        using Addr = Register::Address<0x400b6034,0xfffffffe,0,unsigned>;
+        using Addr = Register::Address<0x400b6034,0x00000000,0x00000000,unsigned>;
         ///Self-refresh
         enum class SelfrefVal {
             v0=0x00000000,     ///<Disable self-refresh
@@ -330,9 +374,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(selfRef)::Type,SelfrefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(selfRef)::Type,SelfrefVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLicr{    ///<LCDC interrupt configuration register
-        using Addr = Register::Address<0x400b6038,0xffffffea,0,unsigned>;
+        using Addr = Register::Address<0x400b6038,0x00000000,0x00000000,unsigned>;
         ///Interrupt condition
         enum class IntconVal {
             v0=0x00000000,     ///<Interrupt flag is set when the end of frame (EOF) is reached.
@@ -343,6 +389,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intcon)::Type,IntconVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intcon)::Type,IntconVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Interrupt source
         enum class IntsynVal {
             v0=0x00000000,     ///<Interrupt flag is set on loading the last/first data of frame from memory.
@@ -353,6 +401,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intsyn)::Type,IntsynVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intsyn)::Type,IntsynVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Graphic window interrupt condition
         enum class GwintconVal {
             v0=0x00000000,     ///<Interrupt flag is set when end of graphic window is reached.
@@ -363,9 +413,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gwIntCon)::Type,GwintconVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwIntCon)::Type,GwintconVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLier{    ///<LCDC interrupt enable register
-        using Addr = Register::Address<0x400b603c,0xffffff44,0,unsigned>;
+        using Addr = Register::Address<0x400b603c,0x00000000,0x00000000,unsigned>;
         ///Beginning of frame interrupt enable
         enum class BofenVal {
             v0=0x00000000,     ///<Mask interrupt.
@@ -386,6 +438,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eofEn)::Type,EofenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eofEn)::Type,EofenVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Under run error interrupt enable
         enum class UdrerrenVal {
             v0=0x00000000,     ///<Mask interrupt.
@@ -416,6 +470,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gwEofEn)::Type,GweofenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwEofEn)::Type,GweofenVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Graphic window under run error interrupt enable
         enum class GwudrerrenVal {
             v0=0x00000000,     ///<Mask interrupt.
@@ -426,15 +482,17 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gwUdrErrEn)::Type,GwudrerrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwUdrErrEn)::Type,GwudrerrenVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLisr{    ///<LCDC interrupt status register
-        using Addr = Register::Address<0x400b6040,0xffffff44,0,unsigned>;
+        using Addr = Register::Address<0x400b6040,0x00000000,0x00000000,unsigned>;
         ///Beginning of frame
         enum class BofVal {
             v0=0x00000000,     ///<Interrupt has not occurred.
             v1=0x00000001,     ///<Interrupt has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BofVal> bof{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BofVal> bof{}; 
         namespace BofValC{
             constexpr Register::FieldValue<decltype(bof)::Type,BofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bof)::Type,BofVal::v1> v1{};
@@ -444,17 +502,19 @@ namespace Kvasir {
             v0=0x00000000,     ///<Interrupt has not occurred.
             v1=0x00000001,     ///<Interrupt has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EofVal> eof{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,EofVal> eof{}; 
         namespace EofValC{
             constexpr Register::FieldValue<decltype(eof)::Type,EofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eof)::Type,EofVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Under run error
         enum class UdrerrVal {
             v0=0x00000000,     ///<Interrupt has not occurred.
             v1=0x00000001,     ///<Interrupt has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,UdrerrVal> udrErr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,UdrerrVal> udrErr{}; 
         namespace UdrerrValC{
             constexpr Register::FieldValue<decltype(udrErr)::Type,UdrerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(udrErr)::Type,UdrerrVal::v1> v1{};
@@ -464,7 +524,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Interrupt has not occurred.
             v1=0x00000001,     ///<Interrupt has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,GwbofVal> gwBof{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,GwbofVal> gwBof{}; 
         namespace GwbofValC{
             constexpr Register::FieldValue<decltype(gwBof)::Type,GwbofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwBof)::Type,GwbofVal::v1> v1{};
@@ -474,59 +534,79 @@ namespace Kvasir {
             v0=0x00000000,     ///<Interrupt has not occurred.
             v1=0x00000001,     ///<Interrupt has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,GweofVal> gwEof{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,GweofVal> gwEof{}; 
         namespace GweofValC{
             constexpr Register::FieldValue<decltype(gwEof)::Type,GweofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwEof)::Type,GweofVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Graphic window under run error
         enum class GwudrerrVal {
             v0=0x00000000,     ///<Graphic window under run has not occurred.
             v1=0x00000001,     ///<Graphic window under run has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,GwudrerrVal> gwUdrErr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,GwudrerrVal> gwUdrErr{}; 
         namespace GwudrerrValC{
             constexpr Register::FieldValue<decltype(gwUdrErr)::Type,GwudrerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwUdrErr)::Type,GwudrerrVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLgwsar{    ///<LCDC graphic window start address register
-        using Addr = Register::Address<0x400b6050,0x00000003,0,unsigned>;
+        using Addr = Register::Address<0x400b6050,0x00000000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Graphic window start address on LCD screen
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> gwsa{}; 
     }
     namespace LcdcLgwsr{    ///<LCDC graphic window size register
-        using Addr = Register::Address<0x400b6054,0xf80ffc00,0,unsigned>;
+        using Addr = Register::Address<0x400b6054,0x00000000,0x00000000,unsigned>;
         ///Graphic window height
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> gwh{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Graphic window width divided by 16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,20),Register::ReadWriteAccess,unsigned> gww{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLgwvpwr{    ///<LCDC graphic window virtual page width register
-        using Addr = Register::Address<0x400b6058,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0x400b6058,0x00000000,0x00000000,unsigned>;
         ///Graphic window virtual page width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> gwvpw{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLgwpor{    ///<LCDC graphic window panning offset register
-        using Addr = Register::Address<0x400b605c,0xffffffe0,0,unsigned>;
+        using Addr = Register::Address<0x400b605c,0x00000000,0x00000000,unsigned>;
         ///Graphic window panning offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> gwpo{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLgwpr{    ///<LCDC graphic window position register
-        using Addr = Register::Address<0x400b6060,0xfc00fc00,0,unsigned>;
+        using Addr = Register::Address<0x400b6060,0x00000000,0x00000000,unsigned>;
         ///Graphic window Y position
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> gwyp{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Graphic window X position
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> gwxp{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace LcdcLgwcr{    ///<LCDC graphic window control register
-        using Addr = Register::Address<0x400b6064,0x001c0000,0,unsigned>;
+        using Addr = Register::Address<0x400b6064,0x00000000,0x00000000,unsigned>;
         ///Graphic window color keying blue component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> gwckb{}; 
         ///Graphic window color keying green component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,6),Register::ReadWriteAccess,unsigned> gwckg{}; 
         ///Graphic window color keying red component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,12),Register::ReadWriteAccess,unsigned> gwckr{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Graphic window reverse vertical scan
         enum class GwrvsVal {
             v0=0x00000000,     ///<Vertical scan in normal direction.
@@ -561,11 +641,15 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> gwav{}; 
     }
     namespace LcdcLgwdcr{    ///<LCDC graphic window DMA control register
-        using Addr = Register::Address<0x400b6068,0x7f80ff80,0,unsigned>;
+        using Addr = Register::Address<0x400b6068,0x00000000,0x00000000,unsigned>;
         ///Graphic window DMA low mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> gwtm{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Graphic window DMA high mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> gwhm{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Graphic window DMA burst type
         enum class GwbtVal {
             v0=0x00000000,     ///<Burst length is dynamic.
@@ -578,13 +662,15 @@ namespace Kvasir {
         }
     }
     namespace LcdcLauscr{    ///<LCDC AUS mode control register
-        using Addr = Register::Address<0x400b6080,0x7f000000,0,unsigned>;
+        using Addr = Register::Address<0x400b6080,0x00000000,0x00000000,unsigned>;
         ///AUS graphic window color keying blue component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> agwckb{}; 
         ///AUS graphic window color keying green component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> agwckg{}; 
         ///AUS graphic window color keying red component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> agwckr{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///AUS mode control
         enum class AusmodeVal {
             v0=0x00000000,     ///<Normal mode
@@ -597,12 +683,14 @@ namespace Kvasir {
         }
     }
     namespace LcdcLausccr{    ///<LCDC AUS mode cursor control register
-        using Addr = Register::Address<0x400b6084,0xff000000,0,unsigned>;
+        using Addr = Register::Address<0x400b6084,0x00000000,0x00000000,unsigned>;
         ///AUS cursor red field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> acurColB{}; 
         ///AUS cursor green field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> acurColG{}; 
         ///AUS cursor red field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> acurColR{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
 }

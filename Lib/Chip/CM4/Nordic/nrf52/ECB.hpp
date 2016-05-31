@@ -1,21 +1,21 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //AES ECB Mode Encryption
-    namespace NonetasksStartecb{    ///<Start ECB block encrypt
-        using Addr = Register::Address<0x4000e000,0xffffffff,0,unsigned>;
+    namespace EcbTasksStartecb{    ///<Start ECB block encrypt
+        using Addr = Register::Address<0x4000e000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStopecb{    ///<Abort a possible executing ECB operation
-        using Addr = Register::Address<0x4000e004,0xffffffff,0,unsigned>;
+    namespace EcbTasksStopecb{    ///<Abort a possible executing ECB operation
+        using Addr = Register::Address<0x4000e004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEndecb{    ///<ECB block encrypt complete
-        using Addr = Register::Address<0x4000e100,0xffffffff,0,unsigned>;
+    namespace EcbEventsEndecb{    ///<ECB block encrypt complete
+        using Addr = Register::Address<0x4000e100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsErrorecb{    ///<ECB block encrypt aborted because of a STOPECB task or due to an error
-        using Addr = Register::Address<0x4000e104,0xffffffff,0,unsigned>;
+    namespace EcbEventsErrorecb{    ///<ECB block encrypt aborted because of a STOPECB task or due to an error
+        using Addr = Register::Address<0x4000e104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x4000e304,0xfffffffc,0,unsigned>;
+    namespace EcbIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x4000e304,0xfffffffc,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_ENDECB event
         enum class EndecbVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -41,8 +41,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x4000e308,0xfffffffc,0,unsigned>;
+    namespace EcbIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x4000e308,0xfffffffc,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_ENDECB event
         enum class EndecbVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -68,8 +68,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::clear> clear{};
         }
     }
-    namespace Noneecbdataptr{    ///<ECB block encrypt memory pointers
-        using Addr = Register::Address<0x4000e504,0x00000000,0,unsigned>;
+    namespace EcbEcbdataptr{    ///<ECB block encrypt memory pointers
+        using Addr = Register::Address<0x4000e504,0x00000000,0x00000000,unsigned>;
         ///Pointer to the ECB data structure (see Table 1 ECB data structure overview)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ecbdataptr{}; 
     }

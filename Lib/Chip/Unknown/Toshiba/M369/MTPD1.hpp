@@ -1,5 +1,114 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//None
+//16-bit Multi-Purpose Timer (MPT-PMD)
+    namespace Mtpd1Mden{    ///<PMD Enable Register
+        using Addr = Register::Address<0x400f6100,0xfffffffe,0x00000000,unsigned>;
+        ///PWMEN
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pwmen{}; 
+    }
+    namespace Mtpd1Portmd{    ///<Port Output Mode Register
+        using Addr = Register::Address<0x400f6104,0xfffffffe,0x00000000,unsigned>;
+        ///PORTMD
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> portmd{}; 
+    }
+    namespace Mtpd1Mdcr{    ///<PMD Control Register
+        using Addr = Register::Address<0x400f6108,0xffffff80,0x00000000,unsigned>;
+        ///PWMMD
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pwmmd{}; 
+        ///INTPRD
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,unsigned> intprd{}; 
+        ///PINT
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pint{}; 
+        ///DTYMD
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dtymd{}; 
+        ///SYNTMD
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> syntmd{}; 
+        ///PWMCK
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pwmck{}; 
+    }
+    namespace Mtpd1Cntsta{    ///<PWM Counter Status Register
+        using Addr = Register::Address<0x400f610c,0xfffffffe,0x00000000,unsigned>;
+        ///UPDWN
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> updwn{}; 
+    }
+    namespace Mtpd1Mdcnt{    ///<PWM Counter Register
+        using Addr = Register::Address<0x400f6110,0xffff0000,0x00000000,unsigned>;
+        ///MDCNT
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mdcnt{}; 
+    }
+    namespace Mtpd1Mdprd{    ///<PWM Period Register
+        using Addr = Register::Address<0x400f6114,0xffff0000,0x00000000,unsigned>;
+        ///MDPRD
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mdprd{}; 
+    }
+    namespace Mtpd1Cmpu{    ///<PWM Compare Register
+        using Addr = Register::Address<0x400f6118,0xffff0000,0x00000000,unsigned>;
+        ///CMPU
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpu{}; 
+    }
+    namespace Mtpd1Cmpv{    ///<PWM Compare Register
+        using Addr = Register::Address<0x400f611c,0xffff0000,0x00000000,unsigned>;
+        ///CMPV
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpv{}; 
+    }
+    namespace Mtpd1Cmpw{    ///<PWM Compare Register
+        using Addr = Register::Address<0x400f6120,0xffff0000,0x00000000,unsigned>;
+        ///CMPW
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpw{}; 
+    }
+    namespace Mtpd1Mdout{    ///<PMD Output Control Register
+        using Addr = Register::Address<0x400f6128,0xfffff8c0,0x00000000,unsigned>;
+        ///UOC
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> uoc{}; 
+        ///VOC
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> voc{}; 
+        ///WOC
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> woc{}; 
+        ///UPWM
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> upwm{}; 
+        ///VPWM
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> vpwm{}; 
+        ///WPWM
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> wpwm{}; 
+    }
+    namespace Mtpd1Mdpot{    ///<PMD Output Setting Register
+        using Addr = Register::Address<0x400f612c,0xfffffff0,0x00000000,unsigned>;
+        ///PSYNCS
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> psyncs{}; 
+        ///POLL
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> poll{}; 
+        ///POLH
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> polh{}; 
+    }
+    namespace Mtpd1Emgrel{    ///<EMG Release Register
+        using Addr = Register::Address<0x400f6130,0xffffff00,0x00000000,unsigned>;
+        ///EMGREL
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> emgrel{}; 
+    }
+    namespace Mtpd1Emgcr{    ///<EMG Control Register
+        using Addr = Register::Address<0x400f6134,0xfffff0c4,0x00000000,unsigned>;
+        ///EMGEN
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> emgen{}; 
+        ///EMGRS
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> emgrs{}; 
+        ///EMGMD
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,unsigned> emgmd{}; 
+        ///INHEN
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> inhen{}; 
+        ///EMGCNT
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> emgcnt{}; 
+    }
+    namespace Mtpd1Emgsta{    ///<EMG Status Register
+        using Addr = Register::Address<0x400f6138,0xfffffffc,0x00000000,unsigned>;
+        ///EMGST
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> emgst{}; 
+        ///EMGI
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> emgi{}; 
+    }
+    namespace Mtpd1Dtr{    ///<Dead Time Register
+        using Addr = Register::Address<0x400f6144,0xffffff00,0x00000000,unsigned>;
+        ///DTR
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dtr{}; 
+    }
 }

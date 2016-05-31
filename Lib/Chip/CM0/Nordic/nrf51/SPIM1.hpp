@@ -1,33 +1,33 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SPI master with easyDMA 1.
-    namespace NonetasksStart{    ///<Start SPI transaction.
-        using Addr = Register::Address<0x40004010,0xffffffff,0,unsigned>;
+    namespace Spim1TasksStart{    ///<Start SPI transaction.
+        using Addr = Register::Address<0x40004010,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop SPI transaction.
-        using Addr = Register::Address<0x40004014,0xffffffff,0,unsigned>;
+    namespace Spim1TasksStop{    ///<Stop SPI transaction.
+        using Addr = Register::Address<0x40004014,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksSuspend{    ///<Suspend SPI transaction.
-        using Addr = Register::Address<0x4000401c,0xffffffff,0,unsigned>;
+    namespace Spim1TasksSuspend{    ///<Suspend SPI transaction.
+        using Addr = Register::Address<0x4000401c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksResume{    ///<Resume SPI transaction.
-        using Addr = Register::Address<0x40004020,0xffffffff,0,unsigned>;
+    namespace Spim1TasksResume{    ///<Resume SPI transaction.
+        using Addr = Register::Address<0x40004020,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStopped{    ///<SPI transaction has stopped.
-        using Addr = Register::Address<0x40004104,0xffffffff,0,unsigned>;
+    namespace Spim1EventsStopped{    ///<SPI transaction has stopped.
+        using Addr = Register::Address<0x40004104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEndrx{    ///<End of RXD buffer reached.
-        using Addr = Register::Address<0x40004110,0xffffffff,0,unsigned>;
+    namespace Spim1EventsEndrx{    ///<End of RXD buffer reached.
+        using Addr = Register::Address<0x40004110,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEndtx{    ///<End of TXD buffer reached.
-        using Addr = Register::Address<0x40004120,0xffffffff,0,unsigned>;
+    namespace Spim1EventsEndtx{    ///<End of TXD buffer reached.
+        using Addr = Register::Address<0x40004120,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStarted{    ///<Transaction started.
-        using Addr = Register::Address<0x4000414c,0xffffffff,0,unsigned>;
+    namespace Spim1EventsStarted{    ///<Transaction started.
+        using Addr = Register::Address<0x4000414c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneintenset{    ///<Interrupt enable set register.
-        using Addr = Register::Address<0x40004304,0xfff7feed,0,unsigned>;
+    namespace Spim1Intenset{    ///<Interrupt enable set register.
+        using Addr = Register::Address<0x40004304,0xfff7feed,0x00000000,unsigned>;
         ///Enable interrupt on STOPPED event.
         enum class StoppedVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -77,8 +77,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register.
-        using Addr = Register::Address<0x40004308,0xfff7feed,0,unsigned>;
+    namespace Spim1Intenclr{    ///<Interrupt enable clear register.
+        using Addr = Register::Address<0x40004308,0xfff7feed,0x00000000,unsigned>;
         ///Disable interrupt on STOPPED event.
         enum class StoppedVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -128,13 +128,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::clear> clear{};
         }
     }
-    namespace Noneenable{    ///<Enable SPIM.
-        using Addr = Register::Address<0x40004500,0xfffffff0,0,unsigned>;
+    namespace Spim1Enable{    ///<Enable SPIM.
+        using Addr = Register::Address<0x40004500,0xfffffff0,0x00000000,unsigned>;
         ///Enable or disable SPIM.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> enable{}; 
     }
-    namespace Nonefrequency{    ///<SPI frequency.
-        using Addr = Register::Address<0x40004524,0x00000000,0,unsigned>;
+    namespace Spim1Frequency{    ///<SPI frequency.
+        using Addr = Register::Address<0x40004524,0x00000000,0x00000000,unsigned>;
         ///SPI master data rate.
         enum class FrequencyVal {
             k125=0x02000000,     ///<125 kbps.
@@ -156,8 +156,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::m8> m8{};
         }
     }
-    namespace Noneconfig{    ///<Configuration register.
-        using Addr = Register::Address<0x40004554,0xfffffff8,0,unsigned>;
+    namespace Spim1Config{    ///<Configuration register.
+        using Addr = Register::Address<0x40004554,0xfffffff8,0x00000000,unsigned>;
         ///Bit order.
         enum class OrderVal {
             msbfirst=0x00000000,     ///<Most significant bit transmitted out first.
@@ -189,13 +189,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activelow> activelow{};
         }
     }
-    namespace Noneorc{    ///<Over-read character.
-        using Addr = Register::Address<0x400045c0,0xffffff00,0,unsigned>;
+    namespace Spim1Orc{    ///<Over-read character.
+        using Addr = Register::Address<0x400045c0,0xffffff00,0x00000000,unsigned>;
         ///Over-read character.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> orc{}; 
     }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x40004ffc,0xfffffffe,0,unsigned>;
+    namespace Spim1Power{    ///<Peripheral power control.
+        using Addr = Register::Address<0x40004ffc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.

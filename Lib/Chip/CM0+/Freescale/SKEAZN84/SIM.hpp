@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //System Integration Module
     namespace SimSrsid{    ///<System Reset Status and ID Register
-        using Addr = Register::Address<0x40048000,0x0000d119,0,unsigned>;
+        using Addr = Register::Address<0x40048000,0x0000d119,0x00000000,unsigned>;
         ///Low Voltage Detect
         enum class LvdVal {
             v0=0x00000000,     ///<Reset is not caused by LVD trip or POR.
             v1=0x00000001,     ///<Reset is caused by LVD trip or POR.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,LvdVal> lvd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LvdVal> lvd{}; 
         namespace LvdValC{
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v1> v1{};
@@ -19,7 +19,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset is not caused by the ICS module.
             v1=0x00000001,     ///<Reset is caused by the ICS module.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,LocVal> loc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LocVal> loc{}; 
         namespace LocValC{
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v1> v1{};
@@ -29,7 +29,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset is not caused by WDOG timeout.
             v1=0x00000001,     ///<Reset is caused by WDOG timeout.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,WdogVal> wdog{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,WdogVal> wdog{}; 
         namespace WdogValC{
             constexpr Register::FieldValue<decltype(wdog)::Type,WdogVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wdog)::Type,WdogVal::v1> v1{};
@@ -39,7 +39,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset is not caused by external reset pin.
             v1=0x00000001,     ///<Reset came from external reset pin.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PinVal> pin{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PinVal> pin{}; 
         namespace PinValC{
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v1> v1{};
@@ -49,7 +49,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset not caused by POR.
             v1=0x00000001,     ///<POR caused reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PorVal> por{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PorVal> por{}; 
         namespace PorValC{
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v1> v1{};
@@ -59,7 +59,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset is not caused by core LOCKUP event.
             v1=0x00000001,     ///<Reset is caused by core LOCKUP event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,LockupVal> lockup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LockupVal> lockup{}; 
         namespace LockupValC{
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v1> v1{};
@@ -69,7 +69,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset is not caused by software setting of SYSRESETREQ bit.
             v1=0x00000001,     ///<Reset caused by software setting of SYSRESETREQ bit
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,SwVal> sw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SwVal> sw{}; 
         namespace SwValC{
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v1> v1{};
@@ -79,7 +79,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset is not caused by host debugger system setting of the System Reset Request bit.
             v1=0x00000001,     ///<Reset is caused by host debugger system setting of the System Reset Request bit.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,MdmapVal> mdmap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,MdmapVal> mdmap{}; 
         namespace MdmapValC{
             constexpr Register::FieldValue<decltype(mdmap)::Type,MdmapVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mdmap)::Type,MdmapVal::v1> v1{};
@@ -89,7 +89,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Reset is not caused by peripheral failure to acknowledge attempt to enter Stop mode.
             v1=0x00000001,     ///<Reset is caused by peripheral failure to acknowledge attempt to enter Stop mode.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,SackerrVal> sackerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SackerrVal> sackerr{}; 
         namespace SackerrValC{
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v1> v1{};
@@ -107,7 +107,7 @@ namespace Kvasir {
             v1000=0x00000008,     ///<80-pin
             v1010=0x0000000a,     ///<100-pin
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,PinidVal> pinid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PinidVal> pinid{}; 
         namespace PinidValC{
             constexpr Register::FieldValue<decltype(pinid)::Type,PinidVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(pinid)::Type,PinidVal::v0001> v0001{};
@@ -121,14 +121,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pinid)::Type,PinidVal::v1010> v1010{};
         }
         ///Device Revision Number
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> revid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> revid{}; 
         ///Kinetis sub-family ID
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> subfamid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> subfamid{}; 
         ///Kinetis family ID
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> famid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> famid{}; 
     }
     namespace SimSopt{    ///<System Options Register
-        using Addr = Register::Address<0x40048004,0x00002c11,0,unsigned>;
+        using Addr = Register::Address<0x40048004,0x00002c11,0x00000000,unsigned>;
         ///NMI Pin Enable
         enum class NmieVal {
             v0=0x00000000,     ///<PTB4/KBI1_P6/FTM2_CH4/SPI0_MISO/ACMP1_IN2/NMI pin functions as PTB4, KBI1_P6, FTM2_CH4, SPI0_MISO or ACMP1_IN2.
@@ -210,7 +210,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No synchronization triggered.
             v1=0x00000001,     ///<Generates a PWM synchronization trigger to the FTM2 modules.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,FtmsyncVal> ftmsync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FtmsyncVal> ftmsync{}; 
         namespace FtmsyncValC{
             constexpr Register::FieldValue<decltype(ftmsync)::Type,FtmsyncVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ftmsync)::Type,FtmsyncVal::v1> v1{};
@@ -284,7 +284,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The delay is inactive.
             v1=0x00000001,     ///<The delay is active.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,DlyactVal> dlyact{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DlyactVal> dlyact{}; 
         namespace DlyactValC{
             constexpr Register::FieldValue<decltype(dlyact)::Type,DlyactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dlyact)::Type,DlyactVal::v1> v1{};
@@ -293,7 +293,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> delay{}; 
     }
     namespace SimPinsel{    ///<Pin Selection Register
-        using Addr = Register::Address<0x40048008,0x2fff3c1f,0,unsigned>;
+        using Addr = Register::Address<0x40048008,0x2fff3c1f,0x00000000,unsigned>;
         ///I2C0 Port Pin Select
         enum class I2c0psVal {
             v0=0x00000000,     ///<I2C0_SCL and I2C0_SDA are mapped on PTA3 and PTA2, respectively.
@@ -396,7 +396,7 @@ namespace Kvasir {
         }
     }
     namespace SimScgc{    ///<System Clock Gating Control Register
-        using Addr = Register::Address<0x4004800c,0x14e9cb4c,0,unsigned>;
+        using Addr = Register::Address<0x4004800c,0x14e9cb4c,0x00000000,unsigned>;
         ///RTC Clock Gate Control
         enum class RtcVal {
             v0=0x00000000,     ///<Bus clock to the RTC module is disabled.
@@ -569,22 +569,22 @@ namespace Kvasir {
         }
     }
     namespace SimUuidl{    ///<Universally Unique Identifier Low Register
-        using Addr = Register::Address<0x40048010,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40048010,0x00000000,0x00000000,unsigned>;
         ///Universally Unique Identifier
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> id{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> id{}; 
     }
     namespace SimUuidml{    ///<Universally Unique Identifier Middle Low Register
-        using Addr = Register::Address<0x40048014,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40048014,0x00000000,0x00000000,unsigned>;
         ///Universally Unique Identifier
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> id{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> id{}; 
     }
     namespace SimUuidmh{    ///<Universally Unique Identifier Middle High Register
-        using Addr = Register::Address<0x40048018,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40048018,0xffff0000,0x00000000,unsigned>;
         ///Universally Unique Identifier
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> id{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> id{}; 
     }
     namespace SimClkdiv{    ///<Clock Divider Register
-        using Addr = Register::Address<0x4004801c,0xceefffff,0,unsigned>;
+        using Addr = Register::Address<0x4004801c,0xceefffff,0x00000000,unsigned>;
         ///Clock 3 output divider value
         enum class Outdiv3Val {
             v0=0x00000000,     ///<Same as ICSOUTCLK.

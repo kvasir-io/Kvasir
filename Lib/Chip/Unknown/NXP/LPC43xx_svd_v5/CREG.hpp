@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10503 Chapter title=LPC43xx Configuration Registers (CREG) Modification date=10/7/2011 Major revision=0 Minor revision=3 
-    namespace Nonecreg0{    ///<Chip configuration register 32 kHz oscillator output and BOD control register.
-        using Addr = Register::Address<0x40043004,0xfffc3010,0,unsigned>;
+    namespace CregCreg0{    ///<Chip configuration register 32 kHz oscillator output and BOD control register.
+        using Addr = Register::Address<0x40043004,0x00000000,0x00000000,unsigned>;
         ///Enable 1 kHz output.
         enum class En1khzVal {
             v1KhzOutputDisable=0x00000000,     ///<1 kHz output disabled.
@@ -44,6 +44,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(32khzpd)::Type,32khzpdVal::v32KhzOscillatorPo> v32KhzOscillatorPo{};
             constexpr Register::FieldValue<decltype(32khzpd)::Type,32khzpdVal::v32KhzOscillatorPo> v32KhzOscillatorPo{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///USB0 PHY power control.
         enum class Usb0phyVal {
             enableUsb0PhyPowe=0x00000000,     ///<Enable USB0 PHY power.
@@ -94,6 +96,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodlvl2)::Type,Bodlvl2Val::v190V> v190V{};
             constexpr Register::FieldValue<decltype(bodlvl2)::Type,Bodlvl2Val::v200V> v200V{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///WAKEUP0 pin input/output control
         enum class Wakeup0ctrlVal {
             inputToEventRoute=0x00000000,     ///<Input to event router.
@@ -118,19 +122,31 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup1ctrl)::Type,Wakeup1ctrlVal::eventRouterEventO> eventRouterEventO{};
             constexpr Register::FieldValue<decltype(wakeup1ctrl)::Type,Wakeup1ctrlVal::inputToEventRoute> inputToEventRoute{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonem4memmap{    ///<ARM Cortex-M4 memory mapping
-        using Addr = Register::Address<0x40043100,0x00000fff,0,unsigned>;
+    namespace CregM4memmap{    ///<ARM Cortex-M4 memory mapping
+        using Addr = Register::Address<0x40043100,0x00000fff,0x00000000,unsigned>;
         ///Shadow address when accessing memory at address 0x0000 0000
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> m4map{}; 
     }
-    namespace Nonecreg5{    ///<Chip configuration register 5. Controls JTAG access.
-        using Addr = Register::Address<0x40043118,0xffffffbf,0,unsigned>;
+    namespace CregCreg5{    ///<Chip configuration register 5. Controls JTAG access.
+        using Addr = Register::Address<0x40043118,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///tbd
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> m4tapsel{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedmamux{    ///<DMA muxing control
-        using Addr = Register::Address<0x4004311c,0x00000000,0,unsigned>;
+    namespace CregDmamux{    ///<DMA muxing control
+        using Addr = Register::Address<0x4004311c,0x00000000,0x00000000,unsigned>;
         ///Select DMA to peripheral connection for DMA peripheral 0.
         enum class Dmamuxch0Val {
             spifi=0x00000000,     ///<SPIFI
@@ -320,8 +336,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch15)::Type,Dmamuxch15Val::timer3Match0> timer3Match0{};
         }
     }
-    namespace Noneetbcfg{    ///<ETB RAM configuration
-        using Addr = Register::Address<0x40043128,0xfffffffe,0,unsigned>;
+    namespace CregEtbcfg{    ///<ETB RAM configuration
+        using Addr = Register::Address<0x40043128,0x00000000,0x00000000,unsigned>;
         ///Select SRAM interface
         enum class EtbVal {
             etbAccessesSramAt=0x00000000,     ///<ETB accesses SRAM at address 0x2000 C000.
@@ -332,11 +348,15 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(etb)::Type,EtbVal::etbAccessesSramAt> etbAccessesSramAt{};
             constexpr Register::FieldValue<decltype(etb)::Type,EtbVal::ahbAccessesSramAt> ahbAccessesSramAt{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecreg6{    ///<Chip configuration register 6.
-        using Addr = Register::Address<0x4004312c,0xfffe0fe8,0,unsigned>;
+    namespace CregCreg6{    ///<Chip configuration register 6.
+        using Addr = Register::Address<0x4004312c,0x00000000,0x00000000,unsigned>;
         ///Selects the Ethernet mode. Reset the ethernet after changing the PHY interface. All other settings are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ethmode{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Selects the functionality of the SCT outputs.
         enum class TimctrlVal {
             combineSctTmatch=0x00000000,     ///<Combine SCT and timer match outputs. SCT outputs are ORed with timer outputs.
@@ -347,6 +367,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timctrl)::Type,TimctrlVal::combineSctTmatch> combineSctTmatch{};
             constexpr Register::FieldValue<decltype(timctrl)::Type,TimctrlVal::sctOnly> sctOnly{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///I2S0_TX_SCK input select
         enum class I2s0txsckinselVal {
             i2SClockSelected=0x00000000,     ///<I2 S clock selected as defined by the I2S transmit mode register Table 832.
@@ -397,9 +419,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emcClkSel)::Type,EmcclkselVal::emcClkDivNotDivi> emcClkDivNotDivi{};
             constexpr Register::FieldValue<decltype(emcClkSel)::Type,EmcclkselVal::emcClkDivDivided> emcClkDivDivided{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,17),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonem4txevent{    ///<Cortex-M4 TXEV event clear
-        using Addr = Register::Address<0x40043130,0xfffffffe,0,unsigned>;
+    namespace CregM4txevent{    ///<Cortex-M4 TXEV event clear
+        using Addr = Register::Address<0x40043130,0x00000000,0x00000000,unsigned>;
         ///Cortex-M4 TXEV event.
         enum class TxevclrVal {
             na=0x00000001,     ///<Do nothing
@@ -410,14 +434,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txevclr)::Type,TxevclrVal::na> na{};
             constexpr Register::FieldValue<decltype(txevclr)::Type,TxevclrVal::clearTxevEvent> clearTxevEvent{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonechipid{    ///<Part ID
-        using Addr = Register::Address<0x40043200,0x00000000,0,unsigned>;
+    namespace CregChipid{    ///<Part ID
+        using Addr = Register::Address<0x40043200,0x00000000,0x00000000,unsigned>;
         ///TBD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace Nonem0txevent{    ///<Cortex-M0 TXEV event clear
-        using Addr = Register::Address<0x40043400,0xfffffffe,0,unsigned>;
+    namespace CregM0txevent{    ///<Cortex-M0 TXEV event clear
+        using Addr = Register::Address<0x40043400,0x00000000,0x00000000,unsigned>;
         ///Cortex-M0 TXEV event.
         enum class TxevclrVal {
             na=0x00000001,     ///<do nothing
@@ -428,9 +454,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txevclr)::Type,TxevclrVal::na> na{};
             constexpr Register::FieldValue<decltype(txevclr)::Type,TxevclrVal::clearTxevEvent> clearTxevEvent{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonem0appmemmap{    ///<ARM Cortex-M0 memory mapping
-        using Addr = Register::Address<0x40043404,0x00000fff,0,unsigned>;
+    namespace CregM0appmemmap{    ///<ARM Cortex-M0 memory mapping
+        using Addr = Register::Address<0x40043404,0x00000fff,0x00000000,unsigned>;
         ///Shadow address when accessing memory at address 0x0000 0000
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> m0appmap{}; 
     }

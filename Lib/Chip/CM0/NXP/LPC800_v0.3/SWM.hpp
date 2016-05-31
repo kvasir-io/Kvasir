@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Switch matrix (SWM)
-    namespace Nonepinassign0{    ///<Pin assign register 0. Assign movable functions U0_TXD, U0_RXD, U0_RTS, U0_CTS
-        using Addr = Register::Address<0x4000c000,0x00000000,0,unsigned>;
+    namespace SwmPinassign0{    ///<Pin assign register 0. Assign movable functions U0_TXD, U0_RXD, U0_RTS, U0_CTS
+        using Addr = Register::Address<0x4000c000,0x00000000,0x00000000,unsigned>;
         ///U0_TXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> u0TxdO{}; 
         ///U0_RXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
@@ -13,8 +13,8 @@ namespace Kvasir {
         ///U0_CTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> u0CtsI{}; 
     }
-    namespace Nonepinassign1{    ///<Pin assign register 1. Assign movable functions U0_SCLC, U1_TXD, U1_RXD
-        using Addr = Register::Address<0x4000c004,0x00000000,0,unsigned>;
+    namespace SwmPinassign1{    ///<Pin assign register 1. Assign movable functions U0_SCLC, U1_TXD, U1_RXD
+        using Addr = Register::Address<0x4000c004,0x00000000,0x00000000,unsigned>;
         ///U0_SCLK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> u0SclkIo{}; 
         ///U1_TXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
@@ -24,8 +24,8 @@ namespace Kvasir {
         ///U1_RTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> u1RtsO{}; 
     }
-    namespace Nonepinassign2{    ///<Pin assign register 2. Assign movable functions U2_TXD, U2_RXD
-        using Addr = Register::Address<0x4000c008,0x00000000,0,unsigned>;
+    namespace SwmPinassign2{    ///<Pin assign register 2. Assign movable functions U2_TXD, U2_RXD
+        using Addr = Register::Address<0x4000c008,0x00000000,0x00000000,unsigned>;
         ///U1_CTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> u1CtsI{}; 
         ///U1_SCLK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
@@ -35,8 +35,8 @@ namespace Kvasir {
         ///U2_RXD function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> u2RxdI{}; 
     }
-    namespace Nonepinassign3{    ///<Pin assignregister 3. Assign movable function SPI0_SCK
-        using Addr = Register::Address<0x4000c00c,0x00000000,0,unsigned>;
+    namespace SwmPinassign3{    ///<Pin assignregister 3. Assign movable function SPI0_SCK
+        using Addr = Register::Address<0x4000c00c,0x00000000,0x00000000,unsigned>;
         ///U2_RTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> u2RtsO{}; 
         ///U2_CTS function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
@@ -46,8 +46,8 @@ namespace Kvasir {
         ///SPI0_SCK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> spi0SckIo{}; 
     }
-    namespace Nonepinassign4{    ///<Pin assign register 4. Assign movable functions SPI0_MOSI, SPI0_MISO, SPI0_SSEL, SPI1_SCK
-        using Addr = Register::Address<0x4000c010,0x00000000,0,unsigned>;
+    namespace SwmPinassign4{    ///<Pin assign register 4. Assign movable functions SPI0_MOSI, SPI0_MISO, SPI0_SSEL, SPI1_SCK
+        using Addr = Register::Address<0x4000c010,0x00000000,0x00000000,unsigned>;
         ///SPI0_MOSI function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> spi0MosiIo{}; 
         ///SPI0_MISIO function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
@@ -57,8 +57,8 @@ namespace Kvasir {
         ///SPI1_SCK function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> spi1SckIo{}; 
     }
-    namespace Nonepinassign5{    ///<Pin assign register 5. Assign movable functions SPI1_MOSI, SPI1_MISO, SPI1_SSEL, CTIN_0
-        using Addr = Register::Address<0x4000c014,0x00000000,0,unsigned>;
+    namespace SwmPinassign5{    ///<Pin assign register 5. Assign movable functions SPI1_MOSI, SPI1_MISO, SPI1_SSEL, CTIN_0
+        using Addr = Register::Address<0x4000c014,0x00000000,0x00000000,unsigned>;
         ///SPI1_MOSI function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> spi1MosiIo{}; 
         ///SPI1_MISIO function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
@@ -68,8 +68,8 @@ namespace Kvasir {
         ///CTIN_0 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> ctin0I{}; 
     }
-    namespace Nonepinassign6{    ///<Pin assign register 6. Assign movable functions CTIN_1, CTIN_2, CTIN_3, CTOUT_0
-        using Addr = Register::Address<0x4000c018,0x00000000,0,unsigned>;
+    namespace SwmPinassign6{    ///<Pin assign register 6. Assign movable functions CTIN_1, CTIN_2, CTIN_3, CTOUT_0
+        using Addr = Register::Address<0x4000c018,0x00000000,0x00000000,unsigned>;
         ///CTIN_1 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ctin1I{}; 
         ///CTIN_2function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
@@ -79,8 +79,8 @@ namespace Kvasir {
         ///CTOUT_0 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> ctout0O{}; 
     }
-    namespace Nonepinassign7{    ///<Pin assign egister 7. Assign movable functions CTOUT_1, CTOUT_2, CTOUT_3, I2C_SDA
-        using Addr = Register::Address<0x4000c01c,0x00000000,0,unsigned>;
+    namespace SwmPinassign7{    ///<Pin assign egister 7. Assign movable functions CTOUT_1, CTOUT_2, CTOUT_3, I2C_SDA
+        using Addr = Register::Address<0x4000c01c,0x00000000,0x00000000,unsigned>;
         ///CTOUT_1 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ctout1O{}; 
         ///CTOUT_2 function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
@@ -90,8 +90,8 @@ namespace Kvasir {
         ///I2C_SDA function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> i2cSdaIo{}; 
     }
-    namespace Nonepinassign8{    ///<Pin assign register 8. Assign movable functions I2C_SCL, ACMP_O, CLKOUT, GPIO_INT_BMAT
-        using Addr = Register::Address<0x4000c020,0x00000000,0,unsigned>;
+    namespace SwmPinassign8{    ///<Pin assign register 8. Assign movable functions I2C_SCL, ACMP_O, CLKOUT, GPIO_INT_BMAT
+        using Addr = Register::Address<0x4000c020,0x00000000,0x00000000,unsigned>;
         ///I2C_SCL function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> i2cSclIo{}; 
         ///ACMP_O_O function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
@@ -101,8 +101,8 @@ namespace Kvasir {
         ///GPIO_INT_BMAT function assignment. The value is the pin number to be assigned to this function. The following pins are available: PIO0_0 (= 0) to PIO0_17 (= 0x11).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> gpioIntBmatO{}; 
     }
-    namespace Nonepinenable0{    ///<Pin enable register 0. Enables fixed-pin functions ACMP_I0, ACMP_I1, SWCLK, SWDIO, XTALIN, XTALOUT, RESET, CLKIN, VDDCMP
-        using Addr = Register::Address<0x4000c1c0,0xfffffe00,0,unsigned>;
+    namespace SwmPinenable0{    ///<Pin enable register 0. Enables fixed-pin functions ACMP_I0, ACMP_I1, SWCLK, SWDIO, XTALIN, XTALOUT, RESET, CLKIN, VDDCMP
+        using Addr = Register::Address<0x4000c1c0,0x00000000,0x00000000,unsigned>;
         ///Enables fixed-pin function. Writing a 1 deselects the function and any movable function can be assigned to this pin. By default the fixed--pin function is deselected and GPIO is assigned to this pin.
         enum class Acmpi1enVal {
             enableAcmpI1This=0x00000000,     ///<Enable ACMP_I1. This function is enabled on pin PIO0_0.
@@ -193,5 +193,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vddcmp)::Type,VddcmpVal::enableVddcmpThis> enableVddcmpThis{};
             constexpr Register::FieldValue<decltype(vddcmp)::Type,VddcmpVal::disableVddcmpGpio> disableVddcmpGpio{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

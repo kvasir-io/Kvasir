@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // Flash controller 
-    namespace Noneflashcfg{    ///<Flash configuration register
-        using Addr = Register::Address<0x4003c010,0xfffffffc,0,unsigned>;
+    namespace FlashctrlFlashcfg{    ///<Flash configuration register
+        using Addr = Register::Address<0x4003c010,0x00000000,0x00000000,unsigned>;
         ///Flash memory access time. FLASHTIM +1 is equal to the number of system clocks used for flash access.
         enum class FlashtimVal {
             v1SystemClockFlash=0x00000000,     ///<1 system clock flash access time (for system clock frequencies of up to 20 MHz).
@@ -14,21 +14,27 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::v1SystemClockFlash> v1SystemClockFlash{};
             constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::v2SystemClocksFlas> v2SystemClocksFlas{};
         }
+        ///Reserved. User software must not change the value of these bits. Bits 31:2 must be written back exactly as read.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonefmsstart{    ///<Signature start address register
-        using Addr = Register::Address<0x4003c020,0xfffe0000,0,unsigned>;
+    namespace FlashctrlFmsstart{    ///<Signature start address register
+        using Addr = Register::Address<0x4003c020,0x00000000,0x00000000,unsigned>;
         ///Signature generation start address (corresponds to AHB byte address bits[20:4]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,0),Register::ReadWriteAccess,unsigned> start{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,17),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonefmsstop{    ///<Signature stop-address register
-        using Addr = Register::Address<0x4003c024,0xfffc0000,0,unsigned>;
+    namespace FlashctrlFmsstop{    ///<Signature stop-address register
+        using Addr = Register::Address<0x4003c024,0x00000000,0x00000000,unsigned>;
         ///Stop address for signature generation (the word specified by STOPA is included in the address range). The address is in units of memory words, not bytes.  If the option bistprotection=1, bits 2:0 cannot be written and are forced to 111.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,0),Register::ReadWriteAccess,unsigned> stopa{}; 
         ///When this bit is written to 1, signature generation starts. At the end of signature generation, this bit is automatically cleared.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> strtbist{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonefmsw0{    ///<Signature Word 
-        using Addr = Register::Address<0x4003c02c,0x00000000,0,unsigned>;
+    namespace FlashctrlFmsw0{    ///<Signature Word 
+        using Addr = Register::Address<0x4003c02c,0x00000000,0x00000000,unsigned>;
         ///32-bit signature.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sig{}; 
     }

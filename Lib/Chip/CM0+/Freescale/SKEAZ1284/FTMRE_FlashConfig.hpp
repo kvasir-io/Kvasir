@@ -1,49 +1,49 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Flash configuration field
-    namespace NvBackkey0{    ///<Backdoor Comparison Key 0
-        using Addr = Register::Address<0x00000400,0xffffff00,0,unsigned char>;
+    namespace FtmreFlashconfigBackkey0{    ///<Backdoor Comparison Key 0
+        using Addr = Register::Address<0x00000400,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
-    namespace NvBackkey1{    ///<Backdoor Comparison Key 1
-        using Addr = Register::Address<0x00000401,0xffffff00,0,unsigned char>;
+    namespace FtmreFlashconfigBackkey1{    ///<Backdoor Comparison Key 1
+        using Addr = Register::Address<0x00000401,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
-    namespace NvBackkey2{    ///<Backdoor Comparison Key 2
-        using Addr = Register::Address<0x00000402,0xffffff00,0,unsigned char>;
+    namespace FtmreFlashconfigBackkey2{    ///<Backdoor Comparison Key 2
+        using Addr = Register::Address<0x00000402,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
-    namespace NvBackkey3{    ///<Backdoor Comparison Key 3
-        using Addr = Register::Address<0x00000403,0xffffff00,0,unsigned char>;
+    namespace FtmreFlashconfigBackkey3{    ///<Backdoor Comparison Key 3
+        using Addr = Register::Address<0x00000403,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
-    namespace NvBackkey4{    ///<Backdoor Comparison Key 4
-        using Addr = Register::Address<0x00000404,0xffffff00,0,unsigned char>;
+    namespace FtmreFlashconfigBackkey4{    ///<Backdoor Comparison Key 4
+        using Addr = Register::Address<0x00000404,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
-    namespace NvBackkey5{    ///<Backdoor Comparison Key 5
-        using Addr = Register::Address<0x00000405,0xffffff00,0,unsigned char>;
+    namespace FtmreFlashconfigBackkey5{    ///<Backdoor Comparison Key 5
+        using Addr = Register::Address<0x00000405,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
-    namespace NvBackkey6{    ///<Backdoor Comparison Key 6
-        using Addr = Register::Address<0x00000406,0xffffff00,0,unsigned char>;
+    namespace FtmreFlashconfigBackkey6{    ///<Backdoor Comparison Key 6
+        using Addr = Register::Address<0x00000406,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
-    namespace NvBackkey7{    ///<Backdoor Comparison Key 7
-        using Addr = Register::Address<0x00000407,0xffffff00,0,unsigned char>;
+    namespace FtmreFlashconfigBackkey7{    ///<Backdoor Comparison Key 7
+        using Addr = Register::Address<0x00000407,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
-    namespace NvFprot{    ///<Non-volatile P-Flash Protection Register
-        using Addr = Register::Address<0x0000040d,0xffffff40,0,unsigned char>;
+    namespace FtmreFlashconfigFprot{    ///<Non-volatile P-Flash Protection Register
+        using Addr = Register::Address<0x0000040d,0xffffff40,0x00000000,unsigned char>;
         ///no description available
         enum class FplsVal {
             v00=0x00000000,     ///<Address range: 0x00_0000-0x00_07FF; protected size: 2 KB
@@ -51,7 +51,7 @@ namespace Kvasir {
             v10=0x00000002,     ///<Address range: 0x00_0000-0x00_1FFF; protected size: 8 KB
             v11=0x00000003,     ///<Address range: 0x00_0000-0x00_3FFF; protected size: 16 KB
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,FplsVal> fpls{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FplsVal> fpls{}; 
         namespace FplsValC{
             constexpr Register::FieldValue<decltype(fpls)::Type,FplsVal::v00> v00{};
             constexpr Register::FieldValue<decltype(fpls)::Type,FplsVal::v01> v01{};
@@ -63,7 +63,7 @@ namespace Kvasir {
             v00=0x00000000,     ///<Protection/Unprotection enabled
             v01=0x00000001,     ///<Protection/Unprotection disabled
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FpldisVal> fpldis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FpldisVal> fpldis{}; 
         namespace FpldisValC{
             constexpr Register::FieldValue<decltype(fpldis)::Type,FpldisVal::v00> v00{};
             constexpr Register::FieldValue<decltype(fpldis)::Type,FpldisVal::v01> v01{};
@@ -75,7 +75,7 @@ namespace Kvasir {
             v10=0x00000002,     ///<Address range: 0x00_7000-0x00_7FFF; protected size: 4 KB
             v11=0x00000003,     ///<Address range: 0x00_6000-0x00_7FFF; protected size: 8 KB
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,FphsVal> fphs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FphsVal> fphs{}; 
         namespace FphsValC{
             constexpr Register::FieldValue<decltype(fphs)::Type,FphsVal::v00> v00{};
             constexpr Register::FieldValue<decltype(fphs)::Type,FphsVal::v01> v01{};
@@ -87,7 +87,7 @@ namespace Kvasir {
             v00=0x00000000,     ///<Protection/Unprotection enabled
             v01=0x00000001,     ///<Protection/Unprotection disabled
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,FphdisVal> fphdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FphdisVal> fphdis{}; 
         namespace FphdisValC{
             constexpr Register::FieldValue<decltype(fphdis)::Type,FphdisVal::v00> v00{};
             constexpr Register::FieldValue<decltype(fphdis)::Type,FphdisVal::v01> v01{};
@@ -97,20 +97,20 @@ namespace Kvasir {
             v00=0x00000000,     ///<FPHDIS and FPLDIS bits define unprotected address ranges as specified by the corresponding FPHS and FPLS bits FPROT1.1
             v01=0x00000001,     ///<FPHDIS and FPLDIS bits enable protection for the address range specified by the corresponding FPHS and FPLS bits
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,FpopenVal> fpopen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FpopenVal> fpopen{}; 
         namespace FpopenValC{
             constexpr Register::FieldValue<decltype(fpopen)::Type,FpopenVal::v00> v00{};
             constexpr Register::FieldValue<decltype(fpopen)::Type,FpopenVal::v01> v01{};
         }
     }
-    namespace NvFsec{    ///<Non-volatile Flash Security Register
-        using Addr = Register::Address<0x0000040e,0xffffff3c,0,unsigned char>;
+    namespace FtmreFlashconfigFsec{    ///<Non-volatile Flash Security Register
+        using Addr = Register::Address<0x0000040e,0xffffff3c,0x00000000,unsigned char>;
         ///Flash Security
         enum class SecVal {
             v10=0x00000002,     ///<MCU security status is unsecure
             v11=0x00000003,     ///<MCU security status is secure
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SecVal> sec{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SecVal> sec{}; 
         namespace SecValC{
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v11> v11{};
@@ -120,13 +120,13 @@ namespace Kvasir {
             v10=0x00000002,     ///<Backdoor key access enabled
             v11=0x00000003,     ///<Backdoor key access disabled
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,KeyenVal> keyen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,KeyenVal> keyen{}; 
         namespace KeyenValC{
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v11> v11{};
         }
     }
-    namespace NvFopt{    ///<Non-volatile Flash Option Register
-        using Addr = Register::Address<0x0000040f,0xffffffff,0,unsigned char>;
+    namespace FtmreFlashconfigFopt{    ///<Non-volatile Flash Option Register
+        using Addr = Register::Address<0x0000040f,0xffffffff,0x00000000,unsigned char>;
     }
 }

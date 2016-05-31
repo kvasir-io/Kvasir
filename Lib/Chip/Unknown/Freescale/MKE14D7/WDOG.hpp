@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Generation 2008 Watchdog Timer
     namespace WdogStctrlh{    ///<Watchdog Status and Control Register High
-        using Addr = Register::Address<0x4003a000,0xffff8200,0,unsigned>;
+        using Addr = Register::Address<0x4003a000,0xffff0000,0x00000000,unsigned>;
         ///no description available
         enum class WdogenVal {
             v0=0x00000000,     ///<WDOG is disabled.
@@ -95,6 +95,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stndbyen)::Type,StndbyenVal::v1> v1{};
         }
         ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> testwdog{}; 
         ///no description available
         enum class TestselVal {
@@ -130,60 +132,68 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(distestwdog)::Type,DistestwdogVal::v0> v0{};
             constexpr Register::FieldValue<decltype(distestwdog)::Type,DistestwdogVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace WdogStctrll{    ///<Watchdog Status and Control Register Low
-        using Addr = Register::Address<0x4003a002,0xffff7fff,0,unsigned>;
+        using Addr = Register::Address<0x4003a002,0xffff0000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> intflg{}; 
     }
     namespace WdogTovalh{    ///<Watchdog Time-out Value Register High
-        using Addr = Register::Address<0x4003a004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a004,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tovalhigh{}; 
     }
     namespace WdogTovall{    ///<Watchdog Time-out Value Register Low
-        using Addr = Register::Address<0x4003a006,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a006,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tovallow{}; 
     }
     namespace WdogWinh{    ///<Watchdog Window Register High
-        using Addr = Register::Address<0x4003a008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a008,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> winhigh{}; 
     }
     namespace WdogWinl{    ///<Watchdog Window Register Low
-        using Addr = Register::Address<0x4003a00a,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a00a,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> winlow{}; 
     }
     namespace WdogRefresh{    ///<Watchdog Refresh register
-        using Addr = Register::Address<0x4003a00c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a00c,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wdogrefresh{}; 
     }
     namespace WdogUnlock{    ///<Watchdog Unlock register
-        using Addr = Register::Address<0x4003a00e,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a00e,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wdogunlock{}; 
     }
     namespace WdogTmrouth{    ///<Watchdog Timer Output Register High
-        using Addr = Register::Address<0x4003a010,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a010,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timerouthigh{}; 
     }
     namespace WdogTmroutl{    ///<Watchdog Timer Output Register Low
-        using Addr = Register::Address<0x4003a012,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a012,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timeroutlow{}; 
     }
     namespace WdogRstcnt{    ///<Watchdog Reset Count register
-        using Addr = Register::Address<0x4003a014,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a014,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rstcnt{}; 
     }
     namespace WdogPresc{    ///<Watchdog Prescaler register
-        using Addr = Register::Address<0x4003a016,0xfffff8ff,0,unsigned>;
+        using Addr = Register::Address<0x4003a016,0xffff0000,0x00000000,unsigned>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> prescval{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
 }

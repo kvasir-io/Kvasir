@@ -1,42 +1,42 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Two-wire interface master 0.
-    namespace NonetasksStartrx{    ///<Start 2-Wire master receive sequence.
-        using Addr = Register::Address<0x40003000,0xffffffff,0,unsigned>;
+    namespace Twi0TasksStartrx{    ///<Start 2-Wire master receive sequence.
+        using Addr = Register::Address<0x40003000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStarttx{    ///<Start 2-Wire master transmit sequence.
-        using Addr = Register::Address<0x40003008,0xffffffff,0,unsigned>;
+    namespace Twi0TasksStarttx{    ///<Start 2-Wire master transmit sequence.
+        using Addr = Register::Address<0x40003008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop 2-Wire transaction.
-        using Addr = Register::Address<0x40003014,0xffffffff,0,unsigned>;
+    namespace Twi0TasksStop{    ///<Stop 2-Wire transaction.
+        using Addr = Register::Address<0x40003014,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksSuspend{    ///<Suspend 2-Wire transaction.
-        using Addr = Register::Address<0x4000301c,0xffffffff,0,unsigned>;
+    namespace Twi0TasksSuspend{    ///<Suspend 2-Wire transaction.
+        using Addr = Register::Address<0x4000301c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksResume{    ///<Resume 2-Wire transaction.
-        using Addr = Register::Address<0x40003020,0xffffffff,0,unsigned>;
+    namespace Twi0TasksResume{    ///<Resume 2-Wire transaction.
+        using Addr = Register::Address<0x40003020,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStopped{    ///<Two-wire stopped.
-        using Addr = Register::Address<0x40003104,0xffffffff,0,unsigned>;
+    namespace Twi0EventsStopped{    ///<Two-wire stopped.
+        using Addr = Register::Address<0x40003104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsRxdready{    ///<Two-wire ready to deliver new RXD byte received.
-        using Addr = Register::Address<0x40003108,0xffffffff,0,unsigned>;
+    namespace Twi0EventsRxdready{    ///<Two-wire ready to deliver new RXD byte received.
+        using Addr = Register::Address<0x40003108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsTxdsent{    ///<Two-wire finished sending last TXD byte.
-        using Addr = Register::Address<0x4000311c,0xffffffff,0,unsigned>;
+    namespace Twi0EventsTxdsent{    ///<Two-wire finished sending last TXD byte.
+        using Addr = Register::Address<0x4000311c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsError{    ///<Two-wire error detected.
-        using Addr = Register::Address<0x40003124,0xffffffff,0,unsigned>;
+    namespace Twi0EventsError{    ///<Two-wire error detected.
+        using Addr = Register::Address<0x40003124,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsBb{    ///<Two-wire byte boundary.
-        using Addr = Register::Address<0x40003138,0xffffffff,0,unsigned>;
+    namespace Twi0EventsBb{    ///<Two-wire byte boundary.
+        using Addr = Register::Address<0x40003138,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsSuspended{    ///<Two-wire suspended.
-        using Addr = Register::Address<0x40003148,0xffffffff,0,unsigned>;
+    namespace Twi0EventsSuspended{    ///<Two-wire suspended.
+        using Addr = Register::Address<0x40003148,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcuts for TWI.
-        using Addr = Register::Address<0x40003200,0xfffffffc,0,unsigned>;
+    namespace Twi0Shorts{    ///<Shortcuts for TWI.
+        using Addr = Register::Address<0x40003200,0xfffffffc,0x00000000,unsigned>;
         ///Shortcut between BB event and the SUSPEND task.
         enum class BbsuspendVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -58,8 +58,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bbStop)::Type,BbstopVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Interrupt enable set register.
-        using Addr = Register::Address<0x40003304,0xfffbbd79,0,unsigned>;
+    namespace Twi0Intenset{    ///<Interrupt enable set register.
+        using Addr = Register::Address<0x40003304,0xfffbbd79,0x00000000,unsigned>;
         ///Enable interrupt on STOPPED event.
         enum class StoppedVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -133,8 +133,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(suspended)::Type,SuspendedVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register.
-        using Addr = Register::Address<0x40003308,0xfffbbd79,0,unsigned>;
+    namespace Twi0Intenclr{    ///<Interrupt enable clear register.
+        using Addr = Register::Address<0x40003308,0xfffbbd79,0x00000000,unsigned>;
         ///Disable interrupt on STOPPED event.
         enum class StoppedVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -208,8 +208,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(suspended)::Type,SuspendedVal::clear> clear{};
         }
     }
-    namespace Noneerrorsrc{    ///<Two-wire error source. Write error field to 1 to clear error.
-        using Addr = Register::Address<0x400034c4,0xfffffff8,0,unsigned>;
+    namespace Twi0Errorsrc{    ///<Two-wire error source. Write error field to 1 to clear error.
+        using Addr = Register::Address<0x400034c4,0xfffffff8,0x00000000,unsigned>;
         ///Byte received in RXD register before read of the last received byte (data loss).
         enum class OverrunVal {
             notpresent=0x00000000,     ///<Error not present.
@@ -247,39 +247,39 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dnack)::Type,DnackVal::clear> clear{};
         }
     }
-    namespace Noneenable{    ///<Enable two-wire master.
-        using Addr = Register::Address<0x40003500,0xfffffff8,0,unsigned>;
+    namespace Twi0Enable{    ///<Enable two-wire master.
+        using Addr = Register::Address<0x40003500,0xfffffff8,0x00000000,unsigned>;
         ///Enable or disable W2M
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> enable{}; 
     }
-    namespace Nonepselscl{    ///<Pin select for SCL.
-        using Addr = Register::Address<0x40003508,0xffffffff,0,unsigned>;
+    namespace Twi0Pselscl{    ///<Pin select for SCL.
+        using Addr = Register::Address<0x40003508,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepselsda{    ///<Pin select for SDA.
-        using Addr = Register::Address<0x4000350c,0xffffffff,0,unsigned>;
+    namespace Twi0Pselsda{    ///<Pin select for SDA.
+        using Addr = Register::Address<0x4000350c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxd{    ///<RX data register.
-        using Addr = Register::Address<0x40003518,0xffffff00,0,unsigned>;
+    namespace Twi0Rxd{    ///<RX data register.
+        using Addr = Register::Address<0x40003518,0xffffff00,0x00000000,unsigned>;
         ///RX data from last transfer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxd{}; 
     }
-    namespace Nonetxd{    ///<TX data register.
-        using Addr = Register::Address<0x4000351c,0xffffff00,0,unsigned>;
+    namespace Twi0Txd{    ///<TX data register.
+        using Addr = Register::Address<0x4000351c,0xffffff00,0x00000000,unsigned>;
         ///TX data for next transfer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txd{}; 
     }
-    namespace Nonefrequency{    ///<Two-wire frequency.
-        using Addr = Register::Address<0x40003524,0x00000000,0,unsigned>;
+    namespace Twi0Frequency{    ///<Two-wire frequency.
+        using Addr = Register::Address<0x40003524,0x00000000,0x00000000,unsigned>;
         ///Two-wire master clock frequency.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> frequency{}; 
     }
-    namespace Noneaddress{    ///<Address used in the two-wire transfer.
-        using Addr = Register::Address<0x40003588,0xffffff80,0,unsigned>;
+    namespace Twi0Address{    ///<Address used in the two-wire transfer.
+        using Addr = Register::Address<0x40003588,0xffffff80,0x00000000,unsigned>;
         ///Two-wire address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> address{}; 
     }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x40003ffc,0xfffffffe,0,unsigned>;
+    namespace Twi0Power{    ///<Peripheral power control.
+        using Addr = Register::Address<0x40003ffc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Block Protect
-    namespace Noneconfig0{    ///<Block protect configuration register 0
-        using Addr = Register::Address<0x40000600,0x00000000,0,unsigned>;
+    namespace BprotConfig0{    ///<Block protect configuration register 0
+        using Addr = Register::Address<0x40000600,0x00000000,0x00000000,unsigned>;
         ///Enable protection for region 0. Write '0' has no effect.
         enum class Region0Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -325,8 +325,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region31)::Type,Region31Val::enabled> enabled{};
         }
     }
-    namespace Noneconfig1{    ///<Block protect configuration register 1
-        using Addr = Register::Address<0x40000604,0x00000000,0,unsigned>;
+    namespace BprotConfig1{    ///<Block protect configuration register 1
+        using Addr = Register::Address<0x40000604,0x00000000,0x00000000,unsigned>;
         ///Enable protection for region 32. Write '0' has no effect.
         enum class Region32Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -648,8 +648,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region63)::Type,Region63Val::enabled> enabled{};
         }
     }
-    namespace Nonedisableindebug{    ///<Disable protection mechanism in debug mode
-        using Addr = Register::Address<0x40000608,0xfffffffe,0,unsigned>;
+    namespace BprotDisableindebug{    ///<Disable protection mechanism in debug mode
+        using Addr = Register::Address<0x40000608,0xfffffffe,0x00000000,unsigned>;
         ///Disable the protection mechanism for NVM regions while in debug mode. This register will only disable the protection mechanism if the device is in debug mode.
         enum class DisableindebugVal {
             disabled=0x00000001,     ///<Disable in debug
@@ -661,11 +661,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disableindebug)::Type,DisableindebugVal::enabled> enabled{};
         }
     }
-    namespace Noneunused0{    ///<Unspecified
-        using Addr = Register::Address<0x4000060c,0xffffffff,0,unsigned>;
+    namespace BprotUnused0{    ///<Unspecified
+        using Addr = Register::Address<0x4000060c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneconfig2{    ///<Block protect configuration register 2
-        using Addr = Register::Address<0x40000610,0x00000000,0,unsigned>;
+    namespace BprotConfig2{    ///<Block protect configuration register 2
+        using Addr = Register::Address<0x40000610,0x00000000,0x00000000,unsigned>;
         ///Enable protection for region 64. Write '0' has no effect.
         enum class Region64Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -987,8 +987,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region95)::Type,Region95Val::enabled> enabled{};
         }
     }
-    namespace Noneconfig3{    ///<Block protect configuration register 3
-        using Addr = Register::Address<0x40000614,0x00000000,0,unsigned>;
+    namespace BprotConfig3{    ///<Block protect configuration register 3
+        using Addr = Register::Address<0x40000614,0x00000000,0x00000000,unsigned>;
         ///Enable protection for region 96. Write '0' has no effect.
         enum class Region96Val {
             disabled=0x00000000,     ///<Protection disabled

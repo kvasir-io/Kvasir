@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Noneconfig{    ///<Module Configuration
-        using Addr = Register::Address<0x4001a000,0x80002800,0,unsigned>;
+    namespace Saradc0Config{    ///<Module Configuration
+        using Addr = Register::Address<0x4001a000,0x80002800,0x00000000,unsigned>;
         ///Sampling Phase Select. 
         enum class SpselVal {
             phase0=0x00000000,     ///<The ADC samples at SSG phase 0.
@@ -179,8 +179,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(furien)::Type,FurienVal::enabled> enabled{};
         }
     }
-    namespace Nonecontrol{    ///<Measurement Control
-        using Addr = Register::Address<0x4001a010,0x30100000,0,unsigned>;
+    namespace Saradc0Control{    ///<Measurement Control
+        using Addr = Register::Address<0x4001a010,0x30100000,0x00000000,unsigned>;
         ///Reference Ground Select. 
         enum class RefgndselVal {
             internal=0x00000000,     ///<The internal device ground is used as the ground reference for ADC conversions.
@@ -354,8 +354,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vrefsel)::Type,VrefselVal::externalVref> externalVref{};
         }
     }
-    namespace Nonesq7654{    ///<Channel Sequencer Time Slots 4-7 Setup
-        using Addr = Register::Address<0x4001a020,0x80808080,0,unsigned>;
+    namespace Saradc0Sq7654{    ///<Channel Sequencer Time Slots 4-7 Setup
+        using Addr = Register::Address<0x4001a020,0x80808080,0x00000000,unsigned>;
         ///Time Slot 4 Conversion Characteristic. 
         enum class Ts4chrVal {
             cc0=0x00000000,     ///<Select conversion characteristic 0 for time slot 4.
@@ -693,8 +693,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts7mux)::Type,Ts7muxVal::end> end{};
         }
     }
-    namespace Nonesq3210{    ///<Channel Sequencer Time Slots 0-3 Setup
-        using Addr = Register::Address<0x4001a030,0x80808080,0,unsigned>;
+    namespace Saradc0Sq3210{    ///<Channel Sequencer Time Slots 0-3 Setup
+        using Addr = Register::Address<0x4001a030,0x80808080,0x00000000,unsigned>;
         ///Time Slot 0 Conversion Characteristic. 
         enum class Ts0chrVal {
             cc0=0x00000000,     ///<Select conversion characteristic 0 for time slot 0.
@@ -1032,8 +1032,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts3mux)::Type,Ts3muxVal::end> end{};
         }
     }
-    namespace Nonechar32{    ///<Conversion Characteristic 2 and 3 Setup
-        using Addr = Register::Address<0x4001a040,0xfe00fe00,0,unsigned>;
+    namespace Saradc0Char32{    ///<Conversion Characteristic 2 and 3 Setup
+        using Addr = Register::Address<0x4001a040,0xfe00fe00,0x00000000,unsigned>;
         ///Conversion Characteristic 2 Gain. 
         enum class Chr2gnVal {
             unity=0x00000000,     ///<The on-chip PGA gain is 1.
@@ -1135,8 +1135,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr3wcien)::Type,Chr3wcienVal::enabled> enabled{};
         }
     }
-    namespace Nonechar10{    ///<Conversion Characteristic 0 and 1 Setup
-        using Addr = Register::Address<0x4001a050,0xfe00fe00,0,unsigned>;
+    namespace Saradc0Char10{    ///<Conversion Characteristic 0 and 1 Setup
+        using Addr = Register::Address<0x4001a050,0xfe00fe00,0x00000000,unsigned>;
         ///Conversion Characteristic 0 Gain. 
         enum class Chr0gnVal {
             unity=0x00000000,     ///<The on-chip PGA gain is 1.
@@ -1238,25 +1238,25 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr1wcien)::Type,Chr1wcienVal::enabled> enabled{};
         }
     }
-    namespace Nonedata{    ///<Output Data Word
-        using Addr = Register::Address<0x4001a060,0x00000000,0,unsigned>;
+    namespace Saradc0Data{    ///<Output Data Word
+        using Addr = Register::Address<0x4001a060,0x00000000,0x00000000,unsigned>;
         ///Output Data Word. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> data{}; 
     }
-    namespace Nonewclimits{    ///<Window Comparator Limits
-        using Addr = Register::Address<0x4001a070,0x00000000,0,unsigned>;
+    namespace Saradc0Wclimits{    ///<Window Comparator Limits
+        using Addr = Register::Address<0x4001a070,0x00000000,0x00000000,unsigned>;
         ///Less-Than Window Comparator Limit. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wclt{}; 
         ///Greater-Than Window Comparator Limit. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> wcgt{}; 
     }
-    namespace Noneacc{    ///<Accumulator Initial Value
-        using Addr = Register::Address<0x4001a080,0xffff0000,0,unsigned>;
+    namespace Saradc0Acc{    ///<Accumulator Initial Value
+        using Addr = Register::Address<0x4001a080,0xffff0000,0x00000000,unsigned>;
         ///Accumulator Initial Value. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> acc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> acc{}; 
     }
-    namespace Nonestatus{    ///<Module Status
-        using Addr = Register::Address<0x4001a090,0xffffffe0,0,unsigned>;
+    namespace Saradc0Status{    ///<Module Status
+        using Addr = Register::Address<0x4001a090,0xffffffe0,0x00000000,unsigned>;
         ///Window Compare Interrupt. 
         enum class WciVal {
             notSet=0x00000000,     ///<Read: A window compare interrupt has not occurred. Write: Clear the interrupt.
@@ -1308,16 +1308,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(furi)::Type,FuriVal::set> set{};
         }
     }
-    namespace Nonefifostatus{    ///<FIFO Status
-        using Addr = Register::Address<0x4001a0a0,0xffffffc0,0,unsigned>;
+    namespace Saradc0Fifostatus{    ///<FIFO Status
+        using Addr = Register::Address<0x4001a0a0,0xffffffc0,0x00000000,unsigned>;
         ///FIFO Level. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> fifolvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fifolvl{}; 
         ///Data Packing Status. 
         enum class DpstsVal {
             lower=0x00000000,     ///<The next ADC conversion will be written to the lower half-word.
             upper=0x00000001,     ///<The next ADC conversion will be written to the upper half-word.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DpstsVal> dpsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DpstsVal> dpsts{}; 
         namespace DpstsValC{
             constexpr Register::FieldValue<decltype(dpsts)::Type,DpstsVal::lower> lower{};
             constexpr Register::FieldValue<decltype(dpsts)::Type,DpstsVal::upper> upper{};
@@ -1327,7 +1327,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<New data is not produced yet.
             set=0x00000001,     ///<New data is ready.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DrdyfVal> drdyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DrdyfVal> drdyf{}; 
         namespace DrdyfValC{
             constexpr Register::FieldValue<decltype(drdyf)::Type,DrdyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(drdyf)::Type,DrdyfVal::set> set{};

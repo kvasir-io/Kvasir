@@ -1,17 +1,16 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Ethernet: DMA controller operation
-    namespace Nonedmabmr{    ///<Ethernet DMA bus mode register
-        using Addr = Register::Address<0x40029000,0xf8000000,0,unsigned>;
+    namespace EthernetDmaDmabmr{    ///<Ethernet DMA bus mode register
+        using Addr = Register::Address<0x40029000,0xf8000000,0x00000000,unsigned>;
         ///Software reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sr{}; 
         ///DMA Arbitration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> da{}; 
         ///Descriptor skip length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,2),Register::ReadWriteAccess,unsigned> dsl{}; 
-        ///Enhanced descriptor format
-              enable
+        ///Enhanced descriptor format              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> edfe{}; 
         ///Programmable burst length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> pbl{}; 
@@ -30,42 +29,35 @@ namespace Kvasir {
         ///Mixed burst
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> mb{}; 
     }
-    namespace Nonedmatpdr{    ///<Ethernet DMA transmit poll demand
-          register
-        using Addr = Register::Address<0x40029004,0x00000000,0,unsigned>;
+    namespace EthernetDmaDmatpdr{    ///<Ethernet DMA transmit poll demand          register
+        using Addr = Register::Address<0x40029004,0x00000000,0x00000000,unsigned>;
         ///Transmit poll demand
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tpd{}; 
     }
-    namespace Nonedmarpdr{    ///<EHERNET DMA receive poll demand
-          register
-        using Addr = Register::Address<0x40029008,0x00000000,0,unsigned>;
+    namespace EthernetDmaDmarpdr{    ///<EHERNET DMA receive poll demand          register
+        using Addr = Register::Address<0x40029008,0x00000000,0x00000000,unsigned>;
         ///Receive poll demand
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rpd{}; 
     }
-    namespace Nonedmardlar{    ///<Ethernet DMA receive descriptor list address
-          register
-        using Addr = Register::Address<0x4002900c,0x00000000,0,unsigned>;
+    namespace EthernetDmaDmardlar{    ///<Ethernet DMA receive descriptor list address          register
+        using Addr = Register::Address<0x4002900c,0x00000000,0x00000000,unsigned>;
         ///Start of receive list
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> srl{}; 
     }
-    namespace Nonedmatdlar{    ///<Ethernet DMA transmit descriptor list
-          address register
-        using Addr = Register::Address<0x40029010,0x00000000,0,unsigned>;
+    namespace EthernetDmaDmatdlar{    ///<Ethernet DMA transmit descriptor list          address register
+        using Addr = Register::Address<0x40029010,0x00000000,0x00000000,unsigned>;
         ///Start of transmit list
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> stl{}; 
     }
-    namespace Nonedmasr{    ///<Ethernet DMA status register
-        using Addr = Register::Address<0x40029014,0xc4001800,0,unsigned>;
+    namespace EthernetDmaDmasr{    ///<Ethernet DMA status register
+        using Addr = Register::Address<0x40029014,0xc4001800,0x00000000,unsigned>;
         ///Transmit status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ts{}; 
-        ///Transmit process stopped
-              status
+        ///Transmit process stopped              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tpss{}; 
-        ///Transmit buffer unavailable
-              status
+        ///Transmit buffer unavailable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tbus{}; 
-        ///Transmit jabber timeout
-              status
+        ///Transmit jabber timeout              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tjts{}; 
         ///Receive overflow status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ros{}; 
@@ -73,14 +65,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tus{}; 
         ///Receive status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rs{}; 
-        ///Receive buffer unavailable
-              status
+        ///Receive buffer unavailable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rbus{}; 
-        ///Receive process stopped
-              status
+        ///Receive process stopped              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rpss{}; 
-        ///Receive watchdog timeout
-              status
+        ///Receive watchdog timeout              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> pwts{}; 
         ///Early transmit status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ets{}; 
@@ -93,21 +82,20 @@ namespace Kvasir {
         ///Normal interrupt summary
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> nis{}; 
         ///Receive process state
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::ReadWriteAccess,unsigned> rps{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rps{}; 
         ///Transmit process state
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> tps{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tps{}; 
         ///Error bits status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::ReadWriteAccess,unsigned> ebs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ebs{}; 
         ///MMC status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> mmcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mmcs{}; 
         ///PMT status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> pmts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pmts{}; 
         ///Time stamp trigger status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> tsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tsts{}; 
     }
-    namespace Nonedmaomr{    ///<Ethernet DMA operation mode
-          register
-        using Addr = Register::Address<0x40029018,0xf8ce1f21,0,unsigned>;
+    namespace EthernetDmaDmaomr{    ///<Ethernet DMA operation mode          register
+        using Addr = Register::Address<0x40029018,0xf8ce1f21,0x00000000,unsigned>;
         ///SR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sr{}; 
         ///OSF
@@ -133,19 +121,15 @@ namespace Kvasir {
         ///DTCEFD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dtcefd{}; 
     }
-    namespace Nonedmaier{    ///<Ethernet DMA interrupt enable
-          register
-        using Addr = Register::Address<0x4002901c,0xfffe1800,0,unsigned>;
+    namespace EthernetDmaDmaier{    ///<Ethernet DMA interrupt enable          register
+        using Addr = Register::Address<0x4002901c,0xfffe1800,0x00000000,unsigned>;
         ///Transmit interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tie{}; 
-        ///Transmit process stopped interrupt
-              enable
+        ///Transmit process stopped interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tpsie{}; 
-        ///Transmit buffer unavailable interrupt
-              enable
+        ///Transmit buffer unavailable interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tbuie{}; 
-        ///Transmit jabber timeout interrupt
-              enable
+        ///Transmit jabber timeout interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tjtie{}; 
         ///Overflow interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> roie{}; 
@@ -153,80 +137,57 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tuie{}; 
         ///Receive interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rie{}; 
-        ///Receive buffer unavailable interrupt
-              enable
+        ///Receive buffer unavailable interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rbuie{}; 
-        ///Receive process stopped interrupt
-              enable
+        ///Receive process stopped interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rpsie{}; 
-        ///receive watchdog timeout interrupt
-              enable
+        ///receive watchdog timeout interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rwtie{}; 
-        ///Early transmit interrupt
-              enable
+        ///Early transmit interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> etie{}; 
-        ///Fatal bus error interrupt
-              enable
+        ///Fatal bus error interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> fbeie{}; 
-        ///Early receive interrupt
-              enable
+        ///Early receive interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> erie{}; 
-        ///Abnormal interrupt summary
-              enable
+        ///Abnormal interrupt summary              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> aise{}; 
-        ///Normal interrupt summary
-              enable
+        ///Normal interrupt summary              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> nise{}; 
     }
-    namespace Nonedmamfbocr{    ///<Ethernet DMA missed frame and buffer
-          overflow counter register
-        using Addr = Register::Address<0x40029020,0xe0000000,0,unsigned>;
-        ///Missed frames by the
-              controller
+    namespace EthernetDmaDmamfbocr{    ///<Ethernet DMA missed frame and buffer          overflow counter register
+        using Addr = Register::Address<0x40029020,0xe0000000,0x00000000,unsigned>;
+        ///Missed frames by the              controller
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mfc{}; 
-        ///Overflow bit for missed frame
-              counter
+        ///Overflow bit for missed frame              counter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> omfc{}; 
-        ///Missed frames by the
-              application
+        ///Missed frames by the              application
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,17),Register::ReadWriteAccess,unsigned> mfa{}; 
-        ///Overflow bit for FIFO overflow
-              counter
+        ///Overflow bit for FIFO overflow              counter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> ofoc{}; 
     }
-    namespace Nonedmarswtr{    ///<Ethernet DMA receive status watchdog timer
-          register
-        using Addr = Register::Address<0x40029024,0xffffff00,0,unsigned>;
-        ///Receive status watchdog timer
-              count
+    namespace EthernetDmaDmarswtr{    ///<Ethernet DMA receive status watchdog timer          register
+        using Addr = Register::Address<0x40029024,0xffffff00,0x00000000,unsigned>;
+        ///Receive status watchdog timer              count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rswtc{}; 
     }
-    namespace Nonedmachtdr{    ///<Ethernet DMA current host transmit
-          descriptor register
-        using Addr = Register::Address<0x40029048,0x00000000,0,unsigned>;
-        ///Host transmit descriptor address
-              pointer
+    namespace EthernetDmaDmachtdr{    ///<Ethernet DMA current host transmit          descriptor register
+        using Addr = Register::Address<0x40029048,0x00000000,0x00000000,unsigned>;
+        ///Host transmit descriptor address              pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> htdap{}; 
     }
-    namespace Nonedmachrdr{    ///<Ethernet DMA current host receive descriptor
-          register
-        using Addr = Register::Address<0x4002904c,0x00000000,0,unsigned>;
-        ///Host receive descriptor address
-              pointer
+    namespace EthernetDmaDmachrdr{    ///<Ethernet DMA current host receive descriptor          register
+        using Addr = Register::Address<0x4002904c,0x00000000,0x00000000,unsigned>;
+        ///Host receive descriptor address              pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hrdap{}; 
     }
-    namespace Nonedmachtbar{    ///<Ethernet DMA current host transmit buffer
-          address register
-        using Addr = Register::Address<0x40029050,0x00000000,0,unsigned>;
-        ///Host transmit buffer address
-              pointer
+    namespace EthernetDmaDmachtbar{    ///<Ethernet DMA current host transmit buffer          address register
+        using Addr = Register::Address<0x40029050,0x00000000,0x00000000,unsigned>;
+        ///Host transmit buffer address              pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> htbap{}; 
     }
-    namespace Nonedmachrbar{    ///<Ethernet DMA current host receive buffer
-          address register
-        using Addr = Register::Address<0x40029054,0x00000000,0,unsigned>;
-        ///Host receive buffer address
-              pointer
+    namespace EthernetDmaDmachrbar{    ///<Ethernet DMA current host receive buffer          address register
+        using Addr = Register::Address<0x40029054,0x00000000,0x00000000,unsigned>;
+        ///Host receive buffer address              pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hrbap{}; 
     }
 }

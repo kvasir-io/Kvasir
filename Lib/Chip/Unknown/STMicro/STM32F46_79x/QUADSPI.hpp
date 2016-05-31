@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //QuadSPI interface
-    namespace Nonecr{    ///<control register
-        using Addr = Register::Address<0xa0001000,0x0020e020,0,unsigned>;
+    namespace QuadspiCr{    ///<control register
+        using Addr = Register::Address<0xa0001000,0x0020e020,0x00000000,unsigned>;
         ///Clock prescaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> prescaler{}; 
         ///Polling match mode
@@ -12,17 +12,13 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> apms{}; 
         ///TimeOut interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> toie{}; 
-        ///Status match interrupt
-              enable
+        ///Status match interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> smie{}; 
-        ///FIFO threshold interrupt
-              enable
+        ///FIFO threshold interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ftie{}; 
-        ///Transfer complete interrupt
-              enable
+        ///Transfer complete interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> tcie{}; 
-        ///Transfer error interrupt
-              enable
+        ///Transfer error interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> teie{}; 
         ///IFO threshold level
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> fthres{}; 
@@ -41,8 +37,8 @@ namespace Kvasir {
         ///Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en{}; 
     }
-    namespace Nonedcr{    ///<device configuration register
-        using Addr = Register::Address<0xa0001004,0xffe0f8fe,0,unsigned>;
+    namespace QuadspiDcr{    ///<device configuration register
+        using Addr = Register::Address<0xa0001004,0xffe0f8fe,0x00000000,unsigned>;
         ///FLASH memory size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> fsize{}; 
         ///Chip select high time
@@ -50,8 +46,8 @@ namespace Kvasir {
         ///Mode 0 / mode 3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ckmode{}; 
     }
-    namespace Nonesr{    ///<status register
-        using Addr = Register::Address<0xa0001008,0xffff80c0,0,unsigned>;
+    namespace QuadspiSr{    ///<status register
+        using Addr = Register::Address<0xa0001008,0xffff80c0,0x00000000,unsigned>;
         ///FIFO level
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> flevel{}; 
         ///Busy
@@ -67,32 +63,29 @@ namespace Kvasir {
         ///Transfer error flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tef{}; 
     }
-    namespace Nonefcr{    ///<flag clear register
-        using Addr = Register::Address<0xa000100c,0xffffffe4,0,unsigned>;
+    namespace QuadspiFcr{    ///<flag clear register
+        using Addr = Register::Address<0xa000100c,0xffffffe4,0x00000000,unsigned>;
         ///Clear timeout flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ctof{}; 
         ///Clear status match flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> csmf{}; 
-        ///Clear transfer complete
-              flag
+        ///Clear transfer complete              flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ctcf{}; 
         ///Clear transfer error flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ctef{}; 
     }
-    namespace Nonedlr{    ///<data length register
-        using Addr = Register::Address<0xa0001010,0x00000000,0,unsigned>;
+    namespace QuadspiDlr{    ///<data length register
+        using Addr = Register::Address<0xa0001010,0x00000000,0x00000000,unsigned>;
         ///Data length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dl{}; 
     }
-    namespace Noneccr{    ///<communication configuration
-          register
-        using Addr = Register::Address<0xa0001014,0x20800000,0,unsigned>;
+    namespace QuadspiCcr{    ///<communication configuration          register
+        using Addr = Register::Address<0xa0001014,0x20800000,0x00000000,unsigned>;
         ///Double data rate mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ddrm{}; 
         ///DDR hold half cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> dhhc{}; 
-        ///Send instruction only once
-              mode
+        ///Send instruction only once              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> sioo{}; 
         ///Functional mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> fmode{}; 
@@ -113,38 +106,38 @@ namespace Kvasir {
         ///Instruction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> instruction{}; 
     }
-    namespace Nonear{    ///<address register
-        using Addr = Register::Address<0xa0001018,0x00000000,0,unsigned>;
+    namespace QuadspiAr{    ///<address register
+        using Addr = Register::Address<0xa0001018,0x00000000,0x00000000,unsigned>;
         ///Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> address{}; 
     }
-    namespace Noneabr{    ///<ABR
-        using Addr = Register::Address<0xa000101c,0x00000000,0,unsigned>;
+    namespace QuadspiAbr{    ///<ABR
+        using Addr = Register::Address<0xa000101c,0x00000000,0x00000000,unsigned>;
         ///ALTERNATE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> alternate{}; 
     }
-    namespace Nonedr{    ///<data register
-        using Addr = Register::Address<0xa0001020,0x00000000,0,unsigned>;
+    namespace QuadspiDr{    ///<data register
+        using Addr = Register::Address<0xa0001020,0x00000000,0x00000000,unsigned>;
         ///Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonepsmkr{    ///<polling status mask register
-        using Addr = Register::Address<0xa0001024,0x00000000,0,unsigned>;
+    namespace QuadspiPsmkr{    ///<polling status mask register
+        using Addr = Register::Address<0xa0001024,0x00000000,0x00000000,unsigned>;
         ///Status mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mask{}; 
     }
-    namespace Nonepsmar{    ///<polling status match register
-        using Addr = Register::Address<0xa0001028,0x00000000,0,unsigned>;
+    namespace QuadspiPsmar{    ///<polling status match register
+        using Addr = Register::Address<0xa0001028,0x00000000,0x00000000,unsigned>;
         ///Status match
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
     }
-    namespace Nonepir{    ///<polling interval register
-        using Addr = Register::Address<0xa000102c,0xffff0000,0,unsigned>;
+    namespace QuadspiPir{    ///<polling interval register
+        using Addr = Register::Address<0xa000102c,0xffff0000,0x00000000,unsigned>;
         ///Polling interval
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> interval{}; 
     }
-    namespace Nonelptr{    ///<low-power timeout register
-        using Addr = Register::Address<0xa0001030,0xffff0000,0,unsigned>;
+    namespace QuadspiLptr{    ///<low-power timeout register
+        using Addr = Register::Address<0xa0001030,0xffff0000,0x00000000,unsigned>;
         ///Timeout period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timeout{}; 
     }

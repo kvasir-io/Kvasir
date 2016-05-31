@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Noneconfig{    ///<Configuration
-        using Addr = Register::Address<0x40042000,0x1cffff1e,0,unsigned>;
+    namespace Acctr0Config{    ///<Configuration
+        using Addr = Register::Address<0x40042000,0x1cffff1e,0x00000000,unsigned>;
         ///Write Update Status Flag. 
         enum class UpdstsfVal {
             notSet=0x00000000,     ///<An internal pulse counter register update is not in progress.
             set=0x00000001,     ///<An internal pulse counter register update is in progress.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,UpdstsfVal> updstsf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,UpdstsfVal> updstsf{}; 
         namespace UpdstsfValC{
             constexpr Register::FieldValue<decltype(updstsf)::Type,UpdstsfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(updstsf)::Type,UpdstsfVal::set> set{};
@@ -81,8 +81,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pcmd)::Type,PcmdVal::quadrature> quadrature{};
         }
     }
-    namespace Nonecontrol{    ///<Control Register
-        using Addr = Register::Address<0x40042010,0x00007fff,0,unsigned>;
+    namespace Acctr0Control{    ///<Control Register
+        using Addr = Register::Address<0x40042010,0x00007fff,0x00000000,unsigned>;
         ///Comparator Low Threshold. 
         enum class CmplthVal {
             v32Percent=0x00000000,     ///<Set the digital comparator low threshold to 32% of VIO.
@@ -172,7 +172,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The automatic calibration operation did not succeed.
             set=0x00000001,     ///<The automatic calibration operation succeeded.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CalrfVal> calrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CalrfVal> calrf{}; 
         namespace CalrfValC{
             constexpr Register::FieldValue<decltype(calrf)::Type,CalrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(calrf)::Type,CalrfVal::set> set{};
@@ -188,8 +188,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calbusyf)::Type,CalbusyfVal::set> set{};
         }
     }
-    namespace Nonelcconfig{    ///<LC Configuration
-        using Addr = Register::Address<0x40042020,0x80000000,0,unsigned>;
+    namespace Acctr0Lcconfig{    ///<LC Configuration
+        using Addr = Register::Address<0x40042020,0x80000000,0x00000000,unsigned>;
         ///LC Pulse Extension Mode. 
         enum class PemdVal {
             low=0x00000000,     ///<Stretch the LC comparator output low pulses by approximately 20 ns.
@@ -303,10 +303,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fcmp1en)::Type,Fcmp1enVal::enabled> enabled{};
         }
     }
-    namespace Nonetiming{    ///<Timing
-        using Addr = Register::Address<0x40042030,0x000001e0,0,unsigned>;
+    namespace Acctr0Timing{    ///<Timing
+        using Addr = Register::Address<0x40042030,0x000001e0,0x00000000,unsigned>;
         ///Timing State. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> state{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> state{}; 
         ///Bias 0 Offset Enable. 
         enum class B0oenVal {
             disabled=0x00000000,     ///<The bias 0 pulse is a full width (minimum 2 RTC cycles).
@@ -402,8 +402,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(period)::Type,PeriodVal::consecutiveSample> consecutiveSample{};
         }
     }
-    namespace Nonelcmode{    ///<LC Mode
-        using Addr = Register::Address<0x40042040,0x00000000,0,unsigned>;
+    namespace Acctr0Lcmode{    ///<LC Mode
+        using Addr = Register::Address<0x40042040,0x00000000,0x00000000,unsigned>;
         ///Automatic Tracking Enable. 
         enum class AtrkenVal {
             disabled=0x00000000,     ///<Disable automatic tracking.
@@ -675,10 +675,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lcmd)::Type,LcmdVal::mode15> mode15{};
         }
     }
-    namespace Nonelcclkcontrol{    ///<LC Clock Control
-        using Addr = Register::Address<0x40042050,0xf000e000,0,unsigned>;
+    namespace Acctr0Lcclkcontrol{    ///<LC Clock Control
+        using Addr = Register::Address<0x40042050,0xf000e000,0x00000000,unsigned>;
         ///LC Oscillator Clock Cycles. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> clkcycles{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> clkcycles{}; 
         ///LC Oscillator Calibration Start. 
         enum class ClkcalVal {
             notInProgress=0x00000000,     ///<A calibration operation is not in progress.
@@ -692,30 +692,30 @@ namespace Kvasir {
         ///LC Oscillator Reload Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,16),Register::ReadWriteAccess,unsigned> reload{}; 
     }
-    namespace Nonelclimits{    ///<LC Counter Limits
-        using Addr = Register::Address<0x40042060,0x00000000,0,unsigned>;
+    namespace Acctr0Lclimits{    ///<LC Counter Limits
+        using Addr = Register::Address<0x40042060,0x00000000,0x00000000,unsigned>;
         ///LC Counter 0 Minimum Value. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> min0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> min0{}; 
         ///LC Counter 0 Maximum Value. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> max0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> max0{}; 
         ///LC Counter 1 Minimum Value. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> min1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> min1{}; 
         ///LC Counter 1 Maximum Value. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> max1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> max1{}; 
     }
-    namespace Nonelccount{    ///<LC Counters
-        using Addr = Register::Address<0x40042070,0x00000000,0,unsigned>;
+    namespace Acctr0Lccount{    ///<LC Counters
+        using Addr = Register::Address<0x40042070,0x00000000,0x00000000,unsigned>;
         ///LC Counter 0. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> lccount0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lccount0{}; 
         ///LC Counter 0 Discriminator. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cd0{}; 
         ///LC Counter 1. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> lccount1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lccount1{}; 
         ///LC Counter 1 Discriminator. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> cd1{}; 
     }
-    namespace Nonedbconfig{    ///<Pulse Counter Debounce Configuration
-        using Addr = Register::Address<0x40042080,0xfff80000,0,unsigned>;
+    namespace Acctr0Dbconfig{    ///<Pulse Counter Debounce Configuration
+        using Addr = Register::Address<0x40042080,0xfff80000,0x00000000,unsigned>;
         ///Integrator Low Debounce. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ldbth{}; 
         ///Integrator High Debounce. 
@@ -735,7 +735,7 @@ namespace Kvasir {
             low=0x00000000,     ///<The integrator 0 output is low.
             high=0x00000001,     ///<The integrator 0 output is high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Integ0Val> integ0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Integ0Val> integ0{}; 
         namespace Integ0ValC{
             constexpr Register::FieldValue<decltype(integ0)::Type,Integ0Val::low> low{};
             constexpr Register::FieldValue<decltype(integ0)::Type,Integ0Val::high> high{};
@@ -745,34 +745,34 @@ namespace Kvasir {
             low=0x00000000,     ///<The integrator 1 output is low.
             high=0x00000001,     ///<The integrator 1 output is high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Integ1Val> integ1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Integ1Val> integ1{}; 
         namespace Integ1ValC{
             constexpr Register::FieldValue<decltype(integ1)::Type,Integ1Val::low> low{};
             constexpr Register::FieldValue<decltype(integ1)::Type,Integ1Val::high> high{};
         }
     }
-    namespace Nonecount0{    ///<Pulse Counter 0
-        using Addr = Register::Address<0x40042090,0xff000000,0,unsigned>;
+    namespace Acctr0Count0{    ///<Pulse Counter 0
+        using Addr = Register::Address<0x40042090,0xff000000,0x00000000,unsigned>;
         ///Pulse Counter 0. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> count0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count0{}; 
     }
-    namespace Nonecount1{    ///<Pulse Counter 1
-        using Addr = Register::Address<0x400420a0,0xff000000,0,unsigned>;
+    namespace Acctr0Count1{    ///<Pulse Counter 1
+        using Addr = Register::Address<0x400420a0,0xff000000,0x00000000,unsigned>;
         ///Pulse Counter 1. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> count1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count1{}; 
     }
-    namespace Nonecomp0{    ///<Comparator 0
-        using Addr = Register::Address<0x400420b0,0xff000000,0,unsigned>;
+    namespace Acctr0Comp0{    ///<Comparator 0
+        using Addr = Register::Address<0x400420b0,0xff000000,0x00000000,unsigned>;
         ///Pulse Counter Comparator 0 Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> comp0{}; 
     }
-    namespace Nonecomp1{    ///<Pulse Counter Comparator 1 Threshold
-        using Addr = Register::Address<0x400420c0,0xff000000,0,unsigned>;
+    namespace Acctr0Comp1{    ///<Pulse Counter Comparator 1 Threshold
+        using Addr = Register::Address<0x400420c0,0xff000000,0x00000000,unsigned>;
         ///Pulse Counter Comparator 1 Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> comp1{}; 
     }
-    namespace Nonestatus{    ///<Pulse Counter Status
-        using Addr = Register::Address<0x400420d0,0xc0000000,0,unsigned>;
+    namespace Acctr0Status{    ///<Pulse Counter Status
+        using Addr = Register::Address<0x400420d0,0xc0000000,0x00000000,unsigned>;
         ///Direction Change Interrupt Flag. 
         enum class DirchgiVal {
             notSet=0x00000000,     ///<A direction change did not occur.
@@ -938,7 +938,7 @@ namespace Kvasir {
             low=0x00000000,     ///<The integrator 0 output is low.
             high=0x00000001,     ///<The integrator 0 output is high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,In0Val> in0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,In0Val> in0{}; 
         namespace In0ValC{
             constexpr Register::FieldValue<decltype(in0)::Type,In0Val::low> low{};
             constexpr Register::FieldValue<decltype(in0)::Type,In0Val::high> high{};
@@ -948,7 +948,7 @@ namespace Kvasir {
             low=0x00000000,     ///<The integrator 1 output is low.
             high=0x00000001,     ///<The integrator 1 output is high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,In1Val> in1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,In1Val> in1{}; 
         namespace In1ValC{
             constexpr Register::FieldValue<decltype(in1)::Type,In1Val::low> low{};
             constexpr Register::FieldValue<decltype(in1)::Type,In1Val::high> high{};
@@ -958,7 +958,7 @@ namespace Kvasir {
             low=0x00000000,     ///<The previous integrator 0 output was low.
             high=0x00000001,     ///<The previous integrator 0 output was high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,In0prevVal> in0prev{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,In0prevVal> in0prev{}; 
         namespace In0prevValC{
             constexpr Register::FieldValue<decltype(in0prev)::Type,In0prevVal::low> low{};
             constexpr Register::FieldValue<decltype(in0prev)::Type,In0prevVal::high> high{};
@@ -968,7 +968,7 @@ namespace Kvasir {
             low=0x00000000,     ///<The previous integrator 1 output was low.
             high=0x00000001,     ///<The previous integrator 1 output was high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,In1prevVal> in1prev{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,In1prevVal> in1prev{}; 
         namespace In1prevValC{
             constexpr Register::FieldValue<decltype(in1prev)::Type,In1prevVal::low> low{};
             constexpr Register::FieldValue<decltype(in1prev)::Type,In1prevVal::high> high{};
@@ -980,7 +980,7 @@ namespace Kvasir {
             st2=0x00000002,     ///<The pulse counter is in state 2.
             st3=0x00000003,     ///<The pulse counter is in state 3.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,StateVal> state{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StateVal> state{}; 
         namespace StateValC{
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::st0> st0{};
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::st1> st1{};
@@ -992,7 +992,7 @@ namespace Kvasir {
             counterClockwise=0x00000000,     ///<The current direction is counter-clockwise.
             clockwise=0x00000001,     ///<The current direction is clockwise.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,DirfVal> dirf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DirfVal> dirf{}; 
         namespace DirfValC{
             constexpr Register::FieldValue<decltype(dirf)::Type,DirfVal::counterClockwise> counterClockwise{};
             constexpr Register::FieldValue<decltype(dirf)::Type,DirfVal::clockwise> clockwise{};
@@ -1002,19 +1002,19 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The switch operates normally.
             set=0x00000001,     ///<A flutter event was detected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,FlfVal> flf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FlfVal> flf{}; 
         namespace FlfValC{
             constexpr Register::FieldValue<decltype(flf)::Type,FlfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(flf)::Type,FlfVal::set> set{};
         }
         ///Direction History . 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> dirhist{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dirhist{}; 
         ///Comparator 0 Output. 
         enum class Cmp0outVal {
             low=0x00000000,     ///<The output of comparator 0 is low.
             high=0x00000001,     ///<The output of comparator 0 is high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Cmp0outVal> cmp0out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Cmp0outVal> cmp0out{}; 
         namespace Cmp0outValC{
             constexpr Register::FieldValue<decltype(cmp0out)::Type,Cmp0outVal::low> low{};
             constexpr Register::FieldValue<decltype(cmp0out)::Type,Cmp0outVal::high> high{};
@@ -1024,18 +1024,18 @@ namespace Kvasir {
             low=0x00000000,     ///<The output of comparator 1 is low.
             high=0x00000001,     ///<The output of comparator1 is high.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Cmp1outVal> cmp1out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Cmp1outVal> cmp1out{}; 
         namespace Cmp1outValC{
             constexpr Register::FieldValue<decltype(cmp1out)::Type,Cmp1outVal::low> low{};
             constexpr Register::FieldValue<decltype(cmp1out)::Type,Cmp1outVal::high> high{};
         }
     }
-    namespace Nonedebugen{    ///<Calibration
-        using Addr = Register::Address<0x400420e0,0xffffbfff,0,unsigned>;
+    namespace Acctr0Debugen{    ///<Calibration
+        using Addr = Register::Address<0x400420e0,0xffffbfff,0x00000000,unsigned>;
         ///Debug Output Enable. 
         enum class DbgoenVal {
-            disabled=0x00000000,     ///<None
-            enabled=0x00000001,     ///<None
+            disabled=0x00000000,     ///<
+            enabled=0x00000001,     ///<
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,DbgoenVal> dbgoen{}; 
         namespace DbgoenValC{

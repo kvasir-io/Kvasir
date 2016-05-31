@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog-to-digital converter
     namespace AdcSc1{    ///<Status and Control Register 1
-        using Addr = Register::Address<0x4003b000,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4003b000,0xffffff00,0x00000000,unsigned>;
         ///Input Channel Select
         enum class AdchVal {
             v10110=0x00000016,     ///<Temperature Sensor
@@ -45,14 +45,14 @@ namespace Kvasir {
             v0=0x00000000,     ///<Conversion not completed.
             v1=0x00000001,     ///<Conversion completed.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CocoVal> coco{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CocoVal> coco{}; 
         namespace CocoValC{
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
         }
     }
     namespace AdcSc2{    ///<Status and Control Register 2
-        using Addr = Register::Address<0x4003b004,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4003b004,0xffffff00,0x00000000,unsigned>;
         ///Voltage Reference Selection
         enum class RefselVal {
             v00=0x00000000,     ///<Default voltage reference pin pair (VREFH/VREFL).
@@ -70,7 +70,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Indicates that ADC result FIFO is not full and next conversion data still can be stored into FIFO.
             v1=0x00000001,     ///<Indicates that ADC result FIFO is full and next conversion will override old data in case of no read action.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FfullVal> ffull{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FfullVal> ffull{}; 
         namespace FfullValC{
             constexpr Register::FieldValue<decltype(ffull)::Type,FfullVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ffull)::Type,FfullVal::v1> v1{};
@@ -80,7 +80,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Indicates that ADC result FIFO have at least one valid new data.
             v1=0x00000001,     ///<Indicates that ADC result FIFO have no valid new data.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,FemptyVal> fempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FemptyVal> fempty{}; 
         namespace FemptyValC{
             constexpr Register::FieldValue<decltype(fempty)::Type,FemptyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fempty)::Type,FemptyVal::v1> v1{};
@@ -120,14 +120,14 @@ namespace Kvasir {
             v0=0x00000000,     ///<Conversion not in progress.
             v1=0x00000001,     ///<Conversion in progress.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdactVal> adact{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AdactVal> adact{}; 
         namespace AdactValC{
             constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v1> v1{};
         }
     }
     namespace AdcSc3{    ///<Status and Control Register 3
-        using Addr = Register::Address<0x4003b008,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4003b008,0xffffff00,0x00000000,unsigned>;
         ///Input Clock Select
         enum class AdiclkVal {
             v00=0x00000000,     ///<Bus clock
@@ -190,7 +190,7 @@ namespace Kvasir {
         }
     }
     namespace AdcSc4{    ///<Status and Control Register 4
-        using Addr = Register::Address<0x4003b00c,0xffffff98,0,unsigned>;
+        using Addr = Register::Address<0x4003b00c,0xffffff98,0x00000000,unsigned>;
         ///no description available
         enum class AfdepVal {
             v000=0x00000000,     ///<FIFO is disabled.
@@ -235,17 +235,17 @@ namespace Kvasir {
         }
     }
     namespace AdcR{    ///<Conversion Result Register
-        using Addr = Register::Address<0x4003b010,0xfffff000,0,unsigned>;
+        using Addr = Register::Address<0x4003b010,0xfffff000,0x00000000,unsigned>;
         ///Conversion Result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> adr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> adr{}; 
     }
     namespace AdcCv{    ///<Compare Value Register
-        using Addr = Register::Address<0x4003b014,0xfffff000,0,unsigned>;
+        using Addr = Register::Address<0x4003b014,0xfffff000,0x00000000,unsigned>;
         ///Conversion Result[11:0]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> cv{}; 
     }
     namespace AdcApctl1{    ///<Pin Control 1 Register
-        using Addr = Register::Address<0x4003b018,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003b018,0xffff0000,0x00000000,unsigned>;
         ///ADC Pin Control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> adpc{}; 
     }

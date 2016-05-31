@@ -1,14 +1,12 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//Universal synchronous asynchronous receiver
-      transmitter
-    namespace Nonecr1{    ///<Control register 1
-        using Addr = Register::Address<0x40008000,0xec008000,0,unsigned>;
+//Universal synchronous asynchronous receiver      transmitter
+    namespace Lpuart1Cr1{    ///<Control register 1
+        using Addr = Register::Address<0x40008000,0xec008000,0x00000000,unsigned>;
         ///Word length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> m1{}; 
-        ///Driver Enable assertion
-              time
+        ///Driver Enable assertion              time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> deat4{}; 
         ///DEAT3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> deat3{}; 
@@ -18,8 +16,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> deat1{}; 
         ///DEAT0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> deat0{}; 
-        ///Driver Enable de-assertion
-              time
+        ///Driver Enable de-assertion              time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> dedt4{}; 
         ///DEDT3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> dedt3{}; 
@@ -29,8 +26,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dedt1{}; 
         ///DEDT0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dedt0{}; 
-        ///Character match interrupt
-              enable
+        ///Character match interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> cmie{}; 
         ///Mute mode enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> mme{}; 
@@ -46,8 +42,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> peie{}; 
         ///interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txeie{}; 
-        ///Transmission complete interrupt
-              enable
+        ///Transmission complete interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tcie{}; 
         ///RXNE interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxneie{}; 
@@ -62,8 +57,8 @@ namespace Kvasir {
         ///USART enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ue{}; 
     }
-    namespace Nonecr2{    ///<Control register 2
-        using Addr = Register::Address<0x40008004,0x00f047ef,0,unsigned>;
+    namespace Lpuart1Cr2{    ///<Control register 2
+        using Addr = Register::Address<0x40008004,0x00f047ef,0x00000000,unsigned>;
         ///Address of the USART node
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> add47{}; 
         ///Address of the USART node
@@ -72,11 +67,9 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> msbfirst{}; 
         ///Binary data inversion
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> tainv{}; 
-        ///TX pin active level
-              inversion
+        ///TX pin active level              inversion
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> txinv{}; 
-        ///RX pin active level
-              inversion
+        ///RX pin active level              inversion
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rxinv{}; 
         ///Swap TX/RX pins
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> swap{}; 
@@ -84,25 +77,20 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> stop{}; 
         ///Clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> clken{}; 
-        ///7-bit Address Detection/4-bit Address
-              Detection
+        ///7-bit Address Detection/4-bit Address              Detection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> addm7{}; 
     }
-    namespace Nonecr3{    ///<Control register 3
-        using Addr = Register::Address<0x40008008,0xff8f0836,0,unsigned>;
-        ///Wakeup from Stop mode interrupt
-              enable
+    namespace Lpuart1Cr3{    ///<Control register 3
+        using Addr = Register::Address<0x40008008,0xff8f0836,0x00000000,unsigned>;
+        ///Wakeup from Stop mode interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> wufie{}; 
-        ///Wakeup from Stop mode interrupt flag
-              selection
+        ///Wakeup from Stop mode interrupt flag              selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> wus{}; 
-        ///Driver enable polarity
-              selection
+        ///Driver enable polarity              selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dep{}; 
         ///Driver enable mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dem{}; 
-        ///DMA Disable on Reception
-              Error
+        ///DMA Disable on Reception              Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ddre{}; 
         ///Overrun Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ovrdis{}; 
@@ -121,13 +109,13 @@ namespace Kvasir {
         ///Error interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eie{}; 
     }
-    namespace Nonebrr{    ///<Baud rate register
-        using Addr = Register::Address<0x4000800c,0xfff00000,0,unsigned>;
+    namespace Lpuart1Brr{    ///<Baud rate register
+        using Addr = Register::Address<0x4000800c,0xfff00000,0x00000000,unsigned>;
         ///BRR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,0),Register::ReadWriteAccess,unsigned> brr{}; 
     }
-    namespace Nonerqr{    ///<Request register
-        using Addr = Register::Address<0x40008018,0xfffffff1,0,unsigned>;
+    namespace Lpuart1Rqr{    ///<Request register
+        using Addr = Register::Address<0x40008018,0xfffffff1,0x00000000,unsigned>;
         ///Receive data flush request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxfrq{}; 
         ///Mute mode request
@@ -135,9 +123,8 @@ namespace Kvasir {
         ///Send break request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sbkrq{}; 
     }
-    namespace Noneisr{    ///<Interrupt & status
-          register
-        using Addr = Register::Address<0x4000801c,0xff80f900,0,unsigned>;
+    namespace Lpuart1Isr{    ///<Interrupt & status          register
+        using Addr = Register::Address<0x4000801c,0xff80f900,0x00000000,unsigned>;
         ///REACK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> reack{}; 
         ///TEACK
@@ -173,20 +160,17 @@ namespace Kvasir {
         ///PE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pe{}; 
     }
-    namespace Noneicr{    ///<Interrupt flag clear register
-        using Addr = Register::Address<0x40008020,0xffedfda0,0,unsigned>;
-        ///Wakeup from Stop mode clear
-              flag
+    namespace Lpuart1Icr{    ///<Interrupt flag clear register
+        using Addr = Register::Address<0x40008020,0xffedfda0,0x00000000,unsigned>;
+        ///Wakeup from Stop mode clear              flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> wucf{}; 
         ///Character match clear flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> cmcf{}; 
         ///CTS clear flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ctscf{}; 
-        ///Transmission complete clear
-              flag
+        ///Transmission complete clear              flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tccf{}; 
-        ///Idle line detected clear
-              flag
+        ///Idle line detected clear              flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idlecf{}; 
         ///Overrun error clear flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> orecf{}; 
@@ -197,13 +181,13 @@ namespace Kvasir {
         ///Parity error clear flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pecf{}; 
     }
-    namespace Nonerdr{    ///<Receive data register
-        using Addr = Register::Address<0x40008024,0xfffffe00,0,unsigned>;
+    namespace Lpuart1Rdr{    ///<Receive data register
+        using Addr = Register::Address<0x40008024,0xfffffe00,0x00000000,unsigned>;
         ///Receive data value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rdr{}; 
     }
-    namespace Nonetdr{    ///<Transmit data register
-        using Addr = Register::Address<0x40008028,0xfffffe00,0,unsigned>;
+    namespace Lpuart1Tdr{    ///<Transmit data register
+        using Addr = Register::Address<0x40008028,0xfffffe00,0x00000000,unsigned>;
         ///Transmit data value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> tdr{}; 
     }

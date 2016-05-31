@@ -1,108 +1,12 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //GPIO Tasks and Events
-    namespace NonetasksOut0{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
-        using Addr = Register::Address<0x40006000,0xffffffff,0,unsigned>;
+    namespace GpioteEventsPort{    ///<Event generated from multiple input GPIO pins with SENSE mechanism enabled
+        using Addr = Register::Address<0x4000617c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksOut1{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
-        using Addr = Register::Address<0x40006004,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksOut2{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
-        using Addr = Register::Address<0x40006008,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksOut3{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
-        using Addr = Register::Address<0x4000600c,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksOut4{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
-        using Addr = Register::Address<0x40006010,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksOut5{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
-        using Addr = Register::Address<0x40006014,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksOut6{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
-        using Addr = Register::Address<0x40006018,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksOut7{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
-        using Addr = Register::Address<0x4000601c,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksSet0{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
-        using Addr = Register::Address<0x40006030,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksSet1{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
-        using Addr = Register::Address<0x40006034,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksSet2{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
-        using Addr = Register::Address<0x40006038,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksSet3{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
-        using Addr = Register::Address<0x4000603c,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksSet4{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
-        using Addr = Register::Address<0x40006040,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksSet5{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
-        using Addr = Register::Address<0x40006044,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksSet6{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
-        using Addr = Register::Address<0x40006048,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksSet7{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
-        using Addr = Register::Address<0x4000604c,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksClr0{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
-        using Addr = Register::Address<0x40006060,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksClr1{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
-        using Addr = Register::Address<0x40006064,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksClr2{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
-        using Addr = Register::Address<0x40006068,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksClr3{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
-        using Addr = Register::Address<0x4000606c,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksClr4{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
-        using Addr = Register::Address<0x40006070,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksClr5{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
-        using Addr = Register::Address<0x40006074,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksClr6{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
-        using Addr = Register::Address<0x40006078,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksClr7{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
-        using Addr = Register::Address<0x4000607c,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsIn0{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
-        using Addr = Register::Address<0x40006100,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsIn1{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
-        using Addr = Register::Address<0x40006104,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsIn2{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
-        using Addr = Register::Address<0x40006108,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsIn3{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
-        using Addr = Register::Address<0x4000610c,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsIn4{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
-        using Addr = Register::Address<0x40006110,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsIn5{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
-        using Addr = Register::Address<0x40006114,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsIn6{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
-        using Addr = Register::Address<0x40006118,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsIn7{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
-        using Addr = Register::Address<0x4000611c,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsPort{    ///<Event generated from multiple input GPIO pins with SENSE mechanism enabled
-        using Addr = Register::Address<0x4000617c,0xffffffff,0,unsigned>;
-    }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40006304,0x7fffff00,0,unsigned>;
+    namespace GpioteIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40006304,0x7fffff00,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_IN[0] event
         enum class In0Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -212,8 +116,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(port)::Type,PortVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40006308,0x7fffff00,0,unsigned>;
+    namespace GpioteIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40006308,0x7fffff00,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_IN[0] event
         enum class In0Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -323,8 +227,104 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(port)::Type,PortVal::clear> clear{};
         }
     }
-    namespace Noneconfig0{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
-        using Addr = Register::Address<0x40006510,0xffece0fc,0,unsigned>;
+    namespace GpioteTasksOut0{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
+        using Addr = Register::Address<0x40006000,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksOut1{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
+        using Addr = Register::Address<0x40006004,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksOut2{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
+        using Addr = Register::Address<0x40006008,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksOut3{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
+        using Addr = Register::Address<0x4000600c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksOut4{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
+        using Addr = Register::Address<0x40006010,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksOut5{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
+        using Addr = Register::Address<0x40006014,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksOut6{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
+        using Addr = Register::Address<0x40006018,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksOut7{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is configured in CONFIG[0].POLARITY.
+        using Addr = Register::Address<0x4000601c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksSet0{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
+        using Addr = Register::Address<0x40006030,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksSet1{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
+        using Addr = Register::Address<0x40006034,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksSet2{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
+        using Addr = Register::Address<0x40006038,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksSet3{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
+        using Addr = Register::Address<0x4000603c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksSet4{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
+        using Addr = Register::Address<0x40006040,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksSet5{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
+        using Addr = Register::Address<0x40006044,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksSet6{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
+        using Addr = Register::Address<0x40006048,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksSet7{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it high.
+        using Addr = Register::Address<0x4000604c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksClr0{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
+        using Addr = Register::Address<0x40006060,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksClr1{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
+        using Addr = Register::Address<0x40006064,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksClr2{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
+        using Addr = Register::Address<0x40006068,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksClr3{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
+        using Addr = Register::Address<0x4000606c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksClr4{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
+        using Addr = Register::Address<0x40006070,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksClr5{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
+        using Addr = Register::Address<0x40006074,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksClr6{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
+        using Addr = Register::Address<0x40006078,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteTasksClr7{    ///<Description collection[0]:  Task for writing to pin specified in CONFIG[0].PSEL. Action on pin is to set it low.
+        using Addr = Register::Address<0x4000607c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteEventsIn0{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
+        using Addr = Register::Address<0x40006100,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteEventsIn1{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
+        using Addr = Register::Address<0x40006104,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteEventsIn2{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
+        using Addr = Register::Address<0x40006108,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteEventsIn3{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
+        using Addr = Register::Address<0x4000610c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteEventsIn4{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
+        using Addr = Register::Address<0x40006110,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteEventsIn5{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
+        using Addr = Register::Address<0x40006114,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteEventsIn6{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
+        using Addr = Register::Address<0x40006118,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteEventsIn7{    ///<Description collection[0]:  Event generated from pin specified in CONFIG[0].PSEL
+        using Addr = Register::Address<0x4000611c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace GpioteConfig0{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
+        using Addr = Register::Address<0x40006510,0xffece0fc,0x00000000,unsigned>;
         ///Mode
         enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
@@ -364,8 +364,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
         }
     }
-    namespace Noneconfig1{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
-        using Addr = Register::Address<0x40006514,0xffece0fc,0,unsigned>;
+    namespace GpioteConfig1{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
+        using Addr = Register::Address<0x40006514,0xffece0fc,0x00000000,unsigned>;
         ///Mode
         enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
@@ -405,8 +405,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
         }
     }
-    namespace Noneconfig2{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
-        using Addr = Register::Address<0x40006518,0xffece0fc,0,unsigned>;
+    namespace GpioteConfig2{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
+        using Addr = Register::Address<0x40006518,0xffece0fc,0x00000000,unsigned>;
         ///Mode
         enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
@@ -446,8 +446,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
         }
     }
-    namespace Noneconfig3{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
-        using Addr = Register::Address<0x4000651c,0xffece0fc,0,unsigned>;
+    namespace GpioteConfig3{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
+        using Addr = Register::Address<0x4000651c,0xffece0fc,0x00000000,unsigned>;
         ///Mode
         enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
@@ -487,8 +487,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
         }
     }
-    namespace Noneconfig4{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
-        using Addr = Register::Address<0x40006520,0xffece0fc,0,unsigned>;
+    namespace GpioteConfig4{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
+        using Addr = Register::Address<0x40006520,0xffece0fc,0x00000000,unsigned>;
         ///Mode
         enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
@@ -528,8 +528,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
         }
     }
-    namespace Noneconfig5{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
-        using Addr = Register::Address<0x40006524,0xffece0fc,0,unsigned>;
+    namespace GpioteConfig5{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
+        using Addr = Register::Address<0x40006524,0xffece0fc,0x00000000,unsigned>;
         ///Mode
         enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
@@ -569,8 +569,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
         }
     }
-    namespace Noneconfig6{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
-        using Addr = Register::Address<0x40006528,0xffece0fc,0,unsigned>;
+    namespace GpioteConfig6{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
+        using Addr = Register::Address<0x40006528,0xffece0fc,0x00000000,unsigned>;
         ///Mode
         enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
@@ -610,8 +610,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
         }
     }
-    namespace Noneconfig7{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
-        using Addr = Register::Address<0x4000652c,0xffece0fc,0,unsigned>;
+    namespace GpioteConfig7{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
+        using Addr = Register::Address<0x4000652c,0xffece0fc,0x00000000,unsigned>;
         ///Mode
         enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.

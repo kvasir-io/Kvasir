@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Inter-IC Sound / Synchronous Audio Interface
     namespace I2s0Tcsr{    ///<SAI Transmit Control Register
-        using Addr = Register::Address<0x4002f000,0x0ce0e0fc,0,unsigned>;
+        using Addr = Register::Address<0x4002f000,0x0ce0e0fc,0x00000000,unsigned>;
         ///FIFO Request DMA Enable
         enum class FrdeVal {
             v0=0x00000000,     ///<Disables the DMA request.
@@ -79,7 +79,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Transmit FIFO watermark has not been reached.
             v1=0x00000001,     ///<Transmit FIFO watermark has been reached.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,FrfVal> frf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FrfVal> frf{}; 
         namespace FrfValC{
             constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::v1> v1{};
@@ -89,7 +89,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No enabled transmit FIFO is empty.
             v1=0x00000001,     ///<Enabled transmit FIFO is empty.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,FwfVal> fwf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FwfVal> fwf{}; 
         namespace FwfValC{
             constexpr Register::FieldValue<decltype(fwf)::Type,FwfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fwf)::Type,FwfVal::v1> v1{};
@@ -139,7 +139,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<FIFO reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,FrVal> fr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FrVal> fr{}; 
         namespace FrValC{
             constexpr Register::FieldValue<decltype(fr)::Type,FrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fr)::Type,FrVal::v1> v1{};
@@ -186,12 +186,12 @@ namespace Kvasir {
         }
     }
     namespace I2s0Tcr1{    ///<SAI Transmit Configuration 1 Register
-        using Addr = Register::Address<0x4002f004,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0x4002f004,0xfffffff8,0x00000000,unsigned>;
         ///Transmit FIFO Watermark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> tfw{}; 
     }
     namespace I2s0Tcr2{    ///<SAI Transmit Configuration 2 Register
-        using Addr = Register::Address<0x4002f008,0x00ffff00,0,unsigned>;
+        using Addr = Register::Address<0x4002f008,0x00ffff00,0x00000000,unsigned>;
         ///Bit Clock Divide
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
         ///Bit Clock Direction
@@ -264,7 +264,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Tcr3{    ///<SAI Transmit Configuration 3 Register
-        using Addr = Register::Address<0x4002f00c,0xfffefff0,0,unsigned>;
+        using Addr = Register::Address<0x4002f00c,0xfffefff0,0x00000000,unsigned>;
         ///Word Flag Configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wdfl{}; 
         ///Transmit Channel Enable
@@ -279,7 +279,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Tcr4{    ///<SAI Transmit Configuration 4 Register
-        using Addr = Register::Address<0x4002f010,0xfff0e0e4,0,unsigned>;
+        using Addr = Register::Address<0x4002f010,0xfff0e0e4,0x00000000,unsigned>;
         ///Frame Sync Direction
         enum class FsdVal {
             v0=0x00000000,     ///<Frame sync is generated externally in Slave mode.
@@ -326,7 +326,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> frsz{}; 
     }
     namespace I2s0Tcr5{    ///<SAI Transmit Configuration 5 Register
-        using Addr = Register::Address<0x4002f014,0xe0e0e0ff,0,unsigned>;
+        using Addr = Register::Address<0x4002f014,0xe0e0e0ff,0x00000000,unsigned>;
         ///First Bit Shifted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> fbt{}; 
         ///Word 0 Width
@@ -335,24 +335,24 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> wnw{}; 
     }
     namespace I2s0Tdr{    ///<SAI Transmit Data Register
-        using Addr = Register::Address<0x4002f020,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f020,0x00000000,0x00000000,unsigned>;
         ///Transmit Data Register
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tdr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tdr{}; 
     }
     namespace I2s0Tfr{    ///<SAI Transmit FIFO Register
-        using Addr = Register::Address<0x4002f040,0xfff0fff0,0,unsigned>;
+        using Addr = Register::Address<0x4002f040,0xfff0fff0,0x00000000,unsigned>;
         ///Read FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> rfp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfp{}; 
         ///Write FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> wfp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wfp{}; 
     }
     namespace I2s0Tmr{    ///<SAI Transmit Mask Register
-        using Addr = Register::Address<0x4002f060,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4002f060,0xffff0000,0x00000000,unsigned>;
         ///Transmit Word Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> twm{}; 
     }
     namespace I2s0Rcsr{    ///<SAI Receive Control Register
-        using Addr = Register::Address<0x4002f080,0x0ce0e0fc,0,unsigned>;
+        using Addr = Register::Address<0x4002f080,0x0ce0e0fc,0x00000000,unsigned>;
         ///FIFO Request DMA Enable
         enum class FrdeVal {
             v0=0x00000000,     ///<Disables the DMA request.
@@ -428,7 +428,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Receive FIFO watermark not reached.
             v1=0x00000001,     ///<Receive FIFO watermark has been reached.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,FrfVal> frf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FrfVal> frf{}; 
         namespace FrfValC{
             constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::v1> v1{};
@@ -438,7 +438,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No enabled receive FIFO is full.
             v1=0x00000001,     ///<Enabled receive FIFO is full.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,FwfVal> fwf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FwfVal> fwf{}; 
         namespace FwfValC{
             constexpr Register::FieldValue<decltype(fwf)::Type,FwfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fwf)::Type,FwfVal::v1> v1{};
@@ -488,7 +488,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<FIFO reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,FrVal> fr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FrVal> fr{}; 
         namespace FrValC{
             constexpr Register::FieldValue<decltype(fr)::Type,FrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fr)::Type,FrVal::v1> v1{};
@@ -535,12 +535,12 @@ namespace Kvasir {
         }
     }
     namespace I2s0Rcr1{    ///<SAI Receive Configuration 1 Register
-        using Addr = Register::Address<0x4002f084,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0x4002f084,0xfffffff8,0x00000000,unsigned>;
         ///Receive FIFO Watermark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> rfw{}; 
     }
     namespace I2s0Rcr2{    ///<SAI Receive Configuration 2 Register
-        using Addr = Register::Address<0x4002f088,0x00ffff00,0,unsigned>;
+        using Addr = Register::Address<0x4002f088,0x00ffff00,0x00000000,unsigned>;
         ///Bit Clock Divide
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
         ///Bit Clock Direction
@@ -613,7 +613,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Rcr3{    ///<SAI Receive Configuration 3 Register
-        using Addr = Register::Address<0x4002f08c,0xfffefff0,0,unsigned>;
+        using Addr = Register::Address<0x4002f08c,0xfffefff0,0x00000000,unsigned>;
         ///Word Flag Configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wdfl{}; 
         ///Receive Channel Enable
@@ -628,7 +628,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Rcr4{    ///<SAI Receive Configuration 4 Register
-        using Addr = Register::Address<0x4002f090,0xfff0e0e4,0,unsigned>;
+        using Addr = Register::Address<0x4002f090,0xfff0e0e4,0x00000000,unsigned>;
         ///Frame Sync Direction
         enum class FsdVal {
             v0=0x00000000,     ///<Frame Sync is generated externally in Slave mode.
@@ -675,7 +675,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> frsz{}; 
     }
     namespace I2s0Rcr5{    ///<SAI Receive Configuration 5 Register
-        using Addr = Register::Address<0x4002f094,0xe0e0e0ff,0,unsigned>;
+        using Addr = Register::Address<0x4002f094,0xe0e0e0ff,0x00000000,unsigned>;
         ///First Bit Shifted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> fbt{}; 
         ///Word 0 Width
@@ -684,24 +684,24 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> wnw{}; 
     }
     namespace I2s0Rdr{    ///<SAI Receive Data Register
-        using Addr = Register::Address<0x4002f0a0,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f0a0,0x00000000,0x00000000,unsigned>;
         ///Receive Data Register
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rdr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rdr{}; 
     }
     namespace I2s0Rfr{    ///<SAI Receive FIFO Register
-        using Addr = Register::Address<0x4002f0c0,0xfff0fff0,0,unsigned>;
+        using Addr = Register::Address<0x4002f0c0,0xfff0fff0,0x00000000,unsigned>;
         ///Read FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> rfp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfp{}; 
         ///Write FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> wfp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wfp{}; 
     }
     namespace I2s0Rmr{    ///<SAI Receive Mask Register
-        using Addr = Register::Address<0x4002f0e0,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4002f0e0,0xffff0000,0x00000000,unsigned>;
         ///Receive Word Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rwm{}; 
     }
     namespace I2s0Mcr{    ///<SAI MCLK Control Register
-        using Addr = Register::Address<0x4002f100,0x3cffffff,0,unsigned>;
+        using Addr = Register::Address<0x4002f100,0x3cffffff,0x00000000,unsigned>;
         ///MCLK Input Clock Select
         enum class MicsVal {
             v00=0x00000000,     ///<MCLK divider input clock 0 selected.
@@ -731,14 +731,14 @@ namespace Kvasir {
             v0=0x00000000,     ///<MCLK divider ratio is not being updated currently.
             v1=0x00000001,     ///<MCLK divider ratio is updating on-the-fly. Further updates to the MCLK divider ratio are blocked while this flag remains set.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,DufVal> duf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DufVal> duf{}; 
         namespace DufValC{
             constexpr Register::FieldValue<decltype(duf)::Type,DufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(duf)::Type,DufVal::v1> v1{};
         }
     }
     namespace I2s0Mdr{    ///<SAI MCLK Divide Register
-        using Addr = Register::Address<0x4002f104,0xfff00000,0,unsigned>;
+        using Addr = Register::Address<0x4002f104,0xfff00000,0x00000000,unsigned>;
         ///MCLK Divide
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> divide{}; 
         ///MCLK Fraction

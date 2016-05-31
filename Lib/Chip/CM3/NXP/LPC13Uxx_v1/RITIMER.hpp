@@ -1,19 +1,19 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Repetitive Interrupt Timer (RI timer)
-    namespace Nonecompval{    ///<Compare value LSB register. Holds the 32 LSBs of the compare value.
-        using Addr = Register::Address<0x40064000,0x00000000,0,unsigned>;
+    namespace RitimerCompval{    ///<Compare value LSB register. Holds the 32 LSBs of the compare value.
+        using Addr = Register::Address<0x40064000,0x00000000,0x00000000,unsigned>;
         ///Compare register. Holds the 32 LSBs of the compare value which is compared to the counter.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricomp{}; 
     }
-    namespace Nonemask{    ///<Mask LSB register. This register holds the 32 LSB s of the mask value. A one  written to any bit will force a compare on the corresponding bit of the counter and compare register.
-        using Addr = Register::Address<0x40064004,0x00000000,0,unsigned>;
+    namespace RitimerMask{    ///<Mask LSB register. This register holds the 32 LSB s of the mask value. A one  written to any bit will force a compare on the corresponding bit of the counter and compare register.
+        using Addr = Register::Address<0x40064004,0x00000000,0x00000000,unsigned>;
         ///Mask register. This register holds the 32 LSBs of the mask value. A one written to any bit overrides the result of the comparison for the corresponding bit of the counter and compare register (causes the comparison of the register bits to be always true).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rimask{}; 
     }
-    namespace Nonectrl{    ///<Control register.
-        using Addr = Register::Address<0x40064008,0xfffffff0,0,unsigned>;
+    namespace RitimerCtrl{    ///<Control register.
+        using Addr = Register::Address<0x40064008,0x00000000,0x00000000,unsigned>;
         ///Interrupt flag
         enum class RitintVal {
             mask=0x00000001,     ///<This bit is set to 1 by hardware whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. Writing a 1 to this bit will clear it to 0. Writing a 0 has no effect.
@@ -54,25 +54,33 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerEnabled> timerEnabled{};
             constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerDisabled> timerDisabled{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecounter{    ///<Counter LSB register. 32 LSBs of the counter.
-        using Addr = Register::Address<0x4006400c,0x00000000,0,unsigned>;
+    namespace RitimerCounter{    ///<Counter LSB register. 32 LSBs of the counter.
+        using Addr = Register::Address<0x4006400c,0x00000000,0x00000000,unsigned>;
         ///32 LSBs of the up counter. Counts continuously unless RITEN bit in CTRL register is cleared or debug mode is entered (if enabled by the RITNEBR bit in RICTRL). Can be loaded to any value in software.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricounter{}; 
     }
-    namespace NonecompvalH{    ///<Compare value MSB register. Holds the 16 MSBs of the compare value.
-        using Addr = Register::Address<0x40064010,0xffff0000,0,unsigned>;
+    namespace RitimerCompvalH{    ///<Compare value MSB register. Holds the 16 MSBs of the compare value.
+        using Addr = Register::Address<0x40064010,0x00000000,0x00000000,unsigned>;
         ///Compare value MSB register. Holds the 16 MSBs of the compare value which is compared to the counter.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ricomp{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonemaskH{    ///<Mask MSB register. This register holds the 16 MSBs of the mask value. A one written to any bit will force a compare on the corresponding bit of the counter and compare register.
-        using Addr = Register::Address<0x40064014,0xffff0000,0,unsigned>;
+    namespace RitimerMaskH{    ///<Mask MSB register. This register holds the 16 MSBs of the mask value. A one written to any bit will force a compare on the corresponding bit of the counter and compare register.
+        using Addr = Register::Address<0x40064014,0x00000000,0x00000000,unsigned>;
         ///Mask register. This register holds the 16 MSBs of the mask value. A one written to any bit overrides the result of the comparison for the corresponding bit of the counter and compare register (causes the comparison of the register bits to be always true).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rimask{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonecounterH{    ///<Counter MSB register. 16 MSBs of the counter.
-        using Addr = Register::Address<0x40064018,0xffff0000,0,unsigned>;
+    namespace RitimerCounterH{    ///<Counter MSB register. 16 MSBs of the counter.
+        using Addr = Register::Address<0x40064018,0x00000000,0x00000000,unsigned>;
         ///16 LSBs of the up counter. Counts continuously unless RITEN bit in RICTRL register is cleared or debug mode is entered (if enabled by the RITNEBR bit in RICTRL). Can be loaded to any value in software.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ricounter{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

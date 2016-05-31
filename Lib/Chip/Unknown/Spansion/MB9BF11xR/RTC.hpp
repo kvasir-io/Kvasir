@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //REAL-TIME CLOCK
-    namespace Nonewtcr1{    ///<Control Register 1
-        using Addr = Register::Address<0x4003b000,0x0000e082,0,unsigned>;
+    namespace RtcWtcr1{    ///<Control Register 1
+        using Addr = Register::Address<0x4003b000,0x0000e082,0x00000000,unsigned>;
         ///Year/month/date/hour/minute/second/day of the week counter value read completion interrupt enable bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> intcrie{}; 
         ///Time rewrite error interrupt enable bit 
@@ -47,7 +47,7 @@ namespace Kvasir {
         ///Alarm minute register enable bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mien{}; 
         ///Busy bit
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> busy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> busy{}; 
         ///Sub second generation/1-second generation counter reset bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> scrst{}; 
         ///1-second clock output stop bit 
@@ -55,14 +55,14 @@ namespace Kvasir {
         ///RTC reset bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> srst{}; 
         ///RTC count block operation bit
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> run{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> run{}; 
         ///Start bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> st{}; 
     }
-    namespace Nonewtcr2{    ///<Control Register 2
-        using Addr = Register::Address<0x4003b004,0xfffff8fe,0,unsigned>;
+    namespace RtcWtcr2{    ///<Control Register 2
+        using Addr = Register::Address<0x4003b004,0xfffff8fe,0x00000000,unsigned>;
         ///Timer counter operation bit
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> tmrun{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tmrun{}; 
         ///Timer counter control bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> tmen{}; 
         ///Timer counter start bit 
@@ -70,8 +70,8 @@ namespace Kvasir {
         ///Year/month/date/hour/minute/second/day of the week counter value read control bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cread{}; 
     }
-    namespace Nonewtbr{    ///<Counter Cycle Setting Register
-        using Addr = Register::Address<0x4003b008,0xff000000,0,unsigned>;
+    namespace RtcWtbr{    ///<Counter Cycle Setting Register
+        using Addr = Register::Address<0x4003b008,0xff000000,0x00000000,unsigned>;
         ///Bit23 of WTBR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> br23{}; 
         ///Bit22 of WTBR
@@ -121,90 +121,90 @@ namespace Kvasir {
         ///Bit0 of WTBR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> br0{}; 
     }
-    namespace Nonewtdr{    ///<Date Register
-        using Addr = Register::Address<0x4003b00f,0xffffffc0,0,unsigned char>;
+    namespace RtcWtdr{    ///<Date Register
+        using Addr = Register::Address<0x4003b00f,0xffffffc0,0x00000000,unsigned char>;
         ///the second digit of the date
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> td{}; 
         ///the first digit of the date
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> d{}; 
     }
-    namespace Nonewthr{    ///<Hour register
-        using Addr = Register::Address<0x4003b00e,0xffffffc0,0,unsigned char>;
+    namespace RtcWthr{    ///<Hour register
+        using Addr = Register::Address<0x4003b00e,0xffffffc0,0x00000000,unsigned char>;
         ///the second digit of the hour
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> th{}; 
         ///the first digit of the hour
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> h{}; 
     }
-    namespace Nonewtmir{    ///<Minute Register
-        using Addr = Register::Address<0x4003b00d,0xffffff80,0,unsigned char>;
+    namespace RtcWtmir{    ///<Minute Register
+        using Addr = Register::Address<0x4003b00d,0xffffff80,0x00000000,unsigned char>;
         ///the second digit of the minute
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> tmi{}; 
         ///the first digit of the minute
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mi{}; 
     }
-    namespace Nonewtsr{    ///<Second Register
-        using Addr = Register::Address<0x4003b00c,0xffffff80,0,unsigned char>;
+    namespace RtcWtsr{    ///<Second Register
+        using Addr = Register::Address<0x4003b00c,0xffffff80,0x00000000,unsigned char>;
         ///the second digit of the second
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> ts{}; 
         ///the first digit of the second
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> s{}; 
     }
-    namespace Nonewtyr{    ///<Year Register
-        using Addr = Register::Address<0x4003b012,0xffffff00,0,unsigned char>;
+    namespace RtcWtyr{    ///<Year Register
+        using Addr = Register::Address<0x4003b012,0xffffff00,0x00000000,unsigned char>;
         ///the second digit of the year
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> ty{}; 
         ///the first digit of the year
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> y{}; 
     }
-    namespace Nonewtmor{    ///<Month Register
-        using Addr = Register::Address<0x4003b011,0xffffffe0,0,unsigned char>;
+    namespace RtcWtmor{    ///<Month Register
+        using Addr = Register::Address<0x4003b011,0xffffffe0,0x00000000,unsigned char>;
         ///the second digit in the month
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tmo{}; 
         ///the first digit of the month
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mo{}; 
     }
-    namespace Nonewtdw{    ///<Day of the Week Register
-        using Addr = Register::Address<0x4003b010,0xfffffff8,0,unsigned char>;
+    namespace RtcWtdw{    ///<Day of the Week Register
+        using Addr = Register::Address<0x4003b010,0xfffffff8,0x00000000,unsigned char>;
         ///Day of the week
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dw{}; 
     }
-    namespace Nonealdr{    ///<Alarm Date Register
-        using Addr = Register::Address<0x4003b017,0xffffffc0,0,unsigned char>;
+    namespace RtcAldr{    ///<Alarm Date Register
+        using Addr = Register::Address<0x4003b017,0xffffffc0,0x00000000,unsigned char>;
         ///the second digit of the alarm-set date
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> tad{}; 
         ///the first digit of the alarm-set date
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ad{}; 
     }
-    namespace Nonealhr{    ///<Alarm Hour Register
-        using Addr = Register::Address<0x4003b016,0xffffffc0,0,unsigned char>;
+    namespace RtcAlhr{    ///<Alarm Hour Register
+        using Addr = Register::Address<0x4003b016,0xffffffc0,0x00000000,unsigned char>;
         ///the second digit of the alarm-set hour
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> tah{}; 
         ///the first digit of the alarm-set hour
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ah{}; 
     }
-    namespace Nonealmir{    ///<Alarm Minute Register
-        using Addr = Register::Address<0x4003b015,0xffffff80,0,unsigned char>;
+    namespace RtcAlmir{    ///<Alarm Minute Register
+        using Addr = Register::Address<0x4003b015,0xffffff80,0x00000000,unsigned char>;
         ///the second digit of the alarm-set minute
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> tami{}; 
         ///the first digit of the alarm-set minute
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ami{}; 
     }
-    namespace Nonealyr{    ///<Alarm Years Register
-        using Addr = Register::Address<0x4003b01a,0xffffff00,0,unsigned char>;
+    namespace RtcAlyr{    ///<Alarm Years Register
+        using Addr = Register::Address<0x4003b01a,0xffffff00,0x00000000,unsigned char>;
         ///the second digit of the alarm-set year
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> tay{}; 
         ///the first digit of the alarm-set year
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ay{}; 
     }
-    namespace Nonealmor{    ///<Alarm Month Register
-        using Addr = Register::Address<0x4003b019,0xffffffe0,0,unsigned char>;
+    namespace RtcAlmor{    ///<Alarm Month Register
+        using Addr = Register::Address<0x4003b019,0xffffffe0,0x00000000,unsigned char>;
         ///the second digit of the alarm-set month
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tamo{}; 
         ///the first digit of the alarm-set month
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> amo{}; 
     }
-    namespace Nonewttr{    ///<Timer Setting Register
-        using Addr = Register::Address<0x4003b01c,0xfffc0000,0,unsigned>;
+    namespace RtcWttr{    ///<Timer Setting Register
+        using Addr = Register::Address<0x4003b01c,0xfffc0000,0x00000000,unsigned>;
         ///Bit17 of WTTR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> tm17{}; 
         ///Bit16 of WTTR
@@ -242,35 +242,35 @@ namespace Kvasir {
         ///Bit0 of WTTR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tm0{}; 
     }
-    namespace Nonewtclks{    ///<Clock Selection Register
-        using Addr = Register::Address<0x4003b020,0xfffffffe,0,unsigned char>;
+    namespace RtcWtclks{    ///<Clock Selection Register
+        using Addr = Register::Address<0x4003b020,0xfffffffe,0x00000000,unsigned char>;
         ///Input clock selection bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtclks{}; 
     }
-    namespace Nonewtclkm{    ///<Selection Clock Status Register
-        using Addr = Register::Address<0x4003b021,0xfffffffc,0,unsigned char>;
+    namespace RtcWtclkm{    ///<Selection Clock Status Register
+        using Addr = Register::Address<0x4003b021,0xfffffffc,0x00000000,unsigned char>;
         ///Clock selection status bit 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> wtclkm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wtclkm{}; 
     }
-    namespace Nonewtcal{    ///<Frequency Correction Value Setting Register
-        using Addr = Register::Address<0x4003b024,0xffffff80,0,unsigned char>;
+    namespace RtcWtcal{    ///<Frequency Correction Value Setting Register
+        using Addr = Register::Address<0x4003b024,0xffffff80,0x00000000,unsigned char>;
         ///Frequency correction value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> wtcal{}; 
     }
-    namespace Nonewtcalen{    ///<Frequency Correction Enable Register
-        using Addr = Register::Address<0x4003b025,0xfffffffe,0,unsigned char>;
+    namespace RtcWtcalen{    ///<Frequency Correction Enable Register
+        using Addr = Register::Address<0x4003b025,0xfffffffe,0x00000000,unsigned char>;
         ///Frequency correction enable bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtcalen{}; 
     }
-    namespace Nonewtdiv{    ///<Divider Ratio Setting Register
-        using Addr = Register::Address<0x4003b028,0xfffffff0,0,unsigned char>;
+    namespace RtcWtdiv{    ///<Divider Ratio Setting Register
+        using Addr = Register::Address<0x4003b028,0xfffffff0,0x00000000,unsigned char>;
         ///Divider ratio
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wtdiv{}; 
     }
-    namespace Nonewtdiven{    ///<Divider Output Enable Register
-        using Addr = Register::Address<0x4003b029,0xfffffffc,0,unsigned char>;
+    namespace RtcWtdiven{    ///<Divider Output Enable Register
+        using Addr = Register::Address<0x4003b029,0xfffffffc,0x00000000,unsigned char>;
         ///Divider status bit 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wtdivrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wtdivrdy{}; 
         ///Divider enable bit 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtdiven{}; 
     }

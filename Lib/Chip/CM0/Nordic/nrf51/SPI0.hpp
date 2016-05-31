@@ -1,12 +1,12 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SPI master 0.
-    namespace NoneeventsReady{    ///<TXD byte sent and RXD byte received.
-        using Addr = Register::Address<0x40003108,0xffffffff,0,unsigned>;
+    namespace Spi0EventsReady{    ///<TXD byte sent and RXD byte received.
+        using Addr = Register::Address<0x40003108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneintenset{    ///<Interrupt enable set register.
-        using Addr = Register::Address<0x40003304,0xfffffffb,0,unsigned>;
+    namespace Spi0Intenset{    ///<Interrupt enable set register.
+        using Addr = Register::Address<0x40003304,0xfffffffb,0x00000000,unsigned>;
         ///Enable interrupt on READY event.
         enum class ReadyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -20,8 +20,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register.
-        using Addr = Register::Address<0x40003308,0xfffffffb,0,unsigned>;
+    namespace Spi0Intenclr{    ///<Interrupt enable clear register.
+        using Addr = Register::Address<0x40003308,0xfffffffb,0x00000000,unsigned>;
         ///Disable interrupt on READY event.
         enum class ReadyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -35,32 +35,32 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::clear> clear{};
         }
     }
-    namespace Noneenable{    ///<Enable SPI.
-        using Addr = Register::Address<0x40003500,0xfffffff8,0,unsigned>;
+    namespace Spi0Enable{    ///<Enable SPI.
+        using Addr = Register::Address<0x40003500,0xfffffff8,0x00000000,unsigned>;
         ///Enable or disable SPI.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> enable{}; 
     }
-    namespace Nonepselsck{    ///<Pin select for SCK.
-        using Addr = Register::Address<0x40003508,0xffffffff,0,unsigned>;
+    namespace Spi0Pselsck{    ///<Pin select for SCK.
+        using Addr = Register::Address<0x40003508,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepselmosi{    ///<Pin select for MOSI.
-        using Addr = Register::Address<0x4000350c,0xffffffff,0,unsigned>;
+    namespace Spi0Pselmosi{    ///<Pin select for MOSI.
+        using Addr = Register::Address<0x4000350c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepselmiso{    ///<Pin select for MISO.
-        using Addr = Register::Address<0x40003510,0xffffffff,0,unsigned>;
+    namespace Spi0Pselmiso{    ///<Pin select for MISO.
+        using Addr = Register::Address<0x40003510,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonerxd{    ///<RX data.
-        using Addr = Register::Address<0x40003518,0xffffff00,0,unsigned>;
+    namespace Spi0Rxd{    ///<RX data.
+        using Addr = Register::Address<0x40003518,0xffffff00,0x00000000,unsigned>;
         ///RX data from last transfer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxd{}; 
     }
-    namespace Nonetxd{    ///<TX data.
-        using Addr = Register::Address<0x4000351c,0xffffff00,0,unsigned>;
+    namespace Spi0Txd{    ///<TX data.
+        using Addr = Register::Address<0x4000351c,0xffffff00,0x00000000,unsigned>;
         ///TX data for next transfer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txd{}; 
     }
-    namespace Nonefrequency{    ///<SPI frequency
-        using Addr = Register::Address<0x40003524,0x00000000,0,unsigned>;
+    namespace Spi0Frequency{    ///<SPI frequency
+        using Addr = Register::Address<0x40003524,0x00000000,0x00000000,unsigned>;
         ///SPI data rate.
         enum class FrequencyVal {
             k125=0x02000000,     ///<125kbps.
@@ -82,8 +82,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::m8> m8{};
         }
     }
-    namespace Noneconfig{    ///<Configuration register.
-        using Addr = Register::Address<0x40003554,0xfffffff8,0,unsigned>;
+    namespace Spi0Config{    ///<Configuration register.
+        using Addr = Register::Address<0x40003554,0xfffffff8,0x00000000,unsigned>;
         ///Bit order.
         enum class OrderVal {
             msbfirst=0x00000000,     ///<Most significant bit transmitted out first.
@@ -115,8 +115,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activelow> activelow{};
         }
     }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x40003ffc,0xfffffffe,0,unsigned>;
+    namespace Spi0Power{    ///<Peripheral power control.
+        using Addr = Register::Address<0x40003ffc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.

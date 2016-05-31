@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Special Function Registers
     namespace SfrOhciicr{    ///<OHCI Interrupt Configuration Register
-        using Addr = Register::Address<0xf0038010,0xff7fffc8,0,unsigned>;
+        using Addr = Register::Address<0xf0038010,0xff7fffc8,0x00000000,unsigned>;
         ///USB PORTx RESET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> res0{}; 
         ///USB PORTx RESET
@@ -18,16 +18,16 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> udppudis{}; 
     }
     namespace SfrOhciisr{    ///<OHCI Interrupt Status Register
-        using Addr = Register::Address<0xf0038014,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0xf0038014,0xfffffff8,0x00000000,unsigned>;
         ///OHCI Resume Interrupt Status Port 0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ris0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ris0{}; 
         ///OHCI Resume Interrupt Status Port 1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ris1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ris1{}; 
         ///OHCI Resume Interrupt Status Port 2
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ris2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ris2{}; 
     }
     namespace SfrAhb{    ///<AHB Configuration Register
-        using Addr = Register::Address<0xf0038020,0x83ff83ff,0,unsigned>;
+        using Addr = Register::Address<0xf0038020,0x83ff83ff,0x00000000,unsigned>;
         ///AHB MASTERx 10 Converter Prefetch
         enum class Pfetch10Val {
             incr4=0x00000000,     ///<INCR undefined burst converted to burst of 4 beats.
@@ -90,7 +90,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> dlbopt14{}; 
     }
     namespace SfrBridge{    ///<Bridge Configuration Register
-        using Addr = Register::Address<0xf0038024,0xfffffefe,0,unsigned>;
+        using Addr = Register::Address<0xf0038024,0xfffffefe,0x00000000,unsigned>;
         ///AHB to APB Bridge mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> apbturbo{}; 
         ///AXI to AHB bridge for DDR controller selection
@@ -105,14 +105,14 @@ namespace Kvasir {
         }
     }
     namespace SfrSecure{    ///<Security Configuration Register
-        using Addr = Register::Address<0xf0038028,0xfffffefe,0,unsigned>;
+        using Addr = Register::Address<0xf0038028,0xfffffefe,0x00000000,unsigned>;
         ///Disable Access to ROM Code
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rom{}; 
         ///Disable Access to Fuse Controller
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> fuse{}; 
     }
     namespace SfrUtmicktrim{    ///<UTMI Clock Trimming Register
-        using Addr = Register::Address<0xf0038030,0xfff0fffc,0,unsigned>;
+        using Addr = Register::Address<0xf0038030,0xfff0fffc,0x00000000,unsigned>;
         ///UTMI Reference Clock Frequency
         enum class FreqVal {
             v12=0x00000000,     ///<12 MHz reference clock
@@ -131,7 +131,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> vbg{}; 
     }
     namespace SfrUtmihstrim{    ///<UTMI High Speed Trimming Register
-        using Addr = Register::Address<0xf0038034,0xfff88888,0,unsigned>;
+        using Addr = Register::Address<0xf0038034,0xfff88888,0x00000000,unsigned>;
         ///UTMI HS SQUELCH Voltage Trimming
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> squelch{}; 
         ///UTMI Disconnect Voltage Trimming
@@ -144,7 +144,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> slope2{}; 
     }
     namespace SfrUtmifstrim{    ///<UTMI Full Speed Trimming Register
-        using Addr = Register::Address<0xf0038038,0xff88fc88,0,unsigned>;
+        using Addr = Register::Address<0xf0038038,0xff88fc88,0x00000000,unsigned>;
         ///FS Transceiver output rising slope trimming
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> rise{}; 
         ///FS Transceiver output falling slope trimming
@@ -157,7 +157,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> zp{}; 
     }
     namespace SfrUtmiswap{    ///<UTMI DP/DM Pin Swapping Register
-        using Addr = Register::Address<0xf003803c,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0xf003803c,0xfffffff8,0x00000000,unsigned>;
         ///PORT 0 DP/DM Pin Swapping
         enum class Port0Val {
             normal=0x00000000,     ///<DP/DM normal pinout.
@@ -190,7 +190,7 @@ namespace Kvasir {
         }
     }
     namespace SfrEbicfg{    ///<EBI Configuration Register
-        using Addr = Register::Address<0xf0038040,0xfffee0e0,0,unsigned>;
+        using Addr = Register::Address<0xf0038040,0xfffee0e0,0x00000000,unsigned>;
         ///EBI Pins Drive Level
         enum class Drive0Val {
             low=0x00000000,     ///<Low drive level

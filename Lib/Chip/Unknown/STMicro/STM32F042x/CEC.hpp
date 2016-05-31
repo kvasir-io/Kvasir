@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //HDMI-CEC controller
-    namespace Nonecr{    ///<control register
-        using Addr = Register::Address<0x40007800,0xfffffff8,0,unsigned>;
+    namespace CecCr{    ///<control register
+        using Addr = Register::Address<0x40007800,0xfffffff8,0x00000000,unsigned>;
         ///Tx End Of Message
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txeom{}; 
         ///Tx start of message
@@ -11,8 +11,8 @@ namespace Kvasir {
         ///CEC Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cecen{}; 
     }
-    namespace Nonecfgr{    ///<configuration register
-        using Addr = Register::Address<0x40007804,0xfffff000,0,unsigned>;
+    namespace CecCfgr{    ///<configuration register
+        using Addr = Register::Address<0x40007804,0xfffff000,0x00000000,unsigned>;
         ///Generate Error-Bit on Long Bit Period               Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> lbpegen{}; 
         ///Generate error-bit on bit rising               error
@@ -28,18 +28,18 @@ namespace Kvasir {
         ///Own Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> oar{}; 
     }
-    namespace Nonetxdr{    ///<Tx data register
-        using Addr = Register::Address<0x40007808,0xffffff00,0,unsigned>;
+    namespace CecTxdr{    ///<Tx data register
+        using Addr = Register::Address<0x40007808,0xffffff00,0x00000000,unsigned>;
         ///Tx Data register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txd{}; 
     }
-    namespace Nonerxdr{    ///<Rx Data Register
-        using Addr = Register::Address<0x4000780c,0xffffff00,0,unsigned>;
+    namespace CecRxdr{    ///<Rx Data Register
+        using Addr = Register::Address<0x4000780c,0xffffff00,0x00000000,unsigned>;
         ///CEC Rx Data Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxdr{}; 
     }
-    namespace Noneisr{    ///<Interrupt and Status Register
-        using Addr = Register::Address<0x40007810,0xffffe000,0,unsigned>;
+    namespace CecIsr{    ///<Interrupt and Status Register
+        using Addr = Register::Address<0x40007810,0xffffe000,0x00000000,unsigned>;
         ///Tx-Missing acknowledge               error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txacke{}; 
         ///Tx-Error
@@ -67,8 +67,8 @@ namespace Kvasir {
         ///Rx-Byte Received
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxbr{}; 
     }
-    namespace Noneier{    ///<interrupt enable register
-        using Addr = Register::Address<0x40007814,0xffffe000,0,unsigned>;
+    namespace CecIer{    ///<interrupt enable register
+        using Addr = Register::Address<0x40007814,0xffffe000,0x00000000,unsigned>;
         ///Tx-Missing Acknowledge Error Interrupt               Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txackie{}; 
         ///Tx-Error Interrupt Enable

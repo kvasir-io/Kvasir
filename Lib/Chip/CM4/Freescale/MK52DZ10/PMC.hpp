@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Mode Controller
     namespace PmcLvdsc1{    ///<Low Voltage Detect Status and Control 1 Register
-        using Addr = Register::Address<0x4007d000,0xffffff0c,0,unsigned char>;
+        using Addr = Register::Address<0x4007d000,0xffffff0c,0x00000000,unsigned char>;
         ///Low-Voltage Detect Voltage Select
         enum class LvdvVal {
             v00=0x00000000,     ///<Low trip point selected (VLVD = VLVDL)
@@ -35,20 +35,20 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lvdie)::Type,LvdieVal::v1> v1{};
         }
         ///Low-Voltage Detect Acknowledge
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> lvdack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lvdack{}; 
         ///Low-Voltage Detect Flag
         enum class LvdfVal {
             v0=0x00000000,     ///<Low-voltage event not detected
             v1=0x00000001,     ///<Low-voltage event detected
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LvdfVal> lvdf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LvdfVal> lvdf{}; 
         namespace LvdfValC{
             constexpr Register::FieldValue<decltype(lvdf)::Type,LvdfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lvdf)::Type,LvdfVal::v1> v1{};
         }
     }
     namespace PmcLvdsc2{    ///<Low Voltage Detect Status and Control 2 Register
-        using Addr = Register::Address<0x4007d001,0xffffff1c,0,unsigned char>;
+        using Addr = Register::Address<0x4007d001,0xffffff1c,0x00000000,unsigned char>;
         ///Low-Voltage Warning Voltage Select
         enum class LvwvVal {
             v00=0x00000000,     ///<Low trip point selected (VLVW = VLVW1H/L)
@@ -74,20 +74,20 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lvwie)::Type,LvwieVal::v1> v1{};
         }
         ///Low-Voltage Warning Acknowledge
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> lvwack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lvwack{}; 
         ///Low-Voltage Warning Flag
         enum class LvwfVal {
             v0=0x00000000,     ///<Low-voltage warning event not detected
             v1=0x00000001,     ///<Low-voltage warning event detected
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LvwfVal> lvwf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LvwfVal> lvwf{}; 
         namespace LvwfValC{
             constexpr Register::FieldValue<decltype(lvwf)::Type,LvwfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lvwf)::Type,LvwfVal::v1> v1{};
         }
     }
     namespace PmcRegsc{    ///<Regulator Status and Control Register
-        using Addr = Register::Address<0x4007d002,0xffffffe2,0,unsigned char>;
+        using Addr = Register::Address<0x4007d002,0xffffffe2,0x00000000,unsigned char>;
         ///Bandgap Buffer Enable
         enum class BgbeVal {
             v0=0x00000000,     ///<Bandgap buffer not enabled
@@ -103,7 +103,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Regulator is in stop regulation or in transition to/from it
             v1=0x00000001,     ///<Regulator is in run regulation
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RegonsVal> regons{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RegonsVal> regons{}; 
         namespace RegonsValC{
             constexpr Register::FieldValue<decltype(regons)::Type,RegonsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(regons)::Type,RegonsVal::v1> v1{};
@@ -113,7 +113,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<MCU is not in VLPR mode
             v1=0x00000001,     ///<MCU is in VLPR mode
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,VlprsVal> vlprs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,VlprsVal> vlprs{}; 
         namespace VlprsValC{
             constexpr Register::FieldValue<decltype(vlprs)::Type,VlprsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vlprs)::Type,VlprsVal::v1> v1{};

@@ -1,29 +1,37 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //UART  
-    namespace Nonerbr{    ///<Receiver Buffer Register. Contains the next received character to be read. (DLAB=0)
-        using Addr = Register::Address<0x40008000,0xffffff00,0,unsigned>;
+    namespace UartRbr{    ///<Receiver Buffer Register. Contains the next received character to be read. (DLAB=0)
+        using Addr = Register::Address<0x40008000,0x00000000,0x00000000,unsigned>;
         ///The UART Receiver Buffer Register contains the oldest received byte in the UART RX FIFO.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rbr{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonethr{    ///<Transmit Holding Register. The next character to be transmitted is written here. (DLAB=0)
-        using Addr = Register::Address<0x40008000,0xffffff00,0,unsigned>;
+    namespace UartThr{    ///<Transmit Holding Register. The next character to be transmitted is written here. (DLAB=0)
+        using Addr = Register::Address<0x40008000,0x00000000,0x00000000,unsigned>;
         ///Writing to the UART Transmit Holding Register causes the data to be stored in the UART transmit FIFO. The byte will be sent when it reaches the bottom of the FIFO and the transmitter is available.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> thr{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedll{    ///<Divisor Latch LSB. Least significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider. (DLAB=1)
-        using Addr = Register::Address<0x40008000,0xffffff00,0,unsigned>;
+    namespace UartDll{    ///<Divisor Latch LSB. Least significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider. (DLAB=1)
+        using Addr = Register::Address<0x40008000,0x00000000,0x00000000,unsigned>;
         ///The UART Divisor Latch LSB Register, along with the DLM register, determines the baud rate of the UART.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dllsb{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedlm{    ///<Divisor Latch MSB. Most significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider. (DLAB=1)
-        using Addr = Register::Address<0x40008004,0xffffff00,0,unsigned>;
+    namespace UartDlm{    ///<Divisor Latch MSB. Most significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider. (DLAB=1)
+        using Addr = Register::Address<0x40008004,0x00000000,0x00000000,unsigned>;
         ///The UART Divisor Latch MSB Register, along with the DLL register, determines the baud rate of the UART.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dlmsb{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneier{    ///<Interrupt Enable Register. Contains individual interrupt enable bits for the 7 potential UART interrupts. (DLAB=0)
-        using Addr = Register::Address<0x40008004,0xfffffcf8,0,unsigned>;
+    namespace UartIer{    ///<Interrupt Enable Register. Contains individual interrupt enable bits for the 7 potential UART interrupts. (DLAB=0)
+        using Addr = Register::Address<0x40008004,0x00000000,0x00000000,unsigned>;
         ///RBR Interrupt Enable. Enables the Receive Data Available interrupt for UART. It also controls the Character Receive Time-out interrupt.
         enum class RbrieVal {
             disableTheRdaInte=0x00000000,     ///<Disable the RDA interrupt.
@@ -54,6 +62,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxlie)::Type,RxlieVal::disableTheRxLine> disableTheRxLine{};
             constexpr Register::FieldValue<decltype(rxlie)::Type,RxlieVal::enableTheRxLineS> enableTheRxLineS{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Enables the end of auto-baud interrupt.
         enum class AbeointenVal {
             disableEndOfAuto=0x00000000,     ///<Disable end of auto-baud Interrupt.
@@ -74,9 +88,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(abtointen)::Type,AbtointenVal::disableAutoBaudTi> disableAutoBaudTi{};
             constexpr Register::FieldValue<decltype(abtointen)::Type,AbtointenVal::enableAutoBaudTim> enableAutoBaudTim{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneiir{    ///<Interrupt ID Register. Identifies which interrupt(s) are pending.
-        using Addr = Register::Address<0x40008008,0xfffffc30,0,unsigned>;
+    namespace UartIir{    ///<Interrupt ID Register. Identifies which interrupt(s) are pending.
+        using Addr = Register::Address<0x40008008,0x00000000,0x00000000,unsigned>;
         ///Interrupt status. Note that IIR[0] is active low. The pending interrupt can be determined by evaluating IIR[3:1].
         enum class IntstatusVal {
             pending=0x00000000,     ///<At least one interrupt is pending.
@@ -103,15 +119,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::v3ThreInterrupt> v3ThreInterrupt{};
             constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::v4ModemInterrup> v4ModemInterrup{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///These bits are equivalent to FCR[0].
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> fifoenable{}; 
         ///End of auto-baud interrupt. True if auto-baud has finished successfully and interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> abeoint{}; 
         ///Auto-baud time-out interrupt. True if auto-baud has timed out and interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> abtoint{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonefcr{    ///<FIFO Control Register. Controls UART FIFO usage and modes.
-        using Addr = Register::Address<0x40008008,0xffffff38,0,unsigned>;
+    namespace UartFcr{    ///<FIFO Control Register. Controls UART FIFO usage and modes.
+        using Addr = Register::Address<0x40008008,0x00000000,0x00000000,unsigned>;
         ///FIFO Enable
         enum class FifoenVal {
             disabled=0x00000000,     ///<UART FIFOs are disabled. Must not be used in the application.
@@ -142,6 +162,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txfifores)::Type,TxfiforesVal::noImpactOnEither> noImpactOnEither{};
             constexpr Register::FieldValue<decltype(txfifores)::Type,TxfiforesVal::clear> clear{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///RX Trigger Level. These two bits determine how many receiver UART FIFO characters must be written before an interrupt is activated.
         enum class RxtlVal {
             triggerLevel01C=0x00000000,     ///<Trigger level 0 (1 character or 0x01).
@@ -156,9 +180,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxtl)::Type,RxtlVal::triggerLevel28C> triggerLevel28C{};
             constexpr Register::FieldValue<decltype(rxtl)::Type,RxtlVal::triggerLevel314> triggerLevel314{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonelcr{    ///<Line Control Register. Contains controls for frame formatting and break generation.
-        using Addr = Register::Address<0x4000800c,0xffffff00,0,unsigned>;
+    namespace UartLcr{    ///<Line Control Register. Contains controls for frame formatting and break generation.
+        using Addr = Register::Address<0x4000800c,0x00000000,0x00000000,unsigned>;
         ///Word Length Select
         enum class WlsVal {
             v5BitCharacterLeng=0x00000000,     ///<5-bit character length.
@@ -227,9 +253,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dlab)::Type,DlabVal::disableAccessToDi> disableAccessToDi{};
             constexpr Register::FieldValue<decltype(dlab)::Type,DlabVal::enableAccessToDiv> enableAccessToDiv{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonelsr{    ///<Line Status Register. Contains flags for transmit and receive status, including line errors.
-        using Addr = Register::Address<0x40008014,0xffffff00,0,unsigned>;
+    namespace UartLsr{    ///<Line Status Register. Contains flags for transmit and receive status, including line errors.
+        using Addr = Register::Address<0x40008014,0x00000000,0x00000000,unsigned>;
         ///Receiver Data Ready. LSR[0] is set when the RBR holds an unread character and is cleared when the UART RBR FIFO is empty.
         enum class RdrVal {
             empty=0x00000000,     ///<RBR is empty.
@@ -310,14 +338,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxfe)::Type,RxfeVal::noerror> noerror{};
             constexpr Register::FieldValue<decltype(rxfe)::Type,RxfeVal::error> error{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonescr{    ///<Scratch Pad Register. Eight-bit temporary storage for software.
-        using Addr = Register::Address<0x4000801c,0xffffff00,0,unsigned>;
+    namespace UartScr{    ///<Scratch Pad Register. Eight-bit temporary storage for software.
+        using Addr = Register::Address<0x4000801c,0x00000000,0x00000000,unsigned>;
         ///A readable, writable byte.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pad{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneacr{    ///<Auto-baud Control Register. Contains controls for the auto-baud feature.
-        using Addr = Register::Address<0x40008020,0xfffffcf8,0,unsigned>;
+    namespace UartAcr{    ///<Auto-baud Control Register. Contains controls for the auto-baud feature.
+        using Addr = Register::Address<0x40008020,0x00000000,0x00000000,unsigned>;
         ///Start bit. This bit is automatically cleared after auto-baud completion.
         enum class StartVal {
             stop=0x00000000,     ///<Auto-baud stop (auto-baud is not running).
@@ -348,6 +380,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autorestart)::Type,AutorestartVal::noRestart> noRestart{};
             constexpr Register::FieldValue<decltype(autorestart)::Type,AutorestartVal::restartInCaseOfT> restartInCaseOfT{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///End of auto-baud interrupt clear (write only accessible)
         enum class AbeointclrVal {
             noimpact=0x00000000,     ///<Writing a 0 has no impact.
@@ -368,21 +402,29 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(abtointclr)::Type,AbtointclrVal::noimpact> noimpact{};
             constexpr Register::FieldValue<decltype(abtointclr)::Type,AbtointclrVal::clear> clear{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonefdr{    ///<Fractional Divider Register. Generates a clock input for the baud rate divider.
-        using Addr = Register::Address<0x40008028,0xffffff00,0,unsigned>;
+    namespace UartFdr{    ///<Fractional Divider Register. Generates a clock input for the baud rate divider.
+        using Addr = Register::Address<0x40008028,0x00000000,0x00000000,unsigned>;
         ///Baud rate generation pre-scaler divisor value. If this field is 0, fractional baud rate generator will not impact the UART baud rate.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> divaddval{}; 
         ///Baud rate pre-scaler multiplier value. This field must be greater or equal 1 for UART to operate properly, regardless of whether the fractional baud rate generator is used or not.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> mulval{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneter{    ///<Transmit Enable Register. Turns off UART transmitter for use with software flow control.
-        using Addr = Register::Address<0x40008030,0xffffff7f,0,unsigned>;
+    namespace UartTer{    ///<Transmit Enable Register. Turns off UART transmitter for use with software flow control.
+        using Addr = Register::Address<0x40008030,0x00000000,0x00000000,unsigned>;
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///When this bit is 1, as it is after a Reset, data written to the THR is output on the TXD pin as soon as any preceding data has been sent. If this bit cleared to 0 while a character is being sent, the transmission of that character is completed, but no further characters are sent until this bit is set again. In other words, a 0 in this bit blocks the transfer of characters from the THR or TX FIFO into the transmit shift register. Software can clear this bit when it detects that the a hardware-handshaking TX-permit signal (CTS) has gone false, or with software handshaking, when it receives an XOFF character (DC3). Software can set this bit again when it detects that the TX-permit signal has gone true, or when it receives an XON (DC1) character.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txen{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noners485ctrl{    ///<RS-485/EIA-485 Control. Contains controls to configure various aspects of RS-485/EIA-485 modes.
-        using Addr = Register::Address<0x4000804c,0xffffffc0,0,unsigned>;
+    namespace UartRs485ctrl{    ///<RS-485/EIA-485 Control. Contains controls to configure various aspects of RS-485/EIA-485 modes.
+        using Addr = Register::Address<0x4000804c,0x00000000,0x00000000,unsigned>;
         ///NMM enable.
         enum class NmmenVal {
             disabled=0x00000000,     ///<RS-485/EIA-485 Normal Multidrop Mode (NMM) is disabled.
@@ -443,15 +485,21 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oinv)::Type,OinvVal::low> low{};
             constexpr Register::FieldValue<decltype(oinv)::Type,OinvVal::high> high{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noners485adrmatch{    ///<RS-485/EIA-485 address match. Contains the address match value for RS-485/EIA-485 mode.
-        using Addr = Register::Address<0x40008050,0xffffff00,0,unsigned>;
+    namespace UartRs485adrmatch{    ///<RS-485/EIA-485 address match. Contains the address match value for RS-485/EIA-485 mode.
+        using Addr = Register::Address<0x40008050,0x00000000,0x00000000,unsigned>;
         ///Contains the address match value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> adrmatch{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noners485dly{    ///<RS-485/EIA-485 direction control delay.
-        using Addr = Register::Address<0x40008054,0xffffff00,0,unsigned>;
+    namespace UartRs485dly{    ///<RS-485/EIA-485 direction control delay.
+        using Addr = Register::Address<0x40008054,0x00000000,0x00000000,unsigned>;
         ///Contains the direction control (RTS or DTR) delay value. This register works in conjunction with an 8-bit counter.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dly{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

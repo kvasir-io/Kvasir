@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //D/A Converter
-    namespace Nonedadr0{    ///<D/A Data Register
-        using Addr = Register::Address<0x40028000,0xfffffc00,0,unsigned>;
+    namespace DacDadr0{    ///<D/A Data Register
+        using Addr = Register::Address<0x40028000,0xfffffc00,0x00000000,unsigned>;
         ///Bit9 of DADR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> da9{}; 
         ///Bit8 of DADR0
@@ -25,13 +25,13 @@ namespace Kvasir {
         ///Bit0 of DADR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> da0{}; 
     }
-    namespace Nonedacr0{    ///<D/A Control Register
-        using Addr = Register::Address<0x40028002,0xfffffffe,0,unsigned char>;
+    namespace DacDacr0{    ///<D/A Control Register
+        using Addr = Register::Address<0x40028002,0xfffffffe,0x00000000,unsigned char>;
         ///D/A converter operation enable bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dae{}; 
     }
-    namespace Nonedadr1{    ///<D/A Data Register
-        using Addr = Register::Address<0x40028004,0xfffffc00,0,unsigned>;
+    namespace DacDadr1{    ///<D/A Data Register
+        using Addr = Register::Address<0x40028004,0xfffffc00,0x00000000,unsigned>;
         ///Bit9 of DADR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> da9{}; 
         ///Bit8 of DADR1
@@ -53,8 +53,8 @@ namespace Kvasir {
         ///Bit0 of DADR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> da0{}; 
     }
-    namespace Nonedacr1{    ///<D/A Control Register
-        using Addr = Register::Address<0x40028006,0xfffffffe,0,unsigned char>;
+    namespace DacDacr1{    ///<D/A Control Register
+        using Addr = Register::Address<0x40028006,0xfffffffe,0x00000000,unsigned char>;
         ///D/A converter operation enable bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dae{}; 
     }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //AFIO
-    namespace NoneafioEssr0{    ///<AFIO_ESSR0
-        using Addr = Register::Address<0x40022000,0x00000000,0,unsigned>;
+    namespace AfioAfioEssr0{    ///<AFIO_ESSR0
+        using Addr = Register::Address<0x40022000,0x00000000,0x00000000,unsigned>;
         ///EXTI0PIN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> exti0pin{}; 
         ///EXTI1PIN
@@ -21,8 +21,8 @@ namespace Kvasir {
         ///EXTI7PIN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> exti7pin{}; 
     }
-    namespace NoneafioEssr1{    ///<AFIO_ESSR1
-        using Addr = Register::Address<0x40022004,0x00000000,0,unsigned>;
+    namespace AfioAfioEssr1{    ///<AFIO_ESSR1
+        using Addr = Register::Address<0x40022004,0x00000000,0x00000000,unsigned>;
         ///EXTI8PIN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> exti8pin{}; 
         ///EXTI9PIN
@@ -40,8 +40,8 @@ namespace Kvasir {
         ///EXTI15PIN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> exti15pin{}; 
     }
-    namespace NoneafioGpacfgr{    ///<AFIO_GPACFGR
-        using Addr = Register::Address<0x40022008,0x00000000,0,unsigned>;
+    namespace AfioAfioGpacfgr{    ///<AFIO_GPACFGR
+        using Addr = Register::Address<0x40022008,0x00000000,0x00000000,unsigned>;
         ///PACFG0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> pacfg0{}; 
         ///PACFG1
@@ -75,8 +75,8 @@ namespace Kvasir {
         ///PACFG15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> pacfg15{}; 
     }
-    namespace NoneafioGpbcfgr{    ///<AFIO_GPBCFGR
-        using Addr = Register::Address<0x4002200c,0x00000000,0,unsigned>;
+    namespace AfioAfioGpbcfgr{    ///<AFIO_GPBCFGR
+        using Addr = Register::Address<0x4002200c,0x00000000,0x00000000,unsigned>;
         ///PBCFG0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> pbcfg0{}; 
         ///PBCFG1

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4003d000,0xffffff8c,0,unsigned>;
+    namespace Pvtosc0Control{    ///<Module Control
+        using Addr = Register::Address<0x4003d000,0xffffff8c,0x00000000,unsigned>;
         ///Digital LDO Oscillator Enable. 
         enum class DigoscenVal {
             disabled=0x00000000,     ///<Disable the digital LDO PVT oscillator.

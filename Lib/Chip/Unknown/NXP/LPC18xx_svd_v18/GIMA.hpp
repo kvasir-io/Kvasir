@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=Falcon Chapter title=Global Input Multiplexer Array (GIMA) Modification date=3/25/2011 Major revision=0 Minor revision=4 
-    namespace Nonecap00In{    ///<Timer 0 CAP0_0  capture input multiplexer
-        using Addr = Register::Address<0x400c7000,0xffffff00,0,unsigned>;
+    namespace GimaCap00In{    ///<Timer 0 CAP0_0  capture input multiplexer
+        using Addr = Register::Address<0x400c7000,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -46,9 +46,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap01In{    ///<Timer 0 CAP0_1  capture input multiplexer
-        using Addr = Register::Address<0x400c7004,0xffffff00,0,unsigned>;
+    namespace GimaCap01In{    ///<Timer 0 CAP0_1  capture input multiplexer
+        using Addr = Register::Address<0x400c7004,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -91,9 +93,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap02In{    ///<Timer 0 CAP0_2 capture  input multiplexer
-        using Addr = Register::Address<0x400c7008,0xffffff00,0,unsigned>;
+    namespace GimaCap02In{    ///<Timer 0 CAP0_2 capture  input multiplexer
+        using Addr = Register::Address<0x400c7008,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -136,9 +140,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap03In{    ///<Timer 0 CAP0_3 capture input multiplexer
-        using Addr = Register::Address<0x400c700c,0xffffff00,0,unsigned>;
+    namespace GimaCap03In{    ///<Timer 0 CAP0_3 capture input multiplexer
+        using Addr = Register::Address<0x400c700c,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -181,9 +187,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap10In{    ///<Timer 1 CAP1_0 capture  input multiplexer
-        using Addr = Register::Address<0x400c7010,0xffffff00,0,unsigned>;
+    namespace GimaCap10In{    ///<Timer 1 CAP1_0 capture  input multiplexer
+        using Addr = Register::Address<0x400c7010,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -226,9 +234,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap11In{    ///<Timer 1 CAP1_1 capture  input multiplexer
-        using Addr = Register::Address<0x400c7014,0xffffff00,0,unsigned>;
+    namespace GimaCap11In{    ///<Timer 1 CAP1_1 capture  input multiplexer
+        using Addr = Register::Address<0x400c7014,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -271,9 +281,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap12In{    ///<Timer 1 CAP1_2 capture  input multiplexer
-        using Addr = Register::Address<0x400c7018,0xffffff00,0,unsigned>;
+    namespace GimaCap12In{    ///<Timer 1 CAP1_2 capture  input multiplexer
+        using Addr = Register::Address<0x400c7018,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -316,9 +328,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap13In{    ///<Timer 1 CAP1_3 capture  input multiplexer
-        using Addr = Register::Address<0x400c701c,0xffffff00,0,unsigned>;
+    namespace GimaCap13In{    ///<Timer 1 CAP1_3 capture  input multiplexer
+        using Addr = Register::Address<0x400c701c,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -361,9 +375,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap20In{    ///<Timer 2 CAP2_0 capture  input multiplexer
-        using Addr = Register::Address<0x400c7020,0xffffff00,0,unsigned>;
+    namespace GimaCap20In{    ///<Timer 2 CAP2_0 capture  input multiplexer
+        using Addr = Register::Address<0x400c7020,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -406,9 +422,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap21In{    ///<Timer 2 CAP2_1 capture  input multiplexer
-        using Addr = Register::Address<0x400c7024,0xffffff00,0,unsigned>;
+    namespace GimaCap21In{    ///<Timer 2 CAP2_1 capture  input multiplexer
+        using Addr = Register::Address<0x400c7024,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -451,9 +469,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap22In{    ///<Timer 2 CAP2_2 capture  input multiplexer
-        using Addr = Register::Address<0x400c7028,0xffffff00,0,unsigned>;
+    namespace GimaCap22In{    ///<Timer 2 CAP2_2 capture  input multiplexer
+        using Addr = Register::Address<0x400c7028,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -496,9 +516,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap23In{    ///<Timer 2 CAP2_3 capture  input multiplexer
-        using Addr = Register::Address<0x400c702c,0xffffff00,0,unsigned>;
+    namespace GimaCap23In{    ///<Timer 2 CAP2_3 capture  input multiplexer
+        using Addr = Register::Address<0x400c702c,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -541,9 +563,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap30In{    ///<Timer 3 CAP3_0 capture  input multiplexer
-        using Addr = Register::Address<0x400c7030,0xffffff00,0,unsigned>;
+    namespace GimaCap30In{    ///<Timer 3 CAP3_0 capture  input multiplexer
+        using Addr = Register::Address<0x400c7030,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -586,9 +610,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap31In{    ///<Timer 3 CAP3_1 capture  input multiplexer
-        using Addr = Register::Address<0x400c7034,0xffffff00,0,unsigned>;
+    namespace GimaCap31In{    ///<Timer 3 CAP3_1 capture  input multiplexer
+        using Addr = Register::Address<0x400c7034,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -631,9 +657,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap32In{    ///<Timer 3 CAP3_2 capture  input multiplexer
-        using Addr = Register::Address<0x400c7038,0xffffff00,0,unsigned>;
+    namespace GimaCap32In{    ///<Timer 3 CAP3_2 capture  input multiplexer
+        using Addr = Register::Address<0x400c7038,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -676,9 +704,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap33In{    ///<Timer 3 CAP3_3 capture  input multiplexer
-        using Addr = Register::Address<0x400c703c,0xffffff00,0,unsigned>;
+    namespace GimaCap33In{    ///<Timer 3 CAP3_3 capture  input multiplexer
+        using Addr = Register::Address<0x400c703c,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -721,9 +751,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectin0In{    ///<SCT CTIN_0 capture  input multiplexer
-        using Addr = Register::Address<0x400c7040,0xffffff00,0,unsigned>;
+    namespace GimaCtin0In{    ///<SCT CTIN_0 capture  input multiplexer
+        using Addr = Register::Address<0x400c7040,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -766,9 +798,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectin1In{    ///<SCT CTIN_1 capture  input multiplexer
-        using Addr = Register::Address<0x400c7044,0xffffff00,0,unsigned>;
+    namespace GimaCtin1In{    ///<SCT CTIN_1 capture  input multiplexer
+        using Addr = Register::Address<0x400c7044,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -811,9 +845,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectin2In{    ///<SCT CTIN_2 capture  input multiplexer
-        using Addr = Register::Address<0x400c7048,0xffffff00,0,unsigned>;
+    namespace GimaCtin2In{    ///<SCT CTIN_2 capture  input multiplexer
+        using Addr = Register::Address<0x400c7048,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -856,9 +892,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectin3In{    ///<SCT CTIN_3 capture  input multiplexer
-        using Addr = Register::Address<0x400c704c,0xffffff00,0,unsigned>;
+    namespace GimaCtin3In{    ///<SCT CTIN_3 capture  input multiplexer
+        using Addr = Register::Address<0x400c704c,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -901,9 +939,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectin4In{    ///<SCT CTIN_4 capture  input multiplexer
-        using Addr = Register::Address<0x400c7050,0xffffff00,0,unsigned>;
+    namespace GimaCtin4In{    ///<SCT CTIN_4 capture  input multiplexer
+        using Addr = Register::Address<0x400c7050,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -946,9 +986,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectin5In{    ///<SCT CTIN_5 capture  input multiplexer
-        using Addr = Register::Address<0x400c7054,0xffffff00,0,unsigned>;
+    namespace GimaCtin5In{    ///<SCT CTIN_5 capture  input multiplexer
+        using Addr = Register::Address<0x400c7054,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -991,9 +1033,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectin6In{    ///<SCT CTIN_6 capture  input multiplexer
-        using Addr = Register::Address<0x400c7058,0xffffff00,0,unsigned>;
+    namespace GimaCtin6In{    ///<SCT CTIN_6 capture  input multiplexer
+        using Addr = Register::Address<0x400c7058,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -1036,9 +1080,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectin7In{    ///<SCT CTIN_7 capture  input multiplexer
-        using Addr = Register::Address<0x400c705c,0xffffff00,0,unsigned>;
+    namespace GimaCtin7In{    ///<SCT CTIN_7 capture  input multiplexer
+        using Addr = Register::Address<0x400c705c,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -1081,9 +1127,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonevadcTriggerIn{    ///<ADC trigger  input multiplexer
-        using Addr = Register::Address<0x400c7060,0xffffff00,0,unsigned>;
+    namespace GimaVadcTriggerIn{    ///<ADC trigger  input multiplexer
+        using Addr = Register::Address<0x400c7060,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -1144,9 +1192,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(select)::Type,SelectVal::t0Mat0> t0Mat0{};
             constexpr Register::FieldValue<decltype(select)::Type,SelectVal::t2Mat0> t2Mat0{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneeventrouter13In{    ///<Event router   input 13  multiplexer
-        using Addr = Register::Address<0x400c7064,0xffffff00,0,unsigned>;
+    namespace GimaEventrouter13In{    ///<Event router   input 13  multiplexer
+        using Addr = Register::Address<0x400c7064,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -1189,9 +1239,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneeventrouter14In{    ///<Event router   input 14  multiplexer
-        using Addr = Register::Address<0x400c7068,0xffffff00,0,unsigned>;
+    namespace GimaEventrouter14In{    ///<Event router   input 14  multiplexer
+        using Addr = Register::Address<0x400c7068,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -1234,9 +1286,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneeventrouter16In{    ///<Event router   input 16  multiplexer
-        using Addr = Register::Address<0x400c706c,0xffffff00,0,unsigned>;
+    namespace GimaEventrouter16In{    ///<Event router   input 16  multiplexer
+        using Addr = Register::Address<0x400c706c,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -1279,9 +1333,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x2 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneadcstart0In{    ///<ADC start0   input   multiplexer
-        using Addr = Register::Address<0x400c7070,0xffffff00,0,unsigned>;
+    namespace GimaAdcstart0In{    ///<ADC start0   input   multiplexer
+        using Addr = Register::Address<0x400c7070,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -1324,9 +1380,11 @@ namespace Kvasir {
         }
         ///Select input. Values 0x2 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneadcstart1In{    ///<ADC start1  input   multiplexer
-        using Addr = Register::Address<0x400c7074,0xffffff00,0,unsigned>;
+    namespace GimaAdcstart1In{    ///<ADC start1  input   multiplexer
+        using Addr = Register::Address<0x400c7074,0x00000000,0x00000000,unsigned>;
         ///Invert input
         enum class InvVal {
             noinvert=0x00000000,     ///<Not inverted.
@@ -1369,5 +1427,7 @@ namespace Kvasir {
         }
         ///Select input. Values 0x2 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

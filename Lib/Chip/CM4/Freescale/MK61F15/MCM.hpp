@@ -1,19 +1,19 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Core Platform Miscellaneous Control Module
     namespace McmPlasc{    ///<Crossbar Switch (AXBS) Slave Configuration
-        using Addr = Register::Address<0xe0080008,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0xe0080008,0xffffff00,0x00000000,unsigned>;
         ///Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> asc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> asc{}; 
     }
     namespace McmPlamc{    ///<Crossbar Switch (AXBS) Master Configuration
-        using Addr = Register::Address<0xe008000a,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0xe008000a,0xffffff00,0x00000000,unsigned>;
         ///Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> amc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> amc{}; 
     }
     namespace McmCr{    ///<Control Register
-        using Addr = Register::Address<0xe008000c,0x88cfffff,0,unsigned>;
+        using Addr = Register::Address<0xe008000c,0x88cfffff,0x00000000,unsigned>;
         ///DDR address size translation
         enum class DdrsizeVal {
             v00=0x00000000,     ///<DDR address translation is disabled
@@ -62,7 +62,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> sramlwp{}; 
     }
     namespace McmIscr{    ///<Interrupt Status and control Register
-        using Addr = Register::Address<0xe0080010,0x60ef60e1,0,unsigned>;
+        using Addr = Register::Address<0xe0080010,0x60ef60e1,0x00000000,unsigned>;
         ///Normal Interrupt Pending
         enum class IrqVal {
             v0=0x00000000,     ///<No pending interrupt
@@ -88,7 +88,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No debug halt request
             v1=0x00000001,     ///<Debug halt request initiated
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DhreqVal> dhreq{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DhreqVal> dhreq{}; 
         namespace DhreqValC{
             constexpr Register::FieldValue<decltype(dhreq)::Type,DhreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dhreq)::Type,DhreqVal::v1> v1{};
@@ -108,7 +108,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiocVal> fioc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FiocVal> fioc{}; 
         namespace FiocValC{
             constexpr Register::FieldValue<decltype(fioc)::Type,FiocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fioc)::Type,FiocVal::v1> v1{};
@@ -118,7 +118,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,FdzcVal> fdzc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FdzcVal> fdzc{}; 
         namespace FdzcValC{
             constexpr Register::FieldValue<decltype(fdzc)::Type,FdzcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fdzc)::Type,FdzcVal::v1> v1{};
@@ -128,7 +128,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,FofcVal> fofc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FofcVal> fofc{}; 
         namespace FofcValC{
             constexpr Register::FieldValue<decltype(fofc)::Type,FofcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fofc)::Type,FofcVal::v1> v1{};
@@ -138,7 +138,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,FufcVal> fufc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FufcVal> fufc{}; 
         namespace FufcValC{
             constexpr Register::FieldValue<decltype(fufc)::Type,FufcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fufc)::Type,FufcVal::v1> v1{};
@@ -148,7 +148,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,FixcVal> fixc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FixcVal> fixc{}; 
         namespace FixcValC{
             constexpr Register::FieldValue<decltype(fixc)::Type,FixcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fixc)::Type,FixcVal::v1> v1{};
@@ -158,7 +158,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,FidcVal> fidc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FidcVal> fidc{}; 
         namespace FidcValC{
             constexpr Register::FieldValue<decltype(fidc)::Type,FidcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fidc)::Type,FidcVal::v1> v1{};
@@ -235,7 +235,7 @@ namespace Kvasir {
         }
     }
     namespace McmEtbcc{    ///<ETB Counter Control register
-        using Addr = Register::Address<0xe0080014,0xffffffc0,0,unsigned>;
+        using Addr = Register::Address<0xe0080014,0xffffffc0,0x00000000,unsigned>;
         ///Counter Enable
         enum class CntenVal {
             v0=0x00000000,     ///<ETB counter disabled
@@ -292,28 +292,28 @@ namespace Kvasir {
         }
     }
     namespace McmEtbrl{    ///<ETB Reload register
-        using Addr = Register::Address<0xe0080018,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0xe0080018,0xfffff800,0x00000000,unsigned>;
         ///Byte Count Reload Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> reload{}; 
     }
     namespace McmEtbcnt{    ///<ETB Counter Value register
-        using Addr = Register::Address<0xe008001c,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0xe008001c,0xfffff800,0x00000000,unsigned>;
         ///Byte Count Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> counter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> counter{}; 
     }
     namespace McmFadr{    ///<Fault address register
-        using Addr = Register::Address<0xe0080020,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0xe0080020,0x00000000,0x00000000,unsigned>;
         ///Fault address
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> address{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> address{}; 
     }
     namespace McmFatr{    ///<Fault attributes register
-        using Addr = Register::Address<0xe0080024,0x7ffff04c,0,unsigned>;
+        using Addr = Register::Address<0xe0080024,0x7ffff04c,0x00000000,unsigned>;
         ///Bus error access type
         enum class BedaVal {
             v0=0x00000000,     ///<Instruction
             v1=0x00000001,     ///<Data
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BedaVal> beda{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BedaVal> beda{}; 
         namespace BedaValC{
             constexpr Register::FieldValue<decltype(beda)::Type,BedaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(beda)::Type,BedaVal::v1> v1{};
@@ -323,7 +323,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<User mode
             v1=0x00000001,     ///<Supervisor/privileged mode
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,BemdVal> bemd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BemdVal> bemd{}; 
         namespace BemdValC{
             constexpr Register::FieldValue<decltype(bemd)::Type,BemdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bemd)::Type,BemdVal::v1> v1{};
@@ -334,7 +334,7 @@ namespace Kvasir {
             v01=0x00000001,     ///<16-bit access
             v10=0x00000002,     ///<32-bit access
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,BeszVal> besz{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BeszVal> besz{}; 
         namespace BeszValC{
             constexpr Register::FieldValue<decltype(besz)::Type,BeszVal::v00> v00{};
             constexpr Register::FieldValue<decltype(besz)::Type,BeszVal::v01> v01{};
@@ -345,31 +345,31 @@ namespace Kvasir {
             v0=0x00000000,     ///<Read access
             v1=0x00000001,     ///<Write access
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,BewtVal> bewt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BewtVal> bewt{}; 
         namespace BewtValC{
             constexpr Register::FieldValue<decltype(bewt)::Type,BewtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bewt)::Type,BewtVal::v1> v1{};
         }
         ///Bus error master number
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> bemn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> bemn{}; 
         ///Bus error overrun
         enum class BeovrVal {
             v0=0x00000000,     ///<No bus error overrun
             v1=0x00000001,     ///<Bus error overrun occurred. The FADR and FDR registers and the other FATR bits are not updated to reflect this new bus error.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,BeovrVal> beovr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BeovrVal> beovr{}; 
         namespace BeovrValC{
             constexpr Register::FieldValue<decltype(beovr)::Type,BeovrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(beovr)::Type,BeovrVal::v1> v1{};
         }
     }
     namespace McmFdr{    ///<Fault data register
-        using Addr = Register::Address<0xe0080028,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0xe0080028,0x00000000,0x00000000,unsigned>;
         ///Fault data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> data{}; 
     }
     namespace McmPid{    ///<Process ID register
-        using Addr = Register::Address<0xe0080030,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0xe0080030,0xffffff00,0x00000000,unsigned>;
         ///M0_PID and M1_PID for MPU
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pid{}; 
     }

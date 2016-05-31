@@ -2,6 +2,19 @@
 #include <Register/Utility.hpp>
 namespace Kvasir {
 //FlexBus external bus interface
+    namespace FbCspmcr{    ///<Chip Select port Multiplexing Control Register
+        using Addr = Register::Address<0x4000c060,0x00000fff,0x00000000,unsigned>;
+        ///FlexBus Signal Group 5 Multiplex control
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> group5{}; 
+        ///FlexBus Signal Group 4 Multiplex control
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> group4{}; 
+        ///FlexBus Signal Group 3 Multiplex control
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> group3{}; 
+        ///FlexBus Signal Group 2 Multiplex control
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> group2{}; 
+        ///FlexBus Signal Group 1 Multiplex control
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> group1{}; 
+    }
     namespace FbCsar0{    ///<Chip Select Address Register
         using Addr = Register::Address<0x4000c000,0x0000ffff,0x00000000,unsigned>;
         ///Base Address
@@ -955,18 +968,5 @@ namespace Kvasir {
         }
         ///Secondary Wait States
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
-    }
-    namespace FbCspmcr{    ///<Chip Select port Multiplexing Control Register
-        using Addr = Register::Address<0x4000c060,0x00000fff,0x00000000,unsigned>;
-        ///FlexBus Signal Group 5 Multiplex control
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> group5{}; 
-        ///FlexBus Signal Group 4 Multiplex control
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> group4{}; 
-        ///FlexBus Signal Group 3 Multiplex control
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> group3{}; 
-        ///FlexBus Signal Group 2 Multiplex control
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> group2{}; 
-        ///FlexBus Signal Group 1 Multiplex control
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> group1{}; 
     }
 }

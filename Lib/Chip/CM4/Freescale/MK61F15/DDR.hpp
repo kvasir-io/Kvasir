@@ -1,29 +1,29 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //DRAM Controller
     namespace DdrCr00{    ///<DDR Control Register 0
-        using Addr = Register::Address<0x400ae000,0x0000f0fe,0,unsigned>;
+        using Addr = Register::Address<0x400ae000,0x0000f0fe,0x00000000,unsigned>;
         ///Start
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> start{}; 
         ///DRAM Class
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> ddrcls{}; 
         ///Version
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> version{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> version{}; 
     }
     namespace DdrCr01{    ///<DDR Control Register 1
-        using Addr = Register::Address<0x400ae004,0xfffcf0e0,0,unsigned>;
+        using Addr = Register::Address<0x400ae004,0xfffcf0e0,0x00000000,unsigned>;
         ///Maxmum Row
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> maxrow{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> maxrow{}; 
         ///Maximum Column
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> maxcol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> maxcol{}; 
         ///Chip Select Maximum
         enum class CsmaxVal {
             v00=0x00000000,     ///<Zero
             v01=0x00000001,     ///<One
             v10=0x00000002,     ///<Two
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,CsmaxVal> csmax{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CsmaxVal> csmax{}; 
         namespace CsmaxValC{
             constexpr Register::FieldValue<decltype(csmax)::Type,CsmaxVal::v00> v00{};
             constexpr Register::FieldValue<decltype(csmax)::Type,CsmaxVal::v01> v01{};
@@ -31,14 +31,14 @@ namespace Kvasir {
         }
     }
     namespace DdrCr02{    ///<DDR Control Register 2
-        using Addr = Register::Address<0x400ae008,0xf0000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae008,0xf0000000,0x00000000,unsigned>;
         ///Time Initialization
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> tinit{}; 
         ///Initialization Auto-Refresh
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> initaref{}; 
     }
     namespace DdrCr03{    ///<DDR Control Register 3
-        using Addr = Register::Address<0x400ae00c,0xe0f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x400ae00c,0xe0f0f0f0,0x00000000,unsigned>;
         ///Latency Linear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> latlin{}; 
         ///Latency Gate
@@ -49,7 +49,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> tccd{}; 
     }
     namespace DdrCr04{    ///<DDR Control Register 4
-        using Addr = Register::Address<0x400ae010,0x00c0f8f8,0,unsigned>;
+        using Addr = Register::Address<0x400ae010,0x00c0f8f8,0x00000000,unsigned>;
         ///Time Burst Interrupt Interval
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> tbint{}; 
         ///no description available
@@ -60,7 +60,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> trasmin{}; 
     }
     namespace DdrCr05{    ///<DDR Control Register 5
-        using Addr = Register::Address<0x400ae014,0xe0f8f0f0,0,unsigned>;
+        using Addr = Register::Address<0x400ae014,0xe0f8f0f0,0x00000000,unsigned>;
         ///Time Write-To-Read
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> twtr{}; 
         ///no description available
@@ -71,7 +71,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> tmrd{}; 
     }
     namespace DdrCr06{    ///<DDR Control Register 6
-        using Addr = Register::Address<0x400ae018,0xfe000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae018,0xfe000000,0x00000000,unsigned>;
         ///Time Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tmod{}; 
         ///Time Row Access Maximum
@@ -88,7 +88,7 @@ namespace Kvasir {
         }
     }
     namespace DdrCr07{    ///<DDR Control Register 7
-        using Addr = Register::Address<0x400ae01c,0xfefee0f8,0,unsigned>;
+        using Addr = Register::Address<0x400ae01c,0xfefee0f8,0x00000000,unsigned>;
         ///Clock Pulse Width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> clkpw{}; 
         ///Time Clock low Self Refresh
@@ -115,7 +115,7 @@ namespace Kvasir {
         }
     }
     namespace DdrCr08{    ///<DDR Control Register 8
-        using Addr = Register::Address<0x400ae020,0xe0e000fe,0,unsigned>;
+        using Addr = Register::Address<0x400ae020,0xe0e000fe,0x00000000,unsigned>;
         ///Time RAS lockout
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tras{}; 
         ///Time RAS-to-CAS Delay Interval
@@ -126,7 +126,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> tdal{}; 
     }
     namespace DdrCr09{    ///<DDR Control Register 9
-        using Addr = Register::Address<0x400ae024,0xf8fe0000,0,unsigned>;
+        using Addr = Register::Address<0x400ae024,0xf8fe0000,0x00000000,unsigned>;
         ///Time DLL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tdll{}; 
         ///No Command
@@ -143,7 +143,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> bstlen{}; 
     }
     namespace DdrCr10{    ///<DDR Control Register 10
-        using Addr = Register::Address<0x400ae028,0xf00000c0,0,unsigned>;
+        using Addr = Register::Address<0x400ae028,0xf00000c0,0x00000000,unsigned>;
         ///Time FAW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> tfaw{}; 
         ///Time Clock Enable to Precharge Delay
@@ -152,25 +152,25 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trpab{}; 
     }
     namespace DdrCr11{    ///<DDR Control Register 11
-        using Addr = Register::Address<0x400ae02c,0xfefefefe,0,unsigned>;
+        using Addr = Register::Address<0x400ae02c,0xfefefefe,0x00000000,unsigned>;
         ///Registered DIMM
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> regdimm{}; 
         ///Auto Refresh
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> aref{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> aref{}; 
         ///Auto Refresh Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> arefmode{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> trefen{}; 
     }
     namespace DdrCr12{    ///<DDR Control Register 12
-        using Addr = Register::Address<0x400ae030,0xc000fc00,0,unsigned>;
+        using Addr = Register::Address<0x400ae030,0xc000fc00,0x00000000,unsigned>;
         ///Time Refresh Command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> trfc{}; 
         ///Time Refresh
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> tref{}; 
     }
     namespace DdrCr13{    ///<DDR Control Register 13
-        using Addr = Register::Address<0x400ae034,0xfffec000,0,unsigned>;
+        using Addr = Register::Address<0x400ae034,0xfffec000,0x00000000,unsigned>;
         ///Reserved
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> trefint{}; 
         ///Power Down
@@ -185,14 +185,14 @@ namespace Kvasir {
         }
     }
     namespace DdrCr14{    ///<DDR Control Register 14
-        using Addr = Register::Address<0x400ae038,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae038,0x00000000,0x00000000,unsigned>;
         ///Time Power Down Exit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tpdex{}; 
         ///Time Exit Self Refresh
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txsr{}; 
     }
     namespace DdrCr15{    ///<DDR Control Register 15
-        using Addr = Register::Address<0x400ae03c,0xfefe0000,0,unsigned>;
+        using Addr = Register::Address<0x400ae03c,0xfefe0000,0x00000000,unsigned>;
         ///TXSNR parameter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txsnr{}; 
         ///Self Refresh
@@ -209,7 +209,7 @@ namespace Kvasir {
         }
     }
     namespace DdrCr16{    ///<DDR Control Register 16
-        using Addr = Register::Address<0x400ae040,0xffe0f8fe,0,unsigned>;
+        using Addr = Register::Address<0x400ae040,0xffe0f8fe,0x00000000,unsigned>;
         ///Quick Refresh
         enum class QkrefVal {
             v0=0x00000000,     ///<Continue memory initialization
@@ -226,28 +226,28 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> lpctrl{}; 
     }
     namespace DdrCr17{    ///<DDR Control Register 17
-        using Addr = Register::Address<0x400ae044,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae044,0x00000000,0x00000000,unsigned>;
         ///Low Power Power Down Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lppdcnt{}; 
         ///Low Power Refresh Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> lprfcnt{}; 
     }
     namespace DdrCr18{    ///<DDR Control Register 18
-        using Addr = Register::Address<0x400ae048,0xffe00000,0,unsigned>;
+        using Addr = Register::Address<0x400ae048,0xffe00000,0x00000000,unsigned>;
         ///Low Power External Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lpextcnt{}; 
         ///Low Power Auto
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> lpauto{}; 
     }
     namespace DdrCr19{    ///<DDR Control Register 19
-        using Addr = Register::Address<0x400ae04c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae04c,0x00000000,0x00000000,unsigned>;
         ///Low Power Interval Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lpintcnt{}; 
         ///Low Power Refresh Hold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> lprfhold{}; 
     }
     namespace DdrCr20{    ///<DDR Control Register 20
-        using Addr = Register::Address<0x400ae050,0xfef0f0fc,0,unsigned>;
+        using Addr = Register::Address<0x400ae050,0xfef0f0fc,0x00000000,unsigned>;
         ///Low Power Refresh enable
         enum class LpreVal {
             v00=0x00000000,     ///<Refreshes occur
@@ -263,34 +263,34 @@ namespace Kvasir {
         ///Clock Self Refresh Exit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> cksrx{}; 
         ///Write Mode Register
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> wrmd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wrmd{}; 
     }
     namespace DdrCr21{    ///<DDR Control Register 21
-        using Addr = Register::Address<0x400ae054,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae054,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mr0dat0{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> mr1dat0{}; 
     }
     namespace DdrCr22{    ///<DDR Control Register 22
-        using Addr = Register::Address<0x400ae058,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae058,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mr2data0{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> mr3dat0{}; 
     }
     namespace DdrCr23{    ///<DDR Control Register 23
-        using Addr = Register::Address<0x400ae05c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae05c,0x00000000,0x00000000,unsigned>;
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
     }
     namespace DdrCr24{    ///<DDR Control Register 24
-        using Addr = Register::Address<0x400ae060,0xffffffff,0,unsigned>;
+        using Addr = Register::Address<0x400ae060,0xffffffff,0x00000000,unsigned>;
     }
     namespace DdrCr25{    ///<DDR Control Register 25
-        using Addr = Register::Address<0x400ae064,0xf0f8f8fe,0,unsigned>;
+        using Addr = Register::Address<0x400ae064,0xf0f8f8fe,0x00000000,unsigned>;
         ///Eight Bank Mode
         enum class Bnk8Val {
             v0=0x00000000,     ///<4 banks
@@ -309,7 +309,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> aprebit{}; 
     }
     namespace DdrCr26{    ///<DDR Control Register 26
-        using Addr = Register::Address<0x400ae068,0xfefe0000,0,unsigned>;
+        using Addr = Register::Address<0x400ae068,0xfefe0000,0x00000000,unsigned>;
         ///Age Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> agecnt{}; 
         ///Command Age count
@@ -336,7 +336,7 @@ namespace Kvasir {
         }
     }
     namespace DdrCr27{    ///<DDR Control Register 27
-        using Addr = Register::Address<0x400ae06c,0xfefefefe,0,unsigned>;
+        using Addr = Register::Address<0x400ae06c,0xfefefefe,0x00000000,unsigned>;
         ///Placement Enable
         enum class PlenVal {
             v0=0x00000000,     ///<Disabled. The command queue is a straight FIFO.
@@ -379,7 +379,7 @@ namespace Kvasir {
         }
     }
     namespace DdrCr28{    ///<DDR Control Register 28
-        using Addr = Register::Address<0x400ae070,0xfefefefe,0,unsigned>;
+        using Addr = Register::Address<0x400ae070,0xfefefefe,0x00000000,unsigned>;
         ///Chip Select Map
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> csmap{}; 
         ///no description available
@@ -414,7 +414,7 @@ namespace Kvasir {
         }
     }
     namespace DdrCr29{    ///<DDR Control Register 29
-        using Addr = Register::Address<0x400ae074,0xfefcfefe,0,unsigned>;
+        using Addr = Register::Address<0x400ae074,0xfefcfefe,0x00000000,unsigned>;
         ///Write Latency Reduction enable
         enum class WrlatrVal {
             v0=0x00000000,     ///<Disable
@@ -442,14 +442,14 @@ namespace Kvasir {
             v0=0x00000000,     ///<No effect
             v1=0x00000001,     ///<Initiate
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,ResyncVal> resync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ResyncVal> resync{}; 
         namespace ResyncValC{
             constexpr Register::FieldValue<decltype(resync)::Type,ResyncVal::v0> v0{};
             constexpr Register::FieldValue<decltype(resync)::Type,ResyncVal::v1> v1{};
         }
     }
     namespace DdrCr30{    ///<DDR Control Register 30
-        using Addr = Register::Address<0x400ae078,0x00fe00fe,0,unsigned>;
+        using Addr = Register::Address<0x400ae078,0x00fe00fe,0x00000000,unsigned>;
         ///Resynchroize after Refresh
         enum class RsyncrfVal {
             v0=0x00000000,     ///<No effect
@@ -461,52 +461,52 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rsyncrf)::Type,RsyncrfVal::v1> v1{};
         }
         ///Interrupt Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,8),Register::ReadWriteAccess,unsigned> intstat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> intstat{}; 
         ///Interupt Acknowlege
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> intack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> intack{}; 
     }
     namespace DdrCr31{    ///<DDR Control Register 31
-        using Addr = Register::Address<0x400ae07c,0xfffffe00,0,unsigned>;
+        using Addr = Register::Address<0x400ae07c,0xfffffe00,0x00000000,unsigned>;
         ///Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> intmask{}; 
     }
     namespace DdrCr32{    ///<DDR Control Register 32
-        using Addr = Register::Address<0x400ae080,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae080,0x00000000,0x00000000,unsigned>;
         ///Out Of Range Address
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> oorad{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> oorad{}; 
     }
     namespace DdrCr33{    ///<DDR Control Register 33
-        using Addr = Register::Address<0x400ae084,0xfcc0fc00,0,unsigned>;
+        using Addr = Register::Address<0x400ae084,0xfcc0fc00,0x00000000,unsigned>;
         ///Out Of Range Length
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> oorlen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> oorlen{}; 
         ///Out Of Range Type
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> oortyp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> oortyp{}; 
         ///Out Of Range source ID
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> oorid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> oorid{}; 
     }
     namespace DdrCr34{    ///<DDR Control Register 34
-        using Addr = Register::Address<0x400ae088,0xfffffefe,0,unsigned>;
+        using Addr = Register::Address<0x400ae088,0xfffffefe,0x00000000,unsigned>;
         ///ODT Read map CS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> odtrdc{}; 
         ///ODT Write map CS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> odtwrcs{}; 
     }
     namespace DdrCr35{    ///<DDR Control Register 35
-        using Addr = Register::Address<0x400ae08c,0xfffff0f0,0,unsigned>;
+        using Addr = Register::Address<0x400ae08c,0xfffff0f0,0x00000000,unsigned>;
         ///Read To Write Same Chip Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> r2wsmcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> r2wsmcs{}; 
         ///Write To Read Same Chip Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> w2rsmcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> w2rsmcs{}; 
     }
     namespace DdrCr36{    ///<DDR Control Register 36
-        using Addr = Register::Address<0x400ae090,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae090,0x00000000,0x00000000,unsigned>;
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
     }
     namespace DdrCr37{    ///<DDR Control Register 37
-        using Addr = Register::Address<0x400ae094,0xf8f8f8f8,0,unsigned>;
+        using Addr = Register::Address<0x400ae094,0xf8f8f8f8,0x00000000,unsigned>;
         ///R2R Same chip select delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> r2rsame{}; 
         ///R2W Same chip select delay
@@ -517,7 +517,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> w2wsame{}; 
     }
     namespace DdrCr38{    ///<DDR Control Register 38
-        using Addr = Register::Address<0x400ae098,0xf800e0e0,0,unsigned>;
+        using Addr = Register::Address<0x400ae098,0xf800e0e0,0x00000000,unsigned>;
         ///OCD Pull Down adjustment Chip Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> pdncs{}; 
         ///OCD Pull Up adjustment Chip Select
@@ -526,7 +526,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> pwrcnt{}; 
     }
     namespace DdrCr39{    ///<DDR Control Register 39
-        using Addr = Register::Address<0x400ae09c,0xfcfcf800,0,unsigned>;
+        using Addr = Register::Address<0x400ae09c,0xfcfcf800,0x00000000,unsigned>;
         ///Port 0 Read command Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> p0rdcnt{}; 
         ///Port 0 Read command Priority
@@ -559,14 +559,14 @@ namespace Kvasir {
         }
     }
     namespace DdrCr40{    ///<DDR Control Register 40
-        using Addr = Register::Address<0x400ae0a0,0xfff800fc,0,unsigned>;
+        using Addr = Register::Address<0x400ae0a0,0xfff800fc,0x00000000,unsigned>;
         ///Port 0 Type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> p0typ{}; 
         ///Port 1 Write command Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,8),Register::ReadWriteAccess,unsigned> p1wrcnt{}; 
     }
     namespace DdrCr41{    ///<DDR Control Register 41
-        using Addr = Register::Address<0x400ae0a4,0xfcfcf800,0,unsigned>;
+        using Addr = Register::Address<0x400ae0a4,0xfcfcf800,0x00000000,unsigned>;
         ///Port 1 Read command Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> p1rdcnt{}; 
         ///Read command priority Port 1
@@ -599,14 +599,14 @@ namespace Kvasir {
         }
     }
     namespace DdrCr42{    ///<DDR Control Register 42
-        using Addr = Register::Address<0x400ae0a8,0xfff800fc,0,unsigned>;
+        using Addr = Register::Address<0x400ae0a8,0xfff800fc,0x00000000,unsigned>;
         ///Port 1 Type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> p1typ{}; 
         ///Port 2 Write command Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,8),Register::ReadWriteAccess,unsigned> p2wrcnt{}; 
     }
     namespace DdrCr43{    ///<DDR Control Register 43
-        using Addr = Register::Address<0x400ae0ac,0xfcfcf800,0,unsigned>;
+        using Addr = Register::Address<0x400ae0ac,0xfcfcf800,0x00000000,unsigned>;
         ///Port 2 Read command Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> p2rdcnt{}; 
         ///Read command priority Port 2
@@ -639,7 +639,7 @@ namespace Kvasir {
         }
     }
     namespace DdrCr44{    ///<DDR Control Register 44
-        using Addr = Register::Address<0x400ae0b0,0xf0fefefc,0,unsigned>;
+        using Addr = Register::Address<0x400ae0b0,0xf0fefefc,0x00000000,unsigned>;
         ///Port 2 Type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> p2typ{}; 
         ///WRR Latency
@@ -663,10 +663,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrrshare)::Type,WrrshareVal::v1> v1{};
         }
         ///WRR parameters Error
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> wrrerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wrrerr{}; 
     }
     namespace DdrCr45{    ///<DDR Control Register 45
-        using Addr = Register::Address<0x400ae0b4,0xf0f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x400ae0b4,0xf0f0f0f0,0x00000000,unsigned>;
         ///Port 0 Priority 0 commands
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> p0pri0{}; 
         ///Port 0 Priority 1 commands
@@ -677,7 +677,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> p0pri3{}; 
     }
     namespace DdrCr46{    ///<DDR Control Register 46
-        using Addr = Register::Address<0x400ae0b8,0xf0fc00fc,0,unsigned>;
+        using Addr = Register::Address<0x400ae0b8,0xf0fc00fc,0x00000000,unsigned>;
         ///Port 0 Order
         enum class P0ordVal {
             v00=0x00000000,     ///<Highest listing in the scan order
@@ -698,7 +698,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> p1pri0{}; 
     }
     namespace DdrCr47{    ///<DDR Control Register 47
-        using Addr = Register::Address<0x400ae0bc,0xfcf0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x400ae0bc,0xfcf0f0f0,0x00000000,unsigned>;
         ///Port 1 Priority 1 commands
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> p1pri1{}; 
         ///Port 1 Priority 2 commands
@@ -717,7 +717,7 @@ namespace Kvasir {
         }
     }
     namespace DdrCr48{    ///<DDR Control Register 48
-        using Addr = Register::Address<0x400ae0c0,0xf0f0fc00,0,unsigned>;
+        using Addr = Register::Address<0x400ae0c0,0xf0f0fc00,0x00000000,unsigned>;
         ///Port 1 Priority Relax
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> p1prirlx{}; 
         ///Port 2 Priority 0 commands
@@ -726,7 +726,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> p2pri1{}; 
     }
     namespace DdrCr49{    ///<DDR Control Register 49
-        using Addr = Register::Address<0x400ae0c4,0xfffcf0f0,0,unsigned>;
+        using Addr = Register::Address<0x400ae0c4,0xfffcf0f0,0x00000000,unsigned>;
         ///Port 2 Priority 2 commands
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> p2pri2{}; 
         ///Port 2 Priority 3 commands
@@ -747,7 +747,7 @@ namespace Kvasir {
         }
     }
     namespace DdrCr50{    ///<DDR Control Register 50
-        using Addr = Register::Address<0x400ae0c8,0xfffefc00,0,unsigned>;
+        using Addr = Register::Address<0x400ae0c8,0xfffefc00,0x00000000,unsigned>;
         ///Port 2 Priority Relax
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> p2prirlx{}; 
         ///Clock Status
@@ -755,34 +755,34 @@ namespace Kvasir {
             v0=0x00000000,     ///<Disabled
             v1=0x00000001,     ///<Enabled
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,ClkstatusVal> clkstatus{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClkstatusVal> clkstatus{}; 
         namespace ClkstatusValC{
             constexpr Register::FieldValue<decltype(clkstatus)::Type,ClkstatusVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clkstatus)::Type,ClkstatusVal::v1> v1{};
         }
     }
     namespace DdrCr51{    ///<DDR Control Register 51
-        using Addr = Register::Address<0x400ae0cc,0xf0000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae0cc,0xf0000000,0x00000000,unsigned>;
         ///DLL Reset Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dllrstdly{}; 
         ///DLL Reset Adjust Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> dllradly{}; 
         ///PHY Write Latency
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> phywrlat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> phywrlat{}; 
     }
     namespace DdrCr52{    ///<DDR Control Register 52
-        using Addr = Register::Address<0x400ae0d0,0xf0f0f0f0,0,unsigned>;
+        using Addr = Register::Address<0x400ae0d0,0xf0f0f0f0,0x00000000,unsigned>;
         ///PHY Write Latency Base
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> pywrltbs{}; 
         ///PHY Read Latency
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> phyrdlat{}; 
         ///Read Data Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> rddataen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rddataen{}; 
         ///Read Data Enable Base
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> rddtenbas{}; 
     }
     namespace DdrCr53{    ///<DDR Control Register 53
-        using Addr = Register::Address<0x400ae0d4,0xc000f0fe,0,unsigned>;
+        using Addr = Register::Address<0x400ae0d4,0xc000f0fe,0x00000000,unsigned>;
         ///DRAM Clock Disable for chip select
         enum class ClkdiscsVal {
             v0=0x00000000,     ///<Memory clock active
@@ -794,26 +794,26 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiscs)::Type,ClkdiscsVal::v1> v1{};
         }
         ///DFI CRTLUPD Minimum
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> crtlupdmn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> crtlupdmn{}; 
         ///DFI CRTLUPD Minimum
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> ctrlupdmx{}; 
     }
     namespace DdrCr54{    ///<DDR Control Register 54
-        using Addr = Register::Address<0x400ae0d8,0xc000c000,0,unsigned>;
+        using Addr = Register::Address<0x400ae0d8,0xc000c000,0x00000000,unsigned>;
         ///DFI PHYUPD Type 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> phyupdty0{}; 
         ///DFI PHYUPD Type 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> phyupdty1{}; 
     }
     namespace DdrCr55{    ///<DDR Control Register 55
-        using Addr = Register::Address<0x400ae0dc,0xc000c000,0,unsigned>;
+        using Addr = Register::Address<0x400ae0dc,0xc000c000,0x00000000,unsigned>;
         ///DFI PHYUPD TYPE2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> phyupdty2{}; 
         ///DFI PHYUPD TYPE3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> phyupdty3{}; 
     }
     namespace DdrCr56{    ///<DDR Control Register 56
-        using Addr = Register::Address<0x400ae0e0,0xf0f0c000,0,unsigned>;
+        using Addr = Register::Address<0x400ae0e0,0xf0f0c000,0x00000000,unsigned>;
         ///TDFI PHYUPDRESP parameter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> phyupdresp{}; 
         ///Read Latency Adjust
@@ -822,7 +822,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> wrlatadj{}; 
     }
     namespace DdrCr57{    ///<DDR Control Register 57
-        using Addr = Register::Address<0x400ae0e4,0xfef0f8f0,0,unsigned>;
+        using Addr = Register::Address<0x400ae0e4,0xfef0f8f0,0x00000000,unsigned>;
         ///Command Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> cmddly{}; 
         ///DFI Clock Disable Delay
@@ -841,62 +841,62 @@ namespace Kvasir {
         }
     }
     namespace DdrCr58{    ///<DDR Control Register 58
-        using Addr = Register::Address<0x400ae0e8,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae0e8,0x00000000,0x00000000,unsigned>;
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
     }
     namespace DdrCr59{    ///<DDR Control Register 59
-        using Addr = Register::Address<0x400ae0ec,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae0ec,0x00000000,0x00000000,unsigned>;
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
     }
     namespace DdrCr60{    ///<DDR Control Register 60
-        using Addr = Register::Address<0x400ae0f0,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae0f0,0x00000000,0x00000000,unsigned>;
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
     }
     namespace DdrCr61{    ///<DDR Control Register 61
-        using Addr = Register::Address<0x400ae0f4,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae0f4,0x00000000,0x00000000,unsigned>;
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
     }
     namespace DdrCr62{    ///<DDR Control Register 62
-        using Addr = Register::Address<0x400ae0f8,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae0f8,0x00000000,0x00000000,unsigned>;
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
     }
     namespace DdrCr63{    ///<DDR Control Register 63
-        using Addr = Register::Address<0x400ae0fc,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ae0fc,0x00000000,0x00000000,unsigned>;
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
         ///Reserved
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> notUsed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> notUsed{}; 
     }
     namespace DdrRcr{    ///<RCR Control Register
-        using Addr = Register::Address<0x400ae180,0xbfffffff,0,unsigned>;
+        using Addr = Register::Address<0x400ae180,0xbfffffff,0x00000000,unsigned>;
         ///Reset
         enum class RstVal {
             v0=0x00000000,     ///<No software reset
             v1=0x00000001,     ///<Force software reset
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,RstVal> rst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RstVal> rst{}; 
         namespace RstValC{
             constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v1> v1{};
         }
     }
     namespace DdrPadCtrl{    ///<I/O Pad Control Register
-        using Addr = Register::Address<0x400ae1ac,0xfcfffff0,0,unsigned>;
+        using Addr = Register::Address<0x400ae1ac,0xfcfffff0,0x00000000,unsigned>;
         ///These SPARE_DLY_CTRL[3:0]bits set the delay chains in the spare logic.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> spareDlyCtrl{}; 
         ///Required to enable ODT and configure ODT resistor value in the pad.

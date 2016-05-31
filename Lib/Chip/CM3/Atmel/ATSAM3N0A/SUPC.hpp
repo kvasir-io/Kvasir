@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Supply Controller
     namespace SupcCr{    ///<Supply Controller Control Register
-        using Addr = Register::Address<0x400e1410,0x00fffff3,0,unsigned>;
+        using Addr = Register::Address<0x400e1410,0x00fffff3,0x00000000,unsigned>;
         ///Voltage Regulator Off
         enum class VroffVal {
             noEffect=0x00000000,     ///<no effect.
             stopVreg=0x00000001,     ///<if KEY is correct, asserts vddcore_nreset and stops the voltage regulator.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VroffVal> vroff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,VroffVal> vroff{}; 
         namespace VroffValC{
             constexpr Register::FieldValue<decltype(vroff)::Type,VroffVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(vroff)::Type,VroffVal::stopVreg> stopVreg{};
@@ -19,16 +19,16 @@ namespace Kvasir {
             noEffect=0x00000000,     ///<no effect.
             crystalSel=0x00000001,     ///<if KEY is correct, switches the slow clock on the crystal oscillator output.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,XtalselVal> xtalsel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,XtalselVal> xtalsel{}; 
         namespace XtalselValC{
             constexpr Register::FieldValue<decltype(xtalsel)::Type,XtalselVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(xtalsel)::Type,XtalselVal::crystalSel> crystalSel{};
         }
         ///Password
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
     namespace SupcSmmr{    ///<Supply Controller Supply Monitor Mode Register
-        using Addr = Register::Address<0x400e1414,0xffffc8f0,0,unsigned>;
+        using Addr = Register::Address<0x400e1414,0xffffc8f0,0x00000000,unsigned>;
         ///Supply Monitor Threshold
         enum class SmthVal {
             v19v=0x00000000,     ///<1.9 V
@@ -105,7 +105,7 @@ namespace Kvasir {
         }
     }
     namespace SupcMr{    ///<Supply Controller Mode Register
-        using Addr = Register::Address<0x400e1418,0x00ef8fff,0,unsigned>;
+        using Addr = Register::Address<0x400e1418,0x00ef8fff,0x00000000,unsigned>;
         ///Brownout Detector Reset Enable
         enum class BodrstenVal {
             notEnable=0x00000000,     ///<the core reset signal "vddcore_nreset" is not affected when a brownout detection occurs.
@@ -150,7 +150,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> key{}; 
     }
     namespace SupcWumr{    ///<Supply Controller Wake Up Mode Register
-        using Addr = Register::Address<0x400e141c,0xffff8ff1,0,unsigned>;
+        using Addr = Register::Address<0x400e141c,0xffff8ff1,0x00000000,unsigned>;
         ///Supply Monitor Wake Up Enable
         enum class SmenVal {
             notEnable=0x00000000,     ///<the supply monitor detection has no wake up effect.
@@ -201,7 +201,7 @@ namespace Kvasir {
         }
     }
     namespace SupcWuir{    ///<Supply Controller Wake Up Inputs Register
-        using Addr = Register::Address<0x400e1420,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400e1420,0x00000000,0x00000000,unsigned>;
         ///Wake Up Input Enable 0
         enum class Wkupen0Val {
             disable=0x00000000,     ///<the corresponding wake-up input has no wake up effect.
@@ -524,13 +524,13 @@ namespace Kvasir {
         }
     }
     namespace SupcSr{    ///<Supply Controller Status Register
-        using Addr = Register::Address<0x400e1424,0x0000ff01,0,unsigned>;
+        using Addr = Register::Address<0x400e1424,0x0000ff01,0x00000000,unsigned>;
         ///WKUP Wake Up Status
         enum class WkupsVal {
             no=0x00000000,     ///<no wake up due to the assertion of the WKUP pins has occurred since the last read of SUPC_SR.
             present=0x00000001,     ///<at least one wake up due to the assertion of the WKUP pins has occurred since the last read of SUPC_SR.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,WkupsVal> wkups{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,WkupsVal> wkups{}; 
         namespace WkupsValC{
             constexpr Register::FieldValue<decltype(wkups)::Type,WkupsVal::no> no{};
             constexpr Register::FieldValue<decltype(wkups)::Type,WkupsVal::present> present{};
@@ -540,7 +540,7 @@ namespace Kvasir {
             no=0x00000000,     ///<no wake up due to a supply monitor detection has occurred since the last read of SUPC_SR.
             present=0x00000001,     ///<at least one wake up due to a supply monitor detection has occurred since the last read of SUPC_SR.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SmwsVal> smws{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SmwsVal> smws{}; 
         namespace SmwsValC{
             constexpr Register::FieldValue<decltype(smws)::Type,SmwsVal::no> no{};
             constexpr Register::FieldValue<decltype(smws)::Type,SmwsVal::present> present{};
@@ -550,7 +550,7 @@ namespace Kvasir {
             no=0x00000000,     ///<no core brownout rising edge event has been detected since the last read of the SUPC_SR.
             present=0x00000001,     ///<at least one brownout output rising edge event has been detected since the last read of the SUPC_SR.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BodrstsVal> bodrsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BodrstsVal> bodrsts{}; 
         namespace BodrstsValC{
             constexpr Register::FieldValue<decltype(bodrsts)::Type,BodrstsVal::no> no{};
             constexpr Register::FieldValue<decltype(bodrsts)::Type,BodrstsVal::present> present{};
@@ -560,7 +560,7 @@ namespace Kvasir {
             no=0x00000000,     ///<no supply monitor detection has generated a core reset since the last read of the SUPC_SR.
             present=0x00000001,     ///<at least one supply monitor detection has generated a core reset since the last read of the SUPC_SR.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SmrstsVal> smrsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SmrstsVal> smrsts{}; 
         namespace SmrstsValC{
             constexpr Register::FieldValue<decltype(smrsts)::Type,SmrstsVal::no> no{};
             constexpr Register::FieldValue<decltype(smrsts)::Type,SmrstsVal::present> present{};
@@ -570,7 +570,7 @@ namespace Kvasir {
             no=0x00000000,     ///<no supply monitor detection since the last read of SUPC_SR.
             present=0x00000001,     ///<at least one supply monitor detection since the last read of SUPC_SR.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SmsVal> sms{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SmsVal> sms{}; 
         namespace SmsValC{
             constexpr Register::FieldValue<decltype(sms)::Type,SmsVal::no> no{};
             constexpr Register::FieldValue<decltype(sms)::Type,SmsVal::present> present{};
@@ -580,7 +580,7 @@ namespace Kvasir {
             high=0x00000000,     ///<the supply monitor detected VDDIO higher than its threshold at its last measurement.
             low=0x00000001,     ///<the supply monitor detected VDDIO lower than its threshold at its last measurement.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SmosVal> smos{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SmosVal> smos{}; 
         namespace SmosValC{
             constexpr Register::FieldValue<decltype(smos)::Type,SmosVal::high> high{};
             constexpr Register::FieldValue<decltype(smos)::Type,SmosVal::low> low{};
@@ -590,7 +590,7 @@ namespace Kvasir {
             rc=0x00000000,     ///<the slow clock, SLCK is generated by the embedded 32-kHz RC oscillator.
             cryst=0x00000001,     ///<the slow clock, SLCK is generated by the 32-kHz crystal oscillator.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,OscselVal> oscsel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,OscselVal> oscsel{}; 
         namespace OscselValC{
             constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::rc> rc{};
             constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::cryst> cryst{};
@@ -600,7 +600,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Wkupis0Val> wkupis0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis0Val> wkupis0{}; 
         namespace Wkupis0ValC{
             constexpr Register::FieldValue<decltype(wkupis0)::Type,Wkupis0Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis0)::Type,Wkupis0Val::en> en{};
@@ -610,7 +610,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wkupis1Val> wkupis1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis1Val> wkupis1{}; 
         namespace Wkupis1ValC{
             constexpr Register::FieldValue<decltype(wkupis1)::Type,Wkupis1Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis1)::Type,Wkupis1Val::en> en{};
@@ -620,7 +620,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Wkupis2Val> wkupis2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis2Val> wkupis2{}; 
         namespace Wkupis2ValC{
             constexpr Register::FieldValue<decltype(wkupis2)::Type,Wkupis2Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis2)::Type,Wkupis2Val::en> en{};
@@ -630,7 +630,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Wkupis3Val> wkupis3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis3Val> wkupis3{}; 
         namespace Wkupis3ValC{
             constexpr Register::FieldValue<decltype(wkupis3)::Type,Wkupis3Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis3)::Type,Wkupis3Val::en> en{};
@@ -640,7 +640,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Wkupis4Val> wkupis4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis4Val> wkupis4{}; 
         namespace Wkupis4ValC{
             constexpr Register::FieldValue<decltype(wkupis4)::Type,Wkupis4Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis4)::Type,Wkupis4Val::en> en{};
@@ -650,7 +650,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wkupis5Val> wkupis5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis5Val> wkupis5{}; 
         namespace Wkupis5ValC{
             constexpr Register::FieldValue<decltype(wkupis5)::Type,Wkupis5Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis5)::Type,Wkupis5Val::en> en{};
@@ -660,7 +660,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Wkupis6Val> wkupis6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis6Val> wkupis6{}; 
         namespace Wkupis6ValC{
             constexpr Register::FieldValue<decltype(wkupis6)::Type,Wkupis6Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis6)::Type,Wkupis6Val::en> en{};
@@ -670,7 +670,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,Wkupis7Val> wkupis7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis7Val> wkupis7{}; 
         namespace Wkupis7ValC{
             constexpr Register::FieldValue<decltype(wkupis7)::Type,Wkupis7Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis7)::Type,Wkupis7Val::en> en{};
@@ -680,7 +680,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Wkupis8Val> wkupis8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis8Val> wkupis8{}; 
         namespace Wkupis8ValC{
             constexpr Register::FieldValue<decltype(wkupis8)::Type,Wkupis8Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis8)::Type,Wkupis8Val::en> en{};
@@ -690,7 +690,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wkupis9Val> wkupis9{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis9Val> wkupis9{}; 
         namespace Wkupis9ValC{
             constexpr Register::FieldValue<decltype(wkupis9)::Type,Wkupis9Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis9)::Type,Wkupis9Val::en> en{};
@@ -700,7 +700,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Wkupis10Val> wkupis10{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis10Val> wkupis10{}; 
         namespace Wkupis10ValC{
             constexpr Register::FieldValue<decltype(wkupis10)::Type,Wkupis10Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis10)::Type,Wkupis10Val::en> en{};
@@ -710,7 +710,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,Wkupis11Val> wkupis11{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis11Val> wkupis11{}; 
         namespace Wkupis11ValC{
             constexpr Register::FieldValue<decltype(wkupis11)::Type,Wkupis11Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis11)::Type,Wkupis11Val::en> en{};
@@ -720,7 +720,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Wkupis12Val> wkupis12{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis12Val> wkupis12{}; 
         namespace Wkupis12ValC{
             constexpr Register::FieldValue<decltype(wkupis12)::Type,Wkupis12Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis12)::Type,Wkupis12Val::en> en{};
@@ -730,7 +730,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wkupis13Val> wkupis13{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis13Val> wkupis13{}; 
         namespace Wkupis13ValC{
             constexpr Register::FieldValue<decltype(wkupis13)::Type,Wkupis13Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis13)::Type,Wkupis13Val::en> en{};
@@ -740,7 +740,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Wkupis14Val> wkupis14{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis14Val> wkupis14{}; 
         namespace Wkupis14ValC{
             constexpr Register::FieldValue<decltype(wkupis14)::Type,Wkupis14Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis14)::Type,Wkupis14Val::en> en{};
@@ -750,7 +750,7 @@ namespace Kvasir {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
             en=0x00000001,     ///<the corresponding wake-up input was active at the time the debouncer triggered a wake up event.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,Wkupis15Val> wkupis15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Wkupis15Val> wkupis15{}; 
         namespace Wkupis15ValC{
             constexpr Register::FieldValue<decltype(wkupis15)::Type,Wkupis15Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis15)::Type,Wkupis15Val::en> en{};

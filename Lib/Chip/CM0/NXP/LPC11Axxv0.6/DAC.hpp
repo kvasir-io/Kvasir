@@ -1,9 +1,11 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //DAC
-    namespace Nonecr{    ///<D/A control register
-        using Addr = Register::Address<0x40024000,0xff10003f,0,unsigned>;
+    namespace DacCr{    ///<D/A control register
+        using Addr = Register::Address<0x40024000,0x00000000,0x00000000,unsigned>;
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///After the selected settling time after a conversion begins, the voltage on the AOUT pin (with respect to VSS) is VALUE x (V DD/1024).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> value{}; 
         ///Settling time
@@ -38,6 +40,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::ct16b1Mat0edge> ct16b1Mat0edge{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::ct16b1Mat1edge> ct16b1Mat1edge{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///For non-zero values of TRIG, this field selects when the conversion is triggered:
         enum class EdgeselVal {
             falling=0x00000000,     ///<Falling edges
@@ -54,5 +58,12 @@ namespace Kvasir {
         }
         ///If the TRIG field (above) is non-zero, this bit is set when a conversion is triggered, and is cleared by any write to this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> trigerd{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace DacReserved{    ///<Reserved
+        using Addr = Register::Address<0x40024004,0x00000000,0x00000000,unsigned>;
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

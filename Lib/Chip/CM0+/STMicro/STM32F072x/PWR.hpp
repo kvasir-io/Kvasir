@@ -3,7 +3,7 @@
 namespace Kvasir {
 //Power control
     namespace PwrCr{    ///<power control register
-        using Addr = Register::Address<0x40007000,0xfffffc00,0,unsigned>;
+        using Addr = Register::Address<0x40007000,0xfffffc00,0x00000000,unsigned>;
         ///Flash power down in Stop              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> fpds{}; 
         ///Disable backup domain write              protection
@@ -22,7 +22,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lpds{}; 
     }
     namespace PwrCsr{    ///<power control/status register
-        using Addr = Register::Address<0x40007004,0xfffffcf0,0,unsigned>;
+        using Addr = Register::Address<0x40007004,0xfffffcf0,0x00000000,unsigned>;
         ///Backup regulator enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> bre{}; 
         ///Enable WKUP pin

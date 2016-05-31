@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General Purpose Input_Output Port (PH)
-    namespace Nonedata{    ///<PH Data Register
-        using Addr = Register::Address<0x400c0700,0xffffffe0,0,unsigned>;
+    namespace PhData{    ///<PH Data Register
+        using Addr = Register::Address<0x400c0700,0xffffffe0,0x00000000,unsigned>;
         ///PH0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ph0{}; 
         ///PH1
@@ -15,8 +15,8 @@ namespace Kvasir {
         ///PH4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ph4{}; 
     }
-    namespace Nonecr{    ///<PH Control Register
-        using Addr = Register::Address<0x400c0704,0xffffffe0,0,unsigned>;
+    namespace PhCr{    ///<PH Control Register
+        using Addr = Register::Address<0x400c0704,0xffffffe0,0x00000000,unsigned>;
         ///PH0C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ph0c{}; 
         ///PH1C
@@ -28,15 +28,15 @@ namespace Kvasir {
         ///PH4C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ph4c{}; 
     }
-    namespace Nonefr1{    ///<PH Function Register 1
-        using Addr = Register::Address<0x400c0708,0xfffffffa,0,unsigned>;
+    namespace PhFr1{    ///<PH Function Register 1
+        using Addr = Register::Address<0x400c0708,0xfffffffa,0x00000000,unsigned>;
         ///PH0F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ph0f1{}; 
         ///PH2F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ph2f1{}; 
     }
-    namespace Nonefr3{    ///<PH Function Register 3
-        using Addr = Register::Address<0x400c0710,0xffffffe3,0,unsigned>;
+    namespace PhFr3{    ///<PH Function Register 3
+        using Addr = Register::Address<0x400c0710,0xffffffe3,0x00000000,unsigned>;
         ///PH2F3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ph2f3{}; 
         ///PH3F3
@@ -44,8 +44,8 @@ namespace Kvasir {
         ///PH4F3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ph4f3{}; 
     }
-    namespace Noneod{    ///<PH Open Drain Control Register
-        using Addr = Register::Address<0x400c0728,0xffffffe0,0,unsigned>;
+    namespace PhOd{    ///<PH Open Drain Control Register
+        using Addr = Register::Address<0x400c0728,0xffffffe0,0x00000000,unsigned>;
         ///PH0OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ph0od{}; 
         ///PH1OD
@@ -57,8 +57,8 @@ namespace Kvasir {
         ///PH4OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ph4od{}; 
     }
-    namespace Nonepup{    ///<PH Pull-Up Control Register
-        using Addr = Register::Address<0x400c072c,0xffffffe0,0,unsigned>;
+    namespace PhPup{    ///<PH Pull-Up Control Register
+        using Addr = Register::Address<0x400c072c,0xffffffe0,0x00000000,unsigned>;
         ///PH0UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ph0up{}; 
         ///PH1UP
@@ -70,8 +70,8 @@ namespace Kvasir {
         ///PH4UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ph4up{}; 
     }
-    namespace Noneie{    ///<PH Input Enable Control Register
-        using Addr = Register::Address<0x400c0738,0xffffffe0,0,unsigned>;
+    namespace PhIe{    ///<PH Input Enable Control Register
+        using Addr = Register::Address<0x400c0738,0xffffffe0,0x00000000,unsigned>;
         ///PH0IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ph0ie{}; 
         ///PH1IE

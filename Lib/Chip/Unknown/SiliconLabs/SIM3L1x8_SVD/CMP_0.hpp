@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4001f000,0x3fff9fff,0,unsigned>;
+    namespace Cmp0Control{    ///<Module Control
+        using Addr = Register::Address<0x4001f000,0x3fff9fff,0x00000000,unsigned>;
         ///Falling Edge Interrupt Flag. 
         enum class CmpfiVal {
             notSet=0x00000000,     ///<No comparator falling edge has occurred since this flag was last cleared.
@@ -29,7 +29,7 @@ namespace Kvasir {
             posLtNeg=0x00000000,     ///<Voltage on CP+ < CP-.
             posGtNeg=0x00000001,     ///<Voltage on CP+ > CP-.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CmpoutVal> cmpout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CmpoutVal> cmpout{}; 
         namespace CmpoutValC{
             constexpr Register::FieldValue<decltype(cmpout)::Type,CmpoutVal::posLtNeg> posLtNeg{};
             constexpr Register::FieldValue<decltype(cmpout)::Type,CmpoutVal::posGtNeg> posGtNeg{};
@@ -45,8 +45,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpen)::Type,CmpenVal::enabled> enabled{};
         }
     }
-    namespace Nonemode{    ///<Input and Module Mode
-        using Addr = Register::Address<0x4001f010,0xb0009000,0,unsigned>;
+    namespace Cmp0Mode{    ///<Input and Module Mode
+        using Addr = Register::Address<0x4001f010,0xb0009000,0x00000000,unsigned>;
         ///Negative Input Select. 
         enum class NmuxVal {
             cmpnn0=0x00000000,     ///<Select <dict>CMPnN.0</dict>.

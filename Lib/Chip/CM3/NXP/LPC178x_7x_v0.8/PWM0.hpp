@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Pulse Width Modulators (PWM0/1) 
-    namespace Noneir{    ///<Interrupt Register. The IR can be written to clear interrupts, or read to identify which PWM interrupt sources are pending.
-        using Addr = Register::Address<0x40014000,0xfffff8c0,0,unsigned>;
+    namespace Pwm0Ir{    ///<Interrupt Register. The IR can be written to clear interrupts, or read to identify which PWM interrupt sources are pending.
+        using Addr = Register::Address<0x40014000,0x00000000,0x00000000,unsigned>;
         ///Interrupt flag for PWM match channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pwmmr0int{}; 
         ///Interrupt flag for PWM match channel 1.
@@ -16,15 +16,19 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pwmcap0int{}; 
         ///Interrupt flag for capture input 1 (available in PWM1IR only; this bit is reserved in PWM0IR).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pwmcap1int{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Interrupt flag for PWM match channel 4.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> pwmmr4int{}; 
         ///Interrupt flag for PWM match channel 5.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> pwmmr5int{}; 
         ///Interrupt flag for PWM match channel 6.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pwmmr6int{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetcr{    ///<Timer Control Register. The TCR is used to control the Timer Counter functions.
-        using Addr = Register::Address<0x40014004,0xffffffe4,0,unsigned>;
+    namespace Pwm0Tcr{    ///<Timer Control Register. The TCR is used to control the Timer Counter functions.
+        using Addr = Register::Address<0x40014004,0x00000000,0x00000000,unsigned>;
         ///Counter Enable
         enum class CeVal {
             thePwmTimerCounte=0x00000001,     ///<The PWM Timer Counter and PWM Prescale Counter are enabled for counting.
@@ -45,6 +49,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cr)::Type,CrVal::thePwmTimerCounte> thePwmTimerCounte{};
             constexpr Register::FieldValue<decltype(cr)::Type,CrVal::clearReset> clearReset{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///PWM Enable
         enum class PwmenVal {
             pwmModeIsEnabled=0x00000001,     ///<PWM mode is enabled (counter resets to 1). PWM mode causes the shadow registers to operate in connection with the Match registers. A program write to a Match register will not have an effect on the Match result until the corresponding bit in PWMLER has been set, followed by the occurrence of a PWM Match 0 event. Note that the PWM Match register that determines the PWM rate (PWM Match Register 0 - MR0) must be set up prior to the PWM being enabled. Otherwise a Match event will not occur to cause shadow register contents to become effective.
@@ -65,24 +71,26 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::masterUsePwm0Is> masterUsePwm0Is{};
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::individualUseThe> individualUseThe{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetc{    ///<Timer Counter. The 32 bit TC is incremented every PR+1 cycles of PCLK. The TC is controlled through the TCR.
-        using Addr = Register::Address<0x40014008,0x00000000,0,unsigned>;
+    namespace Pwm0Tc{    ///<Timer Counter. The 32 bit TC is incremented every PR+1 cycles of PCLK. The TC is controlled through the TCR.
+        using Addr = Register::Address<0x40014008,0x00000000,0x00000000,unsigned>;
         ///Timer counter value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tc{}; 
     }
-    namespace Nonepr{    ///<Prescale Register. Determines how often the PWM counter is incremented.
-        using Addr = Register::Address<0x4001400c,0x00000000,0,unsigned>;
+    namespace Pwm0Pr{    ///<Prescale Register. Determines how often the PWM counter is incremented.
+        using Addr = Register::Address<0x4001400c,0x00000000,0x00000000,unsigned>;
         ///Prescale counter maximum value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pm{}; 
     }
-    namespace Nonepc{    ///<Prescale Counter. Prescaler for the main PWM counter.
-        using Addr = Register::Address<0x40014010,0x00000000,0,unsigned>;
+    namespace Pwm0Pc{    ///<Prescale Counter. Prescaler for the main PWM counter.
+        using Addr = Register::Address<0x40014010,0x00000000,0x00000000,unsigned>;
         ///Prescale counter value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pc{}; 
     }
-    namespace Nonemcr{    ///<Match Control Register. The MCR is used to control whether an interrupt is generated and if the PWM counter is reset when a Match occurs.
-        using Addr = Register::Address<0x40014014,0xffe00000,0,unsigned>;
+    namespace Pwm0Mcr{    ///<Match Control Register. The MCR is used to control whether an interrupt is generated and if the PWM counter is reset when a Match occurs.
+        using Addr = Register::Address<0x40014014,0x00000000,0x00000000,unsigned>;
         ///Interrupt PWM0
         enum class Pwmmr0iVal {
             disabled=0x00000000,     ///<Disabled.
@@ -293,37 +301,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr6s)::Type,Pwmmr6sVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr6s)::Type,Pwmmr6sVal::stopOnPwmmr6The> stopOnPwmmr6The{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemr0{    ///<Match Register. Match registers
-are continuously compared to the PWM counter in order to control PWM
-output edges.
-        using Addr = Register::Address<0x40014018,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Nonemr1{    ///<Match Register. Match registers
-are continuously compared to the PWM counter in order to control PWM
-output edges.
-        using Addr = Register::Address<0x4001401c,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Nonemr2{    ///<Match Register. Match registers
-are continuously compared to the PWM counter in order to control PWM
-output edges.
-        using Addr = Register::Address<0x40014020,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Nonemr3{    ///<Match Register. Match registers
-are continuously compared to the PWM counter in order to control PWM
-output edges.
-        using Addr = Register::Address<0x40014024,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Noneccr{    ///<Capture Control Register. The CCR controls which edges of the capture inputs are used to load the Capture Registers and whether or not an interrupt is generated for a capture event.
-        using Addr = Register::Address<0x40014028,0xffffffc0,0,unsigned>;
+    namespace Pwm0Ccr{    ///<Capture Control Register. The CCR controls which edges of the capture inputs are used to load the Capture Registers and whether or not an interrupt is generated for a capture event.
+        using Addr = Register::Address<0x40014028,0x00000000,0x00000000,unsigned>;
         ///Capture on PWMn_CAP0 rising edge
         enum class Cap0rVal {
             disabledThisFeatu=0x00000000,     ///<Disabled. This feature is disabled.
@@ -384,9 +366,13 @@ output edges.
             constexpr Register::FieldValue<decltype(cap1I)::Type,Cap1iVal::disabledThisFeatu> disabledThisFeatu{};
             constexpr Register::FieldValue<decltype(cap1I)::Type,Cap1iVal::interruptACr1Loa> interruptACr1Loa{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecr0{    ///<PWM Control Register. Enables PWM outputs and selects either single edge or double edge controlled PWM outputs.
-        using Addr = Register::Address<0x4001402c,0xffff8183,0,unsigned>;
+    namespace Pwm0Pcr{    ///<PWM Control Register. Enables PWM outputs and selects either single edge or double edge controlled PWM outputs.
+        using Addr = Register::Address<0x4001404c,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///PWM[2] output single/double edge mode control.
         enum class Pwmsel2Val {
             singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
@@ -437,6 +423,8 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::doubleEdgeControll> doubleEdgeControll{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///PWM[1] output enable control.
         enum class Pwmena1Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -497,256 +485,11 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsEn> thePwmOutputIsEn{};
         }
+        ///Unused, always zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecr1{    ///<PWM Control Register. Enables PWM outputs and selects either single edge or double edge controlled PWM outputs.
-        using Addr = Register::Address<0x40014030,0xffff8183,0,unsigned>;
-        ///PWM[2] output single/double edge mode control.
-        enum class Pwmsel2Val {
-            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
-            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Pwmsel2Val> pwmsel2{}; 
-        namespace Pwmsel2ValC{
-            constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::singleEdgeControll> singleEdgeControll{};
-            constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::doubleEdgeControll> doubleEdgeControll{};
-        }
-        ///PWM[3] output edge control.
-        enum class Pwmsel3Val {
-            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
-            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Pwmsel3Val> pwmsel3{}; 
-        namespace Pwmsel3ValC{
-            constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::singleEdgeControll> singleEdgeControll{};
-            constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::doubleEdgeControll> doubleEdgeControll{};
-        }
-        ///PWM[4] output edge control.
-        enum class Pwmsel4Val {
-            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
-            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Pwmsel4Val> pwmsel4{}; 
-        namespace Pwmsel4ValC{
-            constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::singleEdgeControll> singleEdgeControll{};
-            constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::doubleEdgeControll> doubleEdgeControll{};
-        }
-        ///PWM[5] output edge control.
-        enum class Pwmsel5Val {
-            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
-            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Pwmsel5Val> pwmsel5{}; 
-        namespace Pwmsel5ValC{
-            constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::singleEdgeControll> singleEdgeControll{};
-            constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::doubleEdgeControll> doubleEdgeControll{};
-        }
-        ///PWM[6] output edge control.
-        enum class Pwmsel6Val {
-            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
-            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Pwmsel6Val> pwmsel6{}; 
-        namespace Pwmsel6ValC{
-            constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::singleEdgeControll> singleEdgeControll{};
-            constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::doubleEdgeControll> doubleEdgeControll{};
-        }
-        ///PWM[1] output enable control.
-        enum class Pwmena1Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Pwmena1Val> pwmena1{}; 
-        namespace Pwmena1ValC{
-            constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-        ///PWM[2] output enable control.
-        enum class Pwmena2Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Pwmena2Val> pwmena2{}; 
-        namespace Pwmena2ValC{
-            constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-        ///PWM[3] output enable control.
-        enum class Pwmena3Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Pwmena3Val> pwmena3{}; 
-        namespace Pwmena3ValC{
-            constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-        ///PWM[4] output enable control.
-        enum class Pwmena4Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Pwmena4Val> pwmena4{}; 
-        namespace Pwmena4ValC{
-            constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-        ///PWM[5] output enable control.
-        enum class Pwmena5Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Pwmena5Val> pwmena5{}; 
-        namespace Pwmena5ValC{
-            constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-        ///PWM[6] output enable control. See PWMENA1 for details.
-        enum class Pwmena6Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Pwmena6Val> pwmena6{}; 
-        namespace Pwmena6ValC{
-            constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-    }
-    namespace Nonemr4{    ///<Match Register. Match registers
-are continuously compared to the PWM counter in order to control PWM
-output edges.
-        using Addr = Register::Address<0x40014040,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Nonemr5{    ///<Match Register. Match registers
-are continuously compared to the PWM counter in order to control PWM
-output edges.
-        using Addr = Register::Address<0x40014044,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Nonemr6{    ///<Match Register. Match registers
-are continuously compared to the PWM counter in order to control PWM
-output edges.
-        using Addr = Register::Address<0x40014048,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Nonepcr{    ///<PWM Control Register. Enables PWM outputs and selects either single edge or double edge controlled PWM outputs.
-        using Addr = Register::Address<0x4001404c,0xffff8183,0,unsigned>;
-        ///PWM[2] output single/double edge mode control.
-        enum class Pwmsel2Val {
-            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
-            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Pwmsel2Val> pwmsel2{}; 
-        namespace Pwmsel2ValC{
-            constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::singleEdgeControll> singleEdgeControll{};
-            constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::doubleEdgeControll> doubleEdgeControll{};
-        }
-        ///PWM[3] output edge control.
-        enum class Pwmsel3Val {
-            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
-            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Pwmsel3Val> pwmsel3{}; 
-        namespace Pwmsel3ValC{
-            constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::singleEdgeControll> singleEdgeControll{};
-            constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::doubleEdgeControll> doubleEdgeControll{};
-        }
-        ///PWM[4] output edge control.
-        enum class Pwmsel4Val {
-            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
-            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Pwmsel4Val> pwmsel4{}; 
-        namespace Pwmsel4ValC{
-            constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::singleEdgeControll> singleEdgeControll{};
-            constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::doubleEdgeControll> doubleEdgeControll{};
-        }
-        ///PWM[5] output edge control.
-        enum class Pwmsel5Val {
-            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
-            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Pwmsel5Val> pwmsel5{}; 
-        namespace Pwmsel5ValC{
-            constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::singleEdgeControll> singleEdgeControll{};
-            constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::doubleEdgeControll> doubleEdgeControll{};
-        }
-        ///PWM[6] output edge control.
-        enum class Pwmsel6Val {
-            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
-            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Pwmsel6Val> pwmsel6{}; 
-        namespace Pwmsel6ValC{
-            constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::singleEdgeControll> singleEdgeControll{};
-            constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::doubleEdgeControll> doubleEdgeControll{};
-        }
-        ///PWM[1] output enable control.
-        enum class Pwmena1Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Pwmena1Val> pwmena1{}; 
-        namespace Pwmena1ValC{
-            constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-        ///PWM[2] output enable control.
-        enum class Pwmena2Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Pwmena2Val> pwmena2{}; 
-        namespace Pwmena2ValC{
-            constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-        ///PWM[3] output enable control.
-        enum class Pwmena3Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Pwmena3Val> pwmena3{}; 
-        namespace Pwmena3ValC{
-            constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-        ///PWM[4] output enable control.
-        enum class Pwmena4Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Pwmena4Val> pwmena4{}; 
-        namespace Pwmena4ValC{
-            constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-        ///PWM[5] output enable control.
-        enum class Pwmena5Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Pwmena5Val> pwmena5{}; 
-        namespace Pwmena5ValC{
-            constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-        ///PWM[6] output enable control. See PWMENA1 for details.
-        enum class Pwmena6Val {
-            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
-            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Pwmena6Val> pwmena6{}; 
-        namespace Pwmena6ValC{
-            constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsDi> thePwmOutputIsDi{};
-            constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
-    }
-    namespace Noneler{    ///<Load Enable Register. Enables use of updated PWM match values.
-        using Addr = Register::Address<0x40014050,0xffffff80,0,unsigned>;
+    namespace Pwm0Ler{    ///<Load Enable Register. Enables use of updated PWM match values.
+        using Addr = Register::Address<0x40014050,0x00000000,0x00000000,unsigned>;
         ///Enable PWM Match 0 Latch. PWM MR0 register update control. Writing a one to this bit allows the last value written to the PWM Match Register 0 to be become effective when the timer is next reset by a PWM Match event. See Section 27.6.7.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mat0latchen{}; 
         ///Enable PWM Match 1 Latch. PWM MR1 register update control. See bit 0 for details.
@@ -761,9 +504,11 @@ output edges.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> mat5latchen{}; 
         ///Enable PWM Match 6 Latch. PWM MR6 register update control. See bit 0 for details.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mat6latchen{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,7),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectcr{    ///<Count Control Register. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting.
-        using Addr = Register::Address<0x40014070,0xfffffff0,0,unsigned>;
+    namespace Pwm0Ctcr{    ///<Count Control Register. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting.
+        using Addr = Register::Address<0x40014070,0x00000000,0x00000000,unsigned>;
         ///Counter/  Timer Mode
         enum class ModVal {
             timerModeTheTcI=0x00000000,     ///<Timer Mode: the TC is incremented when the Prescale Counter matches the Prescale register.
@@ -786,5 +531,280 @@ output edges.
         namespace CisValC{
             constexpr Register::FieldValue<decltype(cis)::Type,CisVal::forPwm000EqPwm0> forPwm000EqPwm0{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace Pwm0Mr0{    ///<Match Register. Match registersare continuously compared to the PWM counter in order to control PWMoutput edges.
+        using Addr = Register::Address<0x40014018,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
+    }
+    namespace Pwm0Mr1{    ///<Match Register. Match registersare continuously compared to the PWM counter in order to control PWMoutput edges.
+        using Addr = Register::Address<0x4001401c,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
+    }
+    namespace Pwm0Mr2{    ///<Match Register. Match registersare continuously compared to the PWM counter in order to control PWMoutput edges.
+        using Addr = Register::Address<0x40014020,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
+    }
+    namespace Pwm0Mr3{    ///<Match Register. Match registersare continuously compared to the PWM counter in order to control PWMoutput edges.
+        using Addr = Register::Address<0x40014024,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
+    }
+    namespace Pwm0Cr0{    ///<PWM Control Register. Enables PWM outputs and selects either single edge or double edge controlled PWM outputs.
+        using Addr = Register::Address<0x4001402c,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///PWM[2] output single/double edge mode control.
+        enum class Pwmsel2Val {
+            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
+            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Pwmsel2Val> pwmsel2{}; 
+        namespace Pwmsel2ValC{
+            constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::singleEdgeControll> singleEdgeControll{};
+            constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::doubleEdgeControll> doubleEdgeControll{};
+        }
+        ///PWM[3] output edge control.
+        enum class Pwmsel3Val {
+            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
+            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Pwmsel3Val> pwmsel3{}; 
+        namespace Pwmsel3ValC{
+            constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::singleEdgeControll> singleEdgeControll{};
+            constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::doubleEdgeControll> doubleEdgeControll{};
+        }
+        ///PWM[4] output edge control.
+        enum class Pwmsel4Val {
+            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
+            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Pwmsel4Val> pwmsel4{}; 
+        namespace Pwmsel4ValC{
+            constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::singleEdgeControll> singleEdgeControll{};
+            constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::doubleEdgeControll> doubleEdgeControll{};
+        }
+        ///PWM[5] output edge control.
+        enum class Pwmsel5Val {
+            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
+            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Pwmsel5Val> pwmsel5{}; 
+        namespace Pwmsel5ValC{
+            constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::singleEdgeControll> singleEdgeControll{};
+            constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::doubleEdgeControll> doubleEdgeControll{};
+        }
+        ///PWM[6] output edge control.
+        enum class Pwmsel6Val {
+            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
+            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Pwmsel6Val> pwmsel6{}; 
+        namespace Pwmsel6ValC{
+            constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::singleEdgeControll> singleEdgeControll{};
+            constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::doubleEdgeControll> doubleEdgeControll{};
+        }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///PWM[1] output enable control.
+        enum class Pwmena1Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Pwmena1Val> pwmena1{}; 
+        namespace Pwmena1ValC{
+            constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///PWM[2] output enable control.
+        enum class Pwmena2Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Pwmena2Val> pwmena2{}; 
+        namespace Pwmena2ValC{
+            constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///PWM[3] output enable control.
+        enum class Pwmena3Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Pwmena3Val> pwmena3{}; 
+        namespace Pwmena3ValC{
+            constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///PWM[4] output enable control.
+        enum class Pwmena4Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Pwmena4Val> pwmena4{}; 
+        namespace Pwmena4ValC{
+            constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///PWM[5] output enable control.
+        enum class Pwmena5Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Pwmena5Val> pwmena5{}; 
+        namespace Pwmena5ValC{
+            constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///PWM[6] output enable control. See PWMENA1 for details.
+        enum class Pwmena6Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Pwmena6Val> pwmena6{}; 
+        namespace Pwmena6ValC{
+            constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///Unused, always zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace Pwm0Cr1{    ///<PWM Control Register. Enables PWM outputs and selects either single edge or double edge controlled PWM outputs.
+        using Addr = Register::Address<0x40014030,0x00000000,0x00000000,unsigned>;
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///PWM[2] output single/double edge mode control.
+        enum class Pwmsel2Val {
+            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
+            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Pwmsel2Val> pwmsel2{}; 
+        namespace Pwmsel2ValC{
+            constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::singleEdgeControll> singleEdgeControll{};
+            constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::doubleEdgeControll> doubleEdgeControll{};
+        }
+        ///PWM[3] output edge control.
+        enum class Pwmsel3Val {
+            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
+            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Pwmsel3Val> pwmsel3{}; 
+        namespace Pwmsel3ValC{
+            constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::singleEdgeControll> singleEdgeControll{};
+            constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::doubleEdgeControll> doubleEdgeControll{};
+        }
+        ///PWM[4] output edge control.
+        enum class Pwmsel4Val {
+            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
+            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Pwmsel4Val> pwmsel4{}; 
+        namespace Pwmsel4ValC{
+            constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::singleEdgeControll> singleEdgeControll{};
+            constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::doubleEdgeControll> doubleEdgeControll{};
+        }
+        ///PWM[5] output edge control.
+        enum class Pwmsel5Val {
+            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
+            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Pwmsel5Val> pwmsel5{}; 
+        namespace Pwmsel5ValC{
+            constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::singleEdgeControll> singleEdgeControll{};
+            constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::doubleEdgeControll> doubleEdgeControll{};
+        }
+        ///PWM[6] output edge control.
+        enum class Pwmsel6Val {
+            singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
+            doubleEdgeControll=0x00000001,     ///<Double edge controlled mode is selected.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Pwmsel6Val> pwmsel6{}; 
+        namespace Pwmsel6ValC{
+            constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::singleEdgeControll> singleEdgeControll{};
+            constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::doubleEdgeControll> doubleEdgeControll{};
+        }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///PWM[1] output enable control.
+        enum class Pwmena1Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Pwmena1Val> pwmena1{}; 
+        namespace Pwmena1ValC{
+            constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///PWM[2] output enable control.
+        enum class Pwmena2Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Pwmena2Val> pwmena2{}; 
+        namespace Pwmena2ValC{
+            constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///PWM[3] output enable control.
+        enum class Pwmena3Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Pwmena3Val> pwmena3{}; 
+        namespace Pwmena3ValC{
+            constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///PWM[4] output enable control.
+        enum class Pwmena4Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Pwmena4Val> pwmena4{}; 
+        namespace Pwmena4ValC{
+            constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///PWM[5] output enable control.
+        enum class Pwmena5Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Pwmena5Val> pwmena5{}; 
+        namespace Pwmena5ValC{
+            constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///PWM[6] output enable control. See PWMENA1 for details.
+        enum class Pwmena6Val {
+            thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
+            thePwmOutputIsEn=0x00000001,     ///<The PWM output is enabled.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Pwmena6Val> pwmena6{}; 
+        namespace Pwmena6ValC{
+            constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsDi> thePwmOutputIsDi{};
+            constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsEn> thePwmOutputIsEn{};
+        }
+        ///Unused, always zero.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace Pwm0Mr4{    ///<Match Register. Match registersare continuously compared to the PWM counter in order to control PWMoutput edges.
+        using Addr = Register::Address<0x40014040,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
+    }
+    namespace Pwm0Mr5{    ///<Match Register. Match registersare continuously compared to the PWM counter in order to control PWMoutput edges.
+        using Addr = Register::Address<0x40014044,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
+    }
+    namespace Pwm0Mr6{    ///<Match Register. Match registersare continuously compared to the PWM counter in order to control PWMoutput edges.
+        using Addr = Register::Address<0x40014048,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
     }
 }

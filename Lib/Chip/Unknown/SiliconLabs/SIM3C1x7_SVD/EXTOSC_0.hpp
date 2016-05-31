@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Oscillator Control
-        using Addr = Register::Address<0x4003c000,0xffffff80,0,unsigned>;
+    namespace Extosc0Control{    ///<Oscillator Control
+        using Addr = Register::Address<0x4003c000,0xffffff80,0x00000000,unsigned>;
         ///Frequency Control. 
         enum class FreqcnVal {
             range0=0x00000000,     ///<Set the external oscillator to range 0.
@@ -31,7 +31,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The external oscillator is unused or not yet stable.
             set=0x00000001,     ///<The external oscillator is running and stable.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,OscvldfVal> oscvldf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,OscvldfVal> oscvldf{}; 
         namespace OscvldfValC{
             constexpr Register::FieldValue<decltype(oscvldf)::Type,OscvldfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oscvldf)::Type,OscvldfVal::set> set{};

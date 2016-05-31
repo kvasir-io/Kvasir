@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Fault_Reports
-    namespace Nonecfsr{    ///<CFSR
-        using Addr = Register::Address<0xe000ed28,0x00000000,0,unsigned>;
+    namespace FaultReportsCfsr{    ///<CFSR
+        using Addr = Register::Address<0xe000ed28,0x00000000,0x00000000,unsigned>;
         ///MFSR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> mfsr{}; 
         ///BFSR
@@ -11,8 +11,8 @@ namespace Kvasir {
         ///UFSR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ufsr{}; 
     }
-    namespace Nonemfsr{    ///<MFSR
-        using Addr = Register::Address<0xe000ed28,0xffffff64,0,unsigned char>;
+    namespace FaultReportsMfsr{    ///<MFSR
+        using Addr = Register::Address<0xe000ed28,0xffffff64,0x00000000,unsigned char>;
         ///IACCVIOL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> iaccviol{}; 
         ///DACCVIOL
@@ -24,13 +24,13 @@ namespace Kvasir {
         ///MMARVALID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mmarvalid{}; 
     }
-    namespace Nonemmfar{    ///<MMFAR
-        using Addr = Register::Address<0xe000ed34,0x00000000,0,unsigned>;
+    namespace FaultReportsMmfar{    ///<MMFAR
+        using Addr = Register::Address<0xe000ed34,0x00000000,0x00000000,unsigned>;
         ///ADDRESS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> address{}; 
     }
-    namespace Nonebfsr{    ///<BFSR
-        using Addr = Register::Address<0xe000ed29,0xffffff60,0,unsigned char>;
+    namespace FaultReportsBfsr{    ///<BFSR
+        using Addr = Register::Address<0xe000ed29,0xffffff60,0x00000000,unsigned char>;
         ///IBUSERR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ibuserr{}; 
         ///PRECISERR
@@ -44,13 +44,13 @@ namespace Kvasir {
         ///BFARVALID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> bfarvalid{}; 
     }
-    namespace Nonebfar{    ///<BFAR
-        using Addr = Register::Address<0xe000ed38,0x00000000,0,unsigned>;
+    namespace FaultReportsBfar{    ///<BFAR
+        using Addr = Register::Address<0xe000ed38,0x00000000,0x00000000,unsigned>;
         ///ADDRESS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> address{}; 
     }
-    namespace Noneufsr{    ///<UFSR
-        using Addr = Register::Address<0xe000ed2a,0xfffffcf0,0,unsigned>;
+    namespace FaultReportsUfsr{    ///<UFSR
+        using Addr = Register::Address<0xe000ed2a,0xffff00f0,0x00000000,unsigned>;
         ///UNDEFINSTR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> undefinstr{}; 
         ///INVSTATE
@@ -63,9 +63,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> unaligned{}; 
         ///DIVBYZERO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> divbyzero{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonehfsr{    ///<HFSR
-        using Addr = Register::Address<0xe000ed2c,0x3ffffffd,0,unsigned>;
+    namespace FaultReportsHfsr{    ///<HFSR
+        using Addr = Register::Address<0xe000ed2c,0x3ffffffd,0x00000000,unsigned>;
         ///VECTTBL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vecttbl{}; 
         ///FORCED
@@ -73,8 +75,8 @@ namespace Kvasir {
         ///DEBUGEVT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> debugevt{}; 
     }
-    namespace Nonedfsr{    ///<DFSR
-        using Addr = Register::Address<0xe000ed30,0xffffffe0,0,unsigned>;
+    namespace FaultReportsDfsr{    ///<DFSR
+        using Addr = Register::Address<0xe000ed30,0x00000000,0x00000000,unsigned>;
         ///HALTED
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> halted{}; 
         ///BKPT
@@ -85,9 +87,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vcatch{}; 
         ///EXTERNAL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> external{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneafsr{    ///<AFSR
-        using Addr = Register::Address<0xe000ed3c,0x00000000,0,unsigned>;
+    namespace FaultReportsAfsr{    ///<AFSR
+        using Addr = Register::Address<0xe000ed3c,0x00000000,0x00000000,unsigned>;
         ///IMPDEF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> impdef{}; 
     }

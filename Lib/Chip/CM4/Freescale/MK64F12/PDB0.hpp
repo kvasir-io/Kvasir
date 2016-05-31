@@ -164,6 +164,11 @@ namespace Kvasir {
         ///PDB Interrupt Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> idly{}; 
     }
+    namespace Pdb0Poen{    ///<Pulse-Out n Enable register
+        using Addr = Register::Address<0x40036190,0xffffff00,0x00000000,unsigned>;
+        ///PDB Pulse-Out Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> poen{}; 
+    }
     namespace Pdb0Ch0c1{    ///<Channel n Control register 1
         using Addr = Register::Address<0x40036010,0xff000000,0x00000000,unsigned>;
         ///PDB Channel Pre-Trigger Enable
@@ -271,11 +276,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x4003615c,0xffff0000,0x00000000,unsigned>;
         ///DAC Interval
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> int_{}; 
-    }
-    namespace Pdb0Poen{    ///<Pulse-Out n Enable register
-        using Addr = Register::Address<0x40036190,0xffffff00,0x00000000,unsigned>;
-        ///PDB Pulse-Out Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> poen{}; 
     }
     namespace Pdb0Po0dly{    ///<Pulse-Out n Delay register
         using Addr = Register::Address<0x40036194,0x00000000,0x00000000,unsigned>;

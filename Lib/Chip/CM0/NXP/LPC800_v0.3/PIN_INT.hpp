@@ -1,59 +1,79 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Pin interrupt and  pattern match engine
-    namespace Noneisel{    ///<Pin Interrupt Mode register
-        using Addr = Register::Address<0xa0004000,0xffffff00,0,unsigned>;
+    namespace PinIntIsel{    ///<Pin Interrupt Mode register
+        using Addr = Register::Address<0xa0004000,0x00000000,0x00000000,unsigned>;
         ///Selects the interrupt mode for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Edge sensitive 1 = Level sensitive
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pmode{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneienr{    ///<Pin interrupt level or rising edge interrupt enable register
-        using Addr = Register::Address<0xa0004004,0xffffff00,0,unsigned>;
+    namespace PinIntIenr{    ///<Pin interrupt level or rising edge interrupt enable register
+        using Addr = Register::Address<0xa0004004,0x00000000,0x00000000,unsigned>;
         ///Enables the rising edge or level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable rising edge or level interrupt. 1 = Enable rising edge or level interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> enrl{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesienr{    ///<Pin interrupt level (rising edge) interrupt set register
-        using Addr = Register::Address<0xa0004008,0xffffff00,0,unsigned>;
+    namespace PinIntSienr{    ///<Pin interrupt level (rising edge) interrupt set register
+        using Addr = Register::Address<0xa0004008,0x00000000,0x00000000,unsigned>;
         ///Ones written to this address set bits in the IENR, thus enabling interrupts. Bit n sets bit n in the IENR register. 0 = No operation. 1 = Enable rising edge or level interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> setenrl{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecienr{    ///<Pin interrupt level  or rising edge interrupt clear register
-        using Addr = Register::Address<0xa000400c,0xffffff00,0,unsigned>;
+    namespace PinIntCienr{    ///<Pin interrupt level  or rising edge interrupt clear register
+        using Addr = Register::Address<0xa000400c,0x00000000,0x00000000,unsigned>;
         ///Ones written to this address clear bits in the IENR, thus disabling the interrupts. Bit n clears bit n in the IENR register. 0 = No operation. 1 = Disable rising edge or level interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cenrl{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneienf{    ///<Pin interrupt active level or falling edge interrupt enable register
-        using Addr = Register::Address<0xa0004010,0xffffff00,0,unsigned>;
+    namespace PinIntIenf{    ///<Pin interrupt active level or falling edge interrupt enable register
+        using Addr = Register::Address<0xa0004010,0x00000000,0x00000000,unsigned>;
         ///Enables the falling edge or configures the active level interrupt for each pin interrupt. Bit n configures the pin interrupt selected in PINTSELn. 0 = Disable falling edge interrupt or set active interrupt level LOW. 1 = Enable falling edge interrupt enabled or set active interrupt level HIGH.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> enaf{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesienf{    ///<Pin interrupt active level or falling edge interrupt set register
-        using Addr = Register::Address<0xa0004014,0xffffff00,0,unsigned>;
+    namespace PinIntSienf{    ///<Pin interrupt active level or falling edge interrupt set register
+        using Addr = Register::Address<0xa0004014,0x00000000,0x00000000,unsigned>;
         ///Ones written to this address set bits in the IENF, thus enabling interrupts. Bit n sets bit n in the IENF register. 0 = No operation. 1 = Select HIGH-active interrupt or enable falling edge interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> setenaf{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecienf{    ///<Pin interrupt active level (falling edge) interrupt clear register
-        using Addr = Register::Address<0xa0004018,0xffffff00,0,unsigned>;
+    namespace PinIntCienf{    ///<Pin interrupt active level (falling edge) interrupt clear register
+        using Addr = Register::Address<0xa0004018,0x00000000,0x00000000,unsigned>;
         ///Ones written to this address clears bits in the IENF, thus disabling interrupts. Bit n clears bit n in the IENF register. 0 = No operation. 1 = LOW-active interrupt selected or falling edge interrupt disabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cenaf{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerise{    ///<Pin interrupt rising edge register
-        using Addr = Register::Address<0xa000401c,0xffffff00,0,unsigned>;
+    namespace PinIntRise{    ///<Pin interrupt rising edge register
+        using Addr = Register::Address<0xa000401c,0x00000000,0x00000000,unsigned>;
         ///Rising edge detect. Bit n detects the rising edge of the pin selected in PINTSELn. Read 0: No rising edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a rising edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear rising edge detection for this pin.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdet{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonefall{    ///<Pin interrupt falling edge register
-        using Addr = Register::Address<0xa0004020,0xffffff00,0,unsigned>;
+    namespace PinIntFall{    ///<Pin interrupt falling edge register
+        using Addr = Register::Address<0xa0004020,0x00000000,0x00000000,unsigned>;
         ///Falling edge detect. Bit n detects the falling edge of the pin selected in PINTSELn. Read 0: No falling edge has been detected on this pin since Reset or the last time a one was written to this bit. Write 0: no operation. Read 1: a falling edge has been detected since Reset or the last time a one was written to this bit. Write 1: clear falling edge detection for this pin.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> fdet{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneist{    ///<Pin interrupt status register
-        using Addr = Register::Address<0xa0004024,0xffffff00,0,unsigned>;
+    namespace PinIntIst{    ///<Pin interrupt status register
+        using Addr = Register::Address<0xa0004024,0x00000000,0x00000000,unsigned>;
         ///Pin interrupt status. Bit n returns the status, clears the edge interrupt, or inverts the active level of the pin selected in PINTSELn. Read 0: interrupt is not being requested for this interrupt pin.  Write 0: no operation. Read 1: interrupt is being requested for this interrupt pin. Write 1 (edge-sensitive): clear rising- and falling-edge detection for this pin. Write 1 (level-sensitive): switch the active level for this pin (in the IENF register).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pstat{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepmctrl{    ///<GPIO pattern match interrupt control register
-        using Addr = Register::Address<0xa0004028,0x00fffffc,0,unsigned>;
+    namespace PinIntPmctrl{    ///<GPIO pattern match interrupt control register
+        using Addr = Register::Address<0xa0004028,0x00000000,0x00000000,unsigned>;
         ///Specifies whether the 8 pin interrupts are controlled by the pin interrupt function or by the pattern match function.
         enum class SelpmatchVal {
             pinInterruptInter=0x00000000,     ///<Pin interrupt. Interrupts are driven in response to the standard pin interrupt function
@@ -74,11 +94,15 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enaRxev)::Type,EnarxevVal::disabledRxevOutpu> disabledRxevOutpu{};
             constexpr Register::FieldValue<decltype(enaRxev)::Type,EnarxevVal::enabledRxevOutput> enabledRxevOutput{};
         }
+        ///Reserved. Do not write 1s to unused bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///This field displays the current state of pattern matches. A 1 in any bit of this field indicates that the corresponding product term is matched by the current state of the appropriate inputs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pmat{}; 
     }
-    namespace Nonepmsrc{    ///<GPIO pattern match interrupt bit-slice source register
-        using Addr = Register::Address<0xa000402c,0x000000ff,0,unsigned>;
+    namespace PinIntPmsrc{    ///<GPIO pattern match interrupt bit-slice source register
+        using Addr = Register::Address<0xa000402c,0x00000000,0x00000000,unsigned>;
+        ///Software should not write 1s to unused bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Selects the input source for bit slice 0
         enum class Src0Val {
             input0SelectsPin=0x00000000,     ///<Input 0. Selects pin interrupt input 0 as the source to bit slice 0.
@@ -256,10 +280,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input7SelectsPin> input7SelectsPin{};
         }
     }
-    namespace Nonepmcfg{    ///<GPIO pattern match interrupt bit slice configuration register
-        using Addr = Register::Address<0xa0004030,0x00000080,0,unsigned>;
+    namespace PinIntPmcfg{    ///<GPIO pattern match interrupt bit slice configuration register
+        using Addr = Register::Address<0xa0004030,0x00000000,0x00000000,unsigned>;
         ///A 1 in any bit of this field causes the corresponding bit slice to be the final component of a product term in the boolean expression.  This has two effects: 1. The interrupt request associated with this bit-slice will be asserted whenever a match to that product term is detected. 2. The next bit slice will start a new, independent product term in the boolean expression (i.e. an OR will be inserted in the boolean expression following the element controlled by this bit slice).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> prodEndpts{}; 
+        ///(Bit slice 7 is automatically considered a product end point)  Software should not write 1s to unused bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Specifies the match-contribution condition for bit slice 0.
         enum class Cfg0Val {
             constant1ThisBit=0x00000000,     ///<Constant 1. This bit slice always contributes to a product term match.

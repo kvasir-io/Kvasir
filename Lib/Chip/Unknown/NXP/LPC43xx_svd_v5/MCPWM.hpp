@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10430 Chapter title=LPC18xx Motor Control PWM (MOTOCONPWM) Modification date=1/14/2011 Major revision=0 Minor revision=7 
-    namespace Nonecon{    ///<PWM Control read address
-        using Addr = Register::Address<0x400a0000,0x1fe0e0e0,0,unsigned>;
+    namespace McpwmCon{    ///<PWM Control read address
+        using Addr = Register::Address<0x400a0000,0x00000000,0x00000000,unsigned>;
         ///Stops/starts timer channel 0.
         enum class Run0Val {
             stop=0x00000000,     ///<Stop.
@@ -54,6 +54,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disup0)::Type,Disup0Val::update> update{};
             constexpr Register::FieldValue<decltype(disup0)::Type,Disup0Val::noupdate> noupdate{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Stops/starts timer channel 1.
         enum class Run1Val {
             stop=0x00000000,     ///<Stop.
@@ -104,6 +106,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disup1)::Type,Disup1Val::update> update{};
             constexpr Register::FieldValue<decltype(disup1)::Type,Disup1Val::noupdate> noupdate{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Stops/starts timer channel 2.
         enum class Run2Val {
             stop=0x00000000,     ///<Stop.
@@ -154,6 +158,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disup2)::Type,Disup2Val::update> update{};
             constexpr Register::FieldValue<decltype(disup2)::Type,Disup2Val::noupdate> noupdate{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,21),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Controls the polarity of the MCOB outputs for all 3 channels. This bit is typically set to 1 only in 3-phase DC mode.
         enum class InvbdcVal {
             opposite=0x00000000,     ///<The MCOB outputs have opposite polarity from the MCOA outputs (aside from dead time).
@@ -185,8 +191,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcmode)::Type,DcmodeVal::v3PhaseDcModeOn> v3PhaseDcModeOn{};
         }
     }
-    namespace NoneconSet{    ///<PWM Control set address
-        using Addr = Register::Address<0x400a0004,0x1fe0e0e0,0,unsigned>;
+    namespace McpwmConSet{    ///<PWM Control set address
+        using Addr = Register::Address<0x400a0004,0x00000000,0x00000000,unsigned>;
         ///Writing a one sets the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run0Set{}; 
         ///Writing a one sets the corresponding bit in the CON register.
@@ -198,6 +204,8 @@ namespace Kvasir {
         ///Writing a one sets the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> disup0Set{}; 
         ///Writing a one sets the corresponding bit in the CON register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Writing a one sets the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> run1Set{}; 
         ///Writing a one sets the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> center1Set{}; 
@@ -207,6 +215,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dte1Set{}; 
         ///Writing a one sets the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> disup1Set{}; 
+        ///Writing a one sets the corresponding bit in the CON register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one sets the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> run2Set{}; 
         ///Writing a one sets the corresponding bit in the CON register.
@@ -218,14 +228,16 @@ namespace Kvasir {
         ///Writing a one sets the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> disup2Set{}; 
         ///Writing a one sets the corresponding bit in the CON register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,21),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Writing a one sets the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> invbdcSet{}; 
         ///Writing a one sets the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> acmodeSet{}; 
         ///Writing a one sets the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dcmodeSet{}; 
     }
-    namespace NoneconClr{    ///<PWM Control clear address
-        using Addr = Register::Address<0x400a0008,0x1fe0e0e0,0,unsigned>;
+    namespace McpwmConClr{    ///<PWM Control clear address
+        using Addr = Register::Address<0x400a0008,0x00000000,0x00000000,unsigned>;
         ///Writing a one clears the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run0Clr{}; 
         ///Writing a one clears the corresponding bit in the CON register.
@@ -237,6 +249,8 @@ namespace Kvasir {
         ///Writing a one clears the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> disup0Clr{}; 
         ///Writing a one clears the corresponding bit in the CON register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Writing a one clears the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> run1Clr{}; 
         ///Writing a one clears the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> center1Clr{}; 
@@ -246,6 +260,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dte1Clr{}; 
         ///Writing a one clears the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> disup1Clr{}; 
+        ///Writing a one clears the corresponding bit in the CON register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one clears the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> run2Clr{}; 
         ///Writing a one clears the corresponding bit in the CON register.
@@ -257,14 +273,16 @@ namespace Kvasir {
         ///Writing a one clears the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> disup2Clr{}; 
         ///Writing a one clears the corresponding bit in the CON register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,21),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Writing a one clears the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> invbdcClr{}; 
         ///Writing a one clears the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> acmodClr{}; 
         ///Writing a one clears the corresponding bit in the CON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dcmodeClr{}; 
     }
-    namespace Nonecapcon{    ///<Capture Control read address
-        using Addr = Register::Address<0x400a000c,0xff000000,0,unsigned>;
+    namespace McpwmCapcon{    ///<Capture Control read address
+        using Addr = Register::Address<0x400a000c,0x00000000,0x00000000,unsigned>;
         ///A 1 in this bit enables a channel 0 capture event on a rising edge on MCI0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cap0mci0Re{}; 
         ///A 1 in this bit enables a channel 0 capture event on a falling edge on MCI0.
@@ -313,9 +331,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> hnfcap1{}; 
         ///Hardware noise filter: if this bit is 1, channel 2 capture events are delayed as described in Section 24.8.4.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> hnfcap2{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonecapconSet{    ///<Capture Control set address
-        using Addr = Register::Address<0x400a0010,0xff000000,0,unsigned>;
+    namespace McpwmCapconSet{    ///<Capture Control set address
+        using Addr = Register::Address<0x400a0010,0x00000000,0x00000000,unsigned>;
         ///Writing a one sets the corresponding bits in the CAPCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cap0mci0ReSet{}; 
         ///Writing a one sets the corresponding bits in the CAPCON register.
@@ -364,9 +384,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> hnfcap1Set{}; 
         ///Writing a one sets the corresponding bits in the CAPCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> hnfcap2Set{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonecapconClr{    ///<Event Control clear address
-        using Addr = Register::Address<0x400a0014,0xff000000,0,unsigned>;
+    namespace McpwmCapconClr{    ///<Event Control clear address
+        using Addr = Register::Address<0x400a0014,0x00000000,0x00000000,unsigned>;
         ///Writing a one clears the corresponding bits in the CAPCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cap0mci0ReClr{}; 
         ///Writing a one clears the corresponding bits in the CAPCON register.
@@ -415,63 +437,22 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> hnfcap1Clr{}; 
         ///Writing a one clears the corresponding bits in the CAPCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> hnfcap2Clr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetc0{    ///<Timer Counter register
-        using Addr = Register::Address<0x400a0018,0x00000000,0,unsigned>;
-        ///Timer/Counter value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mctc{}; 
-    }
-    namespace Nonetc1{    ///<Timer Counter register
-        using Addr = Register::Address<0x400a001c,0x00000000,0,unsigned>;
-        ///Timer/Counter value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mctc{}; 
-    }
-    namespace Nonetc2{    ///<Timer Counter register
-        using Addr = Register::Address<0x400a0020,0x00000000,0,unsigned>;
-        ///Timer/Counter value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mctc{}; 
-    }
-    namespace Nonelim0{    ///<Limit register
-        using Addr = Register::Address<0x400a0024,0x00000000,0,unsigned>;
-        ///Limit value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mclim{}; 
-    }
-    namespace Nonelim1{    ///<Limit register
-        using Addr = Register::Address<0x400a0028,0x00000000,0,unsigned>;
-        ///Limit value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mclim{}; 
-    }
-    namespace Nonelim2{    ///<Limit register
-        using Addr = Register::Address<0x400a002c,0x00000000,0,unsigned>;
-        ///Limit value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mclim{}; 
-    }
-    namespace Nonemat0{    ///<Match register
-        using Addr = Register::Address<0x400a0030,0x00000000,0,unsigned>;
-        ///Match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mcmat{}; 
-    }
-    namespace Nonemat1{    ///<Match register
-        using Addr = Register::Address<0x400a0034,0x00000000,0,unsigned>;
-        ///Match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mcmat{}; 
-    }
-    namespace Nonemat2{    ///<Match register
-        using Addr = Register::Address<0x400a0038,0x00000000,0,unsigned>;
-        ///Match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mcmat{}; 
-    }
-    namespace Nonedt{    ///<Dead time register
-        using Addr = Register::Address<0x400a003c,0xc0000000,0,unsigned>;
+    namespace McpwmDt{    ///<Dead time register
+        using Addr = Register::Address<0x400a003c,0x00000000,0x00000000,unsigned>;
         ///Dead time for channel 0.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> dt0{}; 
         ///Dead time for channel 1.[2]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,10),Register::ReadWriteAccess,unsigned> dt1{}; 
         ///Dead time for channel 2.[2]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,20),Register::ReadWriteAccess,unsigned> dt2{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneccp{    ///<Communication Pattern register
-        using Addr = Register::Address<0x400a0040,0xffffffc0,0,unsigned>;
+    namespace McpwmCcp{    ///<Communication Pattern register
+        using Addr = Register::Address<0x400a0040,0x00000000,0x00000000,unsigned>;
         ///Communication pattern output A, channel 0.
         enum class Ccpa0Val {
             mcoa0Passive=0x00000000,     ///<MCOA0 passive.
@@ -532,24 +513,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccpb2)::Type,Ccpb2Val::mcob2Passive> mcob2Passive{};
             constexpr Register::FieldValue<decltype(ccpb2)::Type,Ccpb2Val::mcob2TracksInterna> mcob2TracksInterna{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecap0{    ///<Capture register
-        using Addr = Register::Address<0x400a0044,0x00000000,0,unsigned>;
-        ///Current TC value at a capture event.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
-    }
-    namespace Nonecap1{    ///<Capture register
-        using Addr = Register::Address<0x400a0048,0x00000000,0,unsigned>;
-        ///Current TC value at a capture event.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
-    }
-    namespace Nonecap2{    ///<Capture register
-        using Addr = Register::Address<0x400a004c,0x00000000,0,unsigned>;
-        ///Current TC value at a capture event.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
-    }
-    namespace Noneinten{    ///<Interrupt Enable read address
-        using Addr = Register::Address<0x400a0050,0xffff7888,0,unsigned>;
+    namespace McpwmInten{    ///<Interrupt Enable read address
+        using Addr = Register::Address<0x400a0050,0x00000000,0x00000000,unsigned>;
         ///Limit interrupt for channel 0.
         enum class Ilim0Val {
             interruptDisabled=0x00000000,     ///<Interrupt disabled.
@@ -580,6 +548,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icap0)::Type,Icap0Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(icap0)::Type,Icap0Val::interruptEnabled> interruptEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Limit interrupt for channel 1.
         enum class Ilim1Val {
             interruptDisabled=0x00000000,     ///<Interrupt disabled.
@@ -610,6 +580,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icap1)::Type,Icap1Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(icap1)::Type,Icap1Val::interruptEnabled> interruptEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Limit interrupt for channel 2.
         enum class Ilim2Val {
             interruptDisabled=0x00000000,     ///<Interrupt disabled.
@@ -640,6 +612,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icap2)::Type,Icap2Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(icap2)::Type,Icap2Val::interruptEnabled> interruptEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Fast abort interrupt.
         enum class AbortVal {
             interruptDisabled=0x00000000,     ///<Interrupt disabled.
@@ -650,55 +624,73 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(abort)::Type,AbortVal::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(abort)::Type,AbortVal::interruptEnabled> interruptEnabled{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneintenSet{    ///<Interrupt Enable set address
-        using Addr = Register::Address<0x400a0054,0xffff7188,0,unsigned>;
+    namespace McpwmIntenSet{    ///<Interrupt Enable set address
+        using Addr = Register::Address<0x400a0054,0x00000100,0x00000000,unsigned>;
         ///Writing a one sets the corresponding bit in INTEN, thus enabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ilim0Set{}; 
         ///Writing a one sets the corresponding bit in INTEN, thus enabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> imat0Set{}; 
         ///Writing a one sets the corresponding bit in INTEN, thus enabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> icap0Set{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one sets the corresponding bit in INTEN, thus enabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ilim1Set{}; 
         ///Writing a one sets the corresponding bit in INTEN, thus enabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> imat1Set{}; 
         ///Writing a one sets the corresponding bit in INTEN, thus enabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> icap1Set{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one sets the corresponding bit in INTEN, thus enabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ilim2Set{}; 
         ///Writing a one sets the corresponding bit in INTEN, thus enabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> imat2Set{}; 
         ///Writing a one sets the corresponding bit in INTEN, thus enabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> icap2Set{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one sets the corresponding bit in INTEN, thus enabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> abortSet{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneintenClr{    ///<Interrupt Enable clear address
-        using Addr = Register::Address<0x400a0058,0xffff7888,0,unsigned>;
+    namespace McpwmIntenClr{    ///<Interrupt Enable clear address
+        using Addr = Register::Address<0x400a0058,0x00000000,0x00000000,unsigned>;
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ilim0Clr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> imat0Clr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> icap0Clr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ilim1Clr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> imat1Clr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> icap1Clr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ilim2Clr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> imat2Clr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> icap2Clr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> abortClr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintf{    ///<Interrupt flags read address
-        using Addr = Register::Address<0x400a0068,0xffff7888,0,unsigned>;
+    namespace McpwmIntf{    ///<Interrupt flags read address
+        using Addr = Register::Address<0x400a0068,0x00000000,0x00000000,unsigned>;
         ///Limit interrupt flag for channel 0.
         enum class Ilim0fVal {
             thisInterruptSourc=0x00000000,     ///<This interrupt source is not contributing to the MCPWM interrupt request.
@@ -729,6 +721,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icap0F)::Type,Icap0fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(icap0F)::Type,Icap0fVal::ifTheCorresponding> ifTheCorresponding{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Limit interrupt flag for channel 1.
         enum class Ilim1fVal {
             thisInterruptSourc=0x00000000,     ///<This interrupt source is not contributing to the MCPWM interrupt request.
@@ -759,6 +753,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icap1F)::Type,Icap1fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(icap1F)::Type,Icap1fVal::ifTheCorresponding> ifTheCorresponding{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Limit interrupt flag for channel 2.
         enum class Ilim2fVal {
             thisInterruptSourc=0x00000000,     ///<This interrupt source is not contributing to the MCPWM interrupt request.
@@ -789,6 +785,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icap2F)::Type,Icap2fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(icap2F)::Type,Icap2fVal::ifTheCorresponding> ifTheCorresponding{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Fast abort interrupt flag.
         enum class AbortfVal {
             thisInterruptSourc=0x00000000,     ///<This interrupt source is not contributing to the MCPWM interrupt request.
@@ -799,44 +797,58 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(abortF)::Type,AbortfVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(abortF)::Type,AbortfVal::ifTheCorresponding> ifTheCorresponding{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneintfSet{    ///<Interrupt flags set address
-        using Addr = Register::Address<0x400a006c,0xffff7888,0,unsigned>;
+    namespace McpwmIntfSet{    ///<Interrupt flags set address
+        using Addr = Register::Address<0x400a006c,0x00000000,0x00000000,unsigned>;
         ///Writing a one sets the corresponding bit in the INTF register, thus possibly simulating hardware interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ilim0FSet{}; 
         ///Writing a one sets the corresponding bit in the INTF register, thus possibly simulating hardware interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> imat0FSet{}; 
         ///Writing a one sets the corresponding bit in the INTF register, thus possibly simulating hardware interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> icap0FSet{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one sets the corresponding bit in the INTF register, thus possibly simulating hardware interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ilim1FSet{}; 
         ///Writing a one sets the corresponding bit in the INTF register, thus possibly simulating hardware interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> imat1FSet{}; 
         ///Writing a one sets the corresponding bit in the INTF register, thus possibly simulating hardware interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> icap1FSet{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one sets the corresponding bit in the INTF register, thus possibly simulating hardware interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ilim2FSet{}; 
         ///Writing a one sets the corresponding bit in the INTF register, thus possibly simulating hardware interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> imat2FSet{}; 
         ///Writing a one sets the corresponding bit in the INTF register, thus possibly simulating hardware interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> icap2FSet{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,11),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one sets the corresponding bit in the INTF register, thus possibly simulating hardware interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> abortFSet{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneintfClr{    ///<Interrupt flags clear address
-        using Addr = Register::Address<0x400a0070,0xffff7888,0,unsigned>;
+    namespace McpwmIntfClr{    ///<Interrupt flags clear address
+        using Addr = Register::Address<0x400a0070,0x00000000,0x00000000,unsigned>;
         ///Writing a one clears the corresponding bit in the INTF register, thus clearing the corresponding interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ilim0FClr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> imat0FClr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> icap0FClr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ilim1FClr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> imat1FClr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> icap1FClr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ilim2FClr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
@@ -844,10 +856,14 @@ namespace Kvasir {
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> icap2FClr{}; 
         ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,11),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Writing a one clears the corresponding bit in INTEN, thus disabling the interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> abortFClr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecntcon{    ///<Count Control read address
-        using Addr = Register::Address<0x400a005c,0x1ffc0000,0,unsigned>;
+    namespace McpwmCntcon{    ///<Count Control read address
+        using Addr = Register::Address<0x400a005c,0x00000000,0x00000000,unsigned>;
         ///Counter 0 rising edge mode, channel 0.
         enum class Tc0mci0reVal {
             aRisingEdgeOnMci=0x00000000,     ///<A rising edge on MCI0 does not affect counter 0.
@@ -1028,6 +1044,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc2mci2Fe)::Type,Tc2mci2feVal::aFallingEdgeOnMc> aFallingEdgeOnMc{};
             constexpr Register::FieldValue<decltype(tc2mci2Fe)::Type,Tc2mci2feVal::ifMode2Is1Count> ifMode2Is1Count{};
         }
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,18),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Channel 0 counter/timer mode.
         enum class Cntr0Val {
             channel0IsInTime=0x00000000,     ///<Channel 0 is in timer mode.
@@ -1059,8 +1077,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cntr2)::Type,Cntr2Val::channel2IsInCoun> channel2IsInCoun{};
         }
     }
-    namespace NonecntconSet{    ///<Count Control set address
-        using Addr = Register::Address<0x400a0060,0x1ffc0000,0,unsigned>;
+    namespace McpwmCntconSet{    ///<Count Control set address
+        using Addr = Register::Address<0x400a0060,0x00000000,0x00000000,unsigned>;
         ///Writing a one sets the corresponding bit in the CNTCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tc0mci0ReSet{}; 
         ///Writing a one sets the corresponding bit in the CNTCON register.
@@ -1097,6 +1115,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tc2mci2ReSet{}; 
         ///Writing a one sets the corresponding bit in the CNTCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> tc2mci2FeSet{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,18),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one sets the corresponding bit in the CNTCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> cntr0Set{}; 
         ///Writing a one sets the corresponding bit in the CNTCON register.
@@ -1104,8 +1124,8 @@ namespace Kvasir {
         ///Writing a one sets the corresponding bit in the CNTCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> cntr2Set{}; 
     }
-    namespace NonecntconClr{    ///<Count Control clear address
-        using Addr = Register::Address<0x400a0064,0x1ffc0000,0,unsigned>;
+    namespace McpwmCntconClr{    ///<Count Control clear address
+        using Addr = Register::Address<0x400a0064,0x00000000,0x00000000,unsigned>;
         ///Writing a one clears the corresponding bit in the CNTCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tc0mci0ReClr{}; 
         ///Writing a one clears the corresponding bit in the CNTCON register.
@@ -1142,6 +1162,8 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tc2mci2ReClr{}; 
         ///Writing a one clears the corresponding bit in the CNTCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> tc2mci2FeClr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,18),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Writing a one clears the corresponding bit in the CNTCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> cntr0Clr{}; 
         ///Writing a one clears the corresponding bit in the CNTCON register.
@@ -1149,13 +1171,75 @@ namespace Kvasir {
         ///Writing a one clears the corresponding bit in the CNTCON register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> cntr2Clr{}; 
     }
-    namespace NonecapClr{    ///<Capture clear address
-        using Addr = Register::Address<0x400a0074,0xfffffff8,0,unsigned>;
+    namespace McpwmCapClr{    ///<Capture clear address
+        using Addr = Register::Address<0x400a0074,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 to this bit clears the CAP0 register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> capClr0{}; 
         ///Writing a 1 to this bit clears the CAP1 register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> capClr1{}; 
         ///Writing a 1 to this bit clears the CAP2 register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> capClr2{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace McpwmTc0{    ///<Timer Counter register
+        using Addr = Register::Address<0x400a0018,0x00000000,0x00000000,unsigned>;
+        ///Timer/Counter value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mctc{}; 
+    }
+    namespace McpwmTc1{    ///<Timer Counter register
+        using Addr = Register::Address<0x400a001c,0x00000000,0x00000000,unsigned>;
+        ///Timer/Counter value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mctc{}; 
+    }
+    namespace McpwmTc2{    ///<Timer Counter register
+        using Addr = Register::Address<0x400a0020,0x00000000,0x00000000,unsigned>;
+        ///Timer/Counter value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mctc{}; 
+    }
+    namespace McpwmLim0{    ///<Limit register
+        using Addr = Register::Address<0x400a0024,0x00000000,0x00000000,unsigned>;
+        ///Limit value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mclim{}; 
+    }
+    namespace McpwmLim1{    ///<Limit register
+        using Addr = Register::Address<0x400a0028,0x00000000,0x00000000,unsigned>;
+        ///Limit value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mclim{}; 
+    }
+    namespace McpwmLim2{    ///<Limit register
+        using Addr = Register::Address<0x400a002c,0x00000000,0x00000000,unsigned>;
+        ///Limit value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mclim{}; 
+    }
+    namespace McpwmMat0{    ///<Match register
+        using Addr = Register::Address<0x400a0030,0x00000000,0x00000000,unsigned>;
+        ///Match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mcmat{}; 
+    }
+    namespace McpwmMat1{    ///<Match register
+        using Addr = Register::Address<0x400a0034,0x00000000,0x00000000,unsigned>;
+        ///Match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mcmat{}; 
+    }
+    namespace McpwmMat2{    ///<Match register
+        using Addr = Register::Address<0x400a0038,0x00000000,0x00000000,unsigned>;
+        ///Match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mcmat{}; 
+    }
+    namespace McpwmCap0{    ///<Capture register
+        using Addr = Register::Address<0x400a0044,0x00000000,0x00000000,unsigned>;
+        ///Current TC value at a capture event.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
+    }
+    namespace McpwmCap1{    ///<Capture register
+        using Addr = Register::Address<0x400a0048,0x00000000,0x00000000,unsigned>;
+        ///Current TC value at a capture event.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
+    }
+    namespace McpwmCap2{    ///<Capture register
+        using Addr = Register::Address<0x400a004c,0x00000000,0x00000000,unsigned>;
+        ///Current TC value at a capture event.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
     }
 }

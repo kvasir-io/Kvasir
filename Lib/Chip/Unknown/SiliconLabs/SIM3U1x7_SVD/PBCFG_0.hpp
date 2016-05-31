@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol0{    ///<Global Port Control 0
-        using Addr = Register::Address<0x4002a000,0x60ff4040,0,unsigned>;
+    namespace Pbcfg0Control0{    ///<Global Port Control 0
+        using Addr = Register::Address<0x4002a000,0x60ff4040,0x00000000,unsigned>;
         ///External Interrupt 0 Pin Selection. 
         enum class Int0selVal {
             int00=0x00000000,     ///<Select INT0.0 (PB2.0)
@@ -147,14 +147,14 @@ namespace Kvasir {
             notSet=0x00000000,     ///<Firmware has written to the PBPGPHASE register, but the Pulse Generator timer has not expired.
             set=0x00000001,     ///<The Pulse Generator cycle finished since the last time PBPGPHASE was written.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,PgdonefVal> pgdonef{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PgdonefVal> pgdonef{}; 
         namespace PgdonefValC{
             constexpr Register::FieldValue<decltype(pgdonef)::Type,PgdonefVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(pgdonef)::Type,PgdonefVal::set> set{};
         }
     }
-    namespace Nonecontrol1{    ///<Global Port Control 1
-        using Addr = Register::Address<0x4002a010,0x7f7c007c,0,unsigned>;
+    namespace Pbcfg0Control1{    ///<Global Port Control 1
+        using Addr = Register::Address<0x4002a010,0x7f7c007c,0x00000000,unsigned>;
         ///JTAG Enable. 
         enum class JtagenVal {
             disabled=0x00000000,     ///<JTAG functionality is not pinned out.
@@ -278,8 +278,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::locked> locked{};
         }
     }
-    namespace Nonexbar0l{    ///<Crossbar 0 Control (Low)
-        using Addr = Register::Address<0x4002a020,0x80003800,0,unsigned>;
+    namespace Pbcfg0Xbar0l{    ///<Crossbar 0 Control (Low)
+        using Addr = Register::Address<0x4002a020,0x80003800,0x00000000,unsigned>;
         ///USART0 Enable. 
         enum class Usart0enVal {
             disabled=0x00000000,     ///<Disable USART0 RX and TX on Crossbar 0.
@@ -535,8 +535,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tmr1exen)::Type,Tmr1exenVal::enabled> enabled{};
         }
     }
-    namespace Nonexbar0h{    ///<Crossbar 0 Control (High)
-        using Addr = Register::Address<0x4002a030,0x7fffff00,0,unsigned>;
+    namespace Pbcfg0Xbar0h{    ///<Crossbar 0 Control (High)
+        using Addr = Register::Address<0x4002a030,0x7fffff00,0x00000000,unsigned>;
         ///UART0 Enable. 
         enum class Uart0enVal {
             disabled=0x00000000,     ///<Disable UART0 RX and TX on Crossbar 0.
@@ -628,8 +628,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xbar0en)::Type,Xbar0enVal::enabled> enabled{};
         }
     }
-    namespace Nonexbar1{    ///<Crossbar 1 Control
-        using Addr = Register::Address<0x4002a040,0x7fc40000,0,unsigned>;
+    namespace Pbcfg0Xbar1{    ///<Crossbar 1 Control
+        using Addr = Register::Address<0x4002a040,0x7fc40000,0x00000000,unsigned>;
         ///SSG0 Enable. 
         enum class Ssg0enVal {
             none=0x00000000,     ///<Disable all SSG0 channels on Crossbar 1.
@@ -845,8 +845,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xbar1en)::Type,Xbar1enVal::enabled> enabled{};
         }
     }
-    namespace Nonepbkey{    ///<Global Port Key
-        using Addr = Register::Address<0x4002a050,0xffffff00,0,unsigned>;
+    namespace Pbcfg0Pbkey{    ///<Global Port Key
+        using Addr = Register::Address<0x4002a050,0xffffff00,0x00000000,unsigned>;
         ///Port Bank 2, 3, and 4 Key. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
     }

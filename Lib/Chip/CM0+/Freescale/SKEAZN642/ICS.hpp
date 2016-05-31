@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Clock management
     namespace IcsC1{    ///<ICS Control Register 1
-        using Addr = Register::Address<0x40064000,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40064000,0xffffff00,0x00000000,unsigned char>;
         ///Internal Reference Stop Enable
         enum class IrefstenVal {
             v0=0x00000000,     ///<Internal reference clock is disabled in Stop mode.
@@ -52,7 +52,7 @@ namespace Kvasir {
         }
     }
     namespace IcsC2{    ///<ICS Control Register 2
-        using Addr = Register::Address<0x40064001,0xffffff0f,0,unsigned char>;
+        using Addr = Register::Address<0x40064001,0xffffff0f,0x00000000,unsigned char>;
         ///Low Power Select
         enum class LpVal {
             v0=0x00000000,     ///<FLL is not disabled in bypass mode.
@@ -87,12 +87,12 @@ namespace Kvasir {
         }
     }
     namespace IcsC3{    ///<ICS Control Register 3
-        using Addr = Register::Address<0x40064002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40064002,0xffffff00,0x00000000,unsigned char>;
         ///Slow Internal Reference Clock Trim Setting
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> sctrim{}; 
     }
     namespace IcsC4{    ///<ICS Control Register 4
-        using Addr = Register::Address<0x40064003,0xffffff5e,0,unsigned char>;
+        using Addr = Register::Address<0x40064003,0xffffff5e,0x00000000,unsigned char>;
         ///Slow Internal Reference Clock Fine Trim
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> scftrim{}; 
         ///Clock Monitor Enable
@@ -117,14 +117,14 @@ namespace Kvasir {
         }
     }
     namespace IcsS{    ///<ICS Status Register
-        using Addr = Register::Address<0x40064004,0xffffff23,0,unsigned char>;
+        using Addr = Register::Address<0x40064004,0xffffff23,0x00000000,unsigned char>;
         ///Clock Mode Status
         enum class ClkstVal {
             v00=0x00000000,     ///<Output of FLL is selected.
             v01=0x00000001,     ///<FLL Bypassed, internal reference clock is selected.
             v10=0x00000002,     ///<FLL Bypassed, external reference clock is selected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,ClkstVal> clkst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClkstVal> clkst{}; 
         namespace ClkstValC{
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v00> v00{};
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v01> v01{};
@@ -135,7 +135,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Source of reference clock is external clock.
             v1=0x00000001,     ///<Source of reference clock is internal clock.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,IrefstVal> irefst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,IrefstVal> irefst{}; 
         namespace IrefstValC{
             constexpr Register::FieldValue<decltype(irefst)::Type,IrefstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefst)::Type,IrefstVal::v1> v1{};
@@ -145,7 +145,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<FLL is currently unlocked.
             v1=0x00000001,     ///<FLL is currently locked.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,LockVal> lock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LockVal> lock{}; 
         namespace LockValC{
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::v1> v1{};
@@ -155,7 +155,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<FLL has not lost lock since LOLS was last cleared.
             v1=0x00000001,     ///<FLL has lost lock since LOLS was last cleared.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LolsVal> lols{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LolsVal> lols{}; 
         namespace LolsValC{
             constexpr Register::FieldValue<decltype(lols)::Type,LolsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lols)::Type,LolsVal::v1> v1{};

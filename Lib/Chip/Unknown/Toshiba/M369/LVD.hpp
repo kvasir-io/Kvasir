@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Low Voltage detector control register
-    namespace Nonercr{    ///<LVD-RESET Control Register
-        using Addr = Register::Address<0x400f4000,0xffffffd0,0,unsigned>;
+    namespace LvdRcr{    ///<LVD-RESET Control Register
+        using Addr = Register::Address<0x400f4000,0xffffffd0,0x00000000,unsigned>;
         ///LVDEN1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lvden1{}; 
         ///LVDLVL1
@@ -11,8 +11,8 @@ namespace Kvasir {
         ///LVDRSTEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> lvdrsten{}; 
     }
-    namespace Noneicr{    ///<LVD-NMI Control Register
-        using Addr = Register::Address<0x400f4004,0xffffffc0,0,unsigned>;
+    namespace LvdIcr{    ///<LVD-NMI Control Register
+        using Addr = Register::Address<0x400f4004,0xffffffc0,0x00000000,unsigned>;
         ///LVDEN2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lvden2{}; 
         ///LVDLVL2
@@ -22,8 +22,8 @@ namespace Kvasir {
         ///LVDINTEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> lvdinten{}; 
     }
-    namespace Nonesr{    ///<LVD Status Control Register
-        using Addr = Register::Address<0x400f4008,0xfffffffc,0,unsigned>;
+    namespace LvdSr{    ///<LVD Status Control Register
+        using Addr = Register::Address<0x400f4008,0xfffffffc,0x00000000,unsigned>;
         ///LVDST1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lvdst1{}; 
         ///LVDST2

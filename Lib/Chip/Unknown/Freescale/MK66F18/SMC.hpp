@@ -1,9 +1,11 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //System Mode Controller
     namespace SmcPmprot{    ///<Power Mode Protection register
-        using Addr = Register::Address<0x4007e000,0xffffff55,0,unsigned char>;
+        using Addr = Register::Address<0x4007e000,0xffffff00,0x00000000,unsigned char>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Allow Very-Low-Leakage Stop Mode
         enum class AvllsVal {
             v0=0x00000000,     ///<Any VLLSx mode is not allowed
@@ -14,6 +16,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avlls)::Type,AvllsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avlls)::Type,AvllsVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Allow Low-Leakage Stop Mode
         enum class AllsVal {
             v0=0x00000000,     ///<Any LLSx mode is not allowed
@@ -24,6 +28,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alls)::Type,AllsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(alls)::Type,AllsVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Allow Very-Low-Power Modes
         enum class AvlpVal {
             v0=0x00000000,     ///<VLPR, VLPW, and VLPS are not allowed.
@@ -34,6 +40,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Allow High Speed Run mode
         enum class AhsrunVal {
             v0=0x00000000,     ///<HSRUN is not allowed
@@ -46,7 +54,7 @@ namespace Kvasir {
         }
     }
     namespace SmcPmctrl{    ///<Power Mode Control register
-        using Addr = Register::Address<0x4007e001,0xffffff90,0,unsigned char>;
+        using Addr = Register::Address<0x4007e001,0xffffff00,0x00000000,unsigned char>;
         ///Stop Mode Control
         enum class StopmVal {
             v000=0x00000000,     ///<Normal Stop (STOP)
@@ -74,11 +82,13 @@ namespace Kvasir {
             v0=0x00000000,     ///<The previous stop mode entry was successsful.
             v1=0x00000001,     ///<The previous stop mode entry was aborted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,StopaVal> stopa{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StopaVal> stopa{}; 
         namespace StopaValC{
             constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Run Mode Control
         enum class RunmVal {
             v00=0x00000000,     ///<Normal Run mode (RUN)
@@ -93,9 +103,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v10> v10{};
             constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v11> v11{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace SmcStopctrl{    ///<Stop Control Register
-        using Addr = Register::Address<0x4007e002,0xffffff08,0,unsigned char>;
+        using Addr = Register::Address<0x4007e002,0xffffff00,0x00000000,unsigned char>;
         ///LLS or VLLS Mode Control
         enum class LlsmVal {
             v000=0x00000000,     ///<VLLS0 if PMCTRL[STOPM]=VLLSx, reserved if PMCTRL[STOPM]=LLSx
@@ -118,6 +130,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(llsm)::Type,LlsmVal::v110> v110{};
             constexpr Register::FieldValue<decltype(llsm)::Type,LlsmVal::v111> v111{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///RAM2 Power Option
         enum class Ram2poVal {
             v0=0x00000000,     ///<RAM2 not powered in LLS2/VLLS2
@@ -154,8 +168,8 @@ namespace Kvasir {
         }
     }
     namespace SmcPmstat{    ///<Power Mode Status register
-        using Addr = Register::Address<0x4007e003,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007e003,0xffffff00,0x00000000,unsigned char>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pmstat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pmstat{}; 
     }
 }

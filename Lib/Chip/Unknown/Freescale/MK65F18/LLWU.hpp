@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Low leakage wakeup unit
     namespace LlwuPe1{    ///<LLWU Pin Enable 1 register
-        using Addr = Register::Address<0x4007c000,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c000,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Pin Enable For LLWU_P0
         enum class Wupe0Val {
             v00=0x00000000,     ///<External input pin disabled as wakeup input
@@ -62,7 +62,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPe2{    ///<LLWU Pin Enable 2 register
-        using Addr = Register::Address<0x4007c001,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c001,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Pin Enable For LLWU_P4
         enum class Wupe4Val {
             v00=0x00000000,     ///<External input pin disabled as wakeup input
@@ -121,7 +121,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPe3{    ///<LLWU Pin Enable 3 register
-        using Addr = Register::Address<0x4007c002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c002,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Pin Enable For LLWU_P8
         enum class Wupe8Val {
             v00=0x00000000,     ///<External input pin disabled as wakeup input
@@ -180,7 +180,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPe4{    ///<LLWU Pin Enable 4 register
-        using Addr = Register::Address<0x4007c003,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c003,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Pin Enable For LLWU_P12
         enum class Wupe12Val {
             v00=0x00000000,     ///<External input pin disabled as wakeup input
@@ -239,7 +239,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPe5{    ///<LLWU Pin Enable 5 register
-        using Addr = Register::Address<0x4007c004,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c004,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Pin Enable For LLWU_P16
         enum class Wupe16Val {
             v00=0x00000000,     ///<External input pin disabled as wakeup input
@@ -298,7 +298,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPe6{    ///<LLWU Pin Enable 6 register
-        using Addr = Register::Address<0x4007c005,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c005,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Pin Enable For LLWU_P20
         enum class Wupe20Val {
             v00=0x00000000,     ///<External input pin disabled as wakeup input
@@ -357,7 +357,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPe7{    ///<LLWU Pin Enable 7 register
-        using Addr = Register::Address<0x4007c006,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c006,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Pin Enable For LLWU_P24
         enum class Wupe24Val {
             v00=0x00000000,     ///<External input pin disabled as wakeup input
@@ -416,7 +416,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPe8{    ///<LLWU Pin Enable 8 register
-        using Addr = Register::Address<0x4007c007,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c007,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Pin Enable For LLWU_P28
         enum class Wupe28Val {
             v00=0x00000000,     ///<External input pin disabled as wakeup input
@@ -475,7 +475,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuMe{    ///<LLWU Module Enable register
-        using Addr = Register::Address<0x4007c008,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c008,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Module Enable For Module 0
         enum class Wume0Val {
             v0=0x00000000,     ///<Internal module flag not used as wakeup source
@@ -558,7 +558,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPf1{    ///<LLWU Pin Flag 1 register
-        using Addr = Register::Address<0x4007c009,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c009,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Flag For LLWU_P0
         enum class Wuf0Val {
             v0=0x00000000,     ///<LLWU_P0 input was not a wakeup source
@@ -641,7 +641,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPf2{    ///<LLWU Pin Flag 2 register
-        using Addr = Register::Address<0x4007c00a,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c00a,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Flag For LLWU_P8
         enum class Wuf8Val {
             v0=0x00000000,     ///<LLWU_P8 input was not a wakeup source
@@ -724,7 +724,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPf3{    ///<LLWU Pin Flag 3 register
-        using Addr = Register::Address<0x4007c00b,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c00b,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Flag For LLWU_P16
         enum class Wuf16Val {
             v0=0x00000000,     ///<LLWU_P16 input was not a wakeup source
@@ -807,7 +807,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuPf4{    ///<LLWU Pin Flag 4 register
-        using Addr = Register::Address<0x4007c00c,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c00c,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup Flag For LLWU_P24
         enum class Wuf24Val {
             v0=0x00000000,     ///<LLWU_P24 input was not a wakeup source
@@ -890,13 +890,13 @@ namespace Kvasir {
         }
     }
     namespace LlwuMf5{    ///<LLWU Module Flag 5 register
-        using Addr = Register::Address<0x4007c00d,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c00d,0xffffff00,0x00000000,unsigned char>;
         ///Wakeup flag For module 0
         enum class Mwuf0Val {
             v0=0x00000000,     ///<Module 0 input was not a wakeup source
             v1=0x00000001,     ///<Module 0 input was a wakeup source
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Mwuf0Val> mwuf0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf0Val> mwuf0{}; 
         namespace Mwuf0ValC{
             constexpr Register::FieldValue<decltype(mwuf0)::Type,Mwuf0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mwuf0)::Type,Mwuf0Val::v1> v1{};
@@ -906,7 +906,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Module 1 input was not a wakeup source
             v1=0x00000001,     ///<Module 1 input was a wakeup source
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Mwuf1Val> mwuf1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf1Val> mwuf1{}; 
         namespace Mwuf1ValC{
             constexpr Register::FieldValue<decltype(mwuf1)::Type,Mwuf1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mwuf1)::Type,Mwuf1Val::v1> v1{};
@@ -916,7 +916,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Module 2 input was not a wakeup source
             v1=0x00000001,     ///<Module 2 input was a wakeup source
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Mwuf2Val> mwuf2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf2Val> mwuf2{}; 
         namespace Mwuf2ValC{
             constexpr Register::FieldValue<decltype(mwuf2)::Type,Mwuf2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mwuf2)::Type,Mwuf2Val::v1> v1{};
@@ -926,7 +926,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Module 3 input was not a wakeup source
             v1=0x00000001,     ///<Module 3 input was a wakeup source
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Mwuf3Val> mwuf3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf3Val> mwuf3{}; 
         namespace Mwuf3ValC{
             constexpr Register::FieldValue<decltype(mwuf3)::Type,Mwuf3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mwuf3)::Type,Mwuf3Val::v1> v1{};
@@ -936,7 +936,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Module 4 input was not a wakeup source
             v1=0x00000001,     ///<Module 4 input was a wakeup source
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Mwuf4Val> mwuf4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf4Val> mwuf4{}; 
         namespace Mwuf4ValC{
             constexpr Register::FieldValue<decltype(mwuf4)::Type,Mwuf4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mwuf4)::Type,Mwuf4Val::v1> v1{};
@@ -946,7 +946,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Module 5 input was not a wakeup source
             v1=0x00000001,     ///<Module 5 input was a wakeup source
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Mwuf5Val> mwuf5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf5Val> mwuf5{}; 
         namespace Mwuf5ValC{
             constexpr Register::FieldValue<decltype(mwuf5)::Type,Mwuf5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mwuf5)::Type,Mwuf5Val::v1> v1{};
@@ -956,7 +956,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Module 6 input was not a wakeup source
             v1=0x00000001,     ///<Module 6 input was a wakeup source
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Mwuf6Val> mwuf6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf6Val> mwuf6{}; 
         namespace Mwuf6ValC{
             constexpr Register::FieldValue<decltype(mwuf6)::Type,Mwuf6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mwuf6)::Type,Mwuf6Val::v1> v1{};
@@ -966,14 +966,14 @@ namespace Kvasir {
             v0=0x00000000,     ///<Module 7 input was not a wakeup source
             v1=0x00000001,     ///<Module 7 input was a wakeup source
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Mwuf7Val> mwuf7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf7Val> mwuf7{}; 
         namespace Mwuf7ValC{
             constexpr Register::FieldValue<decltype(mwuf7)::Type,Mwuf7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mwuf7)::Type,Mwuf7Val::v1> v1{};
         }
     }
     namespace LlwuFilt1{    ///<LLWU Pin Filter 1 register
-        using Addr = Register::Address<0x4007c00e,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c00e,0xffffff00,0x00000000,unsigned char>;
         ///Filter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> filtsel{}; 
         ///Digital Filter On External Pin
@@ -1002,7 +1002,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuFilt2{    ///<LLWU Pin Filter 2 register
-        using Addr = Register::Address<0x4007c00f,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c00f,0xffffff00,0x00000000,unsigned char>;
         ///Filter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> filtsel{}; 
         ///Digital Filter On External Pin
@@ -1031,7 +1031,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuFilt3{    ///<LLWU Pin Filter 3 register
-        using Addr = Register::Address<0x4007c010,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c010,0xffffff00,0x00000000,unsigned char>;
         ///Filter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> filtsel{}; 
         ///Digital Filter On External Pin
@@ -1060,7 +1060,7 @@ namespace Kvasir {
         }
     }
     namespace LlwuFilt4{    ///<LLWU Pin Filter 4 register
-        using Addr = Register::Address<0x4007c011,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007c011,0xffffff00,0x00000000,unsigned char>;
         ///Filter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> filtsel{}; 
         ///Digital Filter On External Pin

@@ -1,21 +1,16 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//High Resolution Timer: Common
-      functions
-    namespace Nonecr1{    ///<Control Register 1
-        using Addr = Register::Address<0x40017780,0xf000ffc0,0,unsigned>;
-        ///ADC Trigger 4 Update
-              Source
+//High Resolution Timer: Common      functions
+    namespace HrtimCommonCr1{    ///<Control Register 1
+        using Addr = Register::Address<0x40017780,0xf000ffc0,0x00000000,unsigned>;
+        ///ADC Trigger 4 Update              Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,25),Register::ReadWriteAccess,unsigned> ad4usrc{}; 
-        ///ADC Trigger 3 Update
-              Source
+        ///ADC Trigger 3 Update              Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,22),Register::ReadWriteAccess,unsigned> ad3usrc{}; 
-        ///ADC Trigger 2 Update
-              Source
+        ///ADC Trigger 2 Update              Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,19),Register::ReadWriteAccess,unsigned> ad2usrc{}; 
-        ///ADC Trigger 1 Update
-              Source
+        ///ADC Trigger 1 Update              Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> ad1usrc{}; 
         ///Timer E Update Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> teudis{}; 
@@ -30,25 +25,19 @@ namespace Kvasir {
         ///Master Update Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mudis{}; 
     }
-    namespace Nonecr2{    ///<Control Register 2
-        using Addr = Register::Address<0x40017784,0xffffc0c0,0,unsigned>;
-        ///Timer E counter software
-              reset
+    namespace HrtimCommonCr2{    ///<Control Register 2
+        using Addr = Register::Address<0x40017784,0xffffc0c0,0x00000000,unsigned>;
+        ///Timer E counter software              reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> terst{}; 
-        ///Timer D counter software
-              reset
+        ///Timer D counter software              reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> tdrst{}; 
-        ///Timer C counter software
-              reset
+        ///Timer C counter software              reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> tcrst{}; 
-        ///Timer B counter software
-              reset
+        ///Timer B counter software              reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> tbrst{}; 
-        ///Timer A counter software
-              reset
+        ///Timer A counter software              reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> tarst{}; 
-        ///Master Counter software
-              reset
+        ///Master Counter software              reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mrst{}; 
         ///Timer E Software Update
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> teswu{}; 
@@ -60,67 +49,54 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tbswu{}; 
         ///Timer A Software update
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> taswu{}; 
-        ///Master Timer Software
-              update
+        ///Master Timer Software              update
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mswu{}; 
     }
-    namespace Noneisr{    ///<Interrupt Status Register
-        using Addr = Register::Address<0x40017788,0xfffcffc0,0,unsigned>;
-        ///Burst mode Period Interrupt
-              Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> bmper{}; 
+    namespace HrtimCommonIsr{    ///<Interrupt Status Register
+        using Addr = Register::Address<0x40017788,0xfffcffc0,0x00000000,unsigned>;
+        ///Burst mode Period Interrupt              Flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> bmper{}; 
         ///DLL Ready Interrupt Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dllrdy{}; 
-        ///System Fault Interrupt
-              Flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dllrdy{}; 
+        ///System Fault Interrupt              Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sysflt{}; 
         ///Fault 5 Interrupt Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> flt5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flt5{}; 
         ///Fault 4 Interrupt Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> flt4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flt4{}; 
         ///Fault 3 Interrupt Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> flt3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flt3{}; 
         ///Fault 2 Interrupt Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> flt2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flt2{}; 
         ///Fault 1 Interrupt Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> flt1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flt1{}; 
     }
-    namespace Noneicr{    ///<Interrupt Clear Register
-        using Addr = Register::Address<0x4001778c,0xfffcffc0,0,unsigned>;
-        ///Burst mode period flag
-              Clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> bmperc{}; 
-        ///DLL Ready Interrupt flag
-              Clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dllrdyc{}; 
-        ///System Fault Interrupt Flag
-              Clear
+    namespace HrtimCommonIcr{    ///<Interrupt Clear Register
+        using Addr = Register::Address<0x4001778c,0xfffcffc0,0x00000000,unsigned>;
+        ///Burst mode period flag              Clear
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> bmperc{}; 
+        ///DLL Ready Interrupt flag              Clear
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dllrdyc{}; 
+        ///System Fault Interrupt Flag              Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sysfltc{}; 
-        ///Fault 5 Interrupt Flag
-              Clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> flt5c{}; 
-        ///Fault 4 Interrupt Flag
-              Clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> flt4c{}; 
-        ///Fault 3 Interrupt Flag
-              Clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> flt3c{}; 
-        ///Fault 2 Interrupt Flag
-              Clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> flt2c{}; 
-        ///Fault 1 Interrupt Flag
-              Clear
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> flt1c{}; 
+        ///Fault 5 Interrupt Flag              Clear
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flt5c{}; 
+        ///Fault 4 Interrupt Flag              Clear
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flt4c{}; 
+        ///Fault 3 Interrupt Flag              Clear
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flt3c{}; 
+        ///Fault 2 Interrupt Flag              Clear
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flt2c{}; 
+        ///Fault 1 Interrupt Flag              Clear
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flt1c{}; 
     }
-    namespace Noneier{    ///<Interrupt Enable Register
-        using Addr = Register::Address<0x40017790,0xfffcffc0,0,unsigned>;
-        ///Burst mode period Interrupt
-              Enable
+    namespace HrtimCommonIer{    ///<Interrupt Enable Register
+        using Addr = Register::Address<0x40017790,0xfffcffc0,0x00000000,unsigned>;
+        ///Burst mode period Interrupt              Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> bmperie{}; 
         ///DLL Ready Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dllrdyie{}; 
-        ///System Fault Interrupt
-              Enable
+        ///System Fault Interrupt              Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sysflte{}; 
         ///Fault 5 Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> flt5ie{}; 
@@ -133,8 +109,8 @@ namespace Kvasir {
         ///Fault 1 Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> flt1ie{}; 
     }
-    namespace Noneoenr{    ///<Output Enable Register
-        using Addr = Register::Address<0x40017794,0xfffffc00,0,unsigned>;
+    namespace HrtimCommonOenr{    ///<Output Enable Register
+        using Addr = Register::Address<0x40017794,0xfffffc00,0x00000000,unsigned>;
         ///Timer E Output 2 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> te2oen{}; 
         ///Timer E Output 1 Enable
@@ -156,8 +132,8 @@ namespace Kvasir {
         ///Timer A Output 1 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ta1oen{}; 
     }
-    namespace Nonedisr{    ///<DISR
-        using Addr = Register::Address<0x40017798,0xfffffc00,0,unsigned>;
+    namespace HrtimCommonDisr{    ///<DISR
+        using Addr = Register::Address<0x40017798,0xfffffc00,0x00000000,unsigned>;
         ///TE2ODIS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> te2odis{}; 
         ///TE1ODIS
@@ -179,41 +155,31 @@ namespace Kvasir {
         ///TA1ODIS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ta1odis{}; 
     }
-    namespace Noneodsr{    ///<Output Disable Status Register
-        using Addr = Register::Address<0x4001779c,0xfffffc00,0,unsigned>;
-        ///Timer E Output 2 disable
-              status
+    namespace HrtimCommonOdsr{    ///<Output Disable Status Register
+        using Addr = Register::Address<0x4001779c,0xfffffc00,0x00000000,unsigned>;
+        ///Timer E Output 2 disable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> te2ods{}; 
-        ///Timer E Output 1 disable
-              status
+        ///Timer E Output 1 disable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> te1ods{}; 
-        ///Timer D Output 2 disable
-              status
+        ///Timer D Output 2 disable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> td2ods{}; 
-        ///Timer D Output 1 disable
-              status
+        ///Timer D Output 1 disable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> td1ods{}; 
-        ///Timer C Output 2 disable
-              status
+        ///Timer C Output 2 disable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tc2ods{}; 
-        ///Timer C Output 1 disable
-              status
+        ///Timer C Output 1 disable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tc1ods{}; 
-        ///Timer B Output 2 disable
-              status
+        ///Timer B Output 2 disable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tb2ods{}; 
-        ///Timer B Output 1 disable
-              status
+        ///Timer B Output 1 disable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tb1ods{}; 
-        ///Timer A Output 2 disable
-              status
+        ///Timer A Output 2 disable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ta2ods{}; 
-        ///Timer A Output 1 disable
-              status
+        ///Timer A Output 1 disable              status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ta1ods{}; 
     }
-    namespace Nonebmcr{    ///<Burst Mode Control Register
-        using Addr = Register::Address<0x400177a0,0x7fc0f800,0,unsigned>;
+    namespace HrtimCommonBmcr{    ///<Burst Mode Control Register
+        using Addr = Register::Address<0x400177a0,0x7fc0f800,0x00000000,unsigned>;
         ///Burst Mode Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> bmstat{}; 
         ///Timer E Burst Mode
@@ -239,8 +205,8 @@ namespace Kvasir {
         ///Burst Mode enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bme{}; 
     }
-    namespace Nonebmtrg{    ///<BMTRG
-        using Addr = Register::Address<0x400177a4,0x78000000,0,unsigned>;
+    namespace HrtimCommonBmtrg{    ///<BMTRG
+        using Addr = Register::Address<0x400177a4,0x78000000,0x00000000,unsigned>;
         ///OCHPEV
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ochpev{}; 
         ///TECMP2
@@ -298,23 +264,21 @@ namespace Kvasir {
         ///SW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sw{}; 
     }
-    namespace Nonebmcmpr6{    ///<BMCMPR6
-        using Addr = Register::Address<0x400177a8,0xffff0000,0,unsigned>;
+    namespace HrtimCommonBmcmpr6{    ///<BMCMPR6
+        using Addr = Register::Address<0x400177a8,0xffff0000,0x00000000,unsigned>;
         ///BMCMP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> bmcmp{}; 
     }
-    namespace Nonebmper{    ///<Burst Mode Period Register
-        using Addr = Register::Address<0x400177ac,0xffff0000,0,unsigned>;
+    namespace HrtimCommonBmper{    ///<Burst Mode Period Register
+        using Addr = Register::Address<0x400177ac,0xffff0000,0x00000000,unsigned>;
         ///Burst mode Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> bmper{}; 
     }
-    namespace Noneeecr1{    ///<Timer External Event Control Register
-          1
-        using Addr = Register::Address<0x400177b0,0xc0000000,0,unsigned>;
+    namespace HrtimCommonEecr1{    ///<Timer External Event Control Register          1
+        using Addr = Register::Address<0x400177b0,0xc0000000,0x00000000,unsigned>;
         ///External Event 5 Fast mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> ee5fast{}; 
-        ///External Event 5
-              Sensitivity
+        ///External Event 5              Sensitivity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,27),Register::ReadWriteAccess,unsigned> ee5sns{}; 
         ///External Event 5 Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> ee5pol{}; 
@@ -322,8 +286,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> ee5src{}; 
         ///External Event 4 Fast mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ee4fast{}; 
-        ///External Event 4
-              Sensitivity
+        ///External Event 4              Sensitivity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,21),Register::ReadWriteAccess,unsigned> ee4sns{}; 
         ///External Event 4 Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> ee4pol{}; 
@@ -331,8 +294,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> ee4src{}; 
         ///External Event 3 Fast mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> ee3fast{}; 
-        ///External Event 3
-              Sensitivity
+        ///External Event 3              Sensitivity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,15),Register::ReadWriteAccess,unsigned> ee3sns{}; 
         ///External Event 3 Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ee3pol{}; 
@@ -340,8 +302,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> ee3src{}; 
         ///External Event 2 Fast mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ee2fast{}; 
-        ///External Event 2
-              Sensitivity
+        ///External Event 2              Sensitivity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> ee2sns{}; 
         ///External Event 2 Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ee2pol{}; 
@@ -349,56 +310,48 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> ee2src{}; 
         ///External Event 1 Fast mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ee1fast{}; 
-        ///External Event 1
-              Sensitivity
+        ///External Event 1              Sensitivity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,unsigned> ee1sns{}; 
         ///External Event 1 Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ee1pol{}; 
         ///External Event 1 Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ee1src{}; 
     }
-    namespace Noneeecr2{    ///<Timer External Event Control Register
-          2
-        using Addr = Register::Address<0x400177b4,0xe0820820,0,unsigned>;
-        ///External Event 10
-              Sensitivity
+    namespace HrtimCommonEecr2{    ///<Timer External Event Control Register          2
+        using Addr = Register::Address<0x400177b4,0xe0820820,0x00000000,unsigned>;
+        ///External Event 10              Sensitivity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,27),Register::ReadWriteAccess,unsigned> ee10sns{}; 
         ///External Event 10 Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> ee10pol{}; 
         ///External Event 10 Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> ee10src{}; 
-        ///External Event 9
-              Sensitivity
+        ///External Event 9              Sensitivity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,21),Register::ReadWriteAccess,unsigned> ee9sns{}; 
         ///External Event 9 Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> ee9pol{}; 
         ///External Event 9 Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> ee9src{}; 
-        ///External Event 8
-              Sensitivity
+        ///External Event 8              Sensitivity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,15),Register::ReadWriteAccess,unsigned> ee8sns{}; 
         ///External Event 8 Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ee8pol{}; 
         ///External Event 8 Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> ee8src{}; 
-        ///External Event 7
-              Sensitivity
+        ///External Event 7              Sensitivity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> ee7sns{}; 
         ///External Event 7 Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ee7pol{}; 
         ///External Event 7 Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> ee7src{}; 
-        ///External Event 6
-              Sensitivity
+        ///External Event 6              Sensitivity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,unsigned> ee6sns{}; 
         ///External Event 6 Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ee6pol{}; 
         ///External Event 6 Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ee6src{}; 
     }
-    namespace Noneeecr3{    ///<Timer External Event Control Register
-          3
-        using Addr = Register::Address<0x400177b8,0xe0820820,0,unsigned>;
+    namespace HrtimCommonEecr3{    ///<Timer External Event Control Register          3
+        using Addr = Register::Address<0x400177b8,0xe0820820,0x00000000,unsigned>;
         ///EE10SNS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,27),Register::ReadWriteAccess,unsigned> ee10sns{}; 
         ///EE10POL
@@ -430,206 +383,142 @@ namespace Kvasir {
         ///EE6SRC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ee6src{}; 
     }
-    namespace Noneadc1r{    ///<ADC Trigger 1 Register
-        using Addr = Register::Address<0x400177bc,0x00000000,0,unsigned>;
-        ///ADC trigger 1 on Timer E
-              Period
+    namespace HrtimCommonAdc1r{    ///<ADC Trigger 1 Register
+        using Addr = Register::Address<0x400177bc,0x00000000,0x00000000,unsigned>;
+        ///ADC trigger 1 on Timer E              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ad1teper{}; 
-        ///ADC trigger 1 on Timer E compare
-              4
+        ///ADC trigger 1 on Timer E compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ad1tec4{}; 
-        ///ADC trigger 1 on Timer E compare
-              3
+        ///ADC trigger 1 on Timer E compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> ad1tec3{}; 
-        ///ADC trigger 1 on Timer E compare
-              2
+        ///ADC trigger 1 on Timer E compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> ad1tec2{}; 
-        ///ADC trigger 1 on Timer D
-              Period
+        ///ADC trigger 1 on Timer D              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> ad1tdper{}; 
-        ///ADC trigger 1 on Timer D compare
-              4
+        ///ADC trigger 1 on Timer D compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> ad1tdc4{}; 
-        ///ADC trigger 1 on Timer D compare
-              3
+        ///ADC trigger 1 on Timer D compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> ad1tdc3{}; 
-        ///ADC trigger 1 on Timer D compare
-              2
+        ///ADC trigger 1 on Timer D compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> ad1tdc2{}; 
-        ///ADC trigger 1 on Timer C
-              Period
+        ///ADC trigger 1 on Timer C              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ad1tcper{}; 
-        ///ADC trigger 1 on Timer C compare
-              4
+        ///ADC trigger 1 on Timer C compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ad1tcc4{}; 
-        ///ADC trigger 1 on Timer C compare
-              3
+        ///ADC trigger 1 on Timer C compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ad1tcc3{}; 
-        ///ADC trigger 1 on Timer C compare
-              2
+        ///ADC trigger 1 on Timer C compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> ad1tcc2{}; 
-        ///ADC trigger 1 on Timer B
-              Reset
+        ///ADC trigger 1 on Timer B              Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ad1tbrst{}; 
-        ///ADC trigger 1 on Timer B
-              Period
+        ///ADC trigger 1 on Timer B              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ad1tbper{}; 
-        ///ADC trigger 1 on Timer B compare
-              4
+        ///ADC trigger 1 on Timer B compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> ad1tbc4{}; 
-        ///ADC trigger 1 on Timer B compare
-              3
+        ///ADC trigger 1 on Timer B compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> ad1tbc3{}; 
-        ///ADC trigger 1 on Timer B compare
-              2
+        ///ADC trigger 1 on Timer B compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ad1tbc2{}; 
-        ///ADC trigger 1 on Timer A
-              Reset
+        ///ADC trigger 1 on Timer A              Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ad1tarst{}; 
-        ///ADC trigger 1 on Timer A
-              Period
+        ///ADC trigger 1 on Timer A              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ad1taper{}; 
-        ///ADC trigger 1 on Timer A compare
-              4
+        ///ADC trigger 1 on Timer A compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ad1tac4{}; 
-        ///ADC trigger 1 on Timer A compare
-              3
+        ///ADC trigger 1 on Timer A compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ad1tac3{}; 
-        ///ADC trigger 1 on Timer A compare
-              2
+        ///ADC trigger 1 on Timer A compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ad1tac2{}; 
-        ///ADC trigger 1 on External Event
-              5
+        ///ADC trigger 1 on External Event              5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ad1eev5{}; 
-        ///ADC trigger 1 on External Event
-              4
+        ///ADC trigger 1 on External Event              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ad1eev4{}; 
-        ///ADC trigger 1 on External Event
-              3
+        ///ADC trigger 1 on External Event              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ad1eev3{}; 
-        ///ADC trigger 1 on External Event
-              2
+        ///ADC trigger 1 on External Event              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ad1eev2{}; 
-        ///ADC trigger 1 on External Event
-              1
+        ///ADC trigger 1 on External Event              1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ad1eev1{}; 
-        ///ADC trigger 1 on Master
-              Period
+        ///ADC trigger 1 on Master              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ad1mper{}; 
-        ///ADC trigger 1 on Master Compare
-              4
+        ///ADC trigger 1 on Master Compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ad1mc4{}; 
-        ///ADC trigger 1 on Master Compare
-              3
+        ///ADC trigger 1 on Master Compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ad1mc3{}; 
-        ///ADC trigger 1 on Master Compare
-              2
+        ///ADC trigger 1 on Master Compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ad1mc2{}; 
-        ///ADC trigger 1 on Master Compare
-              1
+        ///ADC trigger 1 on Master Compare              1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ad1mc1{}; 
     }
-    namespace Noneadc2r{    ///<ADC Trigger 2 Register
-        using Addr = Register::Address<0x400177c0,0x00000000,0,unsigned>;
-        ///ADC trigger 2 on Timer E
-              Reset
+    namespace HrtimCommonAdc2r{    ///<ADC Trigger 2 Register
+        using Addr = Register::Address<0x400177c0,0x00000000,0x00000000,unsigned>;
+        ///ADC trigger 2 on Timer E              Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ad2terst{}; 
-        ///ADC trigger 2 on Timer E compare
-              4
+        ///ADC trigger 2 on Timer E compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ad2tec4{}; 
-        ///ADC trigger 2 on Timer E compare
-              3
+        ///ADC trigger 2 on Timer E compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> ad2tec3{}; 
-        ///ADC trigger 2 on Timer E compare
-              2
+        ///ADC trigger 2 on Timer E compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> ad2tec2{}; 
-        ///ADC trigger 2 on Timer D
-              Reset
+        ///ADC trigger 2 on Timer D              Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> ad2tdrst{}; 
-        ///ADC trigger 2 on Timer D
-              Period
+        ///ADC trigger 2 on Timer D              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> ad2tdper{}; 
-        ///ADC trigger 2 on Timer D compare
-              4
+        ///ADC trigger 2 on Timer D compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> ad2tdc4{}; 
-        ///ADC trigger 2 on Timer D compare
-              3
+        ///ADC trigger 2 on Timer D compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> ad2tdc3{}; 
-        ///ADC trigger 2 on Timer D compare
-              2
+        ///ADC trigger 2 on Timer D compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ad2tdc2{}; 
-        ///ADC trigger 2 on Timer C
-              Reset
+        ///ADC trigger 2 on Timer C              Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ad2tcrst{}; 
-        ///ADC trigger 2 on Timer C
-              Period
+        ///ADC trigger 2 on Timer C              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ad2tcper{}; 
-        ///ADC trigger 2 on Timer C compare
-              4
+        ///ADC trigger 2 on Timer C compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> ad2tcc4{}; 
-        ///ADC trigger 2 on Timer C compare
-              3
+        ///ADC trigger 2 on Timer C compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ad2tcc3{}; 
-        ///ADC trigger 2 on Timer C compare
-              2
+        ///ADC trigger 2 on Timer C compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ad2tcc2{}; 
-        ///ADC trigger 2 on Timer B
-              Period
+        ///ADC trigger 2 on Timer B              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> ad2tbper{}; 
-        ///ADC trigger 2 on Timer B compare
-              4
+        ///ADC trigger 2 on Timer B compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> ad2tbc4{}; 
-        ///ADC trigger 2 on Timer B compare
-              3
+        ///ADC trigger 2 on Timer B compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ad2tbc3{}; 
-        ///ADC trigger 2 on Timer B compare
-              2
+        ///ADC trigger 2 on Timer B compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ad2tbc2{}; 
-        ///ADC trigger 2 on Timer A
-              Period
+        ///ADC trigger 2 on Timer A              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ad2taper{}; 
-        ///ADC trigger 2 on Timer A compare
-              4
+        ///ADC trigger 2 on Timer A compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ad2tac4{}; 
-        ///ADC trigger 2 on Timer A compare
-              3
+        ///ADC trigger 2 on Timer A compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ad2tac3{}; 
-        ///ADC trigger 2 on Timer A compare
-              2
+        ///ADC trigger 2 on Timer A compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ad2tac2{}; 
-        ///ADC trigger 2 on External Event
-              10
+        ///ADC trigger 2 on External Event              10
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ad2eev10{}; 
-        ///ADC trigger 2 on External Event
-              9
+        ///ADC trigger 2 on External Event              9
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ad2eev9{}; 
-        ///ADC trigger 2 on External Event
-              8
+        ///ADC trigger 2 on External Event              8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ad2eev8{}; 
-        ///ADC trigger 2 on External Event
-              7
+        ///ADC trigger 2 on External Event              7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ad2eev7{}; 
-        ///ADC trigger 2 on External Event
-              6
+        ///ADC trigger 2 on External Event              6
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ad2eev6{}; 
-        ///ADC trigger 2 on Master
-              Period
+        ///ADC trigger 2 on Master              Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ad2mper{}; 
-        ///ADC trigger 2 on Master Compare
-              4
+        ///ADC trigger 2 on Master Compare              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ad2mc4{}; 
-        ///ADC trigger 2 on Master Compare
-              3
+        ///ADC trigger 2 on Master Compare              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ad2mc3{}; 
-        ///ADC trigger 2 on Master Compare
-              2
+        ///ADC trigger 2 on Master Compare              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ad2mc2{}; 
-        ///ADC trigger 2 on Master Compare
-              1
+        ///ADC trigger 2 on Master Compare              1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ad2mc1{}; 
     }
-    namespace Noneadc3r{    ///<ADC Trigger 3 Register
-        using Addr = Register::Address<0x400177c4,0x00000000,0,unsigned>;
+    namespace HrtimCommonAdc3r{    ///<ADC Trigger 3 Register
+        using Addr = Register::Address<0x400177c4,0x00000000,0x00000000,unsigned>;
         ///AD1TEPER
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ad1teper{}; 
         ///AD1TEC4
@@ -695,8 +584,8 @@ namespace Kvasir {
         ///AD1MC1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ad1mc1{}; 
     }
-    namespace Noneadc4r{    ///<ADC Trigger 4 Register
-        using Addr = Register::Address<0x400177c8,0x00000000,0,unsigned>;
+    namespace HrtimCommonAdc4r{    ///<ADC Trigger 4 Register
+        using Addr = Register::Address<0x400177c8,0x00000000,0x00000000,unsigned>;
         ///AD2TERST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ad2terst{}; 
         ///AD2TEC4
@@ -762,8 +651,8 @@ namespace Kvasir {
         ///AD2MC1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ad2mc1{}; 
     }
-    namespace Nonedllcr{    ///<DLL Control Register
-        using Addr = Register::Address<0x400177cc,0xfffffff0,0,unsigned>;
+    namespace HrtimCommonDllcr{    ///<DLL Control Register
+        using Addr = Register::Address<0x400177cc,0xfffffff0,0x00000000,unsigned>;
         ///DLL Calibration rate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> calrte{}; 
         ///DLL Calibration Enable
@@ -771,8 +660,8 @@ namespace Kvasir {
         ///DLL Calibration Start
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cal{}; 
     }
-    namespace Nonefltinr1{    ///<HRTIM Fault Input Register 1
-        using Addr = Register::Address<0x400177d0,0x00000000,0,unsigned>;
+    namespace HrtimCommonFltinr1{    ///<HRTIM Fault Input Register 1
+        using Addr = Register::Address<0x400177d0,0x00000000,0x00000000,unsigned>;
         ///FLT4LCK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> flt4lck{}; 
         ///FLT4F
@@ -814,8 +703,8 @@ namespace Kvasir {
         ///FLT1E
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> flt1e{}; 
     }
-    namespace Nonefltinr2{    ///<HRTIM Fault Input Register 2
-        using Addr = Register::Address<0x400177d4,0xfcffff00,0,unsigned>;
+    namespace HrtimCommonFltinr2{    ///<HRTIM Fault Input Register 2
+        using Addr = Register::Address<0x400177d4,0xfcffff00,0x00000000,unsigned>;
         ///FLTSD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> fltsd{}; 
         ///FLT5LCK
@@ -829,8 +718,8 @@ namespace Kvasir {
         ///FLT5E
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> flt5e{}; 
     }
-    namespace Nonebdmupdr{    ///<BDMUPDR
-        using Addr = Register::Address<0x400177d8,0xfffffc00,0,unsigned>;
+    namespace HrtimCommonBdmupdr{    ///<BDMUPDR
+        using Addr = Register::Address<0x400177d8,0xfffffc00,0x00000000,unsigned>;
         ///MCMP4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> mcmp4{}; 
         ///MCMP3
@@ -852,75 +741,53 @@ namespace Kvasir {
         ///MCR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mcr{}; 
     }
-    namespace Nonebdtxupr{    ///<Burst DMA Timerx update
-          Register
-        using Addr = Register::Address<0x400177dc,0xffe00000,0,unsigned>;
-        ///HRTIM_FLTxR register update
-              enable
+    namespace HrtimCommonBdtxupr{    ///<Burst DMA Timerx update          Register
+        using Addr = Register::Address<0x400177dc,0xffe00000,0x00000000,unsigned>;
+        ///HRTIM_FLTxR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> timxfltr{}; 
-        ///HRTIM_OUTxR register update
-              enable
+        ///HRTIM_OUTxR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> timxoutr{}; 
-        ///HRTIM_CHPxR register update
-              enable
+        ///HRTIM_CHPxR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> timxchpr{}; 
-        ///HRTIM_RSTxR register update
-              enable
+        ///HRTIM_RSTxR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> timxrstr{}; 
-        ///HRTIM_EEFxR2 register update
-              enable
+        ///HRTIM_EEFxR2 register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> timxeefr2{}; 
-        ///HRTIM_EEFxR1 register update
-              enable
+        ///HRTIM_EEFxR1 register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> timxeefr1{}; 
-        ///HRTIM_RST2xR register update
-              enable
+        ///HRTIM_RST2xR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> timxrst2r{}; 
-        ///HRTIM_SET2xR register update
-              enable
+        ///HRTIM_SET2xR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> timxset2r{}; 
-        ///HRTIM_RST1xR register update
-              enable
+        ///HRTIM_RST1xR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> timxrst1r{}; 
-        ///HRTIM_SET1xR register update
-              enable
+        ///HRTIM_SET1xR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> timxset1r{}; 
-        ///HRTIM_DTxR register update
-              enable
+        ///HRTIM_DTxR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> timxDtxr{}; 
-        ///HRTIM_CMP4xR register update
-              enable
+        ///HRTIM_CMP4xR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> timxcmp4{}; 
-        ///HRTIM_CMP3xR register update
-              enable
+        ///HRTIM_CMP3xR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> timxcmp3{}; 
-        ///HRTIM_CMP2xR register update
-              enable
+        ///HRTIM_CMP2xR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> timxcmp2{}; 
-        ///HRTIM_CMP1xR register update
-              enable
+        ///HRTIM_CMP1xR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> timxcmp1{}; 
-        ///HRTIM_REPxR register update
-              enable
+        ///HRTIM_REPxR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> timxrep{}; 
-        ///HRTIM_PERxR register update
-              enable
+        ///HRTIM_PERxR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> timxper{}; 
-        ///HRTIM_CNTxR register update
-              enable
+        ///HRTIM_CNTxR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> timxcnt{}; 
-        ///HRTIM_TIMxDIER register update
-              enable
+        ///HRTIM_TIMxDIER register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> timxdier{}; 
-        ///HRTIM_TIMxICR register update
-              enable
+        ///HRTIM_TIMxICR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> timxicr{}; 
-        ///HRTIM_TIMxCR register update
-              enable
+        ///HRTIM_TIMxCR register update              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> timxcr{}; 
     }
-    namespace Nonebdmadr{    ///<Burst DMA Data Register
-        using Addr = Register::Address<0x400177e0,0x00000000,0,unsigned>;
+    namespace HrtimCommonBdmadr{    ///<Burst DMA Data Register
+        using Addr = Register::Address<0x400177e0,0x00000000,0x00000000,unsigned>;
         ///Burst DMA Data register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bdmadr{}; 
     }

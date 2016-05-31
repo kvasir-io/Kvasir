@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Serial peripheral interface/Inter-IC       sound
-    namespace Nonecr1{    ///<control register 1
-        using Addr = Register::Address<0x40013000,0xffff0000,0,unsigned>;
+    namespace Spi1Cr1{    ///<control register 1
+        using Addr = Register::Address<0x40013000,0xffff0000,0x00000000,unsigned>;
         ///Bidirectional data mode               enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> bidimode{}; 
         ///Output enable in bidirectional               mode
@@ -33,8 +33,8 @@ namespace Kvasir {
         ///Clock phase
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cpha{}; 
     }
-    namespace Nonecr2{    ///<control register 2
-        using Addr = Register::Address<0x40013004,0xffff8000,0,unsigned>;
+    namespace Spi1Cr2{    ///<control register 2
+        using Addr = Register::Address<0x40013004,0xffff8000,0x00000000,unsigned>;
         ///Rx buffer DMA enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxdmaen{}; 
         ///Tx buffer DMA enable
@@ -60,53 +60,53 @@ namespace Kvasir {
         ///Last DMA transfer for               transmission
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ldmaTx{}; 
     }
-    namespace Nonesr{    ///<status register
-        using Addr = Register::Address<0x40013008,0xffffe000,0,unsigned>;
+    namespace Spi1Sr{    ///<status register
+        using Addr = Register::Address<0x40013008,0xffffe000,0x00000000,unsigned>;
         ///Receive buffer not empty
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxne{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxne{}; 
         ///Transmit buffer empty
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txe{}; 
         ///Channel side
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chside{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> chside{}; 
         ///Underrun flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> udr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> udr{}; 
         ///CRC error flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> crcerr{}; 
         ///Mode fault
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> modf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> modf{}; 
         ///Overrun flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ovr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ovr{}; 
         ///Busy flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> bsy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> bsy{}; 
         ///TI frame format error
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> tifrfe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tifrfe{}; 
         ///FIFO reception level
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> frlvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> frlvl{}; 
         ///FIFO transmission level
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,unsigned> ftlvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ftlvl{}; 
     }
-    namespace Nonedr{    ///<data register
-        using Addr = Register::Address<0x4001300c,0xffff0000,0,unsigned>;
+    namespace Spi1Dr{    ///<data register
+        using Addr = Register::Address<0x4001300c,0xffff0000,0x00000000,unsigned>;
         ///Data register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dr{}; 
     }
-    namespace Nonecrcpr{    ///<CRC polynomial register
-        using Addr = Register::Address<0x40013010,0xffff0000,0,unsigned>;
+    namespace Spi1Crcpr{    ///<CRC polynomial register
+        using Addr = Register::Address<0x40013010,0xffff0000,0x00000000,unsigned>;
         ///CRC polynomial register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> crcpoly{}; 
     }
-    namespace Nonerxcrcr{    ///<RX CRC register
-        using Addr = Register::Address<0x40013014,0xffff0000,0,unsigned>;
+    namespace Spi1Rxcrcr{    ///<RX CRC register
+        using Addr = Register::Address<0x40013014,0xffff0000,0x00000000,unsigned>;
         ///Rx CRC register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxcrc{}; 
     }
-    namespace Nonetxcrcr{    ///<TX CRC register
-        using Addr = Register::Address<0x40013018,0xffff0000,0,unsigned>;
+    namespace Spi1Txcrcr{    ///<TX CRC register
+        using Addr = Register::Address<0x40013018,0xffff0000,0x00000000,unsigned>;
         ///Tx CRC register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txcrc{}; 
     }
-    namespace Nonei2scfgr{    ///<I2S configuration register
-        using Addr = Register::Address<0x4001301c,0xfffff040,0,unsigned>;
+    namespace Spi1I2scfgr{    ///<I2S configuration register
+        using Addr = Register::Address<0x4001301c,0xfffff040,0x00000000,unsigned>;
         ///I2S mode selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> i2smod{}; 
         ///I2S Enable
@@ -124,8 +124,8 @@ namespace Kvasir {
         ///Channel length (number of bits per audio               channel)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chlen{}; 
     }
-    namespace Nonei2spr{    ///<I2S prescaler register
-        using Addr = Register::Address<0x40013020,0xfffffc00,0,unsigned>;
+    namespace Spi1I2spr{    ///<I2S prescaler register
+        using Addr = Register::Address<0x40013020,0xfffffc00,0x00000000,unsigned>;
         ///Master clock output enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> mckoe{}; 
         ///Odd factor for the               prescaler

@@ -1,9 +1,11 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog comparator
-    namespace Nonectrl{    ///<Comparator control register
-        using Addr = Register::Address<0x40024000,0xf94fc0a7,0,unsigned>;
+    namespace CmpCtrl{    ///<Comparator control register
+        using Addr = Register::Address<0x40024000,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Write as 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///This field controls which edges on the comparator output set the COMPEDGE bit (bit 23 below): 00 = Falling edges 01 = Rising edges 1x = Both edges
         enum class EdgeselVal {
             fallingEdges=0x00000000,     ///<Falling edges
@@ -18,6 +20,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::bothEdges> bothEdges{};
             constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::bothEdges> bothEdges{};
         }
+        ///Reserved. Write as 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Comparator output control
         enum class CompsaVal {
             direct=0x00000000,     ///<Comparator output  is used directly.
@@ -28,6 +32,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compsa)::Type,CompsaVal::direct> direct{};
             constexpr Register::FieldValue<decltype(compsa)::Type,CompsaVal::synch> synch{};
         }
+        ///Reserved. Write as 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Selects positive voltage input
         enum class CompvpselVal {
             voltageLadderOutpu=0x00000000,     ///<Voltage ladder output
@@ -56,12 +62,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::acmpI2> acmpI2{};
             constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::internalReferenceV> internalReferenceV{};
         }
+        ///Reserved. Write as 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,14),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Interrupt clear bit. To clear the COMPEDGE bit and thus negate the interrupt request, toggle the EDGECLR bit by first writing a 1 and then a 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> edgeclr{}; 
         ///Comparator status. This bit reflects the state of the comparator output.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> compstat{}; 
+        ///Reserved. Write as 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Comparator edge-detect status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> compedge{}; 
+        ///Reserved. Write as 0.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Controls the hysteresis of the comparator. When the comparator is outputting a certain state, this is the difference between the selected signals, in the opposite direction from the state being output, that will switch the output.
         enum class HysVal {
             noneTheOutputWil=0x00000000,     ///<None (the output will switch as the voltages cross)
@@ -76,9 +88,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::v10Mv> v10Mv{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::v20Mv> v20Mv{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,27),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonelad{    ///<Voltage ladder register
-        using Addr = Register::Address<0x40024004,0xffffff80,0,unsigned>;
+    namespace CmpLad{    ///<Voltage ladder register
+        using Addr = Register::Address<0x40024004,0x00000000,0x00000000,unsigned>;
         ///Voltage ladder enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> laden{}; 
         ///Voltage ladder value. The reference voltage Vref depends on the LADREF bit below. 00000 = VSS 00001 = 1 x Vref/31 00010 = 2 x Vref/31 ... 11111 = Vref
@@ -93,5 +107,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ladref)::Type,LadrefVal::supplyPinVdd> supplyPinVdd{};
             constexpr Register::FieldValue<decltype(ladref)::Type,LadrefVal::vddcmpPin> vddcmpPin{};
         }
+        ///Unused
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,7),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

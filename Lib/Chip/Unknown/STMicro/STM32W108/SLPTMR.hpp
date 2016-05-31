@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Sleep timer
-    namespace NoneslptmrCr{    ///<SLPTMR configuration register
-        using Addr = Register::Address<0x4000600c,0xffffe30e,0,unsigned>;
+    namespace SlptmrSlptmrCr{    ///<SLPTMR configuration register
+        using Addr = Register::Address<0x4000600c,0xffffe30e,0x00000000,unsigned>;
         ///REVERSE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> reverse{}; 
         ///EN
@@ -15,39 +15,38 @@ namespace Kvasir {
         ///CLKSEL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> clksel{}; 
     }
-    namespace NoneslptmrCnth{    ///<SLPTMR counter high register
-        using Addr = Register::Address<0x40006010,0xffff0000,0,unsigned>;
+    namespace SlptmrSlptmrCnth{    ///<SLPTMR counter high register
+        using Addr = Register::Address<0x40006010,0xffff0000,0x00000000,unsigned>;
         ///CNTH
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnth{}; 
     }
-    namespace NoneslptmrCntl{    ///<SLPTMR counter high register
-        using Addr = Register::Address<0x40006014,0xffff0000,0,unsigned>;
+    namespace SlptmrSlptmrCntl{    ///<SLPTMR counter high register
+        using Addr = Register::Address<0x40006014,0xffff0000,0x00000000,unsigned>;
         ///CNTL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cntl{}; 
     }
-    namespace NoneslptmrCmpah{    ///<SLPTMR compare A high register
-        using Addr = Register::Address<0x40006018,0xffff0000,0,unsigned>;
+    namespace SlptmrSlptmrCmpah{    ///<SLPTMR compare A high register
+        using Addr = Register::Address<0x40006018,0xffff0000,0x00000000,unsigned>;
         ///CMPAH
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpah{}; 
     }
-    namespace NoneslptmrCmpal{    ///<SLPTMR compare A low register
-        using Addr = Register::Address<0x4000601c,0xffff0000,0,unsigned>;
+    namespace SlptmrSlptmrCmpal{    ///<SLPTMR compare A low register
+        using Addr = Register::Address<0x4000601c,0xffff0000,0x00000000,unsigned>;
         ///CMPAL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpal{}; 
     }
-    namespace NoneslptmrCmpbh{    ///<SLPTMR compare B high register
-        using Addr = Register::Address<0x40006020,0xffff0000,0,unsigned>;
+    namespace SlptmrSlptmrCmpbh{    ///<SLPTMR compare B high register
+        using Addr = Register::Address<0x40006020,0xffff0000,0x00000000,unsigned>;
         ///CMPBH
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpbh{}; 
     }
-    namespace NoneslptmrCmpbl{    ///<SLPTMR compare B low register
-        using Addr = Register::Address<0x40006024,0xffff0000,0,unsigned>;
+    namespace SlptmrSlptmrCmpbl{    ///<SLPTMR compare B low register
+        using Addr = Register::Address<0x40006024,0xffff0000,0x00000000,unsigned>;
         ///CMPBL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpbl{}; 
     }
-    namespace NoneslptmrIsr{    ///<SLPTMR interrupt status
-          register
-        using Addr = Register::Address<0x4000a014,0xfffffff8,0,unsigned>;
+    namespace SlptmrSlptmrIsr{    ///<SLPTMR interrupt status          register
+        using Addr = Register::Address<0x4000a014,0xfffffff8,0x00000000,unsigned>;
         ///CMPB
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cmpb{}; 
         ///CMPA
@@ -55,9 +54,8 @@ namespace Kvasir {
         ///OW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ow{}; 
     }
-    namespace NoneslptmrIfr{    ///<SLPTMR force interrupts
-          register
-        using Addr = Register::Address<0x4000a020,0xfffffff8,0,unsigned>;
+    namespace SlptmrSlptmrIfr{    ///<SLPTMR force interrupts          register
+        using Addr = Register::Address<0x4000a020,0xfffffff8,0x00000000,unsigned>;
         ///CMPB
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cmpb{}; 
         ///CMPA
@@ -65,9 +63,8 @@ namespace Kvasir {
         ///OW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ow{}; 
     }
-    namespace NoneslptmrIer{    ///<SLPTMR interrupt enable
-          register
-        using Addr = Register::Address<0x4000a054,0xfffffff8,0,unsigned>;
+    namespace SlptmrSlptmrIer{    ///<SLPTMR interrupt enable          register
+        using Addr = Register::Address<0x4000a054,0xfffffff8,0x00000000,unsigned>;
         ///WRAP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wrap{}; 
         ///CMPA

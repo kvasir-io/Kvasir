@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10430 Chapter title=LPC18xx External Memory Controller (EMC) Modification date=1/19/2011 Major revision=0 Minor revision=7 
-    namespace Nonecontrol{    ///<Controls operation of the memory controller.
-        using Addr = Register::Address<0x40005000,0xfffffff8,0,unsigned>;
+    namespace EmcControl{    ///<Controls operation of the memory controller.
+        using Addr = Register::Address<0x40005000,0x00000000,0x00000000,unsigned>;
         ///EMC Enable. Indicates if the EMC is enabled or disabled.Disabling the EMC reduces power consumption. When the memory controller is disabled the memory is not refreshed. The memory controller is enabled by setting the enable bit, or by reset. This bit must only be modified when the EMC is in idle state.[1]
         enum class EVal {
             disabled=0x00000000,     ///<Disabled
@@ -34,9 +34,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(l)::Type,LVal::normalModeWarmRe> normalModeWarmRe{};
             constexpr Register::FieldValue<decltype(l)::Type,LVal::lowPowerMode> lowPowerMode{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestatus{    ///<Provides EMC status information.
-        using Addr = Register::Address<0x40005004,0xfffffff8,0,unsigned>;
+    namespace EmcStatus{    ///<Provides EMC status information.
+        using Addr = Register::Address<0x40005004,0x00000000,0x00000000,unsigned>;
         ///Busy. This bit is used to ensure that the memory controller enters the low-power or disabled mode cleanly by determining if the memory controller is busy or not:
         enum class BVal {
             emcIsIdleWarmRe=0x00000000,     ///<EMC is idle (warm reset value).
@@ -67,9 +69,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sa)::Type,SaVal::normalMode> normalMode{};
             constexpr Register::FieldValue<decltype(sa)::Type,SaVal::selfRefreshModeP> selfRefreshModeP{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneconfig{    ///<Configures operation of the memory controller.
-        using Addr = Register::Address<0x40005008,0xfffffefe,0,unsigned>;
+    namespace EmcConfig{    ///<Configures operation of the memory controller.
+        using Addr = Register::Address<0x40005008,0x00000000,0x00000000,unsigned>;
         ///Endian mode.
         enum class EmVal {
             littleEndianMode=0x00000000,     ///<Little-endian mode (POR reset value).
@@ -80,6 +84,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(em)::Type,EmVal::littleEndianMode> littleEndianMode{};
             constexpr Register::FieldValue<decltype(em)::Type,EmVal::bigEndianMode> bigEndianMode{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock Ratio. CCLK: CLKOUT[1:0] ratio:
         enum class CrVal {
             v1to1PorResetValue=0x00000000,     ///<1:1 (POR reset value)
@@ -90,9 +96,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cr)::Type,CrVal::v1to1PorResetValue> v1to1PorResetValue{};
             constexpr Register::FieldValue<decltype(cr)::Type,CrVal::v1to2> v1to2{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamiccontrol{    ///<Controls dynamic memory operation.
-        using Addr = Register::Address<0x40005020,0xffffde58,0,unsigned>;
+    namespace EmcDynamiccontrol{    ///<Controls dynamic memory operation.
+        using Addr = Register::Address<0x40005020,0x00000000,0x00000000,unsigned>;
         ///Dynamic memory clock enable.
         enum class CeVal {
             clockEnableOfIdle=0x00000000,     ///<Clock enable of idle devices are deasserted to save power (POR reset value).
@@ -123,6 +131,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::normalMode> normalMode{};
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::enterSelfRefreshM> enterSelfRefreshM{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Memory clock control.
         enum class MmcVal {
             clkoutEnabledPor=0x00000000,     ///<CLKOUT enabled (POR reset value).
@@ -133,6 +143,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mmc)::Type,MmcVal::clkoutEnabledPor> clkoutEnabledPor{};
             constexpr Register::FieldValue<decltype(mmc)::Type,MmcVal::clkoutDisabled3> clkoutDisabled3{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///SDRAM initialization.
         enum class IVal {
             issueSdramNormalO=0x00000000,     ///<Issue SDRAM NORMAL operation command (POR reset value).
@@ -147,6 +159,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i)::Type,IVal::issueSdramPallPr> issueSdramPallPr{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::issueSdramNopNo> issueSdramNopNo{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Low-power SDRAM deep-sleep mode.
         enum class DpVal {
             normalOperationPo=0x00000000,     ///<Normal operation (POR reset value).
@@ -157,14 +171,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dp)::Type,DpVal::normalOperationPo> normalOperationPo{};
             constexpr Register::FieldValue<decltype(dp)::Type,DpVal::enterDeepSleepMod> enterDeepSleepMod{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,14),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicrefresh{    ///<Configures dynamic memory refresh operation.
-        using Addr = Register::Address<0x40005024,0xfffff800,0,unsigned>;
+    namespace EmcDynamicrefresh{    ///<Configures dynamic memory refresh operation.
+        using Addr = Register::Address<0x40005024,0x00000000,0x00000000,unsigned>;
         ///Refresh timer. Indicates the multiple of 16 CCLKs between SDRAM refresh cycles. 0x0 = Refresh disabled (POR reset value). 0x1 - 0x7FF = n x16 = 16n CCLKs between SDRAM refresh cycles. For example: 0x1 = 1 x 16 = 16 CCLKs between SDRAM refresh cycles. 0x8 = 8 x 16 = 128 CCLKs between SDRAM refresh cycles
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> refresh{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicreadconfig{    ///<Configures the dynamic memory read strategy.
-        using Addr = Register::Address<0x40005028,0xfffffffc,0,unsigned>;
+    namespace EmcDynamicreadconfig{    ///<Configures the dynamic memory read strategy.
+        using Addr = Register::Address<0x40005028,0x00000000,0x00000000,unsigned>;
         ///Read data strategy.
         enum class RdVal {
             clockOutDelayedSt=0x00000000,     ///<Clock out delayed strategy, using CLKOUT (command not delayed, clock out delayed). POR reset value.
@@ -179,69 +197,97 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rd)::Type,RdVal::commandDelayedPlus1> commandDelayedPlus1{};
             constexpr Register::FieldValue<decltype(rd)::Type,RdVal::commandDelayedPlus2> commandDelayedPlus2{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicrp{    ///<Selects the precharge command period.
-        using Addr = Register::Address<0x40005030,0xfffffff0,0,unsigned>;
+    namespace EmcDynamicrp{    ///<Selects the precharge command period.
+        using Addr = Register::Address<0x40005030,0x00000000,0x00000000,unsigned>;
         ///Precharge command period. 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> trp{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicras{    ///<Selects the active to precharge command period.
-        using Addr = Register::Address<0x40005034,0xfffffff0,0,unsigned>;
+    namespace EmcDynamicras{    ///<Selects the active to precharge command period.
+        using Addr = Register::Address<0x40005034,0x00000000,0x00000000,unsigned>;
         ///Active to precharge command period. 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tras{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicsrex{    ///<Selects the self-refresh exit time.
-        using Addr = Register::Address<0x40005038,0xfffffff0,0,unsigned>;
+    namespace EmcDynamicsrex{    ///<Selects the self-refresh exit time.
+        using Addr = Register::Address<0x40005038,0x00000000,0x00000000,unsigned>;
         ///Self-refresh exit time . 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tsrex{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicapr{    ///<Selects the last-data-out to active command time.
-        using Addr = Register::Address<0x4000503c,0xfffffff0,0,unsigned>;
+    namespace EmcDynamicapr{    ///<Selects the last-data-out to active command time.
+        using Addr = Register::Address<0x4000503c,0x00000000,0x00000000,unsigned>;
         ///Last-data-out to active command time. 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tapr{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicdal{    ///<Selects the data-in to active command time.
-        using Addr = Register::Address<0x40005040,0xfffffff0,0,unsigned>;
+    namespace EmcDynamicdal{    ///<Selects the data-in to active command time.
+        using Addr = Register::Address<0x40005040,0x00000000,0x00000000,unsigned>;
         ///Data-in to active command. 0x0 - 0xE = n clock cycles. The delay is in CCLK cycles. 0xF = 15 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tdal{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicwr{    ///<Selects the write recovery time.
-        using Addr = Register::Address<0x40005044,0xfffffff0,0,unsigned>;
+    namespace EmcDynamicwr{    ///<Selects the write recovery time.
+        using Addr = Register::Address<0x40005044,0x00000000,0x00000000,unsigned>;
         ///Write recovery time. 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> twr{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicrc{    ///<Selects the active to active command period.
-        using Addr = Register::Address<0x40005048,0xffffffe0,0,unsigned>;
+    namespace EmcDynamicrc{    ///<Selects the active to active command period.
+        using Addr = Register::Address<0x40005048,0x00000000,0x00000000,unsigned>;
         ///Active to active command period. 0x0 - 0x1E = n + 1 clock cycles. The delay is in CCLK cycles. 0x1F = 32 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> trc{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicrfc{    ///<Selects the auto-refresh period.
-        using Addr = Register::Address<0x4000504c,0xffffffe0,0,unsigned>;
+    namespace EmcDynamicrfc{    ///<Selects the auto-refresh period.
+        using Addr = Register::Address<0x4000504c,0x00000000,0x00000000,unsigned>;
         ///Auto-refresh period and auto-refresh to active command period. 0x0 - 0x1E = n + 1 clock cycles. The delay is in CCLK cycles. 0x1F = 32 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> trfc{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicxsr{    ///<Selects the exit self-refresh to active command time.
-        using Addr = Register::Address<0x40005050,0xffffffe0,0,unsigned>;
+    namespace EmcDynamicxsr{    ///<Selects the exit self-refresh to active command time.
+        using Addr = Register::Address<0x40005050,0x00000000,0x00000000,unsigned>;
         ///Exit self-refresh to active command time. 0x0 - 0x1E = n + 1 clock cycles. The delay is in CCLK cycles. 0x1F = 32 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> txsr{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicrrd{    ///<Selects the active bank A to active bank B latency.
-        using Addr = Register::Address<0x40005054,0xfffffff0,0,unsigned>;
+    namespace EmcDynamicrrd{    ///<Selects the active bank A to active bank B latency.
+        using Addr = Register::Address<0x40005054,0x00000000,0x00000000,unsigned>;
         ///Active bank A to active bank B latency 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> trrd{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicmrd{    ///<Selects the load mode register to active command time.
-        using Addr = Register::Address<0x40005058,0xfffffff0,0,unsigned>;
+    namespace EmcDynamicmrd{    ///<Selects the load mode register to active command time.
+        using Addr = Register::Address<0x40005058,0x00000000,0x00000000,unsigned>;
         ///Load mode register to active command time. 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tmrd{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticextendedwait{    ///<Selects time for long static memory read and write transfers.
-        using Addr = Register::Address<0x40005080,0xfffffc00,0,unsigned>;
+    namespace EmcStaticextendedwait{    ///<Selects time for long static memory read and write transfers.
+        using Addr = Register::Address<0x40005080,0x00000000,0x00000000,unsigned>;
         ///Extended wait time out. 16 clock cycles (POR reset value). The delay is in CCLK cycles. 0x0 = 16 clock cycles. 0x1 - 0x3FF = (n+1) x16 clock cycles.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> extendedwait{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicconfig0{    ///<Selects the configuration information for dynamic memory chip select n.
-        using Addr = Register::Address<0x40005100,0xffe7a067,0,unsigned>;
+    namespace EmcDynamicconfig0{    ///<Selects the configuration information for dynamic memory chip select n.
+        using Addr = Register::Address<0x40005100,0x00000000,0x00000000,unsigned>;
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Memory device.
         enum class MdVal {
             sdramPorResetVal=0x00000000,     ///<SDRAM (POR reset value).
@@ -254,10 +300,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::micronSyncflash> micronSyncflash{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Address mapping. See Table 197. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Address mapping See Table 197. 0 = reset value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,15),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Buffer enable.
         enum class BVal {
             bufferDisabledFor=0x00000000,     ///<Buffer disabled for accesses to this chip select (POR reset value).
@@ -278,9 +330,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicconfig1{    ///<Selects the configuration information for dynamic memory chip select n.
-        using Addr = Register::Address<0x40005120,0xffe7a067,0,unsigned>;
+    namespace EmcDynamicconfig1{    ///<Selects the configuration information for dynamic memory chip select n.
+        using Addr = Register::Address<0x40005120,0x00000000,0x00000000,unsigned>;
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Memory device.
         enum class MdVal {
             sdramPorResetVal=0x00000000,     ///<SDRAM (POR reset value).
@@ -293,10 +349,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::micronSyncflash> micronSyncflash{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Address mapping. See Table 197. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Address mapping See Table 197. 0 = reset value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,15),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Buffer enable.
         enum class BVal {
             bufferDisabledFor=0x00000000,     ///<Buffer disabled for accesses to this chip select (POR reset value).
@@ -317,9 +379,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicconfig2{    ///<Selects the configuration information for dynamic memory chip select n.
-        using Addr = Register::Address<0x40005140,0xffe7a067,0,unsigned>;
+    namespace EmcDynamicconfig2{    ///<Selects the configuration information for dynamic memory chip select n.
+        using Addr = Register::Address<0x40005140,0x00000000,0x00000000,unsigned>;
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Memory device.
         enum class MdVal {
             sdramPorResetVal=0x00000000,     ///<SDRAM (POR reset value).
@@ -332,10 +398,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::micronSyncflash> micronSyncflash{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Address mapping. See Table 197. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Address mapping See Table 197. 0 = reset value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,15),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Buffer enable.
         enum class BVal {
             bufferDisabledFor=0x00000000,     ///<Buffer disabled for accesses to this chip select (POR reset value).
@@ -356,9 +428,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicconfig3{    ///<Selects the configuration information for dynamic memory chip select n.
-        using Addr = Register::Address<0x40005160,0xffe7a067,0,unsigned>;
+    namespace EmcDynamicconfig3{    ///<Selects the configuration information for dynamic memory chip select n.
+        using Addr = Register::Address<0x40005160,0x00000000,0x00000000,unsigned>;
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Memory device.
         enum class MdVal {
             sdramPorResetVal=0x00000000,     ///<SDRAM (POR reset value).
@@ -371,10 +447,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::micronSyncflash> micronSyncflash{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Address mapping. See Table 197. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Address mapping See Table 197. 0 = reset value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,15),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Buffer enable.
         enum class BVal {
             bufferDisabledFor=0x00000000,     ///<Buffer disabled for accesses to this chip select (POR reset value).
@@ -395,9 +477,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicrascas0{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
-        using Addr = Register::Address<0x40005104,0xfffffcfc,0,unsigned>;
+    namespace EmcDynamicrascas0{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
+        using Addr = Register::Address<0x40005104,0x00000000,0x00000000,unsigned>;
         ///RAS latency (active to read/write delay).
         enum class RasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -410,6 +494,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -422,9 +508,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicrascas1{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
-        using Addr = Register::Address<0x40005124,0xfffffcfc,0,unsigned>;
+    namespace EmcDynamicrascas1{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
+        using Addr = Register::Address<0x40005124,0x00000000,0x00000000,unsigned>;
         ///RAS latency (active to read/write delay).
         enum class RasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -437,6 +525,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -449,9 +539,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicrascas2{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
-        using Addr = Register::Address<0x40005144,0xfffffcfc,0,unsigned>;
+    namespace EmcDynamicrascas2{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
+        using Addr = Register::Address<0x40005144,0x00000000,0x00000000,unsigned>;
         ///RAS latency (active to read/write delay).
         enum class RasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -464,6 +556,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -476,9 +570,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedynamicrascas3{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
-        using Addr = Register::Address<0x40005164,0xfffffcfc,0,unsigned>;
+    namespace EmcDynamicrascas3{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
+        using Addr = Register::Address<0x40005164,0x00000000,0x00000000,unsigned>;
         ///RAS latency (active to read/write delay).
         enum class RasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -491,6 +587,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -503,9 +601,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticconfig0{    ///<Selects the memory configuration for static chip select n.
-        using Addr = Register::Address<0x40005200,0xffe7fe34,0,unsigned>;
+    namespace EmcStaticconfig0{    ///<Selects the memory configuration for static chip select n.
+        using Addr = Register::Address<0x40005200,0x00000000,0x00000000,unsigned>;
         ///Memory width.
         enum class MwVal {
             v8BitPorResetVal=0x00000000,     ///<8 bit (POR reset value).
@@ -518,6 +618,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -528,6 +630,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asyncPageModeEnab> asyncPageModeEnab{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
             activeLowChipSele=0x00000000,     ///<Active LOW chip select.
@@ -558,6 +662,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Buffer enable[2].
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -578,9 +684,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticconfig1{    ///<Selects the memory configuration for static chip select n.
-        using Addr = Register::Address<0x40005220,0xffe7fe34,0,unsigned>;
+    namespace EmcStaticconfig1{    ///<Selects the memory configuration for static chip select n.
+        using Addr = Register::Address<0x40005220,0x00000000,0x00000000,unsigned>;
         ///Memory width.
         enum class MwVal {
             v8BitPorResetVal=0x00000000,     ///<8 bit (POR reset value).
@@ -593,6 +701,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -603,6 +713,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asyncPageModeEnab> asyncPageModeEnab{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
             activeLowChipSele=0x00000000,     ///<Active LOW chip select.
@@ -633,6 +745,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Buffer enable[2].
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -653,9 +767,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticconfig2{    ///<Selects the memory configuration for static chip select n.
-        using Addr = Register::Address<0x40005240,0xffe7fe34,0,unsigned>;
+    namespace EmcStaticconfig2{    ///<Selects the memory configuration for static chip select n.
+        using Addr = Register::Address<0x40005240,0x00000000,0x00000000,unsigned>;
         ///Memory width.
         enum class MwVal {
             v8BitPorResetVal=0x00000000,     ///<8 bit (POR reset value).
@@ -668,6 +784,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -678,6 +796,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asyncPageModeEnab> asyncPageModeEnab{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
             activeLowChipSele=0x00000000,     ///<Active LOW chip select.
@@ -708,6 +828,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Buffer enable[2].
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -728,9 +850,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticconfig3{    ///<Selects the memory configuration for static chip select n.
-        using Addr = Register::Address<0x40005260,0xffe7fe34,0,unsigned>;
+    namespace EmcStaticconfig3{    ///<Selects the memory configuration for static chip select n.
+        using Addr = Register::Address<0x40005260,0x00000000,0x00000000,unsigned>;
         ///Memory width.
         enum class MwVal {
             v8BitPorResetVal=0x00000000,     ///<8 bit (POR reset value).
@@ -743,6 +867,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -753,6 +879,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asyncPageModeEnab> asyncPageModeEnab{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
             activeLowChipSele=0x00000000,     ///<Active LOW chip select.
@@ -783,6 +911,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,9),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Buffer enable[2].
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -803,125 +933,175 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitwen0{    ///<Selects the delay from chip select n to write enable.
-        using Addr = Register::Address<0x40005204,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitwen0{    ///<Selects the delay from chip select n to write enable.
+        using Addr = Register::Address<0x40005204,0x00000000,0x00000000,unsigned>;
         ///Wait write enable. Delay from chip select assertion to write enable. 0x0 = One CCLK cycle delay between assertion of chip select and write enable (POR reset value). 0x1 - 0xF = (n + 1) CCLK cycle delay. The delay is (WAITWEN +1) x tCCLK.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitwen1{    ///<Selects the delay from chip select n to write enable.
-        using Addr = Register::Address<0x40005224,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitwen1{    ///<Selects the delay from chip select n to write enable.
+        using Addr = Register::Address<0x40005224,0x00000000,0x00000000,unsigned>;
         ///Wait write enable. Delay from chip select assertion to write enable. 0x0 = One CCLK cycle delay between assertion of chip select and write enable (POR reset value). 0x1 - 0xF = (n + 1) CCLK cycle delay. The delay is (WAITWEN +1) x tCCLK.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitwen2{    ///<Selects the delay from chip select n to write enable.
-        using Addr = Register::Address<0x40005244,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitwen2{    ///<Selects the delay from chip select n to write enable.
+        using Addr = Register::Address<0x40005244,0x00000000,0x00000000,unsigned>;
         ///Wait write enable. Delay from chip select assertion to write enable. 0x0 = One CCLK cycle delay between assertion of chip select and write enable (POR reset value). 0x1 - 0xF = (n + 1) CCLK cycle delay. The delay is (WAITWEN +1) x tCCLK.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitwen3{    ///<Selects the delay from chip select n to write enable.
-        using Addr = Register::Address<0x40005264,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitwen3{    ///<Selects the delay from chip select n to write enable.
+        using Addr = Register::Address<0x40005264,0x00000000,0x00000000,unsigned>;
         ///Wait write enable. Delay from chip select assertion to write enable. 0x0 = One CCLK cycle delay between assertion of chip select and write enable (POR reset value). 0x1 - 0xF = (n + 1) CCLK cycle delay. The delay is (WAITWEN +1) x tCCLK.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitoen0{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
-        using Addr = Register::Address<0x40005208,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitoen0{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
+        using Addr = Register::Address<0x40005208,0x00000000,0x00000000,unsigned>;
         ///Wait output enable. Delay from chip select assertion to output enable. 0x0 = No delay (POR reset value). 0x1 - 0xF = n cycle delay. The delay is WAITOEN x tCCLK.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitoen1{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
-        using Addr = Register::Address<0x40005228,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitoen1{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
+        using Addr = Register::Address<0x40005228,0x00000000,0x00000000,unsigned>;
         ///Wait output enable. Delay from chip select assertion to output enable. 0x0 = No delay (POR reset value). 0x1 - 0xF = n cycle delay. The delay is WAITOEN x tCCLK.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitoen2{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
-        using Addr = Register::Address<0x40005248,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitoen2{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
+        using Addr = Register::Address<0x40005248,0x00000000,0x00000000,unsigned>;
         ///Wait output enable. Delay from chip select assertion to output enable. 0x0 = No delay (POR reset value). 0x1 - 0xF = n cycle delay. The delay is WAITOEN x tCCLK.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitoen3{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
-        using Addr = Register::Address<0x40005268,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitoen3{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
+        using Addr = Register::Address<0x40005268,0x00000000,0x00000000,unsigned>;
         ///Wait output enable. Delay from chip select assertion to output enable. 0x0 = No delay (POR reset value). 0x1 - 0xF = n cycle delay. The delay is WAITOEN x tCCLK.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitrd0{    ///<Selects the delay from chip select n to a read access.
-        using Addr = Register::Address<0x4000520c,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitrd0{    ///<Selects the delay from chip select n to a read access.
+        using Addr = Register::Address<0x4000520c,0x00000000,0x00000000,unsigned>;
         ///Non-page mode read wait states or asynchronous page mode read first access wait state. Non-page mode read or asynchronous page mode read, first read only: 0x0 - 0x1E = (n + 1) CCLK cycles for read accesses. For non-sequential reads, the wait state time is (WAITRD + 1) x tCCLK. 0x1F = 32 CCLK cycles for read accesses (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitrd1{    ///<Selects the delay from chip select n to a read access.
-        using Addr = Register::Address<0x4000522c,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitrd1{    ///<Selects the delay from chip select n to a read access.
+        using Addr = Register::Address<0x4000522c,0x00000000,0x00000000,unsigned>;
         ///Non-page mode read wait states or asynchronous page mode read first access wait state. Non-page mode read or asynchronous page mode read, first read only: 0x0 - 0x1E = (n + 1) CCLK cycles for read accesses. For non-sequential reads, the wait state time is (WAITRD + 1) x tCCLK. 0x1F = 32 CCLK cycles for read accesses (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitrd2{    ///<Selects the delay from chip select n to a read access.
-        using Addr = Register::Address<0x4000524c,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitrd2{    ///<Selects the delay from chip select n to a read access.
+        using Addr = Register::Address<0x4000524c,0x00000000,0x00000000,unsigned>;
         ///Non-page mode read wait states or asynchronous page mode read first access wait state. Non-page mode read or asynchronous page mode read, first read only: 0x0 - 0x1E = (n + 1) CCLK cycles for read accesses. For non-sequential reads, the wait state time is (WAITRD + 1) x tCCLK. 0x1F = 32 CCLK cycles for read accesses (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitrd3{    ///<Selects the delay from chip select n to a read access.
-        using Addr = Register::Address<0x4000526c,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitrd3{    ///<Selects the delay from chip select n to a read access.
+        using Addr = Register::Address<0x4000526c,0x00000000,0x00000000,unsigned>;
         ///Non-page mode read wait states or asynchronous page mode read first access wait state. Non-page mode read or asynchronous page mode read, first read only: 0x0 - 0x1E = (n + 1) CCLK cycles for read accesses. For non-sequential reads, the wait state time is (WAITRD + 1) x tCCLK. 0x1F = 32 CCLK cycles for read accesses (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitpag0{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
-        using Addr = Register::Address<0x40005210,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitpag0{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
+        using Addr = Register::Address<0x40005210,0x00000000,0x00000000,unsigned>;
         ///Asynchronous page mode read after the first read wait states. Number of wait states for asynchronous page mode read accesses after the first read: 0x0 - 0x1E = (n+ 1) CCLK cycle read access time. For asynchronous page mode read for sequential reads, the wait state time for page mode accesses after the first read is (WAITPAGE + 1) x tCCLK. 0x1F = 32 CCLK cycle read access time (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitpag1{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
-        using Addr = Register::Address<0x40005230,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitpag1{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
+        using Addr = Register::Address<0x40005230,0x00000000,0x00000000,unsigned>;
         ///Asynchronous page mode read after the first read wait states. Number of wait states for asynchronous page mode read accesses after the first read: 0x0 - 0x1E = (n+ 1) CCLK cycle read access time. For asynchronous page mode read for sequential reads, the wait state time for page mode accesses after the first read is (WAITPAGE + 1) x tCCLK. 0x1F = 32 CCLK cycle read access time (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitpag2{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
-        using Addr = Register::Address<0x40005250,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitpag2{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
+        using Addr = Register::Address<0x40005250,0x00000000,0x00000000,unsigned>;
         ///Asynchronous page mode read after the first read wait states. Number of wait states for asynchronous page mode read accesses after the first read: 0x0 - 0x1E = (n+ 1) CCLK cycle read access time. For asynchronous page mode read for sequential reads, the wait state time for page mode accesses after the first read is (WAITPAGE + 1) x tCCLK. 0x1F = 32 CCLK cycle read access time (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitpag3{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
-        using Addr = Register::Address<0x40005270,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitpag3{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
+        using Addr = Register::Address<0x40005270,0x00000000,0x00000000,unsigned>;
         ///Asynchronous page mode read after the first read wait states. Number of wait states for asynchronous page mode read accesses after the first read: 0x0 - 0x1E = (n+ 1) CCLK cycle read access time. For asynchronous page mode read for sequential reads, the wait state time for page mode accesses after the first read is (WAITPAGE + 1) x tCCLK. 0x1F = 32 CCLK cycle read access time (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitwr0{    ///<Selects the delay from chip select n to a write access.
-        using Addr = Register::Address<0x40005214,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitwr0{    ///<Selects the delay from chip select n to a write access.
+        using Addr = Register::Address<0x40005214,0x00000000,0x00000000,unsigned>;
         ///Write wait states. SRAM wait state time for write accesses after the first read: 0x0 - 0x1E = (n + 2) CCLK cycle write access time. The wait state time for write accesses after the first read is WAITWR (n + 2) x tCCLK. 0x1F = 33 CCLK cycle write access time (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitwr1{    ///<Selects the delay from chip select n to a write access.
-        using Addr = Register::Address<0x40005234,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitwr1{    ///<Selects the delay from chip select n to a write access.
+        using Addr = Register::Address<0x40005234,0x00000000,0x00000000,unsigned>;
         ///Write wait states. SRAM wait state time for write accesses after the first read: 0x0 - 0x1E = (n + 2) CCLK cycle write access time. The wait state time for write accesses after the first read is WAITWR (n + 2) x tCCLK. 0x1F = 33 CCLK cycle write access time (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitwr2{    ///<Selects the delay from chip select n to a write access.
-        using Addr = Register::Address<0x40005254,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitwr2{    ///<Selects the delay from chip select n to a write access.
+        using Addr = Register::Address<0x40005254,0x00000000,0x00000000,unsigned>;
         ///Write wait states. SRAM wait state time for write accesses after the first read: 0x0 - 0x1E = (n + 2) CCLK cycle write access time. The wait state time for write accesses after the first read is WAITWR (n + 2) x tCCLK. 0x1F = 33 CCLK cycle write access time (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitwr3{    ///<Selects the delay from chip select n to a write access.
-        using Addr = Register::Address<0x40005274,0xffffffe0,0,unsigned>;
+    namespace EmcStaticwaitwr3{    ///<Selects the delay from chip select n to a write access.
+        using Addr = Register::Address<0x40005274,0x00000000,0x00000000,unsigned>;
         ///Write wait states. SRAM wait state time for write accesses after the first read: 0x0 - 0x1E = (n + 2) CCLK cycle write access time. The wait state time for write accesses after the first read is WAITWR (n + 2) x tCCLK. 0x1F = 33 CCLK cycle write access time (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitturn0{    ///<Selects bus turnaround cycles
-        using Addr = Register::Address<0x40005218,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitturn0{    ///<Selects bus turnaround cycles
+        using Addr = Register::Address<0x40005218,0x00000000,0x00000000,unsigned>;
         ///Bus turnaround cycles. 0x0 - 0xE = (n + 1) CCLK turnaround cycles. Bus turnaround time is (WAITTURN + 1) x tCCLK. 0xF = 16 CCLK turnaround cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitturn1{    ///<Selects bus turnaround cycles
-        using Addr = Register::Address<0x40005238,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitturn1{    ///<Selects bus turnaround cycles
+        using Addr = Register::Address<0x40005238,0x00000000,0x00000000,unsigned>;
         ///Bus turnaround cycles. 0x0 - 0xE = (n + 1) CCLK turnaround cycles. Bus turnaround time is (WAITTURN + 1) x tCCLK. 0xF = 16 CCLK turnaround cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitturn2{    ///<Selects bus turnaround cycles
-        using Addr = Register::Address<0x40005258,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitturn2{    ///<Selects bus turnaround cycles
+        using Addr = Register::Address<0x40005258,0x00000000,0x00000000,unsigned>;
         ///Bus turnaround cycles. 0x0 - 0xE = (n + 1) CCLK turnaround cycles. Bus turnaround time is (WAITTURN + 1) x tCCLK. 0xF = 16 CCLK turnaround cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestaticwaitturn3{    ///<Selects bus turnaround cycles
-        using Addr = Register::Address<0x40005278,0xfffffff0,0,unsigned>;
+    namespace EmcStaticwaitturn3{    ///<Selects bus turnaround cycles
+        using Addr = Register::Address<0x40005278,0x00000000,0x00000000,unsigned>;
         ///Bus turnaround cycles. 0x0 - 0xE = (n + 1) CCLK turnaround cycles. Bus turnaround time is (WAITTURN + 1) x tCCLK. 0xF = 16 CCLK turnaround cycles (POR reset value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

@@ -1,24 +1,24 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Secure Real Time Clock
     namespace RtcTsr{    ///<RTC Time Seconds Register
-        using Addr = Register::Address<0x4003d000,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4003d000,0x00000000,0x00000000,unsigned>;
         ///Time Seconds Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsr{}; 
     }
     namespace RtcTpr{    ///<RTC Time Prescaler Register
-        using Addr = Register::Address<0x4003d004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003d004,0xffff0000,0x00000000,unsigned>;
         ///Time Prescaler Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tpr{}; 
     }
     namespace RtcTar{    ///<RTC Time Alarm Register
-        using Addr = Register::Address<0x4003d008,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4003d008,0x00000000,0x00000000,unsigned>;
         ///Time Alarm Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tar{}; 
     }
     namespace RtcTcr{    ///<RTC Time Compensation Register
-        using Addr = Register::Address<0x4003d00c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4003d00c,0x00000000,0x00000000,unsigned>;
         ///Time Compensation Register
         enum class TcrVal {
             v10000000=0x00000080,     ///<Time Prescaler Register overflows every 32896 clock cycles.
@@ -38,12 +38,12 @@ namespace Kvasir {
         ///Compensation Interval Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cir{}; 
         ///Time Compensation Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> tcv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tcv{}; 
         ///Compensation Interval Counter
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> cic{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cic{}; 
     }
     namespace RtcCr{    ///<RTC Control Register
-        using Addr = Register::Address<0x4003d010,0xffffc0f0,0,unsigned>;
+        using Addr = Register::Address<0x4003d010,0xffffc0f0,0x00000000,unsigned>;
         ///Software Reset
         enum class SwrVal {
             v0=0x00000000,     ///<No effect.
@@ -146,13 +146,13 @@ namespace Kvasir {
         }
     }
     namespace RtcSr{    ///<RTC Status Register
-        using Addr = Register::Address<0x4003d014,0xffffffe8,0,unsigned>;
+        using Addr = Register::Address<0x4003d014,0xffffffe8,0x00000000,unsigned>;
         ///Time Invalid Flag
         enum class TifVal {
             v0=0x00000000,     ///<Time is valid.
             v1=0x00000001,     ///<Time is invalid and time counter is read as zero.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TifVal> tif{}; 
         namespace TifValC{
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
@@ -162,7 +162,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Time overflow has not occurred.
             v1=0x00000001,     ///<Time overflow has occurred and time counter is read as zero.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TofVal> tof{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TofVal> tof{}; 
         namespace TofValC{
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v1> v1{};
@@ -172,7 +172,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Time alarm has not occurred.
             v1=0x00000001,     ///<Time alarm has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TafVal> taf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TafVal> taf{}; 
         namespace TafValC{
             constexpr Register::FieldValue<decltype(taf)::Type,TafVal::v0> v0{};
             constexpr Register::FieldValue<decltype(taf)::Type,TafVal::v1> v1{};
@@ -189,7 +189,7 @@ namespace Kvasir {
         }
     }
     namespace RtcLr{    ///<RTC Lock Register
-        using Addr = Register::Address<0x4003d018,0xffffff87,0,unsigned>;
+        using Addr = Register::Address<0x4003d018,0xffffff87,0x00000000,unsigned>;
         ///Time Compensation Lock
         enum class TclVal {
             v0=0x00000000,     ///<Time Compensation Register is locked and writes are ignored.
@@ -232,7 +232,7 @@ namespace Kvasir {
         }
     }
     namespace RtcIer{    ///<RTC Interrupt Enable Register
-        using Addr = Register::Address<0x4003d01c,0xffffff68,0,unsigned>;
+        using Addr = Register::Address<0x4003d01c,0xffffff68,0x00000000,unsigned>;
         ///Time Invalid Interrupt Enable
         enum class TiieVal {
             v0=0x00000000,     ///<Time invalid flag does not generate an interrupt.
@@ -285,7 +285,7 @@ namespace Kvasir {
         }
     }
     namespace RtcWar{    ///<RTC Write Access Register
-        using Addr = Register::Address<0x4003d800,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4003d800,0xffffff00,0x00000000,unsigned>;
         ///Time Seconds Register Write
         enum class TsrwVal {
             v0=0x00000000,     ///<Writes to the Time Seconds Register are ignored.
@@ -368,7 +368,7 @@ namespace Kvasir {
         }
     }
     namespace RtcRar{    ///<RTC Read Access Register
-        using Addr = Register::Address<0x4003d804,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4003d804,0xffffff00,0x00000000,unsigned>;
         ///Time Seconds Register Read
         enum class TsrrVal {
             v0=0x00000000,     ///<Reads to the Time Seconds Register are ignored.

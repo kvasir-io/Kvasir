@@ -1,9 +1,51 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Pin Control and Interrupts
+    namespace PorteGpclr{    ///<Global Pin Control Low Register
+        using Addr = Register::Address<0x4004a080,0x00000000,0x00000000,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
+    }
+    namespace PorteGpchr{    ///<Global Pin Control High Register
+        using Addr = Register::Address<0x4004a084,0x00000000,0x00000000,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
+    }
+    namespace PorteIsfr{    ///<Interrupt Status Flag Register
+        using Addr = Register::Address<0x4004a0a0,0x00000000,0x00000000,unsigned>;
+        ///Interrupt Status Flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
+    }
+    namespace PorteDfer{    ///<Digital Filter Enable Register
+        using Addr = Register::Address<0x4004a0c0,0x00000000,0x00000000,unsigned>;
+        ///Digital Filter Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dfe{}; 
+    }
+    namespace PorteDfcr{    ///<Digital Filter Clock Register
+        using Addr = Register::Address<0x4004a0c4,0xfffffffe,0x00000000,unsigned>;
+        ///Clock Source
+        enum class CsVal {
+            v0=0x00000000,     ///<Digital filters are clocked by the bus clock.
+            v1=0x00000001,     ///<Digital filters are clocked by the 1 kHz LPO clock.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CsVal> cs{}; 
+        namespace CsValC{
+            constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v1> v1{};
+        }
+    }
+    namespace PorteDfwr{    ///<Digital Filter Width Register
+        using Addr = Register::Address<0x4004a0c8,0xffffffe0,0x00000000,unsigned>;
+        ///Filter Length
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> filt{}; 
+    }
     namespace PortePcr0{    ///<Pin Control Register n
-        using Addr = Register::Address<0x4004a000,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x4004a000,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -102,7 +144,7 @@ namespace Kvasir {
         }
     }
     namespace PortePcr1{    ///<Pin Control Register n
-        using Addr = Register::Address<0x4004a004,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x4004a004,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -201,7 +243,7 @@ namespace Kvasir {
         }
     }
     namespace PortePcr2{    ///<Pin Control Register n
-        using Addr = Register::Address<0x4004a008,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x4004a008,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -300,7 +342,7 @@ namespace Kvasir {
         }
     }
     namespace PortePcr3{    ///<Pin Control Register n
-        using Addr = Register::Address<0x4004a00c,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x4004a00c,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -399,7 +441,7 @@ namespace Kvasir {
         }
     }
     namespace PortePcr4{    ///<Pin Control Register n
-        using Addr = Register::Address<0x4004a010,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x4004a010,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -498,7 +540,7 @@ namespace Kvasir {
         }
     }
     namespace PortePcr5{    ///<Pin Control Register n
-        using Addr = Register::Address<0x4004a014,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x4004a014,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -597,7 +639,7 @@ namespace Kvasir {
         }
     }
     namespace PortePcr6{    ///<Pin Control Register n
-        using Addr = Register::Address<0x4004a018,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x4004a018,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -696,7 +738,7 @@ namespace Kvasir {
         }
     }
     namespace PortePcr7{    ///<Pin Control Register n
-        using Addr = Register::Address<0x4004a01c,0xfef078f8,0,unsigned>;
+        using Addr = Register::Address<0x4004a01c,0xfef078f8,0x00000000,unsigned>;
         ///Pull Select
         enum class PsVal {
             v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding Port Pull Enable field is set.
@@ -793,47 +835,5 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
         }
-    }
-    namespace PorteGpclr{    ///<Global Pin Control Low Register
-        using Addr = Register::Address<0x4004a080,0x00000000,0,unsigned>;
-        ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gpwd{}; 
-        ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> gpwe{}; 
-    }
-    namespace PorteGpchr{    ///<Global Pin Control High Register
-        using Addr = Register::Address<0x4004a084,0x00000000,0,unsigned>;
-        ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gpwd{}; 
-        ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> gpwe{}; 
-    }
-    namespace PorteIsfr{    ///<Interrupt Status Flag Register
-        using Addr = Register::Address<0x4004a0a0,0x00000000,0,unsigned>;
-        ///Interrupt Status Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
-    }
-    namespace PorteDfer{    ///<Digital Filter Enable Register
-        using Addr = Register::Address<0x4004a0c0,0x00000000,0,unsigned>;
-        ///Digital Filter Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dfe{}; 
-    }
-    namespace PorteDfcr{    ///<Digital Filter Clock Register
-        using Addr = Register::Address<0x4004a0c4,0xfffffffe,0,unsigned>;
-        ///Clock Source
-        enum class CsVal {
-            v0=0x00000000,     ///<Digital filters are clocked by the bus clock.
-            v1=0x00000001,     ///<Digital filters are clocked by the 1 kHz LPO clock.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CsVal> cs{}; 
-        namespace CsValC{
-            constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v1> v1{};
-        }
-    }
-    namespace PorteDfwr{    ///<Digital Filter Width Register
-        using Addr = Register::Address<0x4004a0c8,0xffffffe0,0,unsigned>;
-        ///Filter Length
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> filt{}; 
     }
 }

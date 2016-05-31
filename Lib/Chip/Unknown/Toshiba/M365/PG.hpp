@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General Purpose Input_Output Port (PG)
-    namespace Nonedata{    ///<PG Data Register
-        using Addr = Register::Address<0x400c0600,0xffffffc0,0,unsigned>;
+    namespace PgData{    ///<PG Data Register
+        using Addr = Register::Address<0x400c0600,0xffffffc0,0x00000000,unsigned>;
         ///PG0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pg0{}; 
         ///PG1
@@ -17,8 +17,8 @@ namespace Kvasir {
         ///PG5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pg5{}; 
     }
-    namespace Nonecr{    ///<PG Control Register
-        using Addr = Register::Address<0x400c0604,0xffffffc0,0,unsigned>;
+    namespace PgCr{    ///<PG Control Register
+        using Addr = Register::Address<0x400c0604,0xffffffc0,0x00000000,unsigned>;
         ///PG0C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pg0c{}; 
         ///PG1C
@@ -32,8 +32,8 @@ namespace Kvasir {
         ///PG5C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pg5c{}; 
     }
-    namespace Nonefr1{    ///<PG Function Register 2
-        using Addr = Register::Address<0x400c0608,0xffffffd0,0,unsigned>;
+    namespace PgFr1{    ///<PG Function Register 2
+        using Addr = Register::Address<0x400c0608,0xffffffd0,0x00000000,unsigned>;
         ///PG0F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pg0f1{}; 
         ///PG1F1
@@ -45,8 +45,8 @@ namespace Kvasir {
         ///PG5F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pg5f1{}; 
     }
-    namespace Nonefr3{    ///<PG Function Register 3
-        using Addr = Register::Address<0x400c0610,0xffffffe1,0,unsigned>;
+    namespace PgFr3{    ///<PG Function Register 3
+        using Addr = Register::Address<0x400c0610,0xffffffe1,0x00000000,unsigned>;
         ///PG1F3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pg1f3{}; 
         ///PG2F3
@@ -56,8 +56,8 @@ namespace Kvasir {
         ///PG4F3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pg4f3{}; 
     }
-    namespace Nonefr4{    ///<PG Function Register 4
-        using Addr = Register::Address<0x400c0614,0xffffffc0,0,unsigned>;
+    namespace PgFr4{    ///<PG Function Register 4
+        using Addr = Register::Address<0x400c0614,0xffffffc0,0x00000000,unsigned>;
         ///PG0F4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pg0f4{}; 
         ///PG1F4
@@ -71,8 +71,8 @@ namespace Kvasir {
         ///PG5F4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pg5f4{}; 
     }
-    namespace Noneod{    ///<PG Open Drain Control Register
-        using Addr = Register::Address<0x400c0628,0xffffffc0,0,unsigned>;
+    namespace PgOd{    ///<PG Open Drain Control Register
+        using Addr = Register::Address<0x400c0628,0xffffffc0,0x00000000,unsigned>;
         ///PG0OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pg0od{}; 
         ///PG1OD
@@ -86,8 +86,8 @@ namespace Kvasir {
         ///PG5OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pg5od{}; 
     }
-    namespace Nonepup{    ///<PG Pull-Up Control Register
-        using Addr = Register::Address<0x400c062c,0xffffffc0,0,unsigned>;
+    namespace PgPup{    ///<PG Pull-Up Control Register
+        using Addr = Register::Address<0x400c062c,0xffffffc0,0x00000000,unsigned>;
         ///PG0UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pg0up{}; 
         ///PG1UP
@@ -101,8 +101,8 @@ namespace Kvasir {
         ///PG5UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pg5up{}; 
     }
-    namespace Noneie{    ///<PG Input Enable Control Register
-        using Addr = Register::Address<0x400c0638,0xffffffc0,0,unsigned>;
+    namespace PgIe{    ///<PG Input Enable Control Register
+        using Addr = Register::Address<0x400c0638,0xffffffc0,0x00000000,unsigned>;
         ///PG0IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pg0ie{}; 
         ///PG1IE

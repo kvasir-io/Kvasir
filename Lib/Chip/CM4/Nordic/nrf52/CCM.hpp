@@ -1,27 +1,27 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //AES CCM Mode Encryption
-    namespace NonetasksKsgen{    ///<Start generation of key-stream. This operation will stop by itself when completed.
-        using Addr = Register::Address<0x4000f000,0xffffffff,0,unsigned>;
+    namespace CcmTasksKsgen{    ///<Start generation of key-stream. This operation will stop by itself when completed.
+        using Addr = Register::Address<0x4000f000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksCrypt{    ///<Start encryption/decryption. This operation will stop by itself when completed.
-        using Addr = Register::Address<0x4000f004,0xffffffff,0,unsigned>;
+    namespace CcmTasksCrypt{    ///<Start encryption/decryption. This operation will stop by itself when completed.
+        using Addr = Register::Address<0x4000f004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop encryption/decryption
-        using Addr = Register::Address<0x4000f008,0xffffffff,0,unsigned>;
+    namespace CcmTasksStop{    ///<Stop encryption/decryption
+        using Addr = Register::Address<0x4000f008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEndksgen{    ///<Key-stream generation complete
-        using Addr = Register::Address<0x4000f100,0xffffffff,0,unsigned>;
+    namespace CcmEventsEndksgen{    ///<Key-stream generation complete
+        using Addr = Register::Address<0x4000f100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEndcrypt{    ///<Encrypt/decrypt complete
-        using Addr = Register::Address<0x4000f104,0xffffffff,0,unsigned>;
+    namespace CcmEventsEndcrypt{    ///<Encrypt/decrypt complete
+        using Addr = Register::Address<0x4000f104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsError{    ///<CCM error event
-        using Addr = Register::Address<0x4000f108,0xffffffff,0,unsigned>;
+    namespace CcmEventsError{    ///<CCM error event
+        using Addr = Register::Address<0x4000f108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x4000f200,0xfffffffe,0,unsigned>;
+    namespace CcmShorts{    ///<Shortcut register
+        using Addr = Register::Address<0x4000f200,0xfffffffe,0x00000000,unsigned>;
         ///Shortcut between EVENTS_ENDKSGEN event and TASKS_CRYPT task
         enum class EndksgencryptVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -33,8 +33,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endksgenCrypt)::Type,EndksgencryptVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x4000f304,0xfffffff8,0,unsigned>;
+    namespace CcmIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x4000f304,0xfffffff8,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_ENDKSGEN event
         enum class EndksgenVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -72,8 +72,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x4000f308,0xfffffff8,0,unsigned>;
+    namespace CcmIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x4000f308,0xfffffff8,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_ENDKSGEN event
         enum class EndksgenVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -111,8 +111,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::clear> clear{};
         }
     }
-    namespace Nonemicstatus{    ///<MIC check result
-        using Addr = Register::Address<0x4000f400,0xfffffffe,0,unsigned>;
+    namespace CcmMicstatus{    ///<MIC check result
+        using Addr = Register::Address<0x4000f400,0xfffffffe,0x00000000,unsigned>;
         ///The result of the MIC check performed during the previous decryption operation
         enum class MicstatusVal {
             checkfailed=0x00000000,     ///<MIC check failed
@@ -124,8 +124,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(micstatus)::Type,MicstatusVal::checkpassed> checkpassed{};
         }
     }
-    namespace Noneenable{    ///<Enable
-        using Addr = Register::Address<0x4000f500,0xfffffffc,0,unsigned>;
+    namespace CcmEnable{    ///<Enable
+        using Addr = Register::Address<0x4000f500,0xfffffffc,0x00000000,unsigned>;
         ///Enable or disable CCM
         enum class EnableVal {
             disabled=0x00000000,     ///<Disable
@@ -137,8 +137,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
-    namespace Nonemode{    ///<Operation mode
-        using Addr = Register::Address<0x4000f504,0xfefefffe,0,unsigned>;
+    namespace CcmMode{    ///<Operation mode
+        using Addr = Register::Address<0x4000f504,0xfefefffe,0x00000000,unsigned>;
         ///The mode of operation to be used
         enum class ModeVal {
             encryption=0x00000000,     ///<AES CCM packet encryption mode
@@ -170,23 +170,23 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(length)::Type,LengthVal::extended> extended{};
         }
     }
-    namespace Nonecnfptr{    ///<Pointer to data structure holding AES key and NONCE vector
-        using Addr = Register::Address<0x4000f508,0x00000000,0,unsigned>;
+    namespace CcmCnfptr{    ///<Pointer to data structure holding AES key and NONCE vector
+        using Addr = Register::Address<0x4000f508,0x00000000,0x00000000,unsigned>;
         ///Pointer to the data structure holding the AES key and the CCM NONCE vector (see Table 1 CCM data structure overview)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cnfptr{}; 
     }
-    namespace Noneinptr{    ///<Input pointer
-        using Addr = Register::Address<0x4000f50c,0x00000000,0,unsigned>;
+    namespace CcmInptr{    ///<Input pointer
+        using Addr = Register::Address<0x4000f50c,0x00000000,0x00000000,unsigned>;
         ///Input pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> inptr{}; 
     }
-    namespace Noneoutptr{    ///<Output pointer
-        using Addr = Register::Address<0x4000f510,0x00000000,0,unsigned>;
+    namespace CcmOutptr{    ///<Output pointer
+        using Addr = Register::Address<0x4000f510,0x00000000,0x00000000,unsigned>;
         ///Output pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outptr{}; 
     }
-    namespace Nonescratchptr{    ///<Pointer to data area used for temporary storage
-        using Addr = Register::Address<0x4000f514,0x00000000,0,unsigned>;
+    namespace CcmScratchptr{    ///<Pointer to data area used for temporary storage
+        using Addr = Register::Address<0x4000f514,0x00000000,0x00000000,unsigned>;
         ///Pointer to a "scratch" data area used for temporary storage during key-stream generation, MIC generation and encryption/decryption.The scratch area is used for temporary storage of data during key-stream generation and encryption. A space of minimum 43 bytes must be reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> scratchptr{}; 
     }

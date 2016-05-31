@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Segment Liquid Crystal Display
     namespace LcdGcr{    ///<LCD General Control Register
-        using Addr = Register::Address<0x40043000,0x704d0c00,0,unsigned>;
+        using Addr = Register::Address<0x40043000,0x704d0c00,0x00000000,unsigned>;
         ///LCD duty select
         enum class DutyVal {
             v000=0x00000000,     ///<Use 1 BP (1/1 duty cycle).
@@ -134,7 +134,7 @@ namespace Kvasir {
         }
     }
     namespace LcdAr{    ///<LCD Auxiliary Register
-        using Addr = Register::Address<0x40043004,0xffff7f10,0,unsigned>;
+        using Addr = Register::Address<0x40043004,0xffff7f10,0x00000000,unsigned>;
         ///Blink-rate configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> brate{}; 
         ///Blink mode
@@ -189,7 +189,7 @@ namespace Kvasir {
         }
     }
     namespace LcdFdcr{    ///<LCD Fault Detect Control Register
-        using Addr = Register::Address<0x40043008,0xffff8100,0,unsigned>;
+        using Addr = Register::Address<0x40043008,0xffff8100,0x00000000,unsigned>;
         ///Fault Detect Pin ID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> fdpinid{}; 
         ///Fault Detect Back Plane Enable
@@ -218,9 +218,9 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> fdprs{}; 
     }
     namespace LcdFdsr{    ///<LCD Fault Detect Status Register
-        using Addr = Register::Address<0x4004300c,0xffff7f00,0,unsigned>;
+        using Addr = Register::Address<0x4004300c,0xffff7f00,0x00000000,unsigned>;
         ///Fault Detect Counter
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> fdcnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fdcnt{}; 
         ///Fault Detection Complete Flag
         enum class FdcfVal {
             v0=0x00000000,     ///<Fault detection is not completed.
@@ -232,28 +232,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fdcf)::Type,FdcfVal::v1> v1{};
         }
     }
-    namespace LcdPenl{    ///<LCD Pin Enable register
-        using Addr = Register::Address<0x40043010,0x00000000,0,unsigned>;
-        ///LCD Pin Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pen{}; 
-    }
-    namespace LcdPenh{    ///<LCD Pin Enable register
-        using Addr = Register::Address<0x40043014,0x00000000,0,unsigned>;
-        ///LCD Pin Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pen{}; 
-    }
-    namespace LcdBpenl{    ///<LCD Back Plane Enable register
-        using Addr = Register::Address<0x40043018,0x00000000,0,unsigned>;
-        ///Back Plane Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bpen{}; 
-    }
-    namespace LcdBpenh{    ///<LCD Back Plane Enable register
-        using Addr = Register::Address<0x4004301c,0x00000000,0,unsigned>;
-        ///Back Plane Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bpen{}; 
-    }
     namespace LcdWf3to0{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043020,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043020,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf0{}; 
         ///no description available
@@ -264,7 +244,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf3{}; 
     }
     namespace LcdWf0{    ///<LCD Waveform Register 0.
-        using Addr = Register::Address<0x40043020,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043020,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd0Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -347,7 +327,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf1{    ///<LCD Waveform Register 1.
-        using Addr = Register::Address<0x40043021,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043021,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd1Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -430,7 +410,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf2{    ///<LCD Waveform Register 2.
-        using Addr = Register::Address<0x40043022,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043022,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd2Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -513,7 +493,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf3{    ///<LCD Waveform Register 3.
-        using Addr = Register::Address<0x40043023,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043023,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd3Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -596,7 +576,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf4{    ///<LCD Waveform Register 4.
-        using Addr = Register::Address<0x40043024,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043024,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd4Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -679,7 +659,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf7to4{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043024,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043024,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf4{}; 
         ///no description available
@@ -690,7 +670,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf7{}; 
     }
     namespace LcdWf5{    ///<LCD Waveform Register 5.
-        using Addr = Register::Address<0x40043025,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043025,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd5Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -773,7 +753,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf6{    ///<LCD Waveform Register 6.
-        using Addr = Register::Address<0x40043026,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043026,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd6Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -856,7 +836,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf7{    ///<LCD Waveform Register 7.
-        using Addr = Register::Address<0x40043027,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043027,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd7Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -939,7 +919,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf11to8{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043028,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043028,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf8{}; 
         ///no description available
@@ -950,7 +930,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf11{}; 
     }
     namespace LcdWf8{    ///<LCD Waveform Register 8.
-        using Addr = Register::Address<0x40043028,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043028,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd8Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1033,7 +1013,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf9{    ///<LCD Waveform Register 9.
-        using Addr = Register::Address<0x40043029,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043029,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd9Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1116,7 +1096,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf10{    ///<LCD Waveform Register 10.
-        using Addr = Register::Address<0x4004302a,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004302a,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd10Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1199,7 +1179,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf11{    ///<LCD Waveform Register 11.
-        using Addr = Register::Address<0x4004302b,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004302b,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd11Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1282,7 +1262,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf15to12{    ///<LCD Waveform register
-        using Addr = Register::Address<0x4004302c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4004302c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf12{}; 
         ///no description available
@@ -1293,7 +1273,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf15{}; 
     }
     namespace LcdWf12{    ///<LCD Waveform Register 12.
-        using Addr = Register::Address<0x4004302c,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004302c,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd12Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1376,7 +1356,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf13{    ///<LCD Waveform Register 13.
-        using Addr = Register::Address<0x4004302d,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004302d,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd13Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1459,7 +1439,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf14{    ///<LCD Waveform Register 14.
-        using Addr = Register::Address<0x4004302e,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004302e,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd14Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1542,7 +1522,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf15{    ///<LCD Waveform Register 15.
-        using Addr = Register::Address<0x4004302f,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004302f,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd15Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1625,7 +1605,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf16{    ///<LCD Waveform Register 16.
-        using Addr = Register::Address<0x40043030,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043030,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd16Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1708,7 +1688,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf19to16{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043030,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043030,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf16{}; 
         ///no description available
@@ -1719,7 +1699,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf19{}; 
     }
     namespace LcdWf17{    ///<LCD Waveform Register 17.
-        using Addr = Register::Address<0x40043031,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043031,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd17Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1802,7 +1782,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf18{    ///<LCD Waveform Register 18.
-        using Addr = Register::Address<0x40043032,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043032,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd18Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1885,7 +1865,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf19{    ///<LCD Waveform Register 19.
-        using Addr = Register::Address<0x40043033,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043033,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd19Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -1968,7 +1948,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf20{    ///<LCD Waveform Register 20.
-        using Addr = Register::Address<0x40043034,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043034,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd20Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2051,7 +2031,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf23to20{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043034,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043034,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf20{}; 
         ///no description available
@@ -2062,7 +2042,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf23{}; 
     }
     namespace LcdWf21{    ///<LCD Waveform Register 21.
-        using Addr = Register::Address<0x40043035,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043035,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd21Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2145,7 +2125,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf22{    ///<LCD Waveform Register 22.
-        using Addr = Register::Address<0x40043036,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043036,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd22Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2228,7 +2208,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf23{    ///<LCD Waveform Register 23.
-        using Addr = Register::Address<0x40043037,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043037,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd23Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2311,7 +2291,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf27to24{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043038,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043038,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf24{}; 
         ///no description available
@@ -2322,7 +2302,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf27{}; 
     }
     namespace LcdWf24{    ///<LCD Waveform Register 24.
-        using Addr = Register::Address<0x40043038,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043038,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd24Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2405,7 +2385,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf25{    ///<LCD Waveform Register 25.
-        using Addr = Register::Address<0x40043039,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043039,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd25Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2488,7 +2468,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf26{    ///<LCD Waveform Register 26.
-        using Addr = Register::Address<0x4004303a,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004303a,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd26Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2571,7 +2551,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf27{    ///<LCD Waveform Register 27.
-        using Addr = Register::Address<0x4004303b,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004303b,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd27Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2654,7 +2634,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf31to28{    ///<LCD Waveform register
-        using Addr = Register::Address<0x4004303c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4004303c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf28{}; 
         ///no description available
@@ -2665,7 +2645,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf31{}; 
     }
     namespace LcdWf28{    ///<LCD Waveform Register 28.
-        using Addr = Register::Address<0x4004303c,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004303c,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd28Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2748,7 +2728,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf29{    ///<LCD Waveform Register 29.
-        using Addr = Register::Address<0x4004303d,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004303d,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd29Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2831,7 +2811,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf30{    ///<LCD Waveform Register 30.
-        using Addr = Register::Address<0x4004303e,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004303e,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd30Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2914,7 +2894,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf31{    ///<LCD Waveform Register 31.
-        using Addr = Register::Address<0x4004303f,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004303f,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd31Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -2997,7 +2977,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf32{    ///<LCD Waveform Register 32.
-        using Addr = Register::Address<0x40043040,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043040,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd32Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3080,7 +3060,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf35to32{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043040,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043040,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf32{}; 
         ///no description available
@@ -3091,7 +3071,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf35{}; 
     }
     namespace LcdWf33{    ///<LCD Waveform Register 33.
-        using Addr = Register::Address<0x40043041,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043041,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd33Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3174,7 +3154,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf34{    ///<LCD Waveform Register 34.
-        using Addr = Register::Address<0x40043042,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043042,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd34Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3257,7 +3237,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf35{    ///<LCD Waveform Register 35.
-        using Addr = Register::Address<0x40043043,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043043,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd35Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3340,7 +3320,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf39to36{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043044,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043044,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf36{}; 
         ///no description available
@@ -3351,7 +3331,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf39{}; 
     }
     namespace LcdWf36{    ///<LCD Waveform Register 36.
-        using Addr = Register::Address<0x40043044,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043044,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd36Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3434,7 +3414,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf37{    ///<LCD Waveform Register 37.
-        using Addr = Register::Address<0x40043045,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043045,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd37Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3517,7 +3497,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf38{    ///<LCD Waveform Register 38.
-        using Addr = Register::Address<0x40043046,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043046,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd38Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3600,7 +3580,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf39{    ///<LCD Waveform Register 39.
-        using Addr = Register::Address<0x40043047,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043047,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd39Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3683,7 +3663,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf43to40{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043048,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043048,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf40{}; 
         ///no description available
@@ -3694,7 +3674,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf43{}; 
     }
     namespace LcdWf40{    ///<LCD Waveform Register 40.
-        using Addr = Register::Address<0x40043048,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043048,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd40Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3777,7 +3757,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf41{    ///<LCD Waveform Register 41.
-        using Addr = Register::Address<0x40043049,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043049,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd41Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3860,7 +3840,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf42{    ///<LCD Waveform Register 42.
-        using Addr = Register::Address<0x4004304a,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004304a,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd42Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -3943,7 +3923,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf43{    ///<LCD Waveform Register 43.
-        using Addr = Register::Address<0x4004304b,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004304b,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd43Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4026,7 +4006,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf44{    ///<LCD Waveform Register 44.
-        using Addr = Register::Address<0x4004304c,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004304c,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd44Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4109,7 +4089,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf47to44{    ///<LCD Waveform register
-        using Addr = Register::Address<0x4004304c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4004304c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf44{}; 
         ///no description available
@@ -4120,7 +4100,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf47{}; 
     }
     namespace LcdWf45{    ///<LCD Waveform Register 45.
-        using Addr = Register::Address<0x4004304d,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004304d,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd45Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4203,7 +4183,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf46{    ///<LCD Waveform Register 46.
-        using Addr = Register::Address<0x4004304e,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004304e,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd46Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4286,7 +4266,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf47{    ///<LCD Waveform Register 47.
-        using Addr = Register::Address<0x4004304f,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004304f,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd47Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4369,7 +4349,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf48{    ///<LCD Waveform Register 48.
-        using Addr = Register::Address<0x40043050,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043050,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd48Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4452,7 +4432,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf51to48{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043050,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043050,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf48{}; 
         ///no description available
@@ -4463,7 +4443,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf51{}; 
     }
     namespace LcdWf49{    ///<LCD Waveform Register 49.
-        using Addr = Register::Address<0x40043051,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043051,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd49Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4546,7 +4526,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf50{    ///<LCD Waveform Register 50.
-        using Addr = Register::Address<0x40043052,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043052,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd50Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4629,7 +4609,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf51{    ///<LCD Waveform Register 51.
-        using Addr = Register::Address<0x40043053,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043053,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd51Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4712,7 +4692,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf55to52{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043054,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043054,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf52{}; 
         ///no description available
@@ -4723,7 +4703,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf55{}; 
     }
     namespace LcdWf52{    ///<LCD Waveform Register 52.
-        using Addr = Register::Address<0x40043054,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043054,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd52Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4806,7 +4786,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf53{    ///<LCD Waveform Register 53.
-        using Addr = Register::Address<0x40043055,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043055,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd53Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4889,7 +4869,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf54{    ///<LCD Waveform Register 54.
-        using Addr = Register::Address<0x40043056,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043056,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd54Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -4972,7 +4952,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf55{    ///<LCD Waveform Register 55.
-        using Addr = Register::Address<0x40043057,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043057,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd55Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -5055,7 +5035,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf56{    ///<LCD Waveform Register 56.
-        using Addr = Register::Address<0x40043058,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043058,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd56Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -5138,7 +5118,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf59to56{    ///<LCD Waveform register
-        using Addr = Register::Address<0x40043058,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40043058,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf56{}; 
         ///no description available
@@ -5149,7 +5129,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf59{}; 
     }
     namespace LcdWf57{    ///<LCD Waveform Register 57.
-        using Addr = Register::Address<0x40043059,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40043059,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd57Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -5232,7 +5212,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf58{    ///<LCD Waveform Register 58.
-        using Addr = Register::Address<0x4004305a,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004305a,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd58Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -5315,7 +5295,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf59{    ///<LCD Waveform Register 59.
-        using Addr = Register::Address<0x4004305b,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004305b,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd59Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -5398,7 +5378,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf60{    ///<LCD Waveform Register 60.
-        using Addr = Register::Address<0x4004305c,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004305c,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd60Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -5481,7 +5461,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf63to60{    ///<LCD Waveform register
-        using Addr = Register::Address<0x4004305c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4004305c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf60{}; 
         ///no description available
@@ -5492,7 +5472,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf63{}; 
     }
     namespace LcdWf61{    ///<LCD Waveform Register 61.
-        using Addr = Register::Address<0x4004305d,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004305d,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd61Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -5575,7 +5555,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf62{    ///<LCD Waveform Register 62.
-        using Addr = Register::Address<0x4004305e,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004305e,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd62Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -5658,7 +5638,7 @@ namespace Kvasir {
         }
     }
     namespace LcdWf63{    ///<LCD Waveform Register 63.
-        using Addr = Register::Address<0x4004305f,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4004305f,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Bpalcd63Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
@@ -5739,5 +5719,25 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bphlcd63)::Type,Bphlcd63Val::v0> v0{};
             constexpr Register::FieldValue<decltype(bphlcd63)::Type,Bphlcd63Val::v1> v1{};
         }
+    }
+    namespace LcdPenl{    ///<LCD Pin Enable register
+        using Addr = Register::Address<0x40043010,0x00000000,0x00000000,unsigned>;
+        ///LCD Pin Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pen{}; 
+    }
+    namespace LcdPenh{    ///<LCD Pin Enable register
+        using Addr = Register::Address<0x40043014,0x00000000,0x00000000,unsigned>;
+        ///LCD Pin Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pen{}; 
+    }
+    namespace LcdBpenl{    ///<LCD Back Plane Enable register
+        using Addr = Register::Address<0x40043018,0x00000000,0x00000000,unsigned>;
+        ///Back Plane Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bpen{}; 
+    }
+    namespace LcdBpenh{    ///<LCD Back Plane Enable register
+        using Addr = Register::Address<0x4004301c,0x00000000,0x00000000,unsigned>;
+        ///Back Plane Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bpen{}; 
     }
 }

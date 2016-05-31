@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //RSTCU
-    namespace NonerstcuGrsr{    ///<RSTCU_GRSR
-        using Addr = Register::Address<0x40088100,0xfffffff0,0,unsigned>;
+    namespace RstcuRstcuGrsr{    ///<RSTCU_GRSR
+        using Addr = Register::Address<0x40088100,0x00000000,0x00000000,unsigned>;
         ///SYSRSTF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sysrstf{}; 
         ///EXTRSTF
@@ -12,16 +12,20 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wdtrstf{}; 
         ///PORSTF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> porstf{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonerstcuAhbprstr{    ///<RSTCU_AHBPRSTR
-        using Addr = Register::Address<0x40088104,0xffffffee,0,unsigned>;
+    namespace RstcuRstcuAhbprstr{    ///<RSTCU_AHBPRSTR
+        using Addr = Register::Address<0x40088104,0x0000000e,0x00000000,unsigned>;
         ///DMARST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmarst{}; 
         ///CSIFRST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> csifrst{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonerstcuApbprstr0{    ///<RSTCU_APBPRSTR0
-        using Addr = Register::Address<0x40088108,0xfee03ccc,0,unsigned>;
+    namespace RstcuRstcuApbprstr0{    ///<RSTCU_APBPRSTR0
+        using Addr = Register::Address<0x40088108,0x00e03ccc,0x00000000,unsigned>;
         ///I2C0RST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> i2c0rst{}; 
         ///I2C1RST
@@ -50,9 +54,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> perst{}; 
         ///SCIRST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> scirst{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,25),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonerstcuApbprstr1{    ///<RSTCU_APBPRSTR1
-        using Addr = Register::Address<0x4008810c,0xfe3cbcee,0,unsigned>;
+    namespace RstcuRstcuApbprstr1{    ///<RSTCU_APBPRSTR1
+        using Addr = Register::Address<0x4008810c,0x003cbcee,0x00000000,unsigned>;
         ///MCTMRST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mctmrst{}; 
         ///WDTRST
@@ -73,5 +79,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> opa1rst{}; 
         ///ADCRST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> adcrst{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,25),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

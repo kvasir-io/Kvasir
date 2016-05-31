@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //RF233 control module
     namespace RfctrlFecfg{    ///<Front-end control bus configuration
-        using Addr = Register::Address<0x42005400,0xfffff000,0,unsigned>;
+        using Addr = Register::Address<0x42005400,0xfffff000,0x00000000,unsigned>;
         ///Front-end control signal 0 configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> f0cfg{}; 
         ///Front-end control signal 1 configuration

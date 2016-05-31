@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Trans-Impedance Amplifier
     namespace Triamp0C0{    ///<Control Register 0
-        using Addr = Register::Address<0x400f8000,0xffffff3f,0,unsigned char>;
+        using Addr = Register::Address<0x400f8000,0xffffff3f,0x00000000,unsigned char>;
         ///Low-Power Enable
         enum class LpenVal {
             v0=0x00000000,     ///<High-speed mode selected. In this mode, TRIAMP has faster slew rate and unity gain bandwidth performance with higher current consumption.

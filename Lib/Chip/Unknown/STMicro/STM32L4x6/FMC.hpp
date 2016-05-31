@@ -1,10 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Flexible memory controller
-    namespace Nonebcr1{    ///<SRAM/NOR-Flash chip-select control register
-          1
-        using Addr = Register::Address<0x60000000,0xffc70480,0,unsigned>;
+    namespace FmcBcr1{    ///<SRAM/NOR-Flash chip-select control register          1
+        using Addr = Register::Address<0x60000000,0xffc70480,0x00000000,unsigned>;
         ///MBKEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mbken{}; 
         ///MUXEN
@@ -36,9 +35,8 @@ namespace Kvasir {
         ///Write FIFO Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> wfdis{}; 
     }
-    namespace Nonebtr1{    ///<SRAM/NOR-Flash chip-select timing register
-          1
-        using Addr = Register::Address<0x60000004,0xc0000000,0,unsigned>;
+    namespace FmcBtr1{    ///<SRAM/NOR-Flash chip-select timing register          1
+        using Addr = Register::Address<0x60000004,0xc0000000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -54,9 +52,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebcr2{    ///<SRAM/NOR-Flash chip-select control register
-          2
-        using Addr = Register::Address<0x60000008,0xfff70080,0,unsigned>;
+    namespace FmcBcr2{    ///<SRAM/NOR-Flash chip-select control register          2
+        using Addr = Register::Address<0x60000008,0xfff70080,0x00000000,unsigned>;
         ///CBURSTRW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> cburstrw{}; 
         ///ASYNCWAIT
@@ -86,9 +83,8 @@ namespace Kvasir {
         ///MBKEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mbken{}; 
     }
-    namespace Nonebtr2{    ///<SRAM/NOR-Flash chip-select timing register
-          2
-        using Addr = Register::Address<0x6000000c,0xc0000000,0,unsigned>;
+    namespace FmcBtr2{    ///<SRAM/NOR-Flash chip-select timing register          2
+        using Addr = Register::Address<0x6000000c,0xc0000000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -104,9 +100,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebcr3{    ///<SRAM/NOR-Flash chip-select control register
-          3
-        using Addr = Register::Address<0x60000010,0xfff70080,0,unsigned>;
+    namespace FmcBcr3{    ///<SRAM/NOR-Flash chip-select control register          3
+        using Addr = Register::Address<0x60000010,0xfff70080,0x00000000,unsigned>;
         ///CBURSTRW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> cburstrw{}; 
         ///ASYNCWAIT
@@ -136,9 +131,8 @@ namespace Kvasir {
         ///MBKEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mbken{}; 
     }
-    namespace Nonebtr3{    ///<SRAM/NOR-Flash chip-select timing register
-          3
-        using Addr = Register::Address<0x60000014,0xc0000000,0,unsigned>;
+    namespace FmcBtr3{    ///<SRAM/NOR-Flash chip-select timing register          3
+        using Addr = Register::Address<0x60000014,0xc0000000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -154,9 +148,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebcr4{    ///<SRAM/NOR-Flash chip-select control register
-          4
-        using Addr = Register::Address<0x60000018,0xfff70080,0,unsigned>;
+    namespace FmcBcr4{    ///<SRAM/NOR-Flash chip-select control register          4
+        using Addr = Register::Address<0x60000018,0xfff70080,0x00000000,unsigned>;
         ///CBURSTRW
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> cburstrw{}; 
         ///ASYNCWAIT
@@ -186,9 +179,8 @@ namespace Kvasir {
         ///MBKEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mbken{}; 
     }
-    namespace Nonebtr4{    ///<SRAM/NOR-Flash chip-select timing register
-          4
-        using Addr = Register::Address<0x6000001c,0xc0000000,0,unsigned>;
+    namespace FmcBtr4{    ///<SRAM/NOR-Flash chip-select timing register          4
+        using Addr = Register::Address<0x6000001c,0xc0000000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -204,9 +196,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonepcr{    ///<PC Card/NAND Flash control register
-          3
-        using Addr = Register::Address<0x60000080,0xfff00181,0,unsigned>;
+    namespace FmcPcr{    ///<PC Card/NAND Flash control register          3
+        using Addr = Register::Address<0x60000080,0xfff00181,0x00000000,unsigned>;
         ///ECCPS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::ReadWriteAccess,unsigned> eccps{}; 
         ///TAR
@@ -224,11 +215,10 @@ namespace Kvasir {
         ///PWAITEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pwaiten{}; 
     }
-    namespace Nonesr{    ///<FIFO status and interrupt register
-          3
-        using Addr = Register::Address<0x60000084,0xffffff80,0,unsigned>;
+    namespace FmcSr{    ///<FIFO status and interrupt register          3
+        using Addr = Register::Address<0x60000084,0xffffff80,0x00000000,unsigned>;
         ///FEMPT
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> fempt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fempt{}; 
         ///IFEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ifen{}; 
         ///ILEN
@@ -242,9 +232,8 @@ namespace Kvasir {
         ///IRS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> irs{}; 
     }
-    namespace Nonepmem{    ///<Common memory space timing register
-          3
-        using Addr = Register::Address<0x60000088,0x00000000,0,unsigned>;
+    namespace FmcPmem{    ///<Common memory space timing register          3
+        using Addr = Register::Address<0x60000088,0x00000000,0x00000000,unsigned>;
         ///MEMHIZx
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> memhizx{}; 
         ///MEMHOLDx
@@ -254,9 +243,8 @@ namespace Kvasir {
         ///MEMSETx
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> memsetx{}; 
     }
-    namespace Nonepatt{    ///<Attribute memory space timing register
-          3
-        using Addr = Register::Address<0x6000008c,0x00000000,0,unsigned>;
+    namespace FmcPatt{    ///<Attribute memory space timing register          3
+        using Addr = Register::Address<0x6000008c,0x00000000,0x00000000,unsigned>;
         ///ATTHIZx
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> atthizx{}; 
         ///ATTHOLDx
@@ -266,14 +254,13 @@ namespace Kvasir {
         ///ATTSETx
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> attsetx{}; 
     }
-    namespace Noneeccr{    ///<ECC result register 3
-        using Addr = Register::Address<0x60000094,0x00000000,0,unsigned>;
+    namespace FmcEccr{    ///<ECC result register 3
+        using Addr = Register::Address<0x60000094,0x00000000,0x00000000,unsigned>;
         ///ECCx
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> eccx{}; 
     }
-    namespace Nonebwtr1{    ///<SRAM/NOR-Flash write timing registers
-          1
-        using Addr = Register::Address<0x60000104,0xc00f0000,0,unsigned>;
+    namespace FmcBwtr1{    ///<SRAM/NOR-Flash write timing registers          1
+        using Addr = Register::Address<0x60000104,0xc00f0000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -287,9 +274,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebwtr2{    ///<SRAM/NOR-Flash write timing registers
-          2
-        using Addr = Register::Address<0x6000010c,0xc00f0000,0,unsigned>;
+    namespace FmcBwtr2{    ///<SRAM/NOR-Flash write timing registers          2
+        using Addr = Register::Address<0x6000010c,0xc00f0000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -303,9 +289,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebwtr3{    ///<SRAM/NOR-Flash write timing registers
-          3
-        using Addr = Register::Address<0x60000114,0xc00f0000,0,unsigned>;
+    namespace FmcBwtr3{    ///<SRAM/NOR-Flash write timing registers          3
+        using Addr = Register::Address<0x60000114,0xc00f0000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT
@@ -319,9 +304,8 @@ namespace Kvasir {
         ///ADDSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> addset{}; 
     }
-    namespace Nonebwtr4{    ///<SRAM/NOR-Flash write timing registers
-          4
-        using Addr = Register::Address<0x6000011c,0xc00f0000,0,unsigned>;
+    namespace FmcBwtr4{    ///<SRAM/NOR-Flash write timing registers          4
+        using Addr = Register::Address<0x6000011c,0xc00f0000,0x00000000,unsigned>;
         ///ACCMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> accmod{}; 
         ///DATLAT

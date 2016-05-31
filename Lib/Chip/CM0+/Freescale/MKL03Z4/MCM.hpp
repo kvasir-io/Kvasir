@@ -1,19 +1,19 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Core Platform Miscellaneous Control Module
     namespace McmPlasc{    ///<Crossbar Switch (AXBS) Slave Configuration
-        using Addr = Register::Address<0xf0003008,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0xf0003008,0xffffff00,0x00000000,unsigned>;
         ///Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> asc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> asc{}; 
     }
     namespace McmPlamc{    ///<Crossbar Switch (AXBS) Master Configuration
-        using Addr = Register::Address<0xf000300a,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0xf000300a,0xffffff00,0x00000000,unsigned>;
         ///Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> amc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> amc{}; 
     }
     namespace McmPlacr{    ///<Platform Control Register
-        using Addr = Register::Address<0xf000300c,0xfffe3fff,0,unsigned>;
+        using Addr = Register::Address<0xf000300c,0xfffe3fff,0x00000000,unsigned>;
         ///Enable Flash Data Speculation
         enum class EfdsVal {
             v0=0x00000000,     ///<Disable flash data speculation.
@@ -46,7 +46,7 @@ namespace Kvasir {
         }
     }
     namespace McmCpo{    ///<Compute Operation Control Register
-        using Addr = Register::Address<0xf0003040,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0xf0003040,0xfffffff8,0x00000000,unsigned>;
         ///Compute Operation Request
         enum class CporeqVal {
             v0=0x00000000,     ///<Request is cleared.
@@ -62,7 +62,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Compute operation entry has not completed or compute operation exit has completed.
             v1=0x00000001,     ///<Compute operation entry has completed or compute operation exit has not completed.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CpoackVal> cpoack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CpoackVal> cpoack{}; 
         namespace CpoackValC{
             constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v1> v1{};

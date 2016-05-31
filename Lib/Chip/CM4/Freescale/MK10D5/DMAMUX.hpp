@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //DMA channel multiplexor
-    namespace Dmamux0Chcfg0{    ///<Channel Configuration Register
-        using Addr = Register::Address<0x40021000,0xffffff00,0,unsigned char>;
+    namespace DmamuxChcfg0{    ///<Channel Configuration Register
+        using Addr = Register::Address<0x40021000,0xffffff00,0x00000000,unsigned char>;
         ///DMA Channel Source (slot)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
         ///DMA Channel Trigger Enable
@@ -27,8 +27,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
         }
     }
-    namespace Dmamux0Chcfg1{    ///<Channel Configuration Register
-        using Addr = Register::Address<0x40021001,0xffffff00,0,unsigned char>;
+    namespace DmamuxChcfg1{    ///<Channel Configuration Register
+        using Addr = Register::Address<0x40021001,0xffffff00,0x00000000,unsigned char>;
         ///DMA Channel Source (slot)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
         ///DMA Channel Trigger Enable
@@ -52,8 +52,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
         }
     }
-    namespace Dmamux0Chcfg2{    ///<Channel Configuration Register
-        using Addr = Register::Address<0x40021002,0xffffff00,0,unsigned char>;
+    namespace DmamuxChcfg2{    ///<Channel Configuration Register
+        using Addr = Register::Address<0x40021002,0xffffff00,0x00000000,unsigned char>;
         ///DMA Channel Source (slot)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
         ///DMA Channel Trigger Enable
@@ -77,8 +77,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
         }
     }
-    namespace Dmamux0Chcfg3{    ///<Channel Configuration Register
-        using Addr = Register::Address<0x40021003,0xffffff00,0,unsigned char>;
+    namespace DmamuxChcfg3{    ///<Channel Configuration Register
+        using Addr = Register::Address<0x40021003,0xffffff00,0x00000000,unsigned char>;
         ///DMA Channel Source (slot)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
         ///DMA Channel Trigger Enable

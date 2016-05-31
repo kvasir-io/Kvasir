@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Watchdog timer
     namespace WdogCs1{    ///<Watchdog Control and Status Register 1
-        using Addr = Register::Address<0x40052000,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40052000,0xffffff00,0x00000000,unsigned char>;
         ///Stop Enable
         enum class StopVal {
             v0=0x00000000,     ///<Watchdog disabled in chip stop mode.
@@ -80,7 +80,7 @@ namespace Kvasir {
         }
     }
     namespace WdogCs2{    ///<Watchdog Control and Status Register 2
-        using Addr = Register::Address<0x40052001,0xffffff2c,0,unsigned char>;
+        using Addr = Register::Address<0x40052001,0xffffff2c,0x00000000,unsigned char>;
         ///Watchdog Clock
         enum class ClkVal {
             v00=0x00000000,     ///<Bus clock.
@@ -127,47 +127,47 @@ namespace Kvasir {
         }
     }
     namespace WdogCnt{    ///<Watchdog Counter Register.
-        using Addr = Register::Address<0x40052002,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40052002,0xffff0000,0x00000000,unsigned>;
         ///Watchdog Counter Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
     }
     namespace WdogCnth{    ///<Watchdog Counter Register: High
-        using Addr = Register::Address<0x40052002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40052002,0xffffff00,0x00000000,unsigned char>;
         ///High byte of the Watchdog Counter
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cnthigh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cnthigh{}; 
     }
     namespace WdogCntl{    ///<Watchdog Counter Register: Low
-        using Addr = Register::Address<0x40052003,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40052003,0xffffff00,0x00000000,unsigned char>;
         ///Low byte of the Watchdog Counter
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cntlow{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cntlow{}; 
     }
     namespace WdogToval{    ///<Watchdog Timeout Value Register.
-        using Addr = Register::Address<0x40052004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40052004,0xffff0000,0x00000000,unsigned>;
         ///Watchdog Timeout Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> toval{}; 
     }
     namespace WdogTovalh{    ///<Watchdog Timeout Value Register: High
-        using Addr = Register::Address<0x40052004,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40052004,0xffffff00,0x00000000,unsigned char>;
         ///High byte of the timeout value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tovalhigh{}; 
     }
     namespace WdogTovall{    ///<Watchdog Timeout Value Register: Low
-        using Addr = Register::Address<0x40052005,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40052005,0xffffff00,0x00000000,unsigned char>;
         ///Low byte of the timeout value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tovallow{}; 
     }
     namespace WdogWin{    ///<Watchdog Window Register.
-        using Addr = Register::Address<0x40052006,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40052006,0xffff0000,0x00000000,unsigned>;
         ///Watchdog Window Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> win{}; 
     }
     namespace WdogWinh{    ///<Watchdog Window Register: High
-        using Addr = Register::Address<0x40052006,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40052006,0xffffff00,0x00000000,unsigned char>;
         ///High byte of Watchdog Window
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> winhigh{}; 
     }
     namespace WdogWinl{    ///<Watchdog Window Register: Low
-        using Addr = Register::Address<0x40052007,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40052007,0xffffff00,0x00000000,unsigned char>;
         ///Low byte of Watchdog Window
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> winlow{}; 
     }

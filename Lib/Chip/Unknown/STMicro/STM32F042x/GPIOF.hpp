@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General-purpose I/Os
-    namespace Nonemoder{    ///<GPIO port mode register
-        using Addr = Register::Address<0x48001400,0x00000000,0,unsigned>;
+    namespace GpiofModer{    ///<GPIO port mode register
+        using Addr = Register::Address<0x48001400,0x00000000,0x00000000,unsigned>;
         ///Port x configuration bits (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> moder15{}; 
         ///Port x configuration bits (y =               0..15)
@@ -37,8 +37,8 @@ namespace Kvasir {
         ///Port x configuration bits (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> moder0{}; 
     }
-    namespace Noneotyper{    ///<GPIO port output type register
-        using Addr = Register::Address<0x48001404,0xffff0000,0,unsigned>;
+    namespace GpiofOtyper{    ///<GPIO port output type register
+        using Addr = Register::Address<0x48001404,0xffff0000,0x00000000,unsigned>;
         ///Port x configuration bit               15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ot15{}; 
         ///Port x configuration bit               14
@@ -72,8 +72,8 @@ namespace Kvasir {
         ///Port x configuration bit 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ot0{}; 
     }
-    namespace Noneospeedr{    ///<GPIO port output speed           register
-        using Addr = Register::Address<0x48001408,0x00000000,0,unsigned>;
+    namespace GpiofOspeedr{    ///<GPIO port output speed           register
+        using Addr = Register::Address<0x48001408,0x00000000,0x00000000,unsigned>;
         ///Port x configuration bits (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> ospeedr15{}; 
         ///Port x configuration bits (y =               0..15)
@@ -107,8 +107,8 @@ namespace Kvasir {
         ///Port x configuration bits (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ospeedr0{}; 
     }
-    namespace Nonepupdr{    ///<GPIO port pull-up/pull-down           register
-        using Addr = Register::Address<0x4800140c,0x00000000,0,unsigned>;
+    namespace GpiofPupdr{    ///<GPIO port pull-up/pull-down           register
+        using Addr = Register::Address<0x4800140c,0x00000000,0x00000000,unsigned>;
         ///Port x configuration bits (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> pupdr15{}; 
         ///Port x configuration bits (y =               0..15)
@@ -142,8 +142,8 @@ namespace Kvasir {
         ///Port x configuration bits (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> pupdr0{}; 
     }
-    namespace Noneidr{    ///<GPIO port input data register
-        using Addr = Register::Address<0x48001410,0xffff0000,0,unsigned>;
+    namespace GpiofIdr{    ///<GPIO port input data register
+        using Addr = Register::Address<0x48001410,0xffff0000,0x00000000,unsigned>;
         ///Port input data (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> idr15{}; 
         ///Port input data (y =               0..15)
@@ -177,8 +177,8 @@ namespace Kvasir {
         ///Port input data (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> idr0{}; 
     }
-    namespace Noneodr{    ///<GPIO port output data register
-        using Addr = Register::Address<0x48001414,0xffff0000,0,unsigned>;
+    namespace GpiofOdr{    ///<GPIO port output data register
+        using Addr = Register::Address<0x48001414,0xffff0000,0x00000000,unsigned>;
         ///Port output data (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> odr15{}; 
         ///Port output data (y =               0..15)
@@ -212,8 +212,8 @@ namespace Kvasir {
         ///Port output data (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> odr0{}; 
     }
-    namespace Nonebsrr{    ///<GPIO port bit set/reset           register
-        using Addr = Register::Address<0x48001418,0x00000000,0,unsigned>;
+    namespace GpiofBsrr{    ///<GPIO port bit set/reset           register
+        using Addr = Register::Address<0x48001418,0x00000000,0x00000000,unsigned>;
         ///Port x reset bit y (y =               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> br15{}; 
         ///Port x reset bit y (y =               0..15)
@@ -279,8 +279,8 @@ namespace Kvasir {
         ///Port x set bit y (y=               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bs0{}; 
     }
-    namespace Nonelckr{    ///<GPIO port configuration lock           register
-        using Addr = Register::Address<0x4800141c,0xfffe0000,0,unsigned>;
+    namespace GpiofLckr{    ///<GPIO port configuration lock           register
+        using Addr = Register::Address<0x4800141c,0xfffe0000,0x00000000,unsigned>;
         ///Port x lock bit y
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> lckk{}; 
         ///Port x lock bit y (y=               0..15)
@@ -316,8 +316,8 @@ namespace Kvasir {
         ///Port x lock bit y (y=               0..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lck0{}; 
     }
-    namespace Noneafrl{    ///<GPIO alternate function low           register
-        using Addr = Register::Address<0x48001420,0x00000000,0,unsigned>;
+    namespace GpiofAfrl{    ///<GPIO alternate function low           register
+        using Addr = Register::Address<0x48001420,0x00000000,0x00000000,unsigned>;
         ///Alternate function selection for port x               bit y (y = 0..7)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> afrl7{}; 
         ///Alternate function selection for port x               bit y (y = 0..7)
@@ -335,8 +335,8 @@ namespace Kvasir {
         ///Alternate function selection for port x               bit y (y = 0..7)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> afrl0{}; 
     }
-    namespace Noneafrh{    ///<GPIO alternate function high           register
-        using Addr = Register::Address<0x48001424,0x00000000,0,unsigned>;
+    namespace GpiofAfrh{    ///<GPIO alternate function high           register
+        using Addr = Register::Address<0x48001424,0x00000000,0x00000000,unsigned>;
         ///Alternate function selection for port x               bit y (y = 8..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> afrh15{}; 
         ///Alternate function selection for port x               bit y (y = 8..15)
@@ -354,8 +354,8 @@ namespace Kvasir {
         ///Alternate function selection for port x               bit y (y = 8..15)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> afrh8{}; 
     }
-    namespace Nonebrr{    ///<Port bit reset register
-        using Addr = Register::Address<0x48001428,0xffff0000,0,unsigned>;
+    namespace GpiofBrr{    ///<Port bit reset register
+        using Addr = Register::Address<0x48001428,0xffff0000,0x00000000,unsigned>;
         ///Port x Reset bit y
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> br0{}; 
         ///Port x Reset bit y

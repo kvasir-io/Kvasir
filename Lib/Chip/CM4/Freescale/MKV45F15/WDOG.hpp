@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Generation 2008 Watchdog Timer
     namespace WdogStctrlh{    ///<Watchdog Status and Control Register High
-        using Addr = Register::Address<0x40052000,0xffff8300,0,unsigned>;
+        using Addr = Register::Address<0x40052000,0xffff8300,0x00000000,unsigned>;
         ///no description available
         enum class WdogenVal {
             v0=0x00000000,     ///<WDOG is disabled.
@@ -122,57 +122,57 @@ namespace Kvasir {
         }
     }
     namespace WdogStctrll{    ///<Watchdog Status and Control Register Low
-        using Addr = Register::Address<0x40052002,0xffff7fff,0,unsigned>;
+        using Addr = Register::Address<0x40052002,0xffff7fff,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> intflg{}; 
     }
     namespace WdogTovalh{    ///<Watchdog Time-out Value Register High
-        using Addr = Register::Address<0x40052004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40052004,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tovalhigh{}; 
     }
     namespace WdogTovall{    ///<Watchdog Time-out Value Register Low
-        using Addr = Register::Address<0x40052006,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40052006,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tovallow{}; 
     }
     namespace WdogWinh{    ///<Watchdog Window Register High
-        using Addr = Register::Address<0x40052008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40052008,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> winhigh{}; 
     }
     namespace WdogWinl{    ///<Watchdog Window Register Low
-        using Addr = Register::Address<0x4005200a,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005200a,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> winlow{}; 
     }
     namespace WdogRefresh{    ///<Watchdog Refresh register
-        using Addr = Register::Address<0x4005200c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005200c,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wdogrefresh{}; 
     }
     namespace WdogUnlock{    ///<Watchdog Unlock register
-        using Addr = Register::Address<0x4005200e,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005200e,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wdogunlock{}; 
     }
     namespace WdogTmrouth{    ///<Watchdog Timer Output Register High
-        using Addr = Register::Address<0x40052010,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40052010,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timerouthigh{}; 
     }
     namespace WdogTmroutl{    ///<Watchdog Timer Output Register Low
-        using Addr = Register::Address<0x40052012,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40052012,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timeroutlow{}; 
     }
     namespace WdogRstcnt{    ///<Watchdog Reset Count register
-        using Addr = Register::Address<0x40052014,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40052014,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rstcnt{}; 
     }
     namespace WdogPresc{    ///<Watchdog Prescaler register
-        using Addr = Register::Address<0x40052016,0xfffff8ff,0,unsigned>;
+        using Addr = Register::Address<0x40052016,0xfffff8ff,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> prescval{}; 
     }

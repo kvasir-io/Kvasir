@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Ethernet MAC-NET Core
     namespace EnetEir{    ///<Interrupt Event Register
-        using Addr = Register::Address<0x400c0004,0x80007fff,0,unsigned>;
+        using Addr = Register::Address<0x400c0004,0x80007fff,0x00000000,unsigned>;
         ///Timestamp timer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tsTimer{}; 
         ///Transmit timestamp available
@@ -38,7 +38,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> babr{}; 
     }
     namespace EnetEimr{    ///<Interrupt Mask Register
-        using Addr = Register::Address<0x400c0008,0x80007fff,0,unsigned>;
+        using Addr = Register::Address<0x400c0008,0x80007fff,0x00000000,unsigned>;
         ///TS_TIMER interrupt mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tsTimer{}; 
         ///TS_AVAIL interrupt mask
@@ -113,17 +113,17 @@ namespace Kvasir {
         }
     }
     namespace EnetRdar{    ///<Receive Descriptor Active Register
-        using Addr = Register::Address<0x400c0010,0xfeffffff,0,unsigned>;
+        using Addr = Register::Address<0x400c0010,0xfeffffff,0x00000000,unsigned>;
         ///Receive descriptor active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> rdar{}; 
     }
     namespace EnetTdar{    ///<Transmit Descriptor Active Register
-        using Addr = Register::Address<0x400c0014,0xfeffffff,0,unsigned>;
+        using Addr = Register::Address<0x400c0014,0xfeffffff,0x00000000,unsigned>;
         ///Transmit descriptor active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> tdar{}; 
     }
     namespace EnetEcr{    ///<Ethernet Control Register
-        using Addr = Register::Address<0x400c0024,0xffffff20,0,unsigned>;
+        using Addr = Register::Address<0x400c0024,0xffffff20,0x00000000,unsigned>;
         ///Ethernet MAC reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reset{}; 
         ///Ethernet enable
@@ -180,7 +180,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> stopen{}; 
     }
     namespace EnetMmfr{    ///<MII Management Frame Register
-        using Addr = Register::Address<0x400c0040,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0040,0x00000000,0x00000000,unsigned>;
         ///Management frame data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
         ///Turn around
@@ -207,7 +207,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> st{}; 
     }
     namespace EnetMscr{    ///<MII Speed Control Register
-        using Addr = Register::Address<0x400c0044,0xfffff801,0,unsigned>;
+        using Addr = Register::Address<0x400c0044,0xfffff801,0x00000000,unsigned>;
         ///MII speed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,1),Register::ReadWriteAccess,unsigned> miiSpeed{}; 
         ///Disable preamble
@@ -224,16 +224,16 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> holdtime{}; 
     }
     namespace EnetMibc{    ///<MIB Control Register
-        using Addr = Register::Address<0x400c0064,0x1fffffff,0,unsigned>;
+        using Addr = Register::Address<0x400c0064,0x1fffffff,0x00000000,unsigned>;
         ///MIB clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> mibClear{}; 
         ///MIB idle
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> mibIdle{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> mibIdle{}; 
         ///Disable MIB logic
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> mibDis{}; 
     }
     namespace EnetRcr{    ///<Receive Control Register
-        using Addr = Register::Address<0x400c0084,0x00000cc0,0,unsigned>;
+        using Addr = Register::Address<0x400c0084,0x00000cc0,0x00000000,unsigned>;
         ///Internal loopback
         enum class LoopVal {
             v0=0x00000000,     ///<Loopback disabled.
@@ -349,10 +349,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nlc)::Type,NlcVal::v1> v1{};
         }
         ///Graceful receive stopped
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> grs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> grs{}; 
     }
     namespace EnetTcr{    ///<Transmit Control Register
-        using Addr = Register::Address<0x400c00c4,0xfffffc02,0,unsigned>;
+        using Addr = Register::Address<0x400c00c4,0xfffffc02,0x00000000,unsigned>;
         ///Graceful transmit stop
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gts{}; 
         ///Full duplex enable
@@ -368,7 +368,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tfcPause)::Type,TfcpauseVal::v1> v1{};
         }
         ///Receive frame control pause
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rfcPause{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfcPause{}; 
         ///Source MAC address select on transmit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> addsel{}; 
         ///Set MAC address on transmit
@@ -393,46 +393,46 @@ namespace Kvasir {
         }
     }
     namespace EnetPalr{    ///<Physical Address Lower Register
-        using Addr = Register::Address<0x400c00e4,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c00e4,0x00000000,0x00000000,unsigned>;
         ///Pause address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> paddr1{}; 
     }
     namespace EnetPaur{    ///<Physical Address Upper Register
-        using Addr = Register::Address<0x400c00e8,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c00e8,0x00000000,0x00000000,unsigned>;
         ///Type field in PAUSE frames.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> type{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> type{}; 
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> paddr2{}; 
     }
     namespace EnetOpd{    ///<Opcode/Pause Duration Register
-        using Addr = Register::Address<0x400c00ec,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c00ec,0x00000000,0x00000000,unsigned>;
         ///Pause duration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pauseDur{}; 
         ///Opcode field in PAUSE frames
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> opcode{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> opcode{}; 
     }
     namespace EnetIaur{    ///<Descriptor Individual Upper Address Register
-        using Addr = Register::Address<0x400c0118,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0118,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> iaddr1{}; 
     }
     namespace EnetIalr{    ///<Descriptor Individual Lower Address Register
-        using Addr = Register::Address<0x400c011c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c011c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> iaddr2{}; 
     }
     namespace EnetGaur{    ///<Descriptor Group Upper Address Register
-        using Addr = Register::Address<0x400c0120,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0120,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gaddr1{}; 
     }
     namespace EnetGalr{    ///<Descriptor Group Lower Address Register
-        using Addr = Register::Address<0x400c0124,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0124,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gaddr2{}; 
     }
     namespace EnetTfwr{    ///<Transmit FIFO Watermark Register
-        using Addr = Register::Address<0x400c0144,0xfffffec0,0,unsigned>;
+        using Addr = Register::Address<0x400c0144,0xfffffec0,0x00000000,unsigned>;
         ///Transmit FIFO write
         enum class TfwrVal {
             v000000=0x00000000,     ///<64 bytes written
@@ -461,67 +461,67 @@ namespace Kvasir {
         }
     }
     namespace EnetRdsr{    ///<Receive Descriptor Ring Start Register
-        using Addr = Register::Address<0x400c0180,0x00000007,0,unsigned>;
+        using Addr = Register::Address<0x400c0180,0x00000007,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> rDesStart{}; 
     }
     namespace EnetTdsr{    ///<Transmit Buffer Descriptor Ring Start Register
-        using Addr = Register::Address<0x400c0184,0x00000007,0,unsigned>;
+        using Addr = Register::Address<0x400c0184,0x00000007,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> xDesStart{}; 
     }
     namespace EnetMrbr{    ///<Maximum Receive Buffer Size Register
-        using Addr = Register::Address<0x400c0188,0xffffc00f,0,unsigned>;
+        using Addr = Register::Address<0x400c0188,0xffffc00f,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,4),Register::ReadWriteAccess,unsigned> rBufSize{}; 
     }
     namespace EnetRsfl{    ///<Receive FIFO Section Full Threshold
-        using Addr = Register::Address<0x400c0190,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x400c0190,0xffffff00,0x00000000,unsigned>;
         ///Value of receive FIFO section full threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxSectionFull{}; 
     }
     namespace EnetRsem{    ///<Receive FIFO Section Empty Threshold
-        using Addr = Register::Address<0x400c0194,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x400c0194,0xffffff00,0x00000000,unsigned>;
         ///Value of the receive FIFO section empty threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxSectionEmpty{}; 
     }
     namespace EnetRaem{    ///<Receive FIFO Almost Empty Threshold
-        using Addr = Register::Address<0x400c0198,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x400c0198,0xffffff00,0x00000000,unsigned>;
         ///Value of the receive FIFO almost empty threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxAlmostEmpty{}; 
     }
     namespace EnetRafl{    ///<Receive FIFO Almost Full Threshold
-        using Addr = Register::Address<0x400c019c,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x400c019c,0xffffff00,0x00000000,unsigned>;
         ///Value of the receive FIFO almost full threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxAlmostFull{}; 
     }
     namespace EnetTsem{    ///<Transmit FIFO Section Empty Threshold
-        using Addr = Register::Address<0x400c01a0,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x400c01a0,0xffffff00,0x00000000,unsigned>;
         ///Value of the transmit FIFO section empty threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txSectionEmpty{}; 
     }
     namespace EnetTaem{    ///<Transmit FIFO Almost Empty Threshold
-        using Addr = Register::Address<0x400c01a4,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x400c01a4,0xffffff00,0x00000000,unsigned>;
         ///Value of transmit FIFO almost empty threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txAlmostEmpty{}; 
     }
     namespace EnetTafl{    ///<Transmit FIFO Almost Full Threshold
-        using Addr = Register::Address<0x400c01a8,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x400c01a8,0xffffff00,0x00000000,unsigned>;
         ///Value of the transmit FIFO almost full threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txAlmostFull{}; 
     }
     namespace EnetTipg{    ///<Transmit Inter-Packet Gap
-        using Addr = Register::Address<0x400c01ac,0xffffffe0,0,unsigned>;
+        using Addr = Register::Address<0x400c01ac,0xffffffe0,0x00000000,unsigned>;
         ///Transmit inter-packet gap
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> ipg{}; 
     }
     namespace EnetFtrl{    ///<Frame Truncation Length
-        using Addr = Register::Address<0x400c01b0,0xffffc000,0,unsigned>;
+        using Addr = Register::Address<0x400c01b0,0xffffc000,0x00000000,unsigned>;
         ///Frame truncation length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> truncFl{}; 
     }
     namespace EnetTacc{    ///<Transmit Accelerator Function Configuration
-        using Addr = Register::Address<0x400c01c0,0xffffffe6,0,unsigned>;
+        using Addr = Register::Address<0x400c01c0,0xffffffe6,0x00000000,unsigned>;
         ///TX FIFO shift-16
         enum class Shift16Val {
             v0=0x00000000,     ///<Disabled.
@@ -554,7 +554,7 @@ namespace Kvasir {
         }
     }
     namespace EnetRacc{    ///<Receive Accelerator Function Configuration
-        using Addr = Register::Address<0x400c01c4,0xffffff38,0,unsigned>;
+        using Addr = Register::Address<0x400c01c4,0xffffff38,0x00000000,unsigned>;
         ///Enable padding removal for short IP frames.
         enum class PadremVal {
             v0=0x00000000,     ///<Padding not removed.
@@ -607,269 +607,269 @@ namespace Kvasir {
         }
     }
     namespace EnetRmonTDrop{    ///<Count of frames not counted correctly (RMON_T_DROP). NOTE: Counter not implemented (read 0 always) as not applicable.
-        using Addr = Register::Address<0x400c0200,0xffffffff,0,unsigned>;
+        using Addr = Register::Address<0x400c0200,0xffffffff,0x00000000,unsigned>;
     }
     namespace EnetRmonTPackets{    ///<RMON Tx packet count (RMON_T_PACKETS)
-        using Addr = Register::Address<0x400c0204,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0204,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTBcPkt{    ///<RMON Tx Broadcast Packets (RMON_T_BC_PKT)
-        using Addr = Register::Address<0x400c0208,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0208,0xffff0000,0x00000000,unsigned>;
         ///Broadcast packets
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTMcPkt{    ///<RMON Tx Multicast Packets (RMON_T_MC_PKT)
-        using Addr = Register::Address<0x400c020c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c020c,0xffff0000,0x00000000,unsigned>;
         ///Multicast packets
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTCrcAlign{    ///<RMON Tx Packets w CRC/Align error (RMON_T_CRC_ALIGN)
-        using Addr = Register::Address<0x400c0210,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0210,0xffff0000,0x00000000,unsigned>;
         ///Packets with CRC/align error
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTUndersize{    ///<RMON Tx Packets < 64 bytes, good CRC (RMON_T_UNDERSIZE)
-        using Addr = Register::Address<0x400c0214,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0214,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTOversize{    ///<RMON Tx Packets > MAX_FL bytes, good CRC (RMON_T_OVERSIZE)
-        using Addr = Register::Address<0x400c0218,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0218,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTFrag{    ///<RMON Tx Packets < 64 bytes, bad CRC (RMON_T_FRAG)
-        using Addr = Register::Address<0x400c021c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c021c,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTJab{    ///<RMON Tx Packets > MAX_FL bytes, bad CRC (RMON_T_JAB)
-        using Addr = Register::Address<0x400c0220,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0220,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTCol{    ///<RMON Tx collision count (RMON_T_COL)
-        using Addr = Register::Address<0x400c0224,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0224,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTP64{    ///<RMON Tx 64 byte packets (RMON_T_P64)
-        using Addr = Register::Address<0x400c0228,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0228,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTP65to127{    ///<RMON Tx 65 to 127 byte packets (RMON_T_P65TO127)
-        using Addr = Register::Address<0x400c022c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c022c,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTP128to255{    ///<RMON Tx 128 to 255 byte packets (RMON_T_P128TO255)
-        using Addr = Register::Address<0x400c0230,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0230,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTP256to511{    ///<RMON Tx 256 to 511 byte packets (RMON_T_P256TO511)
-        using Addr = Register::Address<0x400c0234,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0234,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTP512to1023{    ///<RMON Tx 512 to 1023 byte packets (RMON_T_P512TO1023)
-        using Addr = Register::Address<0x400c0238,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0238,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTP1024to2047{    ///<RMON Tx 1024 to 2047 byte packets (RMON_T_P1024TO2047)
-        using Addr = Register::Address<0x400c023c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c023c,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTPGte2048{    ///<RMON Tx packets w > 2048 bytes (RMON_T_P_GTE2048)
-        using Addr = Register::Address<0x400c0240,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0240,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpkts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txpkts{}; 
     }
     namespace EnetRmonTOctets{    ///<RMON Tx Octets (RMON_T_OCTETS)
-        using Addr = Register::Address<0x400c0244,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0244,0x00000000,0x00000000,unsigned>;
         ///Octet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txocts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txocts{}; 
     }
     namespace EnetIeeeTDrop{    ///<Count of frames not counted correctly (IEEE_T_DROP). NOTE: Counter not implemented (read 0 always) as not applicable.
-        using Addr = Register::Address<0x400c0248,0xffffffff,0,unsigned>;
+        using Addr = Register::Address<0x400c0248,0xffffffff,0x00000000,unsigned>;
     }
     namespace EnetIeeeTFrameOk{    ///<Frames Transmitted OK (IEEE_T_FRAME_OK)
-        using Addr = Register::Address<0x400c024c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c024c,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeT1col{    ///<Frames Transmitted with Single Collision (IEEE_T_1COL)
-        using Addr = Register::Address<0x400c0250,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0250,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeTMcol{    ///<Frames Transmitted with Multiple Collisions (IEEE_T_MCOL)
-        using Addr = Register::Address<0x400c0254,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0254,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeTDef{    ///<Frames Transmitted after Deferral Delay (IEEE_T_DEF)
-        using Addr = Register::Address<0x400c0258,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0258,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeTLcol{    ///<Frames Transmitted with Late Collision (IEEE_T_LCOL)
-        using Addr = Register::Address<0x400c025c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c025c,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeTExcol{    ///<Frames Transmitted with Excessive Collisions (IEEE_T_EXCOL)
-        using Addr = Register::Address<0x400c0260,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0260,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeTMacerr{    ///<Frames Transmitted with Tx FIFO Underrun (IEEE_T_MACERR)
-        using Addr = Register::Address<0x400c0264,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0264,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeTCserr{    ///<Frames Transmitted with Carrier Sense Error (IEEE_T_CSERR)
-        using Addr = Register::Address<0x400c0268,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0268,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeTSqe{    ///<Frames Transmitted with SQE Error (IEEE_T_SQE). NOTE: Counter not implemented (read 0 always) as no SQE information is available.
-        using Addr = Register::Address<0x400c026c,0xffffffff,0,unsigned>;
+        using Addr = Register::Address<0x400c026c,0xffffffff,0x00000000,unsigned>;
     }
     namespace EnetIeeeTFdxfc{    ///<Flow Control Pause frames transmitted (IEEE_T_FDXFC)
-        using Addr = Register::Address<0x400c0270,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0270,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeTOctetsOk{    ///<Octet count for Frames Transmitted w/o Error (IEEE_T_OCTETS_OK). NOTE: Counts total octets (includes header and FCS fields).
-        using Addr = Register::Address<0x400c0274,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0274,0x00000000,0x00000000,unsigned>;
         ///Octet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRPackets{    ///<RMON Rx packet count (RMON_R_PACKETS)
-        using Addr = Register::Address<0x400c0284,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0284,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRBcPkt{    ///<RMON Rx Broadcast Packets (RMON_R_BC_PKT)
-        using Addr = Register::Address<0x400c0288,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0288,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRMcPkt{    ///<RMON Rx Multicast Packets (RMON_R_MC_PKT)
-        using Addr = Register::Address<0x400c028c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c028c,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRCrcAlign{    ///<RMON Rx Packets w CRC/Align error (RMON_R_CRC_ALIGN)
-        using Addr = Register::Address<0x400c0290,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0290,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRUndersize{    ///<RMON Rx Packets < 64 bytes, good CRC (RMON_R_UNDERSIZE)
-        using Addr = Register::Address<0x400c0294,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0294,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonROversize{    ///<RMON Rx Packets > MAX_FL bytes, good CRC (RMON_R_OVERSIZE)
-        using Addr = Register::Address<0x400c0298,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c0298,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRFrag{    ///<RMON Rx Packets < 64 bytes, bad CRC (RMON_R_FRAG)
-        using Addr = Register::Address<0x400c029c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c029c,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRJab{    ///<RMON Rx Packets > MAX_FL bytes, bad CRC (RMON_R_JAB)
-        using Addr = Register::Address<0x400c02a0,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02a0,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRResvd0{    ///<Reserved (RMON_R_RESVD_0)
-        using Addr = Register::Address<0x400c02a4,0xffffffff,0,unsigned>;
+        using Addr = Register::Address<0x400c02a4,0xffffffff,0x00000000,unsigned>;
     }
     namespace EnetRmonRP64{    ///<RMON Rx 64 byte packets (RMON_R_P64)
-        using Addr = Register::Address<0x400c02a8,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02a8,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRP65to127{    ///<RMON Rx 65 to 127 byte packets (RMON_R_P65TO127)
-        using Addr = Register::Address<0x400c02ac,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02ac,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRP128to255{    ///<RMON Rx 128 to 255 byte packets (RMON_R_P128TO255)
-        using Addr = Register::Address<0x400c02b0,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02b0,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRP256to511{    ///<RMON Rx 256 to 511 byte packets (RMON_R_P256TO511)
-        using Addr = Register::Address<0x400c02b4,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02b4,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRP512to1023{    ///<RMON Rx 512 to 1023 byte packets (RMON_R_P512TO1023)
-        using Addr = Register::Address<0x400c02b8,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02b8,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRP1024to2047{    ///<RMON Rx 1024 to 2047 byte packets (RMON_R_P1024TO2047)
-        using Addr = Register::Address<0x400c02bc,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02bc,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonRPGte2048{    ///<RMON Rx packets w > 2048 bytes (RMON_R_P_GTE2048)
-        using Addr = Register::Address<0x400c02c0,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02c0,0xffff0000,0x00000000,unsigned>;
         ///Packet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetRmonROctets{    ///<RMON Rx Octets (RMON_R_OCTETS)
-        using Addr = Register::Address<0x400c02c4,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c02c4,0x00000000,0x00000000,unsigned>;
         ///Octet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeRDrop{    ///<Count of frames not counted correctly (IEEE_R_DROP). NOTE: Counter increments if a frame with valid/missing SFD character is detected and has been dropped. None of the other counters increments if this counter increments.
-        using Addr = Register::Address<0x400c02c8,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02c8,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeRFrameOk{    ///<Frames Received OK (IEEE_R_FRAME_OK)
-        using Addr = Register::Address<0x400c02cc,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02cc,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeRCrc{    ///<Frames Received with CRC Error (IEEE_R_CRC)
-        using Addr = Register::Address<0x400c02d0,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02d0,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeRAlign{    ///<Frames Received with Alignment Error (IEEE_R_ALIGN)
-        using Addr = Register::Address<0x400c02d4,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02d4,0xffff0000,0x00000000,unsigned>;
         ///Frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeRMacerr{    ///<Receive Fifo Overflow count (IEEE_R_MACERR)
-        using Addr = Register::Address<0x400c02d8,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02d8,0xffff0000,0x00000000,unsigned>;
         ///Count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeRFdxfc{    ///<Flow Control Pause frames received (IEEE_R_FDXFC)
-        using Addr = Register::Address<0x400c02dc,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c02dc,0xffff0000,0x00000000,unsigned>;
         ///Pause frame count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetIeeeROctetsOk{    ///<Octet count for Frames Rcvd w/o Error (IEEE_R_OCTETS_OK). Counts total octets (includes header and FCS fields).
-        using Addr = Register::Address<0x400c02e0,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c02e0,0x00000000,0x00000000,unsigned>;
         ///Octet count
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> count{}; 
     }
     namespace EnetAtcr{    ///<Timer Control Register
-        using Addr = Register::Address<0x400c0400,0xffffd562,0,unsigned>;
+        using Addr = Register::Address<0x400c0400,0xffffd562,0x00000000,unsigned>;
         ///Enable timer
         enum class EnVal {
             v0=0x00000000,     ///<The timer stops at the current value.
@@ -944,39 +944,39 @@ namespace Kvasir {
         }
     }
     namespace EnetAtvr{    ///<Timer Value Register
-        using Addr = Register::Address<0x400c0404,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0404,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> atime{}; 
     }
     namespace EnetAtoff{    ///<Timer Offset Register
-        using Addr = Register::Address<0x400c0408,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0408,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> offset{}; 
     }
     namespace EnetAtper{    ///<Timer Period Register
-        using Addr = Register::Address<0x400c040c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c040c,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> period{}; 
     }
     namespace EnetAtcor{    ///<Timer Correction Register
-        using Addr = Register::Address<0x400c0410,0x80000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0410,0x80000000,0x00000000,unsigned>;
         ///Correction counter wrap-around value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,0),Register::ReadWriteAccess,unsigned> cor{}; 
     }
     namespace EnetAtinc{    ///<Time-Stamping Clock Period Register
-        using Addr = Register::Address<0x400c0414,0xffff8080,0,unsigned>;
+        using Addr = Register::Address<0x400c0414,0xffff8080,0x00000000,unsigned>;
         ///Clock period of the timestamping clock (ts_clk) in nanoseconds
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> inc{}; 
         ///Correction increment value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> incCorr{}; 
     }
     namespace EnetAtstmp{    ///<Timestamp of Last Transmitted Frame
-        using Addr = Register::Address<0x400c0418,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0418,0x00000000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> timestamp{}; 
     }
     namespace EnetTgsr{    ///<Timer Global Status Register
-        using Addr = Register::Address<0x400c0604,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x400c0604,0xfffffff0,0x00000000,unsigned>;
         ///Copy of Timer Flag for channel 0
         enum class Tf0Val {
             v0=0x00000000,     ///<Timer Flag for Channel 0 is clear
@@ -1019,7 +1019,7 @@ namespace Kvasir {
         }
     }
     namespace EnetTcsr0{    ///<Timer Control Status Register
-        using Addr = Register::Address<0x400c0608,0xffffff02,0,unsigned>;
+        using Addr = Register::Address<0x400c0608,0xffffff02,0x00000000,unsigned>;
         ///Timer DMA Request Enable
         enum class TdreVal {
             v0=0x00000000,     ///<DMA request is disabled
@@ -1082,7 +1082,7 @@ namespace Kvasir {
         }
     }
     namespace EnetTcsr1{    ///<Timer Control Status Register
-        using Addr = Register::Address<0x400c0610,0xffffff02,0,unsigned>;
+        using Addr = Register::Address<0x400c0610,0xffffff02,0x00000000,unsigned>;
         ///Timer DMA Request Enable
         enum class TdreVal {
             v0=0x00000000,     ///<DMA request is disabled
@@ -1145,7 +1145,7 @@ namespace Kvasir {
         }
     }
     namespace EnetTcsr2{    ///<Timer Control Status Register
-        using Addr = Register::Address<0x400c0618,0xffffff02,0,unsigned>;
+        using Addr = Register::Address<0x400c0618,0xffffff02,0x00000000,unsigned>;
         ///Timer DMA Request Enable
         enum class TdreVal {
             v0=0x00000000,     ///<DMA request is disabled
@@ -1208,7 +1208,7 @@ namespace Kvasir {
         }
     }
     namespace EnetTcsr3{    ///<Timer Control Status Register
-        using Addr = Register::Address<0x400c0620,0xffffff02,0,unsigned>;
+        using Addr = Register::Address<0x400c0620,0xffffff02,0x00000000,unsigned>;
         ///Timer DMA Request Enable
         enum class TdreVal {
             v0=0x00000000,     ///<DMA request is disabled
@@ -1271,22 +1271,22 @@ namespace Kvasir {
         }
     }
     namespace EnetTccr0{    ///<Timer Compare Capture Register
-        using Addr = Register::Address<0x400c060c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c060c,0x00000000,0x00000000,unsigned>;
         ///Timer Capture Compare
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tcc{}; 
     }
     namespace EnetTccr1{    ///<Timer Compare Capture Register
-        using Addr = Register::Address<0x400c0614,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0614,0x00000000,0x00000000,unsigned>;
         ///Timer Capture Compare
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tcc{}; 
     }
     namespace EnetTccr2{    ///<Timer Compare Capture Register
-        using Addr = Register::Address<0x400c061c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c061c,0x00000000,0x00000000,unsigned>;
         ///Timer Capture Compare
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tcc{}; 
     }
     namespace EnetTccr3{    ///<Timer Compare Capture Register
-        using Addr = Register::Address<0x400c0624,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c0624,0x00000000,0x00000000,unsigned>;
         ///Timer Capture Compare
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tcc{}; 
     }

@@ -1,18 +1,18 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Random Number Generator
     namespace RngVer{    ///<RNGB Version ID Register
-        using Addr = Register::Address<0x400a0000,0x0fff0000,0,unsigned>;
+        using Addr = Register::Address<0x400a0000,0x0fff0000,0x00000000,unsigned>;
         ///Minor version number.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> minor{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> minor{}; 
         ///Major version number.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> major{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> major{}; 
         ///Random number generator type
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> type{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> type{}; 
     }
     namespace RngCmd{    ///<RNGB Command Register
-        using Addr = Register::Address<0x400a0004,0xffffff8c,0,unsigned>;
+        using Addr = Register::Address<0x400a0004,0xffffff8c,0x00000000,unsigned>;
         ///Self test.
         enum class StVal {
             v0=0x00000000,     ///<Not in self test mode.
@@ -38,7 +38,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Do not clear interrupt.
             v1=0x00000001,     ///<Clear interrupt.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CiVal> ci{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CiVal> ci{}; 
         namespace CiValC{
             constexpr Register::FieldValue<decltype(ci)::Type,CiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ci)::Type,CiVal::v1> v1{};
@@ -48,7 +48,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Do not clear errors and interrupt.
             v1=0x00000001,     ///<Clear errors and interrupt.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,CeVal> ce{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CeVal> ce{}; 
         namespace CeValC{
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v1> v1{};
@@ -58,14 +58,14 @@ namespace Kvasir {
             v0=0x00000000,     ///<Do not perform a software reset.
             v1=0x00000001,     ///<Software reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SrVal> sr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SrVal> sr{}; 
         namespace SrValC{
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::v1> v1{};
         }
     }
     namespace RngCr{    ///<RNGB Control Register
-        using Addr = Register::Address<0x400a0008,0xffffff8c,0,unsigned>;
+        using Addr = Register::Address<0x400a0008,0xffffff8c,0x00000000,unsigned>;
         ///FIFO underflow response mode.
         enum class FufmodVal {
             v00=0x00000000,     ///<Return all zeros and set RNG_ESR[FUFE]
@@ -112,13 +112,13 @@ namespace Kvasir {
         }
     }
     namespace RngSr{    ///<RNGB Status Register
-        using Addr = Register::Address<0x400a000c,0x001e0081,0,unsigned>;
+        using Addr = Register::Address<0x400a000c,0x001e0081,0x00000000,unsigned>;
         ///Busy.
         enum class BusyVal {
             v0=0x00000000,     ///<Not busy.
             v1=0x00000001,     ///<Busy.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,BusyVal> busy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BusyVal> busy{}; 
         namespace BusyValC{
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v1> v1{};
@@ -128,7 +128,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<RNGB is not in sleep mode.
             v1=0x00000001,     ///<RNGB is in sleep mode.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SlpVal> slp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SlpVal> slp{}; 
         namespace SlpValC{
             constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v1> v1{};
@@ -138,7 +138,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<RNGB does not need to be reseeded.
             v1=0x00000001,     ///<RNGB needs to be reseeded.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RsVal> rs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RsVal> rs{}; 
         namespace RsValC{
             constexpr Register::FieldValue<decltype(rs)::Type,RsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rs)::Type,RsVal::v1> v1{};
@@ -148,7 +148,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Self test not complete.
             v1=0x00000001,     ///<Completed a self test since the last reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,StdnVal> stdn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StdnVal> stdn{}; 
         namespace StdnValC{
             constexpr Register::FieldValue<decltype(stdn)::Type,StdnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stdn)::Type,StdnVal::v1> v1{};
@@ -158,40 +158,40 @@ namespace Kvasir {
             v0=0x00000000,     ///<Seed generation process not complete.
             v1=0x00000001,     ///<Completed seed generation since the last reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SdnVal> sdn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SdnVal> sdn{}; 
         namespace SdnValC{
             constexpr Register::FieldValue<decltype(sdn)::Type,SdnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sdn)::Type,SdnVal::v1> v1{};
         }
         ///New seed done.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> nsdn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nsdn{}; 
         ///FIFO level.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> fifoLvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fifoLvl{}; 
         ///FIFO size.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> fifoSize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fifoSize{}; 
         ///Error.
         enum class ErrVal {
             v0=0x00000000,     ///<No error.
             v1=0x00000001,     ///<Error detected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,ErrVal> err{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ErrVal> err{}; 
         namespace ErrValC{
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::v1> v1{};
         }
         ///Self Test Pass Fail.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::ReadWriteAccess,unsigned> stPf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> stPf{}; 
         ///Statistics test pass fail.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> statpf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> statpf{}; 
     }
     namespace RngEsr{    ///<RNGB Error Status Register
-        using Addr = Register::Address<0x400a0010,0xffffffe0,0,unsigned>;
+        using Addr = Register::Address<0x400a0010,0xffffffe0,0x00000000,unsigned>;
         ///Linear feedback shift register (LFSR) error.
         enum class LfeVal {
             v0=0x00000000,     ///<LFSRs are working properly.
             v1=0x00000001,     ///<LFSR failure has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LfeVal> lfe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LfeVal> lfe{}; 
         namespace LfeValC{
             constexpr Register::FieldValue<decltype(lfe)::Type,LfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lfe)::Type,LfeVal::v1> v1{};
@@ -201,7 +201,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<RNG oscillator is working properly.
             v1=0x00000001,     ///<Problem detected with the RNG oscillator.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,OsceVal> osce{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,OsceVal> osce{}; 
         namespace OsceValC{
             constexpr Register::FieldValue<decltype(osce)::Type,OsceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(osce)::Type,OsceVal::v1> v1{};
@@ -211,7 +211,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<RNGB has not failed self test.
             v1=0x00000001,     ///<RNGB has failed self test.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SteVal> ste{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SteVal> ste{}; 
         namespace SteValC{
             constexpr Register::FieldValue<decltype(ste)::Type,SteVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ste)::Type,SteVal::v1> v1{};
@@ -221,7 +221,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<RNGB has not failed the statistical tests.
             v1=0x00000001,     ///<RNGB has failed the statistical tests during initialization.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,SateVal> sate{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SateVal> sate{}; 
         namespace SateValC{
             constexpr Register::FieldValue<decltype(sate)::Type,SateVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sate)::Type,SateVal::v1> v1{};
@@ -231,15 +231,15 @@ namespace Kvasir {
             v0=0x00000000,     ///<FIFO underflow has not occurred.
             v1=0x00000001,     ///<FIFO underflow has occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,FufeVal> fufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FufeVal> fufe{}; 
         namespace FufeValC{
             constexpr Register::FieldValue<decltype(fufe)::Type,FufeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fufe)::Type,FufeVal::v1> v1{};
         }
     }
     namespace RngOut{    ///<RNGB Output FIFO
-        using Addr = Register::Address<0x400a0014,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400a0014,0x00000000,0x00000000,unsigned>;
         ///Random Output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> randout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> randout{}; 
     }
 }

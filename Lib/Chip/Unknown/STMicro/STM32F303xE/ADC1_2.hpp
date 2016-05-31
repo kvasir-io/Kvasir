@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog-to-Digital Converter
-    namespace Nonecsr{    ///<ADC Common status register
-        using Addr = Register::Address<0x50000300,0xf800f800,0,unsigned>;
+    namespace Adc12Csr{    ///<ADC Common status register
+        using Addr = Register::Address<0x50000300,0xf800f800,0x00000000,unsigned>;
         ///ADDRDY_MST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> addrdyMst{}; 
         ///EOSMP_MST
@@ -49,8 +49,8 @@ namespace Kvasir {
         ///Injected Context Queue Overflow flag of               the slave ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> jqovfSlv{}; 
     }
-    namespace Noneccr{    ///<ADC common control register
-        using Addr = Register::Address<0x50000308,0xfe3c10e0,0,unsigned>;
+    namespace Adc12Ccr{    ///<ADC common control register
+        using Addr = Register::Address<0x50000308,0xfe3c10e0,0x00000000,unsigned>;
         ///Multi ADC mode selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> mult{}; 
         ///Delay between 2 sampling               phases
@@ -68,8 +68,8 @@ namespace Kvasir {
         ///VBAT enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> vbaten{}; 
     }
-    namespace Nonecdr{    ///<ADC common regular data register for dual           and triple modes
-        using Addr = Register::Address<0x5000030c,0x00000000,0,unsigned>;
+    namespace Adc12Cdr{    ///<ADC common regular data register for dual           and triple modes
+        using Addr = Register::Address<0x5000030c,0x00000000,0x00000000,unsigned>;
         ///Regular data of the slave               ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> rdataSlv{}; 
         ///Regular data of the master               ADC

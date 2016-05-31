@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Controller area network
-    namespace NonecanMcr{    ///<CAN_MCR
-        using Addr = Register::Address<0x40006400,0xfffe7f00,0,unsigned>;
+    namespace CanCanMcr{    ///<CAN_MCR
+        using Addr = Register::Address<0x40006400,0xfffe7f00,0x00000000,unsigned>;
         ///DBF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dbf{}; 
         ///RESET
@@ -25,16 +25,16 @@ namespace Kvasir {
         ///INRQ
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inrq{}; 
     }
-    namespace NonecanMsr{    ///<CAN_MSR
-        using Addr = Register::Address<0x40006404,0xfffff0e0,0,unsigned>;
+    namespace CanCanMsr{    ///<CAN_MSR
+        using Addr = Register::Address<0x40006404,0xfffff0e0,0x00000000,unsigned>;
         ///RX
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> rx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rx{}; 
         ///SAMP
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> samp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> samp{}; 
         ///RXM
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxm{}; 
         ///TXM
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txm{}; 
         ///SLAKI
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> slaki{}; 
         ///WKUI
@@ -42,32 +42,26 @@ namespace Kvasir {
         ///ERRI
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> erri{}; 
         ///SLAK
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> slak{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> slak{}; 
         ///INAK
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inak{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> inak{}; 
     }
-    namespace NonecanTsr{    ///<CAN_TSR
-        using Addr = Register::Address<0x40006408,0x00707070,0,unsigned>;
-        ///Lowest priority flag for mailbox
-              2
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> low2{}; 
-        ///Lowest priority flag for mailbox
-              1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> low1{}; 
-        ///Lowest priority flag for mailbox
-              0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> low0{}; 
-        ///Lowest priority flag for mailbox
-              2
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> tme2{}; 
-        ///Lowest priority flag for mailbox
-              1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> tme1{}; 
-        ///Lowest priority flag for mailbox
-              0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> tme0{}; 
+    namespace CanCanTsr{    ///<CAN_TSR
+        using Addr = Register::Address<0x40006408,0x00707070,0x00000000,unsigned>;
+        ///Lowest priority flag for mailbox              2
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> low2{}; 
+        ///Lowest priority flag for mailbox              1
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> low1{}; 
+        ///Lowest priority flag for mailbox              0
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> low0{}; 
+        ///Lowest priority flag for mailbox              2
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tme2{}; 
+        ///Lowest priority flag for mailbox              1
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tme1{}; 
+        ///Lowest priority flag for mailbox              0
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tme0{}; 
         ///CODE
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> code{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> code{}; 
         ///ABRQ2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> abrq2{}; 
         ///TERR2
@@ -99,8 +93,8 @@ namespace Kvasir {
         ///RQCP0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rqcp0{}; 
     }
-    namespace NonecanRf0r{    ///<CAN_RF0R
-        using Addr = Register::Address<0x4000640c,0xffffffc4,0,unsigned>;
+    namespace CanCanRf0r{    ///<CAN_RF0R
+        using Addr = Register::Address<0x4000640c,0xffffffc4,0x00000000,unsigned>;
         ///RFOM0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rfom0{}; 
         ///FOVR0
@@ -108,10 +102,10 @@ namespace Kvasir {
         ///FULL0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> full0{}; 
         ///FMP0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> fmp0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fmp0{}; 
     }
-    namespace NonecanRf1r{    ///<CAN_RF1R
-        using Addr = Register::Address<0x40006410,0xffffffc4,0,unsigned>;
+    namespace CanCanRf1r{    ///<CAN_RF1R
+        using Addr = Register::Address<0x40006410,0xffffffc4,0x00000000,unsigned>;
         ///RFOM1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rfom1{}; 
         ///FOVR1
@@ -119,10 +113,10 @@ namespace Kvasir {
         ///FULL1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> full1{}; 
         ///FMP1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> fmp1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fmp1{}; 
     }
-    namespace NonecanIer{    ///<CAN_IER
-        using Addr = Register::Address<0x40006414,0xfffc7080,0,unsigned>;
+    namespace CanCanIer{    ///<CAN_IER
+        using Addr = Register::Address<0x40006414,0xfffc7080,0x00000000,unsigned>;
         ///SLKIE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> slkie{}; 
         ///WKUIE
@@ -152,23 +146,23 @@ namespace Kvasir {
         ///TMEIE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tmeie{}; 
     }
-    namespace NonecanEsr{    ///<CAN_ESR
-        using Addr = Register::Address<0x40006418,0x0000ff88,0,unsigned>;
+    namespace CanCanEsr{    ///<CAN_ESR
+        using Addr = Register::Address<0x40006418,0x0000ff88,0x00000000,unsigned>;
         ///REC
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> rec{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rec{}; 
         ///TEC
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> tec{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tec{}; 
         ///LEC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> lec{}; 
         ///BOFF
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> boff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> boff{}; 
         ///EPVF
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> epvf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> epvf{}; 
         ///EWGF
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ewgf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ewgf{}; 
     }
-    namespace NonecanBtr{    ///<CAN_BTR
-        using Addr = Register::Address<0x4000641c,0x3c80fc00,0,unsigned>;
+    namespace CanCanBtr{    ///<CAN_BTR
+        using Addr = Register::Address<0x4000641c,0x3c80fc00,0x00000000,unsigned>;
         ///SILM
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> silm{}; 
         ///LBKM
@@ -182,8 +176,8 @@ namespace Kvasir {
         ///BRP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> brp{}; 
     }
-    namespace NonecanTi0r{    ///<CAN_TI0R
-        using Addr = Register::Address<0x40006580,0x00000000,0,unsigned>;
+    namespace CanCanTi0r{    ///<CAN_TI0R
+        using Addr = Register::Address<0x40006580,0x00000000,0x00000000,unsigned>;
         ///STID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> stid{}; 
         ///EXID
@@ -195,8 +189,8 @@ namespace Kvasir {
         ///TXRQ
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrq{}; 
     }
-    namespace NonecanTdt0r{    ///<CAN_TDT0R
-        using Addr = Register::Address<0x40006584,0x0000fef0,0,unsigned>;
+    namespace CanCanTdt0r{    ///<CAN_TDT0R
+        using Addr = Register::Address<0x40006584,0x0000fef0,0x00000000,unsigned>;
         ///TIME
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> time{}; 
         ///TGT
@@ -204,8 +198,8 @@ namespace Kvasir {
         ///DLC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc{}; 
     }
-    namespace NonecanTdl0r{    ///<CAN_TDL0R
-        using Addr = Register::Address<0x40006588,0x00000000,0,unsigned>;
+    namespace CanCanTdl0r{    ///<CAN_TDL0R
+        using Addr = Register::Address<0x40006588,0x00000000,0x00000000,unsigned>;
         ///DATA3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data3{}; 
         ///DATA2
@@ -215,8 +209,8 @@ namespace Kvasir {
         ///DATA0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
     }
-    namespace NonecanTdh0r{    ///<CAN_TDH0R
-        using Addr = Register::Address<0x4000658c,0x00000000,0,unsigned>;
+    namespace CanCanTdh0r{    ///<CAN_TDH0R
+        using Addr = Register::Address<0x4000658c,0x00000000,0x00000000,unsigned>;
         ///DATA7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data7{}; 
         ///DATA6
@@ -226,8 +220,8 @@ namespace Kvasir {
         ///DATA4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
     }
-    namespace NonecanTi1r{    ///<CAN_TI1R
-        using Addr = Register::Address<0x40006590,0x00000000,0,unsigned>;
+    namespace CanCanTi1r{    ///<CAN_TI1R
+        using Addr = Register::Address<0x40006590,0x00000000,0x00000000,unsigned>;
         ///STID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> stid{}; 
         ///EXID
@@ -239,8 +233,8 @@ namespace Kvasir {
         ///TXRQ
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrq{}; 
     }
-    namespace NonecanTdt1r{    ///<CAN_TDT1R
-        using Addr = Register::Address<0x40006594,0x0000fef0,0,unsigned>;
+    namespace CanCanTdt1r{    ///<CAN_TDT1R
+        using Addr = Register::Address<0x40006594,0x0000fef0,0x00000000,unsigned>;
         ///TIME
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> time{}; 
         ///TGT
@@ -248,8 +242,8 @@ namespace Kvasir {
         ///DLC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc{}; 
     }
-    namespace NonecanTdl1r{    ///<CAN_TDL1R
-        using Addr = Register::Address<0x40006598,0x00000000,0,unsigned>;
+    namespace CanCanTdl1r{    ///<CAN_TDL1R
+        using Addr = Register::Address<0x40006598,0x00000000,0x00000000,unsigned>;
         ///DATA3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data3{}; 
         ///DATA2
@@ -259,8 +253,8 @@ namespace Kvasir {
         ///DATA0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
     }
-    namespace NonecanTdh1r{    ///<CAN_TDH1R
-        using Addr = Register::Address<0x4000659c,0x00000000,0,unsigned>;
+    namespace CanCanTdh1r{    ///<CAN_TDH1R
+        using Addr = Register::Address<0x4000659c,0x00000000,0x00000000,unsigned>;
         ///DATA7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data7{}; 
         ///DATA6
@@ -270,8 +264,8 @@ namespace Kvasir {
         ///DATA4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
     }
-    namespace NonecanTi2r{    ///<CAN_TI2R
-        using Addr = Register::Address<0x400065a0,0x00000000,0,unsigned>;
+    namespace CanCanTi2r{    ///<CAN_TI2R
+        using Addr = Register::Address<0x400065a0,0x00000000,0x00000000,unsigned>;
         ///STID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> stid{}; 
         ///EXID
@@ -283,8 +277,8 @@ namespace Kvasir {
         ///TXRQ
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrq{}; 
     }
-    namespace NonecanTdt2r{    ///<CAN_TDT2R
-        using Addr = Register::Address<0x400065a4,0x0000fef0,0,unsigned>;
+    namespace CanCanTdt2r{    ///<CAN_TDT2R
+        using Addr = Register::Address<0x400065a4,0x0000fef0,0x00000000,unsigned>;
         ///TIME
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> time{}; 
         ///TGT
@@ -292,8 +286,8 @@ namespace Kvasir {
         ///DLC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc{}; 
     }
-    namespace NonecanTdl2r{    ///<CAN_TDL2R
-        using Addr = Register::Address<0x400065a8,0x00000000,0,unsigned>;
+    namespace CanCanTdl2r{    ///<CAN_TDL2R
+        using Addr = Register::Address<0x400065a8,0x00000000,0x00000000,unsigned>;
         ///DATA3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data3{}; 
         ///DATA2
@@ -303,8 +297,8 @@ namespace Kvasir {
         ///DATA0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
     }
-    namespace NonecanTdh2r{    ///<CAN_TDH2R
-        using Addr = Register::Address<0x400065ac,0x00000000,0,unsigned>;
+    namespace CanCanTdh2r{    ///<CAN_TDH2R
+        using Addr = Register::Address<0x400065ac,0x00000000,0x00000000,unsigned>;
         ///DATA7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data7{}; 
         ///DATA6
@@ -314,8 +308,8 @@ namespace Kvasir {
         ///DATA4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
     }
-    namespace NonecanRi0r{    ///<CAN_RI0R
-        using Addr = Register::Address<0x400065b0,0x00000001,0,unsigned>;
+    namespace CanCanRi0r{    ///<CAN_RI0R
+        using Addr = Register::Address<0x400065b0,0x00000001,0x00000000,unsigned>;
         ///STID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> stid{}; 
         ///EXID
@@ -325,8 +319,8 @@ namespace Kvasir {
         ///RTR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rtr{}; 
     }
-    namespace NonecanRdt0r{    ///<CAN_RDT0R
-        using Addr = Register::Address<0x400065b4,0x000000f0,0,unsigned>;
+    namespace CanCanRdt0r{    ///<CAN_RDT0R
+        using Addr = Register::Address<0x400065b4,0x000000f0,0x00000000,unsigned>;
         ///TIME
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> time{}; 
         ///FMI
@@ -334,8 +328,8 @@ namespace Kvasir {
         ///DLC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc{}; 
     }
-    namespace NonecanRdl0r{    ///<CAN_RDL0R
-        using Addr = Register::Address<0x400065b8,0x00000000,0,unsigned>;
+    namespace CanCanRdl0r{    ///<CAN_RDL0R
+        using Addr = Register::Address<0x400065b8,0x00000000,0x00000000,unsigned>;
         ///DATA3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data3{}; 
         ///DATA2
@@ -345,8 +339,8 @@ namespace Kvasir {
         ///DATA0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
     }
-    namespace NonecanRdh0r{    ///<CAN_RDH0R
-        using Addr = Register::Address<0x400065bc,0x00000000,0,unsigned>;
+    namespace CanCanRdh0r{    ///<CAN_RDH0R
+        using Addr = Register::Address<0x400065bc,0x00000000,0x00000000,unsigned>;
         ///DATA7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data7{}; 
         ///DATA6
@@ -356,8 +350,8 @@ namespace Kvasir {
         ///DATA4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
     }
-    namespace NonecanRi1r{    ///<CAN_RI1R
-        using Addr = Register::Address<0x400065c0,0x00000001,0,unsigned>;
+    namespace CanCanRi1r{    ///<CAN_RI1R
+        using Addr = Register::Address<0x400065c0,0x00000001,0x00000000,unsigned>;
         ///STID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> stid{}; 
         ///EXID
@@ -367,8 +361,8 @@ namespace Kvasir {
         ///RTR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rtr{}; 
     }
-    namespace NonecanRdt1r{    ///<CAN_RDT1R
-        using Addr = Register::Address<0x400065c4,0x000000f0,0,unsigned>;
+    namespace CanCanRdt1r{    ///<CAN_RDT1R
+        using Addr = Register::Address<0x400065c4,0x000000f0,0x00000000,unsigned>;
         ///TIME
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> time{}; 
         ///FMI
@@ -376,8 +370,8 @@ namespace Kvasir {
         ///DLC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc{}; 
     }
-    namespace NonecanRdl1r{    ///<CAN_RDL1R
-        using Addr = Register::Address<0x400065c8,0x00000000,0,unsigned>;
+    namespace CanCanRdl1r{    ///<CAN_RDL1R
+        using Addr = Register::Address<0x400065c8,0x00000000,0x00000000,unsigned>;
         ///DATA3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data3{}; 
         ///DATA2
@@ -387,8 +381,8 @@ namespace Kvasir {
         ///DATA0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
     }
-    namespace NonecanRdh1r{    ///<CAN_RDH1R
-        using Addr = Register::Address<0x400065cc,0x00000000,0,unsigned>;
+    namespace CanCanRdh1r{    ///<CAN_RDH1R
+        using Addr = Register::Address<0x400065cc,0x00000000,0x00000000,unsigned>;
         ///DATA7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data7{}; 
         ///DATA6
@@ -398,13 +392,13 @@ namespace Kvasir {
         ///DATA4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
     }
-    namespace NonecanFmr{    ///<CAN_FMR
-        using Addr = Register::Address<0x40006600,0xfffffffe,0,unsigned>;
+    namespace CanCanFmr{    ///<CAN_FMR
+        using Addr = Register::Address<0x40006600,0xfffffffe,0x00000000,unsigned>;
         ///FINIT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> finit{}; 
     }
-    namespace NonecanFm1r{    ///<CAN_FM1R
-        using Addr = Register::Address<0x40006604,0xffffc000,0,unsigned>;
+    namespace CanCanFm1r{    ///<CAN_FM1R
+        using Addr = Register::Address<0x40006604,0xffffc000,0x00000000,unsigned>;
         ///Filter mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fbm0{}; 
         ///Filter mode
@@ -434,8 +428,8 @@ namespace Kvasir {
         ///Filter mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> fbm13{}; 
     }
-    namespace NonecanFs1r{    ///<CAN_FS1R
-        using Addr = Register::Address<0x4000660c,0xffffc000,0,unsigned>;
+    namespace CanCanFs1r{    ///<CAN_FS1R
+        using Addr = Register::Address<0x4000660c,0xffffc000,0x00000000,unsigned>;
         ///Filter scale configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fsc0{}; 
         ///Filter scale configuration
@@ -465,53 +459,39 @@ namespace Kvasir {
         ///Filter scale configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> fsc13{}; 
     }
-    namespace NonecanFfa1r{    ///<CAN_FFA1R
-        using Addr = Register::Address<0x40006614,0xffffc000,0,unsigned>;
-        ///Filter FIFO assignment for filter
-              0
+    namespace CanCanFfa1r{    ///<CAN_FFA1R
+        using Addr = Register::Address<0x40006614,0xffffc000,0x00000000,unsigned>;
+        ///Filter FIFO assignment for filter              0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ffa0{}; 
-        ///Filter FIFO assignment for filter
-              1
+        ///Filter FIFO assignment for filter              1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ffa1{}; 
-        ///Filter FIFO assignment for filter
-              2
+        ///Filter FIFO assignment for filter              2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ffa2{}; 
-        ///Filter FIFO assignment for filter
-              3
+        ///Filter FIFO assignment for filter              3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ffa3{}; 
-        ///Filter FIFO assignment for filter
-              4
+        ///Filter FIFO assignment for filter              4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ffa4{}; 
-        ///Filter FIFO assignment for filter
-              5
+        ///Filter FIFO assignment for filter              5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ffa5{}; 
-        ///Filter FIFO assignment for filter
-              6
+        ///Filter FIFO assignment for filter              6
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ffa6{}; 
-        ///Filter FIFO assignment for filter
-              7
+        ///Filter FIFO assignment for filter              7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ffa7{}; 
-        ///Filter FIFO assignment for filter
-              8
+        ///Filter FIFO assignment for filter              8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ffa8{}; 
-        ///Filter FIFO assignment for filter
-              9
+        ///Filter FIFO assignment for filter              9
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ffa9{}; 
-        ///Filter FIFO assignment for filter
-              10
+        ///Filter FIFO assignment for filter              10
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ffa10{}; 
-        ///Filter FIFO assignment for filter
-              11
+        ///Filter FIFO assignment for filter              11
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ffa11{}; 
-        ///Filter FIFO assignment for filter
-              12
+        ///Filter FIFO assignment for filter              12
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ffa12{}; 
-        ///Filter FIFO assignment for filter
-              13
+        ///Filter FIFO assignment for filter              13
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ffa13{}; 
     }
-    namespace NonecanFa1r{    ///<CAN_FA1R
-        using Addr = Register::Address<0x4000661c,0xffffc000,0,unsigned>;
+    namespace CanCanFa1r{    ///<CAN_FA1R
+        using Addr = Register::Address<0x4000661c,0xffffc000,0x00000000,unsigned>;
         ///Filter active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fact0{}; 
         ///Filter active
@@ -541,8 +521,8 @@ namespace Kvasir {
         ///Filter active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> fact13{}; 
     }
-    namespace Nonef0r1{    ///<Filter bank 0 register 1
-        using Addr = Register::Address<0x40006640,0x00000000,0,unsigned>;
+    namespace CanF0r1{    ///<Filter bank 0 register 1
+        using Addr = Register::Address<0x40006640,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -608,8 +588,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef0r2{    ///<Filter bank 0 register 2
-        using Addr = Register::Address<0x40006644,0x00000000,0,unsigned>;
+    namespace CanF0r2{    ///<Filter bank 0 register 2
+        using Addr = Register::Address<0x40006644,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -675,8 +655,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef1r1{    ///<Filter bank 1 register 1
-        using Addr = Register::Address<0x40006648,0x00000000,0,unsigned>;
+    namespace CanF1r1{    ///<Filter bank 1 register 1
+        using Addr = Register::Address<0x40006648,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -742,8 +722,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef1r2{    ///<Filter bank 1 register 2
-        using Addr = Register::Address<0x4000664c,0x00000000,0,unsigned>;
+    namespace CanF1r2{    ///<Filter bank 1 register 2
+        using Addr = Register::Address<0x4000664c,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -809,8 +789,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef2r1{    ///<Filter bank 2 register 1
-        using Addr = Register::Address<0x40006650,0x00000000,0,unsigned>;
+    namespace CanF2r1{    ///<Filter bank 2 register 1
+        using Addr = Register::Address<0x40006650,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -876,8 +856,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef2r2{    ///<Filter bank 2 register 2
-        using Addr = Register::Address<0x40006654,0x00000000,0,unsigned>;
+    namespace CanF2r2{    ///<Filter bank 2 register 2
+        using Addr = Register::Address<0x40006654,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -943,8 +923,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef3r1{    ///<Filter bank 3 register 1
-        using Addr = Register::Address<0x40006658,0x00000000,0,unsigned>;
+    namespace CanF3r1{    ///<Filter bank 3 register 1
+        using Addr = Register::Address<0x40006658,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1010,8 +990,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef3r2{    ///<Filter bank 3 register 2
-        using Addr = Register::Address<0x4000665c,0x00000000,0,unsigned>;
+    namespace CanF3r2{    ///<Filter bank 3 register 2
+        using Addr = Register::Address<0x4000665c,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1077,8 +1057,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef4r1{    ///<Filter bank 4 register 1
-        using Addr = Register::Address<0x40006660,0x00000000,0,unsigned>;
+    namespace CanF4r1{    ///<Filter bank 4 register 1
+        using Addr = Register::Address<0x40006660,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1144,8 +1124,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef4r2{    ///<Filter bank 4 register 2
-        using Addr = Register::Address<0x40006664,0x00000000,0,unsigned>;
+    namespace CanF4r2{    ///<Filter bank 4 register 2
+        using Addr = Register::Address<0x40006664,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1211,8 +1191,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef5r1{    ///<Filter bank 5 register 1
-        using Addr = Register::Address<0x40006668,0x00000000,0,unsigned>;
+    namespace CanF5r1{    ///<Filter bank 5 register 1
+        using Addr = Register::Address<0x40006668,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1278,8 +1258,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef5r2{    ///<Filter bank 5 register 2
-        using Addr = Register::Address<0x4000666c,0x00000000,0,unsigned>;
+    namespace CanF5r2{    ///<Filter bank 5 register 2
+        using Addr = Register::Address<0x4000666c,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1345,8 +1325,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef6r1{    ///<Filter bank 6 register 1
-        using Addr = Register::Address<0x40006670,0x00000000,0,unsigned>;
+    namespace CanF6r1{    ///<Filter bank 6 register 1
+        using Addr = Register::Address<0x40006670,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1412,8 +1392,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef6r2{    ///<Filter bank 6 register 2
-        using Addr = Register::Address<0x40006674,0x00000000,0,unsigned>;
+    namespace CanF6r2{    ///<Filter bank 6 register 2
+        using Addr = Register::Address<0x40006674,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1479,8 +1459,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef7r1{    ///<Filter bank 7 register 1
-        using Addr = Register::Address<0x40006678,0x00000000,0,unsigned>;
+    namespace CanF7r1{    ///<Filter bank 7 register 1
+        using Addr = Register::Address<0x40006678,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1546,8 +1526,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef7r2{    ///<Filter bank 7 register 2
-        using Addr = Register::Address<0x4000667c,0x00000000,0,unsigned>;
+    namespace CanF7r2{    ///<Filter bank 7 register 2
+        using Addr = Register::Address<0x4000667c,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1613,8 +1593,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef8r1{    ///<Filter bank 8 register 1
-        using Addr = Register::Address<0x40006680,0x00000000,0,unsigned>;
+    namespace CanF8r1{    ///<Filter bank 8 register 1
+        using Addr = Register::Address<0x40006680,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1680,8 +1660,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef8r2{    ///<Filter bank 8 register 2
-        using Addr = Register::Address<0x40006684,0x00000000,0,unsigned>;
+    namespace CanF8r2{    ///<Filter bank 8 register 2
+        using Addr = Register::Address<0x40006684,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1747,8 +1727,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef9r1{    ///<Filter bank 9 register 1
-        using Addr = Register::Address<0x40006688,0x00000000,0,unsigned>;
+    namespace CanF9r1{    ///<Filter bank 9 register 1
+        using Addr = Register::Address<0x40006688,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1814,8 +1794,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef9r2{    ///<Filter bank 9 register 2
-        using Addr = Register::Address<0x4000668c,0x00000000,0,unsigned>;
+    namespace CanF9r2{    ///<Filter bank 9 register 2
+        using Addr = Register::Address<0x4000668c,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1881,8 +1861,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef10r1{    ///<Filter bank 10 register 1
-        using Addr = Register::Address<0x40006690,0x00000000,0,unsigned>;
+    namespace CanF10r1{    ///<Filter bank 10 register 1
+        using Addr = Register::Address<0x40006690,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -1948,8 +1928,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef10r2{    ///<Filter bank 10 register 2
-        using Addr = Register::Address<0x40006694,0x00000000,0,unsigned>;
+    namespace CanF10r2{    ///<Filter bank 10 register 2
+        using Addr = Register::Address<0x40006694,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -2015,8 +1995,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef11r1{    ///<Filter bank 11 register 1
-        using Addr = Register::Address<0x40006698,0x00000000,0,unsigned>;
+    namespace CanF11r1{    ///<Filter bank 11 register 1
+        using Addr = Register::Address<0x40006698,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -2082,8 +2062,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef11r2{    ///<Filter bank 11 register 2
-        using Addr = Register::Address<0x4000669c,0x00000000,0,unsigned>;
+    namespace CanF11r2{    ///<Filter bank 11 register 2
+        using Addr = Register::Address<0x4000669c,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -2149,8 +2129,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef12r1{    ///<Filter bank 4 register 1
-        using Addr = Register::Address<0x400066a0,0x00000000,0,unsigned>;
+    namespace CanF12r1{    ///<Filter bank 4 register 1
+        using Addr = Register::Address<0x400066a0,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -2216,8 +2196,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef12r2{    ///<Filter bank 12 register 2
-        using Addr = Register::Address<0x400066a4,0x00000000,0,unsigned>;
+    namespace CanF12r2{    ///<Filter bank 12 register 2
+        using Addr = Register::Address<0x400066a4,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -2283,8 +2263,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef13r1{    ///<Filter bank 13 register 1
-        using Addr = Register::Address<0x400066a8,0x00000000,0,unsigned>;
+    namespace CanF13r1{    ///<Filter bank 13 register 1
+        using Addr = Register::Address<0x400066a8,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits
@@ -2350,8 +2330,8 @@ namespace Kvasir {
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fb31{}; 
     }
-    namespace Nonef13r2{    ///<Filter bank 13 register 2
-        using Addr = Register::Address<0x400066ac,0x00000000,0,unsigned>;
+    namespace CanF13r2{    ///<Filter bank 13 register 2
+        using Addr = Register::Address<0x400066ac,0x00000000,0x00000000,unsigned>;
         ///Filter bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fb0{}; 
         ///Filter bits

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Noneconfig{    ///<High and Low Timer Configuration
-        using Addr = Register::Address<0x40014000,0x0004080c,0,unsigned>;
+    namespace Timer0Config{    ///<High and Low Timer Configuration
+        using Addr = Register::Address<0x40014000,0x0004080c,0x00000000,unsigned>;
         ///Low Clock Source. 
         enum class LclkVal {
             apb=0x00000000,     ///<Select the APB clock as the timer source.
@@ -82,8 +82,8 @@ namespace Kvasir {
         }
         ///Low Multi Purpose State Indicator. 
         enum class LstateVal {
-            notSet=0x00000000,     ///<None
-            set=0x00000001,     ///<None
+            notSet=0x00000000,     ///<
+            set=0x00000001,     ///<
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,LstateVal> lstate{}; 
         namespace LstateValC{
@@ -212,8 +212,8 @@ namespace Kvasir {
         }
         ///High Multi Purpose State Indicator. 
         enum class HstateVal {
-            notSet=0x00000000,     ///<None
-            set=0x00000001,     ///<None
+            notSet=0x00000000,     ///<
+            set=0x00000001,     ///<
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,HstateVal> hstate{}; 
         namespace HstateValC{
@@ -251,22 +251,22 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hovfi)::Type,HovfiVal::set> set{};
         }
     }
-    namespace Noneclkdiv{    ///<Module Clock Divider Control
-        using Addr = Register::Address<0x40014010,0xff00ff00,0,unsigned>;
+    namespace Timer0Clkdiv{    ///<Module Clock Divider Control
+        using Addr = Register::Address<0x40014010,0xff00ff00,0x00000000,unsigned>;
         ///Clock Divider Reload Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clkdivrl{}; 
         ///Clock Divider Counter. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> clkdivct{}; 
     }
-    namespace Nonecount{    ///<Timer Value
-        using Addr = Register::Address<0x40014020,0x00000000,0,unsigned>;
+    namespace Timer0Count{    ///<Timer Value
+        using Addr = Register::Address<0x40014020,0x00000000,0x00000000,unsigned>;
         ///Low Timer Count. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lcount{}; 
         ///High Timer Count. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> hcount{}; 
     }
-    namespace Nonecapture{    ///<Timer Capture/Reload Value
-        using Addr = Register::Address<0x40014030,0x00000000,0,unsigned>;
+    namespace Timer0Capture{    ///<Timer Capture/Reload Value
+        using Addr = Register::Address<0x40014030,0x00000000,0x00000000,unsigned>;
         ///Low Timer Capture/Reload. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lccr{}; 
         ///High Timer Capture/Reload. 

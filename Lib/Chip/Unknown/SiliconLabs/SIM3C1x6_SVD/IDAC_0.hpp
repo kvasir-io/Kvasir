@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40031000,0x1f8ec000,0,unsigned>;
+    namespace Idac0Control{    ///<Module Control
+        using Addr = Register::Address<0x40031000,0x1f8ec000,0x00000000,unsigned>;
         ///Output Update Trigger. 
         enum class OupdtVal {
             dacnt8=0x00000000,     ///<The IDAC output updates using the DACnT8 (Timer 0 Low Overflow) trigger source.
@@ -96,7 +96,7 @@ namespace Kvasir {
         enum class BufresetVal {
             reset=0x00000001,     ///<Initiate a data buffer reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,BufresetVal> bufreset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BufresetVal> bufreset{}; 
         namespace BufresetValC{
             constexpr Register::FieldValue<decltype(bufreset)::Type,BufresetVal::reset> reset{};
         }
@@ -181,13 +181,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idacen)::Type,IdacenVal::enabled> enabled{};
         }
     }
-    namespace Nonedata{    ///<Output Data
-        using Addr = Register::Address<0x40031010,0x00000000,0,unsigned>;
+    namespace Idac0Data{    ///<Output Data
+        using Addr = Register::Address<0x40031010,0x00000000,0x00000000,unsigned>;
         ///Output Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonebufstatus{    ///<FIFO Buffer Status
-        using Addr = Register::Address<0x40031020,0xffffff88,0,unsigned>;
+    namespace Idac0Bufstatus{    ///<FIFO Buffer Status
+        using Addr = Register::Address<0x40031020,0xffffff88,0x00000000,unsigned>;
         ///FIFO Level. 
         enum class LevelVal {
             empty=0x00000000,     ///<The data FIFO is empty.
@@ -196,7 +196,7 @@ namespace Kvasir {
             v3words=0x00000003,     ///<The data FIFO contains three words.
             v4words=0x00000004,     ///<The data FIFO is full and contains four words.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,LevelVal> level{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LevelVal> level{}; 
         namespace LevelValC{
             constexpr Register::FieldValue<decltype(level)::Type,LevelVal::empty> empty{};
             constexpr Register::FieldValue<decltype(level)::Type,LevelVal::v1word> v1word{};
@@ -235,22 +235,22 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wei)::Type,WeiVal::set> set{};
         }
     }
-    namespace Nonebuffer10{    ///<FIFO Buffer Entries 0 and 1
-        using Addr = Register::Address<0x40031030,0x00000000,0,unsigned>;
+    namespace Idac0Buffer10{    ///<FIFO Buffer Entries 0 and 1
+        using Addr = Register::Address<0x40031030,0x00000000,0x00000000,unsigned>;
         ///FIFO Buffer Entry 0. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> buffer0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> buffer0{}; 
         ///FIFO Buffer Entry 1. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffer1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> buffer1{}; 
     }
-    namespace Nonebuffer32{    ///<FIFO Buffer Entries 2 and 3
-        using Addr = Register::Address<0x40031040,0x00000000,0,unsigned>;
+    namespace Idac0Buffer32{    ///<FIFO Buffer Entries 2 and 3
+        using Addr = Register::Address<0x40031040,0x00000000,0x00000000,unsigned>;
         ///FIFO Buffer Entry 2. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> buffer2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> buffer2{}; 
         ///FIFO Buffer Entry 3. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffer3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> buffer3{}; 
     }
-    namespace Nonegainadj{    ///<Output Current Gain Adjust
-        using Addr = Register::Address<0x40031050,0xffffffe0,0,unsigned>;
+    namespace Idac0Gainadj{    ///<Output Current Gain Adjust
+        using Addr = Register::Address<0x40031050,0xffffffe0,0x00000000,unsigned>;
         ///Output Current Gain Adjust. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> gainadj{}; 
     }

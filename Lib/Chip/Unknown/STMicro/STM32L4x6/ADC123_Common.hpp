@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog-to-Digital Converter
-    namespace Nonecsr{    ///<ADC Common status register
-        using Addr = Register::Address<0x50040300,0xf800f800,0,unsigned>;
+    namespace Adc123CommonCsr{    ///<ADC Common status register
+        using Addr = Register::Address<0x50040300,0xf800f800,0x00000000,unsigned>;
         ///ADDRDY_MST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> addrdyMst{}; 
         ///EOSMP_MST
@@ -30,46 +30,34 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> adrdySlv{}; 
         ///EOSMP_SLV
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> eosmpSlv{}; 
-        ///End of regular conversion of the slave
-              ADC
+        ///End of regular conversion of the slave              ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> eocSlv{}; 
-        ///End of regular sequence flag of the
-              slave ADC
+        ///End of regular sequence flag of the              slave ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> eosSlv{}; 
-        ///Overrun flag of the slave
-              ADC
+        ///Overrun flag of the slave              ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> ovrSlv{}; 
-        ///End of injected conversion flag of the
-              slave ADC
+        ///End of injected conversion flag of the              slave ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> jeocSlv{}; 
-        ///End of injected sequence flag of the
-              slave ADC
+        ///End of injected sequence flag of the              slave ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> jeosSlv{}; 
-        ///Analog watchdog 1 flag of the slave
-              ADC
+        ///Analog watchdog 1 flag of the slave              ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> awd1Slv{}; 
-        ///Analog watchdog 2 flag of the slave
-              ADC
+        ///Analog watchdog 2 flag of the slave              ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> awd2Slv{}; 
-        ///Analog watchdog 3 flag of the slave
-              ADC
+        ///Analog watchdog 3 flag of the slave              ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> awd3Slv{}; 
-        ///Injected Context Queue Overflow flag of
-              the slave ADC
+        ///Injected Context Queue Overflow flag of              the slave ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> jqovfSlv{}; 
     }
-    namespace Noneccr{    ///<ADC common control register
-        using Addr = Register::Address<0x50040308,0xfe3c10e0,0,unsigned>;
+    namespace Adc123CommonCcr{    ///<ADC common control register
+        using Addr = Register::Address<0x50040308,0xfe3c10e0,0x00000000,unsigned>;
         ///Multi ADC mode selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> mult{}; 
-        ///Delay between 2 sampling
-              phases
+        ///Delay between 2 sampling              phases
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> delay{}; 
-        ///DMA configuration (for multi-ADC
-              mode)
+        ///DMA configuration (for multi-ADC              mode)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> dmacfg{}; 
-        ///Direct memory access mode for multi ADC
-              mode
+        ///Direct memory access mode for multi ADC              mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> mdma{}; 
         ///ADC clock mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> ckmode{}; 
@@ -80,14 +68,11 @@ namespace Kvasir {
         ///VBAT enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> vbaten{}; 
     }
-    namespace Nonecdr{    ///<ADC common regular data register for dual
-          and triple modes
-        using Addr = Register::Address<0x5004030c,0x00000000,0,unsigned>;
-        ///Regular data of the slave
-              ADC
+    namespace Adc123CommonCdr{    ///<ADC common regular data register for dual          and triple modes
+        using Addr = Register::Address<0x5004030c,0x00000000,0x00000000,unsigned>;
+        ///Regular data of the slave              ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> rdataSlv{}; 
-        ///Regular data of the master
-              ADC
+        ///Regular data of the master              ADC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rdataMst{}; 
     }
 }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Quadrature Encoder Interface (QEI) 
-    namespace Nonecon{    ///<Control register
-        using Addr = Register::Address<0x400bc000,0xfffffff0,0,unsigned>;
+    namespace QeiCon{    ///<Control register
+        using Addr = Register::Address<0x400bc000,0x00000000,0x00000000,unsigned>;
         ///Reset position counter. When set = 1, resets the position counter to all zeros. Autoclears when the position counter is cleared.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> resp{}; 
         ///Reset position counter on index. When set = 1, resets the position counter to all zeros once only the first time an index pulse occurs. Autoclears when the position counter is cleared.
@@ -12,9 +12,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> resv{}; 
         ///Reset index counter. When set = 1, resets the index counter to all zeros. Autoclears when the index counter is cleared.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> resi{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneconf{    ///<Configuration register
-        using Addr = Register::Address<0x400bc008,0xfff0ffe0,0,unsigned>;
+    namespace QeiConf{    ///<Configuration register
+        using Addr = Register::Address<0x400bc008,0x00000000,0x00000000,unsigned>;
         ///Direction invert. When 1, complements the DIR bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dirinv{}; 
         ///Signal Mode. When 0, PhA and PhB function as quadrature encoder inputs. When 1, PhA functions as the direction signal and PhB functions as the clock signal.
@@ -25,106 +27,112 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> invinx{}; 
         ///Continuously reset the position counter on index. When 1, resets the position counter to all zeros whenever an index pulse occurs after the next position increase (recalibration).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> crespi{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Index gating configuration: When INXGATE[16] = 1, pass the index when PHA = 1 and PHB = 0, otherwise block index. When INXGATE[17] = 1, pass the index when PHA = 1 and PHB = 1, otherwise block index. When INXGATE[18] = 1, pass the index when PHA = 0 and PHB = 1, otherwise block index. When INXGATE[19] = 1, pass the index when PHA = 0 and PHB = 0, otherwise block index.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> inxgate{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestat{    ///<Status register
-        using Addr = Register::Address<0x400bc004,0xfffffffe,0,unsigned>;
+    namespace QeiStat{    ///<Status register
+        using Addr = Register::Address<0x400bc004,0x00000000,0x00000000,unsigned>;
         ///Direction bit. In combination with DIRINV bit indicates forward or reverse direction. See Table 597.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dir{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepos{    ///<Position register
-        using Addr = Register::Address<0x400bc00c,0x00000000,0,unsigned>;
+    namespace QeiPos{    ///<Position register
+        using Addr = Register::Address<0x400bc00c,0x00000000,0x00000000,unsigned>;
         ///Current position value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pos{}; 
     }
-    namespace Nonemaxpos{    ///<Maximum position register
-        using Addr = Register::Address<0x400bc010,0x00000000,0,unsigned>;
+    namespace QeiMaxpos{    ///<Maximum position register
+        using Addr = Register::Address<0x400bc010,0x00000000,0x00000000,unsigned>;
         ///Current maximum position value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> maxpos{}; 
     }
-    namespace Nonecmpos0{    ///<Position compare register 0
-        using Addr = Register::Address<0x400bc014,0x00000000,0,unsigned>;
+    namespace QeiCmpos0{    ///<Position compare register 0
+        using Addr = Register::Address<0x400bc014,0x00000000,0x00000000,unsigned>;
         ///Position compare value 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pcmp0{}; 
     }
-    namespace Nonecmpos1{    ///<Position compare register 1
-        using Addr = Register::Address<0x400bc018,0x00000000,0,unsigned>;
+    namespace QeiCmpos1{    ///<Position compare register 1
+        using Addr = Register::Address<0x400bc018,0x00000000,0x00000000,unsigned>;
         ///Position compare value 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pcmp1{}; 
     }
-    namespace Nonecmpos2{    ///<Position compare register 2
-        using Addr = Register::Address<0x400bc01c,0x00000000,0,unsigned>;
+    namespace QeiCmpos2{    ///<Position compare register 2
+        using Addr = Register::Address<0x400bc01c,0x00000000,0x00000000,unsigned>;
         ///Position compare value 2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pcmp2{}; 
     }
-    namespace Noneinxcnt{    ///<Index count register 0
-        using Addr = Register::Address<0x400bc020,0x00000000,0,unsigned>;
+    namespace QeiInxcnt{    ///<Index count register 0
+        using Addr = Register::Address<0x400bc020,0x00000000,0x00000000,unsigned>;
         ///Current index counter value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> encpos{}; 
     }
-    namespace Noneinxcmp0{    ///<Index compare register 0
-        using Addr = Register::Address<0x400bc024,0x00000000,0,unsigned>;
+    namespace QeiInxcmp0{    ///<Index compare register 0
+        using Addr = Register::Address<0x400bc024,0x00000000,0x00000000,unsigned>;
         ///Index compare value 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> icmp0{}; 
     }
-    namespace Noneload{    ///<Velocity timer reload register
-        using Addr = Register::Address<0x400bc028,0x00000000,0,unsigned>;
+    namespace QeiLoad{    ///<Velocity timer reload register
+        using Addr = Register::Address<0x400bc028,0x00000000,0x00000000,unsigned>;
         ///Current velocity timer load value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> velload{}; 
     }
-    namespace Nonetime{    ///<Velocity timer register
-        using Addr = Register::Address<0x400bc02c,0x00000000,0,unsigned>;
+    namespace QeiTime{    ///<Velocity timer register
+        using Addr = Register::Address<0x400bc02c,0x00000000,0x00000000,unsigned>;
         ///Current velocity timer value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> velval{}; 
     }
-    namespace Nonevel{    ///<Velocity counter register
-        using Addr = Register::Address<0x400bc030,0x00000000,0,unsigned>;
+    namespace QeiVel{    ///<Velocity counter register
+        using Addr = Register::Address<0x400bc030,0x00000000,0x00000000,unsigned>;
         ///Current velocity pulse count.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> velpc{}; 
     }
-    namespace Nonecap{    ///<Velocity capture register
-        using Addr = Register::Address<0x400bc034,0x00000000,0,unsigned>;
+    namespace QeiCap{    ///<Velocity capture register
+        using Addr = Register::Address<0x400bc034,0x00000000,0x00000000,unsigned>;
         ///Last velocity capture.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> velcap{}; 
     }
-    namespace Nonevelcomp{    ///<Velocity compare register
-        using Addr = Register::Address<0x400bc038,0x00000000,0,unsigned>;
+    namespace QeiVelcomp{    ///<Velocity compare register
+        using Addr = Register::Address<0x400bc038,0x00000000,0x00000000,unsigned>;
         ///Compare velocity pulse count.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> velpc{}; 
     }
-    namespace Nonefilterpha{    ///<Digital filter register on PHA
-        using Addr = Register::Address<0x400bc03c,0x00000000,0,unsigned>;
+    namespace QeiFilterpha{    ///<Digital filter register on PHA
+        using Addr = Register::Address<0x400bc03c,0x00000000,0x00000000,unsigned>;
         ///Digital filter sampling delay for PhA.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> filta{}; 
     }
-    namespace Nonefilterphb{    ///<Digital filter register on PHB
-        using Addr = Register::Address<0x400bc040,0x00000000,0,unsigned>;
+    namespace QeiFilterphb{    ///<Digital filter register on PHB
+        using Addr = Register::Address<0x400bc040,0x00000000,0x00000000,unsigned>;
         ///Digital filter sampling delay for PhB.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> filtb{}; 
     }
-    namespace Nonefilterinx{    ///<Digital filter register on IDX
-        using Addr = Register::Address<0x400bc044,0x00000000,0,unsigned>;
+    namespace QeiFilterinx{    ///<Digital filter register on IDX
+        using Addr = Register::Address<0x400bc044,0x00000000,0x00000000,unsigned>;
         ///Digital filter sampling delay for the index.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fitlinx{}; 
     }
-    namespace Nonewindow{    ///<Index acceptance window register
-        using Addr = Register::Address<0x400bc048,0x00000000,0,unsigned>;
+    namespace QeiWindow{    ///<Index acceptance window register
+        using Addr = Register::Address<0x400bc048,0x00000000,0x00000000,unsigned>;
         ///Index acceptance window width.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> window{}; 
     }
-    namespace Noneinxcmp1{    ///<Index compare register 1
-        using Addr = Register::Address<0x400bc04c,0x00000000,0,unsigned>;
+    namespace QeiInxcmp1{    ///<Index compare register 1
+        using Addr = Register::Address<0x400bc04c,0x00000000,0x00000000,unsigned>;
         ///Index compare value 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> icmp1{}; 
     }
-    namespace Noneinxcmp2{    ///<Index compare register 2
-        using Addr = Register::Address<0x400bc050,0x00000000,0,unsigned>;
+    namespace QeiInxcmp2{    ///<Index compare register 2
+        using Addr = Register::Address<0x400bc050,0x00000000,0x00000000,unsigned>;
         ///Index compare value 2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> icmp2{}; 
     }
-    namespace Noneintstat{    ///<Interrupt status register
-        using Addr = Register::Address<0x400bcfe0,0xffff0000,0,unsigned>;
+    namespace QeiIntstat{    ///<Interrupt status register
+        using Addr = Register::Address<0x400bcfe0,0x00000000,0x00000000,unsigned>;
         ///Indicates that an index pulse was detected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inxInt{}; 
         ///Indicates that a velocity timer overflow occurred
@@ -157,9 +165,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rev2Int{}; 
         ///Indicates that the current position count goes through the MAXPOS value to zero in the forward direction, or through zero to MAXPOS in the reverse direction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> maxposInt{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneset{    ///<Interrupt status set register
-        using Addr = Register::Address<0x400bcfec,0xffff0000,0,unsigned>;
+    namespace QeiSet{    ///<Interrupt status set register
+        using Addr = Register::Address<0x400bcfec,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 sets the INX_Int bit in QEIINTSTAT.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inxInt{}; 
         ///Writing a 1 sets the TIN_Int bit in QEIINTSTAT.
@@ -192,9 +202,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rev2Int{}; 
         ///Writing a 1 sets the MAXPOS_Int bit in QEIINTSTAT.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> maxposInt{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneclr{    ///<Interrupt status clear register
-        using Addr = Register::Address<0x400bcfe8,0xffff0000,0,unsigned>;
+    namespace QeiClr{    ///<Interrupt status clear register
+        using Addr = Register::Address<0x400bcfe8,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 clears the INX_Int bit in QEIINTSTAT.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inxInt{}; 
         ///Writing a 1 clears the TIN_Int bit in QEIINTSTAT.
@@ -227,9 +239,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rev2Int{}; 
         ///Writing a 1 clears the MAXPOS_Int bit in QEIINTSTAT.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> maxposInt{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneie{    ///<Interrupt enable register
-        using Addr = Register::Address<0x400bcfe4,0xffff0000,0,unsigned>;
+    namespace QeiIe{    ///<Interrupt enable register
+        using Addr = Register::Address<0x400bcfe4,0x00000000,0x00000000,unsigned>;
         ///When 1, the INX_Int interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inxInt{}; 
         ///When 1, the TIN_Int interrupt is enabled.
@@ -262,9 +276,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rev2Int{}; 
         ///When 1, the MAXPOS_Int interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> maxposInt{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneies{    ///<Interrupt enable set register
-        using Addr = Register::Address<0x400bcfdc,0xffff0000,0,unsigned>;
+    namespace QeiIes{    ///<Interrupt enable set register
+        using Addr = Register::Address<0x400bcfdc,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 enables the INX_Int interrupt in the QEIIE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inxInt{}; 
         ///Writing a 1 enables the TIN_Int interrupt in the QEIIE register.
@@ -297,9 +313,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rev2Int{}; 
         ///Writing a 1 enables the MAXPOS_Int interrupt in the QEIIE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> maxposInt{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneiec{    ///<Interrupt enable clear register
-        using Addr = Register::Address<0x400bcfd8,0xffff0000,0,unsigned>;
+    namespace QeiIec{    ///<Interrupt enable clear register
+        using Addr = Register::Address<0x400bcfd8,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 disables the INX_Int interrupt in the QEIIE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inxInt{}; 
         ///Writing a 1 disables the TIN_Int interrupt in the QEIIE register.
@@ -332,5 +350,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rev2Int{}; 
         ///Writing a 1 disables the MAXPOS_Int interrupt in the QEIIE register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> maxposInt{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

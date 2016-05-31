@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Real-time clock
-    namespace Nonetr{    ///<time register
-        using Addr = Register::Address<0x40002800,0xff808080,0,unsigned>;
+    namespace RtcTr{    ///<time register
+        using Addr = Register::Address<0x40002800,0xff808080,0x00000000,unsigned>;
         ///AM/PM notation
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> pm{}; 
         ///Hour tens in BCD format
@@ -19,8 +19,8 @@ namespace Kvasir {
         ///Second units in BCD format
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> su{}; 
     }
-    namespace Nonedr{    ///<date register
-        using Addr = Register::Address<0x40002804,0xff0000c0,0,unsigned>;
+    namespace RtcDr{    ///<date register
+        using Addr = Register::Address<0x40002804,0xff0000c0,0x00000000,unsigned>;
         ///Year tens in BCD format
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> yt{}; 
         ///Year units in BCD format
@@ -36,8 +36,8 @@ namespace Kvasir {
         ///Date units in BCD format
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> du{}; 
     }
-    namespace Nonecr{    ///<control register
-        using Addr = Register::Address<0x40002808,0xff006687,0,unsigned>;
+    namespace RtcCr{    ///<control register
+        using Addr = Register::Address<0x40002808,0xff006687,0x00000000,unsigned>;
         ///Time-stamp event active               edge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tsedge{}; 
         ///RTC_REFIN reference clock detection               enable (50 or 60 Hz)
@@ -55,9 +55,9 @@ namespace Kvasir {
         ///Time-stamp interrupt               enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tsie{}; 
         ///Add 1 hour (summer time               change)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> add1h{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> add1h{}; 
         ///Subtract 1 hour (winter time               change)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> sub1h{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sub1h{}; 
         ///Backup
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> bkp{}; 
         ///Calibration output               selection
@@ -69,18 +69,18 @@ namespace Kvasir {
         ///Calibration output enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> coe{}; 
     }
-    namespace Noneisr{    ///<initialization and status           register
-        using Addr = Register::Address<0x4000280c,0xfffe8606,0,unsigned>;
+    namespace RtcIsr{    ///<initialization and status           register
+        using Addr = Register::Address<0x4000280c,0xfffe8606,0x00000000,unsigned>;
         ///Alarm A write flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> alrawf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> alrawf{}; 
         ///Shift operation pending
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> shpf{}; 
         ///Initialization status flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> inits{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> inits{}; 
         ///Registers synchronization               flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rsf{}; 
         ///Initialization flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> initf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> initf{}; 
         ///Initialization mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> init{}; 
         ///Alarm A flag
@@ -94,17 +94,17 @@ namespace Kvasir {
         ///RTC_TAMP2 detection flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> tamp2f{}; 
         ///Recalibration pending Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> recalpf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> recalpf{}; 
     }
-    namespace Noneprer{    ///<prescaler register
-        using Addr = Register::Address<0x40002810,0xff808000,0,unsigned>;
+    namespace RtcPrer{    ///<prescaler register
+        using Addr = Register::Address<0x40002810,0xff808000,0x00000000,unsigned>;
         ///Asynchronous prescaler               factor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> predivA{}; 
         ///Synchronous prescaler               factor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> predivS{}; 
     }
-    namespace Nonealrmar{    ///<alarm A register
-        using Addr = Register::Address<0x4000281c,0x00000000,0,unsigned>;
+    namespace RtcAlrmar{    ///<alarm A register
+        using Addr = Register::Address<0x4000281c,0x00000000,0x00000000,unsigned>;
         ///Alarm A date mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> msk4{}; 
         ///Week day selection
@@ -134,25 +134,25 @@ namespace Kvasir {
         ///Second units in BCD               format.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> su{}; 
     }
-    namespace Nonewpr{    ///<write protection register
-        using Addr = Register::Address<0x40002824,0xffffff00,0,unsigned>;
+    namespace RtcWpr{    ///<write protection register
+        using Addr = Register::Address<0x40002824,0xffffff00,0x00000000,unsigned>;
         ///Write protection key
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
     }
-    namespace Nonessr{    ///<sub second register
-        using Addr = Register::Address<0x40002828,0xffff0000,0,unsigned>;
+    namespace RtcSsr{    ///<sub second register
+        using Addr = Register::Address<0x40002828,0xffff0000,0x00000000,unsigned>;
         ///Sub second value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ss{}; 
     }
-    namespace Noneshiftr{    ///<shift control register
-        using Addr = Register::Address<0x4000282c,0x7fff8000,0,unsigned>;
+    namespace RtcShiftr{    ///<shift control register
+        using Addr = Register::Address<0x4000282c,0x7fff8000,0x00000000,unsigned>;
         ///Reserved
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> add1s{}; 
         ///Subtract a fraction of a               second
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> subfs{}; 
     }
-    namespace Nonetstr{    ///<timestamp time register
-        using Addr = Register::Address<0x40002830,0xff808080,0,unsigned>;
+    namespace RtcTstr{    ///<timestamp time register
+        using Addr = Register::Address<0x40002830,0xff808080,0x00000000,unsigned>;
         ///AM/PM notation
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> pm{}; 
         ///Hour tens in BCD format.
@@ -168,8 +168,8 @@ namespace Kvasir {
         ///Second units in BCD               format.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> su{}; 
     }
-    namespace Nonetsdr{    ///<timestamp date register
-        using Addr = Register::Address<0x40002834,0xffff00c0,0,unsigned>;
+    namespace RtcTsdr{    ///<timestamp date register
+        using Addr = Register::Address<0x40002834,0xffff00c0,0x00000000,unsigned>;
         ///Week day units
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,unsigned> wdu{}; 
         ///Month tens in BCD format
@@ -181,13 +181,13 @@ namespace Kvasir {
         ///Date units in BCD format
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> du{}; 
     }
-    namespace Nonetsssr{    ///<time-stamp sub second register
-        using Addr = Register::Address<0x40002838,0xffff0000,0,unsigned>;
+    namespace RtcTsssr{    ///<time-stamp sub second register
+        using Addr = Register::Address<0x40002838,0xffff0000,0x00000000,unsigned>;
         ///Sub second value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ss{}; 
     }
-    namespace Nonecalr{    ///<calibration register
-        using Addr = Register::Address<0x4000283c,0xffff1e00,0,unsigned>;
+    namespace RtcCalr{    ///<calibration register
+        using Addr = Register::Address<0x4000283c,0xffff1e00,0x00000000,unsigned>;
         ///Use an 8-second calibration cycle               period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> calp{}; 
         ///Use a 16-second calibration cycle               period
@@ -197,8 +197,8 @@ namespace Kvasir {
         ///Calibration minus
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> calm{}; 
     }
-    namespace Nonetafcr{    ///<tamper and alternate function configuration           register
-        using Addr = Register::Address<0x40002840,0xff030060,0,unsigned>;
+    namespace RtcTafcr{    ///<tamper and alternate function configuration           register
+        using Addr = Register::Address<0x40002840,0xff030060,0x00000000,unsigned>;
         ///PC15 mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> pc15mode{}; 
         ///PC15 value
@@ -232,35 +232,35 @@ namespace Kvasir {
         ///RTC_TAMP1 input detection               enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tamp1e{}; 
     }
-    namespace Nonealrmassr{    ///<alarm A sub second register
-        using Addr = Register::Address<0x40002844,0xf0ff8000,0,unsigned>;
+    namespace RtcAlrmassr{    ///<alarm A sub second register
+        using Addr = Register::Address<0x40002844,0xf0ff8000,0x00000000,unsigned>;
         ///Mask the most-significant bits starting               at this bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> maskss{}; 
         ///Sub seconds value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> ss{}; 
     }
-    namespace Nonebkp0r{    ///<backup register
-        using Addr = Register::Address<0x40002850,0x00000000,0,unsigned>;
+    namespace RtcBkp0r{    ///<backup register
+        using Addr = Register::Address<0x40002850,0x00000000,0x00000000,unsigned>;
         ///BKP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bkp{}; 
     }
-    namespace Nonebkp1r{    ///<backup register
-        using Addr = Register::Address<0x40002854,0x00000000,0,unsigned>;
+    namespace RtcBkp1r{    ///<backup register
+        using Addr = Register::Address<0x40002854,0x00000000,0x00000000,unsigned>;
         ///BKP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bkp{}; 
     }
-    namespace Nonebkp2r{    ///<backup register
-        using Addr = Register::Address<0x40002858,0x00000000,0,unsigned>;
+    namespace RtcBkp2r{    ///<backup register
+        using Addr = Register::Address<0x40002858,0x00000000,0x00000000,unsigned>;
         ///BKP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bkp{}; 
     }
-    namespace Nonebkp3r{    ///<backup register
-        using Addr = Register::Address<0x4000285c,0x00000000,0,unsigned>;
+    namespace RtcBkp3r{    ///<backup register
+        using Addr = Register::Address<0x4000285c,0x00000000,0x00000000,unsigned>;
         ///BKP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bkp{}; 
     }
-    namespace Nonebkp4r{    ///<backup register
-        using Addr = Register::Address<0x40002860,0x00000000,0,unsigned>;
+    namespace RtcBkp4r{    ///<backup register
+        using Addr = Register::Address<0x40002860,0x00000000,0x00000000,unsigned>;
         ///BKP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bkp{}; 
     }

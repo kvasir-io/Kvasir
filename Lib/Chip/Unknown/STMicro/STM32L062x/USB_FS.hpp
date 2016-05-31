@@ -1,10 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//Universal serial bus full-speed device
-      interface
-    namespace Noneep0r{    ///<endpoint register
-        using Addr = Register::Address<0x40005c00,0xffff0000,0,unsigned>;
+//Universal serial bus full-speed device      interface
+    namespace UsbFsEp0r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c00,0xffff0000,0x00000000,unsigned>;
         ///CTR_RX
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
         ///DTOG_RX
@@ -26,8 +25,8 @@ namespace Kvasir {
         ///EA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep1r{    ///<endpoint register
-        using Addr = Register::Address<0x40005c04,0xffff0000,0,unsigned>;
+    namespace UsbFsEp1r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c04,0xffff0000,0x00000000,unsigned>;
         ///CTR_RX
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
         ///DTOG_RX
@@ -49,8 +48,8 @@ namespace Kvasir {
         ///EA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep2r{    ///<endpoint register
-        using Addr = Register::Address<0x40005c08,0xffff0000,0,unsigned>;
+    namespace UsbFsEp2r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c08,0xffff0000,0x00000000,unsigned>;
         ///CTR_RX
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
         ///DTOG_RX
@@ -72,8 +71,8 @@ namespace Kvasir {
         ///EA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep3r{    ///<endpoint register
-        using Addr = Register::Address<0x40005c0c,0xffff0000,0,unsigned>;
+    namespace UsbFsEp3r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c0c,0xffff0000,0x00000000,unsigned>;
         ///CTR_RX
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
         ///DTOG_RX
@@ -95,8 +94,8 @@ namespace Kvasir {
         ///EA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep4r{    ///<endpoint register
-        using Addr = Register::Address<0x40005c10,0xffff0000,0,unsigned>;
+    namespace UsbFsEp4r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c10,0xffff0000,0x00000000,unsigned>;
         ///CTR_RX
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
         ///DTOG_RX
@@ -118,8 +117,8 @@ namespace Kvasir {
         ///EA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep5r{    ///<endpoint register
-        using Addr = Register::Address<0x40005c14,0xffff0000,0,unsigned>;
+    namespace UsbFsEp5r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c14,0xffff0000,0x00000000,unsigned>;
         ///CTR_RX
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
         ///DTOG_RX
@@ -141,8 +140,8 @@ namespace Kvasir {
         ///EA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep6r{    ///<endpoint register
-        using Addr = Register::Address<0x40005c18,0xffff0000,0,unsigned>;
+    namespace UsbFsEp6r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c18,0xffff0000,0x00000000,unsigned>;
         ///CTR_RX
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
         ///DTOG_RX
@@ -164,8 +163,8 @@ namespace Kvasir {
         ///EA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep7r{    ///<endpoint register
-        using Addr = Register::Address<0x40005c1c,0xffff0000,0,unsigned>;
+    namespace UsbFsEp7r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c1c,0xffff0000,0x00000000,unsigned>;
         ///CTR_RX
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
         ///DTOG_RX
@@ -187,8 +186,8 @@ namespace Kvasir {
         ///EA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Nonecntr{    ///<control register
-        using Addr = Register::Address<0x40005c40,0xffff0040,0,unsigned>;
+    namespace UsbFsCntr{    ///<control register
+        using Addr = Register::Address<0x40005c40,0xffff0040,0x00000000,unsigned>;
         ///CTRM
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrm{}; 
         ///PMAOVRM
@@ -220,8 +219,8 @@ namespace Kvasir {
         ///FRES
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fres{}; 
     }
-    namespace Noneistr{    ///<interrupt status register
-        using Addr = Register::Address<0x40005c44,0xffff0060,0,unsigned>;
+    namespace UsbFsIstr{    ///<interrupt status register
+        using Addr = Register::Address<0x40005c44,0xffff0060,0x00000000,unsigned>;
         ///CTR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctr{}; 
         ///PMAOVR
@@ -245,8 +244,8 @@ namespace Kvasir {
         ///EP_ID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> epId{}; 
     }
-    namespace Nonefnr{    ///<frame number register
-        using Addr = Register::Address<0x40005c48,0xffff0000,0,unsigned>;
+    namespace UsbFsFnr{    ///<frame number register
+        using Addr = Register::Address<0x40005c48,0xffff0000,0x00000000,unsigned>;
         ///RXDP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxdp{}; 
         ///RXDM
@@ -258,42 +257,41 @@ namespace Kvasir {
         ///FN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> fn{}; 
     }
-    namespace Nonedaddr{    ///<device address
-        using Addr = Register::Address<0x40005c4c,0xffffff00,0,unsigned>;
+    namespace UsbFsDaddr{    ///<device address
+        using Addr = Register::Address<0x40005c4c,0xffffff00,0x00000000,unsigned>;
         ///EF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ef{}; 
         ///ADD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> add{}; 
     }
-    namespace Nonebtable{    ///<Buffer table address
-        using Addr = Register::Address<0x40005c50,0xffff0007,0,unsigned>;
+    namespace UsbFsBtable{    ///<Buffer table address
+        using Addr = Register::Address<0x40005c50,0xffff0007,0x00000000,unsigned>;
         ///BTABLE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,3),Register::ReadWriteAccess,unsigned> btable{}; 
     }
-    namespace Nonelpmcsr{    ///<LPM control and status
-          register
-        using Addr = Register::Address<0x40005c54,0xffffff04,0,unsigned>;
+    namespace UsbFsLpmcsr{    ///<LPM control and status          register
+        using Addr = Register::Address<0x40005c54,0xffffff04,0x00000000,unsigned>;
         ///BESL
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> besl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> besl{}; 
         ///REMWAKE
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> remwake{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> remwake{}; 
         ///LPMACK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lpmack{}; 
         ///LPMEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lpmen{}; 
     }
-    namespace Nonebcdr{    ///<Battery charging detector
-        using Addr = Register::Address<0x40005c58,0xffff7f00,0,unsigned>;
+    namespace UsbFsBcdr{    ///<Battery charging detector
+        using Addr = Register::Address<0x40005c58,0xffff7f00,0x00000000,unsigned>;
         ///DPPU
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dppu{}; 
         ///PS2DET
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ps2det{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ps2det{}; 
         ///SDET
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> sdet{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sdet{}; 
         ///PDET
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pdet{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pdet{}; 
         ///DCDET
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dcdet{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dcdet{}; 
         ///SDEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sden{}; 
         ///PDEN

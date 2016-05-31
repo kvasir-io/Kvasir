@@ -1,21 +1,21 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // peripheral QPRC1 
-    namespace Noneqpcr{    ///< register QPCR 
-        using Addr = Register::Address<0x40026040,0xffffffff,0,unsigned>;
+    namespace Qprc1Qpcr{    ///< register QPCR 
+        using Addr = Register::Address<0x40026040,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneqrcr{    ///< register QRCR 
-        using Addr = Register::Address<0x40026044,0xffffffff,0,unsigned>;
+    namespace Qprc1Qrcr{    ///< register QRCR 
+        using Addr = Register::Address<0x40026044,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneqpccr{    ///< register QPCCR 
-        using Addr = Register::Address<0x40026048,0xffffffff,0,unsigned>;
+    namespace Qprc1Qpccr{    ///< register QPCCR 
+        using Addr = Register::Address<0x40026048,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneqprcr{    ///< register QPRCR 
-        using Addr = Register::Address<0x4002604c,0xffffffff,0,unsigned>;
+    namespace Qprc1Qprcr{    ///< register QPRCR 
+        using Addr = Register::Address<0x4002604c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneqcr{    ///< register QCR 
-        using Addr = Register::Address<0x40026058,0xffff0000,0,unsigned>;
+    namespace Qprc1Qcr{    ///< register QCR 
+        using Addr = Register::Address<0x40026058,0xffff0000,0x00000000,unsigned>;
         /// bitfield CGE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> cge{}; 
         /// bitfield BES 
@@ -37,8 +37,8 @@ namespace Kvasir {
         /// bitfield PCM 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> pcm{}; 
     }
-    namespace Noneqecr{    ///< register QECR 
-        using Addr = Register::Address<0x4002605c,0xfffffff8,0,unsigned>;
+    namespace Qprc1Qecr{    ///< register QECR 
+        using Addr = Register::Address<0x4002605c,0xfffffff8,0x00000000,unsigned>;
         /// bitfield ORNGIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> orngie{}; 
         /// bitfield ORNGF 
@@ -46,8 +46,8 @@ namespace Kvasir {
         /// bitfield ORNGMD 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> orngmd{}; 
     }
-    namespace Noneqicrl{    ///< register QICRL 
-        using Addr = Register::Address<0x40026054,0xffffff00,0,unsigned char>;
+    namespace Qprc1Qicrl{    ///< register QICRL 
+        using Addr = Register::Address<0x40026054,0xffffff00,0x00000000,unsigned char>;
         /// bitfield ZIIF 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ziif{}; 
         /// bitfield OFDF 
@@ -65,28 +65,28 @@ namespace Kvasir {
         /// bitfield QPCMIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> qpcmie{}; 
     }
-    namespace Noneqicrh{    ///< register QICRH 
-        using Addr = Register::Address<0x40026055,0xffffffc0,0,unsigned char>;
+    namespace Qprc1Qicrh{    ///< register QICRH 
+        using Addr = Register::Address<0x40026055,0xffffffc0,0x00000000,unsigned char>;
         /// bitfield QPCNRCMF 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> qpcnrcmf{}; 
         /// bitfield QPCNRCMIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> qpcnrcmie{}; 
         /// bitfield DIROU 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dirou{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dirou{}; 
         /// bitfield DIRPC 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dirpc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dirpc{}; 
         /// bitfield CDCF 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cdcf{}; 
         /// bitfield CDCIE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cdcie{}; 
     }
-    namespace Noneqmpr{    ///< register QMPR 
-        using Addr = Register::Address<0x40026050,0xffffffff,0,unsigned>;
+    namespace Qprc1Qmpr{    ///< register QMPR 
+        using Addr = Register::Address<0x40026050,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneqrcrr{    ///< register QRCRR 
-        using Addr = Register::Address<0x4002607c,0xffffffff,0,unsigned>;
+    namespace Qprc1Qrcrr{    ///< register QRCRR 
+        using Addr = Register::Address<0x4002607c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneqpcrr{    ///< register QPCRR 
-        using Addr = Register::Address<0x4002607e,0xffffffff,0,unsigned>;
+    namespace Qprc1Qpcrr{    ///< register QPCRR 
+        using Addr = Register::Address<0x4002607e,0xffffffff,0x00000000,unsigned>;
     }
 }

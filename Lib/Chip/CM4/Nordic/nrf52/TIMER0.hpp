@@ -1,60 +1,24 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Timer/Counter 0
-    namespace NonetasksStart{    ///<Start Timer
-        using Addr = Register::Address<0x40008000,0xffffffff,0,unsigned>;
+    namespace Timer0TasksStart{    ///<Start Timer
+        using Addr = Register::Address<0x40008000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop Timer
-        using Addr = Register::Address<0x40008004,0xffffffff,0,unsigned>;
+    namespace Timer0TasksStop{    ///<Stop Timer
+        using Addr = Register::Address<0x40008004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksCount{    ///<Increment Timer (Counter mode only)
-        using Addr = Register::Address<0x40008008,0xffffffff,0,unsigned>;
+    namespace Timer0TasksCount{    ///<Increment Timer (Counter mode only)
+        using Addr = Register::Address<0x40008008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksClear{    ///<Clear time
-        using Addr = Register::Address<0x4000800c,0xffffffff,0,unsigned>;
+    namespace Timer0TasksClear{    ///<Clear time
+        using Addr = Register::Address<0x4000800c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksShutdown{    ///<Shut down timer
-        using Addr = Register::Address<0x40008010,0xffffffff,0,unsigned>;
+    namespace Timer0TasksShutdown{    ///<Shut down timer
+        using Addr = Register::Address<0x40008010,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksCapture0{    ///<Description collection[0]:  Capture Timer value to CC[0] register
-        using Addr = Register::Address<0x40008040,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksCapture1{    ///<Description collection[0]:  Capture Timer value to CC[0] register
-        using Addr = Register::Address<0x40008044,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksCapture2{    ///<Description collection[0]:  Capture Timer value to CC[0] register
-        using Addr = Register::Address<0x40008048,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksCapture3{    ///<Description collection[0]:  Capture Timer value to CC[0] register
-        using Addr = Register::Address<0x4000804c,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksCapture4{    ///<Description collection[0]:  Capture Timer value to CC[0] register
-        using Addr = Register::Address<0x40008050,0xffffffff,0,unsigned>;
-    }
-    namespace NonetasksCapture5{    ///<Description collection[0]:  Capture Timer value to CC[0] register
-        using Addr = Register::Address<0x40008054,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare0{    ///<Description collection[0]:  Compare event on CC[0] match
-        using Addr = Register::Address<0x40008140,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare1{    ///<Description collection[0]:  Compare event on CC[0] match
-        using Addr = Register::Address<0x40008144,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare2{    ///<Description collection[0]:  Compare event on CC[0] match
-        using Addr = Register::Address<0x40008148,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare3{    ///<Description collection[0]:  Compare event on CC[0] match
-        using Addr = Register::Address<0x4000814c,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare4{    ///<Description collection[0]:  Compare event on CC[0] match
-        using Addr = Register::Address<0x40008150,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare5{    ///<Description collection[0]:  Compare event on CC[0] match
-        using Addr = Register::Address<0x40008154,0xffffffff,0,unsigned>;
-    }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x40008200,0xffffc0c0,0,unsigned>;
+    namespace Timer0Shorts{    ///<Shortcut register
+        using Addr = Register::Address<0x40008200,0xffffc0c0,0x00000000,unsigned>;
         ///Shortcut between EVENTS_COMPARE[0] event and TASKS_CLEAR task
         enum class Compare0clearVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -176,8 +140,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare5Stop)::Type,Compare5stopVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40008304,0xffc0ffff,0,unsigned>;
+    namespace Timer0Intenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40008304,0xffc0ffff,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[0] event
         enum class Compare0Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -251,8 +215,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare5)::Type,Compare5Val::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40008308,0xffc0ffff,0,unsigned>;
+    namespace Timer0Intenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40008308,0xffc0ffff,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[0] event
         enum class Compare0Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -326,8 +290,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare5)::Type,Compare5Val::clear> clear{};
         }
     }
-    namespace Nonemode{    ///<Timer mode selection
-        using Addr = Register::Address<0x40008504,0xfffffffc,0,unsigned>;
+    namespace Timer0Mode{    ///<Timer mode selection
+        using Addr = Register::Address<0x40008504,0xfffffffc,0x00000000,unsigned>;
         ///Timer mode
         enum class ModeVal {
             timer=0x00000000,     ///<Select Timer mode
@@ -341,8 +305,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::lowpowercounter> lowpowercounter{};
         }
     }
-    namespace Nonebitmode{    ///<Configure the number of bits used by the TIMER
-        using Addr = Register::Address<0x40008508,0xfffffffc,0,unsigned>;
+    namespace Timer0Bitmode{    ///<Configure the number of bits used by the TIMER
+        using Addr = Register::Address<0x40008508,0xfffffffc,0x00000000,unsigned>;
         ///Timer bit width
         enum class BitmodeVal {
             v16bit=0x00000000,     ///<16 bit timer bit width
@@ -358,38 +322,74 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bitmode)::Type,BitmodeVal::v32bit> v32bit{};
         }
     }
-    namespace Noneprescaler{    ///<Timer prescaler register
-        using Addr = Register::Address<0x40008510,0xfffffff0,0,unsigned>;
+    namespace Timer0Prescaler{    ///<Timer prescaler register
+        using Addr = Register::Address<0x40008510,0xfffffff0,0x00000000,unsigned>;
         ///Prescaler value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> prescaler{}; 
     }
-    namespace Nonecc0{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x40008540,0x00000000,0,unsigned>;
+    namespace Timer0TasksCapture0{    ///<Description collection[0]:  Capture Timer value to CC[0] register
+        using Addr = Register::Address<0x40008040,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0TasksCapture1{    ///<Description collection[0]:  Capture Timer value to CC[0] register
+        using Addr = Register::Address<0x40008044,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0TasksCapture2{    ///<Description collection[0]:  Capture Timer value to CC[0] register
+        using Addr = Register::Address<0x40008048,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0TasksCapture3{    ///<Description collection[0]:  Capture Timer value to CC[0] register
+        using Addr = Register::Address<0x4000804c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0TasksCapture4{    ///<Description collection[0]:  Capture Timer value to CC[0] register
+        using Addr = Register::Address<0x40008050,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0TasksCapture5{    ///<Description collection[0]:  Capture Timer value to CC[0] register
+        using Addr = Register::Address<0x40008054,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0EventsCompare0{    ///<Description collection[0]:  Compare event on CC[0] match
+        using Addr = Register::Address<0x40008140,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0EventsCompare1{    ///<Description collection[0]:  Compare event on CC[0] match
+        using Addr = Register::Address<0x40008144,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0EventsCompare2{    ///<Description collection[0]:  Compare event on CC[0] match
+        using Addr = Register::Address<0x40008148,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0EventsCompare3{    ///<Description collection[0]:  Compare event on CC[0] match
+        using Addr = Register::Address<0x4000814c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0EventsCompare4{    ///<Description collection[0]:  Compare event on CC[0] match
+        using Addr = Register::Address<0x40008150,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0EventsCompare5{    ///<Description collection[0]:  Compare event on CC[0] match
+        using Addr = Register::Address<0x40008154,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Timer0Cc0{    ///<Description collection[0]:  Capture/Compare register 0
+        using Addr = Register::Address<0x40008540,0x00000000,0x00000000,unsigned>;
         ///Capture/Compare value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
     }
-    namespace Nonecc1{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x40008544,0x00000000,0,unsigned>;
+    namespace Timer0Cc1{    ///<Description collection[0]:  Capture/Compare register 0
+        using Addr = Register::Address<0x40008544,0x00000000,0x00000000,unsigned>;
         ///Capture/Compare value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
     }
-    namespace Nonecc2{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x40008548,0x00000000,0,unsigned>;
+    namespace Timer0Cc2{    ///<Description collection[0]:  Capture/Compare register 0
+        using Addr = Register::Address<0x40008548,0x00000000,0x00000000,unsigned>;
         ///Capture/Compare value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
     }
-    namespace Nonecc3{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x4000854c,0x00000000,0,unsigned>;
+    namespace Timer0Cc3{    ///<Description collection[0]:  Capture/Compare register 0
+        using Addr = Register::Address<0x4000854c,0x00000000,0x00000000,unsigned>;
         ///Capture/Compare value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
     }
-    namespace Nonecc4{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x40008550,0x00000000,0,unsigned>;
+    namespace Timer0Cc4{    ///<Description collection[0]:  Capture/Compare register 0
+        using Addr = Register::Address<0x40008550,0x00000000,0x00000000,unsigned>;
         ///Capture/Compare value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
     }
-    namespace Nonecc5{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x40008554,0x00000000,0,unsigned>;
+    namespace Timer0Cc5{    ///<Description collection[0]:  Capture/Compare register 0
+        using Addr = Register::Address<0x40008554,0x00000000,0x00000000,unsigned>;
         ///Capture/Compare value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
     }

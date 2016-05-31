@@ -1,42 +1,42 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //I2C compatible Two-Wire Slave Interface with EasyDMA 0
-    namespace NonetasksStop{    ///<Stop TWI transaction
-        using Addr = Register::Address<0x40003014,0xffffffff,0,unsigned>;
+    namespace Twis0TasksStop{    ///<Stop TWI transaction
+        using Addr = Register::Address<0x40003014,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksSuspend{    ///<Suspend TWI transaction
-        using Addr = Register::Address<0x4000301c,0xffffffff,0,unsigned>;
+    namespace Twis0TasksSuspend{    ///<Suspend TWI transaction
+        using Addr = Register::Address<0x4000301c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksResume{    ///<Resume TWI transaction
-        using Addr = Register::Address<0x40003020,0xffffffff,0,unsigned>;
+    namespace Twis0TasksResume{    ///<Resume TWI transaction
+        using Addr = Register::Address<0x40003020,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksPreparerx{    ///<Prepare the TWI slave to respond to a write command
-        using Addr = Register::Address<0x40003030,0xffffffff,0,unsigned>;
+    namespace Twis0TasksPreparerx{    ///<Prepare the TWI slave to respond to a write command
+        using Addr = Register::Address<0x40003030,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksPreparetx{    ///<Prepare the TWI slave to respond to a read command
-        using Addr = Register::Address<0x40003034,0xffffffff,0,unsigned>;
+    namespace Twis0TasksPreparetx{    ///<Prepare the TWI slave to respond to a read command
+        using Addr = Register::Address<0x40003034,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStopped{    ///<TWI stopped
-        using Addr = Register::Address<0x40003104,0xffffffff,0,unsigned>;
+    namespace Twis0EventsStopped{    ///<TWI stopped
+        using Addr = Register::Address<0x40003104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsError{    ///<TWI error
-        using Addr = Register::Address<0x40003124,0xffffffff,0,unsigned>;
+    namespace Twis0EventsError{    ///<TWI error
+        using Addr = Register::Address<0x40003124,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsRxstarted{    ///<Receive sequence started
-        using Addr = Register::Address<0x4000314c,0xffffffff,0,unsigned>;
+    namespace Twis0EventsRxstarted{    ///<Receive sequence started
+        using Addr = Register::Address<0x4000314c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsTxstarted{    ///<Transmit sequence started
-        using Addr = Register::Address<0x40003150,0xffffffff,0,unsigned>;
+    namespace Twis0EventsTxstarted{    ///<Transmit sequence started
+        using Addr = Register::Address<0x40003150,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsWrite{    ///<Write command received
-        using Addr = Register::Address<0x40003164,0xffffffff,0,unsigned>;
+    namespace Twis0EventsWrite{    ///<Write command received
+        using Addr = Register::Address<0x40003164,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsRead{    ///<Read command received
-        using Addr = Register::Address<0x40003168,0xffffffff,0,unsigned>;
+    namespace Twis0EventsRead{    ///<Read command received
+        using Addr = Register::Address<0x40003168,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x40003200,0xffff9fff,0,unsigned>;
+    namespace Twis0Shorts{    ///<Shortcut register
+        using Addr = Register::Address<0x40003200,0xffff9fff,0x00000000,unsigned>;
         ///Shortcut between EVENTS_WRITE event and TASKS_SUSPEND task
         enum class WritesuspendVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -58,8 +58,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(readSuspend)::Type,ReadsuspendVal::enabled> enabled{};
         }
     }
-    namespace Noneinten{    ///<Enable or disable interrupt
-        using Addr = Register::Address<0x40003300,0xf9e7fdfd,0,unsigned>;
+    namespace Twis0Inten{    ///<Enable or disable interrupt
+        using Addr = Register::Address<0x40003300,0xf9e7fdfd,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Disable
@@ -121,8 +121,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40003304,0xf9e7fdfd,0,unsigned>;
+    namespace Twis0Intenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40003304,0xf9e7fdfd,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -196,8 +196,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40003308,0xf9e7fdfd,0,unsigned>;
+    namespace Twis0Intenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40003308,0xf9e7fdfd,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -271,8 +271,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::clear> clear{};
         }
     }
-    namespace Noneerrorsrc{    ///<Error source
-        using Addr = Register::Address<0x400034d0,0xfffffff2,0,unsigned>;
+    namespace Twis0Errorsrc{    ///<Error source
+        using Addr = Register::Address<0x400034d0,0xfffffff2,0x00000000,unsigned>;
         ///RX buffer overflow detected, and prevented
         enum class OverflowVal {
             notdetected=0x00000000,     ///<Error did not occur
@@ -304,28 +304,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overread)::Type,OverreadVal::detected> detected{};
         }
     }
-    namespace Nonematch{    ///<Status register indicating which address had a match
-        using Addr = Register::Address<0x400034d4,0xfffffffe,0,unsigned>;
+    namespace Twis0Match{    ///<Status register indicating which address had a match
+        using Addr = Register::Address<0x400034d4,0xfffffffe,0x00000000,unsigned>;
         ///Which of the addresses in {ADDRESS} matched the incoming address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> match{}; 
     }
-    namespace Noneenable{    ///<Enable TWIS
-        using Addr = Register::Address<0x40003500,0xfffffff0,0,unsigned>;
+    namespace Twis0Enable{    ///<Enable TWIS
+        using Addr = Register::Address<0x40003500,0xfffffff0,0x00000000,unsigned>;
         ///Enable or disable TWIS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> enable{}; 
     }
-    namespace Noneaddress0{    ///<Description collection[0]:  TWI slave address 0
-        using Addr = Register::Address<0x40003588,0xffffff80,0,unsigned>;
-        ///TWI slave address
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> address{}; 
-    }
-    namespace Noneaddress1{    ///<Description collection[0]:  TWI slave address 0
-        using Addr = Register::Address<0x4000358c,0xffffff80,0,unsigned>;
-        ///TWI slave address
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> address{}; 
-    }
-    namespace Noneconfig{    ///<Configuration register for the address match mechanism
-        using Addr = Register::Address<0x40003594,0xfffffffc,0,unsigned>;
+    namespace Twis0Config{    ///<Configuration register for the address match mechanism
+        using Addr = Register::Address<0x40003594,0xfffffffc,0x00000000,unsigned>;
         ///Enable or disable address matching on ADDRESS[0]
         enum class Address0Val {
             disabled=0x00000000,     ///<Disabled
@@ -347,9 +337,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(address1)::Type,Address1Val::enabled> enabled{};
         }
     }
-    namespace Noneorc{    ///<Over-read character. Character sent out in case of an over-read of the transmit buffer.
-        using Addr = Register::Address<0x400035c0,0xffffff00,0,unsigned>;
+    namespace Twis0Orc{    ///<Over-read character. Character sent out in case of an over-read of the transmit buffer.
+        using Addr = Register::Address<0x400035c0,0xffffff00,0x00000000,unsigned>;
         ///Over-read character. Character sent out in case of an over-read of the transmit buffer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> orc{}; 
+    }
+    namespace Twis0Address0{    ///<Description collection[0]:  TWI slave address 0
+        using Addr = Register::Address<0x40003588,0xffffff80,0x00000000,unsigned>;
+        ///TWI slave address
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> address{}; 
+    }
+    namespace Twis0Address1{    ///<Description collection[0]:  TWI slave address 0
+        using Addr = Register::Address<0x4000358c,0xffffff80,0x00000000,unsigned>;
+        ///TWI slave address
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> address{}; 
     }
 }

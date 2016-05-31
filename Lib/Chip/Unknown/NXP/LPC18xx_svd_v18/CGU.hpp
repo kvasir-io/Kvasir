@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10462 Chapter title=LPC18xx Clock Generation Unit (CGU) Modification date=6/1/2011 Major revision=0 Minor revision=1 
-    namespace NonefreqMon{    ///<Frequency monitor register
-        using Addr = Register::Address<0x40050014,0xe0000000,0,unsigned>;
+    namespace CguFreqMon{    ///<Frequency monitor register
+        using Addr = Register::Address<0x40050014,0x00000000,0x00000000,unsigned>;
         ///9-bit reference clock-counter value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rcnt{}; 
         ///14-bit selected clock-counter value
@@ -52,9 +52,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonextalOscCtrl{    ///<Crystal oscillator control register
-        using Addr = Register::Address<0x40050018,0xfffffff8,0,unsigned>;
+    namespace CguXtalOscCtrl{    ///<Crystal oscillator control register
+        using Addr = Register::Address<0x40050018,0x00000000,0x00000000,unsigned>;
         ///Oscillator-pad enable. Do not change the BYPASS and ENABLE bits in one write-action: this will result in unstable device operation!
         enum class EnableVal {
             enable=0x00000000,     ///<Enable
@@ -85,16 +87,20 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hf)::Type,HfVal::oscillatorLowFrequ> oscillatorLowFrequ{};
             constexpr Register::FieldValue<decltype(hf)::Type,HfVal::oscillatorHighFreq> oscillatorHighFreq{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepll0usbStat{    ///<PLL0 (USB) status register
-        using Addr = Register::Address<0x4005001c,0xfffffffc,0,unsigned>;
+    namespace CguPll0usbStat{    ///<PLL0 (USB) status register
+        using Addr = Register::Address<0x4005001c,0x00000000,0x00000000,unsigned>;
         ///PLL0 lock indicator
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lock{}; 
         ///PLL0 free running indicator
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> fr{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepll0usbCtrl{    ///<PLL0 (USB) control register
-        using Addr = Register::Address<0x40050020,0xe0fff7a0,0,unsigned>;
+    namespace CguPll0usbCtrl{    ///<PLL0 (USB) control register
+        using Addr = Register::Address<0x40050020,0x00000000,0x00000000,unsigned>;
         ///PLL0 power down
         enum class PdVal {
             pll0Enabled=0x00000000,     ///<PLL0 enabled
@@ -121,8 +127,18 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> directo{}; 
         ///PLL0 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> clken{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Free running mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frm{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved. Reads as zero. Do not write one to this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved. Reads as zero. Do not write one to this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved. Reads as zero. Do not write one to this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -133,6 +149,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -163,9 +181,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepll0usbMdiv{    ///<PLL0 (USB) M-divider register
-        using Addr = Register::Address<0x40050024,0x00000000,0,unsigned>;
+    namespace CguPll0usbMdiv{    ///<PLL0 (USB) M-divider register
+        using Addr = Register::Address<0x40050024,0x00000000,0x00000000,unsigned>;
         ///Decoded M-divider coefficient value. Select values for the M-divider between 1 and 131071.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,0),Register::ReadWriteAccess,unsigned> mdec{}; 
         ///Bandwidth select P value
@@ -175,22 +195,28 @@ namespace Kvasir {
         ///Bandwidth select R value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> selr{}; 
     }
-    namespace Nonepll0usbNpDiv{    ///<PLL0 (USB) N/P-divider register
-        using Addr = Register::Address<0x40050028,0xffc00f80,0,unsigned>;
+    namespace CguPll0usbNpDiv{    ///<PLL0 (USB) N/P-divider register
+        using Addr = Register::Address<0x40050028,0x00000000,0x00000000,unsigned>;
         ///Decoded P-divider coefficient value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> pdec{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Decoded N-divider coefficient value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,12),Register::ReadWriteAccess,unsigned> ndec{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepll0audioStat{    ///<PLL0 (audio) status register
-        using Addr = Register::Address<0x4005002c,0xfffffffc,0,unsigned>;
+    namespace CguPll0audioStat{    ///<PLL0 (audio) status register
+        using Addr = Register::Address<0x4005002c,0x00000000,0x00000000,unsigned>;
         ///PLL0 lock indicator
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lock{}; 
         ///PLL0 free running indicator
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> fr{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepll0audioCtrl{    ///<PLL0 (audio) control register
-        using Addr = Register::Address<0x40050030,0xe0ff87a0,0,unsigned>;
+    namespace CguPll0audioCtrl{    ///<PLL0 (audio) control register
+        using Addr = Register::Address<0x40050030,0x00000000,0x00000000,unsigned>;
         ///PLL0 power down
         enum class PdVal {
             pll0Enabled=0x00000000,     ///<PLL0 enabled
@@ -217,8 +243,18 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> directo{}; 
         ///PLL0 clock enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> clken{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Free running mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frm{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved. Reads as zero. Do not write one to this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved. Reads as zero. Do not write one to this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved. Reads as zero. Do not write one to this register.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -243,6 +279,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(modPd)::Type,ModpdVal::sdModulatorEnabled> sdModulatorEnabled{};
             constexpr Register::FieldValue<decltype(modPd)::Type,ModpdVal::sdModulatorPowered> sdModulatorPowered{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,15),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -273,31 +311,43 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepll0audioMdiv{    ///<PLL0 (audio) M-divider register
-        using Addr = Register::Address<0x40050034,0xfffe0000,0,unsigned>;
+    namespace CguPll0audioMdiv{    ///<PLL0 (audio) M-divider register
+        using Addr = Register::Address<0x40050034,0xff000000,0x00000000,unsigned>;
         ///Decoded M-divider coefficient value. Select values for the M-divider between 1 and 131071.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,0),Register::ReadWriteAccess,unsigned> mdec{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,17),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepll0audioNpDiv{    ///<PLL0 (audio) N/P-divider register
-        using Addr = Register::Address<0x40050038,0xffc00f80,0,unsigned>;
+    namespace CguPll0audioNpDiv{    ///<PLL0 (audio) N/P-divider register
+        using Addr = Register::Address<0x40050038,0x00000000,0x00000000,unsigned>;
         ///Decoded P-divider coefficient value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> pdec{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Decoded N-divider coefficient value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,12),Register::ReadWriteAccess,unsigned> ndec{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepll0audioFrac{    ///<PLL0 (audio)
-        using Addr = Register::Address<0x4005003c,0xffc00000,0,unsigned>;
+    namespace CguPll0audioFrac{    ///<PLL0 (audio)
+        using Addr = Register::Address<0x4005003c,0x00000000,0x00000000,unsigned>;
         ///PLL fractional divider control word
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> pllfractCtrl{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepll1Stat{    ///<PLL1 status register
-        using Addr = Register::Address<0x40050040,0xfffffffe,0,unsigned>;
+    namespace CguPll1Stat{    ///<PLL1 status register
+        using Addr = Register::Address<0x40050040,0x00000000,0x00000000,unsigned>;
         ///PLL1 lock indicator
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lock{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepll1Ctrl{    ///<PLL1 control register
-        using Addr = Register::Address<0x40050044,0xe000c43c,0,unsigned>;
+    namespace CguPll1Ctrl{    ///<PLL1 control register
+        using Addr = Register::Address<0x40050044,0x00000000,0x00000000,unsigned>;
         ///PLL1 power down
         enum class PdVal {
             pll1Enabled=0x00000000,     ///<PLL1 enabled
@@ -318,6 +368,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::ccoClockSentToPo> ccoClockSentToPo{};
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::pll1InputClockSen> pll1InputClockSen{};
         }
+        ///Reserved. Do not write one to this bit.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved. Do not write one to these bits.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///PLL feedback select (see Figure 88 "PLL1 block diagram").
         enum class FbselVal {
             ccoOutputIsUsedA=0x00000000,     ///<CCO output is used as feedback divider input clock.
@@ -352,6 +406,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v4> v4{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v8> v8{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -376,6 +432,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nsel)::Type,NselVal::v3Default> v3Default{};
             constexpr Register::FieldValue<decltype(nsel)::Type,NselVal::v4> v4{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Feedback-divider division ratio (M) 00000000 = 1 00000001 = 2  ... 11111111 = 256
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> msel{}; 
         ///Clock-source selection.
@@ -408,9 +466,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneidivaCtrl{    ///<Integer divider A control register
-        using Addr = Register::Address<0x40050048,0xe0fff7f2,0,unsigned>;
+    namespace CguIdivaCtrl{    ///<Integer divider A control register
+        using Addr = Register::Address<0x40050048,0x00000000,0x00000000,unsigned>;
         ///Integer divider A power down
         enum class PdVal {
             idivaEnabledDefau=0x00000000,     ///<IDIVA enabled (default)
@@ -421,6 +481,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::idivaEnabledDefau> idivaEnabledDefau{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Integer divider A divider values (1/(IDIV + 1))
         enum class IdivVal {
             v1Default=0x00000000,     ///<1 (default)
@@ -435,6 +497,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idiv)::Type,IdivVal::v3> v3{};
             constexpr Register::FieldValue<decltype(idiv)::Type,IdivVal::v4> v4{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -445,6 +509,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -469,9 +535,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll0ForAudio> pll0ForAudio{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll1> pll1{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneidivbCtrl{    ///<Integer divider B control register
-        using Addr = Register::Address<0x4005004c,0xe0fff7c2,0,unsigned>;
+    namespace CguIdivbCtrl{    ///<Integer divider B control register
+        using Addr = Register::Address<0x4005004c,0x00000000,0x00000000,unsigned>;
         ///Integer divider power down
         enum class PdVal {
             idivEnabledDefaul=0x00000000,     ///<IDIV enabled (default)
@@ -482,8 +550,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::idivEnabledDefaul> idivEnabledDefaul{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Integer divider B, C, D divider values (1/(IDIV + 1)) 0000 = 1 (default) 0001 = 2  ... 1111 = 16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> idiv{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -494,6 +566,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock-source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -518,9 +592,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll1> pll1{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idiva> idiva{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneidivcCtrl{    ///<Integer divider C control register
-        using Addr = Register::Address<0x40050050,0xe0fff7c2,0,unsigned>;
+    namespace CguIdivcCtrl{    ///<Integer divider C control register
+        using Addr = Register::Address<0x40050050,0x00000000,0x00000000,unsigned>;
         ///Integer divider power down
         enum class PdVal {
             idivEnabledDefaul=0x00000000,     ///<IDIV enabled (default)
@@ -531,8 +607,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::idivEnabledDefaul> idivEnabledDefaul{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Integer divider B, C, D divider values (1/(IDIV + 1)) 0000 = 1 (default) 0001 = 2  ... 1111 = 16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> idiv{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -543,6 +623,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock-source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -567,9 +649,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll1> pll1{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idiva> idiva{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneidivdCtrl{    ///<Integer divider D control register
-        using Addr = Register::Address<0x40050054,0xe0fff7c2,0,unsigned>;
+    namespace CguIdivdCtrl{    ///<Integer divider D control register
+        using Addr = Register::Address<0x40050054,0x00000000,0x00000000,unsigned>;
         ///Integer divider power down
         enum class PdVal {
             idivEnabledDefaul=0x00000000,     ///<IDIV enabled (default)
@@ -580,8 +664,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::idivEnabledDefaul> idivEnabledDefaul{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Integer divider B, C, D divider values (1/(IDIV + 1)) 0000 = 1 (default) 0001 = 2  ... 1111 = 16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> idiv{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -592,6 +680,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock-source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -616,9 +706,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll1> pll1{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idiva> idiva{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneidiveCtrl{    ///<Integer divider E control register
-        using Addr = Register::Address<0x40050058,0xe0fff402,0,unsigned>;
+    namespace CguIdiveCtrl{    ///<Integer divider E control register
+        using Addr = Register::Address<0x40050058,0x00000000,0x00000000,unsigned>;
         ///Integer divider power down
         enum class PdVal {
             idivEnabledDefaul=0x00000000,     ///<IDIV enabled (default)
@@ -629,8 +721,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::idivEnabledDefaul> idivEnabledDefaul{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Integer divider E divider values (1/(IDIV + 1)) 00000000 = 1 (default) 00000001 = 2  ... 111111111 = 256
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,2),Register::ReadWriteAccess,unsigned> idiv{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -641,6 +737,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock-source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -665,9 +763,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll1> pll1{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idiva> idiva{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseSafeClk{    ///<Output stage 0 control register for base clock BASE_SAFE_CLK
-        using Addr = Register::Address<0x4005005c,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseSafeClk{    ///<Output stage 0 control register for base clock BASE_SAFE_CLK
+        using Addr = Register::Address<0x4005005c,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -678,6 +778,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -688,11 +790,15 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> clkSel{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseUsb0Clk{    ///<Output stage 1 control register for base clock BASE_USB0_CLK
-        using Addr = Register::Address<0x40050060,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseUsb0Clk{    ///<Output stage 1 control register for base clock BASE_USB0_CLK
+        using Addr = Register::Address<0x40050060,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -703,6 +809,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -713,11 +821,15 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock-source selection.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> clkSel{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseUsb1Clk{    ///<Output stage 3 control register for base clock BASE_USB1_CLK
-        using Addr = Register::Address<0x40050068,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseUsb1Clk{    ///<Output stage 3 control register for base clock BASE_USB1_CLK
+        using Addr = Register::Address<0x40050068,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -728,6 +840,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -738,6 +852,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -772,9 +888,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseM3Clk{    ///<Output stage BASE_M3_CLK control register
-        using Addr = Register::Address<0x4005006c,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseM3Clk{    ///<Output stage BASE_M3_CLK control register
+        using Addr = Register::Address<0x4005006c,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -785,6 +903,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -795,6 +915,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -827,9 +949,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseSpifiClk{    ///<Output stage BASE_SPIFI_CLK control register
-        using Addr = Register::Address<0x40050070,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseSpifiClk{    ///<Output stage BASE_SPIFI_CLK control register
+        using Addr = Register::Address<0x40050070,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -840,6 +964,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -850,6 +976,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -882,9 +1010,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebasePhyRxClk{    ///<Output stage BASE_PHY_RX_CLK control register
-        using Addr = Register::Address<0x40050078,0xe0fff7fe,0,unsigned>;
+    namespace CguBasePhyRxClk{    ///<Output stage BASE_PHY_RX_CLK control register
+        using Addr = Register::Address<0x40050078,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -895,6 +1025,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -905,6 +1037,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -937,9 +1071,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebasePhyTxClk{    ///<Output stage BASE_PHY_TX_CLK control register
-        using Addr = Register::Address<0x4005007c,0xe0fff7fe,0,unsigned>;
+    namespace CguBasePhyTxClk{    ///<Output stage BASE_PHY_TX_CLK control register
+        using Addr = Register::Address<0x4005007c,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -950,6 +1086,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -960,6 +1098,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -992,9 +1132,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseApb1Clk{    ///<Output stage BASE_APB1_CLK control register
-        using Addr = Register::Address<0x40050080,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseApb1Clk{    ///<Output stage BASE_APB1_CLK control register
+        using Addr = Register::Address<0x40050080,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1005,6 +1147,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1015,6 +1159,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1047,9 +1193,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseApb3Clk{    ///<Output stage BASE_APB3_CLK control register
-        using Addr = Register::Address<0x40050084,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseApb3Clk{    ///<Output stage BASE_APB3_CLK control register
+        using Addr = Register::Address<0x40050084,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1060,6 +1208,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1070,6 +1220,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1102,9 +1254,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseLcdClk{    ///<Output stage BASE_LCD_CLK control register
-        using Addr = Register::Address<0x40050088,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseLcdClk{    ///<Output stage BASE_LCD_CLK control register
+        using Addr = Register::Address<0x40050088,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1115,6 +1269,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1125,6 +1281,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1157,9 +1315,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseSdioClk{    ///<Output stage BASE_SDIO_CLK control register
-        using Addr = Register::Address<0x40050090,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseSdioClk{    ///<Output stage BASE_SDIO_CLK control register
+        using Addr = Register::Address<0x40050090,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1170,6 +1330,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1180,6 +1342,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1212,9 +1376,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseSsp0Clk{    ///<Output stage BASE_SSP0_CLK control register
-        using Addr = Register::Address<0x40050094,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseSsp0Clk{    ///<Output stage BASE_SSP0_CLK control register
+        using Addr = Register::Address<0x40050094,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1225,6 +1391,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1235,6 +1403,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1267,9 +1437,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseSsp1Clk{    ///<Output stage BASE_SSP1_CLK control register
-        using Addr = Register::Address<0x40050098,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseSsp1Clk{    ///<Output stage BASE_SSP1_CLK control register
+        using Addr = Register::Address<0x40050098,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1280,6 +1452,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1290,6 +1464,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1322,9 +1498,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseUart0Clk{    ///<Output stage BASE_UART0_CLK control register
-        using Addr = Register::Address<0x4005009c,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseUart0Clk{    ///<Output stage BASE_UART0_CLK control register
+        using Addr = Register::Address<0x4005009c,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1335,6 +1513,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1345,6 +1525,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1377,9 +1559,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseUart1Clk{    ///<Output stage BASE_UART1_CLK control register
-        using Addr = Register::Address<0x400500a0,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseUart1Clk{    ///<Output stage BASE_UART1_CLK control register
+        using Addr = Register::Address<0x400500a0,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1390,6 +1574,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1400,6 +1586,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1432,9 +1620,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseUart2Clk{    ///<Output stage BASE_UART2_CLK control register
-        using Addr = Register::Address<0x400500a4,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseUart2Clk{    ///<Output stage BASE_UART2_CLK control register
+        using Addr = Register::Address<0x400500a4,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1445,6 +1635,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1455,6 +1647,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1487,9 +1681,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseUart3Clk{    ///<Output stage BASE_UART3_CLK control register
-        using Addr = Register::Address<0x400500a8,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseUart3Clk{    ///<Output stage BASE_UART3_CLK control register
+        using Addr = Register::Address<0x400500a8,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1500,6 +1696,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1510,6 +1708,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1542,9 +1742,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseOutClk{    ///<Output stage 20 control register for base clock BASE_OUT_CLK
-        using Addr = Register::Address<0x400500ac,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseOutClk{    ///<Output stage 20 control register for base clock BASE_OUT_CLK
+        using Addr = Register::Address<0x400500ac,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1555,6 +1757,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1565,6 +1769,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock-source selection.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1599,9 +1805,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseApllClk{    ///<Output stage 25 control register for base clock BASE_APLL_CLK
-        using Addr = Register::Address<0x400500c0,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseApllClk{    ///<Output stage 25 control register for base clock BASE_APLL_CLK
+        using Addr = Register::Address<0x400500c0,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1612,6 +1820,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1622,6 +1832,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock-source selection.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1654,9 +1866,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseCguOut0Clk{    ///<Output stage 25 control register for base clock BASE_CGU_OUT0_CLK
-        using Addr = Register::Address<0x400500c4,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseCguOut0Clk{    ///<Output stage 25 control register for base clock BASE_CGU_OUT0_CLK
+        using Addr = Register::Address<0x400500c4,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1667,6 +1881,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1677,6 +1893,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock-source selection.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1709,9 +1927,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonebaseCguOut1Clk{    ///<Output stage 25 control register for base clock BASE_CGU_OUT1_CLK
-        using Addr = Register::Address<0x400500c8,0xe0fff7fe,0,unsigned>;
+    namespace CguBaseCguOut1Clk{    ///<Output stage 25 control register for base clock BASE_CGU_OUT1_CLK
+        using Addr = Register::Address<0x400500c8,0x00000000,0x00000000,unsigned>;
         ///Output stage power down
         enum class PdVal {
             outputStageEnabled=0x00000000,     ///<Output stage enabled (default)
@@ -1722,6 +1942,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1732,6 +1954,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Clock-source selection.
         enum class ClkselVal {
             v32KhzOscillator=0x00000000,     ///<32 kHz oscillator
@@ -1764,5 +1988,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

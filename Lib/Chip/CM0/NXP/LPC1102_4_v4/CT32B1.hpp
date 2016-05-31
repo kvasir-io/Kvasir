@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10429 Chapter title=LPC11102 32-bit counter/timers (CT32B0/1) Modification date=11/1/2010 Major revision=1 Minor revision=not available 
-    namespace Noneir{    ///<Interrupt Register (IR). The IR can be written to clear interrupts. The IR can be read to identify which of five possible interrupt sources are pending.
-        using Addr = Register::Address<0x40018000,0xffffffe0,0,unsigned>;
+    namespace Ct32b1Ir{    ///<Interrupt Register (IR). The IR can be written to clear interrupts. The IR can be read to identify which of five possible interrupt sources are pending.
+        using Addr = Register::Address<0x40018000,0x00000000,0x00000000,unsigned>;
         ///Interrupt flag for match channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mr0int{}; 
         ///Interrupt flag for match channel 1.
@@ -14,31 +14,35 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mr3int{}; 
         ///Interrupt flag for capture channel 0 event.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cr0int{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetcr{    ///<Timer Control Register (TCR). The TCR is used to control the Timer Counter functions. The Timer Counter can be disabled or reset through the TCR.
-        using Addr = Register::Address<0x40018004,0xfffffffc,0,unsigned>;
+    namespace Ct32b1Tcr{    ///<Timer Control Register (TCR). The TCR is used to control the Timer Counter functions. The Timer Counter can be disabled or reset through the TCR.
+        using Addr = Register::Address<0x40018004,0x00000000,0x00000000,unsigned>;
         ///Counter Enable When one, the Timer Counter and Prescale Counter are enabled for counting. When zero, the counters are disabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cen{}; 
         ///Counter Reset When one, the Timer Counter and the Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until TCR[1] is returned to zero.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> crst{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetc{    ///<Timer Counter (TC). The 32-bit TC is incremented every PR+1 cycles of PCLK. The TC is controlled through the TCR.
-        using Addr = Register::Address<0x40018008,0x00000000,0,unsigned>;
+    namespace Ct32b1Tc{    ///<Timer Counter (TC). The 32-bit TC is incremented every PR+1 cycles of PCLK. The TC is controlled through the TCR.
+        using Addr = Register::Address<0x40018008,0x00000000,0x00000000,unsigned>;
         ///Timer counter value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tc{}; 
     }
-    namespace Nonepr{    ///<Prescale Register (PR). When the Prescale Counter (below) is equal to this value, the next clock increments the TC and clears the PC.
-        using Addr = Register::Address<0x4001800c,0x00000000,0,unsigned>;
+    namespace Ct32b1Pr{    ///<Prescale Register (PR). When the Prescale Counter (below) is equal to this value, the next clock increments the TC and clears the PC.
+        using Addr = Register::Address<0x4001800c,0x00000000,0x00000000,unsigned>;
         ///Prescale counter max value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pr{}; 
     }
-    namespace Nonepc{    ///<Prescale Counter (PC). The 32-bit PC is a counter which is incremented to the value stored in PR. When the value in PR is reached, the TC is incremented and the PC is cleared. The PC is observable and controllable through the bus interface.
-        using Addr = Register::Address<0x40018010,0x00000000,0,unsigned>;
+    namespace Ct32b1Pc{    ///<Prescale Counter (PC). The 32-bit PC is a counter which is incremented to the value stored in PR. When the value in PR is reached, the TC is incremented and the PC is cleared. The PC is observable and controllable through the bus interface.
+        using Addr = Register::Address<0x40018010,0x00000000,0x00000000,unsigned>;
         ///Prescale counter value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pc{}; 
     }
-    namespace Nonemcr{    ///<Match Control Register (MCR). The MCR is used to control if an interrupt is generated and if the TC is reset when a Match occurs.
-        using Addr = Register::Address<0x40018014,0xfffff000,0,unsigned>;
+    namespace Ct32b1Mcr{    ///<Match Control Register (MCR). The MCR is used to control if an interrupt is generated and if the TC is reset when a Match occurs.
+        using Addr = Register::Address<0x40018014,0x00000000,0x00000000,unsigned>;
         ///Interrupt on MR0: an interrupt is generated when MR0 matches the value in the TC.
         enum class Mr0iVal {
             enabled=0x00000001,     ///<Enabled
@@ -159,29 +163,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr3s)::Type,Mr3sVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr3s)::Type,Mr3sVal::disabled> disabled{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemr0{    ///<Match Register. MR can be enabled through theMCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC.
-        using Addr = Register::Address<0x40018018,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Nonemr1{    ///<Match Register. MR can be enabled through theMCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC.
-        using Addr = Register::Address<0x4001801c,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Nonemr2{    ///<Match Register. MR can be enabled through theMCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC.
-        using Addr = Register::Address<0x40018020,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Nonemr3{    ///<Match Register. MR can be enabled through theMCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC.
-        using Addr = Register::Address<0x40018024,0x00000000,0,unsigned>;
-        ///Timer counter match value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-    }
-    namespace Noneccr{    ///<Capture Control Register (CCR). The CCR controls which edges of the capture inputs are used to load the Capture Registers and whether or not an interrupt is generated when a capture takes place.
-        using Addr = Register::Address<0x40018028,0xfffffff8,0,unsigned>;
+    namespace Ct32b1Ccr{    ///<Capture Control Register (CCR). The CCR controls which edges of the capture inputs are used to load the Capture Registers and whether or not an interrupt is generated when a capture takes place.
+        using Addr = Register::Address<0x40018028,0x00000000,0x00000000,unsigned>;
         ///Capture on CT32Bn_CAP0 rising edge: a sequence of 0 then 1 on CT32Bn_CAP0 will cause CR0 to be loaded with the contents of TC.
         enum class Cap0reVal {
             enabled=0x00000001,     ///<Enabled
@@ -212,14 +198,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cap0i)::Type,Cap0iVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(cap0i)::Type,Cap0iVal::disabled> disabled{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecr0{    ///<Capture Register 0 (CR0). CR0 is loaded with the value of TC when there is an event on the CT16B0_CAP0 input.
-        using Addr = Register::Address<0x4001802c,0x00000000,0,unsigned>;
+    namespace Ct32b1Cr0{    ///<Capture Register 0 (CR0). CR0 is loaded with the value of TC when there is an event on the CT16B0_CAP0 input.
+        using Addr = Register::Address<0x4001802c,0x00000000,0x00000000,unsigned>;
         ///Timer counter capture value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
     }
-    namespace Noneemr{    ///<External Match Register (EMR). The EMR controls the match function and the external match pins CT32B0_MAT[3:0].
-        using Addr = Register::Address<0x4001803c,0xfffff000,0,unsigned>;
+    namespace Ct32b1Emr{    ///<External Match Register (EMR). The EMR controls the match function and the external match pins CT32B0_MAT[3:0].
+        using Addr = Register::Address<0x4001803c,0x00000000,0x00000000,unsigned>;
         ///External Match 0. This bit reflects the state of output CT32Bn_MAT0, whether or not this output is connected to its pin. When a match occurs between the TC and MR0, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR[5:4] control the functionality of this output. This bit is driven to the CT32B0_MAT0/CT16B1_MAT0 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> em0{}; 
         ///External Match 1. This bit reflects the state of output CT32Bn_MAT1, whether or not this output is connected to its pin. When a match occurs between the TC and MR1, this bit can either toggle, go LOW, go HIGH, or do nothing. Bits EMR[7:6] control the functionality of this output. This bit is driven to the CT32B0_MAT1/CT16B1_MAT1 pins if the match function is selected in the IOCON registers (0 = LOW, 1 = HIGH).
@@ -284,9 +272,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::set> set{};
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::toggle> toggle{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectcr{    ///<Count Control Register (CTCR). The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting.
-        using Addr = Register::Address<0x40018070,0xfffffff0,0,unsigned>;
+    namespace Ct32b1Ctcr{    ///<Count Control Register (CTCR). The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting.
+        using Addr = Register::Address<0x40018070,0x00000000,0x00000000,unsigned>;
         ///Counter/Timer Mode. This field selects which rising PCLK edges can increment Timer's Prescale Counter (PC), or clear PC and increment Timer Counter (TC). Timer Mode: every rising PCLK edge
         enum class CtmVal {
             timermode=0x00000000,     ///<Timer Mode: every rising PCLK edge
@@ -309,9 +299,11 @@ namespace Kvasir {
         namespace CisValC{
             constexpr Register::FieldValue<decltype(cis)::Type,CisVal::ct32bnCap0> ct32bnCap0{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonepwmc{    ///<PWM Control Register (PWMCON). The PWMCON enables PWM mode for the external match pins CT32B0_MAT[3:0].
-        using Addr = Register::Address<0x40018074,0xfffffff0,0,unsigned>;
+    namespace Ct32b1Pwmc{    ///<PWM Control Register (PWMCON). The PWMCON enables PWM mode for the external match pins CT32B0_MAT[3:0].
+        using Addr = Register::Address<0x40018074,0x00000000,0x00000000,unsigned>;
         ///When one, PWM mode is enabled for CT32Bn_MAT0. When zero, CT32Bn_MAT0 is controlled by EM0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pwmen0{}; 
         ///When one, PWM mode is enabled for CT32Bn_MAT1. When zero, CT32Bn_MAT1 is controlled by EM1.
@@ -320,5 +312,27 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pwmen2{}; 
         ///When one, PWM mode is enabled for CT32Bn_MAT3. When zero, CT32Bn_MAT3 is controlled by EM3. Note: It is recommended to use match channel 3 to set the PWM cycle.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pwmen3{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace Ct32b1Mr0{    ///<Match Register. MR can be enabled through theMCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC.
+        using Addr = Register::Address<0x40018018,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
+    }
+    namespace Ct32b1Mr1{    ///<Match Register. MR can be enabled through theMCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC.
+        using Addr = Register::Address<0x4001801c,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
+    }
+    namespace Ct32b1Mr2{    ///<Match Register. MR can be enabled through theMCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC.
+        using Addr = Register::Address<0x40018020,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
+    }
+    namespace Ct32b1Mr3{    ///<Match Register. MR can be enabled through theMCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC.
+        using Addr = Register::Address<0x40018024,0x00000000,0x00000000,unsigned>;
+        ///Timer counter match value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
     }
 }

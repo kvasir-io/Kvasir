@@ -2,6 +2,25 @@
 #include <Register/Utility.hpp>
 namespace Kvasir {
 //Pin Control and Interrupts
+    namespace PortaGpclr{    ///<Global Pin Control Low Register
+        using Addr = Register::Address<0x40049080,0x00000000,0x00000000,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
+    }
+    namespace PortaGpchr{    ///<Global Pin Control High Register
+        using Addr = Register::Address<0x40049084,0x00000000,0x00000000,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
+    }
+    namespace PortaIsfr{    ///<Interrupt Status Flag Register
+        using Addr = Register::Address<0x400490a0,0x00000000,0x00000000,unsigned>;
+        ///Interrupt Status Flag
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
+    }
     namespace PortaPcr0{    ///<Pin Control Register n
         using Addr = Register::Address<0x40049000,0xfef0f8a8,0x00000000,unsigned>;
         ///Pull Select
@@ -361,17 +380,17 @@ namespace Kvasir {
         enum class MuxVal {
             disabled=0x00000000,     ///<Pin disabled (analog).
             gpio=0x00000001,     ///<Alternative 1 (GPIO).
-            i2c1Sda=0x00000002,     ///<Alternative 2 (chip-specific).
+            i2c1Scl=0x00000002,     ///<Alternative 2 (chip-specific).
             tpm0ch0=0x00000003,     ///<Alternative 3 (chip-specific).
-            SwdDio=0x00000007,     ///<Alternative 7 (chip-specific).
+            swdDio=0x00000007,     ///<Alternative 7 (chip-specific).
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,MuxVal> mux{}; 
         namespace MuxValC{
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::gpio> gpio{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::i2c1Sda> i2c1Sda{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::i2c1Scl> i2c1Scl{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::tpm0ch0> tpm0ch0{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::SwdDio> SwdDio{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::swdDio> swdDio{};
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -466,6 +485,7 @@ namespace Kvasir {
             gpio=0x00000001,     ///<Alternative 1 (GPIO).
             i2c1Sda=0x00000002,     ///<Alternative 2 (chip-specific).
             tpm0ch1=0x00000003,     ///<Alternative 3 (chip-specific).
+            nmiB=0x00000007,     ///<Alternative 7 (chip-specific).
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,MuxVal> mux{}; 
         namespace MuxValC{
@@ -473,6 +493,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::gpio> gpio{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::i2c1Sda> i2c1Sda{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::tpm0ch1> tpm0ch1{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::nmiB> nmiB{};
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1318,25 +1339,15 @@ namespace Kvasir {
         }
         ///Pin Mux Control
         enum class MuxVal {
-            v000=0x00000000,     ///<Pin disabled (analog).
-            v001=0x00000001,     ///<Alternative 1 (GPIO).
-            v010=0x00000002,     ///<Alternative 2 (chip-specific).
-            v011=0x00000003,     ///<Alternative 3 (chip-specific).
-            v100=0x00000004,     ///<Alternative 4 (chip-specific).
-            v101=0x00000005,     ///<Alternative 5 (chip-specific).
-            v110=0x00000006,     ///<Alternative 6 (chip-specific).
-            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+            disabled=0x00000000,     ///<Pin disabled (analog).
+            gpio=0x00000001,     ///<Alternative 1 (GPIO).
+            tpm1ch0=0x00000003,     ///<Alternative 3 (chip-specific).
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,MuxVal> mux{}; 
         namespace MuxValC{
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::gpio> gpio{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::tpm1ch0> tpm1ch0{};
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1427,25 +1438,15 @@ namespace Kvasir {
         }
         ///Pin Mux Control
         enum class MuxVal {
-            v000=0x00000000,     ///<Pin disabled (analog).
-            v001=0x00000001,     ///<Alternative 1 (GPIO).
-            v010=0x00000002,     ///<Alternative 2 (chip-specific).
-            v011=0x00000003,     ///<Alternative 3 (chip-specific).
-            v100=0x00000004,     ///<Alternative 4 (chip-specific).
-            v101=0x00000005,     ///<Alternative 5 (chip-specific).
-            v110=0x00000006,     ///<Alternative 6 (chip-specific).
-            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+            disabled=0x00000000,     ///<Pin disabled (analog).
+            gpio=0x00000001,     ///<Alternative 1 (GPIO).
+            tpm1ch1=0x00000003,     ///<Alternative 3 (chip-specific).
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,MuxVal> mux{}; 
         namespace MuxValC{
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::gpio> gpio{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::tpm1ch1> tpm1ch1{};
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -2073,7 +2074,7 @@ namespace Kvasir {
         }
         ///Pin Mux Control
         enum class MuxVal {
-            Xtal0=0x00000000,     ///<Pin disabled (analog).
+            xtal0=0x00000000,     ///<Pin disabled (analog).
             gpio=0x00000001,     ///<Alternative 1 (GPIO).
             lpuart1Tx=0x00000003,     ///<Alternative 3 (chip-specific).
             tpmClkIn1=0x00000004,     ///<Alternative 4 (chip-specific).
@@ -2081,7 +2082,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,MuxVal> mux{}; 
         namespace MuxValC{
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::Xtal0> Xtal0{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::xtal0> xtal0{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::gpio> gpio{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::lpuart1Tx> lpuart1Tx{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::tpmClkIn1> tpmClkIn1{};
@@ -2176,13 +2177,13 @@ namespace Kvasir {
         }
         ///Pin Mux Control
         enum class MuxVal {
-            diabled=0x00000000,     ///<Pin disabled (analog).
+            disabled=0x00000000,     ///<Pin disabled (analog).
             gpio=0x00000001,     ///<Alternative 1 (GPIO).
             resetB=0x00000007,     ///<Alternative 7 (chip-specific).
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,MuxVal> mux{}; 
         namespace MuxValC{
-            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::diabled> diabled{};
+            constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::gpio> gpio{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::resetB> resetB{};
         }
@@ -3419,24 +3420,5 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
         }
-    }
-    namespace PortaGpclr{    ///<Global Pin Control Low Register
-        using Addr = Register::Address<0x40049080,0x00000000,0x00000000,unsigned>;
-        ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
-        ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
-    }
-    namespace PortaGpchr{    ///<Global Pin Control High Register
-        using Addr = Register::Address<0x40049084,0x00000000,0x00000000,unsigned>;
-        ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
-        ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
-    }
-    namespace PortaIsfr{    ///<Interrupt Status Flag Register
-        using Addr = Register::Address<0x400490a0,0x00000000,0x00000000,unsigned>;
-        ///Interrupt Status Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
     }
 }

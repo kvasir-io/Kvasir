@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 // peripheral BTIOSEL47 
-    namespace Nonebtsel4567{    ///< register BTSEL4567 
-        using Addr = Register::Address<0x40025300,0xffff00ff,0,unsigned>;
+    namespace Btiosel47Btsel4567{    ///< register BTSEL4567 
+        using Addr = Register::Address<0x40025300,0xffff00ff,0x00000000,unsigned>;
         /// bitfield SEL67_ 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> sel67{}; 
         /// bitfield SEL45_ 

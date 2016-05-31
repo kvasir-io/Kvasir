@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SSP1 controller
-    namespace Nonecr0{    ///<Control Register 0. Selects the serial clock rate, bus type, and data size.
-        using Addr = Register::Address<0x40030000,0xffff0000,0,unsigned>;
+    namespace Ssp1Cr0{    ///<Control Register 0. Selects the serial clock rate, bus type, and data size.
+        using Addr = Register::Address<0x40030000,0x00000000,0x00000000,unsigned>;
         ///Data Size Select. This field controls the number of bits transferred in each frame. Values 0000-0010 are not supported and should not be used.
         enum class DssVal {
             v4BitTransfer=0x00000003,     ///<4-bit transfer
@@ -72,9 +72,11 @@ namespace Kvasir {
         }
         ///Serial Clock Rate. The number of prescaler-output clocks per bit on the bus, minus one. Given that CPSDVSR is the prescale divider, and the APB clock PCLK clocks the prescaler, the bit frequency is PCLK / (CPSDVSR X [SCR+1]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scr{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecr1{    ///<Control Register 1. Selects master/slave and other modes.
-        using Addr = Register::Address<0x40030004,0xfffffff0,0,unsigned>;
+    namespace Ssp1Cr1{    ///<Control Register 1. Selects master/slave and other modes.
+        using Addr = Register::Address<0x40030004,0x00000000,0x00000000,unsigned>;
         ///Loop Back Mode.
         enum class LbmVal {
             normal=0x00000000,     ///<During normal operation.
@@ -107,14 +109,18 @@ namespace Kvasir {
         }
         ///Slave Output Disable. This bit is relevant only in slave mode (MS = 1). If it is 1, this blocks this SSP controller from driving the transmit data line (MISO).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sod{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedr{    ///<Data Register. Writes fill the transmit FIFO, and reads empty the receive FIFO.
-        using Addr = Register::Address<0x40030008,0xffff0000,0,unsigned>;
+    namespace Ssp1Dr{    ///<Data Register. Writes fill the transmit FIFO, and reads empty the receive FIFO.
+        using Addr = Register::Address<0x40030008,0x00000000,0x00000000,unsigned>;
         ///Write: software can write data to be sent in a future frame to this register whenever the TNF bit in the Status register is 1, indicating that the Tx FIFO is not full. If the Tx FIFO was previously empty and the SSP controller is not busy on the bus, transmission of the data will begin immediately. Otherwise the data written to this register will be sent as soon as all previous data has been sent (and received). If the data length is less than 16 bits, software must right-justify the data written to this register. Read: software can read data from this register whenever the RNE bit in the Status register is 1, indicating that the Rx FIFO is not empty. When software reads this register, the SSP controller returns data from the least recent frame in the Rx FIFO. If the data length is less than 16 bits, the data is right-justified in this field with higher order bits filled with 0s.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesr{    ///<Status Register
-        using Addr = Register::Address<0x4003000c,0xffffffe0,0,unsigned>;
+    namespace Ssp1Sr{    ///<Status Register
+        using Addr = Register::Address<0x4003000c,0x00000000,0x00000000,unsigned>;
         ///Transmit FIFO Empty. This bit is 1 is the Transmit FIFO is empty, 0 if not.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tfe{}; 
         ///Transmit FIFO Not Full. This bit is 0 if the Tx FIFO is full, 1 if not.
@@ -125,14 +131,18 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rff{}; 
         ///Busy. This bit is 0 if the SSPn controller is idle, or 1 if it is currently sending/receiving a frame and/or the Tx FIFO is not empty.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> bsy{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecpsr{    ///<Clock Prescale Register
-        using Addr = Register::Address<0x40030010,0xffffff00,0,unsigned>;
+    namespace Ssp1Cpsr{    ///<Clock Prescale Register
+        using Addr = Register::Address<0x40030010,0x00000000,0x00000000,unsigned>;
         ///This even value between 2 and 254, by which PCLK is divided to yield the prescaler output clock. Bit 0 always reads as 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cpsdvsr{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneimsc{    ///<Interrupt Mask Set and Clear Register
-        using Addr = Register::Address<0x40030014,0xfffffff0,0,unsigned>;
+    namespace Ssp1Imsc{    ///<Interrupt Mask Set and Clear Register
+        using Addr = Register::Address<0x40030014,0x00000000,0x00000000,unsigned>;
         ///Software should set this bit to enable interrupt when a Receive Overrun occurs, that is, when the Rx FIFO is full and another frame is completely received. The ARM spec implies that the preceding frame data is overwritten by the new frame data when this occurs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rorim{}; 
         ///Software should set this bit to enable interrupt when a Receive Time-out condition occurs. A Receive Time-out occurs when the Rx FIFO is not empty, and no has not been read for a time-out period. The time-out period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR X [SCR+1]).
@@ -141,9 +151,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxim{}; 
         ///Software should set this bit to enable interrupt when the Tx FIFO is at least half empty.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txim{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneris{    ///<Raw Interrupt Status Register
-        using Addr = Register::Address<0x40030018,0xfffffff0,0,unsigned>;
+    namespace Ssp1Ris{    ///<Raw Interrupt Status Register
+        using Addr = Register::Address<0x40030018,0x00000000,0x00000000,unsigned>;
         ///This bit is 1 if another frame was completely received while the RxFIFO was full. The ARM spec implies that the preceding frame data is overwritten by the new frame data when this occurs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rorris{}; 
         ///This bit is 1 if the Rx FIFO is not empty, and has not been read for a time-out period. The time-out period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR X [SCR+1]).
@@ -152,9 +164,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxris{}; 
         ///This bit is 1 if the Tx FIFO is at least half empty.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txris{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemis{    ///<Masked Interrupt Status Register
-        using Addr = Register::Address<0x4003001c,0xfffffff0,0,unsigned>;
+    namespace Ssp1Mis{    ///<Masked Interrupt Status Register
+        using Addr = Register::Address<0x4003001c,0x00000000,0x00000000,unsigned>;
         ///This bit is 1 if another frame was completely received while the RxFIFO was full, and this interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rormis{}; 
         ///This bit is 1 if the Rx FIFO is not empty, has not been read for a time-out period, and this interrupt is enabled. The time-out period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR X [SCR+1]).
@@ -163,19 +177,25 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxmis{}; 
         ///This bit is 1 if the Tx FIFO is at least half empty, and this interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txmis{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneicr{    ///<SSPICR Interrupt Clear Register
-        using Addr = Register::Address<0x40030020,0xfffffffc,0,unsigned>;
+    namespace Ssp1Icr{    ///<SSPICR Interrupt Clear Register
+        using Addr = Register::Address<0x40030020,0x00000000,0x00000000,unsigned>;
         ///Writing a 1 to this bit clears the   frame was received when RxFIFO was full interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> roric{}; 
         ///Writing a 1 to this bit clears the Rx FIFO was not empty and has not been read for a time-out period interrupt. The time-out period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR / [SCR+1]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rtic{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedmacr{    ///<SSP0 DMA control register
-        using Addr = Register::Address<0x40030024,0xfffffffc,0,unsigned>;
+    namespace Ssp1Dmacr{    ///<SSP0 DMA control register
+        using Addr = Register::Address<0x40030024,0x00000000,0x00000000,unsigned>;
         ///Receive DMA Enable. When this bit is set to one 1, DMA for the receive FIFO is enabled, otherwise receive DMA is disabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxdmae{}; 
         ///Transmit DMA Enable. When this bit is set to one 1, DMA for the transmit FIFO is enabled, otherwise transmit DMA is disabled
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txdmae{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Touch sense input
     namespace Tsi0Gencs{    ///<TSI General Control and Status Register
-        using Addr = Register::Address<0x40045000,0x60000001,0,unsigned>;
+        using Addr = Register::Address<0x40045000,0x60000001,0x00000000,unsigned>;
         ///CURSW
         enum class CurswVal {
             v0=0x00000000,     ///<The current source pair are not swapped.
@@ -29,7 +29,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No scan in progress.
             v1=0x00000001,     ///<Scan in progress.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ScnipVal> scnip{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ScnipVal> scnip{}; 
         namespace ScnipValC{
             constexpr Register::FieldValue<decltype(scnip)::Type,ScnipVal::v0> v0{};
             constexpr Register::FieldValue<decltype(scnip)::Type,ScnipVal::v1> v1{};
@@ -240,15 +240,15 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> outrgf{}; 
     }
     namespace Tsi0Data{    ///<TSI DATA Register
-        using Addr = Register::Address<0x40045004,0x0f3f0000,0,unsigned>;
+        using Addr = Register::Address<0x40045004,0x0f3f0000,0x00000000,unsigned>;
         ///TSI Conversion Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tsicnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tsicnt{}; 
         ///Software Trigger Start
         enum class SwtsVal {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<Start a scan to determine which channel is specified by TSI_DATA[TSICH].
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,SwtsVal> swts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SwtsVal> swts{}; 
         namespace SwtsValC{
             constexpr Register::FieldValue<decltype(swts)::Type,SwtsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swts)::Type,SwtsVal::v1> v1{};
@@ -303,7 +303,7 @@ namespace Kvasir {
         }
     }
     namespace Tsi0Tshd{    ///<TSI Threshold Register
-        using Addr = Register::Address<0x40045008,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40045008,0x00000000,0x00000000,unsigned>;
         ///TSI Wakeup Channel Low-threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> thresl{}; 
         ///TSI Wakeup Channel High-threshold

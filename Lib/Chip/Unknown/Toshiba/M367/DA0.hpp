@@ -1,21 +1,21 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Digital-to-Analog Converter (DA)
-    namespace Nonecnt{    ///<DAC Control Register1
-        using Addr = Register::Address<0x40054000,0xfffffffc,0,unsigned>;
+    namespace Da0Cnt{    ///<DAC Control Register1
+        using Addr = Register::Address<0x40054000,0xfffffffc,0x00000000,unsigned>;
         ///OP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> op{}; 
         ///REFON
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> refon{}; 
     }
-    namespace Nonereg{    ///<DAC Data Register
-        using Addr = Register::Address<0x40054004,0xffff003f,0,unsigned>;
+    namespace Da0Reg{    ///<DAC Data Register
+        using Addr = Register::Address<0x40054004,0xffff003f,0x00000000,unsigned>;
         ///DAC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> dac{}; 
     }
-    namespace Nonedctl{    ///<DAC Output Register
-        using Addr = Register::Address<0x40054008,0xffe0f07c,0,unsigned>;
+    namespace Da0Dctl{    ///<DAC Output Register
+        using Addr = Register::Address<0x40054008,0xffe0f07c,0x00000000,unsigned>;
         ///WAVE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> wave{}; 
         ///DMAEN
@@ -29,15 +29,15 @@ namespace Kvasir {
         ///OFFSET
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> offset{}; 
     }
-    namespace Nonetctl{    ///<DAC Trigger Register
-        using Addr = Register::Address<0x4005400c,0xffff7ffe,0,unsigned>;
+    namespace Da0Tctl{    ///<DAC Trigger Register
+        using Addr = Register::Address<0x4005400c,0xffff7ffe,0x00000000,unsigned>;
         ///SWTRG
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swtrg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> swtrg{}; 
         ///DACCLR
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dacclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dacclr{}; 
     }
-    namespace Nonevctl{    ///<DAC Control Register2
-        using Addr = Register::Address<0x40054010,0xffffff00,0,unsigned>;
+    namespace Da0Vctl{    ///<DAC Control Register2
+        using Addr = Register::Address<0x40054010,0xffffff00,0x00000000,unsigned>;
         ///VHOLDCTF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> vholdctf{}; 
         ///VHOLDCTB

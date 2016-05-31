@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Windowed Watchdog Timer (WWDT)  
-    namespace Nonemod{    ///<Watchdog mode register. This register contains the basic mode and status of the Watchdog Timer.
-        using Addr = Register::Address<0x40004000,0xffffffc0,0,unsigned>;
+    namespace WwdtMod{    ///<Watchdog mode register. This register contains the basic mode and status of the Watchdog Timer.
+        using Addr = Register::Address<0x40004000,0x00000000,0x00000000,unsigned>;
         ///Watchdog enable bit. Once this bit has been written with a 1 it cannot be rewritten with a 0.
         enum class WdenVal {
             stopped=0x00000000,     ///<The watchdog timer is stopped.
@@ -40,24 +40,32 @@ namespace Kvasir {
         }
         ///A 1 in this bit prevents disabling or powering down the clock source selected by bit 0 of the WDCLKSRC register and also prevents switching to a clock source that is disabled or powered down. This bit can be set once by software and is only cleared by any reset. If this bit is one and the WWDT clock source is the IRC when Deep-sleep or Power-down modes are entered, the IRC remains running thereby increasing power consumption in Deep-sleep mode and potentially preventing the part of entering Power-down mode correctly (see Section 15.7).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> lock{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetc{    ///<Watchdog timer constant register. This 24-bit register determines the time-out value.
-        using Addr = Register::Address<0x40004004,0xff000000,0,unsigned>;
+    namespace WwdtTc{    ///<Watchdog timer constant register. This 24-bit register determines the time-out value.
+        using Addr = Register::Address<0x40004004,0x00000000,0x00000000,unsigned>;
         ///Watchdog time-out value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> count{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonefeed{    ///<Watchdog feed sequence register. Writing 0xAA followed by 0x55 to this register reloads the Watchdog timer with the value contained in WDTC.
-        using Addr = Register::Address<0x40004008,0xffffff00,0,unsigned>;
+    namespace WwdtFeed{    ///<Watchdog feed sequence register. Writing 0xAA followed by 0x55 to this register reloads the Watchdog timer with the value contained in WDTC.
+        using Addr = Register::Address<0x40004008,0x00000000,0x00000000,unsigned>;
         ///Feed value should be 0xAA followed by 0x55.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> feed{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetv{    ///<Watchdog timer value register. This 24-bit register reads out the current value of the Watchdog timer.
-        using Addr = Register::Address<0x4000400c,0xff000000,0,unsigned>;
+    namespace WwdtTv{    ///<Watchdog timer value register. This 24-bit register reads out the current value of the Watchdog timer.
+        using Addr = Register::Address<0x4000400c,0x00000000,0x00000000,unsigned>;
         ///Counter timer value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> count{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneclksel{    ///<Watchdog clock select register.
-        using Addr = Register::Address<0x40004010,0x7ffffffe,0,unsigned>;
+    namespace WwdtClksel{    ///<Watchdog clock select register.
+        using Addr = Register::Address<0x40004010,0x00000000,0x00000000,unsigned>;
         ///Selects source of WDT clock
         enum class ClkselVal {
             irc=0x00000000,     ///<IRC
@@ -68,17 +76,23 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::irc> irc{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::watchdogOscillator> watchdogOscillator{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///If this bit is set to one writing to this register does not affect bit 0. The clock source can only be changed by first clearing this bit, then writing the new value of bit 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lock{}; 
     }
-    namespace Nonewarnint{    ///<Watchdog Warning Interrupt compare value.
-        using Addr = Register::Address<0x40004014,0xfffffc00,0,unsigned>;
+    namespace WwdtWarnint{    ///<Watchdog Warning Interrupt compare value.
+        using Addr = Register::Address<0x40004014,0x00000000,0x00000000,unsigned>;
         ///Watchdog warning interrupt compare value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> warnint{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonewindow{    ///<Watchdog Window compare value.
-        using Addr = Register::Address<0x40004018,0xff000000,0,unsigned>;
+    namespace WwdtWindow{    ///<Watchdog Window compare value.
+        using Addr = Register::Address<0x40004018,0x00000000,0x00000000,unsigned>;
         ///Watchdog window value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> window{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

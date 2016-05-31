@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4002d000,0x0ffef8f8,0,unsigned>;
+    namespace Clkctrl0Control{    ///<Module Control
+        using Addr = Register::Address<0x4002d000,0x0ffef8f8,0x00000000,unsigned>;
         ///AHB Clock Source Select. 
         enum class AhbselVal {
             lposc0=0x00000000,     ///<AHB clock source is the Low-Power Oscillator.
@@ -71,7 +71,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<AHB and APB oscillators are not busy.
             set=0x00000001,     ///<AHB and APB oscillators are busy and the AHBSEL, AHBDIV, and APBDIV fields should not be modified.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,ObusyfVal> obusyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ObusyfVal> obusyf{}; 
         namespace ObusyfValC{
             constexpr Register::FieldValue<decltype(obusyf)::Type,ObusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(obusyf)::Type,ObusyfVal::set> set{};
@@ -97,8 +97,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtc0tclken)::Type,Rtc0tclkenVal::enabled> enabled{};
         }
     }
-    namespace Noneahbclkg{    ///<AHB Clock Gate
-        using Addr = Register::Address<0x4002d010,0xffffffc0,0,unsigned>;
+    namespace Clkctrl0Ahbclkg{    ///<AHB Clock Gate
+        using Addr = Register::Address<0x4002d010,0xffffffc0,0x00000000,unsigned>;
         ///RAM Clock Enable. 
         enum class RamcenVal {
             disabled=0x00000000,     ///<Disable the AHB clock to the RAM.
@@ -160,8 +160,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtm2en)::Type,Dtm2enVal::enabled> enabled{};
         }
     }
-    namespace Noneapbclkg0{    ///<APB Clock Gate 0
-        using Addr = Register::Address<0x4002d020,0xfc000000,0,unsigned>;
+    namespace Clkctrl0Apbclkg0{    ///<APB Clock Gate 0
+        using Addr = Register::Address<0x4002d020,0xfc000000,0x00000000,unsigned>;
         ///Flash Controller Clock Enable. 
         enum class FlctrlcenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the Flash Controller Module (FLASHCTRL0).
@@ -423,8 +423,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pll0cen)::Type,Pll0cenVal::enabled> enabled{};
         }
     }
-    namespace Noneapbclkg1{    ///<APB Clock Gate 1
-        using Addr = Register::Address<0x4002d030,0xfffffffc,0,unsigned>;
+    namespace Clkctrl0Apbclkg1{    ///<APB Clock Gate 1
+        using Addr = Register::Address<0x4002d030,0xfffffffc,0x00000000,unsigned>;
         ///Miscellaneous 0 Clock Enable. 
         enum class Misc0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the VMON0, LDO0, EXTOSC0, LPOSC0, RTC0 and RSTSRC modules.
@@ -446,8 +446,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(misc1cen)::Type,Misc1cenVal::enabled> enabled{};
         }
     }
-    namespace Nonepm3cn{    ///<Power Mode 3 Clock Control
-        using Addr = Register::Address<0x4002d040,0xfffefff8,0,unsigned>;
+    namespace Clkctrl0Pm3cn{    ///<Power Mode 3 Clock Control
+        using Addr = Register::Address<0x4002d040,0xfffefff8,0x00000000,unsigned>;
         ///Power Mode 3 Fast-Wake Clock Source. 
         enum class Pm3cselVal {
             lposc0Div=0x00000000,     ///<Power Mode 3 clock source is the Low-Power Oscillator.
@@ -479,8 +479,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pm3cen)::Type,Pm3cenVal::enabled> enabled{};
         }
     }
-    namespace Noneconfig{    ///<Configuration Options
-        using Addr = Register::Address<0x4002d060,0xfffffffe,0,unsigned>;
+    namespace Clkctrl0Config{    ///<Configuration Options
+        using Addr = Register::Address<0x4002d060,0xfffffffe,0x00000000,unsigned>;
         ///Power Mode Select. 
         enum class PmselVal {
             pm8Dis=0x00000000,     ///<Power Mode < PM8.

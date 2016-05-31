@@ -334,30 +334,6 @@ namespace Kvasir {
         ///Word N Width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> wnw{}; 
     }
-    namespace I2s0Tdr0{    ///<SAI Transmit Data Register
-        using Addr = Register::Address<0x4002f020,0x00000000,0x00000000,unsigned>;
-        ///Transmit Data Register
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tdr{}; 
-    }
-    namespace I2s0Tdr1{    ///<SAI Transmit Data Register
-        using Addr = Register::Address<0x4002f024,0x00000000,0x00000000,unsigned>;
-        ///Transmit Data Register
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tdr{}; 
-    }
-    namespace I2s0Tfr0{    ///<SAI Transmit FIFO Register
-        using Addr = Register::Address<0x4002f040,0xfff0fff0,0x00000000,unsigned>;
-        ///Read FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfp{}; 
-        ///Write FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wfp{}; 
-    }
-    namespace I2s0Tfr1{    ///<SAI Transmit FIFO Register
-        using Addr = Register::Address<0x4002f044,0xfff0fff0,0x00000000,unsigned>;
-        ///Read FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfp{}; 
-        ///Write FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wfp{}; 
-    }
     namespace I2s0Tmr{    ///<SAI Transmit Mask Register
         using Addr = Register::Address<0x4002f060,0x00000000,0x00000000,unsigned>;
         ///Transmit Word Mask
@@ -695,30 +671,6 @@ namespace Kvasir {
         ///Word N Width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> wnw{}; 
     }
-    namespace I2s0Rdr0{    ///<SAI Receive Data Register
-        using Addr = Register::Address<0x4002f0a0,0x00000000,0x00000000,unsigned>;
-        ///Receive Data Register
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rdr{}; 
-    }
-    namespace I2s0Rdr1{    ///<SAI Receive Data Register
-        using Addr = Register::Address<0x4002f0a4,0x00000000,0x00000000,unsigned>;
-        ///Receive Data Register
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rdr{}; 
-    }
-    namespace I2s0Rfr0{    ///<SAI Receive FIFO Register
-        using Addr = Register::Address<0x4002f0c0,0xfff0fff0,0x00000000,unsigned>;
-        ///Read FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfp{}; 
-        ///Write FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wfp{}; 
-    }
-    namespace I2s0Rfr1{    ///<SAI Receive FIFO Register
-        using Addr = Register::Address<0x4002f0c4,0xfff0fff0,0x00000000,unsigned>;
-        ///Read FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfp{}; 
-        ///Write FIFO Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wfp{}; 
-    }
     namespace I2s0Rmr{    ///<SAI Receive Mask Register
         using Addr = Register::Address<0x4002f0e0,0x00000000,0x00000000,unsigned>;
         ///Receive Word Mask
@@ -767,5 +719,53 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> divide{}; 
         ///MCLK Fraction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,12),Register::ReadWriteAccess,unsigned> fract{}; 
+    }
+    namespace I2s0Tdr0{    ///<SAI Transmit Data Register
+        using Addr = Register::Address<0x4002f020,0x00000000,0x00000000,unsigned>;
+        ///Transmit Data Register
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tdr{}; 
+    }
+    namespace I2s0Tdr1{    ///<SAI Transmit Data Register
+        using Addr = Register::Address<0x4002f024,0x00000000,0x00000000,unsigned>;
+        ///Transmit Data Register
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tdr{}; 
+    }
+    namespace I2s0Tfr0{    ///<SAI Transmit FIFO Register
+        using Addr = Register::Address<0x4002f040,0xfff0fff0,0x00000000,unsigned>;
+        ///Read FIFO Pointer
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfp{}; 
+        ///Write FIFO Pointer
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wfp{}; 
+    }
+    namespace I2s0Tfr1{    ///<SAI Transmit FIFO Register
+        using Addr = Register::Address<0x4002f044,0xfff0fff0,0x00000000,unsigned>;
+        ///Read FIFO Pointer
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfp{}; 
+        ///Write FIFO Pointer
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wfp{}; 
+    }
+    namespace I2s0Rdr0{    ///<SAI Receive Data Register
+        using Addr = Register::Address<0x4002f0a0,0x00000000,0x00000000,unsigned>;
+        ///Receive Data Register
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rdr{}; 
+    }
+    namespace I2s0Rdr1{    ///<SAI Receive Data Register
+        using Addr = Register::Address<0x4002f0a4,0x00000000,0x00000000,unsigned>;
+        ///Receive Data Register
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rdr{}; 
+    }
+    namespace I2s0Rfr0{    ///<SAI Receive FIFO Register
+        using Addr = Register::Address<0x4002f0c0,0xfff0fff0,0x00000000,unsigned>;
+        ///Read FIFO Pointer
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfp{}; 
+        ///Write FIFO Pointer
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wfp{}; 
+    }
+    namespace I2s0Rfr1{    ///<SAI Receive FIFO Register
+        using Addr = Register::Address<0x4002f0c4,0xfff0fff0,0x00000000,unsigned>;
+        ///Read FIFO Pointer
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rfp{}; 
+        ///Write FIFO Pointer
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wfp{}; 
     }
 }

@@ -1,14 +1,14 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40048000,0xff00ff86,0,unsigned>;
+    namespace Pmu0Control{    ///<Module Control
+        using Addr = Register::Address<0x40048000,0xff00ff86,0x00000000,unsigned>;
         ///Wakeup Source Clear. 
         enum class WakeclrVal {
             clear=0x00000000,     ///<Clear all wakeup sources.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,WakeclrVal> wakeclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,WakeclrVal> wakeclr{}; 
         namespace WakeclrValC{
             constexpr Register::FieldValue<decltype(wakeclr)::Type,WakeclrVal::clear> clear{};
         }
@@ -133,8 +133,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ram7ren)::Type,Ram7renVal::enabled> enabled{};
         }
     }
-    namespace Noneconfig{    ///<Module Configuration
-        using Addr = Register::Address<0x40048010,0xfffff28f,0,unsigned>;
+    namespace Pmu0Config{    ///<Module Configuration
+        using Addr = Register::Address<0x40048010,0xfffff28f,0x00000000,unsigned>;
         ///VBAT Monitor Disable. 
         enum class VbatmonenVal {
             enabled=0x00000000,     ///<Enable the 0.8 V VBAT monitor.
@@ -159,8 +159,8 @@ namespace Kvasir {
         }
         ///Low Power Charge Pump Enable. 
         enum class CpenVal {
-            disabled=0x00000000,     ///<None
-            enabled=0x00000001,     ///<None
+            disabled=0x00000000,     ///<
+            enabled=0x00000001,     ///<
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,CpenVal> cpen{}; 
         namespace CpenValC{
@@ -170,8 +170,8 @@ namespace Kvasir {
         ///Charge Pump Load Setting. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> cpload{}; 
     }
-    namespace Nonestatus{    ///<Module Status
-        using Addr = Register::Address<0x40048020,0xfffffff0,0,unsigned>;
+    namespace Pmu0Status{    ///<Module Status
+        using Addr = Register::Address<0x40048020,0xfffffff0,0x00000000,unsigned>;
         ///Power Mode 8 Exited Flag. 
         enum class Pm8efVal {
             notSet=0x00000000,     ///<The device has not exited Power Mode 8.
@@ -187,7 +187,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Pin Wake event has not occurred.
             set=0x00000001,     ///<A Pin Wake event has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,PwakefVal> pwakef{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PwakefVal> pwakef{}; 
         namespace PwakefValC{
             constexpr Register::FieldValue<decltype(pwakef)::Type,PwakefVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(pwakef)::Type,PwakefVal::set> set{};
@@ -207,14 +207,14 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The low power charge pump supply voltage is below the threshold.
             set=0x00000001,     ///<The low power charge pump supply voltage is greater than the threshold.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CpstsVal> cpsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CpstsVal> cpsts{}; 
         namespace CpstsValC{
             constexpr Register::FieldValue<decltype(cpsts)::Type,CpstsVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cpsts)::Type,CpstsVal::set> set{};
         }
     }
-    namespace Nonewakeen{    ///<Wakeup Enable
-        using Addr = Register::Address<0x40048030,0xfffffe00,0,unsigned>;
+    namespace Pmu0Wakeen{    ///<Wakeup Enable
+        using Addr = Register::Address<0x40048030,0xfffffe00,0x00000000,unsigned>;
         ///RTC0 Fail Wake Enable. 
         enum class Rtc0fwenVal {
             disabled=0x00000000,     ///<An RTC0 Fail event does not wake the device.
@@ -306,14 +306,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpfwen)::Type,CpfwenVal::enabled> enabled{};
         }
     }
-    namespace Nonewakestatus{    ///<Wakeup Status
-        using Addr = Register::Address<0x40048040,0xfffffc00,0,unsigned>;
+    namespace Pmu0Wakestatus{    ///<Wakeup Status
+        using Addr = Register::Address<0x40048040,0xfffffc00,0x00000000,unsigned>;
         ///RTC0 Fail Wake Flag. 
         enum class Rtc0fwfVal {
             notSet=0x00000000,     ///<An RTC0 Fail event did not wake the device.
             set=0x00000001,     ///<An RTC0 Fail event woke the device.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Rtc0fwfVal> rtc0fwf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rtc0fwfVal> rtc0fwf{}; 
         namespace Rtc0fwfValC{
             constexpr Register::FieldValue<decltype(rtc0fwf)::Type,Rtc0fwfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rtc0fwf)::Type,Rtc0fwfVal::set> set{};
@@ -323,7 +323,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<An RTC0 Alarm 0 event did not wake the device.
             set=0x00000001,     ///<An RTC0 0 Alarm event woke the device.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Rtc0a0wfVal> rtc0a0wf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rtc0a0wfVal> rtc0a0wf{}; 
         namespace Rtc0a0wfValC{
             constexpr Register::FieldValue<decltype(rtc0a0wf)::Type,Rtc0a0wfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rtc0a0wf)::Type,Rtc0a0wfVal::set> set{};
@@ -333,7 +333,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Comparator 0 event did not wake the device.
             set=0x00000001,     ///<A Comparator 0 event woke the device.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Cmp0wfVal> cmp0wf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Cmp0wfVal> cmp0wf{}; 
         namespace Cmp0wfValC{
             constexpr Register::FieldValue<decltype(cmp0wf)::Type,Cmp0wfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmp0wf)::Type,Cmp0wfVal::set> set{};
@@ -343,7 +343,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<An Advanced Capture Counter (ACCTR0) event did not wake the device.
             set=0x00000001,     ///<An Advanced Capture Counter (ACCTR0) event woke the device.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Acc0wfVal> acc0wf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Acc0wfVal> acc0wf{}; 
         namespace Acc0wfValC{
             constexpr Register::FieldValue<decltype(acc0wf)::Type,Acc0wfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(acc0wf)::Type,Acc0wfVal::set> set{};
@@ -353,7 +353,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A LCD VBAT voltage monitor event did not wake the device.
             set=0x00000001,     ///<A LCD VBAT voltage monitor event woke the device.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,LcdmonwfVal> lcdmonwf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LcdmonwfVal> lcdmonwf{}; 
         namespace LcdmonwfValC{
             constexpr Register::FieldValue<decltype(lcdmonwf)::Type,LcdmonwfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(lcdmonwf)::Type,LcdmonwfVal::set> set{};
@@ -363,7 +363,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Pin Wake event did not wake the device.
             set=0x00000001,     ///<A Pin Wake event woke the device.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,PwakewfVal> pwakewf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PwakewfVal> pwakewf{}; 
         namespace PwakewfValC{
             constexpr Register::FieldValue<decltype(pwakewf)::Type,PwakewfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(pwakewf)::Type,PwakewfVal::set> set{};
@@ -373,7 +373,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<An LPTIMER0 event did not wake the device.
             set=0x00000001,     ///<An LPTIMER0 event woke the device.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Lpt0wfVal> lpt0wf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Lpt0wfVal> lpt0wf{}; 
         namespace Lpt0wfValC{
             constexpr Register::FieldValue<decltype(lpt0wf)::Type,Lpt0wfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(lpt0wf)::Type,Lpt0wfVal::set> set{};
@@ -383,7 +383,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A UART0 event did not wake the device.
             set=0x00000001,     ///<A UART0 event woke the device.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Uart0wfVal> uart0wf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Uart0wfVal> uart0wf{}; 
         namespace Uart0wfValC{
             constexpr Register::FieldValue<decltype(uart0wf)::Type,Uart0wfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(uart0wf)::Type,Uart0wfVal::set> set{};
@@ -393,7 +393,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A low power charge pump supply fail event did not wake the device.
             set=0x00000001,     ///<A low power charge pump supply fail event woke the device.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,CpfwfVal> cpfwf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CpfwfVal> cpfwf{}; 
         namespace CpfwfValC{
             constexpr Register::FieldValue<decltype(cpfwf)::Type,CpfwfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cpfwf)::Type,CpfwfVal::set> set{};
@@ -403,14 +403,14 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A /RESET Pin event did not wake the device.
             set=0x00000001,     ///<A /RESET Pin event woke the device.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,RstwfVal> rstwf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RstwfVal> rstwf{}; 
         namespace RstwfValC{
             constexpr Register::FieldValue<decltype(rstwf)::Type,RstwfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rstwf)::Type,RstwfVal::set> set{};
         }
     }
-    namespace Nonepwen{    ///<Pin Wake Pin Enable
-        using Addr = Register::Address<0x40048050,0xffff0000,0,unsigned>;
+    namespace Pmu0Pwen{    ///<Pin Wake Pin Enable
+        using Addr = Register::Address<0x40048050,0xffff0000,0x00000000,unsigned>;
         ///WAKE.0 Enable. 
         enum class Pw0enVal {
             disabled=0x00000000,     ///<WAKE.0 does not cause a Pin Wake event.
@@ -572,8 +572,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pw15en)::Type,Pw15enVal::enabled> enabled{};
         }
     }
-    namespace Nonepwpol{    ///<Pin Wake Pin Polarity Select
-        using Addr = Register::Address<0x40048060,0xffff0000,0,unsigned>;
+    namespace Pmu0Pwpol{    ///<Pin Wake Pin Polarity Select
+        using Addr = Register::Address<0x40048060,0xffff0000,0x00000000,unsigned>;
         ///WAKE.0 Polarity Select. 
         enum class Pw0polVal {
             low=0x00000000,     ///<A logic low on WAKE.0 causes a Pin Wake event if PW0EN is set to 1.

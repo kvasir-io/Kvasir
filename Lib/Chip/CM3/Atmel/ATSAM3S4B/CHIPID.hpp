@@ -1,11 +1,11 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Chip Identifier
     namespace ChipidCidr{    ///<Chip ID Register
-        using Addr = Register::Address<0x400e0740,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400e0740,0x00000000,0x00000000,unsigned>;
         ///Version of the Device
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> version{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> version{}; 
         ///Embedded Processor
         enum class EprocVal {
             arm946es=0x00000001,     ///<ARM946ES
@@ -16,7 +16,7 @@ namespace Kvasir {
             ca5=0x00000006,     ///<Cortex-A5
             cm4=0x00000007,     ///<Cortex-M4
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,EprocVal> eproc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,EprocVal> eproc{}; 
         namespace EprocValC{
             constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::arm946es> arm946es{};
             constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::arm7tdmi> arm7tdmi{};
@@ -39,7 +39,7 @@ namespace Kvasir {
             v1024k=0x0000000c,     ///<1024K bytes
             v2048k=0x0000000e,     ///<2048K bytes
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,NvpsizVal> nvpsiz{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,NvpsizVal> nvpsiz{}; 
         namespace NvpsizValC{
             constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::none> none{};
             constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v8k> v8k{};
@@ -65,7 +65,7 @@ namespace Kvasir {
             v1024k=0x0000000c,     ///<1024K bytes
             v2048k=0x0000000e,     ///<2048K bytes
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,Nvpsiz2Val> nvpsiz2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Nvpsiz2Val> nvpsiz2{}; 
         namespace Nvpsiz2ValC{
             constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::none> none{};
             constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v8k> v8k{};
@@ -97,7 +97,7 @@ namespace Kvasir {
             v96k=0x0000000e,     ///<96K bytes
             v512k=0x0000000f,     ///<512K bytes
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,SramsizVal> sramsiz{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SramsizVal> sramsiz{}; 
         namespace SramsizValC{
             constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v48k> v48k{};
             constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v1k> v1k{};
@@ -161,7 +161,7 @@ namespace Kvasir {
             sam5a=0x000000a5,     ///<SAM5A
             at75cxx=0x000000f0,     ///<AT75Cxx Series
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,20),Register::ReadWriteAccess,ArchVal> arch{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ArchVal> arch{}; 
         namespace ArchValC{
             constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam9xx> at91sam9xx{};
             constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam9xexx> at91sam9xexx{};
@@ -214,7 +214,7 @@ namespace Kvasir {
             romFlash=0x00000003,     ///<ROM and Embedded Flash MemoryNVPSIZ is ROM size      NVPSIZ2 is Flash size
             sram=0x00000004,     ///<SRAM emulating ROM
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,NvptypVal> nvptyp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,NvptypVal> nvptyp{}; 
         namespace NvptypValC{
             constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::rom> rom{};
             constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::romless> romless{};
@@ -223,11 +223,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::sram> sram{};
         }
         ///Extension Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ext{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ext{}; 
     }
     namespace ChipidExid{    ///<Chip ID Extension Register
-        using Addr = Register::Address<0x400e0744,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400e0744,0x00000000,0x00000000,unsigned>;
         ///Chip ID Extension
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> exid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> exid{}; 
     }
 }

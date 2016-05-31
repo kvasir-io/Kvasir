@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog to digital converter
     namespace AdcCtrl1{    ///<ADC Control Register 1
-        using Addr = Register::Address<0x4005c000,0xffff0008,0,unsigned>;
+        using Addr = Register::Address<0x4005c000,0xffff0008,0x00000000,unsigned>;
         ///ADC Scan Mode Control
         enum class SmodeVal {
             v000=0x00000000,     ///<Once (single) sequential
@@ -79,7 +79,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No action
             v1=0x00000001,     ///<Start command is issued
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Start0Val> start0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Start0Val> start0{}; 
         namespace Start0ValC{
             constexpr Register::FieldValue<decltype(start0)::Type,Start0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(start0)::Type,Start0Val::v1> v1{};
@@ -106,7 +106,7 @@ namespace Kvasir {
         }
     }
     namespace AdcCtrl2{    ///<ADC Control Register 2
-        using Addr = Register::Address<0x4005c002,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c002,0xffff0000,0x00000000,unsigned>;
         ///Clock Divisor Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> div0{}; 
         ///Simultaneous mode
@@ -146,7 +146,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No action
             v1=0x00000001,     ///<Start command is issued
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Start1Val> start1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Start1Val> start1{}; 
         namespace Start1ValC{
             constexpr Register::FieldValue<decltype(start1)::Type,Start1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(start1)::Type,Start1Val::v1> v1{};
@@ -173,7 +173,7 @@ namespace Kvasir {
         }
     }
     namespace AdcZxctrl1{    ///<ADC Zero Crossing Control 1 Register
-        using Addr = Register::Address<0x4005c004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c004,0xffff0000,0x00000000,unsigned>;
         ///Zero crossing enable 0
         enum class Zce0Val {
             v00=0x00000000,     ///<Zero Crossing disabled
@@ -288,7 +288,7 @@ namespace Kvasir {
         }
     }
     namespace AdcZxctrl2{    ///<ADC Zero Crossing Control 2 Register
-        using Addr = Register::Address<0x4005c006,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c006,0xffff0000,0x00000000,unsigned>;
         ///Zero crossing enable 8
         enum class Zce8Val {
             v00=0x00000000,     ///<Zero Crossing disabled
@@ -403,7 +403,7 @@ namespace Kvasir {
         }
     }
     namespace AdcClist1{    ///<ADC Channel List Register 1
-        using Addr = Register::Address<0x4005c008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c008,0xffff0000,0x00000000,unsigned>;
         ///Sample Field 0
         enum class Sample0Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -558,7 +558,7 @@ namespace Kvasir {
         }
     }
     namespace AdcClist2{    ///<ADC Channel List Register 2
-        using Addr = Register::Address<0x4005c00a,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c00a,0xffff0000,0x00000000,unsigned>;
         ///Sample Field 4
         enum class Sample4Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -713,7 +713,7 @@ namespace Kvasir {
         }
     }
     namespace AdcClist3{    ///<ADC Channel List Register 3
-        using Addr = Register::Address<0x4005c00c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c00c,0xffff0000,0x00000000,unsigned>;
         ///Sample Field 8
         enum class Sample8Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -868,7 +868,7 @@ namespace Kvasir {
         }
     }
     namespace AdcClist4{    ///<ADC Channel List Register 4
-        using Addr = Register::Address<0x4005c00e,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c00e,0xffff0000,0x00000000,unsigned>;
         ///Sample Field 12
         enum class Sample12Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -1023,20 +1023,20 @@ namespace Kvasir {
         }
     }
     namespace AdcSdis{    ///<ADC Sample Disable Register
-        using Addr = Register::Address<0x4005c010,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c010,0xffff0000,0x00000000,unsigned>;
         ///Disable Sample Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ds{}; 
     }
     namespace AdcStat{    ///<ADC Status Register
-        using Addr = Register::Address<0x4005c012,0xffff2000,0,unsigned>;
+        using Addr = Register::Address<0x4005c012,0xffff2000,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> undefined{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> undefined{}; 
         ///High Limit Interrupt
         enum class HlmtiVal {
             v0=0x00000000,     ///<No high limit interrupt request
             v1=0x00000001,     ///<High limit exceeded, IRQ pending if CTRL1[HLMTIE] is set
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,HlmtiVal> hlmti{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,HlmtiVal> hlmti{}; 
         namespace HlmtiValC{
             constexpr Register::FieldValue<decltype(hlmti)::Type,HlmtiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hlmti)::Type,HlmtiVal::v1> v1{};
@@ -1046,7 +1046,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No low limit interrupt request
             v1=0x00000001,     ///<Low limit exceeded, IRQ pending if CTRL1[LLMTIE] is set
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,LlmtiVal> llmti{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LlmtiVal> llmti{}; 
         namespace LlmtiValC{
             constexpr Register::FieldValue<decltype(llmti)::Type,LlmtiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(llmti)::Type,LlmtiVal::v1> v1{};
@@ -1056,7 +1056,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No zero crossing interrupt request
             v1=0x00000001,     ///<Zero crossing encountered, IRQ pending if CTRL1[ZCIE] is set
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,ZciVal> zci{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ZciVal> zci{}; 
         namespace ZciValC{
             constexpr Register::FieldValue<decltype(zci)::Type,ZciVal::v0> v0{};
             constexpr Register::FieldValue<decltype(zci)::Type,ZciVal::v1> v1{};
@@ -1086,7 +1086,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Idle state
             v1=0x00000001,     ///<A scan cycle is in progress. The ADC will ignore all sync pulses or start commands
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Cip1Val> cip1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Cip1Val> cip1{}; 
         namespace Cip1ValC{
             constexpr Register::FieldValue<decltype(cip1)::Type,Cip1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(cip1)::Type,Cip1Val::v1> v1{};
@@ -1096,386 +1096,34 @@ namespace Kvasir {
             v0=0x00000000,     ///<Idle state
             v1=0x00000001,     ///<A scan cycle is in progress. The ADC will ignore all sync pulses or start commands
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Cip0Val> cip0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Cip0Val> cip0{}; 
         namespace Cip0ValC{
             constexpr Register::FieldValue<decltype(cip0)::Type,Cip0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(cip0)::Type,Cip0Val::v1> v1{};
         }
     }
     namespace AdcRdy{    ///<ADC Ready Register
-        using Addr = Register::Address<0x4005c014,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c014,0xffff0000,0x00000000,unsigned>;
         ///Ready Sample
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rdy{}; 
     }
     namespace AdcLolimstat{    ///<ADC Low Limit Status Register
-        using Addr = Register::Address<0x4005c016,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c016,0xffff0000,0x00000000,unsigned>;
         ///Low Limit Status Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lls{}; 
     }
     namespace AdcHilimstat{    ///<ADC High Limit Status Register
-        using Addr = Register::Address<0x4005c018,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c018,0xffff0000,0x00000000,unsigned>;
         ///High Limit Status Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> hls{}; 
     }
     namespace AdcZxstat{    ///<ADC Zero Crossing Status Register
-        using Addr = Register::Address<0x4005c01a,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c01a,0xffff0000,0x00000000,unsigned>;
         ///Zero Crossing Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> zcs{}; 
     }
-    namespace AdcRslt0{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c01c,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt1{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c01e,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt2{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c020,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt3{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c022,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt4{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c024,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt5{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c026,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt6{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c028,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt7{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c02a,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt8{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c02c,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt9{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c02e,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt10{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c030,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt11{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c032,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt12{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c034,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt13{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c036,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt14{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c038,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcRslt15{    ///<ADC Result Registers with sign extension
-        using Addr = Register::Address<0x4005c03a,0xffff0007,0,unsigned>;
-        ///Digital Result of the Conversion
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
-        ///Sign Extend
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> sext{}; 
-    }
-    namespace AdcLolim0{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c03c,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim1{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c03e,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim2{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c040,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim3{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c042,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim4{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c044,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim5{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c046,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim6{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c048,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim7{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c04a,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim8{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c04c,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim9{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c04e,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim10{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c050,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim11{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c052,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim12{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c054,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim13{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c056,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim14{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c058,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcLolim15{    ///<ADC Low Limit Registers
-        using Addr = Register::Address<0x4005c05a,0xffff8007,0,unsigned>;
-        ///Low Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
-    }
-    namespace AdcHilim0{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c05c,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim1{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c05e,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim2{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c060,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim3{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c062,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim4{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c064,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim5{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c066,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim6{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c068,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim7{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c06a,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim8{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c06c,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim9{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c06e,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim10{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c070,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim11{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c072,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim12{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c074,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim13{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c076,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim14{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c078,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcHilim15{    ///<ADC High Limit Registers
-        using Addr = Register::Address<0x4005c07a,0xffff8007,0,unsigned>;
-        ///High Limit Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
-    }
-    namespace AdcOffst0{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c07c,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst1{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c07e,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst2{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c080,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst3{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c082,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst4{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c084,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst5{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c086,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst6{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c088,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst7{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c08a,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst8{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c08c,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst9{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c08e,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst10{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c090,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst11{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c092,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst12{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c094,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst13{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c096,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst14{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c098,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
-    namespace AdcOffst15{    ///<ADC Offset Registers
-        using Addr = Register::Address<0x4005c09a,0xffff8007,0,unsigned>;
-        ///ADC Offset Bits
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
-    }
     namespace AdcPwr{    ///<ADC Power Control Register
-        using Addr = Register::Address<0x4005c09c,0xffff7004,0,unsigned>;
+        using Addr = Register::Address<0x4005c09c,0xffff7004,0x00000000,unsigned>;
         ///Manual Power Down for Converter A
         enum class Pd0Val {
             v0=0x00000000,     ///<Power Up ADC converter A
@@ -1513,7 +1161,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<ADC Converter A is currently powered up
             v1=0x00000001,     ///<ADC Converter A is currently powered down
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Psts0Val> psts0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Psts0Val> psts0{}; 
         namespace Psts0ValC{
             constexpr Register::FieldValue<decltype(psts0)::Type,Psts0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(psts0)::Type,Psts0Val::v1> v1{};
@@ -1523,7 +1171,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<ADC Converter B is currently powered up
             v1=0x00000001,     ///<ADC Converter B is currently powered down
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Psts1Val> psts1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Psts1Val> psts1{}; 
         namespace Psts1ValC{
             constexpr Register::FieldValue<decltype(psts1)::Type,Psts1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(psts1)::Type,Psts1Val::v1> v1{};
@@ -1540,7 +1188,7 @@ namespace Kvasir {
         }
     }
     namespace AdcCal{    ///<ADC Calibration Register
-        using Addr = Register::Address<0x4005c09e,0xffff0fff,0,unsigned>;
+        using Addr = Register::Address<0x4005c09e,0xffff0fff,0x00000000,unsigned>;
         ///Select V REFLO Source
         enum class SelvrefloaVal {
             v0=0x00000000,     ///<VREFL pad
@@ -1583,7 +1231,7 @@ namespace Kvasir {
         }
     }
     namespace AdcGc1{    ///<Gain Control 1 Register
-        using Addr = Register::Address<0x4005c0a0,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c0a0,0xffff0000,0x00000000,unsigned>;
         ///Gain Control Bit 0
         enum class Gain0Val {
             v00=0x00000000,     ///<x1 amplification
@@ -1682,7 +1330,7 @@ namespace Kvasir {
         }
     }
     namespace AdcGc2{    ///<Gain Control 2 Register
-        using Addr = Register::Address<0x4005c0a2,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c0a2,0xffff0000,0x00000000,unsigned>;
         ///Gain Control Bit 8
         enum class Gain8Val {
             v00=0x00000000,     ///<x1 amplification
@@ -1781,12 +1429,12 @@ namespace Kvasir {
         }
     }
     namespace AdcSctrl{    ///<ADC Scan Control Register
-        using Addr = Register::Address<0x4005c0a4,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c0a4,0xffff0000,0x00000000,unsigned>;
         ///Scan Control Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> sc{}; 
     }
     namespace AdcPwr2{    ///<ADC Power Control Register
-        using Addr = Register::Address<0x4005c0a6,0xffffc0f0,0,unsigned>;
+        using Addr = Register::Address<0x4005c0a6,0xffffc0f0,0x00000000,unsigned>;
         ///ADCA Speed Control Bits
         enum class SpeedaVal {
             v00=0x00000000,     ///<Conversion clock frequency <= 6.25 MHz; current consumption per converter = 6 mA
@@ -1819,7 +1467,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> div1{}; 
     }
     namespace AdcCtrl3{    ///<ADC Control Register 3
-        using Addr = Register::Address<0x4005c0a8,0xffffff80,0,unsigned>;
+        using Addr = Register::Address<0x4005c0a8,0xffffff80,0x00000000,unsigned>;
         ///Sample Window Count 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> scnt0{}; 
         ///Sample Window Count 1
@@ -1836,8 +1484,360 @@ namespace Kvasir {
         }
     }
     namespace AdcSchlten{    ///<ADC Scan Interrupt Enable Register
-        using Addr = Register::Address<0x4005c0aa,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005c0aa,0xffff0000,0x00000000,unsigned>;
         ///Scan Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> schlten{}; 
+    }
+    namespace AdcRslt0{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c01c,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt1{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c01e,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt2{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c020,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt3{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c022,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt4{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c024,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt5{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c026,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt6{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c028,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt7{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c02a,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt8{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c02c,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt9{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c02e,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt10{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c030,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt11{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c032,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt12{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c034,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt13{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c036,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt14{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c038,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcRslt15{    ///<ADC Result Registers with sign extension
+        using Addr = Register::Address<0x4005c03a,0xffff0007,0x00000000,unsigned>;
+        ///Digital Result of the Conversion
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> rslt{}; 
+        ///Sign Extend
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sext{}; 
+    }
+    namespace AdcLolim0{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c03c,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim1{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c03e,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim2{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c040,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim3{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c042,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim4{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c044,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim5{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c046,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim6{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c048,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim7{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c04a,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim8{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c04c,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim9{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c04e,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim10{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c050,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim11{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c052,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim12{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c054,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim13{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c056,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim14{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c058,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcLolim15{    ///<ADC Low Limit Registers
+        using Addr = Register::Address<0x4005c05a,0xffff8007,0x00000000,unsigned>;
+        ///Low Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> llmt{}; 
+    }
+    namespace AdcHilim0{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c05c,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim1{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c05e,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim2{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c060,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim3{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c062,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim4{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c064,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim5{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c066,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim6{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c068,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim7{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c06a,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim8{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c06c,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim9{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c06e,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim10{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c070,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim11{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c072,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim12{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c074,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim13{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c076,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim14{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c078,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcHilim15{    ///<ADC High Limit Registers
+        using Addr = Register::Address<0x4005c07a,0xffff8007,0x00000000,unsigned>;
+        ///High Limit Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> hlmt{}; 
+    }
+    namespace AdcOffst0{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c07c,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst1{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c07e,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst2{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c080,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst3{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c082,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst4{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c084,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst5{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c086,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst6{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c088,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst7{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c08a,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst8{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c08c,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst9{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c08e,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst10{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c090,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst11{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c092,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst12{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c094,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst13{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c096,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst14{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c098,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
+    }
+    namespace AdcOffst15{    ///<ADC Offset Registers
+        using Addr = Register::Address<0x4005c09a,0xffff8007,0x00000000,unsigned>;
+        ///ADC Offset Bits
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,3),Register::ReadWriteAccess,unsigned> offset{}; 
     }
 }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Port control and interrupts
     namespace PortIoflt{    ///<Port Filter Register
-        using Addr = Register::Address<0x40049000,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40049000,0x00000000,0x00000000,unsigned>;
         ///Filter Selection for Input from PTA
         enum class FltaVal {
             v00=0x00000000,     ///<BUSCLK
@@ -232,7 +232,7 @@ namespace Kvasir {
         }
     }
     namespace PortPuel{    ///<Port Pullup Enable Low Register
-        using Addr = Register::Address<0x40049004,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40049004,0x00000000,0x00000000,unsigned>;
         ///Pull Enable for Port A Bit 0
         enum class Ptape0Val {
             v0=0x00000000,     ///<Pullup is disabled for port A bit 0.
@@ -555,7 +555,7 @@ namespace Kvasir {
         }
     }
     namespace PortPueh{    ///<Port Pullup Enable High Register
-        using Addr = Register::Address<0x40049008,0x38f00000,0,unsigned>;
+        using Addr = Register::Address<0x40049008,0x38f00000,0x00000000,unsigned>;
         ///Pull Enable for Port E Bit 0
         enum class Ptepe0Val {
             v0=0x00000000,     ///<Pullup is disabled for port E bit 0.
@@ -808,7 +808,7 @@ namespace Kvasir {
         }
     }
     namespace PortHdrve{    ///<Port High Drive Enable Register
-        using Addr = Register::Address<0x4004900c,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4004900c,0xffffff00,0x00000000,unsigned>;
         ///High Current Drive Capability of PTB4
         enum class Ptb4Val {
             v0=0x00000000,     ///<PTB4 is disabled to offer high current drive capability.

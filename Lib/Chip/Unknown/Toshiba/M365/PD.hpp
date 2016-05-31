@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General Purpose Input_Output Port (PD)
-    namespace Nonedata{    ///<PD Data Register
-        using Addr = Register::Address<0x400c0300,0xffffff00,0,unsigned>;
+    namespace PdData{    ///<PD Data Register
+        using Addr = Register::Address<0x400c0300,0xffffff00,0x00000000,unsigned>;
         ///PD0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0{}; 
         ///PD1
@@ -21,8 +21,8 @@ namespace Kvasir {
         ///PD7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7{}; 
     }
-    namespace Nonecr{    ///<PD Control Register
-        using Addr = Register::Address<0x400c0304,0xffffff00,0,unsigned>;
+    namespace PdCr{    ///<PD Control Register
+        using Addr = Register::Address<0x400c0304,0xffffff00,0x00000000,unsigned>;
         ///PD0C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0c{}; 
         ///PD1C
@@ -40,8 +40,8 @@ namespace Kvasir {
         ///PD7C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7c{}; 
     }
-    namespace Nonefr3{    ///<PD Function Register 3
-        using Addr = Register::Address<0x400c0310,0xffffff70,0,unsigned>;
+    namespace PdFr3{    ///<PD Function Register 3
+        using Addr = Register::Address<0x400c0310,0xffffff70,0x00000000,unsigned>;
         ///PD0F3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0f3{}; 
         ///PD1F3
@@ -53,8 +53,8 @@ namespace Kvasir {
         ///PD7F3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7f3{}; 
     }
-    namespace Noneod{    ///<PD Open Drain Control Register
-        using Addr = Register::Address<0x400c0328,0xffffff00,0,unsigned>;
+    namespace PdOd{    ///<PD Open Drain Control Register
+        using Addr = Register::Address<0x400c0328,0xffffff00,0x00000000,unsigned>;
         ///PD0OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0od{}; 
         ///PD1OD
@@ -72,8 +72,8 @@ namespace Kvasir {
         ///PD7OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7od{}; 
     }
-    namespace Nonepup{    ///<PD Pull-Up Control Register
-        using Addr = Register::Address<0x400c032c,0xffffff00,0,unsigned>;
+    namespace PdPup{    ///<PD Pull-Up Control Register
+        using Addr = Register::Address<0x400c032c,0xffffff00,0x00000000,unsigned>;
         ///PD0UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0up{}; 
         ///PD1UP
@@ -91,8 +91,8 @@ namespace Kvasir {
         ///PD7UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7up{}; 
     }
-    namespace Noneie{    ///<PD Input Enable Control Register
-        using Addr = Register::Address<0x400c0338,0xffffff00,0,unsigned>;
+    namespace PdIe{    ///<PD Input Enable Control Register
+        using Addr = Register::Address<0x400c0338,0xffffff00,0x00000000,unsigned>;
         ///PD0IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0ie{}; 
         ///PD1IE

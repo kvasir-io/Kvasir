@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Touch Sensing Input
     namespace Tsi0Gencs{    ///<General Control and Status register
-        using Addr = Register::Address<0x40045000,0xe0000c0c,0,unsigned>;
+        using Addr = Register::Address<0x40045000,0xe0000c0c,0x00000000,unsigned>;
         ///no description available
         enum class StpeVal {
             v0=0x00000000,     ///<Disable TSI when MCU goes into low-power modes.
@@ -65,9 +65,9 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tsien)::Type,TsienVal::v1> v1{};
         }
         ///Software Trigger Start
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> swts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> swts{}; 
         ///Scan In Progress Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> scnip{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> scnip{}; 
         ///Overrun Error Flag
         enum class OvrfVal {
             v0=0x00000000,     ///<No overrun.
@@ -234,7 +234,7 @@ namespace Kvasir {
         }
     }
     namespace Tsi0Scanc{    ///<SCAN Control register
-        using Addr = Register::Address<0x40045004,0xf0f000e0,0,unsigned>;
+        using Addr = Register::Address<0x40045004,0xf0f000e0,0x00000000,unsigned>;
         ///Active Mode Prescaler
         enum class AmpscVal {
             v000=0x00000000,     ///<Input Clock Source divided by 1
@@ -351,7 +351,7 @@ namespace Kvasir {
         }
     }
     namespace Tsi0Pen{    ///<Pin Enable register
-        using Addr = Register::Address<0x40045008,0xfff00000,0,unsigned>;
+        using Addr = Register::Address<0x40045008,0xfff00000,0x00000000,unsigned>;
         ///Touch Sensing Input Pin Enable Register 0
         enum class Pen0Val {
             v0=0x00000000,     ///<The corresponding pin is not used by TSI.
@@ -552,71 +552,71 @@ namespace Kvasir {
         }
     }
     namespace Tsi0Wucntr{    ///<Wake-Up Channel Counter Register
-        using Addr = Register::Address<0x4004500c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4004500c,0xffff0000,0x00000000,unsigned>;
         ///Touch Sensing Wake-Up Channel 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wucnt{}; 
-    }
-    namespace Tsi0Cntr1{    ///<Counter Register
-        using Addr = Register::Address<0x40045100,0x00000000,0,unsigned>;
-        ///Touch Sensing Channel n-1 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ctn1{}; 
-        ///Touch Sensing Channel n 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ctn{}; 
-    }
-    namespace Tsi0Cntr3{    ///<Counter Register
-        using Addr = Register::Address<0x40045104,0x00000000,0,unsigned>;
-        ///Touch Sensing Channel n-1 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ctn1{}; 
-        ///Touch Sensing Channel n 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ctn{}; 
-    }
-    namespace Tsi0Cntr5{    ///<Counter Register
-        using Addr = Register::Address<0x40045108,0x00000000,0,unsigned>;
-        ///Touch Sensing Channel n-1 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ctn1{}; 
-        ///Touch Sensing Channel n 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ctn{}; 
-    }
-    namespace Tsi0Cntr7{    ///<Counter Register
-        using Addr = Register::Address<0x4004510c,0x00000000,0,unsigned>;
-        ///Touch Sensing Channel n-1 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ctn1{}; 
-        ///Touch Sensing Channel n 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ctn{}; 
-    }
-    namespace Tsi0Cntr9{    ///<Counter Register
-        using Addr = Register::Address<0x40045110,0x00000000,0,unsigned>;
-        ///Touch Sensing Channel n-1 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ctn1{}; 
-        ///Touch Sensing Channel n 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ctn{}; 
-    }
-    namespace Tsi0Cntr11{    ///<Counter Register
-        using Addr = Register::Address<0x40045114,0x00000000,0,unsigned>;
-        ///Touch Sensing Channel n-1 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ctn1{}; 
-        ///Touch Sensing Channel n 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ctn{}; 
-    }
-    namespace Tsi0Cntr13{    ///<Counter Register
-        using Addr = Register::Address<0x40045118,0x00000000,0,unsigned>;
-        ///Touch Sensing Channel n-1 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ctn1{}; 
-        ///Touch Sensing Channel n 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ctn{}; 
-    }
-    namespace Tsi0Cntr15{    ///<Counter Register
-        using Addr = Register::Address<0x4004511c,0x00000000,0,unsigned>;
-        ///Touch Sensing Channel n-1 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ctn1{}; 
-        ///Touch Sensing Channel n 16-bit Counter Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ctn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wucnt{}; 
     }
     namespace Tsi0Threshold{    ///<Low-Power Channel Threshold register
-        using Addr = Register::Address<0x40045120,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40045120,0x00000000,0x00000000,unsigned>;
         ///Touch Sensing Channel High Threshold Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> hthh{}; 
         ///Touch Sensing Channel Low Threshold Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> lthh{}; 
+    }
+    namespace Tsi0Cntr1{    ///<Counter Register
+        using Addr = Register::Address<0x40045100,0x00000000,0x00000000,unsigned>;
+        ///Touch Sensing Channel n-1 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn1{}; 
+        ///Touch Sensing Channel n 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn{}; 
+    }
+    namespace Tsi0Cntr3{    ///<Counter Register
+        using Addr = Register::Address<0x40045104,0x00000000,0x00000000,unsigned>;
+        ///Touch Sensing Channel n-1 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn1{}; 
+        ///Touch Sensing Channel n 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn{}; 
+    }
+    namespace Tsi0Cntr5{    ///<Counter Register
+        using Addr = Register::Address<0x40045108,0x00000000,0x00000000,unsigned>;
+        ///Touch Sensing Channel n-1 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn1{}; 
+        ///Touch Sensing Channel n 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn{}; 
+    }
+    namespace Tsi0Cntr7{    ///<Counter Register
+        using Addr = Register::Address<0x4004510c,0x00000000,0x00000000,unsigned>;
+        ///Touch Sensing Channel n-1 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn1{}; 
+        ///Touch Sensing Channel n 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn{}; 
+    }
+    namespace Tsi0Cntr9{    ///<Counter Register
+        using Addr = Register::Address<0x40045110,0x00000000,0x00000000,unsigned>;
+        ///Touch Sensing Channel n-1 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn1{}; 
+        ///Touch Sensing Channel n 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn{}; 
+    }
+    namespace Tsi0Cntr11{    ///<Counter Register
+        using Addr = Register::Address<0x40045114,0x00000000,0x00000000,unsigned>;
+        ///Touch Sensing Channel n-1 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn1{}; 
+        ///Touch Sensing Channel n 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn{}; 
+    }
+    namespace Tsi0Cntr13{    ///<Counter Register
+        using Addr = Register::Address<0x40045118,0x00000000,0x00000000,unsigned>;
+        ///Touch Sensing Channel n-1 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn1{}; 
+        ///Touch Sensing Channel n 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn{}; 
+    }
+    namespace Tsi0Cntr15{    ///<Counter Register
+        using Addr = Register::Address<0x4004511c,0x00000000,0x00000000,unsigned>;
+        ///Touch Sensing Channel n-1 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn1{}; 
+        ///Touch Sensing Channel n 16-bit Counter Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctn{}; 
     }
 }

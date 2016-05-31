@@ -1,21 +1,21 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //AES ECB Mode Encryption.
-    namespace NonetasksStartecb{    ///<Start ECB block encrypt. If a crypto operation is running, this will not initiate a new encryption and the ERRORECB event will be triggered.
-        using Addr = Register::Address<0x4000e000,0xffffffff,0,unsigned>;
+    namespace EcbTasksStartecb{    ///<Start ECB block encrypt. If a crypto operation is running, this will not initiate a new encryption and the ERRORECB event will be triggered.
+        using Addr = Register::Address<0x4000e000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStopecb{    ///<Stop current ECB encryption. If a crypto operation is running, this will will trigger the ERRORECB event.
-        using Addr = Register::Address<0x4000e004,0xffffffff,0,unsigned>;
+    namespace EcbTasksStopecb{    ///<Stop current ECB encryption. If a crypto operation is running, this will will trigger the ERRORECB event.
+        using Addr = Register::Address<0x4000e004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEndecb{    ///<ECB block encrypt complete.
-        using Addr = Register::Address<0x4000e100,0xffffffff,0,unsigned>;
+    namespace EcbEventsEndecb{    ///<ECB block encrypt complete.
+        using Addr = Register::Address<0x4000e100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsErrorecb{    ///<ECB block encrypt aborted due to a STOPECB task or due to an error.
-        using Addr = Register::Address<0x4000e104,0xffffffff,0,unsigned>;
+    namespace EcbEventsErrorecb{    ///<ECB block encrypt aborted due to a STOPECB task or due to an error.
+        using Addr = Register::Address<0x4000e104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneintenset{    ///<Interrupt enable set register.
-        using Addr = Register::Address<0x4000e304,0xfffffffc,0,unsigned>;
+    namespace EcbIntenset{    ///<Interrupt enable set register.
+        using Addr = Register::Address<0x4000e304,0xfffffffc,0x00000000,unsigned>;
         ///Enable interrupt on ENDECB event.
         enum class EndecbVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -41,8 +41,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register.
-        using Addr = Register::Address<0x4000e308,0xfffffffc,0,unsigned>;
+    namespace EcbIntenclr{    ///<Interrupt enable clear register.
+        using Addr = Register::Address<0x4000e308,0xfffffffc,0x00000000,unsigned>;
         ///Disable interrupt on ENDECB event.
         enum class EndecbVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -68,11 +68,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::clear> clear{};
         }
     }
-    namespace Noneecbdataptr{    ///<ECB block encrypt memory pointer.
-        using Addr = Register::Address<0x4000e504,0xffffffff,0,unsigned>;
+    namespace EcbEcbdataptr{    ///<ECB block encrypt memory pointer.
+        using Addr = Register::Address<0x4000e504,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x4000effc,0xfffffffe,0,unsigned>;
+    namespace EcbPower{    ///<Peripheral power control.
+        using Addr = Register::Address<0x4000effc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.

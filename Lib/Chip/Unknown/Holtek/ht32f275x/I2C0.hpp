@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //I2C0
-    namespace Nonei2c0Cr{    ///<I2C0_CR
-        using Addr = Register::Address<0x40048000,0xffffe870,0,unsigned>;
+    namespace I2c0I2c0Cr{    ///<I2C0_CR
+        using Addr = Register::Address<0x40048000,0x00000870,0x00000000,unsigned>;
         ///AA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> aa{}; 
         ///STOP
@@ -22,9 +22,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> dmanack{}; 
         ///ENTOUT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> entout{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,13),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2c0Ier{    ///<I2C0_IER
-        using Addr = Register::Address<0x40048004,0xfff8f0f0,0,unsigned>;
+    namespace I2c0I2c0Ier{    ///<I2C0_IER
+        using Addr = Register::Address<0x40048004,0x0000f0f0,0x00000000,unsigned>;
         ///STAIE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> staie{}; 
         ///STOIE
@@ -47,14 +49,18 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> txdeie{}; 
         ///RXBFIE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rxbfie{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2c0Addr{    ///<I2C0_ADDR
-        using Addr = Register::Address<0x40048008,0xfffffc00,0,unsigned>;
+    namespace I2c0I2c0Addr{    ///<I2C0_ADDR
+        using Addr = Register::Address<0x40048008,0x00000000,0x00000000,unsigned>;
         ///ADDR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2c0Sr{    ///<I2C0_SR
-        using Addr = Register::Address<0x4004800c,0xffc0f0f0,0,unsigned>;
+    namespace I2c0I2c0Sr{    ///<I2C0_SR
+        using Addr = Register::Address<0x4004800c,0x0000f0f0,0x00000000,unsigned>;
         ///STA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sta{}; 
         ///STO
@@ -83,44 +89,60 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> master{}; 
         ///TXNRX
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> txnrx{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2c0Shpgr{    ///<I2C0_SHPGR
-        using Addr = Register::Address<0x40048010,0xffff0000,0,unsigned>;
+    namespace I2c0I2c0Shpgr{    ///<I2C0_SHPGR
+        using Addr = Register::Address<0x40048010,0x00000000,0x00000000,unsigned>;
         ///SHPG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> shpg{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2c0Slpgr{    ///<I2C0_SLPGR
-        using Addr = Register::Address<0x40048014,0xffff0000,0,unsigned>;
+    namespace I2c0I2c0Slpgr{    ///<I2C0_SLPGR
+        using Addr = Register::Address<0x40048014,0x00000000,0x00000000,unsigned>;
         ///SLPG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> slpg{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2c0Dr{    ///<I2C0_DR
-        using Addr = Register::Address<0x40048018,0xffffff00,0,unsigned>;
+    namespace I2c0I2c0Dr{    ///<I2C0_DR
+        using Addr = Register::Address<0x40048018,0x00000000,0x00000000,unsigned>;
         ///DATA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2c0Tar{    ///<I2C0_TAR
-        using Addr = Register::Address<0x4004801c,0xfffff800,0,unsigned>;
+    namespace I2c0I2c0Tar{    ///<I2C0_TAR
+        using Addr = Register::Address<0x4004801c,0x00000000,0x00000000,unsigned>;
         ///TAR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> tar{}; 
         ///RWD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rwd{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2c0Addmr{    ///<I2C0_ADDMR
-        using Addr = Register::Address<0x40048020,0xfffffc00,0,unsigned>;
+    namespace I2c0I2c0Addmr{    ///<I2C0_ADDMR
+        using Addr = Register::Address<0x40048020,0x00000000,0x00000000,unsigned>;
         ///ADDMR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> addmr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2c0Addsr{    ///<I2C0_ADDSR
-        using Addr = Register::Address<0x40048024,0xfffffc00,0,unsigned>;
+    namespace I2c0I2c0Addsr{    ///<I2C0_ADDSR
+        using Addr = Register::Address<0x40048024,0x00000000,0x00000000,unsigned>;
         ///ADDSR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> addsr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonei2c0Tout{    ///<I2C0_TOUT
-        using Addr = Register::Address<0x40048028,0xfff80000,0,unsigned>;
+    namespace I2c0I2c0Tout{    ///<I2C0_TOUT
+        using Addr = Register::Address<0x40048028,0x00000000,0x00000000,unsigned>;
         ///TOUT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tout{}; 
         ///PSC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> psc{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,19),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol0{    ///<Global Port Control 0
-        using Addr = Register::Address<0x4002a000,0x60ff0000,0,unsigned>;
+    namespace Pbcfg0Control0{    ///<Global Port Control 0
+        using Addr = Register::Address<0x4002a000,0x60ff0000,0x00000000,unsigned>;
         ///External Interrupt 0 Pin Selection. 
         enum class Int0selVal {
             int00=0x00000000,     ///<Select INT0.0
@@ -143,14 +143,14 @@ namespace Kvasir {
             notSet=0x00000000,     ///<Firmware has written to the PBPGPHASE register, but the Pulse Generator timer has not expired.
             set=0x00000001,     ///<The Pulse Generator cycle finished since the last time PBPGPHASE was written.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,PgdonefVal> pgdonef{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PgdonefVal> pgdonef{}; 
         namespace PgdonefValC{
             constexpr Register::FieldValue<decltype(pgdonef)::Type,PgdonefVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(pgdonef)::Type,PgdonefVal::set> set{};
         }
     }
-    namespace Nonecontrol1{    ///<Global Port Control 1
-        using Addr = Register::Address<0x4002a010,0x7fffecf8,0,unsigned>;
+    namespace Pbcfg0Control1{    ///<Global Port Control 1
+        using Addr = Register::Address<0x4002a010,0x7fffecf8,0x00000000,unsigned>;
         ///JTAG Enable. 
         enum class JtagenVal {
             disabled=0x00000000,     ///<JTAG functionality is not pinned out.
@@ -222,8 +222,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::locked> locked{};
         }
     }
-    namespace Nonexbar0{    ///<Crossbar 0 Control
-        using Addr = Register::Address<0x4002a020,0x7f800000,0,unsigned>;
+    namespace Pbcfg0Xbar0{    ///<Crossbar 0 Control
+        using Addr = Register::Address<0x4002a020,0x7f800000,0x00000000,unsigned>;
         ///USART0 Enable. 
         enum class Usart0enVal {
             disabled=0x00000000,     ///<Disable USART0 RX and TX on Crossbar 0.
@@ -455,8 +455,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xbar0en)::Type,Xbar0enVal::enabled> enabled{};
         }
     }
-    namespace Nonepbkey{    ///<Global Port Key
-        using Addr = Register::Address<0x4002a030,0xffffff00,0,unsigned>;
+    namespace Pbcfg0Pbkey{    ///<Global Port Key
+        using Addr = Register::Address<0x4002a030,0xffffff00,0x00000000,unsigned>;
         ///Port Bank Key. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
     }

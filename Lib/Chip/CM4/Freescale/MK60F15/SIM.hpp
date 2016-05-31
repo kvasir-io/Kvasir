@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //System Integration Module
     namespace SimSopt1{    ///<System Options Register 1
-        using Addr = Register::Address<0x40047000,0x1ff70fff,0,unsigned>;
+        using Addr = Register::Address<0x40047000,0x1ff70fff,0x00000000,unsigned>;
         ///RAM size
         enum class RamsizeVal {
             v0000=0x00000000,     ///<Undefined
@@ -23,7 +23,7 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Undefined
             v1111=0x0000000f,     ///<Undefined
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,RamsizeVal> ramsize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RamsizeVal> ramsize{}; 
         namespace RamsizeValC{
             constexpr Register::FieldValue<decltype(ramsize)::Type,RamsizeVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(ramsize)::Type,RamsizeVal::v0001> v0001{};
@@ -84,7 +84,7 @@ namespace Kvasir {
         }
     }
     namespace SimSopt1cfg{    ///<SOPT1 Configuration Register
-        using Addr = Register::Address<0x40047004,0xf8ffffff,0,unsigned>;
+        using Addr = Register::Address<0x40047004,0xf8ffffff,0x00000000,unsigned>;
         ///USB voltage regulator enable write enable
         enum class UrweVal {
             v0=0x00000000,     ///<SOPT1[USBREGEN] cannot be written.
@@ -117,7 +117,7 @@ namespace Kvasir {
         }
     }
     namespace SimSopt2{    ///<System Options Register 2
-        using Addr = Register::Address<0x40048004,0x0f086403,0,unsigned>;
+        using Addr = Register::Address<0x40048004,0x0f086403,0x00000000,unsigned>;
         ///USB HS clock source select
         enum class UsbhsrcVal {
             v00=0x00000000,     ///<Bus clock
@@ -286,7 +286,7 @@ namespace Kvasir {
         }
     }
     namespace SimSopt4{    ///<System Options Register 4
-        using Addr = Register::Address<0x4004800c,0x00c3eee0,0,unsigned>;
+        using Addr = Register::Address<0x4004800c,0x00c3eee0,0x00000000,unsigned>;
         ///FlexTimer 0 Fault 0 Select
         enum class Ftm0flt0Val {
             v0=0x00000000,     ///<FTM0_FLT0 drives FTM 0 fault 0.
@@ -465,7 +465,7 @@ namespace Kvasir {
         }
     }
     namespace SimSopt5{    ///<System Options Register 5
-        using Addr = Register::Address<0x40048010,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x40048010,0xffffff00,0x00000000,unsigned>;
         ///UART0 transmit data source select
         enum class Uart0txsrcVal {
             v00=0x00000000,     ///<UART0_TX pin
@@ -516,14 +516,14 @@ namespace Kvasir {
         }
     }
     namespace SimSopt6{    ///<System Options Register 6
-        using Addr = Register::Address<0x40048014,0xfff00000,0,unsigned>;
+        using Addr = Register::Address<0x40048014,0xfff00000,0x00000000,unsigned>;
         ///MCC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mcc{}; 
         ///PCR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pcr{}; 
     }
     namespace SimSopt7{    ///<System Options Register 7
-        using Addr = Register::Address<0x40048018,0x60606060,0,unsigned>;
+        using Addr = Register::Address<0x40048018,0x60606060,0x00000000,unsigned>;
         ///ADC0 trigger select
         enum class Adc0trgselVal {
             v0000=0x00000000,     ///<External trigger
@@ -758,9 +758,9 @@ namespace Kvasir {
         }
     }
     namespace SimSdid{    ///<System Device Identification Register
-        using Addr = Register::Address<0x40048024,0xffff0f80,0,unsigned>;
+        using Addr = Register::Address<0x40048024,0xffff0f80,0x00000000,unsigned>;
         ///Pincount identification
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> pinid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pinid{}; 
         ///Kinetis family identification
         enum class FamidVal {
             v000=0x00000000,     ///<K10
@@ -769,7 +769,7 @@ namespace Kvasir {
             v100=0x00000004,     ///<K60
             v101=0x00000005,     ///<K70
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,FamidVal> famid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FamidVal> famid{}; 
         namespace FamidValC{
             constexpr Register::FieldValue<decltype(famid)::Type,FamidVal::v000> v000{};
             constexpr Register::FieldValue<decltype(famid)::Type,FamidVal::v001> v001{};
@@ -778,10 +778,10 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(famid)::Type,FamidVal::v101> v101{};
         }
         ///Device revision number
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> revid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> revid{}; 
     }
     namespace SimScgc1{    ///<System Clock Gating Control Register 1
-        using Addr = Register::Address<0x40048028,0xfffff3df,0,unsigned>;
+        using Addr = Register::Address<0x40048028,0xfffff3df,0x00000000,unsigned>;
         ///OSC1 clock gate control
         enum class Osc1Val {
             v0=0x00000000,     ///<Clock is disabled.
@@ -814,7 +814,7 @@ namespace Kvasir {
         }
     }
     namespace SimScgc2{    ///<System Clock Gating Control Register 2
-        using Addr = Register::Address<0x4004802c,0xffffcffe,0,unsigned>;
+        using Addr = Register::Address<0x4004802c,0xffffcffe,0x00000000,unsigned>;
         ///ENET clock gate control
         enum class EnetVal {
             v0=0x00000000,     ///<Clock is disabled.
@@ -847,7 +847,7 @@ namespace Kvasir {
         }
     }
     namespace SimScgc3{    ///<System Clock Gating Control Register 3
-        using Addr = Register::Address<0x40048030,0xe4fd6eee,0,unsigned>;
+        using Addr = Register::Address<0x40048030,0xe4fd6eee,0x00000000,unsigned>;
         ///RNGA clock gate control
         enum class RngaVal {
             v0=0x00000000,     ///<Clock is disabled.
@@ -950,7 +950,7 @@ namespace Kvasir {
         }
     }
     namespace SimScgc4{    ///<System Clock Gating Control Register 4
-        using Addr = Register::Address<0x40048034,0xefe3c339,0,unsigned>;
+        using Addr = Register::Address<0x40048034,0xefe3c339,0x00000000,unsigned>;
         ///EWM clock gate control
         enum class EwmVal {
             v0=0x00000000,     ///<Clock is disabled.
@@ -1073,7 +1073,7 @@ namespace Kvasir {
         }
     }
     namespace SimScgc5{    ///<System Clock Gating Control Register 5
-        using Addr = Register::Address<0x40048038,0xffff81dc,0,unsigned>;
+        using Addr = Register::Address<0x40048038,0xffff81dc,0x00000000,unsigned>;
         ///LPTMR clock gate control
         enum class LptimerVal {
             v0=0x00000000,     ///<Clock is disabled.
@@ -1166,7 +1166,7 @@ namespace Kvasir {
         }
     }
     namespace SimScgc6{    ///<System Clock Gating Control Register 6
-        using Addr = Register::Address<0x4004803c,0xc40b4fe9,0,unsigned>;
+        using Addr = Register::Address<0x4004803c,0xc40b4fe9,0x00000000,unsigned>;
         ///DMAMUX0 clock gate control
         enum class Dmamux0Val {
             v0=0x00000000,     ///<Clock is disabled.
@@ -1329,7 +1329,7 @@ namespace Kvasir {
         }
     }
     namespace SimScgc7{    ///<System Clock Gating Control Register 7
-        using Addr = Register::Address<0x40048040,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0x40048040,0xfffffff8,0x00000000,unsigned>;
         ///FlexBus controller clock gate control
         enum class FlexbusVal {
             v0=0x00000000,     ///<Clock is disabled.
@@ -1362,7 +1362,7 @@ namespace Kvasir {
         }
     }
     namespace SimClkdiv1{    ///<System Clock Divider Register 1
-        using Addr = Register::Address<0x40048044,0x0000ffff,0,unsigned>;
+        using Addr = Register::Address<0x40048044,0x0000ffff,0x00000000,unsigned>;
         ///Clock 4 output divider value
         enum class Outdiv4Val {
             v0000=0x00000000,     ///<Divide-by-1.
@@ -1517,7 +1517,7 @@ namespace Kvasir {
         }
     }
     namespace SimClkdiv2{    ///<System Clock Divider Register 2
-        using Addr = Register::Address<0x40048048,0xfffff0f0,0,unsigned>;
+        using Addr = Register::Address<0x40048048,0xfffff0f0,0x00000000,unsigned>;
         ///USB FS clock divider fraction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usbfsfrac{}; 
         ///USB FS clock divider divisor
@@ -1528,11 +1528,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> usbhsdiv{}; 
     }
     namespace SimFcfg1{    ///<Flash Configuration Register 1
-        using Addr = Register::Address<0x4004804c,0x00f0f0fe,0,unsigned>;
+        using Addr = Register::Address<0x4004804c,0x00f0f0fe,0x00000000,unsigned>;
         ///Disable FTFE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ftfdis{}; 
         ///FlexNVM partition
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> depart{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> depart{}; 
         ///EEPROM size
         enum class EesizeVal {
             v0000=0x00000000,     ///<16 KB
@@ -1547,7 +1547,7 @@ namespace Kvasir {
             v1001=0x00000009,     ///<32 Bytes
             v1111=0x0000000f,     ///<0 Bytes
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,EesizeVal> eesize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,EesizeVal> eesize{}; 
         namespace EesizeValC{
             constexpr Register::FieldValue<decltype(eesize)::Type,EesizeVal::v0000> v0000{};
             constexpr Register::FieldValue<decltype(eesize)::Type,EesizeVal::v0001> v0001{};
@@ -1562,39 +1562,39 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eesize)::Type,EesizeVal::v1111> v1111{};
         }
         ///Program flash size
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> pfsize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pfsize{}; 
         ///FlexNVM size
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> nvmsize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nvmsize{}; 
     }
     namespace SimFcfg2{    ///<Flash Configuration Register 2
-        using Addr = Register::Address<0x40048050,0xc0c0ffff,0,unsigned>;
+        using Addr = Register::Address<0x40048050,0xc0c0ffff,0x00000000,unsigned>;
         ///Max address block 2 or 3
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> maxaddr23{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> maxaddr23{}; 
         ///Max address block 0 or 1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> maxaddr01{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> maxaddr01{}; 
     }
     namespace SimUidh{    ///<Unique Identification Register High
-        using Addr = Register::Address<0x40048054,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40048054,0x00000000,0x00000000,unsigned>;
         ///Unique Identification
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> uid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> uid{}; 
     }
     namespace SimUidmh{    ///<Unique Identification Register Mid-High
-        using Addr = Register::Address<0x40048058,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40048058,0x00000000,0x00000000,unsigned>;
         ///Unique Identification
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> uid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> uid{}; 
     }
     namespace SimUidml{    ///<Unique Identification Register Mid Low
-        using Addr = Register::Address<0x4004805c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4004805c,0x00000000,0x00000000,unsigned>;
         ///Unique Identification
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> uid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> uid{}; 
     }
     namespace SimUidl{    ///<Unique Identification Register Low
-        using Addr = Register::Address<0x40048060,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x40048060,0x00000000,0x00000000,unsigned>;
         ///Unique Identification
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> uid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> uid{}; 
     }
     namespace SimClkdiv4{    ///<System Clock Divider Register 4
-        using Addr = Register::Address<0x40048068,0x00fffff0,0,unsigned>;
+        using Addr = Register::Address<0x40048068,0x00fffff0,0x00000000,unsigned>;
         ///Trace clock divider fraction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tracefrac{}; 
         ///Trace clock divider divisor
@@ -1605,7 +1605,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,27),Register::ReadWriteAccess,unsigned> nfcdiv{}; 
     }
     namespace SimMcr{    ///<Misc Control Register
-        using Addr = Register::Address<0x4004806c,0x1fffffff,0,unsigned>;
+        using Addr = Register::Address<0x4004806c,0x1fffffff,0x00000000,unsigned>;
         ///PDB Loop Mode
         enum class PdbloopVal {
             v0=0x00000000,     ///<Provides two seperated minor loop, loop for ADC0/1 and loop for ADC2/3D

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Operational amplifier
-    namespace Noneopamp1Cr{    ///<OPAMP1 control register
-        using Addr = Register::Address<0x40010038,0x00000010,0,unsigned>;
+    namespace OpampOpamp1Cr{    ///<OPAMP1 control register
+        using Addr = Register::Address<0x40010038,0x00000010,0x00000000,unsigned>;
         ///OPAMP1 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> opamp1En{}; 
         ///FORCE_VP
@@ -33,12 +33,12 @@ namespace Kvasir {
         ///TSTREF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> tstref{}; 
         ///OPAMP 1 ouput status flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> outcal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> outcal{}; 
         ///OPAMP 1 lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lock{}; 
     }
-    namespace Noneopamp2Cr{    ///<OPAMP2 control register
-        using Addr = Register::Address<0x4001003c,0x00000010,0,unsigned>;
+    namespace OpampOpamp2Cr{    ///<OPAMP2 control register
+        using Addr = Register::Address<0x4001003c,0x00000010,0x00000000,unsigned>;
         ///OPAMP2 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> opamp2en{}; 
         ///FORCE_VP
@@ -68,12 +68,12 @@ namespace Kvasir {
         ///TSTREF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> tstref{}; 
         ///OPAMP 2 ouput status flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> outcal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> outcal{}; 
         ///OPAMP 2 lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lock{}; 
     }
-    namespace Noneopamp3Cr{    ///<OPAMP3 control register
-        using Addr = Register::Address<0x40010040,0x00000010,0,unsigned>;
+    namespace OpampOpamp3Cr{    ///<OPAMP3 control register
+        using Addr = Register::Address<0x40010040,0x00000010,0x00000000,unsigned>;
         ///OPAMP3 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> opamp3en{}; 
         ///FORCE_VP
@@ -103,12 +103,12 @@ namespace Kvasir {
         ///TSTREF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> tstref{}; 
         ///OPAMP 3 ouput status flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> outcal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> outcal{}; 
         ///OPAMP 3 lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lock{}; 
     }
-    namespace Noneopamp4Cr{    ///<OPAMP4 control register
-        using Addr = Register::Address<0x40010044,0x00000010,0,unsigned>;
+    namespace OpampOpamp4Cr{    ///<OPAMP4 control register
+        using Addr = Register::Address<0x40010044,0x00000010,0x00000000,unsigned>;
         ///OPAMP4 enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> opamp4en{}; 
         ///FORCE_VP
@@ -138,7 +138,7 @@ namespace Kvasir {
         ///TSTREF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> tstref{}; 
         ///OPAMP 4 ouput status flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> outcal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> outcal{}; 
         ///OPAMP 4 lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lock{}; 
     }

@@ -81,374 +81,6 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
     }
-    namespace Ftm3C0sc{    ///<Channel (n) Status And Control
-        using Addr = Register::Address<0x400b900c,0xffffff02,0x00000000,unsigned>;
-        ///DMA Enable
-        enum class DmaVal {
-            v0=0x00000000,     ///<Disable DMA transfers.
-            v1=0x00000001,     ///<Enable DMA transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
-        namespace DmaValC{
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
-        ///Channel Interrupt Enable
-        enum class ChieVal {
-            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
-            v1=0x00000001,     ///<Enable channel interrupts.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
-        namespace ChieValC{
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
-        }
-        ///Channel Flag
-        enum class ChfVal {
-            v0=0x00000000,     ///<No channel event has occurred.
-            v1=0x00000001,     ///<A channel event has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
-        namespace ChfValC{
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
-    }
-    namespace Ftm3C1sc{    ///<Channel (n) Status And Control
-        using Addr = Register::Address<0x400b9014,0xffffff02,0x00000000,unsigned>;
-        ///DMA Enable
-        enum class DmaVal {
-            v0=0x00000000,     ///<Disable DMA transfers.
-            v1=0x00000001,     ///<Enable DMA transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
-        namespace DmaValC{
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
-        ///Channel Interrupt Enable
-        enum class ChieVal {
-            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
-            v1=0x00000001,     ///<Enable channel interrupts.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
-        namespace ChieValC{
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
-        }
-        ///Channel Flag
-        enum class ChfVal {
-            v0=0x00000000,     ///<No channel event has occurred.
-            v1=0x00000001,     ///<A channel event has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
-        namespace ChfValC{
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
-    }
-    namespace Ftm3C2sc{    ///<Channel (n) Status And Control
-        using Addr = Register::Address<0x400b901c,0xffffff02,0x00000000,unsigned>;
-        ///DMA Enable
-        enum class DmaVal {
-            v0=0x00000000,     ///<Disable DMA transfers.
-            v1=0x00000001,     ///<Enable DMA transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
-        namespace DmaValC{
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
-        ///Channel Interrupt Enable
-        enum class ChieVal {
-            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
-            v1=0x00000001,     ///<Enable channel interrupts.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
-        namespace ChieValC{
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
-        }
-        ///Channel Flag
-        enum class ChfVal {
-            v0=0x00000000,     ///<No channel event has occurred.
-            v1=0x00000001,     ///<A channel event has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
-        namespace ChfValC{
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
-    }
-    namespace Ftm3C3sc{    ///<Channel (n) Status And Control
-        using Addr = Register::Address<0x400b9024,0xffffff02,0x00000000,unsigned>;
-        ///DMA Enable
-        enum class DmaVal {
-            v0=0x00000000,     ///<Disable DMA transfers.
-            v1=0x00000001,     ///<Enable DMA transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
-        namespace DmaValC{
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
-        ///Channel Interrupt Enable
-        enum class ChieVal {
-            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
-            v1=0x00000001,     ///<Enable channel interrupts.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
-        namespace ChieValC{
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
-        }
-        ///Channel Flag
-        enum class ChfVal {
-            v0=0x00000000,     ///<No channel event has occurred.
-            v1=0x00000001,     ///<A channel event has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
-        namespace ChfValC{
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
-    }
-    namespace Ftm3C4sc{    ///<Channel (n) Status And Control
-        using Addr = Register::Address<0x400b902c,0xffffff02,0x00000000,unsigned>;
-        ///DMA Enable
-        enum class DmaVal {
-            v0=0x00000000,     ///<Disable DMA transfers.
-            v1=0x00000001,     ///<Enable DMA transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
-        namespace DmaValC{
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
-        ///Channel Interrupt Enable
-        enum class ChieVal {
-            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
-            v1=0x00000001,     ///<Enable channel interrupts.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
-        namespace ChieValC{
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
-        }
-        ///Channel Flag
-        enum class ChfVal {
-            v0=0x00000000,     ///<No channel event has occurred.
-            v1=0x00000001,     ///<A channel event has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
-        namespace ChfValC{
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
-    }
-    namespace Ftm3C5sc{    ///<Channel (n) Status And Control
-        using Addr = Register::Address<0x400b9034,0xffffff02,0x00000000,unsigned>;
-        ///DMA Enable
-        enum class DmaVal {
-            v0=0x00000000,     ///<Disable DMA transfers.
-            v1=0x00000001,     ///<Enable DMA transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
-        namespace DmaValC{
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
-        ///Channel Interrupt Enable
-        enum class ChieVal {
-            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
-            v1=0x00000001,     ///<Enable channel interrupts.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
-        namespace ChieValC{
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
-        }
-        ///Channel Flag
-        enum class ChfVal {
-            v0=0x00000000,     ///<No channel event has occurred.
-            v1=0x00000001,     ///<A channel event has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
-        namespace ChfValC{
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
-    }
-    namespace Ftm3C6sc{    ///<Channel (n) Status And Control
-        using Addr = Register::Address<0x400b903c,0xffffff02,0x00000000,unsigned>;
-        ///DMA Enable
-        enum class DmaVal {
-            v0=0x00000000,     ///<Disable DMA transfers.
-            v1=0x00000001,     ///<Enable DMA transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
-        namespace DmaValC{
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
-        ///Channel Interrupt Enable
-        enum class ChieVal {
-            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
-            v1=0x00000001,     ///<Enable channel interrupts.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
-        namespace ChieValC{
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
-        }
-        ///Channel Flag
-        enum class ChfVal {
-            v0=0x00000000,     ///<No channel event has occurred.
-            v1=0x00000001,     ///<A channel event has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
-        namespace ChfValC{
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
-    }
-    namespace Ftm3C7sc{    ///<Channel (n) Status And Control
-        using Addr = Register::Address<0x400b9044,0xffffff02,0x00000000,unsigned>;
-        ///DMA Enable
-        enum class DmaVal {
-            v0=0x00000000,     ///<Disable DMA transfers.
-            v1=0x00000001,     ///<Enable DMA transfers.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
-        namespace DmaValC{
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
-        ///Edge or Level Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
-        ///Channel Mode Select
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
-        ///Channel Interrupt Enable
-        enum class ChieVal {
-            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
-            v1=0x00000001,     ///<Enable channel interrupts.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
-        namespace ChieValC{
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
-        }
-        ///Channel Flag
-        enum class ChfVal {
-            v0=0x00000000,     ///<No channel event has occurred.
-            v1=0x00000001,     ///<A channel event has occurred.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
-        namespace ChfValC{
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
-    }
-    namespace Ftm3C0v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x400b9010,0xffff0000,0x00000000,unsigned>;
-        ///Channel Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-    }
-    namespace Ftm3C1v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x400b9018,0xffff0000,0x00000000,unsigned>;
-        ///Channel Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-    }
-    namespace Ftm3C2v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x400b9020,0xffff0000,0x00000000,unsigned>;
-        ///Channel Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-    }
-    namespace Ftm3C3v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x400b9028,0xffff0000,0x00000000,unsigned>;
-        ///Channel Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-    }
-    namespace Ftm3C4v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x400b9030,0xffff0000,0x00000000,unsigned>;
-        ///Channel Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-    }
-    namespace Ftm3C5v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x400b9038,0xffff0000,0x00000000,unsigned>;
-        ///Channel Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-    }
-    namespace Ftm3C6v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x400b9040,0xffff0000,0x00000000,unsigned>;
-        ///Channel Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-    }
-    namespace Ftm3C7v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x400b9048,0xffff0000,0x00000000,unsigned>;
-        ///Channel Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-    }
     namespace Ftm3Cntin{    ///<Counter Initial Value
         using Addr = Register::Address<0x400b904c,0xffff0000,0x00000000,unsigned>;
         ///no description available
@@ -2094,5 +1726,373 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldok)::Type,LdokVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ldok)::Type,LdokVal::v1> v1{};
         }
+    }
+    namespace Ftm3C0sc{    ///<Channel (n) Status And Control
+        using Addr = Register::Address<0x400b900c,0xffffff02,0x00000000,unsigned>;
+        ///DMA Enable
+        enum class DmaVal {
+            v0=0x00000000,     ///<Disable DMA transfers.
+            v1=0x00000001,     ///<Enable DMA transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
+        namespace DmaValC{
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
+        }
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        ///Channel Interrupt Enable
+        enum class ChieVal {
+            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
+            v1=0x00000001,     ///<Enable channel interrupts.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
+        }
+        ///Channel Flag
+        enum class ChfVal {
+            v0=0x00000000,     ///<No channel event has occurred.
+            v1=0x00000001,     ///<A channel event has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
+        }
+    }
+    namespace Ftm3C1sc{    ///<Channel (n) Status And Control
+        using Addr = Register::Address<0x400b9014,0xffffff02,0x00000000,unsigned>;
+        ///DMA Enable
+        enum class DmaVal {
+            v0=0x00000000,     ///<Disable DMA transfers.
+            v1=0x00000001,     ///<Enable DMA transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
+        namespace DmaValC{
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
+        }
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        ///Channel Interrupt Enable
+        enum class ChieVal {
+            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
+            v1=0x00000001,     ///<Enable channel interrupts.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
+        }
+        ///Channel Flag
+        enum class ChfVal {
+            v0=0x00000000,     ///<No channel event has occurred.
+            v1=0x00000001,     ///<A channel event has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
+        }
+    }
+    namespace Ftm3C2sc{    ///<Channel (n) Status And Control
+        using Addr = Register::Address<0x400b901c,0xffffff02,0x00000000,unsigned>;
+        ///DMA Enable
+        enum class DmaVal {
+            v0=0x00000000,     ///<Disable DMA transfers.
+            v1=0x00000001,     ///<Enable DMA transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
+        namespace DmaValC{
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
+        }
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        ///Channel Interrupt Enable
+        enum class ChieVal {
+            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
+            v1=0x00000001,     ///<Enable channel interrupts.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
+        }
+        ///Channel Flag
+        enum class ChfVal {
+            v0=0x00000000,     ///<No channel event has occurred.
+            v1=0x00000001,     ///<A channel event has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
+        }
+    }
+    namespace Ftm3C3sc{    ///<Channel (n) Status And Control
+        using Addr = Register::Address<0x400b9024,0xffffff02,0x00000000,unsigned>;
+        ///DMA Enable
+        enum class DmaVal {
+            v0=0x00000000,     ///<Disable DMA transfers.
+            v1=0x00000001,     ///<Enable DMA transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
+        namespace DmaValC{
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
+        }
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        ///Channel Interrupt Enable
+        enum class ChieVal {
+            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
+            v1=0x00000001,     ///<Enable channel interrupts.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
+        }
+        ///Channel Flag
+        enum class ChfVal {
+            v0=0x00000000,     ///<No channel event has occurred.
+            v1=0x00000001,     ///<A channel event has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
+        }
+    }
+    namespace Ftm3C4sc{    ///<Channel (n) Status And Control
+        using Addr = Register::Address<0x400b902c,0xffffff02,0x00000000,unsigned>;
+        ///DMA Enable
+        enum class DmaVal {
+            v0=0x00000000,     ///<Disable DMA transfers.
+            v1=0x00000001,     ///<Enable DMA transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
+        namespace DmaValC{
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
+        }
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        ///Channel Interrupt Enable
+        enum class ChieVal {
+            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
+            v1=0x00000001,     ///<Enable channel interrupts.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
+        }
+        ///Channel Flag
+        enum class ChfVal {
+            v0=0x00000000,     ///<No channel event has occurred.
+            v1=0x00000001,     ///<A channel event has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
+        }
+    }
+    namespace Ftm3C5sc{    ///<Channel (n) Status And Control
+        using Addr = Register::Address<0x400b9034,0xffffff02,0x00000000,unsigned>;
+        ///DMA Enable
+        enum class DmaVal {
+            v0=0x00000000,     ///<Disable DMA transfers.
+            v1=0x00000001,     ///<Enable DMA transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
+        namespace DmaValC{
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
+        }
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        ///Channel Interrupt Enable
+        enum class ChieVal {
+            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
+            v1=0x00000001,     ///<Enable channel interrupts.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
+        }
+        ///Channel Flag
+        enum class ChfVal {
+            v0=0x00000000,     ///<No channel event has occurred.
+            v1=0x00000001,     ///<A channel event has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
+        }
+    }
+    namespace Ftm3C6sc{    ///<Channel (n) Status And Control
+        using Addr = Register::Address<0x400b903c,0xffffff02,0x00000000,unsigned>;
+        ///DMA Enable
+        enum class DmaVal {
+            v0=0x00000000,     ///<Disable DMA transfers.
+            v1=0x00000001,     ///<Enable DMA transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
+        namespace DmaValC{
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
+        }
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        ///Channel Interrupt Enable
+        enum class ChieVal {
+            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
+            v1=0x00000001,     ///<Enable channel interrupts.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
+        }
+        ///Channel Flag
+        enum class ChfVal {
+            v0=0x00000000,     ///<No channel event has occurred.
+            v1=0x00000001,     ///<A channel event has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
+        }
+    }
+    namespace Ftm3C7sc{    ///<Channel (n) Status And Control
+        using Addr = Register::Address<0x400b9044,0xffffff02,0x00000000,unsigned>;
+        ///DMA Enable
+        enum class DmaVal {
+            v0=0x00000000,     ///<Disable DMA transfers.
+            v1=0x00000001,     ///<Enable DMA transfers.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaVal> dma{}; 
+        namespace DmaValC{
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
+        }
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        ///Edge or Level Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        ///Channel Mode Select
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        ///Channel Interrupt Enable
+        enum class ChieVal {
+            v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
+            v1=0x00000001,     ///<Enable channel interrupts.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
+        }
+        ///Channel Flag
+        enum class ChfVal {
+            v0=0x00000000,     ///<No channel event has occurred.
+            v1=0x00000001,     ///<A channel event has occurred.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
+        }
+    }
+    namespace Ftm3C0v{    ///<Channel (n) Value
+        using Addr = Register::Address<0x400b9010,0xffff0000,0x00000000,unsigned>;
+        ///Channel Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+    }
+    namespace Ftm3C1v{    ///<Channel (n) Value
+        using Addr = Register::Address<0x400b9018,0xffff0000,0x00000000,unsigned>;
+        ///Channel Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+    }
+    namespace Ftm3C2v{    ///<Channel (n) Value
+        using Addr = Register::Address<0x400b9020,0xffff0000,0x00000000,unsigned>;
+        ///Channel Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+    }
+    namespace Ftm3C3v{    ///<Channel (n) Value
+        using Addr = Register::Address<0x400b9028,0xffff0000,0x00000000,unsigned>;
+        ///Channel Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+    }
+    namespace Ftm3C4v{    ///<Channel (n) Value
+        using Addr = Register::Address<0x400b9030,0xffff0000,0x00000000,unsigned>;
+        ///Channel Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+    }
+    namespace Ftm3C5v{    ///<Channel (n) Value
+        using Addr = Register::Address<0x400b9038,0xffff0000,0x00000000,unsigned>;
+        ///Channel Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+    }
+    namespace Ftm3C6v{    ///<Channel (n) Value
+        using Addr = Register::Address<0x400b9040,0xffff0000,0x00000000,unsigned>;
+        ///Channel Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+    }
+    namespace Ftm3C7v{    ///<Channel (n) Value
+        using Addr = Register::Address<0x400b9048,0xffff0000,0x00000000,unsigned>;
+        ///Channel Value
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
     }
 }

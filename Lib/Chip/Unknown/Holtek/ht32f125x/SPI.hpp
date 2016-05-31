@@ -1,18 +1,20 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SPI
-    namespace NonespiCr0{    ///<SPI_CR0
-        using Addr = Register::Address<0x40004000,0xffffffe6,0,unsigned>;
+    namespace SpiSpiCr0{    ///<SPI_CR0
+        using Addr = Register::Address<0x40004000,0x00000006,0x00000000,unsigned>;
         ///SPIEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> spien{}; 
         ///SELOEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> seloen{}; 
         ///SSELC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> sselc{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonespiCr1{    ///<SPI_CR1
-        using Addr = Register::Address<0x40004004,0xffff80f0,0,unsigned>;
+    namespace SpiSpiCr1{    ///<SPI_CR1
+        using Addr = Register::Address<0x40004004,0x000000f0,0x00000000,unsigned>;
         ///DFL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dfl{}; 
         ///FORMAT
@@ -25,9 +27,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> selm{}; 
         ///MODE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> mode{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonespiIer{    ///<SPI_IER
-        using Addr = Register::Address<0x40004008,0xffffff00,0,unsigned>;
+    namespace SpiSpiIer{    ///<SPI_IER
+        using Addr = Register::Address<0x40004008,0x00000000,0x00000000,unsigned>;
         ///TXBEIEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txbeien{}; 
         ///TXEIEN
@@ -44,19 +48,25 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> saien{}; 
         ///TOIEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> toien{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonespiCpr{    ///<SPI_CPR
-        using Addr = Register::Address<0x4000400c,0xffff0000,0,unsigned>;
+    namespace SpiSpiCpr{    ///<SPI_CPR
+        using Addr = Register::Address<0x4000400c,0x00000000,0x00000000,unsigned>;
         ///CP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cp{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonespiDr{    ///<SPI_DR
-        using Addr = Register::Address<0x40004010,0xffff0000,0,unsigned>;
+    namespace SpiSpiDr{    ///<SPI_DR
+        using Addr = Register::Address<0x40004010,0x00000000,0x00000000,unsigned>;
         ///DR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonespiSr{    ///<SPI_SR
-        using Addr = Register::Address<0x40004014,0xfffffe00,0,unsigned>;
+    namespace SpiSpiSr{    ///<SPI_SR
+        using Addr = Register::Address<0x40004014,0x00000000,0x00000000,unsigned>;
         ///TXBE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txbe{}; 
         ///TXE
@@ -75,9 +85,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> to{}; 
         ///BUSY
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> busy{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonespiFcr{    ///<SPI_FCR
-        using Addr = Register::Address<0x40004018,0xfffff800,0,unsigned>;
+    namespace SpiSpiFcr{    ///<SPI_FCR
+        using Addr = Register::Address<0x40004018,0x00000000,0x00000000,unsigned>;
         ///TXFTLS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> txftls{}; 
         ///RXFTLS
@@ -88,16 +100,20 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rfpr{}; 
         ///FIFOEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> fifoen{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonespiFsr{    ///<SPI_FSR
-        using Addr = Register::Address<0x4000401c,0xffffff00,0,unsigned>;
+    namespace SpiSpiFsr{    ///<SPI_FSR
+        using Addr = Register::Address<0x4000401c,0x00000000,0x00000000,unsigned>;
         ///TXFS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> txfs{}; 
         ///RXFS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> rxfs{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonespiFtocr{    ///<SPI_FTOCR
-        using Addr = Register::Address<0x40004020,0x00000000,0,unsigned>;
+    namespace SpiSpiFtocr{    ///<SPI_FTOCR
+        using Addr = Register::Address<0x40004020,0x00000000,0x00000000,unsigned>;
         ///TOC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> toc{}; 
     }

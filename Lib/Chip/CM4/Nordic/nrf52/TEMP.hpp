@@ -1,18 +1,18 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Temperature Sensor
-    namespace NonetasksStart{    ///<Start temperature measurement
-        using Addr = Register::Address<0x4000c000,0xffffffff,0,unsigned>;
+    namespace TempTasksStart{    ///<Start temperature measurement
+        using Addr = Register::Address<0x4000c000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop temperature measurement
-        using Addr = Register::Address<0x4000c004,0xffffffff,0,unsigned>;
+    namespace TempTasksStop{    ///<Stop temperature measurement
+        using Addr = Register::Address<0x4000c004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsDatardy{    ///<Temperature measurement complete, data ready
-        using Addr = Register::Address<0x4000c100,0xffffffff,0,unsigned>;
+    namespace TempEventsDatardy{    ///<Temperature measurement complete, data ready
+        using Addr = Register::Address<0x4000c100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x4000c304,0xfffffffe,0,unsigned>;
+    namespace TempIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x4000c304,0xfffffffe,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_DATARDY event
         enum class DatardyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -26,8 +26,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x4000c308,0xfffffffe,0,unsigned>;
+    namespace TempIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x4000c308,0xfffffffe,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_DATARDY event
         enum class DatardyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -41,8 +41,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::clear> clear{};
         }
     }
-    namespace Nonetemp{    ///<Temperature in degC
-        using Addr = Register::Address<0x4000c508,0x00000000,0,unsigned>;
+    namespace TempTemp{    ///<Temperature in degC
+        using Addr = Register::Address<0x4000c508,0x00000000,0x00000000,unsigned>;
         ///Temperature in degC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> temp{}; 
     }

@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Oscillator
     namespace OscCr{    ///<OSC Control Register
-        using Addr = Register::Address<0x40065000,0xffffff48,0,unsigned char>;
+        using Addr = Register::Address<0x40065000,0xffffff48,0x00000000,unsigned char>;
         ///OSC Initialization
         enum class OscinitVal {
             v0=0x00000000,     ///<Oscillator initialization is not complete.
             v1=0x00000001,     ///<Oscillator initialization is completed.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,OscinitVal> oscinit{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,OscinitVal> oscinit{}; 
         namespace OscinitValC{
             constexpr Register::FieldValue<decltype(oscinit)::Type,OscinitVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oscinit)::Type,OscinitVal::v1> v1{};

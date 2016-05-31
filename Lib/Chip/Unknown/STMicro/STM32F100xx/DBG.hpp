@@ -1,16 +1,16 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Debug support
-    namespace Noneidcode{    ///<DBGMCU_IDCODE
-        using Addr = Register::Address<0xe0042000,0x0000f000,0,unsigned>;
+    namespace DbgIdcode{    ///<DBGMCU_IDCODE
+        using Addr = Register::Address<0xe0042000,0x0000f000,0x00000000,unsigned>;
         ///DEV_ID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> devId{}; 
         ///REV_ID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> revId{}; 
     }
-    namespace Nonecr{    ///<DBGMCU_CR
-        using Addr = Register::Address<0xe0042004,0xf0224018,0,unsigned>;
+    namespace DbgCr{    ///<DBGMCU_CR
+        using Addr = Register::Address<0xe0042004,0xf0224018,0x00000000,unsigned>;
         ///DBG_SLEEP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dbgSleep{}; 
         ///DBG_STOP

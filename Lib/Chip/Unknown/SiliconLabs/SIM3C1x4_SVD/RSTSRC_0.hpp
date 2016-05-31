@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonereseten{    ///<System Reset Source Enable
-        using Addr = Register::Address<0x4002d060,0xfffff20b,0,unsigned>;
+    namespace Rstsrc0Reseten{    ///<System Reset Source Enable
+        using Addr = Register::Address<0x4002d060,0xfffff20b,0x00000000,unsigned>;
         ///Voltage Supply Monitor VDD Reset Enable. 
         enum class VmonrenVal {
             disabled=0x00000000,     ///<Disable the Voltage Supply Monitor VDD event as a reset source.
@@ -83,14 +83,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeren)::Type,WakerenVal::enabled> enabled{};
         }
     }
-    namespace Noneresetflag{    ///<System Reset Flags
-        using Addr = Register::Address<0x4002d070,0xfffff200,0,unsigned>;
+    namespace Rstsrc0Resetflag{    ///<System Reset Flags
+        using Addr = Register::Address<0x4002d070,0xfffff200,0x00000000,unsigned>;
         ///Pin Reset Flag. 
         enum class PinrfVal {
             notSet=0x00000000,     ///<A /RESET pin event did not cause the last system reset.
             set=0x00000001,     ///<A /RESET pin event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PinrfVal> pinrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PinrfVal> pinrf{}; 
         namespace PinrfValC{
             constexpr Register::FieldValue<decltype(pinrf)::Type,PinrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(pinrf)::Type,PinrfVal::set> set{};
@@ -100,7 +100,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Power-On Reset event did not cause the last system reset.
             set=0x00000001,     ///<A Power-On Reset event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,PorrfVal> porrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PorrfVal> porrf{}; 
         namespace PorrfValC{
             constexpr Register::FieldValue<decltype(porrf)::Type,PorrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(porrf)::Type,PorrfVal::set> set{};
@@ -110,7 +110,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Voltage Supply Monitor VDD Reset event did not cause the last system reset.
             set=0x00000001,     ///<A Voltage Supply Monitor VDD Reset event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VmonrfVal> vmonrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,VmonrfVal> vmonrf{}; 
         namespace VmonrfValC{
             constexpr Register::FieldValue<decltype(vmonrf)::Type,VmonrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(vmonrf)::Type,VmonrfVal::set> set{};
@@ -120,7 +120,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Core Reset event did not cause the last system reset.
             set=0x00000001,     ///<A Core Reset event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CorerfVal> corerf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CorerfVal> corerf{}; 
         namespace CorerfValC{
             constexpr Register::FieldValue<decltype(corerf)::Type,CorerfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(corerf)::Type,CorerfVal::set> set{};
@@ -130,7 +130,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Missing Clock Detector event did not cause the last system reset.
             set=0x00000001,     ///<A Missing Clock Detector event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,McdrfVal> mcdrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,McdrfVal> mcdrf{}; 
         namespace McdrfValC{
             constexpr Register::FieldValue<decltype(mcdrf)::Type,McdrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(mcdrf)::Type,McdrfVal::set> set{};
@@ -140,7 +140,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Watchdog Timer event did not cause the last system reset.
             set=0x00000001,     ///<A Watchdog Timer event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,WdtrfVal> wdtrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,WdtrfVal> wdtrf{}; 
         namespace WdtrfValC{
             constexpr Register::FieldValue<decltype(wdtrf)::Type,WdtrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(wdtrf)::Type,WdtrfVal::set> set{};
@@ -150,7 +150,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Software Reset event did not cause the last system reset.
             set=0x00000001,     ///<A Software Reset event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SwrfVal> swrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SwrfVal> swrf{}; 
         namespace SwrfValC{
             constexpr Register::FieldValue<decltype(swrf)::Type,SwrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(swrf)::Type,SwrfVal::set> set{};
@@ -160,7 +160,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Comparator 0 event did not cause the last system reset.
             set=0x00000001,     ///<A Comparator 0 event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Cmp0rfVal> cmp0rf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Cmp0rfVal> cmp0rf{}; 
         namespace Cmp0rfValC{
             constexpr Register::FieldValue<decltype(cmp0rf)::Type,Cmp0rfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmp0rf)::Type,Cmp0rfVal::set> set{};
@@ -170,7 +170,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A Comparator 1 event did not cause the last system reset.
             set=0x00000001,     ///<A Comparator 1 event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Cmp1rfVal> cmp1rf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Cmp1rfVal> cmp1rf{}; 
         namespace Cmp1rfValC{
             constexpr Register::FieldValue<decltype(cmp1rf)::Type,Cmp1rfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmp1rf)::Type,Cmp1rfVal::set> set{};
@@ -180,7 +180,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<An RTC0 event did not cause the last system reset.
             set=0x00000001,     ///<An RTC0 event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Rtc0rfVal> rtc0rf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Rtc0rfVal> rtc0rf{}; 
         namespace Rtc0rfValC{
             constexpr Register::FieldValue<decltype(rtc0rf)::Type,Rtc0rfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rtc0rf)::Type,Rtc0rfVal::set> set{};
@@ -190,14 +190,14 @@ namespace Kvasir {
             notSet=0x00000000,     ///<A PMU Wakeup event did not cause the last system reset.
             set=0x00000001,     ///<A PMU Wakeup event caused the last system reset.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,WakerfVal> wakerf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,WakerfVal> wakerf{}; 
         namespace WakerfValC{
             constexpr Register::FieldValue<decltype(wakerf)::Type,WakerfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(wakerf)::Type,WakerfVal::set> set{};
         }
     }
-    namespace Noneconfig{    ///<Configuration Options
-        using Addr = Register::Address<0x4002d080,0xfffffffe,0,unsigned>;
+    namespace Rstsrc0Config{    ///<Configuration Options
+        using Addr = Register::Address<0x4002d080,0xfffffffe,0x00000000,unsigned>;
         ///Power Mode Select. 
         enum class PmselVal {
             pm9Dis=0x00000000,     ///<Power Mode < PM9.

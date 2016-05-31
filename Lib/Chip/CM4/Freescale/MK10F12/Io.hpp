@@ -1,6 +1,6 @@
 #pragma once
-#include "Io/Io.hpp"
-#include "Register/Register.hpp"
+#include <Io/Io.hpp>
+#include <Register/Register.hpp>
 namespace Kvasir{
     namespace Io{
         template<int Pin>

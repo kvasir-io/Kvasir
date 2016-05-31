@@ -1,75 +1,75 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //NFC-A compatible radio
-    namespace NonetasksActivate{    ///<Activate NFC peripheral for incoming and outgoing frames, change state to activated
-        using Addr = Register::Address<0x40005000,0xffffffff,0,unsigned>;
+    namespace NfctTasksActivate{    ///<Activate NFC peripheral for incoming and outgoing frames, change state to activated
+        using Addr = Register::Address<0x40005000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksDisable{    ///<Disable NFC peripheral
-        using Addr = Register::Address<0x40005004,0xffffffff,0,unsigned>;
+    namespace NfctTasksDisable{    ///<Disable NFC peripheral
+        using Addr = Register::Address<0x40005004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksSense{    ///<Enable NFC sense field mode, change state to sense mode
-        using Addr = Register::Address<0x40005008,0xffffffff,0,unsigned>;
+    namespace NfctTasksSense{    ///<Enable NFC sense field mode, change state to sense mode
+        using Addr = Register::Address<0x40005008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStarttx{    ///<Start transmission of a outgoing frame, change state to transmit
-        using Addr = Register::Address<0x4000500c,0xffffffff,0,unsigned>;
+    namespace NfctTasksStarttx{    ///<Start transmission of a outgoing frame, change state to transmit
+        using Addr = Register::Address<0x4000500c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksEnablerxdata{    ///<Initializes the EasyDMA for receive.
-        using Addr = Register::Address<0x4000501c,0xffffffff,0,unsigned>;
+    namespace NfctTasksEnablerxdata{    ///<Initializes the EasyDMA for receive.
+        using Addr = Register::Address<0x4000501c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksGoidle{    ///<Force state machine to IDLE state
-        using Addr = Register::Address<0x40005024,0xffffffff,0,unsigned>;
+    namespace NfctTasksGoidle{    ///<Force state machine to IDLE state
+        using Addr = Register::Address<0x40005024,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksGosleep{    ///<Force state machine to SLEEP_A state
-        using Addr = Register::Address<0x40005028,0xffffffff,0,unsigned>;
+    namespace NfctTasksGosleep{    ///<Force state machine to SLEEP_A state
+        using Addr = Register::Address<0x40005028,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsReady{    ///<The NFC peripheral is ready to receive and send frames
-        using Addr = Register::Address<0x40005100,0xffffffff,0,unsigned>;
+    namespace NfctEventsReady{    ///<The NFC peripheral is ready to receive and send frames
+        using Addr = Register::Address<0x40005100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsFielddetected{    ///<Remote NFC field detected
-        using Addr = Register::Address<0x40005104,0xffffffff,0,unsigned>;
+    namespace NfctEventsFielddetected{    ///<Remote NFC field detected
+        using Addr = Register::Address<0x40005104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsFieldlost{    ///<Remote NFC field lost
-        using Addr = Register::Address<0x40005108,0xffffffff,0,unsigned>;
+    namespace NfctEventsFieldlost{    ///<Remote NFC field lost
+        using Addr = Register::Address<0x40005108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsTxframestart{    ///<Marks the start of the first symbol of a transmitted frame
-        using Addr = Register::Address<0x4000510c,0xffffffff,0,unsigned>;
+    namespace NfctEventsTxframestart{    ///<Marks the start of the first symbol of a transmitted frame
+        using Addr = Register::Address<0x4000510c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsTxframeend{    ///<Marks the end of the last transmitted on-air symbol of a frame
-        using Addr = Register::Address<0x40005110,0xffffffff,0,unsigned>;
+    namespace NfctEventsTxframeend{    ///<Marks the end of the last transmitted on-air symbol of a frame
+        using Addr = Register::Address<0x40005110,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsRxframestart{    ///<Marks the end of the first symbol of a received frame
-        using Addr = Register::Address<0x40005114,0xffffffff,0,unsigned>;
+    namespace NfctEventsRxframestart{    ///<Marks the end of the first symbol of a received frame
+        using Addr = Register::Address<0x40005114,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsRxframeend{    ///<Received data have been checked (CRC, parity) and transferred to RAM, and EasyDMA has ended accessing the RX buffer
-        using Addr = Register::Address<0x40005118,0xffffffff,0,unsigned>;
+    namespace NfctEventsRxframeend{    ///<Received data have been checked (CRC, parity) and transferred to RAM, and EasyDMA has ended accessing the RX buffer
+        using Addr = Register::Address<0x40005118,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsError{    ///<NFC error reported. The ERRORSTATUS register contains details on the source of the error.
-        using Addr = Register::Address<0x4000511c,0xffffffff,0,unsigned>;
+    namespace NfctEventsError{    ///<NFC error reported. The ERRORSTATUS register contains details on the source of the error.
+        using Addr = Register::Address<0x4000511c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsRxerror{    ///<NFC RX frame error reported. The FRAMESTATUS.RX register contains details on the source of the error.
-        using Addr = Register::Address<0x40005128,0xffffffff,0,unsigned>;
+    namespace NfctEventsRxerror{    ///<NFC RX frame error reported. The FRAMESTATUS.RX register contains details on the source of the error.
+        using Addr = Register::Address<0x40005128,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEndrx{    ///<RX buffer (as defined by PACKETPTR and MAXLEN) in Data RAM full.
-        using Addr = Register::Address<0x4000512c,0xffffffff,0,unsigned>;
+    namespace NfctEventsEndrx{    ///<RX buffer (as defined by PACKETPTR and MAXLEN) in Data RAM full.
+        using Addr = Register::Address<0x4000512c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEndtx{    ///<Transmission of data in RAM has ended, and EasyDMA has ended accessing the TX buffer
-        using Addr = Register::Address<0x40005130,0xffffffff,0,unsigned>;
+    namespace NfctEventsEndtx{    ///<Transmission of data in RAM has ended, and EasyDMA has ended accessing the TX buffer
+        using Addr = Register::Address<0x40005130,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsAutocolresstarted{    ///<Auto collision resolution process has started
-        using Addr = Register::Address<0x40005138,0xffffffff,0,unsigned>;
+    namespace NfctEventsAutocolresstarted{    ///<Auto collision resolution process has started
+        using Addr = Register::Address<0x40005138,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsCollision{    ///<NFC Auto collision resolution error reported.
-        using Addr = Register::Address<0x40005148,0xffffffff,0,unsigned>;
+    namespace NfctEventsCollision{    ///<NFC Auto collision resolution error reported.
+        using Addr = Register::Address<0x40005148,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsSelected{    ///<NFC Auto collision resolution successfully completed
-        using Addr = Register::Address<0x4000514c,0xffffffff,0,unsigned>;
+    namespace NfctEventsSelected{    ///<NFC Auto collision resolution successfully completed
+        using Addr = Register::Address<0x4000514c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStarted{    ///<EasyDMA is ready to receive or send frames.
-        using Addr = Register::Address<0x40005150,0xffffffff,0,unsigned>;
+    namespace NfctEventsStarted{    ///<EasyDMA is ready to receive or send frames.
+        using Addr = Register::Address<0x40005150,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x40005200,0xfffffffc,0,unsigned>;
+    namespace NfctShorts{    ///<Shortcut register
+        using Addr = Register::Address<0x40005200,0xfffffffc,0x00000000,unsigned>;
         ///Shortcut between EVENTS_FIELDDETECTED event and TASKS_ACTIVATE task
         enum class FielddetectedactivateVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -91,8 +91,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fieldlostSense)::Type,FieldlostsenseVal::enabled> enabled{};
         }
     }
-    namespace Noneinten{    ///<Enable or disable interrupt
-        using Addr = Register::Address<0x40005300,0xffe3a300,0,unsigned>;
+    namespace NfctInten{    ///<Enable or disable interrupt
+        using Addr = Register::Address<0x40005300,0xffe3a300,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_READY event
         enum class ReadyVal {
             disabled=0x00000000,     ///<Disable
@@ -244,8 +244,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40005304,0xffe3a300,0,unsigned>;
+    namespace NfctIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40005304,0xffe3a300,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_READY event
         enum class ReadyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -427,8 +427,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40005308,0xffe3a300,0,unsigned>;
+    namespace NfctIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40005308,0xffe3a300,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_READY event
         enum class ReadyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -610,8 +610,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::clear> clear{};
         }
     }
-    namespace Noneerrorstatus{    ///<NFC Error Status register
-        using Addr = Register::Address<0x40005404,0xffffffb0,0,unsigned>;
+    namespace NfctErrorstatus{    ///<NFC Error Status register
+        using Addr = Register::Address<0x40005404,0xffffffb0,0x00000000,unsigned>;
         ///No STARTTX task triggered before expiration of the time set in FRAMEDELAYMAX
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> framedelaytimeout{}; 
         ///The received pulse does not match a valid NFC-A symbol
@@ -623,13 +623,13 @@ namespace Kvasir {
         ///No valid End of Frame detected
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> eoferror{}; 
     }
-    namespace Nonecurrentloadctrl{    ///<Current value driven to the NFC Load Control
-        using Addr = Register::Address<0x40005430,0xffffffc0,0,unsigned>;
+    namespace NfctCurrentloadctrl{    ///<Current value driven to the NFC Load Control
+        using Addr = Register::Address<0x40005430,0xffffffc0,0x00000000,unsigned>;
         ///Current value driven to the NFC Load Control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> currentloadctrl{}; 
     }
-    namespace Nonefieldpresent{    ///<Indicates the presence or not of a valid field
-        using Addr = Register::Address<0x4000543c,0xfffffffc,0,unsigned>;
+    namespace NfctFieldpresent{    ///<Indicates the presence or not of a valid field
+        using Addr = Register::Address<0x4000543c,0xfffffffc,0x00000000,unsigned>;
         ///Indicates the presence or not of a valid field. Linked to the FIELDDETECTED and FIELDLOST events.
         enum class FieldpresentVal {
             nofield=0x00000000,     ///<No valid field detected
@@ -651,18 +651,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lockdetect)::Type,LockdetectVal::locked> locked{};
         }
     }
-    namespace Noneframedelaymin{    ///<Minimum frame delay
-        using Addr = Register::Address<0x40005504,0xffff0000,0,unsigned>;
+    namespace NfctFramedelaymin{    ///<Minimum frame delay
+        using Addr = Register::Address<0x40005504,0xffff0000,0x00000000,unsigned>;
         ///Minimum frame delay in number of 13.56 MHz clocks
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> framedelaymin{}; 
     }
-    namespace Noneframedelaymax{    ///<Maximum frame delay
-        using Addr = Register::Address<0x40005508,0xffff0000,0,unsigned>;
+    namespace NfctFramedelaymax{    ///<Maximum frame delay
+        using Addr = Register::Address<0x40005508,0xffff0000,0x00000000,unsigned>;
         ///Maximum frame delay in number of 13.56 MHz clocks
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> framedelaymax{}; 
     }
-    namespace Noneframedelaymode{    ///<Configuration register for the Frame Delay Timer
-        using Addr = Register::Address<0x4000550c,0xfffffffc,0,unsigned>;
+    namespace NfctFramedelaymode{    ///<Configuration register for the Frame Delay Timer
+        using Addr = Register::Address<0x4000550c,0xfffffffc,0x00000000,unsigned>;
         ///Configuration register for the Frame Delay Timer
         enum class FramedelaymodeVal {
             freerun=0x00000000,     ///<Transmission is independent of frame timer and will start when the STARTTX task is triggered. No timeout.
@@ -678,18 +678,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(framedelaymode)::Type,FramedelaymodeVal::windowgrid> windowgrid{};
         }
     }
-    namespace Nonepacketptr{    ///<Packet pointer for TXD and RXD data storage in Data RAM
-        using Addr = Register::Address<0x40005510,0x00000000,0,unsigned>;
+    namespace NfctPacketptr{    ///<Packet pointer for TXD and RXD data storage in Data RAM
+        using Addr = Register::Address<0x40005510,0x00000000,0x00000000,unsigned>;
         ///Packet pointer for TXD and RXD data storage in Data RAM. This address is a byte aligned RAM address.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ptr{}; 
     }
-    namespace Nonemaxlen{    ///<Size of allocated for TXD and RXD data storage buffer in Data RAM
-        using Addr = Register::Address<0x40005514,0xfffffe00,0,unsigned>;
+    namespace NfctMaxlen{    ///<Size of allocated for TXD and RXD data storage buffer in Data RAM
+        using Addr = Register::Address<0x40005514,0xfffffe00,0x00000000,unsigned>;
         ///Size of allocated for TXD and RXD data storage buffer in Data RAM
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> maxlen{}; 
     }
-    namespace Nonenfcid1Last{    ///<Last NFCID1 part (4, 7 or 10 bytes ID)
-        using Addr = Register::Address<0x40005590,0x00000000,0,unsigned>;
+    namespace NfctNfcid1Last{    ///<Last NFCID1 part (4, 7 or 10 bytes ID)
+        using Addr = Register::Address<0x40005590,0x00000000,0x00000000,unsigned>;
         ///NFCID1 byte Z (very last byte sent)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> nfcid1Z{}; 
         ///NFCID1 byte Y
@@ -699,8 +699,8 @@ namespace Kvasir {
         ///NFCID1 byte W
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> nfcid1W{}; 
     }
-    namespace Nonenfcid12ndLast{    ///<Second last NFCID1 part (7 or 10 bytes ID)
-        using Addr = Register::Address<0x40005594,0xff000000,0,unsigned>;
+    namespace NfctNfcid12ndLast{    ///<Second last NFCID1 part (7 or 10 bytes ID)
+        using Addr = Register::Address<0x40005594,0xff000000,0x00000000,unsigned>;
         ///NFCID1 byte V
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> nfcid1V{}; 
         ///NFCID1 byte U
@@ -708,8 +708,8 @@ namespace Kvasir {
         ///NFCID1 byte T
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> nfcid1T{}; 
     }
-    namespace Nonenfcid13rdLast{    ///<Third last NFCID1 part (10 bytes ID)
-        using Addr = Register::Address<0x40005598,0xff000000,0,unsigned>;
+    namespace NfctNfcid13rdLast{    ///<Third last NFCID1 part (10 bytes ID)
+        using Addr = Register::Address<0x40005598,0xff000000,0x00000000,unsigned>;
         ///NFCID1 byte S
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> nfcid1S{}; 
         ///NFCID1 byte R
@@ -717,8 +717,8 @@ namespace Kvasir {
         ///NFCID1 byte Q
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> nfcid1Q{}; 
     }
-    namespace Noneautocolresconfig{    ///<Controls the Auto collision resolution function. This setting must be done before the NFCT peripheral is enabled.
-        using Addr = Register::Address<0x4000559c,0xfffffffc,0,unsigned>;
+    namespace NfctAutocolresconfig{    ///<Controls the Auto collision resolution function. This setting must be done before the NFCT peripheral is enabled.
+        using Addr = Register::Address<0x4000559c,0xfffffffc,0x00000000,unsigned>;
         ///Enables/disables Auto collision resolution
         enum class ModeVal {
             enabled=0x00000000,     ///<Auto collision resolution enabled
@@ -740,8 +740,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filter)::Type,FilterVal::on> on{};
         }
     }
-    namespace Nonesensres{    ///<NFC-A SENS_RES auto-response settings
-        using Addr = Register::Address<0x400055a0,0xffff0000,0,unsigned>;
+    namespace NfctSensres{    ///<NFC-A SENS_RES auto-response settings
+        using Addr = Register::Address<0x400055a0,0xffff0000,0x00000000,unsigned>;
         ///Bit frame SDD as defined by the b5:b1 of byte 1 in SENS_RES response in the NFC Forum, NFC Digital Protocol Technical Specification
         enum class BitframesddVal {
             sdd00000=0x00000000,     ///<SDD pattern 00000
@@ -779,8 +779,8 @@ namespace Kvasir {
         ///Reserved for future use. Shall be 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> rfu74{}; 
     }
-    namespace Noneselres{    ///<NFC-A SEL_RES auto-response settings
-        using Addr = Register::Address<0x400055a4,0xffffff00,0,unsigned>;
+    namespace NfctSelres{    ///<NFC-A SEL_RES auto-response settings
+        using Addr = Register::Address<0x400055a4,0xffffff00,0x00000000,unsigned>;
         ///Reserved for future use. Shall be 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> rfu10{}; 
         ///Cascade bit (controlled by hardware, write has no effect)

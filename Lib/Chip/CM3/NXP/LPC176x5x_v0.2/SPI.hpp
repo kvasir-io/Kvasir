@@ -1,9 +1,11 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SPI 
-    namespace Nonecr{    ///<SPI Control Register. This register controls the operation of the SPI.
-        using Addr = Register::Address<0x40020000,0xfffff003,0,unsigned>;
+    namespace SpiCr{    ///<SPI Control Register. This register controls the operation of the SPI.
+        using Addr = Register::Address<0x40020000,0x00000000,0x00000000,unsigned>;
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///The SPI controller sends and receives 8 bits of data per transfer.
         enum class BitenableVal {
             theSpiControllerS=0x00000001,     ///<The SPI controller sends and receives the number of bits selected by bits 11:8.
@@ -86,9 +88,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v15BitsPerTransfer> v15BitsPerTransfer{};
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v16BitsPerTransfer> v16BitsPerTransfer{};
         }
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesr{    ///<SPI Status Register. This register shows the status of the SPI.
-        using Addr = Register::Address<0x40020004,0xffffff07,0,unsigned>;
+    namespace SpiSr{    ///<SPI Status Register. This register shows the status of the SPI.
+        using Addr = Register::Address<0x40020004,0x00000000,0x00000000,unsigned>;
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Slave abort. When 1, this bit indicates that a slave abort has occurred. This bit is cleared by reading this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> abrt{}; 
         ///Mode fault. when 1, this bit indicates that a Mode fault error has occurred. This bit is cleared by reading this register, then writing the SPI0 control register.
@@ -99,22 +105,32 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> wcol{}; 
         ///SPI transfer complete flag. When 1, this bit indicates when a SPI data transfer is complete. When a master, this bit is set at the end of the last cycle of the transfer. When a slave, this bit is set on the last data sampling edge of the SCK. This bit is cleared by first reading this register, then accessing the SPI Data Register. Note: this is not the SPI interrupt flag. This flag is found in the SPINT register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> spif{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedr{    ///<SPI Data Register. This bi-directional register provides the transmit and receive data for the SPI. Transmit data is provided to the SPI0 by writing to this register. Data received by the SPI0 can be read from this register.
-        using Addr = Register::Address<0x40020008,0xffff0000,0,unsigned>;
+    namespace SpiDr{    ///<SPI Data Register. This bi-directional register provides the transmit and receive data for the SPI. Transmit data is provided to the SPI0 by writing to this register. Data received by the SPI0 can be read from this register.
+        using Addr = Register::Address<0x40020008,0x00000000,0x00000000,unsigned>;
         ///SPI Bi-directional data port.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> datalow{}; 
         ///If bit 2 of the SPCR is 1 and bits 11:8 are other than 1000, some or all of these bits contain the additional transmit and receive bits. When less than 16 bits are selected, the more significant among these bits read as zeroes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> datahigh{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneccr{    ///<SPI Clock Counter Register. This register controls the frequency of a master's SCK0.
-        using Addr = Register::Address<0x4002000c,0xffffff00,0,unsigned>;
+    namespace SpiCcr{    ///<SPI Clock Counter Register. This register controls the frequency of a master's SCK0.
+        using Addr = Register::Address<0x4002000c,0x00000000,0x00000000,unsigned>;
         ///SPI0 Clock counter setting.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> counter{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneint{    ///<SPI Interrupt Flag. This register contains the interrupt flag for the SPI interface.
-        using Addr = Register::Address<0x4002001c,0xfffffffe,0,unsigned>;
+    namespace SpiInt{    ///<SPI Interrupt Flag. This register contains the interrupt flag for the SPI interface.
+        using Addr = Register::Address<0x4002001c,0x00000000,0x00000000,unsigned>;
         ///SPI interrupt flag. Set by the SPI interface to generate an interrupt. Cleared by writing a 1 to this bit. Note: this bit will be set once when SPIE = 1 and at least one of SPIF and WCOL bits is 1. However, only when the SPI Interrupt bit is set and SPI0 Interrupt is enabled in the NVIC, SPI based interrupt can be processed by interrupt handling software.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> spif{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

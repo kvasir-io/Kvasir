@@ -162,224 +162,6 @@ namespace Kvasir {
         ///SPI Transfer Counter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> spiTcnt{}; 
     }
-    namespace Spi2Ctar0{    ///<Clock and Transfer Attributes Register (In Master Mode)
-        using Addr = Register::Address<0x400ac00c,0x00000000,0x00000000,unsigned>;
-        ///Baud Rate Scaler
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> br{}; 
-        ///Delay After Transfer Scaler
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> dt{}; 
-        ///After SCK Delay Scaler
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> asc{}; 
-        ///PCS to SCK Delay Scaler
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> cssck{}; 
-        ///Baud Rate Prescaler
-        enum class PbrVal {
-            v00=0x00000000,     ///<Baud Rate Prescaler value is 2.
-            v01=0x00000001,     ///<Baud Rate Prescaler value is 3.
-            v10=0x00000002,     ///<Baud Rate Prescaler value is 5.
-            v11=0x00000003,     ///<Baud Rate Prescaler value is 7.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PbrVal> pbr{}; 
-        namespace PbrValC{
-            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v11> v11{};
-        }
-        ///Delay after Transfer Prescaler
-        enum class PdtVal {
-            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
-            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
-            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
-            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,PdtVal> pdt{}; 
-        namespace PdtValC{
-            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v11> v11{};
-        }
-        ///After SCK Delay Prescaler
-        enum class PascVal {
-            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
-            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
-            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
-            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,PascVal> pasc{}; 
-        namespace PascValC{
-            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v11> v11{};
-        }
-        ///PCS to SCK Delay Prescaler
-        enum class PcssckVal {
-            v00=0x00000000,     ///<PCS to SCK Prescaler value is 1.
-            v01=0x00000001,     ///<PCS to SCK Prescaler value is 3.
-            v10=0x00000002,     ///<PCS to SCK Prescaler value is 5.
-            v11=0x00000003,     ///<PCS to SCK Prescaler value is 7.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,PcssckVal> pcssck{}; 
-        namespace PcssckValC{
-            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v11> v11{};
-        }
-        ///LSB First
-        enum class LsbfeVal {
-            v0=0x00000000,     ///<Data is transferred MSB first.
-            v1=0x00000001,     ///<Data is transferred LSB first.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,LsbfeVal> lsbfe{}; 
-        namespace LsbfeValC{
-            constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v1> v1{};
-        }
-        ///Clock Phase
-        enum class CphaVal {
-            v0=0x00000000,     ///<Data is captured on the leading edge of SCK and changed on the following edge.
-            v1=0x00000001,     ///<Data is changed on the leading edge of SCK and captured on the following edge.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,CphaVal> cpha{}; 
-        namespace CphaValC{
-            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v1> v1{};
-        }
-        ///Clock Polarity
-        enum class CpolVal {
-            v0=0x00000000,     ///<The inactive state value of SCK is low.
-            v1=0x00000001,     ///<The inactive state value of SCK is high.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,CpolVal> cpol{}; 
-        namespace CpolValC{
-            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v1> v1{};
-        }
-        ///Frame Size
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
-        ///Double Baud Rate
-        enum class DbrVal {
-            v0=0x00000000,     ///<The baud rate is computed normally with a 50/50 duty cycle.
-            v1=0x00000001,     ///<The baud rate is doubled with the duty cycle depending on the Baud Rate Prescaler.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,DbrVal> dbr{}; 
-        namespace DbrValC{
-            constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v1> v1{};
-        }
-    }
-    namespace Spi2Ctar1{    ///<Clock and Transfer Attributes Register (In Master Mode)
-        using Addr = Register::Address<0x400ac010,0x00000000,0x00000000,unsigned>;
-        ///Baud Rate Scaler
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> br{}; 
-        ///Delay After Transfer Scaler
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> dt{}; 
-        ///After SCK Delay Scaler
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> asc{}; 
-        ///PCS to SCK Delay Scaler
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> cssck{}; 
-        ///Baud Rate Prescaler
-        enum class PbrVal {
-            v00=0x00000000,     ///<Baud Rate Prescaler value is 2.
-            v01=0x00000001,     ///<Baud Rate Prescaler value is 3.
-            v10=0x00000002,     ///<Baud Rate Prescaler value is 5.
-            v11=0x00000003,     ///<Baud Rate Prescaler value is 7.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PbrVal> pbr{}; 
-        namespace PbrValC{
-            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v11> v11{};
-        }
-        ///Delay after Transfer Prescaler
-        enum class PdtVal {
-            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
-            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
-            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
-            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,PdtVal> pdt{}; 
-        namespace PdtValC{
-            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v11> v11{};
-        }
-        ///After SCK Delay Prescaler
-        enum class PascVal {
-            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
-            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
-            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
-            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,PascVal> pasc{}; 
-        namespace PascValC{
-            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v11> v11{};
-        }
-        ///PCS to SCK Delay Prescaler
-        enum class PcssckVal {
-            v00=0x00000000,     ///<PCS to SCK Prescaler value is 1.
-            v01=0x00000001,     ///<PCS to SCK Prescaler value is 3.
-            v10=0x00000002,     ///<PCS to SCK Prescaler value is 5.
-            v11=0x00000003,     ///<PCS to SCK Prescaler value is 7.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,PcssckVal> pcssck{}; 
-        namespace PcssckValC{
-            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v11> v11{};
-        }
-        ///LSB First
-        enum class LsbfeVal {
-            v0=0x00000000,     ///<Data is transferred MSB first.
-            v1=0x00000001,     ///<Data is transferred LSB first.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,LsbfeVal> lsbfe{}; 
-        namespace LsbfeValC{
-            constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v1> v1{};
-        }
-        ///Clock Phase
-        enum class CphaVal {
-            v0=0x00000000,     ///<Data is captured on the leading edge of SCK and changed on the following edge.
-            v1=0x00000001,     ///<Data is changed on the leading edge of SCK and captured on the following edge.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,CphaVal> cpha{}; 
-        namespace CphaValC{
-            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v1> v1{};
-        }
-        ///Clock Polarity
-        enum class CpolVal {
-            v0=0x00000000,     ///<The inactive state value of SCK is low.
-            v1=0x00000001,     ///<The inactive state value of SCK is high.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,CpolVal> cpol{}; 
-        namespace CpolValC{
-            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v1> v1{};
-        }
-        ///Frame Size
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
-        ///Double Baud Rate
-        enum class DbrVal {
-            v0=0x00000000,     ///<The baud rate is computed normally with a 50/50 duty cycle.
-            v1=0x00000001,     ///<The baud rate is doubled with the duty cycle depending on the Baud Rate Prescaler.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,DbrVal> dbr{}; 
-        namespace DbrValC{
-            constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v1> v1{};
-        }
-    }
     namespace Spi2CtarSlave{    ///<Clock and Transfer Attributes Register (In Slave Mode)
         using Addr = Register::Address<0x400ac00c,0x01ffffff,0x00000000,unsigned>;
         ///Clock Phase
@@ -617,6 +399,224 @@ namespace Kvasir {
         using Addr = Register::Address<0x400ac038,0x00000000,0x00000000,unsigned>;
         ///Received Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
+    }
+    namespace Spi2Ctar0{    ///<Clock and Transfer Attributes Register (In Master Mode)
+        using Addr = Register::Address<0x400ac00c,0x00000000,0x00000000,unsigned>;
+        ///Baud Rate Scaler
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> br{}; 
+        ///Delay After Transfer Scaler
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> dt{}; 
+        ///After SCK Delay Scaler
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> asc{}; 
+        ///PCS to SCK Delay Scaler
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> cssck{}; 
+        ///Baud Rate Prescaler
+        enum class PbrVal {
+            v00=0x00000000,     ///<Baud Rate Prescaler value is 2.
+            v01=0x00000001,     ///<Baud Rate Prescaler value is 3.
+            v10=0x00000002,     ///<Baud Rate Prescaler value is 5.
+            v11=0x00000003,     ///<Baud Rate Prescaler value is 7.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PbrVal> pbr{}; 
+        namespace PbrValC{
+            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v11> v11{};
+        }
+        ///Delay after Transfer Prescaler
+        enum class PdtVal {
+            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
+            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
+            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
+            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,PdtVal> pdt{}; 
+        namespace PdtValC{
+            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v11> v11{};
+        }
+        ///After SCK Delay Prescaler
+        enum class PascVal {
+            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
+            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
+            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
+            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,PascVal> pasc{}; 
+        namespace PascValC{
+            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v11> v11{};
+        }
+        ///PCS to SCK Delay Prescaler
+        enum class PcssckVal {
+            v00=0x00000000,     ///<PCS to SCK Prescaler value is 1.
+            v01=0x00000001,     ///<PCS to SCK Prescaler value is 3.
+            v10=0x00000002,     ///<PCS to SCK Prescaler value is 5.
+            v11=0x00000003,     ///<PCS to SCK Prescaler value is 7.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,PcssckVal> pcssck{}; 
+        namespace PcssckValC{
+            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v11> v11{};
+        }
+        ///LSB First
+        enum class LsbfeVal {
+            v0=0x00000000,     ///<Data is transferred MSB first.
+            v1=0x00000001,     ///<Data is transferred LSB first.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,LsbfeVal> lsbfe{}; 
+        namespace LsbfeValC{
+            constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v1> v1{};
+        }
+        ///Clock Phase
+        enum class CphaVal {
+            v0=0x00000000,     ///<Data is captured on the leading edge of SCK and changed on the following edge.
+            v1=0x00000001,     ///<Data is changed on the leading edge of SCK and captured on the following edge.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,CphaVal> cpha{}; 
+        namespace CphaValC{
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v1> v1{};
+        }
+        ///Clock Polarity
+        enum class CpolVal {
+            v0=0x00000000,     ///<The inactive state value of SCK is low.
+            v1=0x00000001,     ///<The inactive state value of SCK is high.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,CpolVal> cpol{}; 
+        namespace CpolValC{
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v1> v1{};
+        }
+        ///Frame Size
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
+        ///Double Baud Rate
+        enum class DbrVal {
+            v0=0x00000000,     ///<The baud rate is computed normally with a 50/50 duty cycle.
+            v1=0x00000001,     ///<The baud rate is doubled with the duty cycle depending on the Baud Rate Prescaler.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,DbrVal> dbr{}; 
+        namespace DbrValC{
+            constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v1> v1{};
+        }
+    }
+    namespace Spi2Ctar1{    ///<Clock and Transfer Attributes Register (In Master Mode)
+        using Addr = Register::Address<0x400ac010,0x00000000,0x00000000,unsigned>;
+        ///Baud Rate Scaler
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> br{}; 
+        ///Delay After Transfer Scaler
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> dt{}; 
+        ///After SCK Delay Scaler
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> asc{}; 
+        ///PCS to SCK Delay Scaler
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> cssck{}; 
+        ///Baud Rate Prescaler
+        enum class PbrVal {
+            v00=0x00000000,     ///<Baud Rate Prescaler value is 2.
+            v01=0x00000001,     ///<Baud Rate Prescaler value is 3.
+            v10=0x00000002,     ///<Baud Rate Prescaler value is 5.
+            v11=0x00000003,     ///<Baud Rate Prescaler value is 7.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PbrVal> pbr{}; 
+        namespace PbrValC{
+            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v11> v11{};
+        }
+        ///Delay after Transfer Prescaler
+        enum class PdtVal {
+            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
+            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
+            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
+            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,PdtVal> pdt{}; 
+        namespace PdtValC{
+            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v11> v11{};
+        }
+        ///After SCK Delay Prescaler
+        enum class PascVal {
+            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
+            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
+            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
+            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,PascVal> pasc{}; 
+        namespace PascValC{
+            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v11> v11{};
+        }
+        ///PCS to SCK Delay Prescaler
+        enum class PcssckVal {
+            v00=0x00000000,     ///<PCS to SCK Prescaler value is 1.
+            v01=0x00000001,     ///<PCS to SCK Prescaler value is 3.
+            v10=0x00000002,     ///<PCS to SCK Prescaler value is 5.
+            v11=0x00000003,     ///<PCS to SCK Prescaler value is 7.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,PcssckVal> pcssck{}; 
+        namespace PcssckValC{
+            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v11> v11{};
+        }
+        ///LSB First
+        enum class LsbfeVal {
+            v0=0x00000000,     ///<Data is transferred MSB first.
+            v1=0x00000001,     ///<Data is transferred LSB first.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,LsbfeVal> lsbfe{}; 
+        namespace LsbfeValC{
+            constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v1> v1{};
+        }
+        ///Clock Phase
+        enum class CphaVal {
+            v0=0x00000000,     ///<Data is captured on the leading edge of SCK and changed on the following edge.
+            v1=0x00000001,     ///<Data is changed on the leading edge of SCK and captured on the following edge.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,CphaVal> cpha{}; 
+        namespace CphaValC{
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v1> v1{};
+        }
+        ///Clock Polarity
+        enum class CpolVal {
+            v0=0x00000000,     ///<The inactive state value of SCK is low.
+            v1=0x00000001,     ///<The inactive state value of SCK is high.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,CpolVal> cpol{}; 
+        namespace CpolValC{
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v1> v1{};
+        }
+        ///Frame Size
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
+        ///Double Baud Rate
+        enum class DbrVal {
+            v0=0x00000000,     ///<The baud rate is computed normally with a 50/50 duty cycle.
+            v1=0x00000001,     ///<The baud rate is doubled with the duty cycle depending on the Baud Rate Prescaler.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,DbrVal> dbr{}; 
+        namespace DbrValC{
+            constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v1> v1{};
+        }
     }
     namespace Spi2Txfr0{    ///<Transmit FIFO Registers
         using Addr = Register::Address<0x400ac03c,0x00000000,0x00000000,unsigned>;

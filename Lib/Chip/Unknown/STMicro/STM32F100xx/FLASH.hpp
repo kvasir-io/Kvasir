@@ -1,25 +1,24 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //FLASH
-    namespace Noneacr{    ///<Flash access control register
-        using Addr = Register::Address<0x40022000,0xfffffff7,0,unsigned>;
-        ///Flash half cycle access
-              enable
+    namespace FlashAcr{    ///<Flash access control register
+        using Addr = Register::Address<0x40022000,0xfffffff7,0x00000000,unsigned>;
+        ///Flash half cycle access              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> hlfcya{}; 
     }
-    namespace Nonekeyr{    ///<Flash key register
-        using Addr = Register::Address<0x40022004,0x00000000,0,unsigned>;
+    namespace FlashKeyr{    ///<Flash key register
+        using Addr = Register::Address<0x40022004,0x00000000,0x00000000,unsigned>;
         ///FPEC key
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> key{}; 
     }
-    namespace Noneoptkeyr{    ///<Flash option key register
-        using Addr = Register::Address<0x40022008,0x00000000,0,unsigned>;
+    namespace FlashOptkeyr{    ///<Flash option key register
+        using Addr = Register::Address<0x40022008,0x00000000,0x00000000,unsigned>;
         ///Option byte key
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> optkey{}; 
     }
-    namespace Nonesr{    ///<Status register
-        using Addr = Register::Address<0x4002200c,0xffffffca,0,unsigned>;
+    namespace FlashSr{    ///<Status register
+        using Addr = Register::Address<0x4002200c,0xffffffca,0x00000000,unsigned>;
         ///End of operation
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> eop{}; 
         ///Write protection error
@@ -27,10 +26,10 @@ namespace Kvasir {
         ///Programming error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pgerr{}; 
         ///Busy
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bsy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> bsy{}; 
     }
-    namespace Nonecr{    ///<Control register
-        using Addr = Register::Address<0x40022010,0xffffe908,0,unsigned>;
+    namespace FlashCr{    ///<Control register
+        using Addr = Register::Address<0x40022010,0xffffe908,0x00000000,unsigned>;
         ///Programming
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pg{}; 
         ///Page Erase
@@ -49,17 +48,16 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> optwre{}; 
         ///Error interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> errie{}; 
-        ///End of operation interrupt
-              enable
+        ///End of operation interrupt              enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> eopie{}; 
     }
-    namespace Nonear{    ///<Flash address register
-        using Addr = Register::Address<0x40022014,0x00000000,0,unsigned>;
+    namespace FlashAr{    ///<Flash address register
+        using Addr = Register::Address<0x40022014,0x00000000,0x00000000,unsigned>;
         ///Flash Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> far{}; 
     }
-    namespace Noneobr{    ///<Option byte register
-        using Addr = Register::Address<0x4002201c,0xfc0003e0,0,unsigned>;
+    namespace FlashObr{    ///<Option byte register
+        using Addr = Register::Address<0x4002201c,0xfc0003e0,0x00000000,unsigned>;
         ///Option byte error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> opterr{}; 
         ///Read protection
@@ -75,8 +73,8 @@ namespace Kvasir {
         ///Data1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,18),Register::ReadWriteAccess,unsigned> data1{}; 
     }
-    namespace Nonewrpr{    ///<Write protection register
-        using Addr = Register::Address<0x40022020,0x00000000,0,unsigned>;
+    namespace FlashWrpr{    ///<Write protection register
+        using Addr = Register::Address<0x40022020,0x00000000,0x00000000,unsigned>;
         ///Write protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> wrp{}; 
     }

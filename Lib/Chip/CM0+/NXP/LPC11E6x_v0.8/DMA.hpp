@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //DMA controller
-    namespace Nonectrl{    ///<DMA control.
-        using Addr = Register::Address<0x50004000,0xfffffffe,0,unsigned>;
+    namespace DmaCtrl{    ///<DMA control.
+        using Addr = Register::Address<0x50004000,0x00000000,0x00000000,unsigned>;
         ///DMA controller master enable.
         enum class EnableVal {
             disabled=0x00000000,     ///<Disabled. The DMA controller is disabled. This clears any triggers that were asserted at the point when disabled, but does not prevent re-triggering when the DMA controller is re-enabled.
@@ -14,9 +14,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintstat{    ///<Interrupt status.
-        using Addr = Register::Address<0x50004004,0xfffffff9,0,unsigned>;
+    namespace DmaIntstat{    ///<Interrupt status.
+        using Addr = Register::Address<0x50004004,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Summarizes whether any enabled interrupts are pending.
         enum class ActiveintVal {
             notPending=0x00000000,     ///<Not pending. No enabled interrupts are pending.
@@ -37,74 +41,100 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(activeerrint)::Type,ActiveerrintVal::notPending> notPending{};
             constexpr Register::FieldValue<decltype(activeerrint)::Type,ActiveerrintVal::pending> pending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesrambase{    ///<SRAM address of the channel configuration table.
-        using Addr = Register::Address<0x50004008,0x000003ff,0,unsigned>;
+    namespace DmaSrambase{    ///<SRAM address of the channel configuration table.
+        using Addr = Register::Address<0x50004008,0x00000000,0x00000000,unsigned>;
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Address of the beginning of the DMA descriptor table. The table must begin on a 1 kB boundary. Boundary needed for 18 channel DMA configuration: 512 bytes (bottom 9 bits = 0)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> offset{}; 
     }
-    namespace Noneenableset0{    ///<Channel Enable read and Set for all DMA channels.
-        using Addr = Register::Address<0x50004020,0xffff0000,0,unsigned>;
+    namespace DmaEnableset0{    ///<Channel Enable read and Set for all DMA channels.
+        using Addr = Register::Address<0x50004020,0x00000000,0x00000000,unsigned>;
         ///Enable for DMA channels 15:0. Bit n enables or disables DMA channel n.  0 = disabled. 1 = enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ena{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneenableclr0{    ///<Channel Enable Clear for all DMA channels.
-        using Addr = Register::Address<0x50004028,0xffff0000,0,unsigned>;
+    namespace DmaEnableclr0{    ///<Channel Enable Clear for all DMA channels.
+        using Addr = Register::Address<0x50004028,0xffff0000,0x00000000,unsigned>;
         ///Writing ones to this register clears the corresponding bits in ENABLESET0. Bit n clears the channel enable bit n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> clr{}; 
     }
-    namespace Noneactive0{    ///<Channel Active status for all DMA channels.
-        using Addr = Register::Address<0x50004030,0xffff0000,0,unsigned>;
+    namespace DmaActive0{    ///<Channel Active status for all DMA channels.
+        using Addr = Register::Address<0x50004030,0x00000000,0x00000000,unsigned>;
         ///Active flag for DMA channel n. Bit n corresponds to DMA channel n. 0 = not active. 1 = active.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> act{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonebusy0{    ///<Channel Busy status for all DMA channels.
-        using Addr = Register::Address<0x50004038,0xffff0000,0,unsigned>;
+    namespace DmaBusy0{    ///<Channel Busy status for all DMA channels.
+        using Addr = Register::Address<0x50004038,0x00000000,0x00000000,unsigned>;
         ///Busy flag for DMA channel n. Bit n corresponds to DMA channel n. 0 = not busy. 1 = busy.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> bsy{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneerrint0{    ///<Error Interrupt status for all DMA channels.
-        using Addr = Register::Address<0x50004040,0xffff0000,0,unsigned>;
+    namespace DmaErrint0{    ///<Error Interrupt status for all DMA channels.
+        using Addr = Register::Address<0x50004040,0x00030000,0x00000000,unsigned>;
         ///Error Interrupt flag for DMA channel n. Bit n corresponds to DMA channel n. 0 = error interrupt is not active. 1 = error interrupt is active.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> err{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintenset0{    ///<Interrupt Enable read and Set for all DMA channels.
-        using Addr = Register::Address<0x50004048,0xffff0000,0,unsigned>;
+    namespace DmaIntenset0{    ///<Interrupt Enable read and Set for all DMA channels.
+        using Addr = Register::Address<0x50004048,0x00000000,0x00000000,unsigned>;
         ///Interrupt Enable read and set for DMA channel n. Bit n corresponds to DMA channel n. 0 = interrupt for DMA channel is disabled. 1 = interrupt for DMA channel is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> inten{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintenclr0{    ///<Interrupt Enable Clear for all DMA channels.
-        using Addr = Register::Address<0x50004050,0xffff0000,0,unsigned>;
+    namespace DmaIntenclr0{    ///<Interrupt Enable Clear for all DMA channels.
+        using Addr = Register::Address<0x50004050,0x00000000,0x00000000,unsigned>;
         ///Writing ones to this register clears corresponding bits in the INTENSET0. Bit n corresponds to DMA channel n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> clr{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneinta0{    ///<Interrupt A status for all DMA channels.
-        using Addr = Register::Address<0x50004058,0xffff0000,0,unsigned>;
+    namespace DmaInta0{    ///<Interrupt A status for all DMA channels.
+        using Addr = Register::Address<0x50004058,0x00000000,0x00000000,unsigned>;
         ///Interrupt A status for DMA channel n. Bit n corresponds to DMA channel n. 0 = the DMA channel interrupt A is not active. 1 = the DMA channel interrupt A is active.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ia{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneintb0{    ///<Interrupt B status for all DMA channels.
-        using Addr = Register::Address<0x50004060,0xffff0000,0,unsigned>;
+    namespace DmaIntb0{    ///<Interrupt B status for all DMA channels.
+        using Addr = Register::Address<0x50004060,0x00000000,0x00000000,unsigned>;
         ///Interrupt B status for DMA channel n. Bit n corresponds to DMA channel n. 0 = the DMA channel interrupt B is not active. 1 = the DMA channel interrupt B is active.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ib{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesetvalid0{    ///<Set ValidPending control bits for all DMA channels.
-        using Addr = Register::Address<0x50004068,0xffff0000,0,unsigned>;
+    namespace DmaSetvalid0{    ///<Set ValidPending control bits for all DMA channels.
+        using Addr = Register::Address<0x50004068,0x00000000,0x00000000,unsigned>;
         ///SETVALID control for DMA channel n. Bit n corresponds to DMA channel n. 0 = no effect. 1 = sets the VALIDPENDING control bit for DMA channel n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> sv{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonesettrig0{    ///<Set Trigger control bits for all DMA channels.
-        using Addr = Register::Address<0x50004070,0xffff0000,0,unsigned>;
+    namespace DmaSettrig0{    ///<Set Trigger control bits for all DMA channels.
+        using Addr = Register::Address<0x50004070,0x00000000,0x00000000,unsigned>;
         ///Set Trigger control bit for DMA channel 0. Bit n corresponds to DMA channel n. 0 = no effect. 1 = sets the TRIG bit for DMA channel n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> trig{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneabort0{    ///<Channel Abort control for all DMA channels.
-        using Addr = Register::Address<0x50004078,0xffff0000,0,unsigned>;
+    namespace DmaAbort0{    ///<Channel Abort control for all DMA channels.
+        using Addr = Register::Address<0x50004078,0x00000000,0x00000000,unsigned>;
         ///Abort control for DMA channel 0. Bit n corresponds to DMA channel n. 0 = no effect. 1 = aborts DMA operations on channel n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> aortctrl{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg0{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004400,0xfffc308c,0,unsigned>;
+    namespace DmaCfg0{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004400,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -125,6 +155,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -155,8 +187,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -179,9 +215,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg1{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004410,0xfffc308c,0,unsigned>;
+    namespace DmaCfg1{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004410,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -202,6 +240,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -232,8 +272,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -256,9 +300,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg2{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004420,0xfffc308c,0,unsigned>;
+    namespace DmaCfg2{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004420,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -279,6 +325,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -309,8 +357,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -333,9 +385,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg3{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004430,0xfffc308c,0,unsigned>;
+    namespace DmaCfg3{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004430,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -356,6 +410,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -386,8 +442,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -410,9 +470,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg4{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004440,0xfffc308c,0,unsigned>;
+    namespace DmaCfg4{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004440,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -433,6 +495,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -463,8 +527,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -487,9 +555,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg5{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004450,0xfffc308c,0,unsigned>;
+    namespace DmaCfg5{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004450,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -510,6 +580,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -540,8 +612,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -564,9 +640,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg6{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004460,0xfffc308c,0,unsigned>;
+    namespace DmaCfg6{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004460,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -587,6 +665,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -617,8 +697,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -641,9 +725,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg7{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004470,0xfffc308c,0,unsigned>;
+    namespace DmaCfg7{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004470,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -664,6 +750,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -694,8 +782,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -718,9 +810,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg8{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004480,0xfffc308c,0,unsigned>;
+    namespace DmaCfg8{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004480,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -741,6 +835,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -771,8 +867,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -795,9 +895,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg9{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004490,0xfffc308c,0,unsigned>;
+    namespace DmaCfg9{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004490,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -818,6 +920,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -848,8 +952,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -872,9 +980,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg10{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044a0,0xfffc308c,0,unsigned>;
+    namespace DmaCfg10{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044a0,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -895,6 +1005,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -925,8 +1037,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -949,9 +1065,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg11{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044b0,0xfffc308c,0,unsigned>;
+    namespace DmaCfg11{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044b0,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -972,6 +1090,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -1002,8 +1122,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -1026,9 +1150,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg12{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044c0,0xfffc308c,0,unsigned>;
+    namespace DmaCfg12{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044c0,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -1049,6 +1175,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -1079,8 +1207,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -1103,9 +1235,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg13{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044d0,0xfffc308c,0,unsigned>;
+    namespace DmaCfg13{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044d0,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -1126,6 +1260,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -1156,8 +1292,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -1180,9 +1320,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg14{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044e0,0xfffc308c,0,unsigned>;
+    namespace DmaCfg14{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044e0,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -1203,6 +1345,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -1233,8 +1377,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -1257,9 +1405,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonecfg15{    ///<Configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044f0,0xfffc308c,0,unsigned>;
+    namespace DmaCfg15{    ///<Configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044f0,0x00000000,0x00000000,unsigned>;
         ///Peripheral request Enable. If a DMA channel is used to perform a memory-to-memory move, any peripheral DMA request associated with that channel can be disabled to prevent any interaction between the peripheral and the DMA controller.
         enum class PeriphreqenVal {
             disabled=0x00000000,     ///<Disabled. Peripheral DMA requests are disabled.
@@ -1280,6 +1430,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
             activeLowFalling=0x00000000,     ///<Active low - falling edge. Hardware trigger is active low or falling edge triggered, based on TRIGTYPE.
@@ -1310,8 +1462,12 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Source Burst Wrap. When enabled, the source data address for the DMA is wrapped, meaning that the source address range for each burst will be the same. As an example, this could be used to read several sequential registers from a peripheral for each DMA burst, reading the same registers again for each burst.
         enum class SrcburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Source burst wrapping is not enabled for this DMA channel.
@@ -1334,9 +1490,11 @@ namespace Kvasir {
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 2-bit priority field providing 4 priority levels. 0x0 = highest priority. 0x3 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,18),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat0{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x50004404,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat0{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x50004404,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1347,6 +1505,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1357,9 +1517,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat1{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x50004414,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat1{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x50004414,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1370,6 +1532,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1380,9 +1544,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat2{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x50004424,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat2{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x50004424,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1393,6 +1559,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1403,9 +1571,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat3{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x50004434,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat3{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x50004434,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1416,6 +1586,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1426,9 +1598,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat4{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x50004444,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat4{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x50004444,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1439,6 +1613,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1449,9 +1625,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat5{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x50004454,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat5{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x50004454,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1462,6 +1640,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1472,9 +1652,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat6{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x50004464,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat6{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x50004464,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1485,6 +1667,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1495,9 +1679,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat7{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x50004474,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat7{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x50004474,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1508,6 +1694,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1518,9 +1706,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat8{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x50004484,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat8{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x50004484,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1531,6 +1721,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1541,9 +1733,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat9{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x50004494,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat9{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x50004494,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1554,6 +1748,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1564,9 +1760,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat10{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x500044a4,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat10{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x500044a4,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1577,6 +1775,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1587,9 +1787,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat11{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x500044b4,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat11{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x500044b4,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1600,6 +1802,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1610,9 +1814,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat12{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x500044c4,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat12{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x500044c4,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1623,6 +1829,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1633,9 +1841,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat13{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x500044d4,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat13{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x500044d4,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1646,6 +1856,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1656,9 +1868,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat14{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x500044e4,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat14{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x500044e4,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1669,6 +1883,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1679,9 +1895,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonectlstat15{    ///<Control and status register for DMA channel 0.
-        using Addr = Register::Address<0x500044f4,0xfffffffa,0,unsigned>;
+    namespace DmaCtlstat15{    ///<Control and status register for DMA channel 0.
+        using Addr = Register::Address<0x500044f4,0x00000000,0x00000000,unsigned>;
         ///Valid pending flag for this channel. This bit is set when a 1 is written to the corresponding bit in the related SETVALID register when CFGVALID = 1 for the same channel.
         enum class ValidpendingVal {
             noEffectOnDmaOpe=0x00000000,     ///<No effect on DMA operation.
@@ -1692,6 +1910,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -1702,9 +1922,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg0{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004408,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg0{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004408,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -1765,6 +1987,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -1777,6 +2001,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -1807,9 +2033,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg1{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004418,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg1{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004418,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -1870,6 +2098,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -1882,6 +2112,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -1912,9 +2144,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg2{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004428,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg2{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004428,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -1975,6 +2209,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -1987,6 +2223,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -2017,9 +2255,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg3{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004438,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg3{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004438,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -2080,6 +2320,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -2092,6 +2334,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -2122,9 +2366,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg4{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004448,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg4{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004448,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -2185,6 +2431,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -2197,6 +2445,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -2227,9 +2477,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg5{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004458,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg5{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004458,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -2290,6 +2542,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -2302,6 +2556,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -2332,9 +2588,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg6{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004468,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg6{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004468,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -2395,6 +2653,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -2407,6 +2667,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -2437,9 +2699,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg7{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004478,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg7{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004478,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -2500,6 +2764,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -2512,6 +2778,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -2542,9 +2810,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg8{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004488,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg8{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004488,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -2605,6 +2875,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -2617,6 +2889,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -2647,9 +2921,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg9{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x50004498,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg9{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x50004498,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -2710,6 +2986,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -2722,6 +3000,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -2752,9 +3032,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg10{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044a8,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg10{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044a8,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -2815,6 +3097,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -2827,6 +3111,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -2857,9 +3143,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg11{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044b8,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg11{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044b8,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -2920,6 +3208,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -2932,6 +3222,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -2962,9 +3254,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg12{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044c8,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg12{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044c8,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -3025,6 +3319,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -3037,6 +3333,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -3067,9 +3365,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg13{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044d8,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg13{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044d8,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -3130,6 +3430,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -3142,6 +3444,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -3172,9 +3476,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg14{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044e8,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg14{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044e8,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -3235,6 +3541,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -3247,6 +3555,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -3277,9 +3587,11 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonexfercfg15{    ///<Transfer configuration register for DMA channel 0.
-        using Addr = Register::Address<0x500044f8,0xfc000cc0,0,unsigned>;
+    namespace DmaXfercfg15{    ///<Transfer configuration register for DMA channel 0.
+        using Addr = Register::Address<0x500044f8,0x00000000,0x00000000,unsigned>;
         ///Configuration Valid flag. This bit indicates whether the current channel descriptor is valid and can potentially be acted upon, if all other activation criteria are fulfilled.
         enum class CfgvalidVal {
             notValid=0x00000000,     ///<Not valid. The current channel descriptor is not considered valid.
@@ -3340,6 +3652,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
             v8BitTransfers=0x00000000,     ///<8-bit transfers are performed (8-bit source reads and destination writes).
@@ -3352,6 +3666,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfers> v16BitTransfers{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfers> v32BitTransfers{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
             noIncrement=0x00000000,     ///<No increment. The source address is not incremented for each transfer. This is the usual case when the source is a peripheral device.
@@ -3382,5 +3698,7 @@ namespace Kvasir {
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). The DMA controller uses this bit field during transfer to count down. Hence, it cannot be used by software to read back the size of the transfer, for instance, in an interrupt handler. 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

@@ -1,39 +1,27 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Real time counter 0.
-    namespace NonetasksStart{    ///<Start RTC Counter.
-        using Addr = Register::Address<0x4000b000,0xffffffff,0,unsigned>;
+    namespace Rtc0TasksStart{    ///<Start RTC Counter.
+        using Addr = Register::Address<0x4000b000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stop RTC Counter.
-        using Addr = Register::Address<0x4000b004,0xffffffff,0,unsigned>;
+    namespace Rtc0TasksStop{    ///<Stop RTC Counter.
+        using Addr = Register::Address<0x4000b004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksClear{    ///<Clear RTC Counter.
-        using Addr = Register::Address<0x4000b008,0xffffffff,0,unsigned>;
+    namespace Rtc0TasksClear{    ///<Clear RTC Counter.
+        using Addr = Register::Address<0x4000b008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksTrigovrflw{    ///<Set COUNTER to 0xFFFFFFF0.
-        using Addr = Register::Address<0x4000b00c,0xffffffff,0,unsigned>;
+    namespace Rtc0TasksTrigovrflw{    ///<Set COUNTER to 0xFFFFFFF0.
+        using Addr = Register::Address<0x4000b00c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsTick{    ///<Event on COUNTER increment.
-        using Addr = Register::Address<0x4000b100,0xffffffff,0,unsigned>;
+    namespace Rtc0EventsTick{    ///<Event on COUNTER increment.
+        using Addr = Register::Address<0x4000b100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsOvrflw{    ///<Event on COUNTER overflow.
-        using Addr = Register::Address<0x4000b104,0xffffffff,0,unsigned>;
+    namespace Rtc0EventsOvrflw{    ///<Event on COUNTER overflow.
+        using Addr = Register::Address<0x4000b104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsCompare0{    ///<Compare event on CC[n] match.
-        using Addr = Register::Address<0x4000b140,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare1{    ///<Compare event on CC[n] match.
-        using Addr = Register::Address<0x4000b144,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare2{    ///<Compare event on CC[n] match.
-        using Addr = Register::Address<0x4000b148,0xffffffff,0,unsigned>;
-    }
-    namespace NoneeventsCompare3{    ///<Compare event on CC[n] match.
-        using Addr = Register::Address<0x4000b14c,0xffffffff,0,unsigned>;
-    }
-    namespace Noneintenset{    ///<Interrupt enable set register.
-        using Addr = Register::Address<0x4000b304,0xfff0fffc,0,unsigned>;
+    namespace Rtc0Intenset{    ///<Interrupt enable set register.
+        using Addr = Register::Address<0x4000b304,0xfff0fffc,0x00000000,unsigned>;
         ///Enable interrupt on TICK event.
         enum class TickVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -107,8 +95,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Interrupt enable clear register.
-        using Addr = Register::Address<0x4000b308,0xfff0fffc,0,unsigned>;
+    namespace Rtc0Intenclr{    ///<Interrupt enable clear register.
+        using Addr = Register::Address<0x4000b308,0xfff0fffc,0x00000000,unsigned>;
         ///Disable interrupt on TICK event.
         enum class TickVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -182,8 +170,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::clear> clear{};
         }
     }
-    namespace Noneevten{    ///<Configures event enable routing to PPI for each RTC event.
-        using Addr = Register::Address<0x4000b340,0xfff0fffc,0,unsigned>;
+    namespace Rtc0Evten{    ///<Configures event enable routing to PPI for each RTC event.
+        using Addr = Register::Address<0x4000b340,0xfff0fffc,0x00000000,unsigned>;
         ///TICK event enable.
         enum class TickVal {
             disabled=0x00000000,     ///<Event disabled.
@@ -245,8 +233,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::enabled> enabled{};
         }
     }
-    namespace Noneevtenset{    ///<Enable events routing to PPI. The reading of this register gives the value of EVTEN.
-        using Addr = Register::Address<0x4000b344,0xfff0fffc,0,unsigned>;
+    namespace Rtc0Evtenset{    ///<Enable events routing to PPI. The reading of this register gives the value of EVTEN.
+        using Addr = Register::Address<0x4000b344,0xfff0fffc,0x00000000,unsigned>;
         ///Enable routing to PPI of TICK event.
         enum class TickVal {
             disabled=0x00000000,     ///<Event disabled.
@@ -320,8 +308,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::set> set{};
         }
     }
-    namespace Noneevtenclr{    ///<Disable events routing to PPI. The reading of this register gives the value of EVTEN.
-        using Addr = Register::Address<0x4000b348,0xfff0fffc,0,unsigned>;
+    namespace Rtc0Evtenclr{    ///<Disable events routing to PPI. The reading of this register gives the value of EVTEN.
+        using Addr = Register::Address<0x4000b348,0xfff0fffc,0x00000000,unsigned>;
         ///Disable routing to PPI of TICK event.
         enum class TickVal {
             disabled=0x00000000,     ///<Event disabled.
@@ -395,38 +383,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::clear> clear{};
         }
     }
-    namespace Nonecounter{    ///<Current COUNTER value.
-        using Addr = Register::Address<0x4000b504,0xff000000,0,unsigned>;
+    namespace Rtc0Counter{    ///<Current COUNTER value.
+        using Addr = Register::Address<0x4000b504,0xff000000,0x00000000,unsigned>;
         ///Counter value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> counter{}; 
     }
-    namespace Noneprescaler{    ///<12-bit prescaler for COUNTER frequency (32768/(PRESCALER+1)). Must be written when RTC is STOPed.
-        using Addr = Register::Address<0x4000b508,0xfffff000,0,unsigned>;
+    namespace Rtc0Prescaler{    ///<12-bit prescaler for COUNTER frequency (32768/(PRESCALER+1)). Must be written when RTC is STOPed.
+        using Addr = Register::Address<0x4000b508,0xfffff000,0x00000000,unsigned>;
         ///RTC PRESCALER value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> prescaler{}; 
     }
-    namespace Nonecc0{    ///<Capture/compare registers.
-        using Addr = Register::Address<0x4000b540,0xff000000,0,unsigned>;
-        ///Compare value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
-    }
-    namespace Nonecc1{    ///<Capture/compare registers.
-        using Addr = Register::Address<0x4000b544,0xff000000,0,unsigned>;
-        ///Compare value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
-    }
-    namespace Nonecc2{    ///<Capture/compare registers.
-        using Addr = Register::Address<0x4000b548,0xff000000,0,unsigned>;
-        ///Compare value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
-    }
-    namespace Nonecc3{    ///<Capture/compare registers.
-        using Addr = Register::Address<0x4000b54c,0xff000000,0,unsigned>;
-        ///Compare value.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
-    }
-    namespace Nonepower{    ///<Peripheral power control.
-        using Addr = Register::Address<0x4000bffc,0xfffffffe,0,unsigned>;
+    namespace Rtc0Power{    ///<Peripheral power control.
+        using Addr = Register::Address<0x4000bffc,0xfffffffe,0x00000000,unsigned>;
         ///Peripheral power control.
         enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.
@@ -437,5 +405,37 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
         }
+    }
+    namespace Rtc0EventsCompare0{    ///<Compare event on CC[n] match.
+        using Addr = Register::Address<0x4000b140,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Rtc0EventsCompare1{    ///<Compare event on CC[n] match.
+        using Addr = Register::Address<0x4000b144,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Rtc0EventsCompare2{    ///<Compare event on CC[n] match.
+        using Addr = Register::Address<0x4000b148,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Rtc0EventsCompare3{    ///<Compare event on CC[n] match.
+        using Addr = Register::Address<0x4000b14c,0xffffffff,0x00000000,unsigned>;
+    }
+    namespace Rtc0Cc0{    ///<Capture/compare registers.
+        using Addr = Register::Address<0x4000b540,0xff000000,0x00000000,unsigned>;
+        ///Compare value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
+    }
+    namespace Rtc0Cc1{    ///<Capture/compare registers.
+        using Addr = Register::Address<0x4000b544,0xff000000,0x00000000,unsigned>;
+        ///Compare value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
+    }
+    namespace Rtc0Cc2{    ///<Capture/compare registers.
+        using Addr = Register::Address<0x4000b548,0xff000000,0x00000000,unsigned>;
+        ///Compare value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
+    }
+    namespace Rtc0Cc3{    ///<Capture/compare registers.
+        using Addr = Register::Address<0x4000b54c,0xff000000,0x00000000,unsigned>;
+        ///Compare value.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
     }
 }

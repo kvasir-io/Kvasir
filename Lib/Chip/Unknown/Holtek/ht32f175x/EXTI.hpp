@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //EXTI
-    namespace NoneextiCfgr0{    ///<EXTI_CFGR0
-        using Addr = Register::Address<0x40024000,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr0{    ///<EXTI_CFGR0
+        using Addr = Register::Address<0x40024000,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -11,8 +11,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr1{    ///<EXTI_CFGR1
-        using Addr = Register::Address<0x40024004,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr1{    ///<EXTI_CFGR1
+        using Addr = Register::Address<0x40024004,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -20,8 +20,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr2{    ///<EXTI_CFGR2
-        using Addr = Register::Address<0x40024008,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr2{    ///<EXTI_CFGR2
+        using Addr = Register::Address<0x40024008,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -29,8 +29,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr3{    ///<EXTI_CFGR3
-        using Addr = Register::Address<0x4002400c,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr3{    ///<EXTI_CFGR3
+        using Addr = Register::Address<0x4002400c,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -38,8 +38,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr4{    ///<EXTI_CFGR4
-        using Addr = Register::Address<0x40024010,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr4{    ///<EXTI_CFGR4
+        using Addr = Register::Address<0x40024010,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -47,8 +47,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr5{    ///<EXTI_CFGR5
-        using Addr = Register::Address<0x40024014,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr5{    ///<EXTI_CFGR5
+        using Addr = Register::Address<0x40024014,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -56,8 +56,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr6{    ///<EXTI_CFGR6
-        using Addr = Register::Address<0x40024018,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr6{    ///<EXTI_CFGR6
+        using Addr = Register::Address<0x40024018,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -65,8 +65,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr7{    ///<EXTI_CFGR7
-        using Addr = Register::Address<0x4002401c,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr7{    ///<EXTI_CFGR7
+        using Addr = Register::Address<0x4002401c,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -74,8 +74,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr8{    ///<EXTI_CFGR8
-        using Addr = Register::Address<0x40024020,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr8{    ///<EXTI_CFGR8
+        using Addr = Register::Address<0x40024020,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -83,8 +83,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr9{    ///<EXTI_CFGR9
-        using Addr = Register::Address<0x40024024,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr9{    ///<EXTI_CFGR9
+        using Addr = Register::Address<0x40024024,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -92,8 +92,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr10{    ///<EXTI_CFGR10
-        using Addr = Register::Address<0x40024028,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr10{    ///<EXTI_CFGR10
+        using Addr = Register::Address<0x40024028,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -101,8 +101,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr11{    ///<EXTI_CFGR11
-        using Addr = Register::Address<0x4002402c,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr11{    ///<EXTI_CFGR11
+        using Addr = Register::Address<0x4002402c,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -110,8 +110,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr12{    ///<EXTI_CFGR12
-        using Addr = Register::Address<0x40024030,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr12{    ///<EXTI_CFGR12
+        using Addr = Register::Address<0x40024030,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -119,8 +119,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr13{    ///<EXTI_CFGR13
-        using Addr = Register::Address<0x40024034,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr13{    ///<EXTI_CFGR13
+        using Addr = Register::Address<0x40024034,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -128,8 +128,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr14{    ///<EXTI_CFGR14
-        using Addr = Register::Address<0x40024038,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr14{    ///<EXTI_CFGR14
+        using Addr = Register::Address<0x40024038,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -137,8 +137,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCfgr15{    ///<EXTI_CFGR15
-        using Addr = Register::Address<0x4002403c,0x00000000,0,unsigned>;
+    namespace ExtiExtiCfgr15{    ///<EXTI_CFGR15
+        using Addr = Register::Address<0x4002403c,0x00000000,0x00000000,unsigned>;
         ///DBCNT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dbcnt{}; 
         ///SRCTYPE
@@ -146,8 +146,8 @@ namespace Kvasir {
         ///DBEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dben{}; 
     }
-    namespace NoneextiCr{    ///<EXTI_CR
-        using Addr = Register::Address<0x40024040,0xffff0000,0,unsigned>;
+    namespace ExtiExtiCr{    ///<EXTI_CR
+        using Addr = Register::Address<0x40024040,0x00000000,0x00000000,unsigned>;
         ///EXTI0EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> exti0en{}; 
         ///EXTI1EN
@@ -180,9 +180,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> exti14en{}; 
         ///EXTI15EN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> exti15en{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneextiEdgeflgr{    ///<EXTI_EDGEFLGR
-        using Addr = Register::Address<0x40024044,0xffff0000,0,unsigned>;
+    namespace ExtiExtiEdgeflgr{    ///<EXTI_EDGEFLGR
+        using Addr = Register::Address<0x40024044,0x00000000,0x00000000,unsigned>;
         ///EXTI0EDF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> exti0edf{}; 
         ///EXTI1EDF
@@ -215,9 +217,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> exti14edf{}; 
         ///EXTI15EDF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> exti15edf{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneextiEdgesr{    ///<EXTI_EDGESR
-        using Addr = Register::Address<0x40024048,0xffff0000,0,unsigned>;
+    namespace ExtiExtiEdgesr{    ///<EXTI_EDGESR
+        using Addr = Register::Address<0x40024048,0x00000000,0x00000000,unsigned>;
         ///EXTI0EDS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> exti0eds{}; 
         ///EXTI1EDS
@@ -250,9 +254,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> exti14eds{}; 
         ///EXTI15EDS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> exti15eds{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneextiSscr{    ///<EXTI_SSCR
-        using Addr = Register::Address<0x4002404c,0xffff0000,0,unsigned>;
+    namespace ExtiExtiSscr{    ///<EXTI_SSCR
+        using Addr = Register::Address<0x4002404c,0x00000000,0x00000000,unsigned>;
         ///EXTI0SC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> exti0sc{}; 
         ///EXTI1SC
@@ -285,9 +291,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> exti14sc{}; 
         ///EXTI15SC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> exti15sc{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneextiWakupcr{    ///<EXTI_WAKUPCR
-        using Addr = Register::Address<0x40024050,0x7fff0000,0,unsigned>;
+    namespace ExtiExtiWakupcr{    ///<EXTI_WAKUPCR
+        using Addr = Register::Address<0x40024050,0x7fff0000,0x00000000,unsigned>;
         ///EXTI0WEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> exti0wen{}; 
         ///EXTI1WEN
@@ -323,8 +331,8 @@ namespace Kvasir {
         ///EVWUPIEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> evwupien{}; 
     }
-    namespace NoneextiWakuppolr{    ///<EXTI_WAKUPPOLR
-        using Addr = Register::Address<0x40024054,0xffff0000,0,unsigned>;
+    namespace ExtiExtiWakuppolr{    ///<EXTI_WAKUPPOLR
+        using Addr = Register::Address<0x40024054,0x00000000,0x00000000,unsigned>;
         ///EXTI0POL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> exti0pol{}; 
         ///EXTI1POL
@@ -357,9 +365,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> exti14pol{}; 
         ///EXTI15POL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> exti15pol{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NoneextiWakupflg{    ///<EXTI_WAKUPFLG
-        using Addr = Register::Address<0x40024058,0xffff0000,0,unsigned>;
+    namespace ExtiExtiWakupflg{    ///<EXTI_WAKUPFLG
+        using Addr = Register::Address<0x40024058,0x00000000,0x00000000,unsigned>;
         ///EXTI0WFL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> exti0wfl{}; 
         ///EXTI1WFL
@@ -392,5 +402,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> exti14wfl{}; 
         ///EXTI15WFL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> exti15wfl{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

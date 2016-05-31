@@ -1,19 +1,19 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Core Platform Miscellaneous Control Module
     namespace McmPlasc{    ///<Crossbar Switch (AXBS) Slave Configuration
-        using Addr = Register::Address<0xe0080008,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0xe0080008,0xffffff00,0x00000000,unsigned>;
         ///Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> asc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> asc{}; 
     }
     namespace McmPlamc{    ///<Crossbar Switch (AXBS) Master Configuration
-        using Addr = Register::Address<0xe008000a,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0xe008000a,0xffffff00,0x00000000,unsigned>;
         ///Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> amc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> amc{}; 
     }
     namespace McmPlacr{    ///<Crossbar Switch (AXBS) Control Register
-        using Addr = Register::Address<0xe008000c,0xfffffdff,0,unsigned>;
+        using Addr = Register::Address<0xe008000c,0xfffffdff,0x00000000,unsigned>;
         ///Arbitration select
         enum class ArbVal {
             v0=0x00000000,     ///<Fixed-priority arbitration for the crossbar masters
@@ -26,13 +26,13 @@ namespace Kvasir {
         }
     }
     namespace McmIscr{    ///<Interrupt Status and Control Register
-        using Addr = Register::Address<0xe0080010,0x60ff60ff,0,unsigned>;
+        using Addr = Register::Address<0xe0080010,0x60ff60ff,0x00000000,unsigned>;
         ///FPU invalid operation interrupt status
         enum class FiocVal {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiocVal> fioc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FiocVal> fioc{}; 
         namespace FiocValC{
             constexpr Register::FieldValue<decltype(fioc)::Type,FiocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fioc)::Type,FiocVal::v1> v1{};
@@ -42,7 +42,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,FdzcVal> fdzc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FdzcVal> fdzc{}; 
         namespace FdzcValC{
             constexpr Register::FieldValue<decltype(fdzc)::Type,FdzcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fdzc)::Type,FdzcVal::v1> v1{};
@@ -52,7 +52,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,FofcVal> fofc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FofcVal> fofc{}; 
         namespace FofcValC{
             constexpr Register::FieldValue<decltype(fofc)::Type,FofcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fofc)::Type,FofcVal::v1> v1{};
@@ -62,7 +62,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,FufcVal> fufc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FufcVal> fufc{}; 
         namespace FufcValC{
             constexpr Register::FieldValue<decltype(fufc)::Type,FufcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fufc)::Type,FufcVal::v1> v1{};
@@ -72,7 +72,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,FixcVal> fixc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FixcVal> fixc{}; 
         namespace FixcValC{
             constexpr Register::FieldValue<decltype(fixc)::Type,FixcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fixc)::Type,FixcVal::v1> v1{};
@@ -82,7 +82,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No interrupt
             v1=0x00000001,     ///<Interrupt occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,FidcVal> fidc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FidcVal> fidc{}; 
         namespace FidcValC{
             constexpr Register::FieldValue<decltype(fidc)::Type,FidcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fidc)::Type,FidcVal::v1> v1{};
@@ -149,7 +149,7 @@ namespace Kvasir {
         }
     }
     namespace McmCpo{    ///<Compute Operation Control Register
-        using Addr = Register::Address<0xe0080040,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0xe0080040,0xfffffff8,0x00000000,unsigned>;
         ///Compute Operation request
         enum class CporeqVal {
             v0=0x00000000,     ///<Request is cleared.
@@ -165,7 +165,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Compute operation entry has not completed or compute operation exit has completed.
             v1=0x00000001,     ///<Compute operation entry has completed or compute operation exit has not completed.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CpoackVal> cpoack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CpoackVal> cpoack{}; 
         namespace CpoackValC{
             constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v1> v1{};

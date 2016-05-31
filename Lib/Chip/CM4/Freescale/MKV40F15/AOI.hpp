@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //AND/OR/INVERT module
     namespace AoiBfcrt010{    ///<Boolean Function Term 0 and 1 Configuration Register for EVENTn
-        using Addr = Register::Address<0x4005b000,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005b000,0xffff0000,0x00000000,unsigned>;
         ///Product term 1, D input configuration
         enum class Pt1dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero
@@ -118,7 +118,7 @@ namespace Kvasir {
         }
     }
     namespace AoiBfcrt011{    ///<Boolean Function Term 0 and 1 Configuration Register for EVENTn
-        using Addr = Register::Address<0x4005b004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005b004,0xffff0000,0x00000000,unsigned>;
         ///Product term 1, D input configuration
         enum class Pt1dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero
@@ -233,7 +233,7 @@ namespace Kvasir {
         }
     }
     namespace AoiBfcrt012{    ///<Boolean Function Term 0 and 1 Configuration Register for EVENTn
-        using Addr = Register::Address<0x4005b008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005b008,0xffff0000,0x00000000,unsigned>;
         ///Product term 1, D input configuration
         enum class Pt1dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero
@@ -348,7 +348,7 @@ namespace Kvasir {
         }
     }
     namespace AoiBfcrt013{    ///<Boolean Function Term 0 and 1 Configuration Register for EVENTn
-        using Addr = Register::Address<0x4005b00c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005b00c,0xffff0000,0x00000000,unsigned>;
         ///Product term 1, D input configuration
         enum class Pt1dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero
@@ -463,7 +463,7 @@ namespace Kvasir {
         }
     }
     namespace AoiBfcrt230{    ///<Boolean Function Term 2 and 3 Configuration Register for EVENTn
-        using Addr = Register::Address<0x4005b002,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005b002,0xffff0000,0x00000000,unsigned>;
         ///Product term 3, D input configuration
         enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero
@@ -578,7 +578,7 @@ namespace Kvasir {
         }
     }
     namespace AoiBfcrt231{    ///<Boolean Function Term 2 and 3 Configuration Register for EVENTn
-        using Addr = Register::Address<0x4005b006,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005b006,0xffff0000,0x00000000,unsigned>;
         ///Product term 3, D input configuration
         enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero
@@ -693,7 +693,7 @@ namespace Kvasir {
         }
     }
     namespace AoiBfcrt232{    ///<Boolean Function Term 2 and 3 Configuration Register for EVENTn
-        using Addr = Register::Address<0x4005b00a,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005b00a,0xffff0000,0x00000000,unsigned>;
         ///Product term 3, D input configuration
         enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero
@@ -808,7 +808,7 @@ namespace Kvasir {
         }
     }
     namespace AoiBfcrt233{    ///<Boolean Function Term 2 and 3 Configuration Register for EVENTn
-        using Addr = Register::Address<0x4005b00e,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005b00e,0xffff0000,0x00000000,unsigned>;
         ///Product term 3, D input configuration
         enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero

@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Quadrature Decoder
     namespace EncCtrl{    ///<Control Register
-        using Addr = Register::Address<0x40055000,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055000,0xffff0000,0x00000000,unsigned>;
         ///Compare Interrupt Enable
         enum class CmpieVal {
             v0=0x00000000,     ///<Compare interrupt is disabled
@@ -119,7 +119,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No action
             v1=0x00000001,     ///<Initialize position counter
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,SwipVal> swip{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SwipVal> swip{}; 
         namespace SwipValC{
             constexpr Register::FieldValue<decltype(swip)::Type,SwipVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swip)::Type,SwipVal::v1> v1{};
@@ -166,88 +166,88 @@ namespace Kvasir {
         }
     }
     namespace EncFilt{    ///<Input Filter Register
-        using Addr = Register::Address<0x40055002,0xfffff800,0,unsigned>;
+        using Addr = Register::Address<0x40055002,0xfffff800,0x00000000,unsigned>;
         ///Input Filter Sample Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> filtPer{}; 
         ///Input Filter Sample Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> filtCnt{}; 
     }
     namespace EncWtr{    ///<Watchdog Timeout Register
-        using Addr = Register::Address<0x40055004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055004,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wdog{}; 
     }
     namespace EncPosd{    ///<Position Difference Counter Register
-        using Addr = Register::Address<0x40055006,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055006,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> posd{}; 
     }
     namespace EncPosdh{    ///<Position Difference Hold Register
-        using Addr = Register::Address<0x40055008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055008,0xffff0000,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> posdh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> posdh{}; 
     }
     namespace EncRev{    ///<Revolution Counter Register
-        using Addr = Register::Address<0x4005500a,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005500a,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rev{}; 
     }
     namespace EncRevh{    ///<Revolution Hold Register
-        using Addr = Register::Address<0x4005500c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005500c,0xffff0000,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> revh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> revh{}; 
     }
     namespace EncUpos{    ///<Upper Position Counter Register
-        using Addr = Register::Address<0x4005500e,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005500e,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pos{}; 
     }
     namespace EncLpos{    ///<Lower Position Counter Register
-        using Addr = Register::Address<0x40055010,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055010,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pos{}; 
     }
     namespace EncUposh{    ///<Upper Position Hold Register
-        using Addr = Register::Address<0x40055012,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055012,0xffff0000,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> posh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> posh{}; 
     }
     namespace EncLposh{    ///<Lower Position Hold Register
-        using Addr = Register::Address<0x40055014,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055014,0xffff0000,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> posh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> posh{}; 
     }
     namespace EncUinit{    ///<Upper Initialization Register
-        using Addr = Register::Address<0x40055016,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055016,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> init{}; 
     }
     namespace EncLinit{    ///<Lower Initialization Register
-        using Addr = Register::Address<0x40055018,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055018,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> init{}; 
     }
     namespace EncImr{    ///<Input Monitor Register
-        using Addr = Register::Address<0x4005501a,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0x4005501a,0xffffff00,0x00000000,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> home{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> home{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> index{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> index{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> phb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> phb{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pha{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pha{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> fhom{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fhom{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> find{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> find{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> fphb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fphb{}; 
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> fpha{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fpha{}; 
     }
     namespace EncTst{    ///<Test Register
-        using Addr = Register::Address<0x4005501c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005501c,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> testCount{}; 
         ///no description available
@@ -284,7 +284,7 @@ namespace Kvasir {
         }
     }
     namespace EncCtrl2{    ///<Control 2 Register
-        using Addr = Register::Address<0x4005501e,0xfffff000,0,unsigned>;
+        using Addr = Register::Address<0x4005501e,0xfffff000,0x00000000,unsigned>;
         ///Update Hold Registers
         enum class UpdhldVal {
             v0=0x00000000,     ///<Disable updates of hold registers on rising edge of TRIGGER
@@ -320,7 +320,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Last count was in the down direction
             v1=0x00000001,     ///<Last count was in the up direction
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DirVal> dir{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DirVal> dir{}; 
         namespace DirValC{
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::v1> v1{};
@@ -407,22 +407,22 @@ namespace Kvasir {
         }
     }
     namespace EncUmod{    ///<Upper Modulus Register
-        using Addr = Register::Address<0x40055020,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055020,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
     }
     namespace EncLmod{    ///<Lower Modulus Register
-        using Addr = Register::Address<0x40055022,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055022,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
     }
     namespace EncUcomp{    ///<Upper Position Compare Register
-        using Addr = Register::Address<0x40055024,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055024,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> comp{}; 
     }
     namespace EncLcomp{    ///<Lower Position Compare Register
-        using Addr = Register::Address<0x40055026,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x40055026,0xffff0000,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> comp{}; 
     }

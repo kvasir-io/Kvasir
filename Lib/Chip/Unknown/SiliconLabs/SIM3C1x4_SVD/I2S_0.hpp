@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonetxcontrol{    ///<Transmit Control
-        using Addr = Register::Address<0x4003a000,0xd88c001c,0,unsigned>;
+    namespace I2s0Txcontrol{    ///<Transmit Control
+        using Addr = Register::Address<0x4003a000,0xd88c001c,0x00000000,unsigned>;
         ///DFS Generator Enable. 
         enum class FsgenVal {
             disabled=0x00000000,     ///<Disable the internal DFS generator.
@@ -127,8 +127,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txen)::Type,TxenVal::enabled> enabled{};
         }
     }
-    namespace Nonetxmode{    ///<Transmit Mode
-        using Addr = Register::Address<0x4003a010,0xf0000000,0,unsigned>;
+    namespace I2s0Txmode{    ///<Transmit Mode
+        using Addr = Register::Address<0x4003a010,0xf0000000,0x00000000,unsigned>;
         ///Transmit Clock Cycle Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> cycle{}; 
         ///Transmit Start Control. 
@@ -166,15 +166,15 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdmen)::Type,TdmenVal::enabled> enabled{};
         }
     }
-    namespace Nonefsduty{    ///<Frame Sync Duty Cycle
-        using Addr = Register::Address<0x4003a020,0x00000000,0,unsigned>;
+    namespace I2s0Fsduty{    ///<Frame Sync Duty Cycle
+        using Addr = Register::Address<0x4003a020,0x00000000,0x00000000,unsigned>;
         ///Frame Sync Low Time. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> fslow{}; 
         ///Frame Sync High Time. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> fshigh{}; 
     }
-    namespace Nonerxcontrol{    ///<Receive Control
-        using Addr = Register::Address<0x4003a030,0xffcc4400,0,unsigned>;
+    namespace I2s0Rxcontrol{    ///<Receive Control
+        using Addr = Register::Address<0x4003a030,0xffcc4400,0x00000000,unsigned>;
         ///Receive Initial Phase Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> fsdel{}; 
         ///Receive Data Justification. 
@@ -264,8 +264,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxen)::Type,RxenVal::enabled> enabled{};
         }
     }
-    namespace Nonerxmode{    ///<Receive Mode
-        using Addr = Register::Address<0x4003a040,0xf4000000,0,unsigned>;
+    namespace I2s0Rxmode{    ///<Receive Mode
+        using Addr = Register::Address<0x4003a040,0xf4000000,0x00000000,unsigned>;
         ///Receive Clock Cycle Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> cycle{}; 
         ///Receive Start Control. 
@@ -283,8 +283,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdmen)::Type,TdmenVal::enabled> enabled{};
         }
     }
-    namespace Noneclkcontrol{    ///<Clock Control
-        using Addr = Register::Address<0x4003a050,0xf0000000,0,unsigned>;
+    namespace I2s0Clkcontrol{    ///<Clock Control
+        using Addr = Register::Address<0x4003a050,0xf0000000,0x00000000,unsigned>;
         ///Clock Divider Integer Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> intdiv{}; 
         ///Clock Divider Fractional Value. 
@@ -303,7 +303,7 @@ namespace Kvasir {
         enum class ClkupdVal {
             update=0x00000001,     ///<Update the clock divider with new values of INTDIV, FRACDIV, and DIVEN.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,ClkupdVal> clkupd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClkupdVal> clkupd{}; 
         namespace ClkupdValC{
             constexpr Register::FieldValue<decltype(clkupd)::Type,ClkupdVal::update> update{};
         }
@@ -341,7 +341,7 @@ namespace Kvasir {
         enum class ResetVal {
             active=0x00000001,     ///<Reset the I2S module.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,ResetVal> reset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ResetVal> reset{}; 
         namespace ResetValC{
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::active> active{};
         }
@@ -386,25 +386,25 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txsclkmd)::Type,TxsclkmdVal::sckInput> sckInput{};
         }
     }
-    namespace Nonetxfifo{    ///<Transmit Data FIFO
-        using Addr = Register::Address<0x4003a060,0x00000000,0,unsigned>;
+    namespace I2s0Txfifo{    ///<Transmit Data FIFO
+        using Addr = Register::Address<0x4003a060,0x00000000,0x00000000,unsigned>;
         ///Transmit Data FIFO. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txfifo{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txfifo{}; 
     }
-    namespace Nonerxfifo{    ///<Receive Data FIFO
-        using Addr = Register::Address<0x4003a070,0x00000000,0,unsigned>;
+    namespace I2s0Rxfifo{    ///<Receive Data FIFO
+        using Addr = Register::Address<0x4003a070,0x00000000,0x00000000,unsigned>;
         ///Receive Data FIFO. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxfifo{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxfifo{}; 
     }
-    namespace Nonefifostatus{    ///<FIFO Status
-        using Addr = Register::Address<0x4003a080,0xfff0fff0,0,unsigned>;
+    namespace I2s0Fifostatus{    ///<FIFO Status
+        using Addr = Register::Address<0x4003a080,0xfff0fff0,0x00000000,unsigned>;
         ///Transmit FIFO Status. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> txfifonum{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txfifonum{}; 
         ///Receive FIFO Status. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> rxfifonum{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxfifonum{}; 
     }
-    namespace Nonefifocontrol{    ///<FIFO Control
-        using Addr = Register::Address<0x4003a090,0xff90fff0,0,unsigned>;
+    namespace I2s0Fifocontrol{    ///<FIFO Control
+        using Addr = Register::Address<0x4003a090,0xff90fff0,0x00000000,unsigned>;
         ///Transmit FIFO Low Watermark. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> txfifowm{}; 
         ///Receive FIFO High Watermark. 
@@ -413,7 +413,7 @@ namespace Kvasir {
         enum class TxfifoflVal {
             set=0x00000001,     ///<Flush the I2S transmitter FIFO.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,TxfifoflVal> txfifofl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxfifoflVal> txfifofl{}; 
         namespace TxfifoflValC{
             constexpr Register::FieldValue<decltype(txfifofl)::Type,TxfifoflVal::set> set{};
         }
@@ -421,13 +421,13 @@ namespace Kvasir {
         enum class RxfifoflVal {
             set=0x00000001,     ///<Flush the I2S receiver FIFO.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,RxfifoflVal> rxfifofl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxfifoflVal> rxfifofl{}; 
         namespace RxfifoflValC{
             constexpr Register::FieldValue<decltype(rxfifofl)::Type,RxfifoflVal::set> set{};
         }
     }
-    namespace Noneintcontrol{    ///<Interrupt Control
-        using Addr = Register::Address<0x4003a0a0,0xfffffff0,0,unsigned>;
+    namespace I2s0Intcontrol{    ///<Interrupt Control
+        using Addr = Register::Address<0x4003a0a0,0xfffffff0,0x00000000,unsigned>;
         ///Transmit Underflow Interrupt Enable. 
         enum class TxufienVal {
             disabled=0x00000000,     ///<Disable the transmit underflow interrupt.
@@ -469,8 +469,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxhwmien)::Type,RxhwmienVal::enabled> enabled{};
         }
     }
-    namespace Nonestatus{    ///<Module Status
-        using Addr = Register::Address<0x4003a0b0,0xfffffc00,0,unsigned>;
+    namespace I2s0Status{    ///<Module Status
+        using Addr = Register::Address<0x4003a0b0,0xfffffc00,0x00000000,unsigned>;
         ///Transmit Underflow Interrupt Flag. 
         enum class TxufiVal {
             notSet=0x00000000,     ///<A transmit underflow has not occurred.
@@ -496,7 +496,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<Transmit FIFO level is above the low watermark.
             set=0x00000001,     ///<Transmit FIFO level is at or below the low watermark.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TxlwmiVal> txlwmi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxlwmiVal> txlwmi{}; 
         namespace TxlwmiValC{
             constexpr Register::FieldValue<decltype(txlwmi)::Type,TxlwmiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(txlwmi)::Type,TxlwmiVal::set> set{};
@@ -506,7 +506,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<Receive FIFO level is below the high watermark.
             set=0x00000001,     ///<Receive FIFO level is at or above the high watermark.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RxhwmiVal> rxhwmi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxhwmiVal> rxhwmi{}; 
         namespace RxhwmiValC{
             constexpr Register::FieldValue<decltype(rxhwmi)::Type,RxhwmiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rxhwmi)::Type,RxhwmiVal::set> set{};
@@ -516,7 +516,7 @@ namespace Kvasir {
             notBusy=0x00000000,     ///<The divider is not busy and an update is not pending.
             busy=0x00000001,     ///<The divider is busy and an update is pending.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CdbusyfVal> cdbusyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CdbusyfVal> cdbusyf{}; 
         namespace CdbusyfValC{
             constexpr Register::FieldValue<decltype(cdbusyf)::Type,CdbusyfVal::notBusy> notBusy{};
             constexpr Register::FieldValue<decltype(cdbusyf)::Type,CdbusyfVal::busy> busy{};
@@ -526,7 +526,7 @@ namespace Kvasir {
             running=0x00000000,     ///<Divided clock output is running.
             halted=0x00000001,     ///<Divided clock output is halted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,CdstsVal> cdsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CdstsVal> cdsts{}; 
         namespace CdstsValC{
             constexpr Register::FieldValue<decltype(cdsts)::Type,CdstsVal::running> running{};
             constexpr Register::FieldValue<decltype(cdsts)::Type,CdstsVal::halted> halted{};
@@ -536,7 +536,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The transmit clock is not synchronized.
             set=0x00000001,     ///<The transmit clock is synchronized and the transmitter is ready to send data.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TxclkselrfVal> txclkselrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxclkselrfVal> txclkselrf{}; 
         namespace TxclkselrfValC{
             constexpr Register::FieldValue<decltype(txclkselrf)::Type,TxclkselrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(txclkselrf)::Type,TxclkselrfVal::set> set{};
@@ -546,7 +546,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The receive clock is not synchronized.
             set=0x00000001,     ///<The receive clock is synchronized and the receiver is ready to accept data.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxclkselrfVal> rxclkselrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxclkselrfVal> rxclkselrf{}; 
         namespace RxclkselrfValC{
             constexpr Register::FieldValue<decltype(rxclkselrf)::Type,RxclkselrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rxclkselrf)::Type,RxclkselrfVal::set> set{};
@@ -556,7 +556,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The transmit clock is not synchronized.
             set=0x00000001,     ///<The transmit clock is synchronized and the transmitter is ready to send data.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TxclkenrfVal> txclkenrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxclkenrfVal> txclkenrf{}; 
         namespace TxclkenrfValC{
             constexpr Register::FieldValue<decltype(txclkenrf)::Type,TxclkenrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(txclkenrf)::Type,TxclkenrfVal::set> set{};
@@ -566,14 +566,14 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The receive clock is not synchronized.
             set=0x00000001,     ///<The receive clock is synchronized and the receiver is ready to accept data.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,RxclkenrfVal> rxclkenrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxclkenrfVal> rxclkenrf{}; 
         namespace RxclkenrfValC{
             constexpr Register::FieldValue<decltype(rxclkenrf)::Type,RxclkenrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rxclkenrf)::Type,RxclkenrfVal::set> set{};
         }
     }
-    namespace Nonedmacontrol{    ///<DMA Control
-        using Addr = Register::Address<0x4003a0c0,0xfffffff0,0,unsigned>;
+    namespace I2s0Dmacontrol{    ///<DMA Control
+        using Addr = Register::Address<0x4003a0c0,0xfffffff0,0x00000000,unsigned>;
         ///Transmit DMA Enable. 
         enum class TxdmaenVal {
             disabled=0x00000000,     ///<Disable transmitter DMA data requests.
@@ -615,8 +615,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdmabmd)::Type,RxdmabmdVal::fourWords> fourWords{};
         }
     }
-    namespace Nonedbgcontrol{    ///<Debug Control
-        using Addr = Register::Address<0x4003a0d0,0xfffffff0,0,unsigned>;
+    namespace I2s0Dbgcontrol{    ///<Debug Control
+        using Addr = Register::Address<0x4003a0d0,0xfffffff0,0x00000000,unsigned>;
         ///I2S Transmit DMA Debug Halt Enable. 
         enum class TxdbghenVal {
             disabled=0x00000000,     ///<Transmit DMA requests continue while the core is debug mode.

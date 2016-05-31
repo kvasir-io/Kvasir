@@ -1,15 +1,15 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonestatus{    ///<Controller Status
-        using Addr = Register::Address<0x40036000,0xffe0ff0e,0,unsigned>;
+    namespace Dmactrl0Status{    ///<Controller Status
+        using Addr = Register::Address<0x40036000,0xffe0ff0e,0x00000000,unsigned>;
         ///DMA Enable Status. 
         enum class DmaenstsVal {
             notSet=0x00000000,     ///<DMA controller is disabled
             set=0x00000001,     ///<DMA controller is enabled.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaenstsVal> dmaensts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DmaenstsVal> dmaensts{}; 
         namespace DmaenstsValC{
             constexpr Register::FieldValue<decltype(dmaensts)::Type,DmaenstsVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dmaensts)::Type,DmaenstsVal::set> set{};
@@ -28,7 +28,7 @@ namespace Kvasir {
             done=0x00000009,     ///<Done.
             scatterGatherTransition=0x0000000a,     ///<Peripheral scatter-gather transition.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,StateVal> state{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StateVal> state{}; 
         namespace StateValC{
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::idle> idle{};
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::readingChannelConfig> readingChannelConfig{};
@@ -43,39 +43,39 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::scatterGatherTransition> scatterGatherTransition{};
         }
         ///Number of Supported DMA Channels. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> numchan{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> numchan{}; 
     }
-    namespace Noneconfig{    ///<Controller Configuration
-        using Addr = Register::Address<0x40036004,0xfffffffe,0,unsigned>;
+    namespace Dmactrl0Config{    ///<Controller Configuration
+        using Addr = Register::Address<0x40036004,0xfffffffe,0x00000000,unsigned>;
         ///DMA Enable. 
         enum class DmaenVal {
             disabled=0x00000000,     ///<Disable the DMA controller.
             enabled=0x00000001,     ///<Enable the DMA controller.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaenVal> dmaen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DmaenVal> dmaen{}; 
         namespace DmaenValC{
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::enabled> enabled{};
         }
     }
-    namespace Nonebaseptr{    ///<Base Pointer
-        using Addr = Register::Address<0x40036008,0x0000001f,0,unsigned>;
+    namespace Dmactrl0Baseptr{    ///<Base Pointer
+        using Addr = Register::Address<0x40036008,0x0000001f,0x00000000,unsigned>;
         ///Control Base Pointer. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> baseptr{}; 
     }
-    namespace Noneabaseptr{    ///<Alternate Base Pointer
-        using Addr = Register::Address<0x4003600c,0x00000000,0,unsigned>;
+    namespace Dmactrl0Abaseptr{    ///<Alternate Base Pointer
+        using Addr = Register::Address<0x4003600c,0x00000000,0x00000000,unsigned>;
         ///Alternate Control Base Pointer. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> abaseptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> abaseptr{}; 
     }
-    namespace Nonechstatus{    ///<Channel Status
-        using Addr = Register::Address<0x40036010,0xffff0000,0,unsigned>;
+    namespace Dmactrl0Chstatus{    ///<Channel Status
+        using Addr = Register::Address<0x40036010,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 Status. 
         enum class Ch0Val {
             notWaiting=0x00000000,     ///<DMA Channel 0 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 0 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch0Val> ch0{}; 
         namespace Ch0ValC{
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::waiting> waiting{};
@@ -85,7 +85,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 1 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 1 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch1Val> ch1{}; 
         namespace Ch1ValC{
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::waiting> waiting{};
@@ -95,7 +95,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 2 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 2 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch2Val> ch2{}; 
         namespace Ch2ValC{
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::waiting> waiting{};
@@ -105,7 +105,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 3 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 3 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch3Val> ch3{}; 
         namespace Ch3ValC{
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::waiting> waiting{};
@@ -115,7 +115,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 4 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 4 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch4Val> ch4{}; 
         namespace Ch4ValC{
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::waiting> waiting{};
@@ -125,7 +125,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 5 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 5 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch5Val> ch5{}; 
         namespace Ch5ValC{
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::waiting> waiting{};
@@ -135,7 +135,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 6 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 6 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch6Val> ch6{}; 
         namespace Ch6ValC{
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::waiting> waiting{};
@@ -145,7 +145,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 7 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 7 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch7Val> ch7{}; 
         namespace Ch7ValC{
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::waiting> waiting{};
@@ -155,7 +155,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 8 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 8 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch8Val> ch8{}; 
         namespace Ch8ValC{
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::waiting> waiting{};
@@ -165,7 +165,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 9 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 9 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch9Val> ch9{}; 
         namespace Ch9ValC{
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::waiting> waiting{};
@@ -175,7 +175,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 10 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 10 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch10Val> ch10{}; 
         namespace Ch10ValC{
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::waiting> waiting{};
@@ -185,7 +185,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 11 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 11 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch11Val> ch11{}; 
         namespace Ch11ValC{
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::waiting> waiting{};
@@ -195,7 +195,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 12 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 12 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch12Val> ch12{}; 
         namespace Ch12ValC{
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::waiting> waiting{};
@@ -205,7 +205,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 13 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 13 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch13Val> ch13{}; 
         namespace Ch13ValC{
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::waiting> waiting{};
@@ -215,7 +215,7 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 14 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 14 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch14Val> ch14{}; 
         namespace Ch14ValC{
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::waiting> waiting{};
@@ -225,20 +225,20 @@ namespace Kvasir {
             notWaiting=0x00000000,     ///<DMA Channel 15 is not waiting for a data request.
             waiting=0x00000001,     ///<DMA Channel 15 is waiting for a data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch15Val> ch15{}; 
         namespace Ch15ValC{
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::notWaiting> notWaiting{};
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::waiting> waiting{};
         }
     }
-    namespace Nonechswrcn{    ///<Channel Software Request Control
-        using Addr = Register::Address<0x40036014,0xffff0000,0,unsigned>;
+    namespace Dmactrl0Chswrcn{    ///<Channel Software Request Control
+        using Addr = Register::Address<0x40036014,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 Software Request. 
         enum class Ch0Val {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 0 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 0 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch0Val> ch0{}; 
         namespace Ch0ValC{
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::generateSwReq> generateSwReq{};
@@ -248,7 +248,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 1 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 1 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch1Val> ch1{}; 
         namespace Ch1ValC{
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::generateSwReq> generateSwReq{};
@@ -258,7 +258,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 2 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 2 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch2Val> ch2{}; 
         namespace Ch2ValC{
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::generateSwReq> generateSwReq{};
@@ -268,7 +268,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 3 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 3 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch3Val> ch3{}; 
         namespace Ch3ValC{
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::generateSwReq> generateSwReq{};
@@ -278,7 +278,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 4 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 4 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch4Val> ch4{}; 
         namespace Ch4ValC{
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::generateSwReq> generateSwReq{};
@@ -288,7 +288,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 5 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 5 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch5Val> ch5{}; 
         namespace Ch5ValC{
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::generateSwReq> generateSwReq{};
@@ -298,7 +298,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 6 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 6 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch6Val> ch6{}; 
         namespace Ch6ValC{
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::generateSwReq> generateSwReq{};
@@ -308,7 +308,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 7 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 7 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch7Val> ch7{}; 
         namespace Ch7ValC{
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::generateSwReq> generateSwReq{};
@@ -318,7 +318,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 8 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 8 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch8Val> ch8{}; 
         namespace Ch8ValC{
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::generateSwReq> generateSwReq{};
@@ -328,7 +328,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 9 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 9 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch9Val> ch9{}; 
         namespace Ch9ValC{
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::generateSwReq> generateSwReq{};
@@ -338,7 +338,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 10 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 10 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch10Val> ch10{}; 
         namespace Ch10ValC{
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::generateSwReq> generateSwReq{};
@@ -348,7 +348,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 11 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 11 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch11Val> ch11{}; 
         namespace Ch11ValC{
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::generateSwReq> generateSwReq{};
@@ -358,7 +358,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 12 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 12 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch12Val> ch12{}; 
         namespace Ch12ValC{
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::generateSwReq> generateSwReq{};
@@ -368,7 +368,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 13 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 13 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch13Val> ch13{}; 
         namespace Ch13ValC{
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::generateSwReq> generateSwReq{};
@@ -378,7 +378,7 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 14 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 14 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch14Val> ch14{}; 
         namespace Ch14ValC{
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::generateSwReq> generateSwReq{};
@@ -388,14 +388,14 @@ namespace Kvasir {
             doNotGenerateSwReq=0x00000000,     ///<DMA Channel 15 does not generate a software data request.
             generateSwReq=0x00000001,     ///<DMA Channel 15 generates a software data request.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch15Val> ch15{}; 
         namespace Ch15ValC{
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::doNotGenerateSwReq> doNotGenerateSwReq{};
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::generateSwReq> generateSwReq{};
         }
     }
-    namespace Nonechreqmset{    ///<Channel Request Mask Set
-        using Addr = Register::Address<0x40036020,0xffff0000,0,unsigned>;
+    namespace Dmactrl0Chreqmset{    ///<Channel Request Mask Set
+        using Addr = Register::Address<0x40036020,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 Request Mask Enable. 
         enum class Ch0Val {
             enabled=0x00000001,     ///<Read: 0: DMA Channel 0 peripheral data requests enabled. 1: DMA Channel 0 peripheral data requests disabled. Write: 0: No effect (use CHREQMCLR to clear). 1: Disable DMA Channel 0 peripheral data requests.
@@ -525,13 +525,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::enabled> enabled{};
         }
     }
-    namespace Nonechreqmclr{    ///<Channel Request Mask Clear
-        using Addr = Register::Address<0x40036024,0xffff0000,0,unsigned>;
+    namespace Dmactrl0Chreqmclr{    ///<Channel Request Mask Clear
+        using Addr = Register::Address<0x40036024,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 Request Mask Disable. 
         enum class Ch0Val {
             disabled=0x00000001,     ///<Enable DMA Channel 0 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch0Val> ch0{}; 
         namespace Ch0ValC{
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::disabled> disabled{};
         }
@@ -539,7 +539,7 @@ namespace Kvasir {
         enum class Ch1Val {
             disabled=0x00000001,     ///<Enable DMA Channel 1 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch1Val> ch1{}; 
         namespace Ch1ValC{
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::disabled> disabled{};
         }
@@ -547,7 +547,7 @@ namespace Kvasir {
         enum class Ch2Val {
             disabled=0x00000001,     ///<Enable DMA Channel 2 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch2Val> ch2{}; 
         namespace Ch2ValC{
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::disabled> disabled{};
         }
@@ -555,7 +555,7 @@ namespace Kvasir {
         enum class Ch3Val {
             disabled=0x00000001,     ///<Enable DMA Channel 3 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch3Val> ch3{}; 
         namespace Ch3ValC{
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::disabled> disabled{};
         }
@@ -563,7 +563,7 @@ namespace Kvasir {
         enum class Ch4Val {
             disabled=0x00000001,     ///<Enable DMA Channel 4 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch4Val> ch4{}; 
         namespace Ch4ValC{
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::disabled> disabled{};
         }
@@ -571,7 +571,7 @@ namespace Kvasir {
         enum class Ch5Val {
             disabled=0x00000001,     ///<Enable DMA Channel 5 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch5Val> ch5{}; 
         namespace Ch5ValC{
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::disabled> disabled{};
         }
@@ -579,7 +579,7 @@ namespace Kvasir {
         enum class Ch6Val {
             disabled=0x00000001,     ///<Enable DMA Channel 6 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch6Val> ch6{}; 
         namespace Ch6ValC{
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::disabled> disabled{};
         }
@@ -587,7 +587,7 @@ namespace Kvasir {
         enum class Ch7Val {
             disabled=0x00000001,     ///<Enable DMA Channel 7 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch7Val> ch7{}; 
         namespace Ch7ValC{
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::disabled> disabled{};
         }
@@ -595,7 +595,7 @@ namespace Kvasir {
         enum class Ch8Val {
             disabled=0x00000001,     ///<Enable DMA Channel 8 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch8Val> ch8{}; 
         namespace Ch8ValC{
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::disabled> disabled{};
         }
@@ -603,7 +603,7 @@ namespace Kvasir {
         enum class Ch9Val {
             disabled=0x00000001,     ///<Enable DMA Channel 9 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch9Val> ch9{}; 
         namespace Ch9ValC{
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::disabled> disabled{};
         }
@@ -611,7 +611,7 @@ namespace Kvasir {
         enum class Ch10Val {
             disabled=0x00000001,     ///<Enable DMA Channel 10 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch10Val> ch10{}; 
         namespace Ch10ValC{
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::disabled> disabled{};
         }
@@ -619,7 +619,7 @@ namespace Kvasir {
         enum class Ch11Val {
             disabled=0x00000001,     ///<Enable DMA Channel 11 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch11Val> ch11{}; 
         namespace Ch11ValC{
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::disabled> disabled{};
         }
@@ -627,7 +627,7 @@ namespace Kvasir {
         enum class Ch12Val {
             disabled=0x00000001,     ///<Enable DMA Channel 12 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch12Val> ch12{}; 
         namespace Ch12ValC{
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::disabled> disabled{};
         }
@@ -635,7 +635,7 @@ namespace Kvasir {
         enum class Ch13Val {
             disabled=0x00000001,     ///<Enable DMA Channel 13 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch13Val> ch13{}; 
         namespace Ch13ValC{
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::disabled> disabled{};
         }
@@ -643,7 +643,7 @@ namespace Kvasir {
         enum class Ch14Val {
             disabled=0x00000001,     ///<Enable DMA Channel 14 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch14Val> ch14{}; 
         namespace Ch14ValC{
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::disabled> disabled{};
         }
@@ -651,13 +651,13 @@ namespace Kvasir {
         enum class Ch15Val {
             disabled=0x00000001,     ///<Enable DMA Channel 15 peripheral data requests.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch15Val> ch15{}; 
         namespace Ch15ValC{
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::disabled> disabled{};
         }
     }
-    namespace Nonechenset{    ///<Channel Enable Set
-        using Addr = Register::Address<0x40036028,0xffff0000,0,unsigned>;
+    namespace Dmactrl0Chenset{    ///<Channel Enable Set
+        using Addr = Register::Address<0x40036028,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 Enable. 
         enum class Ch0Val {
             enabled=0x00000001,     ///<Read: 0: DMA Channel 0 disabled. 1: DMA Channel 0 enabled. Write: 0: No effect (use CHENCLR to clear). 1: Enable DMA Channel 0.
@@ -787,13 +787,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::enabled> enabled{};
         }
     }
-    namespace Nonechenclr{    ///<Channel Enable Clear
-        using Addr = Register::Address<0x4003602c,0xffff0000,0,unsigned>;
+    namespace Dmactrl0Chenclr{    ///<Channel Enable Clear
+        using Addr = Register::Address<0x4003602c,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 Disable. 
         enum class Ch0Val {
             disabled=0x00000001,     ///<Disable DMA Channel 0.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch0Val> ch0{}; 
         namespace Ch0ValC{
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::disabled> disabled{};
         }
@@ -801,7 +801,7 @@ namespace Kvasir {
         enum class Ch1Val {
             disabled=0x00000001,     ///<Disable DMA Channel 1.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch1Val> ch1{}; 
         namespace Ch1ValC{
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::disabled> disabled{};
         }
@@ -809,7 +809,7 @@ namespace Kvasir {
         enum class Ch2Val {
             disabled=0x00000001,     ///<Disable DMA Channel 2.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch2Val> ch2{}; 
         namespace Ch2ValC{
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::disabled> disabled{};
         }
@@ -817,7 +817,7 @@ namespace Kvasir {
         enum class Ch3Val {
             disabled=0x00000001,     ///<Disable DMA Channel 3.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch3Val> ch3{}; 
         namespace Ch3ValC{
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::disabled> disabled{};
         }
@@ -825,7 +825,7 @@ namespace Kvasir {
         enum class Ch4Val {
             disabled=0x00000001,     ///<Disable DMA Channel 4.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch4Val> ch4{}; 
         namespace Ch4ValC{
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::disabled> disabled{};
         }
@@ -833,7 +833,7 @@ namespace Kvasir {
         enum class Ch5Val {
             disabled=0x00000001,     ///<Disable DMA Channel 5.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch5Val> ch5{}; 
         namespace Ch5ValC{
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::disabled> disabled{};
         }
@@ -841,7 +841,7 @@ namespace Kvasir {
         enum class Ch6Val {
             disabled=0x00000001,     ///<Disable DMA Channel 6.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch6Val> ch6{}; 
         namespace Ch6ValC{
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::disabled> disabled{};
         }
@@ -849,7 +849,7 @@ namespace Kvasir {
         enum class Ch7Val {
             disabled=0x00000001,     ///<Disable DMA Channel 7.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch7Val> ch7{}; 
         namespace Ch7ValC{
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::disabled> disabled{};
         }
@@ -857,7 +857,7 @@ namespace Kvasir {
         enum class Ch8Val {
             disabled=0x00000001,     ///<Disable DMA Channel 8.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch8Val> ch8{}; 
         namespace Ch8ValC{
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::disabled> disabled{};
         }
@@ -865,7 +865,7 @@ namespace Kvasir {
         enum class Ch9Val {
             disabled=0x00000001,     ///<Disable DMA Channel 9.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch9Val> ch9{}; 
         namespace Ch9ValC{
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::disabled> disabled{};
         }
@@ -873,7 +873,7 @@ namespace Kvasir {
         enum class Ch10Val {
             disabled=0x00000001,     ///<Disable DMA Channel 10.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch10Val> ch10{}; 
         namespace Ch10ValC{
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::disabled> disabled{};
         }
@@ -881,7 +881,7 @@ namespace Kvasir {
         enum class Ch11Val {
             disabled=0x00000001,     ///<Disable DMA Channel 11.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch11Val> ch11{}; 
         namespace Ch11ValC{
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::disabled> disabled{};
         }
@@ -889,7 +889,7 @@ namespace Kvasir {
         enum class Ch12Val {
             disabled=0x00000001,     ///<Disable DMA Channel 12.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch12Val> ch12{}; 
         namespace Ch12ValC{
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::disabled> disabled{};
         }
@@ -897,7 +897,7 @@ namespace Kvasir {
         enum class Ch13Val {
             disabled=0x00000001,     ///<Disable DMA Channel 13.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch13Val> ch13{}; 
         namespace Ch13ValC{
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::disabled> disabled{};
         }
@@ -905,7 +905,7 @@ namespace Kvasir {
         enum class Ch14Val {
             disabled=0x00000001,     ///<Disable DMA Channel 14.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch14Val> ch14{}; 
         namespace Ch14ValC{
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::disabled> disabled{};
         }
@@ -913,13 +913,13 @@ namespace Kvasir {
         enum class Ch15Val {
             disabled=0x00000001,     ///<Disable DMA Channel 15.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch15Val> ch15{}; 
         namespace Ch15ValC{
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::disabled> disabled{};
         }
     }
-    namespace Nonechaltset{    ///<Channel Alternate Select Set
-        using Addr = Register::Address<0x40036030,0xffff0000,0,unsigned>;
+    namespace Dmactrl0Chaltset{    ///<Channel Alternate Select Set
+        using Addr = Register::Address<0x40036030,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 Alternate Enable. 
         enum class Ch0Val {
             enabled=0x00000001,     ///<Read: 0: DMA Channel 0 is using primary data structure. 1: DMA Channel 0 is using alternate data structure. Write: 0: No effect (use CHALTCLR to clear). 1: Use the alternate data structure for DMA Channel 0.
@@ -1049,13 +1049,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::enabled> enabled{};
         }
     }
-    namespace Nonechaltclr{    ///<Channel Alternate Select Clear
-        using Addr = Register::Address<0x40036034,0xffff0000,0,unsigned>;
+    namespace Dmactrl0Chaltclr{    ///<Channel Alternate Select Clear
+        using Addr = Register::Address<0x40036034,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 Alternate Disable. 
         enum class Ch0Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 0.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch0Val> ch0{}; 
         namespace Ch0ValC{
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::disabled> disabled{};
         }
@@ -1063,7 +1063,7 @@ namespace Kvasir {
         enum class Ch1Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 1.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch1Val> ch1{}; 
         namespace Ch1ValC{
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::disabled> disabled{};
         }
@@ -1071,7 +1071,7 @@ namespace Kvasir {
         enum class Ch2Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 2.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch2Val> ch2{}; 
         namespace Ch2ValC{
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::disabled> disabled{};
         }
@@ -1079,7 +1079,7 @@ namespace Kvasir {
         enum class Ch3Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 3.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch3Val> ch3{}; 
         namespace Ch3ValC{
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::disabled> disabled{};
         }
@@ -1087,7 +1087,7 @@ namespace Kvasir {
         enum class Ch4Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 4.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch4Val> ch4{}; 
         namespace Ch4ValC{
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::disabled> disabled{};
         }
@@ -1095,7 +1095,7 @@ namespace Kvasir {
         enum class Ch5Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 5.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch5Val> ch5{}; 
         namespace Ch5ValC{
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::disabled> disabled{};
         }
@@ -1103,7 +1103,7 @@ namespace Kvasir {
         enum class Ch6Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 6.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch6Val> ch6{}; 
         namespace Ch6ValC{
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::disabled> disabled{};
         }
@@ -1111,7 +1111,7 @@ namespace Kvasir {
         enum class Ch7Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 7.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch7Val> ch7{}; 
         namespace Ch7ValC{
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::disabled> disabled{};
         }
@@ -1119,7 +1119,7 @@ namespace Kvasir {
         enum class Ch8Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 8.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch8Val> ch8{}; 
         namespace Ch8ValC{
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::disabled> disabled{};
         }
@@ -1127,7 +1127,7 @@ namespace Kvasir {
         enum class Ch9Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 9.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch9Val> ch9{}; 
         namespace Ch9ValC{
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::disabled> disabled{};
         }
@@ -1135,7 +1135,7 @@ namespace Kvasir {
         enum class Ch10Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 10.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch10Val> ch10{}; 
         namespace Ch10ValC{
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::disabled> disabled{};
         }
@@ -1143,7 +1143,7 @@ namespace Kvasir {
         enum class Ch11Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 11.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch11Val> ch11{}; 
         namespace Ch11ValC{
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::disabled> disabled{};
         }
@@ -1151,7 +1151,7 @@ namespace Kvasir {
         enum class Ch12Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 12.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch12Val> ch12{}; 
         namespace Ch12ValC{
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::disabled> disabled{};
         }
@@ -1159,7 +1159,7 @@ namespace Kvasir {
         enum class Ch13Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 13.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch13Val> ch13{}; 
         namespace Ch13ValC{
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::disabled> disabled{};
         }
@@ -1167,7 +1167,7 @@ namespace Kvasir {
         enum class Ch14Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 14.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch14Val> ch14{}; 
         namespace Ch14ValC{
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::disabled> disabled{};
         }
@@ -1175,13 +1175,13 @@ namespace Kvasir {
         enum class Ch15Val {
             disabled=0x00000001,     ///<Use the primary data structure for DMA Channel 15.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch15Val> ch15{}; 
         namespace Ch15ValC{
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::disabled> disabled{};
         }
     }
-    namespace Nonechhpset{    ///<Channel High Priority Set
-        using Addr = Register::Address<0x40036038,0xffff0000,0,unsigned>;
+    namespace Dmactrl0Chhpset{    ///<Channel High Priority Set
+        using Addr = Register::Address<0x40036038,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 High Priority Enable. 
         enum class Ch0Val {
             enabled=0x00000001,     ///<Read: 0: DMA Channel 0 is using the default priority level. 1: DMA Channel 0 is using the high priority level. Write: 0: No effect (use CHHPCLR to clear). 1: Use the high priority level for DMA Channel 0.
@@ -1311,13 +1311,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::enabled> enabled{};
         }
     }
-    namespace Nonechhpclr{    ///<Channel High Priority Clear
-        using Addr = Register::Address<0x4003603c,0xffff0000,0,unsigned>;
+    namespace Dmactrl0Chhpclr{    ///<Channel High Priority Clear
+        using Addr = Register::Address<0x4003603c,0xffff0000,0x00000000,unsigned>;
         ///Channel 0 High Priority Disable. 
         enum class Ch0Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 0.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch0Val> ch0{}; 
         namespace Ch0ValC{
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::disabled> disabled{};
         }
@@ -1325,7 +1325,7 @@ namespace Kvasir {
         enum class Ch1Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 1.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch1Val> ch1{}; 
         namespace Ch1ValC{
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::disabled> disabled{};
         }
@@ -1333,7 +1333,7 @@ namespace Kvasir {
         enum class Ch2Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 2.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch2Val> ch2{}; 
         namespace Ch2ValC{
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::disabled> disabled{};
         }
@@ -1341,7 +1341,7 @@ namespace Kvasir {
         enum class Ch3Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 3.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch3Val> ch3{}; 
         namespace Ch3ValC{
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::disabled> disabled{};
         }
@@ -1349,7 +1349,7 @@ namespace Kvasir {
         enum class Ch4Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 4.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch4Val> ch4{}; 
         namespace Ch4ValC{
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::disabled> disabled{};
         }
@@ -1357,7 +1357,7 @@ namespace Kvasir {
         enum class Ch5Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 5.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch5Val> ch5{}; 
         namespace Ch5ValC{
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::disabled> disabled{};
         }
@@ -1365,7 +1365,7 @@ namespace Kvasir {
         enum class Ch6Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 6.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch6Val> ch6{}; 
         namespace Ch6ValC{
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::disabled> disabled{};
         }
@@ -1373,7 +1373,7 @@ namespace Kvasir {
         enum class Ch7Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 7.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch7Val> ch7{}; 
         namespace Ch7ValC{
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::disabled> disabled{};
         }
@@ -1381,7 +1381,7 @@ namespace Kvasir {
         enum class Ch8Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 8.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch8Val> ch8{}; 
         namespace Ch8ValC{
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::disabled> disabled{};
         }
@@ -1389,7 +1389,7 @@ namespace Kvasir {
         enum class Ch9Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 9.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch9Val> ch9{}; 
         namespace Ch9ValC{
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::disabled> disabled{};
         }
@@ -1397,7 +1397,7 @@ namespace Kvasir {
         enum class Ch10Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 10.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch10Val> ch10{}; 
         namespace Ch10ValC{
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::disabled> disabled{};
         }
@@ -1405,7 +1405,7 @@ namespace Kvasir {
         enum class Ch11Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 11.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch11Val> ch11{}; 
         namespace Ch11ValC{
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::disabled> disabled{};
         }
@@ -1413,7 +1413,7 @@ namespace Kvasir {
         enum class Ch12Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 12.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch12Val> ch12{}; 
         namespace Ch12ValC{
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::disabled> disabled{};
         }
@@ -1421,7 +1421,7 @@ namespace Kvasir {
         enum class Ch13Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 13.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch13Val> ch13{}; 
         namespace Ch13ValC{
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::disabled> disabled{};
         }
@@ -1429,7 +1429,7 @@ namespace Kvasir {
         enum class Ch14Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 14.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch14Val> ch14{}; 
         namespace Ch14ValC{
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::disabled> disabled{};
         }
@@ -1437,13 +1437,13 @@ namespace Kvasir {
         enum class Ch15Val {
             disabled=0x00000001,     ///<Use the high default level for DMA Channel 15.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Ch15Val> ch15{}; 
         namespace Ch15ValC{
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::disabled> disabled{};
         }
     }
-    namespace Noneberrclr{    ///<Bus Error Clear
-        using Addr = Register::Address<0x4003604c,0xfffffffe,0,unsigned>;
+    namespace Dmactrl0Berrclr{    ///<Bus Error Clear
+        using Addr = Register::Address<0x4003604c,0xfffffffe,0x00000000,unsigned>;
         ///DMA Bus Error Clear. 
         enum class ErrorVal {
             clear=0x00000001,     ///<Read: 0: DMA error did not occur. 1: DMA error occurred since the last time ERROR was cleared. Write: 0: No effect. 1: Clear the DMA error flag.

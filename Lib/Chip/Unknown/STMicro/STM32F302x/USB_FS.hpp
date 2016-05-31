@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Universal serial bus full-speed device interface
-    namespace NoneusbEp0r{    ///<endpoint 0 register
-        using Addr = Register::Address<0x40005c00,0xffff0000,0,unsigned>;
+    namespace UsbFsUsbEp0r{    ///<endpoint 0 register
+        using Addr = Register::Address<0x40005c00,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission               transfers
@@ -17,7 +17,7 @@ namespace Kvasir {
         ///Endpoint type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> epType{}; 
         ///Setup transaction               completed
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> setup{}; 
         ///Status bits, for reception               transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
         ///Data Toggle, for reception               transfers
@@ -25,8 +25,8 @@ namespace Kvasir {
         ///Correct transfer for               reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
-    namespace NoneusbEp1r{    ///<endpoint 1 register
-        using Addr = Register::Address<0x40005c04,0xffff0000,0,unsigned>;
+    namespace UsbFsUsbEp1r{    ///<endpoint 1 register
+        using Addr = Register::Address<0x40005c04,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission               transfers
@@ -40,7 +40,7 @@ namespace Kvasir {
         ///Endpoint type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> epType{}; 
         ///Setup transaction               completed
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> setup{}; 
         ///Status bits, for reception               transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
         ///Data Toggle, for reception               transfers
@@ -48,8 +48,8 @@ namespace Kvasir {
         ///Correct transfer for               reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
-    namespace NoneusbEp2r{    ///<endpoint 2 register
-        using Addr = Register::Address<0x40005c08,0xffff0000,0,unsigned>;
+    namespace UsbFsUsbEp2r{    ///<endpoint 2 register
+        using Addr = Register::Address<0x40005c08,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission               transfers
@@ -63,7 +63,7 @@ namespace Kvasir {
         ///Endpoint type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> epType{}; 
         ///Setup transaction               completed
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> setup{}; 
         ///Status bits, for reception               transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
         ///Data Toggle, for reception               transfers
@@ -71,8 +71,8 @@ namespace Kvasir {
         ///Correct transfer for               reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
-    namespace NoneusbEp3r{    ///<endpoint 3 register
-        using Addr = Register::Address<0x40005c0c,0xffff0000,0,unsigned>;
+    namespace UsbFsUsbEp3r{    ///<endpoint 3 register
+        using Addr = Register::Address<0x40005c0c,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission               transfers
@@ -86,7 +86,7 @@ namespace Kvasir {
         ///Endpoint type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> epType{}; 
         ///Setup transaction               completed
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> setup{}; 
         ///Status bits, for reception               transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
         ///Data Toggle, for reception               transfers
@@ -94,8 +94,8 @@ namespace Kvasir {
         ///Correct transfer for               reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
-    namespace NoneusbEp4r{    ///<endpoint 4 register
-        using Addr = Register::Address<0x40005c10,0xffff0000,0,unsigned>;
+    namespace UsbFsUsbEp4r{    ///<endpoint 4 register
+        using Addr = Register::Address<0x40005c10,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission               transfers
@@ -109,7 +109,7 @@ namespace Kvasir {
         ///Endpoint type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> epType{}; 
         ///Setup transaction               completed
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> setup{}; 
         ///Status bits, for reception               transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
         ///Data Toggle, for reception               transfers
@@ -117,8 +117,8 @@ namespace Kvasir {
         ///Correct transfer for               reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
-    namespace NoneusbEp5r{    ///<endpoint 5 register
-        using Addr = Register::Address<0x40005c14,0xffff0000,0,unsigned>;
+    namespace UsbFsUsbEp5r{    ///<endpoint 5 register
+        using Addr = Register::Address<0x40005c14,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission               transfers
@@ -132,7 +132,7 @@ namespace Kvasir {
         ///Endpoint type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> epType{}; 
         ///Setup transaction               completed
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> setup{}; 
         ///Status bits, for reception               transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
         ///Data Toggle, for reception               transfers
@@ -140,8 +140,8 @@ namespace Kvasir {
         ///Correct transfer for               reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
-    namespace NoneusbEp6r{    ///<endpoint 6 register
-        using Addr = Register::Address<0x40005c18,0xffff0000,0,unsigned>;
+    namespace UsbFsUsbEp6r{    ///<endpoint 6 register
+        using Addr = Register::Address<0x40005c18,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission               transfers
@@ -155,7 +155,7 @@ namespace Kvasir {
         ///Endpoint type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> epType{}; 
         ///Setup transaction               completed
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> setup{}; 
         ///Status bits, for reception               transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
         ///Data Toggle, for reception               transfers
@@ -163,8 +163,8 @@ namespace Kvasir {
         ///Correct transfer for               reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
-    namespace NoneusbEp7r{    ///<endpoint 7 register
-        using Addr = Register::Address<0x40005c1c,0xffff0000,0,unsigned>;
+    namespace UsbFsUsbEp7r{    ///<endpoint 7 register
+        using Addr = Register::Address<0x40005c1c,0xffff0000,0x00000000,unsigned>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission               transfers
@@ -178,7 +178,7 @@ namespace Kvasir {
         ///Endpoint type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> epType{}; 
         ///Setup transaction               completed
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> setup{}; 
         ///Status bits, for reception               transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
         ///Data Toggle, for reception               transfers
@@ -186,8 +186,8 @@ namespace Kvasir {
         ///Correct transfer for               reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
     }
-    namespace NoneusbCntr{    ///<control register
-        using Addr = Register::Address<0x40005c40,0xffff00e0,0,unsigned>;
+    namespace UsbFsUsbCntr{    ///<control register
+        using Addr = Register::Address<0x40005c40,0xffff00e0,0x00000000,unsigned>;
         ///Force USB Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fres{}; 
         ///Power down
@@ -215,12 +215,12 @@ namespace Kvasir {
         ///Correct transfer interrupt               mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrm{}; 
     }
-    namespace Noneistr{    ///<interrupt status register
-        using Addr = Register::Address<0x40005c44,0xffff00e0,0,unsigned>;
+    namespace UsbFsIstr{    ///<interrupt status register
+        using Addr = Register::Address<0x40005c44,0xffff00e0,0x00000000,unsigned>;
         ///Endpoint Identifier
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> epId{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> epId{}; 
         ///Direction of transaction
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dir{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dir{}; 
         ///Expected start frame
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> esof{}; 
         ///start of frame
@@ -236,10 +236,10 @@ namespace Kvasir {
         ///Packet memory area over /               underrun
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> pmaovr{}; 
         ///Correct transfer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ctr{}; 
     }
-    namespace Nonefnr{    ///<frame number register
-        using Addr = Register::Address<0x40005c48,0xffff0000,0,unsigned>;
+    namespace UsbFsFnr{    ///<frame number register
+        using Addr = Register::Address<0x40005c48,0xffff0000,0x00000000,unsigned>;
         ///Frame number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> fn{}; 
         ///Lost SOF
@@ -251,8 +251,8 @@ namespace Kvasir {
         ///Receive data + line status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxdp{}; 
     }
-    namespace Nonedaddr{    ///<device address
-        using Addr = Register::Address<0x40005c4c,0xffffff00,0,unsigned>;
+    namespace UsbFsDaddr{    ///<device address
+        using Addr = Register::Address<0x40005c4c,0xffffff00,0x00000000,unsigned>;
         ///Device address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> add{}; 
         ///Device address
@@ -270,8 +270,8 @@ namespace Kvasir {
         ///Enable function
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ef{}; 
     }
-    namespace Nonebtable{    ///<Buffer table address
-        using Addr = Register::Address<0x40005c50,0xffff0007,0,unsigned>;
+    namespace UsbFsBtable{    ///<Buffer table address
+        using Addr = Register::Address<0x40005c50,0xffff0007,0x00000000,unsigned>;
         ///Buffer table
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,3),Register::ReadWriteAccess,unsigned> btable{}; 
     }

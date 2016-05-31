@@ -1,18 +1,20 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //PWRCU
-    namespace NonepwrcuBaksr{    ///<PWRCU_BAKSR
-        using Addr = Register::Address<0x4006a100,0xfffffefc,0,unsigned>;
+    namespace PwrcuPwrcuBaksr{    ///<PWRCU_BAKSR
+        using Addr = Register::Address<0x4006a100,0x000000fc,0x00000000,unsigned>;
         ///BAKPORF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bakporf{}; 
         ///PDF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pdf{}; 
         ///WUPF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> wupf{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonepwrcuBakcr{    ///<PWRCU_BAKCR
-        using Addr = Register::Address<0x4006a104,0xffff6c76,0,unsigned>;
+    namespace PwrcuPwrcuBakcr{    ///<PWRCU_BAKCR
+        using Addr = Register::Address<0x4006a104,0x00006c76,0x00000000,unsigned>;
         ///BAKRST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bakrst{}; 
         ///LDOOFF
@@ -27,19 +29,25 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> v18rdysc{}; 
         ///DMOSSTS
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dmossts{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonepwrcuBaktest{    ///<PWRCU_BAKTEST
-        using Addr = Register::Address<0x4006a108,0xffffff00,0,unsigned>;
+    namespace PwrcuPwrcuBaktest{    ///<PWRCU_BAKTEST
+        using Addr = Register::Address<0x4006a108,0x00000000,0x00000000,unsigned>;
         ///BAKTEST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> baktest{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonepwrcuHsircr{    ///<PWRCU_HSIRCR
-        using Addr = Register::Address<0x4006a10c,0xfffffffc,0,unsigned>;
+    namespace PwrcuPwrcuHsircr{    ///<PWRCU_HSIRCR
+        using Addr = Register::Address<0x4006a10c,0x00000000,0x00000000,unsigned>;
         ///HSIRCBL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> hsircbl{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonepwrcuLvdcsr{    ///<PWRCU_LVDCSR
-        using Addr = Register::Address<0x4006a110,0xffe0fff4,0,unsigned>;
+    namespace PwrcuPwrcuLvdcsr{    ///<PWRCU_LVDCSR
+        using Addr = Register::Address<0x4006a110,0x0000fff4,0x00000000,unsigned>;
         ///BODEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> boden{}; 
         ///BODRIS
@@ -54,54 +62,56 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> lvdf{}; 
         ///LVDIWEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> lvdiwen{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonepwrcuBakreg0{    ///<PWRCU_BAKREG0
-        using Addr = Register::Address<0x4006a200,0x00000000,0,unsigned>;
+    namespace PwrcuPwrcuBakreg0{    ///<PWRCU_BAKREG0
+        using Addr = Register::Address<0x4006a200,0x00000000,0x00000000,unsigned>;
         ///BAKREG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace NonepwrcuBakreg1{    ///<PWRCU_BAKREG1
-        using Addr = Register::Address<0x4006a204,0x00000000,0,unsigned>;
+    namespace PwrcuPwrcuBakreg1{    ///<PWRCU_BAKREG1
+        using Addr = Register::Address<0x4006a204,0x00000000,0x00000000,unsigned>;
         ///BAKREG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace NonepwrcuBakreg2{    ///<PWRCU_BAKREG2
-        using Addr = Register::Address<0x4006a208,0x00000000,0,unsigned>;
+    namespace PwrcuPwrcuBakreg2{    ///<PWRCU_BAKREG2
+        using Addr = Register::Address<0x4006a208,0x00000000,0x00000000,unsigned>;
         ///BAKREG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace NonepwrcuBakreg3{    ///<PWRCU_BAKREG3
-        using Addr = Register::Address<0x4006a20c,0x00000000,0,unsigned>;
+    namespace PwrcuPwrcuBakreg3{    ///<PWRCU_BAKREG3
+        using Addr = Register::Address<0x4006a20c,0x00000000,0x00000000,unsigned>;
         ///BAKREG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace NonepwrcuBakreg4{    ///<PWRCU_BAKREG4
-        using Addr = Register::Address<0x4006a210,0x00000000,0,unsigned>;
+    namespace PwrcuPwrcuBakreg4{    ///<PWRCU_BAKREG4
+        using Addr = Register::Address<0x4006a210,0x00000000,0x00000000,unsigned>;
         ///BAKREG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace NonepwrcuBakreg5{    ///<PWRCU_BAKREG5
-        using Addr = Register::Address<0x4006a214,0x00000000,0,unsigned>;
+    namespace PwrcuPwrcuBakreg5{    ///<PWRCU_BAKREG5
+        using Addr = Register::Address<0x4006a214,0x00000000,0x00000000,unsigned>;
         ///BAKREG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace NonepwrcuBakreg6{    ///<PWRCU_BAKREG6
-        using Addr = Register::Address<0x4006a218,0x00000000,0,unsigned>;
+    namespace PwrcuPwrcuBakreg6{    ///<PWRCU_BAKREG6
+        using Addr = Register::Address<0x4006a218,0x00000000,0x00000000,unsigned>;
         ///BAKREG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace NonepwrcuBakreg7{    ///<PWRCU_BAKREG7
-        using Addr = Register::Address<0x4006a21c,0x00000000,0,unsigned>;
+    namespace PwrcuPwrcuBakreg7{    ///<PWRCU_BAKREG7
+        using Addr = Register::Address<0x4006a21c,0x00000000,0x00000000,unsigned>;
         ///BAKREG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace NonepwrcuBakreg8{    ///<PWRCU_BAKREG8
-        using Addr = Register::Address<0x4006a220,0x00000000,0,unsigned>;
+    namespace PwrcuPwrcuBakreg8{    ///<PWRCU_BAKREG8
+        using Addr = Register::Address<0x4006a220,0x00000000,0x00000000,unsigned>;
         ///BAKREG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace NonepwrcuBakreg9{    ///<PWRCU_BAKREG9
-        using Addr = Register::Address<0x4006a224,0x00000000,0,unsigned>;
+    namespace PwrcuPwrcuBakreg9{    ///<PWRCU_BAKREG9
+        using Addr = Register::Address<0x4006a224,0x00000000,0x00000000,unsigned>;
         ///BAKREG
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }

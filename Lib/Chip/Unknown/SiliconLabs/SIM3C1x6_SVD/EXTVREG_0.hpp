@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40042000,0x70fffffe,0,unsigned>;
+    namespace Extvreg0Control{    ///<Module Control
+        using Addr = Register::Address<0x40042000,0x70fffffe,0x00000000,unsigned>;
         ///Stand-Alone Mode Enable. 
         enum class SaenVal {
             disabled=0x00000000,     ///<Use the external regulator in normal mode.
@@ -65,8 +65,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(evregen)::Type,EvregenVal::enabled> enabled{};
         }
     }
-    namespace Noneconfig{    ///<Module Configuration
-        using Addr = Register::Address<0x40042010,0xc0f888e0,0,unsigned>;
+    namespace Extvreg0Config{    ///<Module Configuration
+        using Addr = Register::Address<0x40042010,0xc0f888e0,0x00000000,unsigned>;
         ///Minimum Current Fine Select. 
         enum class IminfineVal {
             v0Ua=0x00000000,     ///<Minimum current limit is IMIN current + 0 uA. 
@@ -170,21 +170,21 @@ namespace Kvasir {
         ///Regulator Output Voltage Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> voutsel{}; 
     }
-    namespace Nonestatus{    ///<Module Status
-        using Addr = Register::Address<0x40042020,0xfffffffe,0,unsigned>;
+    namespace Extvreg0Status{    ///<Module Status
+        using Addr = Register::Address<0x40042020,0xfffffffe,0x00000000,unsigned>;
         ///Maximum Foldback Flag. 
         enum class FbmaxfVal {
             notSet=0x00000000,     ///<Maximum foldback has not been reached.
             set=0x00000001,     ///<Maximum foldback has been reached.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FbmaxfVal> fbmaxf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FbmaxfVal> fbmaxf{}; 
         namespace FbmaxfValC{
             constexpr Register::FieldValue<decltype(fbmaxf)::Type,FbmaxfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(fbmaxf)::Type,FbmaxfVal::set> set{};
         }
     }
-    namespace Nonecscontrol{    ///<Current Sense Control
-        using Addr = Register::Address<0x40042040,0x3fffffff,0,unsigned>;
+    namespace Extvreg0Cscontrol{    ///<Current Sense Control
+        using Addr = Register::Address<0x40042040,0x3fffffff,0x00000000,unsigned>;
         ///External Regulator Current Sense Enable. 
         enum class IsnsenVal {
             disabled=0x00000000,     ///<Disable external regulator current sensing.
@@ -206,8 +206,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcisnsen)::Type,AdcisnsenVal::enabled> enabled{};
         }
     }
-    namespace Nonecsconfig{    ///<Current Sense Configuration
-        using Addr = Register::Address<0x40042050,0xffffff00,0,unsigned>;
+    namespace Extvreg0Csconfig{    ///<Current Sense Configuration
+        using Addr = Register::Address<0x40042050,0xffffff00,0x00000000,unsigned>;
         ///ADC Current Sense Gain. 
         enum class IsadcgainVal {
             v16x=0x00000000,     ///<ADC current sensing input gain is 16.

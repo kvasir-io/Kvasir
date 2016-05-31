@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x4004f000,0xffff0880,0,unsigned>;
+    namespace Encdec0Control{    ///<Module Control
+        using Addr = Register::Address<0x4004f000,0xffff0880,0x00000000,unsigned>;
         ///Input Ready Interrupt Enable. 
         enum class InrdyienVal {
             disabled=0x00000000,     ///<Disable the input ready interrupt.
@@ -38,7 +38,7 @@ namespace Kvasir {
         enum class ResetVal {
             active=0x00000001,     ///<Reset the module.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ResetVal> reset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ResetVal> reset{}; 
         namespace ResetValC{
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::active> active{};
         }
@@ -131,14 +131,14 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iorder)::Type,IorderVal::lowerThreeBytes> lowerThreeBytes{};
         }
     }
-    namespace Nonestatus{    ///<Module Status
-        using Addr = Register::Address<0x4004f010,0xffffffe0,0,unsigned>;
+    namespace Encdec0Status{    ///<Module Status
+        using Addr = Register::Address<0x4004f010,0xffffffe0,0x00000000,unsigned>;
         ///Input Ready Interrupt Flag. 
         enum class InrdyiVal {
             notSet=0x00000000,     ///<The input FIFO is not ready for new data.
             set=0x00000001,     ///<Firmware can write new input data to DATAIN.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,InrdyiVal> inrdyi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,InrdyiVal> inrdyi{}; 
         namespace InrdyiValC{
             constexpr Register::FieldValue<decltype(inrdyi)::Type,InrdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(inrdyi)::Type,InrdyiVal::set> set{};
@@ -148,15 +148,15 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The output data is not ready.
             set=0x00000001,     ///<The output data is ready to be read by firmware.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,OrdyiVal> ordyi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,OrdyiVal> ordyi{}; 
         namespace OrdyiValC{
             constexpr Register::FieldValue<decltype(ordyi)::Type,OrdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ordyi)::Type,OrdyiVal::set> set{};
         }
         ///Data Error Interrupt Flag. 
         enum class DerriVal {
-            notSet=0x00000000,     ///<None
-            set=0x00000001,     ///<None
+            notSet=0x00000000,     ///<
+            set=0x00000001,     ///<
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DerriVal> derri{}; 
         namespace DerriValC{
@@ -184,19 +184,19 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dori)::Type,DoriVal::set> set{};
         }
     }
-    namespace Nonedatain{    ///<Data Input
-        using Addr = Register::Address<0x4004f020,0x00000000,0,unsigned>;
+    namespace Encdec0Datain{    ///<Data Input
+        using Addr = Register::Address<0x4004f020,0x00000000,0x00000000,unsigned>;
         ///Data Input. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> datain{}; 
     }
-    namespace Nonedataout{    ///<Data Output
-        using Addr = Register::Address<0x4004f030,0x00000000,0,unsigned>;
+    namespace Encdec0Dataout{    ///<Data Output
+        using Addr = Register::Address<0x4004f030,0x00000000,0x00000000,unsigned>;
         ///Data Output. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dataout{}; 
     }
-    namespace Nonedataoutc{    ///<Data Output Complement
-        using Addr = Register::Address<0x4004f040,0x00000000,0,unsigned>;
+    namespace Encdec0Dataoutc{    ///<Data Output Complement
+        using Addr = Register::Address<0x4004f040,0x00000000,0x00000000,unsigned>;
         ///Data Output Complement. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dataoutc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> dataoutc{}; 
     }
 }

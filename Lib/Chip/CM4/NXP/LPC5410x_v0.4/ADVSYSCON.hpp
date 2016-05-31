@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Advanced System configuration 
-    namespace Nonebodctrl{    ///<Brown-Out Detect control
-        using Addr = Register::Address<0x4002c044,0xffffffe0,0,unsigned>;
+    namespace AdvsysconBodctrl{    ///<Brown-Out Detect control
+        using Addr = Register::Address<0x4002c044,0x00000000,0x00000000,unsigned>;
         ///BOD reset level
         enum class BodrstlevVal {
             level01=0x00000000,     ///<Level 0: 1.5 V
@@ -42,5 +42,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::disableResetFuncti> disableResetFuncti{};
             constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::enableResetFunctio> enableResetFunctio{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

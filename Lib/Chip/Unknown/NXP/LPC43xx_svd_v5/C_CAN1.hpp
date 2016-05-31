@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Product name title=UM10430 Chapter title=LPC18xx C_CAN Modification date=1/18/2011 Major revision=0 Minor revision=7 
-    namespace Nonecntl{    ///<CAN control
-        using Addr = Register::Address<0x400a4000,0xffffff10,0,unsigned>;
+    namespace CCan1Cntl{    ///<CAN control
+        using Addr = Register::Address<0x400a4000,0x00000000,0x00000000,unsigned>;
         ///Initialization
         enum class InitVal {
             initializationIsSt=0x00000001,     ///<Initialization is started. On reset, software needs to initialize the CAN controller.
@@ -44,6 +44,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eie)::Type,EieVal::enableErrorInterru> enableErrorInterru{};
             constexpr Register::FieldValue<decltype(eie)::Type,EieVal::disableErrorInterr> disableErrorInterr{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Disable automatic retransmission
         enum class DarVal {
             disabled=0x00000001,     ///<Automatic retransmission disabled.
@@ -74,9 +76,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(test)::Type,TestVal::testMode> testMode{};
             constexpr Register::FieldValue<decltype(test)::Type,TestVal::normalOperation> normalOperation{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestat{    ///<Status register
-        using Addr = Register::Address<0x400a4004,0xffffff00,0,unsigned>;
+    namespace CCan1Stat{    ///<Status register
+        using Addr = Register::Address<0x400a4004,0x00000000,0x00000000,unsigned>;
         ///Last error code Type of the last error to occur on the CAN bus.The LEC field holds a code which indicates the type of the last error to occur on the CAN bus. This field will be cleared to 0 when a message has been transferred (reception or transmission) without error. The unused code 111 may be written by the CPU to check for updates.
         enum class LecVal {
             noError=0x00000000,     ///<No error.
@@ -149,9 +153,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(boff)::Type,BoffVal::busoff> busoff{};
             constexpr Register::FieldValue<decltype(boff)::Type,BoffVal::nobusoff> nobusoff{};
         }
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneec{    ///<Error counter
-        using Addr = Register::Address<0x400a4008,0xffff0000,0,unsigned>;
+    namespace CCan1Ec{    ///<Error counter
+        using Addr = Register::Address<0x400a4008,0x00000000,0x00000000,unsigned>;
         ///Transmit error counter Current value of the transmit error counter (maximum value 127)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tec70{}; 
         ///Receive error counter Current value of the receive error counter (maximum value 255).
@@ -166,9 +172,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rp)::Type,RpVal::passive> passive{};
             constexpr Register::FieldValue<decltype(rp)::Type,RpVal::belowpassive> belowpassive{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonebt{    ///<Bit timing register
-        using Addr = Register::Address<0x400a400c,0xffff8000,0,unsigned>;
+    namespace CCan1Bt{    ///<Bit timing register
+        using Addr = Register::Address<0x400a400c,0x00000000,0x00000000,unsigned>;
         ///Baud rate prescaler The value by which the oscillator frequency is divided for generating the bit time quanta. The bit time is built up from a multiple of this quanta. Valid values for the Baud Rate Prescaler are 0 to 63[1].  Valid programmed values are 0x01 - 0x3F[1].
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> brp{}; 
         ///(Re)synchronization jump width Valid programmed values are 0 to 3[1].
@@ -177,14 +185,20 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> tseg1{}; 
         ///Time segment before the sample point Valid values are 1 to 15[1].
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> tseg2{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneint{    ///<Interrupt register
-        using Addr = Register::Address<0x400a4010,0xffff0000,0,unsigned>;
+    namespace CCan1Int{    ///<Interrupt register
+        using Addr = Register::Address<0x400a4010,0x00000000,0x00000000,unsigned>;
         ///0x0000= No interrupt is pending 0x0001 to 0x0020 = Number of message object which caused the interrupt. 0x0021 to 0x7FFF = Unused 0x8000 = Status interrupt 0x8001 to 0xFFFF = Unused
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> intid150{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetest{    ///<Test register
-        using Addr = Register::Address<0x400a4014,0xffffff03,0,unsigned>;
+    namespace CCan1Test{    ///<Test register
+        using Addr = Register::Address<0x400a4014,0x00000000,0x00000000,unsigned>;
+        ///tbd.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///Basic mode
         enum class BasicVal {
             if1TxIf2Rx=0x00000001,     ///<IF1 registers used as TX buffer, IF2 registers used as RX buffer.
@@ -239,739 +253,821 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rx)::Type,RxVal::theCanBusIsReces> theCanBusIsReces{};
             constexpr Register::FieldValue<decltype(rx)::Type,RxVal::theCanBusIsDomin> theCanBusIsDomin{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonebrpe{    ///<Baud rate prescaler extension register
-        using Addr = Register::Address<0x400a4018,0xfffffff0,0,unsigned>;
+    namespace CCan1Brpe{    ///<Baud rate prescaler extension register
+        using Addr = Register::Address<0x400a4018,0x00000000,0x00000000,unsigned>;
         ///Baud rate prescaler extension By programming BRPE the Baud Rate Prescaler can be extended to values up to 1023. Hardware interprets the value as the value of BRPE (MSBs) and BRP (LSBs) plus one. Allowed values are 0x00 to 0x0F
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> brpe{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneif1Cmdreq{    ///<Message interface  command request 
-        using Addr = Register::Address<0x400a4020,0xffff7fc0,0,unsigned>;
-        ///Message number 0x01 to 0x20 = Valid message numbers The message object in the message RAM is selected for data transfer. 0x00 = Not a valid message number. This value is interpreted as 0x20.[1] 0x21 to 0x3F = Not a valid message number. This value is interpreted as 0x01 - 0x1F.[1]
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> messnum{}; 
-        ///BUSY flag. Set to one by hardware when writing to this Command request register. Set to zero by hardware when read/write action to this Command request register has finished.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> busy{}; 
-    }
-    namespace Noneif2Cmdreq{    ///<Message interface  command request 
-        using Addr = Register::Address<0x400a4080,0xffff7fc0,0,unsigned>;
-        ///Message number 0x01 to 0x20 = Valid message numbers The message object in the message RAM is selected for data transfer. 0x00 = Not a valid message number. This value is interpreted as 0x20.[1] 0x21 to 0x3F = Not a valid message number. This value is interpreted as 0x01 - 0x1F.[1]
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> messnum{}; 
-        ///BUSY flag. Set to one by hardware when writing to this Command request register. Set to zero by hardware when read/write action to this Command request register has finished.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> busy{}; 
-    }
-    namespace Noneif1CmdmskW{    ///<Message interface command mask (write direction)
-        using Addr = Register::Address<0x400a4024,0xffffff00,0,unsigned>;
-        ///Access data bytes 4-7
-        enum class DatabVal {
-            transferDataBytes=0x00000001,     ///<Transfer data bytes 4-7 to message object.
-            dataBytes47Uncha=0x00000000,     ///<data bytes 4-7 unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
-        namespace DatabValC{
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
-        }
-        ///Access data bytes 0-3
-        enum class DataaVal {
-            transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to message object.
-            dataBytes03Uncha=0x00000000,     ///<data bytes 0-3 unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
-        namespace DataaValC{
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
-        }
-        ///Access transmission request bit
-        enum class TxrqstVal {
-            requestATransmissi=0x00000001,     ///<Request a transmission. Set the TXRQST bit IF1/2_MCTRL.
-            noTransmissionRequ=0x00000000,     ///<No transmission request. TXRQSRT bit unchanged in IF1/2_MCTRL. If a transmission is requested by programming this bit, the TXRQST bit in the CANIFn_MCTRL register is ignored.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
-        namespace TxrqstValC{
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
-        }
-        ///This bit is ignored in the write direction.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clrintpnd{}; 
-        ///Access control bits
-        enum class CtrlVal {
-            transferControlBit=0x00000001,     ///<Transfer control bits to message object
-            controlBitsUnchang=0x00000000,     ///<Control bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
-        namespace CtrlValC{
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
-        }
-        ///Access arbitration bits
-        enum class ArbVal {
-            transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to message object.
-            arbitrationBitsUnc=0x00000000,     ///<Arbitration bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
-        namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
-        }
-        ///Access mask bits
-        enum class MaskVal {
-            transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to message object.
-            maskBitsUnchanged=0x00000000,     ///<Mask bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
-        namespace MaskValC{
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
-        }
-        ///Write transfer Transfer data from the selected message buffer registers to the message object addressed by the command request register CANIFn_CMDREQ.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
-    }
-    namespace Noneif2CmdmskW{    ///<Message interface command mask (write direction)
-        using Addr = Register::Address<0x400a4084,0xffffff00,0,unsigned>;
-        ///Access data bytes 4-7
-        enum class DatabVal {
-            transferDataBytes=0x00000001,     ///<Transfer data bytes 4-7 to message object.
-            dataBytes47Uncha=0x00000000,     ///<data bytes 4-7 unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
-        namespace DatabValC{
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
-        }
-        ///Access data bytes 0-3
-        enum class DataaVal {
-            transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to message object.
-            dataBytes03Uncha=0x00000000,     ///<data bytes 0-3 unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
-        namespace DataaValC{
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
-        }
-        ///Access transmission request bit
-        enum class TxrqstVal {
-            requestATransmissi=0x00000001,     ///<Request a transmission. Set the TXRQST bit IF1/2_MCTRL.
-            noTransmissionRequ=0x00000000,     ///<No transmission request. TXRQSRT bit unchanged in IF1/2_MCTRL. If a transmission is requested by programming this bit, the TXRQST bit in the CANIFn_MCTRL register is ignored.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
-        namespace TxrqstValC{
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
-        }
-        ///This bit is ignored in the write direction.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clrintpnd{}; 
-        ///Access control bits
-        enum class CtrlVal {
-            transferControlBit=0x00000001,     ///<Transfer control bits to message object
-            controlBitsUnchang=0x00000000,     ///<Control bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
-        namespace CtrlValC{
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
-        }
-        ///Access arbitration bits
-        enum class ArbVal {
-            transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to message object.
-            arbitrationBitsUnc=0x00000000,     ///<Arbitration bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
-        namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
-        }
-        ///Access mask bits
-        enum class MaskVal {
-            transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to message object.
-            maskBitsUnchanged=0x00000000,     ///<Mask bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
-        namespace MaskValC{
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
-        }
-        ///Write transfer Transfer data from the selected message buffer registers to the message object addressed by the command request register CANIFn_CMDREQ.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
-    }
-    namespace Noneif1CmdmskR{    ///<Message interface  command mask (read direction)
-        using Addr = Register::Address<0x400a4024,0xffffff00,0,unsigned>;
-        ///Access data bytes 4-7
-        enum class DatabVal {
-            transferDataBytes=0x00000001,     ///<Transfer data bytes 4-7 to IFx message buffer register.
-            dataBytes47Uncha=0x00000000,     ///<data bytes 4-7 unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
-        namespace DatabValC{
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
-        }
-        ///Access data bytes 0-3
-        enum class DataaVal {
-            transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to IFx message buffer.
-            dataBytes03Uncha=0x00000000,     ///<data bytes 0-3 unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
-        namespace DataaValC{
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
-        }
-        ///Access new data bit
-        enum class NewdatVal {
-            clearNewdatBitIn=0x00000001,     ///<Clear NEWDAT bit in the message object.
-            newdatBitRemainsU=0x00000000,     ///<NEWDAT bit remains unchanged. A read access to a message object can be combined with the reset of the control bits INTPND and NEWDAT in IF1/2_MCTRL. The values of these bits transferred to the IFx Message Control Register always reflect the status before resetting these bits.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NewdatVal> newdat{}; 
-        namespace NewdatValC{
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::newdatBitRemainsU> newdatBitRemainsU{};
-        }
-        ///Clear interrupt pending bit.
-        enum class ClrintpndVal {
-            clearIntpndBitIn=0x00000001,     ///<Clear INTPND bit in the message object.
-            intpndBitRemainsU=0x00000000,     ///<INTPND bit remains unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrintpndVal> clrintpnd{}; 
-        namespace ClrintpndValC{
-            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
-            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::intpndBitRemainsU> intpndBitRemainsU{};
-        }
-        ///Access control bits
-        enum class CtrlVal {
-            transferControlBit=0x00000001,     ///<Transfer control bits to IFx message buffer.
-            controlBitsUnchang=0x00000000,     ///<Control bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
-        namespace CtrlValC{
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
-        }
-        ///Access arbitration bits
-        enum class ArbVal {
-            transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to IFx message buffer register.
-            arbitrationBitsUnc=0x00000000,     ///<Arbitration bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
-        namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
-        }
-        ///Access mask bits
-        enum class MaskVal {
-            transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to IFx message buffer register.
-            maskBitsUnchanged=0x00000000,     ///<Mask bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
-        namespace MaskValC{
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
-        }
-        ///Read transfer Transfer data from the message object addressed by the command request register to the selected message buffer registers CANIFn_CMDREQ.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
-    }
-    namespace Noneif2CmdmskR{    ///<Message interface  command mask (read direction)
-        using Addr = Register::Address<0x400a4084,0xffffff00,0,unsigned>;
-        ///Access data bytes 4-7
-        enum class DatabVal {
-            transferDataBytes=0x00000001,     ///<Transfer data bytes 4-7 to IFx message buffer register.
-            dataBytes47Uncha=0x00000000,     ///<data bytes 4-7 unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
-        namespace DatabValC{
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
-        }
-        ///Access data bytes 0-3
-        enum class DataaVal {
-            transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to IFx message buffer.
-            dataBytes03Uncha=0x00000000,     ///<data bytes 0-3 unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
-        namespace DataaValC{
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
-        }
-        ///Access new data bit
-        enum class NewdatVal {
-            clearNewdatBitIn=0x00000001,     ///<Clear NEWDAT bit in the message object.
-            newdatBitRemainsU=0x00000000,     ///<NEWDAT bit remains unchanged. A read access to a message object can be combined with the reset of the control bits INTPND and NEWDAT in IF1/2_MCTRL. The values of these bits transferred to the IFx Message Control Register always reflect the status before resetting these bits.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NewdatVal> newdat{}; 
-        namespace NewdatValC{
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::newdatBitRemainsU> newdatBitRemainsU{};
-        }
-        ///Clear interrupt pending bit.
-        enum class ClrintpndVal {
-            clearIntpndBitIn=0x00000001,     ///<Clear INTPND bit in the message object.
-            intpndBitRemainsU=0x00000000,     ///<INTPND bit remains unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrintpndVal> clrintpnd{}; 
-        namespace ClrintpndValC{
-            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
-            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::intpndBitRemainsU> intpndBitRemainsU{};
-        }
-        ///Access control bits
-        enum class CtrlVal {
-            transferControlBit=0x00000001,     ///<Transfer control bits to IFx message buffer.
-            controlBitsUnchang=0x00000000,     ///<Control bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
-        namespace CtrlValC{
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
-        }
-        ///Access arbitration bits
-        enum class ArbVal {
-            transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to IFx message buffer register.
-            arbitrationBitsUnc=0x00000000,     ///<Arbitration bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
-        namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
-        }
-        ///Access mask bits
-        enum class MaskVal {
-            transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to IFx message buffer register.
-            maskBitsUnchanged=0x00000000,     ///<Mask bits unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
-        namespace MaskValC{
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
-        }
-        ///Read transfer Transfer data from the message object addressed by the command request register to the selected message buffer registers CANIFn_CMDREQ.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
-    }
-    namespace Noneif1Msk1{    ///<Message interface  mask 1
-        using Addr = Register::Address<0x400a4028,0xffff0000,0,unsigned>;
-        ///Identifier mask 0 = The corresponding bit in the identifier of the message can not inhibit the match in the acceptance filtering. 1 = The corresponding identifier bit is used for acceptance filtering.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> msk150{}; 
-    }
-    namespace Noneif2Msk1{    ///<Message interface  mask 1
-        using Addr = Register::Address<0x400a4088,0xffff0000,0,unsigned>;
-        ///Identifier mask 0 = The corresponding bit in the identifier of the message can not inhibit the match in the acceptance filtering. 1 = The corresponding identifier bit is used for acceptance filtering.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> msk150{}; 
-    }
-    namespace Noneif1Msk2{    ///<Message interface 1 mask 2
-        using Addr = Register::Address<0x400a402c,0xffff2000,0,unsigned>;
-        ///Identifier mask 0 = The corresponding bit in the identifier of the message can not inhibit the match in the acceptance filtering. 1 = The corresponding identifier bit is used for acceptance filtering.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> msk2816{}; 
-        ///Mask message direction
-        enum class MdirVal {
-            theMessageDirectio=0x00000001,     ///<The message direction bit (DIR) is used for acceptance filtering.
-            theMessageDirectio=0x00000000,     ///<The message direction bit (DIR) has no effect on acceptance filtering.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MdirVal> mdir{}; 
-        namespace MdirValC{
-            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
-            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
-        }
-        ///Mask extend identifier
-        enum class MxtdVal {
-            theExtendedIdentif=0x00000001,     ///<The extended identifier bit (IDE) is used for acceptance filtering.
-            theExtendedIdentif=0x00000000,     ///<The extended identifier bit (IDE) has no effect on acceptance filtering.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MxtdVal> mxtd{}; 
-        namespace MxtdValC{
-            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
-            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
-        }
-    }
-    namespace Noneif2Msk2{    ///<Message interface 1 mask 2
-        using Addr = Register::Address<0x400a408c,0xffff2000,0,unsigned>;
-        ///Identifier mask 0 = The corresponding bit in the identifier of the message can not inhibit the match in the acceptance filtering. 1 = The corresponding identifier bit is used for acceptance filtering.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> msk2816{}; 
-        ///Mask message direction
-        enum class MdirVal {
-            theMessageDirectio=0x00000001,     ///<The message direction bit (DIR) is used for acceptance filtering.
-            theMessageDirectio=0x00000000,     ///<The message direction bit (DIR) has no effect on acceptance filtering.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MdirVal> mdir{}; 
-        namespace MdirValC{
-            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
-            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
-        }
-        ///Mask extend identifier
-        enum class MxtdVal {
-            theExtendedIdentif=0x00000001,     ///<The extended identifier bit (IDE) is used for acceptance filtering.
-            theExtendedIdentif=0x00000000,     ///<The extended identifier bit (IDE) has no effect on acceptance filtering.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MxtdVal> mxtd{}; 
-        namespace MxtdValC{
-            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
-            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
-        }
-    }
-    namespace Noneif1Arb1{    ///<Message interface 1 arbitration 1
-        using Addr = Register::Address<0x400a4030,0xffff0000,0,unsigned>;
-        ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> id150{}; 
-    }
-    namespace Noneif2Arb1{    ///<Message interface 1 arbitration 1
-        using Addr = Register::Address<0x400a4090,0xffff0000,0,unsigned>;
-        ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> id150{}; 
-    }
-    namespace Noneif1Arb2{    ///<Message interface 1 arbitration 2
-        using Addr = Register::Address<0x400a4034,0xffff0000,0,unsigned>;
-        ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> id2816{}; 
-        ///Message direction
-        enum class DirVal {
-            directionEqTransmit=0x00000001,     ///<Direction = transmit. On TXRQST, the respective Message Object is transmitted as a Data Frame. On reception of a Remote Frame with matching identifier, the TXRQST bit of this Message Object is set (if RMTEN = one).
-            directionEqReceive=0x00000000,     ///<Direction = receive. On TXRQST, a Remote Frame with the identifier of this Message Object is transmitted. On reception of a Data Frame with matching identifier, that message is stored in this Message Object.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,DirVal> dir{}; 
-        namespace DirValC{
-            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqTransmit> directionEqTransmit{};
-            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqReceive> directionEqReceive{};
-        }
-        ///Extend identifier
-        enum class XtdVal {
-            the29BitExtended=0x00000001,     ///<The 29-bit extended identifier will be used for this message object.
-            the11BitStandard=0x00000000,     ///<The 11-bit standard identifier will be used for this message object.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,XtdVal> xtd{}; 
-        namespace XtdValC{
-            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the29BitExtended> the29BitExtended{};
-            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the11BitStandard> the11BitStandard{};
-        }
-        ///Message valid The CPU must reset the MSGVAL bit of all unused Messages Objects during the initialization before it resets bit INIT in the CAN Control Register. This bit must also be reset before the identifier ID28:0, the control bits XTD, DIR, or the Data Length Code DLC3:0 are modified, or if the Messages Object is no longer required.
-        enum class MsgvalVal {
-            theMessageObjectI=0x00000001,     ///<The message object is configured and should be considered by the message handler.
-            theMessageObjectI=0x00000000,     ///<The message object is ignored by the message handler.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MsgvalVal> msgval{}; 
-        namespace MsgvalValC{
-            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
-            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
-        }
-    }
-    namespace Noneif2Arb2{    ///<Message interface 1 arbitration 2
-        using Addr = Register::Address<0x400a4094,0xffff0000,0,unsigned>;
-        ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> id2816{}; 
-        ///Message direction
-        enum class DirVal {
-            directionEqTransmit=0x00000001,     ///<Direction = transmit. On TXRQST, the respective Message Object is transmitted as a Data Frame. On reception of a Remote Frame with matching identifier, the TXRQST bit of this Message Object is set (if RMTEN = one).
-            directionEqReceive=0x00000000,     ///<Direction = receive. On TXRQST, a Remote Frame with the identifier of this Message Object is transmitted. On reception of a Data Frame with matching identifier, that message is stored in this Message Object.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,DirVal> dir{}; 
-        namespace DirValC{
-            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqTransmit> directionEqTransmit{};
-            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqReceive> directionEqReceive{};
-        }
-        ///Extend identifier
-        enum class XtdVal {
-            the29BitExtended=0x00000001,     ///<The 29-bit extended identifier will be used for this message object.
-            the11BitStandard=0x00000000,     ///<The 11-bit standard identifier will be used for this message object.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,XtdVal> xtd{}; 
-        namespace XtdValC{
-            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the29BitExtended> the29BitExtended{};
-            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the11BitStandard> the11BitStandard{};
-        }
-        ///Message valid The CPU must reset the MSGVAL bit of all unused Messages Objects during the initialization before it resets bit INIT in the CAN Control Register. This bit must also be reset before the identifier ID28:0, the control bits XTD, DIR, or the Data Length Code DLC3:0 are modified, or if the Messages Object is no longer required.
-        enum class MsgvalVal {
-            theMessageObjectI=0x00000001,     ///<The message object is configured and should be considered by the message handler.
-            theMessageObjectI=0x00000000,     ///<The message object is ignored by the message handler.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MsgvalVal> msgval{}; 
-        namespace MsgvalValC{
-            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
-            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
-        }
-    }
-    namespace Noneif1Mctrl{    ///<Message interface 1 message control
-        using Addr = Register::Address<0x400a4038,0xffff0070,0,unsigned>;
-        ///Data length code The Data Length Code of a Message Object must be defined the same as in all the corresponding objects with the same identifier at other nodes. When the Message Handler stores a data frame, it will write the DLC to the value given by the received message. 0000 to 1000 = Data frame has 0 - 8 data bytes. 1001 to 1111 = Data frame has 8 data bytes.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc30{}; 
-        ///End of buffer
-        enum class EobVal {
-            singleMessageObjec=0x00000001,     ///<Single message object or last message object of a FIFO buffer.
-            messageObjectBelon=0x00000000,     ///<Message object belongs to a FIFO buffer and is not the last message object of that FIFO buffer.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EobVal> eob{}; 
-        namespace EobValC{
-            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::singleMessageObjec> singleMessageObjec{};
-            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::messageObjectBelon> messageObjectBelon{};
-        }
-        ///Transmit request
-        enum class TxrqstVal {
-            request=0x00000001,     ///<The transmission of this message object is requested and is not yet done
-            wait=0x00000000,     ///<This message object is not waiting for transmission.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
-        namespace TxrqstValC{
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::request> request{};
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::wait> wait{};
-        }
-        ///Remote enable
-        enum class RmtenVal {
-            txrqstset=0x00000001,     ///<At the reception of a remote frame, TXRQST is set.
-            unchanged=0x00000000,     ///<At the reception of a remote frame, TXRQST is left unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,RmtenVal> rmten{}; 
-        namespace RmtenValC{
-            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::txrqstset> txrqstset{};
-            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::unchanged> unchanged{};
-        }
-        ///Receive interrupt enable
-        enum class RxieVal {
-            intpndset=0x00000001,     ///<INTPND will be set after successful reception of a frame.
-            unchanged=0x00000000,     ///<INTPND will be left unchanged after successful reception of a frame.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,RxieVal> rxie{}; 
-        namespace RxieValC{
-            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::intpndset> intpndset{};
-            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::unchanged> unchanged{};
-        }
-        ///Transmit interrupt enable
-        enum class TxieVal {
-            intpndset=0x00000001,     ///<INTPND will be set after a successful reception of a frame.
-            unchanged=0x00000000,     ///<The INTPND bit will be left unchanged after a successful reception of a frame.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,TxieVal> txie{}; 
-        namespace TxieValC{
-            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::intpndset> intpndset{};
-            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::unchanged> unchanged{};
-        }
-        ///Use acceptance mask If UMASK is set to 1, the message object's mask bits have to be programmed during initialization of the message object before MAGVAL is set to 1.
-        enum class UmaskVal {
-            useMaskMsk280=0x00000001,     ///<Use mask (MSK[28:0], MXTD, and MDIR) for acceptance filtering.
-            maskIgnored=0x00000000,     ///<Mask ignored.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,UmaskVal> umask{}; 
-        namespace UmaskValC{
-            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::useMaskMsk280> useMaskMsk280{};
-            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::maskIgnored> maskIgnored{};
-        }
-        ///Interrupt pending
-        enum class IntpndVal {
-            intsource=0x00000001,     ///<This message object is the source of an interrupt. The Interrupt Identifier in the Interrupt Register will point to this message object if there is no other interrupt source with higher priority.
-            nointsource=0x00000000,     ///<This message object is not the source of an interrupt.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,IntpndVal> intpnd{}; 
-        namespace IntpndValC{
-            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::intsource> intsource{};
-            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::nointsource> nointsource{};
-        }
-        ///Message lost (only valid for message objects in the direction receive).
-        enum class MsglstVal {
-            theMessageHandler=0x00000001,     ///<The Message Handler stored a new message into this object when NEWDAT was still set, the CPU has lost a message.
-            noMessageLostSinc=0x00000000,     ///<No message lost since this bit was reset last by the CPU.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MsglstVal> msglst{}; 
-        namespace MsglstValC{
-            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::theMessageHandler> theMessageHandler{};
-            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::noMessageLostSinc> noMessageLostSinc{};
-        }
-        ///New data
-        enum class NewdatVal {
-            theMessageHandler=0x00000001,     ///<The message handler or the CPU has written new data into the data portion of this message object.
-            noNewDataHasBeen=0x00000000,     ///<No new data has been written into the data portion of this message object by the message handler since this flag was cleared last by the CPU.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,NewdatVal> newdat{}; 
-        namespace NewdatValC{
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::theMessageHandler> theMessageHandler{};
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::noNewDataHasBeen> noNewDataHasBeen{};
-        }
-    }
-    namespace Noneif2Mctrl{    ///<Message interface 1 message control
-        using Addr = Register::Address<0x400a4098,0xffff0070,0,unsigned>;
-        ///Data length code The Data Length Code of a Message Object must be defined the same as in all the corresponding objects with the same identifier at other nodes. When the Message Handler stores a data frame, it will write the DLC to the value given by the received message. 0000 to 1000 = Data frame has 0 - 8 data bytes. 1001 to 1111 = Data frame has 8 data bytes.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc30{}; 
-        ///End of buffer
-        enum class EobVal {
-            singleMessageObjec=0x00000001,     ///<Single message object or last message object of a FIFO buffer.
-            messageObjectBelon=0x00000000,     ///<Message object belongs to a FIFO buffer and is not the last message object of that FIFO buffer.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EobVal> eob{}; 
-        namespace EobValC{
-            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::singleMessageObjec> singleMessageObjec{};
-            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::messageObjectBelon> messageObjectBelon{};
-        }
-        ///Transmit request
-        enum class TxrqstVal {
-            request=0x00000001,     ///<The transmission of this message object is requested and is not yet done
-            wait=0x00000000,     ///<This message object is not waiting for transmission.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
-        namespace TxrqstValC{
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::request> request{};
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::wait> wait{};
-        }
-        ///Remote enable
-        enum class RmtenVal {
-            txrqstset=0x00000001,     ///<At the reception of a remote frame, TXRQST is set.
-            unchanged=0x00000000,     ///<At the reception of a remote frame, TXRQST is left unchanged.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,RmtenVal> rmten{}; 
-        namespace RmtenValC{
-            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::txrqstset> txrqstset{};
-            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::unchanged> unchanged{};
-        }
-        ///Receive interrupt enable
-        enum class RxieVal {
-            intpndset=0x00000001,     ///<INTPND will be set after successful reception of a frame.
-            unchanged=0x00000000,     ///<INTPND will be left unchanged after successful reception of a frame.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,RxieVal> rxie{}; 
-        namespace RxieValC{
-            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::intpndset> intpndset{};
-            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::unchanged> unchanged{};
-        }
-        ///Transmit interrupt enable
-        enum class TxieVal {
-            intpndset=0x00000001,     ///<INTPND will be set after a successful reception of a frame.
-            unchanged=0x00000000,     ///<The INTPND bit will be left unchanged after a successful reception of a frame.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,TxieVal> txie{}; 
-        namespace TxieValC{
-            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::intpndset> intpndset{};
-            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::unchanged> unchanged{};
-        }
-        ///Use acceptance mask If UMASK is set to 1, the message object's mask bits have to be programmed during initialization of the message object before MAGVAL is set to 1.
-        enum class UmaskVal {
-            useMaskMsk280=0x00000001,     ///<Use mask (MSK[28:0], MXTD, and MDIR) for acceptance filtering.
-            maskIgnored=0x00000000,     ///<Mask ignored.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,UmaskVal> umask{}; 
-        namespace UmaskValC{
-            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::useMaskMsk280> useMaskMsk280{};
-            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::maskIgnored> maskIgnored{};
-        }
-        ///Interrupt pending
-        enum class IntpndVal {
-            intsource=0x00000001,     ///<This message object is the source of an interrupt. The Interrupt Identifier in the Interrupt Register will point to this message object if there is no other interrupt source with higher priority.
-            nointsource=0x00000000,     ///<This message object is not the source of an interrupt.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,IntpndVal> intpnd{}; 
-        namespace IntpndValC{
-            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::intsource> intsource{};
-            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::nointsource> nointsource{};
-        }
-        ///Message lost (only valid for message objects in the direction receive).
-        enum class MsglstVal {
-            theMessageHandler=0x00000001,     ///<The Message Handler stored a new message into this object when NEWDAT was still set, the CPU has lost a message.
-            noMessageLostSinc=0x00000000,     ///<No message lost since this bit was reset last by the CPU.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MsglstVal> msglst{}; 
-        namespace MsglstValC{
-            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::theMessageHandler> theMessageHandler{};
-            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::noMessageLostSinc> noMessageLostSinc{};
-        }
-        ///New data
-        enum class NewdatVal {
-            theMessageHandler=0x00000001,     ///<The message handler or the CPU has written new data into the data portion of this message object.
-            noNewDataHasBeen=0x00000000,     ///<No new data has been written into the data portion of this message object by the message handler since this flag was cleared last by the CPU.
-        };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,NewdatVal> newdat{}; 
-        namespace NewdatValC{
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::theMessageHandler> theMessageHandler{};
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::noNewDataHasBeen> noNewDataHasBeen{};
-        }
-    }
-    namespace Noneif1Da1{    ///<Message interface  data A1
-        using Addr = Register::Address<0x400a403c,0xffff0000,0,unsigned>;
-        ///Data byte 0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
-        ///Data byte 1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data1{}; 
-    }
-    namespace Noneif2Da1{    ///<Message interface  data A1
-        using Addr = Register::Address<0x400a409c,0xffff0000,0,unsigned>;
-        ///Data byte 0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
-        ///Data byte 1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data1{}; 
-    }
-    namespace Noneif1Da2{    ///<Message interface 1 data A2
-        using Addr = Register::Address<0x400a4040,0xffff0000,0,unsigned>;
-        ///Data byte 2
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data2{}; 
-        ///Data byte 3
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data3{}; 
-    }
-    namespace Noneif2Da2{    ///<Message interface 1 data A2
-        using Addr = Register::Address<0x400a40a0,0xffff0000,0,unsigned>;
-        ///Data byte 2
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data2{}; 
-        ///Data byte 3
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data3{}; 
-    }
-    namespace Noneif1Db1{    ///<Message interface 1 data B1
-        using Addr = Register::Address<0x400a4044,0xffff0000,0,unsigned>;
-        ///Data byte 4
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
-        ///Data byte 5
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data5{}; 
-    }
-    namespace Noneif2Db1{    ///<Message interface 1 data B1
-        using Addr = Register::Address<0x400a40a4,0xffff0000,0,unsigned>;
-        ///Data byte 4
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
-        ///Data byte 5
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data5{}; 
-    }
-    namespace Noneif1Db2{    ///<Message interface 1 data B2
-        using Addr = Register::Address<0x400a4048,0xffff0000,0,unsigned>;
-        ///Data byte 6
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data6{}; 
-        ///Data byte 7
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data7{}; 
-    }
-    namespace Noneif2Db2{    ///<Message interface 1 data B2
-        using Addr = Register::Address<0x400a40a8,0xffff0000,0,unsigned>;
-        ///Data byte 6
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data6{}; 
-        ///Data byte 7
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data7{}; 
-    }
-    namespace Nonetxreq1{    ///<Transmission request 1
-        using Addr = Register::Address<0x400a4100,0xffff0000,0,unsigned>;
+    namespace CCan1Txreq1{    ///<Transmission request 1
+        using Addr = Register::Address<0x400a4100,0x00000000,0x00000000,unsigned>;
         ///Transmission request bit of message objects 16 to 1. 0 = This message object is not waiting for transmission. 1 = The transmission of this message object is requested and not yet done.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txrqst161{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonetxreq2{    ///<Transmission request 2
-        using Addr = Register::Address<0x400a4104,0xffff0000,0,unsigned>;
+    namespace CCan1Txreq2{    ///<Transmission request 2
+        using Addr = Register::Address<0x400a4104,0x00000000,0x00000000,unsigned>;
         ///Transmission request bit of message objects 32 to 17. 0 = This message object is not waiting for transmission. 1 = The transmission of this message object is requested and not yet done.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txrqst3217{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonend1{    ///<New data 1
-        using Addr = Register::Address<0x400a4120,0xffff0000,0,unsigned>;
+    namespace CCan1Nd1{    ///<New data 1
+        using Addr = Register::Address<0x400a4120,0x00000000,0x00000000,unsigned>;
         ///New data bits of message objects 16 to 1. 0 = No new data has been written into the data portion of this Message Object by the Message Handler since last time this flag was cleared by the CPU. 1 = The Message Handler or the CPU has written new data into the data portion of this Message Object.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> newdat161{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonend2{    ///<New data 2
-        using Addr = Register::Address<0x400a4124,0xffff0000,0,unsigned>;
+    namespace CCan1Nd2{    ///<New data 2
+        using Addr = Register::Address<0x400a4124,0x00000000,0x00000000,unsigned>;
         ///New data bits of message objects 32 to 17. 0 = No new data has been written into the data portion of this Message Object by the Message Handler since last time this flag was cleared by the CPU. 1 = The Message Handler or the CPU has written new data into the data portion of this Message Object.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> newdat3217{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneir1{    ///<Interrupt pending 1
-        using Addr = Register::Address<0x400a4140,0xffff0000,0,unsigned>;
+    namespace CCan1Ir1{    ///<Interrupt pending 1
+        using Addr = Register::Address<0x400a4140,0x00000000,0x00000000,unsigned>;
         ///Interrupt pending bits of message objects 16 to 1. 0 = This message object is ignored by the message handler. 1 = This message object is the source of an interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> intpnd161{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneir2{    ///<Interrupt pending 2
-        using Addr = Register::Address<0x400a4144,0xffff0000,0,unsigned>;
+    namespace CCan1Ir2{    ///<Interrupt pending 2
+        using Addr = Register::Address<0x400a4144,0x00000000,0x00000000,unsigned>;
         ///Interrupt pending bits of message objects 32 to 17. 0 = This message object is ignored by the message handler. 1 = This message object is the source of an interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> intpnd3217{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemsgv1{    ///<Message valid 1
-        using Addr = Register::Address<0x400a4160,0xffff0000,0,unsigned>;
+    namespace CCan1Msgv1{    ///<Message valid 1
+        using Addr = Register::Address<0x400a4160,0x00000000,0x00000000,unsigned>;
         ///Message valid bits of message objects 16 to 1. 0 = This message object is ignored by the message handler. 1 = This message object is configured and should be considered by the message handler.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> msgval161{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemsgv2{    ///<Message valid 2
-        using Addr = Register::Address<0x400a4164,0xffff0000,0,unsigned>;
+    namespace CCan1Msgv2{    ///<Message valid 2
+        using Addr = Register::Address<0x400a4164,0x00000000,0x00000000,unsigned>;
         ///Message valid bits of message objects 32 to 17. 0 = This message object is ignored by the message handler. 1 = This message object is configured and should be considered by the message handler.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> msgval3217{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneclkdiv{    ///<CAN clock divider register
-        using Addr = Register::Address<0x400a4180,0xfffffff0,0,unsigned>;
+    namespace CCan1Clkdiv{    ///<CAN clock divider register
+        using Addr = Register::Address<0x400a4180,0x00000000,0x00000000,unsigned>;
         ///Clock divider value  CAN_CLK = PCLK/(2CLKDIVVAL  -1+1)  0000: CAN_CLK = PCLK divided by 1.  0001: CAN_CLK = PCLK divided by 2.  0010: CAN_CLK = PCLK divided by 3.  0010: CAN_CLK = PCLK divided by 4.  0011: CAN_CLK = PCLK divided by 5. 0100: CAN_CLK = PCLK divided by 9. 0101: CAN_CLK = PCLK divided by 17. ...  1111: CAN_CLK = PCLK divided by 16385.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> clkdivval{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1Cmdreq{    ///<Message interface  command request 
+        using Addr = Register::Address<0x400a4020,0x00000000,0x00000000,unsigned>;
+        ///Message number 0x01 to 0x20 = Valid message numbers The message object in the message RAM is selected for data transfer. 0x00 = Not a valid message number. This value is interpreted as 0x20.[1] 0x21 to 0x3F = Not a valid message number. This value is interpreted as 0x01 - 0x1F.[1]
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> messnum{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///BUSY flag. Set to one by hardware when writing to this Command request register. Set to zero by hardware when read/write action to this Command request register has finished.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> busy{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2Cmdreq{    ///<Message interface  command request 
+        using Addr = Register::Address<0x400a4080,0x00000000,0x00000000,unsigned>;
+        ///Message number 0x01 to 0x20 = Valid message numbers The message object in the message RAM is selected for data transfer. 0x00 = Not a valid message number. This value is interpreted as 0x20.[1] 0x21 to 0x3F = Not a valid message number. This value is interpreted as 0x01 - 0x1F.[1]
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> messnum{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,6),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///BUSY flag. Set to one by hardware when writing to this Command request register. Set to zero by hardware when read/write action to this Command request register has finished.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> busy{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1CmdmskW{    ///<Message interface command mask (write direction)
+        using Addr = Register::Address<0x400a4024,0x00000000,0x00000000,unsigned>;
+        ///Access data bytes 4-7
+        enum class DatabVal {
+            transferDataBytes=0x00000001,     ///<Transfer data bytes 4-7 to message object.
+            dataBytes47Uncha=0x00000000,     ///<data bytes 4-7 unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
+        namespace DatabValC{
+            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
+        }
+        ///Access data bytes 0-3
+        enum class DataaVal {
+            transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to message object.
+            dataBytes03Uncha=0x00000000,     ///<data bytes 0-3 unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
+        namespace DataaValC{
+            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
+        }
+        ///Access transmission request bit
+        enum class TxrqstVal {
+            requestATransmissi=0x00000001,     ///<Request a transmission. Set the TXRQST bit IF1/2_MCTRL.
+            noTransmissionRequ=0x00000000,     ///<No transmission request. TXRQSRT bit unchanged in IF1/2_MCTRL. If a transmission is requested by programming this bit, the TXRQST bit in the CANIFn_MCTRL register is ignored.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
+        namespace TxrqstValC{
+            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
+            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
+        }
+        ///This bit is ignored in the write direction.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clrintpnd{}; 
+        ///Access control bits
+        enum class CtrlVal {
+            transferControlBit=0x00000001,     ///<Transfer control bits to message object
+            controlBitsUnchang=0x00000000,     ///<Control bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
+        namespace CtrlValC{
+            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
+            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
+        }
+        ///Access arbitration bits
+        enum class ArbVal {
+            transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to message object.
+            arbitrationBitsUnc=0x00000000,     ///<Arbitration bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
+        namespace ArbValC{
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
+        }
+        ///Access mask bits
+        enum class MaskVal {
+            transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to message object.
+            maskBitsUnchanged=0x00000000,     ///<Mask bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
+        namespace MaskValC{
+            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
+        }
+        ///Write transfer Transfer data from the selected message buffer registers to the message object addressed by the command request register CANIFn_CMDREQ.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2CmdmskW{    ///<Message interface command mask (write direction)
+        using Addr = Register::Address<0x400a4084,0x00000000,0x00000000,unsigned>;
+        ///Access data bytes 4-7
+        enum class DatabVal {
+            transferDataBytes=0x00000001,     ///<Transfer data bytes 4-7 to message object.
+            dataBytes47Uncha=0x00000000,     ///<data bytes 4-7 unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
+        namespace DatabValC{
+            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
+        }
+        ///Access data bytes 0-3
+        enum class DataaVal {
+            transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to message object.
+            dataBytes03Uncha=0x00000000,     ///<data bytes 0-3 unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
+        namespace DataaValC{
+            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
+        }
+        ///Access transmission request bit
+        enum class TxrqstVal {
+            requestATransmissi=0x00000001,     ///<Request a transmission. Set the TXRQST bit IF1/2_MCTRL.
+            noTransmissionRequ=0x00000000,     ///<No transmission request. TXRQSRT bit unchanged in IF1/2_MCTRL. If a transmission is requested by programming this bit, the TXRQST bit in the CANIFn_MCTRL register is ignored.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
+        namespace TxrqstValC{
+            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
+            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
+        }
+        ///This bit is ignored in the write direction.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clrintpnd{}; 
+        ///Access control bits
+        enum class CtrlVal {
+            transferControlBit=0x00000001,     ///<Transfer control bits to message object
+            controlBitsUnchang=0x00000000,     ///<Control bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
+        namespace CtrlValC{
+            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
+            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
+        }
+        ///Access arbitration bits
+        enum class ArbVal {
+            transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to message object.
+            arbitrationBitsUnc=0x00000000,     ///<Arbitration bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
+        namespace ArbValC{
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
+        }
+        ///Access mask bits
+        enum class MaskVal {
+            transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to message object.
+            maskBitsUnchanged=0x00000000,     ///<Mask bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
+        namespace MaskValC{
+            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
+        }
+        ///Write transfer Transfer data from the selected message buffer registers to the message object addressed by the command request register CANIFn_CMDREQ.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1CmdmskR{    ///<Message interface  command mask (read direction)
+        using Addr = Register::Address<0x400a4024,0x00000000,0x00000000,unsigned>;
+        ///Access data bytes 4-7
+        enum class DatabVal {
+            transferDataBytes=0x00000001,     ///<Transfer data bytes 4-7 to IFx message buffer register.
+            dataBytes47Uncha=0x00000000,     ///<data bytes 4-7 unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
+        namespace DatabValC{
+            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
+        }
+        ///Access data bytes 0-3
+        enum class DataaVal {
+            transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to IFx message buffer.
+            dataBytes03Uncha=0x00000000,     ///<data bytes 0-3 unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
+        namespace DataaValC{
+            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
+        }
+        ///Access new data bit
+        enum class NewdatVal {
+            clearNewdatBitIn=0x00000001,     ///<Clear NEWDAT bit in the message object.
+            newdatBitRemainsU=0x00000000,     ///<NEWDAT bit remains unchanged. A read access to a message object can be combined with the reset of the control bits INTPND and NEWDAT in IF1/2_MCTRL. The values of these bits transferred to the IFx Message Control Register always reflect the status before resetting these bits.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NewdatVal> newdat{}; 
+        namespace NewdatValC{
+            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
+            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::newdatBitRemainsU> newdatBitRemainsU{};
+        }
+        ///Clear interrupt pending bit.
+        enum class ClrintpndVal {
+            clearIntpndBitIn=0x00000001,     ///<Clear INTPND bit in the message object.
+            intpndBitRemainsU=0x00000000,     ///<INTPND bit remains unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrintpndVal> clrintpnd{}; 
+        namespace ClrintpndValC{
+            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
+            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::intpndBitRemainsU> intpndBitRemainsU{};
+        }
+        ///Access control bits
+        enum class CtrlVal {
+            transferControlBit=0x00000001,     ///<Transfer control bits to IFx message buffer.
+            controlBitsUnchang=0x00000000,     ///<Control bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
+        namespace CtrlValC{
+            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
+            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
+        }
+        ///Access arbitration bits
+        enum class ArbVal {
+            transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to IFx message buffer register.
+            arbitrationBitsUnc=0x00000000,     ///<Arbitration bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
+        namespace ArbValC{
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
+        }
+        ///Access mask bits
+        enum class MaskVal {
+            transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to IFx message buffer register.
+            maskBitsUnchanged=0x00000000,     ///<Mask bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
+        namespace MaskValC{
+            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
+        }
+        ///Read transfer Transfer data from the message object addressed by the command request register to the selected message buffer registers CANIFn_CMDREQ.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2CmdmskR{    ///<Message interface  command mask (read direction)
+        using Addr = Register::Address<0x400a4084,0x00000000,0x00000000,unsigned>;
+        ///Access data bytes 4-7
+        enum class DatabVal {
+            transferDataBytes=0x00000001,     ///<Transfer data bytes 4-7 to IFx message buffer register.
+            dataBytes47Uncha=0x00000000,     ///<data bytes 4-7 unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
+        namespace DatabValC{
+            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
+        }
+        ///Access data bytes 0-3
+        enum class DataaVal {
+            transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to IFx message buffer.
+            dataBytes03Uncha=0x00000000,     ///<data bytes 0-3 unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
+        namespace DataaValC{
+            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
+        }
+        ///Access new data bit
+        enum class NewdatVal {
+            clearNewdatBitIn=0x00000001,     ///<Clear NEWDAT bit in the message object.
+            newdatBitRemainsU=0x00000000,     ///<NEWDAT bit remains unchanged. A read access to a message object can be combined with the reset of the control bits INTPND and NEWDAT in IF1/2_MCTRL. The values of these bits transferred to the IFx Message Control Register always reflect the status before resetting these bits.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NewdatVal> newdat{}; 
+        namespace NewdatValC{
+            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
+            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::newdatBitRemainsU> newdatBitRemainsU{};
+        }
+        ///Clear interrupt pending bit.
+        enum class ClrintpndVal {
+            clearIntpndBitIn=0x00000001,     ///<Clear INTPND bit in the message object.
+            intpndBitRemainsU=0x00000000,     ///<INTPND bit remains unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrintpndVal> clrintpnd{}; 
+        namespace ClrintpndValC{
+            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
+            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::intpndBitRemainsU> intpndBitRemainsU{};
+        }
+        ///Access control bits
+        enum class CtrlVal {
+            transferControlBit=0x00000001,     ///<Transfer control bits to IFx message buffer.
+            controlBitsUnchang=0x00000000,     ///<Control bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
+        namespace CtrlValC{
+            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
+            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
+        }
+        ///Access arbitration bits
+        enum class ArbVal {
+            transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to IFx message buffer register.
+            arbitrationBitsUnc=0x00000000,     ///<Arbitration bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
+        namespace ArbValC{
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
+        }
+        ///Access mask bits
+        enum class MaskVal {
+            transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to IFx message buffer register.
+            maskBitsUnchanged=0x00000000,     ///<Mask bits unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
+        namespace MaskValC{
+            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
+        }
+        ///Read transfer Transfer data from the message object addressed by the command request register to the selected message buffer registers CANIFn_CMDREQ.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1Msk1{    ///<Message interface  mask 1
+        using Addr = Register::Address<0x400a4028,0x00000000,0x00000000,unsigned>;
+        ///Identifier mask 0 = The corresponding bit in the identifier of the message can not inhibit the match in the acceptance filtering. 1 = The corresponding identifier bit is used for acceptance filtering.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> msk150{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2Msk1{    ///<Message interface  mask 1
+        using Addr = Register::Address<0x400a4088,0x00000000,0x00000000,unsigned>;
+        ///Identifier mask 0 = The corresponding bit in the identifier of the message can not inhibit the match in the acceptance filtering. 1 = The corresponding identifier bit is used for acceptance filtering.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> msk150{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1Msk2{    ///<Message interface 1 mask 2
+        using Addr = Register::Address<0x400a402c,0x00000000,0x00000000,unsigned>;
+        ///Identifier mask 0 = The corresponding bit in the identifier of the message can not inhibit the match in the acceptance filtering. 1 = The corresponding identifier bit is used for acceptance filtering.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> msk2816{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Mask message direction
+        enum class MdirVal {
+            theMessageDirectio=0x00000001,     ///<The message direction bit (DIR) is used for acceptance filtering.
+            theMessageDirectio=0x00000000,     ///<The message direction bit (DIR) has no effect on acceptance filtering.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MdirVal> mdir{}; 
+        namespace MdirValC{
+            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
+            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
+        }
+        ///Mask extend identifier
+        enum class MxtdVal {
+            theExtendedIdentif=0x00000001,     ///<The extended identifier bit (IDE) is used for acceptance filtering.
+            theExtendedIdentif=0x00000000,     ///<The extended identifier bit (IDE) has no effect on acceptance filtering.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MxtdVal> mxtd{}; 
+        namespace MxtdValC{
+            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
+            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
+        }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2Msk2{    ///<Message interface 1 mask 2
+        using Addr = Register::Address<0x400a408c,0x00000000,0x00000000,unsigned>;
+        ///Identifier mask 0 = The corresponding bit in the identifier of the message can not inhibit the match in the acceptance filtering. 1 = The corresponding identifier bit is used for acceptance filtering.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> msk2816{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///Mask message direction
+        enum class MdirVal {
+            theMessageDirectio=0x00000001,     ///<The message direction bit (DIR) is used for acceptance filtering.
+            theMessageDirectio=0x00000000,     ///<The message direction bit (DIR) has no effect on acceptance filtering.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MdirVal> mdir{}; 
+        namespace MdirValC{
+            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
+            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
+        }
+        ///Mask extend identifier
+        enum class MxtdVal {
+            theExtendedIdentif=0x00000001,     ///<The extended identifier bit (IDE) is used for acceptance filtering.
+            theExtendedIdentif=0x00000000,     ///<The extended identifier bit (IDE) has no effect on acceptance filtering.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MxtdVal> mxtd{}; 
+        namespace MxtdValC{
+            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
+            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
+        }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1Arb1{    ///<Message interface 1 arbitration 1
+        using Addr = Register::Address<0x400a4030,0x00000000,0x00000000,unsigned>;
+        ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> id150{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2Arb1{    ///<Message interface 1 arbitration 1
+        using Addr = Register::Address<0x400a4090,0x00000000,0x00000000,unsigned>;
+        ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> id150{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1Arb2{    ///<Message interface 1 arbitration 2
+        using Addr = Register::Address<0x400a4034,0x00000000,0x00000000,unsigned>;
+        ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> id2816{}; 
+        ///Message direction
+        enum class DirVal {
+            directionEqTransmit=0x00000001,     ///<Direction = transmit. On TXRQST, the respective Message Object is transmitted as a Data Frame. On reception of a Remote Frame with matching identifier, the TXRQST bit of this Message Object is set (if RMTEN = one).
+            directionEqReceive=0x00000000,     ///<Direction = receive. On TXRQST, a Remote Frame with the identifier of this Message Object is transmitted. On reception of a Data Frame with matching identifier, that message is stored in this Message Object.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,DirVal> dir{}; 
+        namespace DirValC{
+            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqTransmit> directionEqTransmit{};
+            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqReceive> directionEqReceive{};
+        }
+        ///Extend identifier
+        enum class XtdVal {
+            the29BitExtended=0x00000001,     ///<The 29-bit extended identifier will be used for this message object.
+            the11BitStandard=0x00000000,     ///<The 11-bit standard identifier will be used for this message object.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,XtdVal> xtd{}; 
+        namespace XtdValC{
+            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the29BitExtended> the29BitExtended{};
+            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the11BitStandard> the11BitStandard{};
+        }
+        ///Message valid The CPU must reset the MSGVAL bit of all unused Messages Objects during the initialization before it resets bit INIT in the CAN Control Register. This bit must also be reset before the identifier ID28:0, the control bits XTD, DIR, or the Data Length Code DLC3:0 are modified, or if the Messages Object is no longer required.
+        enum class MsgvalVal {
+            theMessageObjectI=0x00000001,     ///<The message object is configured and should be considered by the message handler.
+            theMessageObjectI=0x00000000,     ///<The message object is ignored by the message handler.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MsgvalVal> msgval{}; 
+        namespace MsgvalValC{
+            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
+            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
+        }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2Arb2{    ///<Message interface 1 arbitration 2
+        using Addr = Register::Address<0x400a4094,0x00000000,0x00000000,unsigned>;
+        ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> id2816{}; 
+        ///Message direction
+        enum class DirVal {
+            directionEqTransmit=0x00000001,     ///<Direction = transmit. On TXRQST, the respective Message Object is transmitted as a Data Frame. On reception of a Remote Frame with matching identifier, the TXRQST bit of this Message Object is set (if RMTEN = one).
+            directionEqReceive=0x00000000,     ///<Direction = receive. On TXRQST, a Remote Frame with the identifier of this Message Object is transmitted. On reception of a Data Frame with matching identifier, that message is stored in this Message Object.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,DirVal> dir{}; 
+        namespace DirValC{
+            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqTransmit> directionEqTransmit{};
+            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqReceive> directionEqReceive{};
+        }
+        ///Extend identifier
+        enum class XtdVal {
+            the29BitExtended=0x00000001,     ///<The 29-bit extended identifier will be used for this message object.
+            the11BitStandard=0x00000000,     ///<The 11-bit standard identifier will be used for this message object.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,XtdVal> xtd{}; 
+        namespace XtdValC{
+            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the29BitExtended> the29BitExtended{};
+            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the11BitStandard> the11BitStandard{};
+        }
+        ///Message valid The CPU must reset the MSGVAL bit of all unused Messages Objects during the initialization before it resets bit INIT in the CAN Control Register. This bit must also be reset before the identifier ID28:0, the control bits XTD, DIR, or the Data Length Code DLC3:0 are modified, or if the Messages Object is no longer required.
+        enum class MsgvalVal {
+            theMessageObjectI=0x00000001,     ///<The message object is configured and should be considered by the message handler.
+            theMessageObjectI=0x00000000,     ///<The message object is ignored by the message handler.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MsgvalVal> msgval{}; 
+        namespace MsgvalValC{
+            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
+            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
+        }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1Mctrl{    ///<Message interface 1 message control
+        using Addr = Register::Address<0x400a4038,0x00000000,0x00000000,unsigned>;
+        ///Data length code The Data Length Code of a Message Object must be defined the same as in all the corresponding objects with the same identifier at other nodes. When the Message Handler stores a data frame, it will write the DLC to the value given by the received message. 0000 to 1000 = Data frame has 0 - 8 data bytes. 1001 to 1111 = Data frame has 8 data bytes.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc30{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///End of buffer
+        enum class EobVal {
+            singleMessageObjec=0x00000001,     ///<Single message object or last message object of a FIFO buffer.
+            messageObjectBelon=0x00000000,     ///<Message object belongs to a FIFO buffer and is not the last message object of that FIFO buffer.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EobVal> eob{}; 
+        namespace EobValC{
+            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::singleMessageObjec> singleMessageObjec{};
+            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::messageObjectBelon> messageObjectBelon{};
+        }
+        ///Transmit request
+        enum class TxrqstVal {
+            request=0x00000001,     ///<The transmission of this message object is requested and is not yet done
+            wait=0x00000000,     ///<This message object is not waiting for transmission.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
+        namespace TxrqstValC{
+            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::request> request{};
+            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::wait> wait{};
+        }
+        ///Remote enable
+        enum class RmtenVal {
+            txrqstset=0x00000001,     ///<At the reception of a remote frame, TXRQST is set.
+            unchanged=0x00000000,     ///<At the reception of a remote frame, TXRQST is left unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,RmtenVal> rmten{}; 
+        namespace RmtenValC{
+            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::txrqstset> txrqstset{};
+            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::unchanged> unchanged{};
+        }
+        ///Receive interrupt enable
+        enum class RxieVal {
+            intpndset=0x00000001,     ///<INTPND will be set after successful reception of a frame.
+            unchanged=0x00000000,     ///<INTPND will be left unchanged after successful reception of a frame.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,RxieVal> rxie{}; 
+        namespace RxieValC{
+            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::intpndset> intpndset{};
+            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::unchanged> unchanged{};
+        }
+        ///Transmit interrupt enable
+        enum class TxieVal {
+            intpndset=0x00000001,     ///<INTPND will be set after a successful reception of a frame.
+            unchanged=0x00000000,     ///<The INTPND bit will be left unchanged after a successful reception of a frame.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,TxieVal> txie{}; 
+        namespace TxieValC{
+            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::intpndset> intpndset{};
+            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::unchanged> unchanged{};
+        }
+        ///Use acceptance mask If UMASK is set to 1, the message object's mask bits have to be programmed during initialization of the message object before MAGVAL is set to 1.
+        enum class UmaskVal {
+            useMaskMsk280=0x00000001,     ///<Use mask (MSK[28:0], MXTD, and MDIR) for acceptance filtering.
+            maskIgnored=0x00000000,     ///<Mask ignored.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,UmaskVal> umask{}; 
+        namespace UmaskValC{
+            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::useMaskMsk280> useMaskMsk280{};
+            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::maskIgnored> maskIgnored{};
+        }
+        ///Interrupt pending
+        enum class IntpndVal {
+            intsource=0x00000001,     ///<This message object is the source of an interrupt. The Interrupt Identifier in the Interrupt Register will point to this message object if there is no other interrupt source with higher priority.
+            nointsource=0x00000000,     ///<This message object is not the source of an interrupt.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,IntpndVal> intpnd{}; 
+        namespace IntpndValC{
+            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::intsource> intsource{};
+            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::nointsource> nointsource{};
+        }
+        ///Message lost (only valid for message objects in the direction receive).
+        enum class MsglstVal {
+            theMessageHandler=0x00000001,     ///<The Message Handler stored a new message into this object when NEWDAT was still set, the CPU has lost a message.
+            noMessageLostSinc=0x00000000,     ///<No message lost since this bit was reset last by the CPU.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MsglstVal> msglst{}; 
+        namespace MsglstValC{
+            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::theMessageHandler> theMessageHandler{};
+            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::noMessageLostSinc> noMessageLostSinc{};
+        }
+        ///New data
+        enum class NewdatVal {
+            theMessageHandler=0x00000001,     ///<The message handler or the CPU has written new data into the data portion of this message object.
+            noNewDataHasBeen=0x00000000,     ///<No new data has been written into the data portion of this message object by the message handler since this flag was cleared last by the CPU.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,NewdatVal> newdat{}; 
+        namespace NewdatValC{
+            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::theMessageHandler> theMessageHandler{};
+            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::noNewDataHasBeen> noNewDataHasBeen{};
+        }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2Mctrl{    ///<Message interface 1 message control
+        using Addr = Register::Address<0x400a4098,0x00000000,0x00000000,unsigned>;
+        ///Data length code The Data Length Code of a Message Object must be defined the same as in all the corresponding objects with the same identifier at other nodes. When the Message Handler stores a data frame, it will write the DLC to the value given by the received message. 0000 to 1000 = Data frame has 0 - 8 data bytes. 1001 to 1111 = Data frame has 8 data bytes.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc30{}; 
+        ///reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> reserved{}; 
+        ///End of buffer
+        enum class EobVal {
+            singleMessageObjec=0x00000001,     ///<Single message object or last message object of a FIFO buffer.
+            messageObjectBelon=0x00000000,     ///<Message object belongs to a FIFO buffer and is not the last message object of that FIFO buffer.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EobVal> eob{}; 
+        namespace EobValC{
+            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::singleMessageObjec> singleMessageObjec{};
+            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::messageObjectBelon> messageObjectBelon{};
+        }
+        ///Transmit request
+        enum class TxrqstVal {
+            request=0x00000001,     ///<The transmission of this message object is requested and is not yet done
+            wait=0x00000000,     ///<This message object is not waiting for transmission.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
+        namespace TxrqstValC{
+            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::request> request{};
+            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::wait> wait{};
+        }
+        ///Remote enable
+        enum class RmtenVal {
+            txrqstset=0x00000001,     ///<At the reception of a remote frame, TXRQST is set.
+            unchanged=0x00000000,     ///<At the reception of a remote frame, TXRQST is left unchanged.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,RmtenVal> rmten{}; 
+        namespace RmtenValC{
+            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::txrqstset> txrqstset{};
+            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::unchanged> unchanged{};
+        }
+        ///Receive interrupt enable
+        enum class RxieVal {
+            intpndset=0x00000001,     ///<INTPND will be set after successful reception of a frame.
+            unchanged=0x00000000,     ///<INTPND will be left unchanged after successful reception of a frame.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,RxieVal> rxie{}; 
+        namespace RxieValC{
+            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::intpndset> intpndset{};
+            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::unchanged> unchanged{};
+        }
+        ///Transmit interrupt enable
+        enum class TxieVal {
+            intpndset=0x00000001,     ///<INTPND will be set after a successful reception of a frame.
+            unchanged=0x00000000,     ///<The INTPND bit will be left unchanged after a successful reception of a frame.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,TxieVal> txie{}; 
+        namespace TxieValC{
+            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::intpndset> intpndset{};
+            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::unchanged> unchanged{};
+        }
+        ///Use acceptance mask If UMASK is set to 1, the message object's mask bits have to be programmed during initialization of the message object before MAGVAL is set to 1.
+        enum class UmaskVal {
+            useMaskMsk280=0x00000001,     ///<Use mask (MSK[28:0], MXTD, and MDIR) for acceptance filtering.
+            maskIgnored=0x00000000,     ///<Mask ignored.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,UmaskVal> umask{}; 
+        namespace UmaskValC{
+            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::useMaskMsk280> useMaskMsk280{};
+            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::maskIgnored> maskIgnored{};
+        }
+        ///Interrupt pending
+        enum class IntpndVal {
+            intsource=0x00000001,     ///<This message object is the source of an interrupt. The Interrupt Identifier in the Interrupt Register will point to this message object if there is no other interrupt source with higher priority.
+            nointsource=0x00000000,     ///<This message object is not the source of an interrupt.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,IntpndVal> intpnd{}; 
+        namespace IntpndValC{
+            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::intsource> intsource{};
+            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::nointsource> nointsource{};
+        }
+        ///Message lost (only valid for message objects in the direction receive).
+        enum class MsglstVal {
+            theMessageHandler=0x00000001,     ///<The Message Handler stored a new message into this object when NEWDAT was still set, the CPU has lost a message.
+            noMessageLostSinc=0x00000000,     ///<No message lost since this bit was reset last by the CPU.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MsglstVal> msglst{}; 
+        namespace MsglstValC{
+            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::theMessageHandler> theMessageHandler{};
+            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::noMessageLostSinc> noMessageLostSinc{};
+        }
+        ///New data
+        enum class NewdatVal {
+            theMessageHandler=0x00000001,     ///<The message handler or the CPU has written new data into the data portion of this message object.
+            noNewDataHasBeen=0x00000000,     ///<No new data has been written into the data portion of this message object by the message handler since this flag was cleared last by the CPU.
+        };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,NewdatVal> newdat{}; 
+        namespace NewdatValC{
+            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::theMessageHandler> theMessageHandler{};
+            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::noNewDataHasBeen> noNewDataHasBeen{};
+        }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1Da1{    ///<Message interface  data A1
+        using Addr = Register::Address<0x400a403c,0x00000000,0x00000000,unsigned>;
+        ///Data byte 0
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
+        ///Data byte 1
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data1{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2Da1{    ///<Message interface  data A1
+        using Addr = Register::Address<0x400a409c,0x00000000,0x00000000,unsigned>;
+        ///Data byte 0
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
+        ///Data byte 1
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data1{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1Da2{    ///<Message interface 1 data A2
+        using Addr = Register::Address<0x400a4040,0x00000000,0x00000000,unsigned>;
+        ///Data byte 2
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data2{}; 
+        ///Data byte 3
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data3{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2Da2{    ///<Message interface 1 data A2
+        using Addr = Register::Address<0x400a40a0,0x00000000,0x00000000,unsigned>;
+        ///Data byte 2
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data2{}; 
+        ///Data byte 3
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data3{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1Db1{    ///<Message interface 1 data B1
+        using Addr = Register::Address<0x400a4044,0x00000000,0x00000000,unsigned>;
+        ///Data byte 4
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
+        ///Data byte 5
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data5{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2Db1{    ///<Message interface 1 data B1
+        using Addr = Register::Address<0x400a40a4,0x00000000,0x00000000,unsigned>;
+        ///Data byte 4
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
+        ///Data byte 5
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data5{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If1Db2{    ///<Message interface 1 data B2
+        using Addr = Register::Address<0x400a4048,0x00000000,0x00000000,unsigned>;
+        ///Data byte 6
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data6{}; 
+        ///Data byte 7
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data7{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
+    }
+    namespace CCan1If2Db2{    ///<Message interface 1 data B2
+        using Addr = Register::Address<0x400a40a8,0x00000000,0x00000000,unsigned>;
+        ///Data byte 6
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data6{}; 
+        ///Data byte 7
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data7{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

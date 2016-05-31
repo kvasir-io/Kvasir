@@ -1,49 +1,49 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Real Time Clock (RTC)
-    namespace Nonesecr{    ///<RTC Sec setting register
-        using Addr = Register::Address<0x400cc000,0xffffff80,0,unsigned char>;
+    namespace RtcSecr{    ///<RTC Sec setting register
+        using Addr = Register::Address<0x400cc000,0xffffff80,0x00000000,unsigned char>;
         ///SE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> se{}; 
     }
-    namespace Noneminr{    ///<RTC Min settging register
-        using Addr = Register::Address<0x400cc001,0xffffff80,0,unsigned char>;
+    namespace RtcMinr{    ///<RTC Min settging register
+        using Addr = Register::Address<0x400cc001,0xffffff80,0x00000000,unsigned char>;
         ///MI
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> mi{}; 
     }
-    namespace Nonehourr{    ///<RTC Hour setting register
-        using Addr = Register::Address<0x400cc002,0xffffffc0,0,unsigned char>;
+    namespace RtcHourr{    ///<RTC Hour setting register
+        using Addr = Register::Address<0x400cc002,0xffffffc0,0x00000000,unsigned char>;
         ///HO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> ho{}; 
     }
-    namespace Nonedayr{    ///<RTC Day setting register
-        using Addr = Register::Address<0x400cc004,0xfffffff8,0,unsigned char>;
+    namespace RtcDayr{    ///<RTC Day setting register
+        using Addr = Register::Address<0x400cc004,0xfffffff8,0x00000000,unsigned char>;
         ///WE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> we{}; 
     }
-    namespace Nonedater{    ///<RTC Date setting register
-        using Addr = Register::Address<0x400cc005,0xffffffc0,0,unsigned char>;
+    namespace RtcDater{    ///<RTC Date setting register
+        using Addr = Register::Address<0x400cc005,0xffffffc0,0x00000000,unsigned char>;
         ///DA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> da{}; 
     }
-    namespace Nonemonthr{    ///<RTC Month settging register PAGE0
-        using Addr = Register::Address<0x400cc006,0xffffffe0,0,unsigned char>;
+    namespace RtcMonthr{    ///<RTC Month settging register PAGE0
+        using Addr = Register::Address<0x400cc006,0xffffffe0,0x00000000,unsigned char>;
         ///MO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> mo{}; 
     }
-    namespace NoneyearrA{    ///<RTC Year setting register PAGE0
-        using Addr = Register::Address<0x400cc007,0xffffff00,0,unsigned char>;
+    namespace RtcYearrA{    ///<RTC Year setting register PAGE0
+        using Addr = Register::Address<0x400cc007,0xffffff00,0x00000000,unsigned char>;
         ///YE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ye{}; 
     }
-    namespace NoneyearrB{    ///<RTC Leap year register PAGE1
-        using Addr = Register::Address<0x400cc007,0xfffffffc,0,unsigned char>;
+    namespace RtcYearrB{    ///<RTC Leap year register PAGE1
+        using Addr = Register::Address<0x400cc007,0xfffffffc,0x00000000,unsigned char>;
         ///LEAP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> leap{}; 
     }
-    namespace Nonepager{    ///<RTC Page register
-        using Addr = Register::Address<0x400cc008,0xffffff62,0,unsigned char>;
+    namespace RtcPager{    ///<RTC Page register
+        using Addr = Register::Address<0x400cc008,0xffffff62,0x00000000,unsigned char>;
         ///PAGE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> page{}; 
         ///ENAALM
@@ -55,8 +55,8 @@ namespace Kvasir {
         ///INTENA
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> intena{}; 
     }
-    namespace Nonerestr{    ///<RTC Reset register
-        using Addr = Register::Address<0x400cc00c,0xffffff08,0,unsigned char>;
+    namespace RtcRestr{    ///<RTC Reset register
+        using Addr = Register::Address<0x400cc00c,0xffffff08,0x00000000,unsigned char>;
         ///DIS8HZ
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dis8hz{}; 
         ///DIS4HZ
@@ -72,20 +72,20 @@ namespace Kvasir {
         ///DIS1HZ
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dis1hz{}; 
     }
-    namespace Noneprotect{    ///<RTC clock adjust control register
-        using Addr = Register::Address<0x400cc00e,0xffffff00,0,unsigned char>;
+    namespace RtcProtect{    ///<RTC clock adjust control register
+        using Addr = Register::Address<0x400cc00e,0xffffff00,0x00000000,unsigned char>;
         ///PROTECT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> protect{}; 
     }
-    namespace Noneadjctl{    ///<RTC protect register
-        using Addr = Register::Address<0x400cc00f,0xfffffff0,0,unsigned char>;
+    namespace RtcAdjctl{    ///<RTC protect register
+        using Addr = Register::Address<0x400cc00f,0xfffffff0,0x00000000,unsigned char>;
         ///AJEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ajen{}; 
         ///AJSEL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> ajsel{}; 
     }
-    namespace Noneadjdat{    ///<RTC clock adjust data register
-        using Addr = Register::Address<0x400cc010,0xfffffe00,0,unsigned>;
+    namespace RtcAdjdat{    ///<RTC clock adjust data register
+        using Addr = Register::Address<0x400cc010,0xfffffe00,0x00000000,unsigned>;
         ///ADJDAT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> adjdat{}; 
     }

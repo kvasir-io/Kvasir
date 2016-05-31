@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Noneconfig{    ///<RTC Configuration
-        using Addr = Register::Address<0x40029000,0x18f8ff00,0,unsigned>;
+    namespace Rtc0Config{    ///<RTC Configuration
+        using Addr = Register::Address<0x40029000,0x18f8ff00,0x00000000,unsigned>;
         ///Alarm 0 Automatic Reset Enable. 
         enum class Alm0arenVal {
             disabled=0x00000000,     ///<Disable the Alarm 0 automatic reset.
@@ -137,8 +137,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtcen)::Type,RtcenVal::enabled> enabled{};
         }
     }
-    namespace Nonecontrol{    ///<RTC Control
-        using Addr = Register::Address<0x40029010,0xfffffe00,0,unsigned>;
+    namespace Rtc0Control{    ///<RTC Control
+        using Addr = Register::Address<0x40029010,0xfffffe00,0x00000000,unsigned>;
         ///Alarm 0 Interrupt Flag. 
         enum class Alm0iVal {
             notSet=0x00000000,     ///<Alarm 0 event has not occurred.
@@ -194,7 +194,7 @@ namespace Kvasir {
             notSet=0x00000000,     ///<External oscillator is not valid.
             set=0x00000001,     ///<External oscillator is valid.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ClkvfVal> clkvf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClkvfVal> clkvf{}; 
         namespace ClkvfValC{
             constexpr Register::FieldValue<decltype(clkvf)::Type,ClkvfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(clkvf)::Type,ClkvfVal::set> set{};
@@ -224,34 +224,34 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The load capacitance is currently stepping.
             set=0x00000001,     ///<The load capacitance has reached its programmed value.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,LrdyfVal> lrdyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,LrdyfVal> lrdyf{}; 
         namespace LrdyfValC{
             constexpr Register::FieldValue<decltype(lrdyf)::Type,LrdyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(lrdyf)::Type,LrdyfVal::set> set{};
         }
     }
-    namespace Nonealarm0{    ///<RTC Alarm 0
-        using Addr = Register::Address<0x40029020,0x00000000,0,unsigned>;
+    namespace Rtc0Alarm0{    ///<RTC Alarm 0
+        using Addr = Register::Address<0x40029020,0x00000000,0x00000000,unsigned>;
         ///RTC Alarm 0. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> alarm0{}; 
     }
-    namespace Nonealarm1{    ///<RTC Alarm 1
-        using Addr = Register::Address<0x40029030,0x00000000,0,unsigned>;
+    namespace Rtc0Alarm1{    ///<RTC Alarm 1
+        using Addr = Register::Address<0x40029030,0x00000000,0x00000000,unsigned>;
         ///RTC Alarm 1. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> alarm1{}; 
     }
-    namespace Nonealarm2{    ///<RTC Alarm 2
-        using Addr = Register::Address<0x40029040,0x00000000,0,unsigned>;
+    namespace Rtc0Alarm2{    ///<RTC Alarm 2
+        using Addr = Register::Address<0x40029040,0x00000000,0x00000000,unsigned>;
         ///RTC Alarm 2. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> alarm2{}; 
     }
-    namespace Nonesetcap{    ///<RTC Timer Set/Capture Value
-        using Addr = Register::Address<0x40029050,0x00000000,0,unsigned>;
+    namespace Rtc0Setcap{    ///<RTC Timer Set/Capture Value
+        using Addr = Register::Address<0x40029050,0x00000000,0x00000000,unsigned>;
         ///RTC Timer Set/Capture Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> setcap{}; 
     }
-    namespace Nonelfocontrol{    ///<LFOSC Control
-        using Addr = Register::Address<0x40029060,0x7fffffff,0,unsigned>;
+    namespace Rtc0Lfocontrol{    ///<LFOSC Control
+        using Addr = Register::Address<0x40029060,0x7fffffff,0x00000000,unsigned>;
         ///Low Frequency Oscillator Enable. 
         enum class LfoscenVal {
             disabled=0x00000000,     ///<Disable the Low Frequency Oscillator (LFOSCn).
@@ -263,8 +263,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lfoscen)::Type,LfoscenVal::enabled> enabled{};
         }
     }
-    namespace Nonelfoscadj{    ///<LFOSC Output Frequency Adjust
-        using Addr = Register::Address<0x40029080,0xfffffff0,0,unsigned>;
+    namespace Rtc0Lfoscadj{    ///<LFOSC Output Frequency Adjust
+        using Addr = Register::Address<0x40029080,0xfffffff0,0x00000000,unsigned>;
         ///LFOSC Output Frequency Adjust. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> lfoscadj{}; 
     }

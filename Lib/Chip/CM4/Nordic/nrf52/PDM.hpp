@@ -1,24 +1,24 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Pulse Density Modulation (Digital Microphone) Interface
-    namespace NonetasksStart{    ///<Starts continuous PDM transfer
-        using Addr = Register::Address<0x4001d000,0xffffffff,0,unsigned>;
+    namespace PdmTasksStart{    ///<Starts continuous PDM transfer
+        using Addr = Register::Address<0x4001d000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Stops PDM transfer
-        using Addr = Register::Address<0x4001d004,0xffffffff,0,unsigned>;
+    namespace PdmTasksStop{    ///<Stops PDM transfer
+        using Addr = Register::Address<0x4001d004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStarted{    ///<PDM transfer has started
-        using Addr = Register::Address<0x4001d100,0xffffffff,0,unsigned>;
+    namespace PdmEventsStarted{    ///<PDM transfer has started
+        using Addr = Register::Address<0x4001d100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStopped{    ///<PDM transfer has finished
-        using Addr = Register::Address<0x4001d104,0xffffffff,0,unsigned>;
+    namespace PdmEventsStopped{    ///<PDM transfer has finished
+        using Addr = Register::Address<0x4001d104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsEnd{    ///<The PDM has written the last sample specified by SAMPLE.MAXCNT (or the last sample after a STOP task has been received) to Data RAM
-        using Addr = Register::Address<0x4001d108,0xffffffff,0,unsigned>;
+    namespace PdmEventsEnd{    ///<The PDM has written the last sample specified by SAMPLE.MAXCNT (or the last sample after a STOP task has been received) to Data RAM
+        using Addr = Register::Address<0x4001d108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneinten{    ///<Enable or disable interrupt
-        using Addr = Register::Address<0x4001d300,0xfffffff8,0,unsigned>;
+    namespace PdmInten{    ///<Enable or disable interrupt
+        using Addr = Register::Address<0x4001d300,0xfffffff8,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_STARTED event
         enum class StartedVal {
             disabled=0x00000000,     ///<Disable
@@ -50,8 +50,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x4001d304,0xfffffff8,0,unsigned>;
+    namespace PdmIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x4001d304,0xfffffff8,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_STARTED event
         enum class StartedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -89,8 +89,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x4001d308,0xfffffff8,0,unsigned>;
+    namespace PdmIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x4001d308,0xfffffff8,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_STARTED event
         enum class StartedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -128,8 +128,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
     }
-    namespace Noneenable{    ///<PDM module enable register
-        using Addr = Register::Address<0x4001d500,0xfffffffe,0,unsigned>;
+    namespace PdmEnable{    ///<PDM module enable register
+        using Addr = Register::Address<0x4001d500,0xfffffffe,0x00000000,unsigned>;
         ///Enable or disable PDM reception
         enum class EnableVal {
             disabled=0x00000000,     ///<Disable
@@ -141,13 +141,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
-    namespace Nonepdmclkctrl{    ///<PDM clock generator control
-        using Addr = Register::Address<0x4001d504,0x00000000,0,unsigned>;
+    namespace PdmPdmclkctrl{    ///<PDM clock generator control
+        using Addr = Register::Address<0x4001d504,0x00000000,0x00000000,unsigned>;
         ///PDM_CLK frequency
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> freq{}; 
     }
-    namespace Nonemode{    ///<Defines the routing of the connected PDM microphones' signals
-        using Addr = Register::Address<0x4001d508,0xfffffffc,0,unsigned>;
+    namespace PdmMode{    ///<Defines the routing of the connected PDM microphones' signals
+        using Addr = Register::Address<0x4001d508,0xfffffffc,0x00000000,unsigned>;
         ///Mono or stereo operation
         enum class MonoVal {
             stereo=0x00000000,     ///<Sample and store one pair (Left + Right) of 16bit samples per RAM word R=[31:16]; L=[15:0]
@@ -169,13 +169,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::leftrising> leftrising{};
         }
     }
-    namespace Nonegainl{    ///<Left output gain adjustment
-        using Addr = Register::Address<0x4001d518,0xffffff80,0,unsigned>;
+    namespace PdmGainl{    ///<Left output gain adjustment
+        using Addr = Register::Address<0x4001d518,0xffffff80,0x00000000,unsigned>;
         ///Left output gain adjustment, in 0.5 dB steps, around the requirement that 0dB gain adjustment corresponds to 2500 RMS output samples (16-bit) with 1 kHz 90dBA signal into a -26dBFS sensitivity PDM microphone. 0x00    -20 dB gain 0x01  -19.5 dB gain (...) 0x27   -0.5 dB gain 0x28      0 dB gain 0x29   +0.5 dB gain (...) 0x4F  +19.5 dB gain 0x50    +20 dB gain
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> gainl{}; 
     }
-    namespace Nonegainr{    ///<Right output gain adjustment
-        using Addr = Register::Address<0x4001d51c,0xffffff00,0,unsigned>;
+    namespace PdmGainr{    ///<Right output gain adjustment
+        using Addr = Register::Address<0x4001d51c,0xffffff00,0x00000000,unsigned>;
         ///Right output gain adjustment, in 0.5 dB steps, around the requirement that 0dB gain adjustment corresponds to 2500 RMS output samples (16-bit) with 1 kHz 90dBA signal into a -26dBFS sensitivity PDM microphone. (same encoding as GAINL)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> gainr{}; 
     }

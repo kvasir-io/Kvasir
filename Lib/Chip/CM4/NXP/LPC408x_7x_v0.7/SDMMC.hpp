@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SD card
-    namespace Nonepwr{    ///<Power control register.
-        using Addr = Register::Address<0x400c0000,0xffffff3c,0,unsigned>;
+    namespace SdmmcPwr{    ///<Power control register.
+        using Addr = Register::Address<0x400c0000,0x00000000,0x00000000,unsigned>;
         ///Power control
         enum class CtrlVal {
             powerOff=0x00000000,     ///<Power-off
@@ -16,13 +16,17 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::powerUp> powerUp{};
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::powerOn> powerOn{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> reserved{}; 
         ///SD_CMD output control.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> opendrain{}; 
         ///Rod control.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rod{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneclock{    ///<Clock control register.
-        using Addr = Register::Address<0x400c0004,0xfffff000,0,unsigned>;
+    namespace SdmmcClock{    ///<Clock control register.
+        using Addr = Register::Address<0x400c0004,0x00000000,0x00000000,unsigned>;
         ///Bus clock period: SD_CLK frequency = MCLK / [2x(ClkDiv+1)].
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
         ///Enable SD card bus clock:
@@ -65,14 +69,16 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(widebus)::Type,WidebusVal::standardBusModeO> standardBusModeO{};
             constexpr Register::FieldValue<decltype(widebus)::Type,WidebusVal::wideBusModeSdDa> wideBusModeSdDa{};
         }
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneargument{    ///<Argument register.
-        using Addr = Register::Address<0x400c0008,0x00000000,0,unsigned>;
+    namespace SdmmcArgument{    ///<Argument register.
+        using Addr = Register::Address<0x400c0008,0x00000000,0x00000000,unsigned>;
         ///Command argument
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cmdarg{}; 
     }
-    namespace Nonecommand{    ///<Command register.
-        using Addr = Register::Address<0x400c000c,0xfffff800,0,unsigned>;
+    namespace SdmmcCommand{    ///<Command register.
+        using Addr = Register::Address<0x400c000c,0x00000000,0x00000000,unsigned>;
         ///Command index.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> cmdindex{}; 
         ///If set, CPSM waits for a response.
@@ -85,44 +91,30 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> pending{}; 
         ///If set, CPSM is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> enable{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonerespcmd{    ///<Response command register.
-        using Addr = Register::Address<0x400c0010,0xffffffc0,0,unsigned>;
+    namespace SdmmcRespcmd{    ///<Response command register.
+        using Addr = Register::Address<0x400c0010,0x00000000,0x00000000,unsigned>;
         ///Response command index
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> respcmd{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,6),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneresponse0{    ///<Response register.
-        using Addr = Register::Address<0x400c0014,0x00000000,0,unsigned>;
-        ///Card status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> status{}; 
-    }
-    namespace Noneresponse1{    ///<Response register.
-        using Addr = Register::Address<0x400c0018,0x00000000,0,unsigned>;
-        ///Card status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> status{}; 
-    }
-    namespace Noneresponse2{    ///<Response register.
-        using Addr = Register::Address<0x400c001c,0x00000000,0,unsigned>;
-        ///Card status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> status{}; 
-    }
-    namespace Noneresponse3{    ///<Response register.
-        using Addr = Register::Address<0x400c0020,0x00000000,0,unsigned>;
-        ///Card status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> status{}; 
-    }
-    namespace Nonedatatimer{    ///<Data Timer.
-        using Addr = Register::Address<0x400c0024,0x00000000,0,unsigned>;
+    namespace SdmmcDatatimer{    ///<Data Timer.
+        using Addr = Register::Address<0x400c0024,0x00000000,0x00000000,unsigned>;
         ///Data timeout period.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> datatime{}; 
     }
-    namespace Nonedatalength{    ///<Data length register.
-        using Addr = Register::Address<0x400c0028,0xffff0000,0,unsigned>;
+    namespace SdmmcDatalength{    ///<Data length register.
+        using Addr = Register::Address<0x400c0028,0x00000000,0x00000000,unsigned>;
         ///Data length value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> datalength{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedatactrl{    ///<Data control register.
-        using Addr = Register::Address<0x400c002c,0xffffff00,0,unsigned>;
+    namespace SdmmcDatactrl{    ///<Data control register.
+        using Addr = Register::Address<0x400c002c,0x00000000,0x00000000,unsigned>;
         ///Data transfer enable.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> enable{}; 
         ///Data transfer direction
@@ -157,14 +149,18 @@ namespace Kvasir {
         }
         ///Data block length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> blocksize{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonedatacnt{    ///<Data counter.
-        using Addr = Register::Address<0x400c0030,0xffff0000,0,unsigned>;
+    namespace SdmmcDatacnt{    ///<Data counter.
+        using Addr = Register::Address<0x400c0030,0x00000000,0x00000000,unsigned>;
         ///Remaining data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> datacount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonestatus{    ///<Status register.
-        using Addr = Register::Address<0x400c0034,0xffc00000,0,unsigned>;
+    namespace SdmmcStatus{    ///<Status register.
+        using Addr = Register::Address<0x400c0034,0x00000000,0x00000000,unsigned>;
         ///Command response received (CRC check failed).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cmdcrcfail{}; 
         ///Data block sent/received (CRC check failed).
@@ -209,9 +205,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> txdataavlbl{}; 
         ///Data available in receive FIFO.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> rxdataavlbl{}; 
+        ///Reserved. The value read from a reserved bit is not defined.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Noneclear{    ///<Clear register.
-        using Addr = Register::Address<0x400c0038,0xfffff800,0,unsigned>;
+    namespace SdmmcClear{    ///<Clear register.
+        using Addr = Register::Address<0x400c0038,0x00000000,0x00000000,unsigned>;
         ///Clears CmdCrcFail flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cmdcrcfailclr{}; 
         ///Clears DataCrcFail flag.
@@ -234,9 +232,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> startbiterrclr{}; 
         ///Clears DataBlockEnd flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> datablockendclr{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonemask0{    ///<Interrupt 0 mask register.
-        using Addr = Register::Address<0x400c003c,0xffc00000,0,unsigned>;
+    namespace SdmmcMask0{    ///<Interrupt 0 mask register.
+        using Addr = Register::Address<0x400c003c,0x00000000,0x00000000,unsigned>;
         ///Mask CmdCrcFail flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mask0{}; 
         ///Mask DataCrcFail flag.
@@ -281,89 +281,113 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> mask20{}; 
         ///Mask RxDataAvlbl flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> mask21{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonefifocnt{    ///<FIFO Counter.
-        using Addr = Register::Address<0x400c0048,0xffff8000,0,unsigned>;
+    namespace SdmmcFifocnt{    ///<FIFO Counter.
+        using Addr = Register::Address<0x400c0048,0x00000000,0x00000000,unsigned>;
         ///Remaining data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> datacount{}; 
+        ///Reserved. Read value is undefined, only zero should be written.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,15),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace Nonefifo0{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c0080,0x00000000,0,unsigned>;
+    namespace SdmmcResponse0{    ///<Response register.
+        using Addr = Register::Address<0x400c0014,0x00000000,0x00000000,unsigned>;
+        ///Card status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> status{}; 
+    }
+    namespace SdmmcResponse1{    ///<Response register.
+        using Addr = Register::Address<0x400c0018,0x00000000,0x00000000,unsigned>;
+        ///Card status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> status{}; 
+    }
+    namespace SdmmcResponse2{    ///<Response register.
+        using Addr = Register::Address<0x400c001c,0x00000000,0x00000000,unsigned>;
+        ///Card status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> status{}; 
+    }
+    namespace SdmmcResponse3{    ///<Response register.
+        using Addr = Register::Address<0x400c0020,0x00000000,0x00000000,unsigned>;
+        ///Card status
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> status{}; 
+    }
+    namespace SdmmcFifo0{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c0080,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo1{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c0084,0x00000000,0,unsigned>;
+    namespace SdmmcFifo1{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c0084,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo2{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c0088,0x00000000,0,unsigned>;
+    namespace SdmmcFifo2{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c0088,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo3{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c008c,0x00000000,0,unsigned>;
+    namespace SdmmcFifo3{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c008c,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo4{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c0090,0x00000000,0,unsigned>;
+    namespace SdmmcFifo4{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c0090,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo5{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c0094,0x00000000,0,unsigned>;
+    namespace SdmmcFifo5{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c0094,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo6{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c0098,0x00000000,0,unsigned>;
+    namespace SdmmcFifo6{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c0098,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo7{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c009c,0x00000000,0,unsigned>;
+    namespace SdmmcFifo7{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c009c,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo8{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c00a0,0x00000000,0,unsigned>;
+    namespace SdmmcFifo8{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c00a0,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo9{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c00a4,0x00000000,0,unsigned>;
+    namespace SdmmcFifo9{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c00a4,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo10{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c00a8,0x00000000,0,unsigned>;
+    namespace SdmmcFifo10{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c00a8,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo11{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c00ac,0x00000000,0,unsigned>;
+    namespace SdmmcFifo11{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c00ac,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo12{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c00b0,0x00000000,0,unsigned>;
+    namespace SdmmcFifo12{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c00b0,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo13{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c00b4,0x00000000,0,unsigned>;
+    namespace SdmmcFifo13{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c00b4,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo14{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c00b8,0x00000000,0,unsigned>;
+    namespace SdmmcFifo14{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c00b8,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonefifo15{    ///<Data FIFO Register.
-        using Addr = Register::Address<0x400c00bc,0x00000000,0,unsigned>;
+    namespace SdmmcFifo15{    ///<Data FIFO Register.
+        using Addr = Register::Address<0x400c00bc,0x00000000,0x00000000,unsigned>;
         ///FIFO data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }

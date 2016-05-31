@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Noneconfig{    ///<Controller Configuration
-        using Addr = Register::Address<0x4002e000,0xffe2ff2c,0,unsigned>;
+    namespace Flashctrl0Config{    ///<Controller Configuration
+        using Addr = Register::Address<0x4002e000,0xffe2ff2c,0x00000000,unsigned>;
         ///Flash Speed Mode. 
         enum class SpmdVal {
             mode0=0x00000000,     ///<Read and write the flash at speed mode 0.
@@ -73,7 +73,7 @@ namespace Kvasir {
             empty=0x00000000,     ///<The flash controller write data buffer is empty.
             full=0x00000001,     ///<The flash controller write data buffer is full.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,BufstsVal> bufsts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BufstsVal> bufsts{}; 
         namespace BufstsValC{
             constexpr Register::FieldValue<decltype(bufsts)::Type,BufstsVal::empty> empty{};
             constexpr Register::FieldValue<decltype(bufsts)::Type,BufstsVal::full> full{};
@@ -83,29 +83,29 @@ namespace Kvasir {
             notSet=0x00000000,     ///<The flash interface is not busy.
             set=0x00000001,     ///<The flash interface is busy with an operation.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,BusyfVal> busyf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BusyfVal> busyf{}; 
         namespace BusyfValC{
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::set> set{};
         }
     }
-    namespace Nonewraddr{    ///<Flash Write Address
-        using Addr = Register::Address<0x4002e0a0,0x00000000,0,unsigned>;
+    namespace Flashctrl0Wraddr{    ///<Flash Write Address
+        using Addr = Register::Address<0x4002e0a0,0x00000000,0x00000000,unsigned>;
         ///Flash Write Address. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> wraddr{}; 
     }
-    namespace Nonewrdata{    ///<Flash Write Data
-        using Addr = Register::Address<0x4002e0b0,0x00000000,0,unsigned>;
+    namespace Flashctrl0Wrdata{    ///<Flash Write Data
+        using Addr = Register::Address<0x4002e0b0,0x00000000,0x00000000,unsigned>;
         ///Flash Write Data. 
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> wrdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wrdata{}; 
     }
-    namespace Nonekey{    ///<Flash Modification Key
-        using Addr = Register::Address<0x4002e0c0,0xffffff00,0,unsigned>;
+    namespace Flashctrl0Key{    ///<Flash Modification Key
+        using Addr = Register::Address<0x4002e0c0,0xffffff00,0x00000000,unsigned>;
         ///Flash Key. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
     }
-    namespace Nonetcontrol{    ///<Flash Timing Control
-        using Addr = Register::Address<0x4002e0d0,0xffffffbf,0,unsigned>;
+    namespace Flashctrl0Tcontrol{    ///<Flash Timing Control
+        using Addr = Register::Address<0x4002e0d0,0xffffffbf,0x00000000,unsigned>;
         ///Flash Read Timing Mode. 
         enum class FlrtmdVal {
             slow=0x00000000,     ///<Configure the flash read controller for AHB clocks below 12 MHz.

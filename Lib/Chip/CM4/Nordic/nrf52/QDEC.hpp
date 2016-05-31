@@ -1,39 +1,39 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Quadrature Decoder
-    namespace NonetasksStart{    ///<Task starting the quadrature decoder
-        using Addr = Register::Address<0x40012000,0xffffffff,0,unsigned>;
+    namespace QdecTasksStart{    ///<Task starting the quadrature decoder
+        using Addr = Register::Address<0x40012000,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksStop{    ///<Task stopping the quadrature decoder
-        using Addr = Register::Address<0x40012004,0xffffffff,0,unsigned>;
+    namespace QdecTasksStop{    ///<Task stopping the quadrature decoder
+        using Addr = Register::Address<0x40012004,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksReadclracc{    ///<Read and clear ACC and ACCDBL
-        using Addr = Register::Address<0x40012008,0xffffffff,0,unsigned>;
+    namespace QdecTasksReadclracc{    ///<Read and clear ACC and ACCDBL
+        using Addr = Register::Address<0x40012008,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksRdclracc{    ///<Read and clear ACC
-        using Addr = Register::Address<0x4001200c,0xffffffff,0,unsigned>;
+    namespace QdecTasksRdclracc{    ///<Read and clear ACC
+        using Addr = Register::Address<0x4001200c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NonetasksRdclrdbl{    ///<Read and clear ACCDBL
-        using Addr = Register::Address<0x40012010,0xffffffff,0,unsigned>;
+    namespace QdecTasksRdclrdbl{    ///<Read and clear ACCDBL
+        using Addr = Register::Address<0x40012010,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsSamplerdy{    ///<Event being generated for every new sample value written to the SAMPLE register
-        using Addr = Register::Address<0x40012100,0xffffffff,0,unsigned>;
+    namespace QdecEventsSamplerdy{    ///<Event being generated for every new sample value written to the SAMPLE register
+        using Addr = Register::Address<0x40012100,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsReportrdy{    ///<Non-null report ready
-        using Addr = Register::Address<0x40012104,0xffffffff,0,unsigned>;
+    namespace QdecEventsReportrdy{    ///<Non-null report ready
+        using Addr = Register::Address<0x40012104,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsAccof{    ///<ACC or ACCDBL register overflow
-        using Addr = Register::Address<0x40012108,0xffffffff,0,unsigned>;
+    namespace QdecEventsAccof{    ///<ACC or ACCDBL register overflow
+        using Addr = Register::Address<0x40012108,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsDblrdy{    ///<Double displacement(s) detected
-        using Addr = Register::Address<0x4001210c,0xffffffff,0,unsigned>;
+    namespace QdecEventsDblrdy{    ///<Double displacement(s) detected
+        using Addr = Register::Address<0x4001210c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace NoneeventsStopped{    ///<QDEC has been stopped
-        using Addr = Register::Address<0x40012110,0xffffffff,0,unsigned>;
+    namespace QdecEventsStopped{    ///<QDEC has been stopped
+        using Addr = Register::Address<0x40012110,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Noneshorts{    ///<Shortcut register
-        using Addr = Register::Address<0x40012200,0xffffff80,0,unsigned>;
+    namespace QdecShorts{    ///<Shortcut register
+        using Addr = Register::Address<0x40012200,0xffffff80,0x00000000,unsigned>;
         ///Shortcut between EVENTS_REPORTRDY event and TASKS_READCLRACC task
         enum class ReportrdyreadclraccVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -105,8 +105,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(samplerdyReadclracc)::Type,SamplerdyreadclraccVal::enabled> enabled{};
         }
     }
-    namespace Noneintenset{    ///<Enable interrupt
-        using Addr = Register::Address<0x40012304,0xffffffe0,0,unsigned>;
+    namespace QdecIntenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x40012304,0xffffffe0,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_SAMPLERDY event
         enum class SamplerdyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -168,8 +168,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
         }
     }
-    namespace Noneintenclr{    ///<Disable interrupt
-        using Addr = Register::Address<0x40012308,0xffffffe0,0,unsigned>;
+    namespace QdecIntenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x40012308,0xffffffe0,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_SAMPLERDY event
         enum class SamplerdyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -231,8 +231,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
         }
     }
-    namespace Noneenable{    ///<Enable the quadrature decoder
-        using Addr = Register::Address<0x40012500,0xfffffffe,0,unsigned>;
+    namespace QdecEnable{    ///<Enable the quadrature decoder
+        using Addr = Register::Address<0x40012500,0xfffffffe,0x00000000,unsigned>;
         ///Enable or disable the quadrature decoder
         enum class EnableVal {
             disabled=0x00000000,     ///<Disable
@@ -244,8 +244,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
-    namespace Noneledpol{    ///<LED output pin polarity
-        using Addr = Register::Address<0x40012504,0xfffffffe,0,unsigned>;
+    namespace QdecLedpol{    ///<LED output pin polarity
+        using Addr = Register::Address<0x40012504,0xfffffffe,0x00000000,unsigned>;
         ///LED output pin polarity
         enum class LedpolVal {
             activelow=0x00000000,     ///<Led active on output pin low
@@ -257,8 +257,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ledpol)::Type,LedpolVal::activehigh> activehigh{};
         }
     }
-    namespace Nonesampleper{    ///<Sample period
-        using Addr = Register::Address<0x40012508,0xfffffff0,0,unsigned>;
+    namespace QdecSampleper{    ///<Sample period
+        using Addr = Register::Address<0x40012508,0xfffffff0,0x00000000,unsigned>;
         ///Sample period. The SAMPLE register will be updated for every new sample
         enum class SampleperVal {
             v128us=0x00000000,     ///<128 us
@@ -288,13 +288,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sampleper)::Type,SampleperVal::v131ms> v131ms{};
         }
     }
-    namespace Nonesample{    ///<Motion sample value
-        using Addr = Register::Address<0x4001250c,0x00000000,0,unsigned>;
+    namespace QdecSample{    ///<Motion sample value
+        using Addr = Register::Address<0x4001250c,0x00000000,0x00000000,unsigned>;
         ///Last motion sample
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sample{}; 
     }
-    namespace Nonereportper{    ///<Number of samples to be taken before REPORTRDY and DBLRDY events can be generated
-        using Addr = Register::Address<0x40012510,0xfffffff0,0,unsigned>;
+    namespace QdecReportper{    ///<Number of samples to be taken before REPORTRDY and DBLRDY events can be generated
+        using Addr = Register::Address<0x40012510,0xfffffff0,0x00000000,unsigned>;
         ///Specifies the number of samples to be accumulated in the ACC register before the REPORTRDY and DBLRDY events can be generated
         enum class ReportperVal {
             v10smpl=0x00000000,     ///<10 samples / report
@@ -320,18 +320,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportper)::Type,ReportperVal::v1smpl> v1smpl{};
         }
     }
-    namespace Noneacc{    ///<Register accumulating the valid transitions
-        using Addr = Register::Address<0x40012514,0x00000000,0,unsigned>;
+    namespace QdecAcc{    ///<Register accumulating the valid transitions
+        using Addr = Register::Address<0x40012514,0x00000000,0x00000000,unsigned>;
         ///Register accumulating all valid samples (not double transition) read from the SAMPLE register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> acc{}; 
     }
-    namespace Noneaccread{    ///<Snapshot of the ACC register, updated by the READCLRACC or RDCLRACC task
-        using Addr = Register::Address<0x40012518,0x00000000,0,unsigned>;
+    namespace QdecAccread{    ///<Snapshot of the ACC register, updated by the READCLRACC or RDCLRACC task
+        using Addr = Register::Address<0x40012518,0x00000000,0x00000000,unsigned>;
         ///Snapshot of the ACC register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> accread{}; 
     }
-    namespace Nonedbfen{    ///<Enable input debounce filters
-        using Addr = Register::Address<0x40012528,0xfffffffe,0,unsigned>;
+    namespace QdecDbfen{    ///<Enable input debounce filters
+        using Addr = Register::Address<0x40012528,0xfffffffe,0x00000000,unsigned>;
         ///Enable input debounce filters
         enum class DbfenVal {
             disabled=0x00000000,     ///<Debounce input filters disabled
@@ -343,18 +343,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbfen)::Type,DbfenVal::enabled> enabled{};
         }
     }
-    namespace Noneledpre{    ///<Time period the LED is switched ON prior to sampling
-        using Addr = Register::Address<0x40012540,0xfffffe00,0,unsigned>;
+    namespace QdecLedpre{    ///<Time period the LED is switched ON prior to sampling
+        using Addr = Register::Address<0x40012540,0xfffffe00,0x00000000,unsigned>;
         ///Period in us the LED is switched on prior to sampling
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> ledpre{}; 
     }
-    namespace Noneaccdbl{    ///<Register accumulating the number of detected double transitions
-        using Addr = Register::Address<0x40012544,0xfffffff0,0,unsigned>;
+    namespace QdecAccdbl{    ///<Register accumulating the number of detected double transitions
+        using Addr = Register::Address<0x40012544,0xfffffff0,0x00000000,unsigned>;
         ///Register accumulating the number of detected double or illegal transitions. ( SAMPLE = 2 ).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> accdbl{}; 
     }
-    namespace Noneaccdblread{    ///<Snapshot of the ACCDBL, updated by the READCLRACC or RDCLRDBL task
-        using Addr = Register::Address<0x40012548,0xfffffff0,0,unsigned>;
+    namespace QdecAccdblread{    ///<Snapshot of the ACCDBL, updated by the READCLRACC or RDCLRDBL task
+        using Addr = Register::Address<0x40012548,0xfffffff0,0x00000000,unsigned>;
         ///Snapshot of the ACCDBL register. This field is updated when the READCLRACC or RDCLRDBL task is triggered.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> accdblread{}; 
     }

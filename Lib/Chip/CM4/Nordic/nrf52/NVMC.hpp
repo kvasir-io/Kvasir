@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Non Volatile Memory Controller
-    namespace Noneready{    ///<Ready flag
-        using Addr = Register::Address<0x4001e400,0xfffffffe,0,unsigned>;
+    namespace NvmcReady{    ///<Ready flag
+        using Addr = Register::Address<0x4001e400,0xfffffffe,0x00000000,unsigned>;
         ///NVMC is ready or busy
         enum class ReadyVal {
             busy=0x00000000,     ///<NVMC is busy (on-going write or erase operation)
@@ -15,8 +15,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::ready> ready{};
         }
     }
-    namespace Noneconfig{    ///<Configuration register
-        using Addr = Register::Address<0x4001e504,0xfffffffc,0,unsigned>;
+    namespace NvmcConfig{    ///<Configuration register
+        using Addr = Register::Address<0x4001e504,0xfffffffc,0x00000000,unsigned>;
         ///Program memory access mode. It is strongly recommended to only activate erase and write modes when they are actively used. Enabling write or erase will invalidate the cache and keep it invalidated.
         enum class WenVal {
             ren=0x00000000,     ///<Read only access
@@ -30,18 +30,18 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wen)::Type,WenVal::een> een{};
         }
     }
-    namespace Noneerasepage{    ///<Register for erasing a page in Code area
-        using Addr = Register::Address<0x4001e508,0x00000000,0,unsigned>;
+    namespace NvmcErasepage{    ///<Register for erasing a page in Code area
+        using Addr = Register::Address<0x4001e508,0x00000000,0x00000000,unsigned>;
         ///Register for starting erase of a page in Code area
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> erasepage{}; 
     }
-    namespace Noneerasepcr1{    ///<Deprecated register -  Register for erasing a page in Code area. Equivalent to ERASEPAGE.
-        using Addr = Register::Address<0x4001e508,0x00000000,0,unsigned>;
+    namespace NvmcErasepcr1{    ///<Deprecated register -  Register for erasing a page in Code area. Equivalent to ERASEPAGE.
+        using Addr = Register::Address<0x4001e508,0x00000000,0x00000000,unsigned>;
         ///Register for erasing a page in Code area. Equivalent to ERASEPAGE.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> erasepcr1{}; 
     }
-    namespace Noneeraseall{    ///<Register for erasing all non-volatile user memory
-        using Addr = Register::Address<0x4001e50c,0xfffffffe,0,unsigned>;
+    namespace NvmcEraseall{    ///<Register for erasing all non-volatile user memory
+        using Addr = Register::Address<0x4001e50c,0xfffffffe,0x00000000,unsigned>;
         ///Erase all non-volatile memory including UICR registers. Note that code erase has to be enabled by CONFIG.EEN before the UICR can be erased.
         enum class EraseallVal {
             nooperation=0x00000000,     ///<No operation
@@ -53,13 +53,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eraseall)::Type,EraseallVal::erase> erase{};
         }
     }
-    namespace Noneerasepcr0{    ///<Deprecated register -  Register for erasing a page in Code area. Equivalent to ERASEPAGE.
-        using Addr = Register::Address<0x4001e510,0x00000000,0,unsigned>;
+    namespace NvmcErasepcr0{    ///<Deprecated register -  Register for erasing a page in Code area. Equivalent to ERASEPAGE.
+        using Addr = Register::Address<0x4001e510,0x00000000,0x00000000,unsigned>;
         ///Register for starting erase of a page in Code area. Equivalent to ERASEPAGE.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> erasepcr0{}; 
     }
-    namespace Noneeraseuicr{    ///<Register for erasing User Information Configuration Registers
-        using Addr = Register::Address<0x4001e514,0xfffffffe,0,unsigned>;
+    namespace NvmcEraseuicr{    ///<Register for erasing User Information Configuration Registers
+        using Addr = Register::Address<0x4001e514,0xfffffffe,0x00000000,unsigned>;
         ///Register starting erase of all User Information Configuration Registers. Note that code erase has to be enabled by CONFIG.EEN before the UICR can be erased.
         enum class EraseuicrVal {
             nooperation=0x00000000,     ///<No operation
@@ -71,8 +71,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eraseuicr)::Type,EraseuicrVal::erase> erase{};
         }
     }
-    namespace Noneicachecnf{    ///<I-Code cache configuration register.
-        using Addr = Register::Address<0x4001e540,0xfffffefe,0,unsigned>;
+    namespace NvmcIcachecnf{    ///<I-Code cache configuration register.
+        using Addr = Register::Address<0x4001e540,0xfffffefe,0x00000000,unsigned>;
         ///Cache enable
         enum class CacheenVal {
             disabled=0x00000000,     ///<Disable cache. Invalidates all cache entries.
@@ -94,13 +94,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cacheprofen)::Type,CacheprofenVal::enabled> enabled{};
         }
     }
-    namespace Noneihit{    ///<I-Code cache hit counter.
-        using Addr = Register::Address<0x4001e548,0x00000000,0,unsigned>;
+    namespace NvmcIhit{    ///<I-Code cache hit counter.
+        using Addr = Register::Address<0x4001e548,0x00000000,0x00000000,unsigned>;
         ///Number of cache hits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hits{}; 
     }
-    namespace Noneimiss{    ///<I-Code cache miss counter.
-        using Addr = Register::Address<0x4001e54c,0x00000000,0,unsigned>;
+    namespace NvmcImiss{    ///<I-Code cache miss counter.
+        using Addr = Register::Address<0x4001e54c,0x00000000,0x00000000,unsigned>;
         ///Number of cache misses
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> misses{}; 
     }

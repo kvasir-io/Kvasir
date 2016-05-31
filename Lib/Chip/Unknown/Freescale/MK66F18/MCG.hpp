@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Multipurpose Clock Generator module
     namespace McgC1{    ///<MCG Control 1 Register
-        using Addr = Register::Address<0x40064000,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40064000,0xffffff00,0x00000000,unsigned char>;
         ///Internal Reference Stop Enable
         enum class IrefstenVal {
             v0=0x00000000,     ///<Internal reference clock is disabled in Stop mode.
@@ -72,7 +72,7 @@ namespace Kvasir {
         }
     }
     namespace McgC2{    ///<MCG Control 2 Register
-        using Addr = Register::Address<0x40064001,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40064001,0xffffff00,0x00000000,unsigned char>;
         ///Internal Reference Clock Select
         enum class IrcsVal {
             v0=0x00000000,     ///<Slow internal reference clock selected.
@@ -137,12 +137,12 @@ namespace Kvasir {
         }
     }
     namespace McgC3{    ///<MCG Control 3 Register
-        using Addr = Register::Address<0x40064002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40064002,0xffffff00,0x00000000,unsigned char>;
         ///Slow Internal Reference Clock Trim Setting
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> sctrim{}; 
     }
     namespace McgC4{    ///<MCG Control 4 Register
-        using Addr = Register::Address<0x40064003,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40064003,0xffffff00,0x00000000,unsigned char>;
         ///Slow Internal Reference Clock Fine Trim
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> scftrim{}; 
         ///Fast Internal Reference Clock Trim Setting
@@ -173,9 +173,11 @@ namespace Kvasir {
         }
     }
     namespace McgC5{    ///<MCG Control 5 Register
-        using Addr = Register::Address<0x40064004,0xffffff98,0,unsigned char>;
+        using Addr = Register::Address<0x40064004,0xffffff00,0x00000000,unsigned char>;
         ///PLL External Reference Divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> prdiv{}; 
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///PLL Stop Enable
         enum class PllstenVal {
             v0=0x00000000,     ///<MCGPLLCLK and MCGPLLCLK2X are disabled in any of the Stop modes.
@@ -196,9 +198,11 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pllclken)::Type,PllclkenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pllclken)::Type,PllclkenVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace McgC6{    ///<MCG Control 6 Register
-        using Addr = Register::Address<0x40064005,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40064005,0xffffff00,0x00000000,unsigned char>;
         ///VCO Divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> vdiv{}; 
         ///Clock Monitor Enable
@@ -233,19 +237,19 @@ namespace Kvasir {
         }
     }
     namespace McgS{    ///<MCG Status Register
-        using Addr = Register::Address<0x40064006,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40064006,0xffffff00,0x00000000,unsigned char>;
         ///Internal Reference Clock Status
         enum class IrcstVal {
             v0=0x00000000,     ///<Source of internal reference clock is the slow clock (32 kHz IRC).
             v1=0x00000001,     ///<Source of internal reference clock is the fast clock (4 MHz IRC).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrcstVal> ircst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,IrcstVal> ircst{}; 
         namespace IrcstValC{
             constexpr Register::FieldValue<decltype(ircst)::Type,IrcstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ircst)::Type,IrcstVal::v1> v1{};
         }
         ///OSC Initialization
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> oscinit0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> oscinit0{}; 
         ///Clock Mode Status
         enum class ClkstVal {
             v00=0x00000000,     ///<Encoding 0 - Output of the FLL is selected (reset default).
@@ -253,7 +257,7 @@ namespace Kvasir {
             v10=0x00000002,     ///<Encoding 2 - External reference clock is selected.
             v11=0x00000003,     ///<Encoding 3 - Output of the PLL is selected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,ClkstVal> clkst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClkstVal> clkst{}; 
         namespace ClkstValC{
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v00> v00{};
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v01> v01{};
@@ -265,7 +269,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Source of FLL reference clock is the external reference clock.
             v1=0x00000001,     ///<Source of FLL reference clock is the internal reference clock.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,IrefstVal> irefst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,IrefstVal> irefst{}; 
         namespace IrefstValC{
             constexpr Register::FieldValue<decltype(irefst)::Type,IrefstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefst)::Type,IrefstVal::v1> v1{};
@@ -275,7 +279,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Source of PLLS clock is FLL clock.
             v1=0x00000001,     ///<Source of PLLS clock is PLLCS output clock.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,PllstVal> pllst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PllstVal> pllst{}; 
         namespace PllstValC{
             constexpr Register::FieldValue<decltype(pllst)::Type,PllstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pllst)::Type,PllstVal::v1> v1{};
@@ -285,7 +289,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<PLL is currently unlocked.
             v1=0x00000001,     ///<PLL is currently locked.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Lock0Val> lock0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Lock0Val> lock0{}; 
         namespace Lock0ValC{
             constexpr Register::FieldValue<decltype(lock0)::Type,Lock0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(lock0)::Type,Lock0Val::v1> v1{};
@@ -302,7 +306,7 @@ namespace Kvasir {
         }
     }
     namespace McgSc{    ///<MCG Status and Control Register
-        using Addr = Register::Address<0x40064008,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40064008,0xffffff00,0x00000000,unsigned char>;
         ///OSC0 Loss of Clock Status
         enum class Locs0Val {
             v0=0x00000000,     ///<Loss of OSC0 has not occurred.
@@ -377,17 +381,17 @@ namespace Kvasir {
         }
     }
     namespace McgAtcvh{    ///<MCG Auto Trim Compare Value High Register
-        using Addr = Register::Address<0x4006400a,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4006400a,0xffffff00,0x00000000,unsigned char>;
         ///ATM Compare Value High
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> atcvh{}; 
     }
     namespace McgAtcvl{    ///<MCG Auto Trim Compare Value Low Register
-        using Addr = Register::Address<0x4006400b,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4006400b,0xffffff00,0x00000000,unsigned char>;
         ///ATM Compare Value Low
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> atcvl{}; 
     }
     namespace McgC7{    ///<MCG Control 7 Register
-        using Addr = Register::Address<0x4006400c,0xfffffffc,0,unsigned char>;
+        using Addr = Register::Address<0x4006400c,0xffffff00,0x00000000,unsigned char>;
         ///MCG OSC Clock Select
         enum class OscselVal {
             v00=0x00000000,     ///<Selects Oscillator (OSCCLK0).
@@ -402,9 +406,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::v11> v11{};
         }
+        ///Reserved
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace McgC8{    ///<MCG Control 8 Register
-        using Addr = Register::Address<0x4006400d,0xffffff1e,0,unsigned char>;
+        using Addr = Register::Address<0x4006400d,0xffffff00,0x00000000,unsigned char>;
         ///RTC Loss of Clock Status
         enum class Locs1Val {
             v0=0x00000000,     ///<Loss of RTC has not occur.
@@ -415,6 +423,8 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(locs1)::Type,Locs1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(locs1)::Type,Locs1Val::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///Clock Monitor Enable1
         enum class Cme1Val {
             v0=0x00000000,     ///<External clock monitor is disabled for RTC clock.
@@ -447,17 +457,19 @@ namespace Kvasir {
         }
     }
     namespace McgC9{    ///<MCG Control 9 Register
-        using Addr = Register::Address<0x4006400e,0xffffffce,0,unsigned char>;
+        using Addr = Register::Address<0x4006400e,0xffffff00,0x00000000,unsigned char>;
         ///External PLL Loss of Clock Status
         enum class ExtplllocsVal {
             v0=0x00000000,     ///<Loss of MCG EXT_PLL has not occurred.
             v1=0x00000001,     ///<Loss of MCG EXT_PLL has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ExtplllocsVal> extPllLocs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ExtplllocsVal> extPllLocs{}; 
         namespace ExtplllocsValC{
             constexpr Register::FieldValue<decltype(extPllLocs)::Type,ExtplllocsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(extPllLocs)::Type,ExtplllocsVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///MCG External PLL Loss of Clock Reset Enable
         enum class PlllocreVal {
             v0=0x00000000,     ///<Interrupt request is generated on a invalid or loss of the MCG external PLL clock.
@@ -478,9 +490,13 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pllCme)::Type,PllcmeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pllCme)::Type,PllcmeVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace McgC11{    ///<MCG Control 11 Register
-        using Addr = Register::Address<0x40064010,0xffffffef,0,unsigned char>;
+        using Addr = Register::Address<0x40064010,0xffffff00,0x00000000,unsigned char>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///PLL Clock Select
         enum class PllcsVal {
             v0=0x00000000,     ///<PLL0 output clock is selected.
@@ -491,18 +507,24 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pllcs)::Type,PllcsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pllcs)::Type,PllcsVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
     namespace McgS2{    ///<MCG Status 2 Register
-        using Addr = Register::Address<0x40064012,0xffffffef,0,unsigned char>;
+        using Addr = Register::Address<0x40064012,0xffffff00,0x00000000,unsigned char>;
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
         ///PLL Clock Select Status
         enum class PllcstVal {
             v0=0x00000000,     ///<Source of PLLCS is PLL clock.
             v1=0x00000001,     ///<Source of PLLCS is EXT_PLL clock.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,PllcstVal> pllcst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PllcstVal> pllcst{}; 
         namespace PllcstValC{
             constexpr Register::FieldValue<decltype(pllcst)::Type,PllcstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pllcst)::Type,PllcstVal::v1> v1{};
         }
+        ///no description available
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> reserved{}; 
     }
 }

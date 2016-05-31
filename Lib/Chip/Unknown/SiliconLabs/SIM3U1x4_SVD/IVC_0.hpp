@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //None
-    namespace Nonecontrol{    ///<Module Control
-        using Addr = Register::Address<0x40044000,0x3fffff88,0,unsigned>;
+    namespace Ivc0Control{    ///<Module Control
+        using Addr = Register::Address<0x40044000,0x3fffff88,0x00000000,unsigned>;
         ///Input 0 Range. 
         enum class In0rangeVal {
             v6Ma=0x00000000,     ///<Input range is 0-6 mA.

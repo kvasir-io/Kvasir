@@ -1,24 +1,24 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //General Purpose Input/Output
     namespace GpiocPdor{    ///<Port Data Output Register
-        using Addr = Register::Address<0x400ff002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x400ff002,0xffffff00,0x00000000,unsigned char>;
         ///Port Data Output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pdo{}; 
     }
     namespace GpiocPdir{    ///<Port Data Input Register
-        using Addr = Register::Address<0x400ff012,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x400ff012,0xffffff00,0x00000000,unsigned char>;
         ///Port Data Input
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pdi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pdi{}; 
     }
     namespace GpiocPddr{    ///<Port Data Direction Register
-        using Addr = Register::Address<0x400ff016,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x400ff016,0xffffff00,0x00000000,unsigned char>;
         ///Port Data Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pdd{}; 
     }
     namespace GpiocGacr{    ///<GPIO Attribute Checker Register
-        using Addr = Register::Address<0x400ff01e,0xffffff78,0,unsigned char>;
+        using Addr = Register::Address<0x400ff01e,0xffffff78,0x00000000,unsigned char>;
         ///Attribute Check Byte
         enum class AcbVal {
             v000=0x00000000,     ///<User nonsecure: Read + Write; User Secure: Read + Write; Privileged Secure: Read + Write

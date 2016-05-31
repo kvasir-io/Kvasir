@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //GPIOC
-    namespace NonegpiocDircr{    ///<GPIOC_DIRCR
-        using Addr = Register::Address<0x4001c000,0xffff0000,0,unsigned>;
+    namespace GpiocGpiocDircr{    ///<GPIOC_DIRCR
+        using Addr = Register::Address<0x4001c000,0x00000000,0x00000000,unsigned>;
         ///DIR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dir0{}; 
         ///DIR1
@@ -36,9 +36,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dir14{}; 
         ///DIR15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dir15{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonegpiocIner{    ///<GPIOC_INER
-        using Addr = Register::Address<0x4001c004,0xffff0000,0,unsigned>;
+    namespace GpiocGpiocIner{    ///<GPIOC_INER
+        using Addr = Register::Address<0x4001c004,0x00000000,0x00000000,unsigned>;
         ///INEN0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inen0{}; 
         ///INEN1
@@ -71,9 +73,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> inen14{}; 
         ///INEN15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> inen15{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonegpiocPur{    ///<GPIOC_PUR
-        using Addr = Register::Address<0x4001c008,0xffff0000,0,unsigned>;
+    namespace GpiocGpiocPur{    ///<GPIOC_PUR
+        using Addr = Register::Address<0x4001c008,0x00000000,0x00000000,unsigned>;
         ///PU0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pu0{}; 
         ///PU1
@@ -106,9 +110,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> pu14{}; 
         ///PU15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pu15{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonegpiocPdr{    ///<GPIOC_PDR
-        using Addr = Register::Address<0x4001c00c,0xffff0000,0,unsigned>;
+    namespace GpiocGpiocPdr{    ///<GPIOC_PDR
+        using Addr = Register::Address<0x4001c00c,0x00000000,0x00000000,unsigned>;
         ///PD0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0{}; 
         ///PD1
@@ -141,9 +147,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> pd14{}; 
         ///PD15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pd15{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonegpiocOdr{    ///<GPIOC_ODR
-        using Addr = Register::Address<0x4001c010,0xffff0000,0,unsigned>;
+    namespace GpiocGpiocOdr{    ///<GPIOC_ODR
+        using Addr = Register::Address<0x4001c010,0x00000000,0x00000000,unsigned>;
         ///OD0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> od0{}; 
         ///OD1
@@ -176,9 +184,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> od14{}; 
         ///OD15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> od15{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonegpiocLockr{    ///<GPIOC_LOCKR
-        using Addr = Register::Address<0x4001c018,0x00000000,0,unsigned>;
+    namespace GpiocGpiocLockr{    ///<GPIOC_LOCKR
+        using Addr = Register::Address<0x4001c018,0x00000000,0x00000000,unsigned>;
         ///LOCK0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lock0{}; 
         ///LOCK1
@@ -214,8 +224,8 @@ namespace Kvasir {
         ///LKEY
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> lkey{}; 
     }
-    namespace NonegpiocDinr{    ///<GPIOC_DINR
-        using Addr = Register::Address<0x4001c01c,0xffff0000,0,unsigned>;
+    namespace GpiocGpiocDinr{    ///<GPIOC_DINR
+        using Addr = Register::Address<0x4001c01c,0x00000000,0x00000000,unsigned>;
         ///DIN0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> din0{}; 
         ///DIN1
@@ -248,9 +258,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> din14{}; 
         ///DIN15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> din15{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonegpiocDoutr{    ///<GPIOC_DOUTR
-        using Addr = Register::Address<0x4001c020,0xffff0000,0,unsigned>;
+    namespace GpiocGpiocDoutr{    ///<GPIOC_DOUTR
+        using Addr = Register::Address<0x4001c020,0x00000000,0x00000000,unsigned>;
         ///DOUT0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout0{}; 
         ///DOUT1
@@ -283,9 +295,11 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dout14{}; 
         ///DOUT15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dout15{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
-    namespace NonegpiocSrr{    ///<GPIOC_SRR
-        using Addr = Register::Address<0x4001c024,0x00000000,0,unsigned>;
+    namespace GpiocGpiocSrr{    ///<GPIOC_SRR
+        using Addr = Register::Address<0x4001c024,0x00000000,0x00000000,unsigned>;
         ///SET0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> set0{}; 
         ///SET1
@@ -351,8 +365,8 @@ namespace Kvasir {
         ///RST15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> rst15{}; 
     }
-    namespace NonegpiocRr{    ///<GPIOC_RR
-        using Addr = Register::Address<0x4001c028,0xffff0000,0,unsigned>;
+    namespace GpiocGpiocRr{    ///<GPIOC_RR
+        using Addr = Register::Address<0x4001c028,0x00000000,0x00000000,unsigned>;
         ///RST0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rst0{}; 
         ///RST1
@@ -385,5 +399,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rst14{}; 
         ///RST15
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rst15{}; 
+        ///Reserved.
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> reserved{}; 
     }
 }

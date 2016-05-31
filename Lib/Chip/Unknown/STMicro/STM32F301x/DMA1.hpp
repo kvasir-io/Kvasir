@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //DMA controller 1
-    namespace Noneisr{    ///<DMA interrupt status register           (DMA_ISR)
-        using Addr = Register::Address<0x40020000,0xf0000000,0,unsigned>;
+    namespace Dma1Isr{    ///<DMA interrupt status register           (DMA_ISR)
+        using Addr = Register::Address<0x40020000,0xf0000000,0x00000000,unsigned>;
         ///Channel 1 Global interrupt               flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gif1{}; 
         ///Channel 1 Transfer Complete               flag
@@ -61,8 +61,8 @@ namespace Kvasir {
         ///Channel 7 Transfer Error               flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> teif7{}; 
     }
-    namespace Noneifcr{    ///<DMA interrupt flag clear register           (DMA_IFCR)
-        using Addr = Register::Address<0x40020004,0xf0000000,0,unsigned>;
+    namespace Dma1Ifcr{    ///<DMA interrupt flag clear register           (DMA_IFCR)
+        using Addr = Register::Address<0x40020004,0xf0000000,0x00000000,unsigned>;
         ///Channel 1 Global interrupt               clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cgif1{}; 
         ///Channel 1 Transfer Complete               clear
@@ -120,8 +120,8 @@ namespace Kvasir {
         ///Channel 7 Transfer Error               clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> cteif7{}; 
     }
-    namespace Noneccr1{    ///<DMA channel configuration register           (DMA_CCR)
-        using Addr = Register::Address<0x40020008,0xffff8000,0,unsigned>;
+    namespace Dma1Ccr1{    ///<DMA channel configuration register           (DMA_CCR)
+        using Addr = Register::Address<0x40020008,0xffff8000,0x00000000,unsigned>;
         ///Channel enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en{}; 
         ///Transfer complete interrupt               enable
@@ -147,23 +147,23 @@ namespace Kvasir {
         ///Memory to memory mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> mem2mem{}; 
     }
-    namespace Nonecndtr1{    ///<DMA channel 1 number of data           register
-        using Addr = Register::Address<0x4002000c,0xffff0000,0,unsigned>;
+    namespace Dma1Cndtr1{    ///<DMA channel 1 number of data           register
+        using Addr = Register::Address<0x4002000c,0xffff0000,0x00000000,unsigned>;
         ///Number of data to transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ndt{}; 
     }
-    namespace Nonecpar1{    ///<DMA channel 1 peripheral address           register
-        using Addr = Register::Address<0x40020010,0x00000000,0,unsigned>;
+    namespace Dma1Cpar1{    ///<DMA channel 1 peripheral address           register
+        using Addr = Register::Address<0x40020010,0x00000000,0x00000000,unsigned>;
         ///Peripheral address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonecmar1{    ///<DMA channel 1 memory address           register
-        using Addr = Register::Address<0x40020014,0x00000000,0,unsigned>;
+    namespace Dma1Cmar1{    ///<DMA channel 1 memory address           register
+        using Addr = Register::Address<0x40020014,0x00000000,0x00000000,unsigned>;
         ///Memory address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Noneccr2{    ///<DMA channel configuration register           (DMA_CCR)
-        using Addr = Register::Address<0x4002001c,0xffff8000,0,unsigned>;
+    namespace Dma1Ccr2{    ///<DMA channel configuration register           (DMA_CCR)
+        using Addr = Register::Address<0x4002001c,0xffff8000,0x00000000,unsigned>;
         ///Channel enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en{}; 
         ///Transfer complete interrupt               enable
@@ -189,23 +189,23 @@ namespace Kvasir {
         ///Memory to memory mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> mem2mem{}; 
     }
-    namespace Nonecndtr2{    ///<DMA channel 2 number of data           register
-        using Addr = Register::Address<0x40020020,0xffff0000,0,unsigned>;
+    namespace Dma1Cndtr2{    ///<DMA channel 2 number of data           register
+        using Addr = Register::Address<0x40020020,0xffff0000,0x00000000,unsigned>;
         ///Number of data to transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ndt{}; 
     }
-    namespace Nonecpar2{    ///<DMA channel 2 peripheral address           register
-        using Addr = Register::Address<0x40020024,0x00000000,0,unsigned>;
+    namespace Dma1Cpar2{    ///<DMA channel 2 peripheral address           register
+        using Addr = Register::Address<0x40020024,0x00000000,0x00000000,unsigned>;
         ///Peripheral address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonecmar2{    ///<DMA channel 2 memory address           register
-        using Addr = Register::Address<0x40020028,0x00000000,0,unsigned>;
+    namespace Dma1Cmar2{    ///<DMA channel 2 memory address           register
+        using Addr = Register::Address<0x40020028,0x00000000,0x00000000,unsigned>;
         ///Memory address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Noneccr3{    ///<DMA channel configuration register           (DMA_CCR)
-        using Addr = Register::Address<0x40020030,0xffff8000,0,unsigned>;
+    namespace Dma1Ccr3{    ///<DMA channel configuration register           (DMA_CCR)
+        using Addr = Register::Address<0x40020030,0xffff8000,0x00000000,unsigned>;
         ///Channel enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en{}; 
         ///Transfer complete interrupt               enable
@@ -231,23 +231,23 @@ namespace Kvasir {
         ///Memory to memory mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> mem2mem{}; 
     }
-    namespace Nonecndtr3{    ///<DMA channel 3 number of data           register
-        using Addr = Register::Address<0x40020034,0xffff0000,0,unsigned>;
+    namespace Dma1Cndtr3{    ///<DMA channel 3 number of data           register
+        using Addr = Register::Address<0x40020034,0xffff0000,0x00000000,unsigned>;
         ///Number of data to transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ndt{}; 
     }
-    namespace Nonecpar3{    ///<DMA channel 3 peripheral address           register
-        using Addr = Register::Address<0x40020038,0x00000000,0,unsigned>;
+    namespace Dma1Cpar3{    ///<DMA channel 3 peripheral address           register
+        using Addr = Register::Address<0x40020038,0x00000000,0x00000000,unsigned>;
         ///Peripheral address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonecmar3{    ///<DMA channel 3 memory address           register
-        using Addr = Register::Address<0x4002003c,0x00000000,0,unsigned>;
+    namespace Dma1Cmar3{    ///<DMA channel 3 memory address           register
+        using Addr = Register::Address<0x4002003c,0x00000000,0x00000000,unsigned>;
         ///Memory address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Noneccr4{    ///<DMA channel configuration register           (DMA_CCR)
-        using Addr = Register::Address<0x40020044,0xffff8000,0,unsigned>;
+    namespace Dma1Ccr4{    ///<DMA channel configuration register           (DMA_CCR)
+        using Addr = Register::Address<0x40020044,0xffff8000,0x00000000,unsigned>;
         ///Channel enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en{}; 
         ///Transfer complete interrupt               enable
@@ -273,23 +273,23 @@ namespace Kvasir {
         ///Memory to memory mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> mem2mem{}; 
     }
-    namespace Nonecndtr4{    ///<DMA channel 4 number of data           register
-        using Addr = Register::Address<0x40020048,0xffff0000,0,unsigned>;
+    namespace Dma1Cndtr4{    ///<DMA channel 4 number of data           register
+        using Addr = Register::Address<0x40020048,0xffff0000,0x00000000,unsigned>;
         ///Number of data to transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ndt{}; 
     }
-    namespace Nonecpar4{    ///<DMA channel 4 peripheral address           register
-        using Addr = Register::Address<0x4002004c,0x00000000,0,unsigned>;
+    namespace Dma1Cpar4{    ///<DMA channel 4 peripheral address           register
+        using Addr = Register::Address<0x4002004c,0x00000000,0x00000000,unsigned>;
         ///Peripheral address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonecmar4{    ///<DMA channel 4 memory address           register
-        using Addr = Register::Address<0x40020050,0x00000000,0,unsigned>;
+    namespace Dma1Cmar4{    ///<DMA channel 4 memory address           register
+        using Addr = Register::Address<0x40020050,0x00000000,0x00000000,unsigned>;
         ///Memory address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Noneccr5{    ///<DMA channel configuration register           (DMA_CCR)
-        using Addr = Register::Address<0x40020058,0xffff8000,0,unsigned>;
+    namespace Dma1Ccr5{    ///<DMA channel configuration register           (DMA_CCR)
+        using Addr = Register::Address<0x40020058,0xffff8000,0x00000000,unsigned>;
         ///Channel enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en{}; 
         ///Transfer complete interrupt               enable
@@ -315,23 +315,23 @@ namespace Kvasir {
         ///Memory to memory mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> mem2mem{}; 
     }
-    namespace Nonecndtr5{    ///<DMA channel 5 number of data           register
-        using Addr = Register::Address<0x4002005c,0xffff0000,0,unsigned>;
+    namespace Dma1Cndtr5{    ///<DMA channel 5 number of data           register
+        using Addr = Register::Address<0x4002005c,0xffff0000,0x00000000,unsigned>;
         ///Number of data to transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ndt{}; 
     }
-    namespace Nonecpar5{    ///<DMA channel 5 peripheral address           register
-        using Addr = Register::Address<0x40020060,0x00000000,0,unsigned>;
+    namespace Dma1Cpar5{    ///<DMA channel 5 peripheral address           register
+        using Addr = Register::Address<0x40020060,0x00000000,0x00000000,unsigned>;
         ///Peripheral address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonecmar5{    ///<DMA channel 5 memory address           register
-        using Addr = Register::Address<0x40020064,0x00000000,0,unsigned>;
+    namespace Dma1Cmar5{    ///<DMA channel 5 memory address           register
+        using Addr = Register::Address<0x40020064,0x00000000,0x00000000,unsigned>;
         ///Memory address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Noneccr6{    ///<DMA channel configuration register           (DMA_CCR)
-        using Addr = Register::Address<0x4002006c,0xffff8000,0,unsigned>;
+    namespace Dma1Ccr6{    ///<DMA channel configuration register           (DMA_CCR)
+        using Addr = Register::Address<0x4002006c,0xffff8000,0x00000000,unsigned>;
         ///Channel enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en{}; 
         ///Transfer complete interrupt               enable
@@ -357,23 +357,23 @@ namespace Kvasir {
         ///Memory to memory mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> mem2mem{}; 
     }
-    namespace Nonecndtr6{    ///<DMA channel 6 number of data           register
-        using Addr = Register::Address<0x40020070,0xffff0000,0,unsigned>;
+    namespace Dma1Cndtr6{    ///<DMA channel 6 number of data           register
+        using Addr = Register::Address<0x40020070,0xffff0000,0x00000000,unsigned>;
         ///Number of data to transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ndt{}; 
     }
-    namespace Nonecpar6{    ///<DMA channel 6 peripheral address           register
-        using Addr = Register::Address<0x40020074,0x00000000,0,unsigned>;
+    namespace Dma1Cpar6{    ///<DMA channel 6 peripheral address           register
+        using Addr = Register::Address<0x40020074,0x00000000,0x00000000,unsigned>;
         ///Peripheral address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonecmar6{    ///<DMA channel 6 memory address           register
-        using Addr = Register::Address<0x40020078,0x00000000,0,unsigned>;
+    namespace Dma1Cmar6{    ///<DMA channel 6 memory address           register
+        using Addr = Register::Address<0x40020078,0x00000000,0x00000000,unsigned>;
         ///Memory address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Noneccr7{    ///<DMA channel configuration register           (DMA_CCR)
-        using Addr = Register::Address<0x40020080,0xffff8000,0,unsigned>;
+    namespace Dma1Ccr7{    ///<DMA channel configuration register           (DMA_CCR)
+        using Addr = Register::Address<0x40020080,0xffff8000,0x00000000,unsigned>;
         ///Channel enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en{}; 
         ///Transfer complete interrupt               enable
@@ -399,18 +399,18 @@ namespace Kvasir {
         ///Memory to memory mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> mem2mem{}; 
     }
-    namespace Nonecndtr7{    ///<DMA channel 7 number of data           register
-        using Addr = Register::Address<0x40020084,0xffff0000,0,unsigned>;
+    namespace Dma1Cndtr7{    ///<DMA channel 7 number of data           register
+        using Addr = Register::Address<0x40020084,0xffff0000,0x00000000,unsigned>;
         ///Number of data to transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ndt{}; 
     }
-    namespace Nonecpar7{    ///<DMA channel 7 peripheral address           register
-        using Addr = Register::Address<0x40020088,0x00000000,0,unsigned>;
+    namespace Dma1Cpar7{    ///<DMA channel 7 peripheral address           register
+        using Addr = Register::Address<0x40020088,0x00000000,0x00000000,unsigned>;
         ///Peripheral address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pa{}; 
     }
-    namespace Nonecmar7{    ///<DMA channel 7 memory address           register
-        using Addr = Register::Address<0x4002008c,0x00000000,0,unsigned>;
+    namespace Dma1Cmar7{    ///<DMA channel 7 memory address           register
+        using Addr = Register::Address<0x4002008c,0x00000000,0x00000000,unsigned>;
         ///Memory address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
