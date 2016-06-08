@@ -176,14 +176,18 @@ using MyMemoryPolicy = Kvasir::Usb::CompactPacket::MemoryPolicy<20>;
 struct MyBuffPolicy
 {
 	template<typename T>
-	static T onIn(T && p)
+	static T pop(T && p)
 	{
 		return std::move(p);
 	}
 	template<typename T>
-	static void onOut(T && p)
+	static void push(T && p)
 	{
 		MyMemoryPolicy::AllocatorType::deallocate(std::move(p));
+	}
+	static bool empty()
+	{
+		return true;
 	}
 };
 struct MyCdcSettings : Kvasir::Usb::Cdc::DefaultSettings
