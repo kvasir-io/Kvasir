@@ -17,7 +17,7 @@ namespace Usb
 
         void pushBack(uint8_t data) { buf_[size_++] = data; }
     };
-    template <typename TPacketImpl>
+	template <typename TPacketImpl>
     class Packet
     {
         using PointerType = typename TPacketImpl::PointerType;
@@ -56,6 +56,14 @@ namespace Usb
         Endpoint getEndpoint() { return Endpoint{static_cast<uint8_t>(packet_->endpoint_ & 0x1F)}; }
 		void setEndpoint(const Endpoint ep) { packet_->endpoint_ &= ~0x1F; packet_->endpoint_ |= (ep.value_ & 0x1F); }
         void pushBack(uint8_t data) { packet_->pushBack(data); }
+	    uint8_t* begin()
+	    {
+		    return &packet_->buf_[0];
+	    }
+	    uint8_t* end()
+	    {
+		    return &packet_->buf_[packet_->size_];
+	    }
     };
 }
 }

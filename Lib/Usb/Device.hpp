@@ -263,6 +263,7 @@ namespace Usb
                 break;
             }
             };
+	        return false;
         }
         static bool handleDeviceToHost()
         {
@@ -312,10 +313,6 @@ namespace Usb
             p.makeData1(); // all acks are Data1 packets
             sendPacket(std::move(p));
         }
-        static void sendPacket(PacketType && p)
-        {
-            GetHal<Device, Tag::User>::type::sendPacket(std::move(p));
-        }
         template <typename... N, EndpointDirection... D, EndpointType... T>
         static void activateEndpoints(brigand::list<N...>,
                                       brigand::list<EndpointRequirement<D, T>...>)
@@ -327,20 +324,29 @@ namespace Usb
         {
             if (controlTransfer_.dataStageComplete())
             {
-                if (handleHostToDevice())
-                {
-                    sendControlAck(getPacket());
-                }
+	            if (handleHostToDevice())
+	            {
+		            sendControlAck(getPacket());
+	            }
+	            else
+	            {
+		            GetHal<Device, Tag::User>::type::enableEP0Out(false); // if control transfer not complete then next is data0
+	            }
             }
             else
             {
-                GetHal<Device, Tag::User>::type::enableEP0Out(
-                    data1); // if control transfer not complete then alternate data0/1 packets
+                GetHal<Device, Tag::User>::type::enableEP0Out(data1); // if control transfer not complete then alternate data0/1 packets
             }
         }
 
     public:
-        static PacketType getPacket() { return AllocatorType::allocate(); }
+		static void sendPacket(PacketType && p)
+		{
+			GetHal<Device, Tag::User>::type::sendPacket(std::move(p));
+		}
+        static PacketType getPacket() { 
+	        return AllocatorType::allocate(); 
+        }
         static void onSetupPacket(PacketType && p)
         {
             using namespace SetupPacket;
@@ -382,7 +388,7 @@ namespace Usb
 						GetHal<Device, Tag::User>::type::setAddress(static_cast<uint8_t>(controlTransfer_.getValue()));
 						break;
 					}
-					GetHal<Device, Tag::User>::type::enableEP0Out(0);
+					GetHal<Device, Tag::User>::type::enableEP0Out(false);
 				}
 				else
 				{
@@ -394,6 +400,10 @@ namespace Usb
 				brigand::at<DeviceClasses, brigand::int8_t<0>>::onIn(std::move(p));
 			}
         }
+		static void onSof() {
+			//TODO support multiple devices here
+			brigand::at<DeviceClasses, brigand::int8_t<0>>::onSof();
+		}
         static void initialize() { AllocatorType::initialize(); }
     };
     template <typename TDeviceSettings, typename... TDeviceClass>
