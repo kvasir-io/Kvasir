@@ -39,25 +39,31 @@ namespace Usb
         friend TDerived;
         static uint8_t data01_;
         static Bdt::Data * getBdt() { return ((Bdt::Data *)0x400FE000); }
-        static typename TDerived::PacketType readEndpoint(Bdt::Data & bdt)
+	    static typename TDerived::PacketType readEndpoint(Bdt::Data & bdt,
+		    Endpoint endpoint,
+		    decltype(bdt.address) newPacket = nullptr)
         {
             auto ret =
                 TDerived::PacketType::unsafeFromBufPointer(const_cast<uint8_t *>(bdt.address));
             ret.unsafeSetSize(bdt.byteCount);
-            bdt.address = 0;
+	        isSet(bdt, Bdt::InfoBits::data1) ? ret.makeData1() : ret.makeData0();
+	        bdt.address = newPacket;
+	        bdt.byteCount = 64;
+	        ret.setEndpoint(endpoint);
             return ret;
         }
-        static void giveBdtToSie(Bdt::Data & b, bool data1 = false)
+        static void giveBdtToSie(Bdt::Data & b, bool data1)
         {
             if (data1)
             {
                 b.info =
-                    Bdt::InfoBits(Bdt::InfoBits::own | Bdt::InfoBits::dts | Bdt::InfoBits::data1);
+                    Bdt::InfoBits(Bdt::InfoBits::dts | Bdt::InfoBits::data1);
             }
             else
             {
-                b.info = Bdt::InfoBits(Bdt::InfoBits::own | Bdt::InfoBits::dts);
+                b.info = Bdt::InfoBits(Bdt::InfoBits::dts);
             }
+	        b.info = b.info | Bdt::InfoBits::own;
         }
         static void handleReset()
         {
@@ -96,12 +102,13 @@ namespace Usb
             b.byteCount = p.getSize();
             if (p.isData1())
             {
-                b.info = InfoBits::own | InfoBits::dts | InfoBits::data1;
+                b.info = InfoBits::dts | InfoBits::data1;
             }
             else
             {
-                b.info = InfoBits::own | InfoBits::dts;
+                b.info = InfoBits::dts;
             }
+	        b.info = b.info | InfoBits::own;
         }
 
         // sinks a packet
@@ -113,31 +120,30 @@ namespace Usb
         static void handleTokdne()
         {
             using namespace Kvasir;
+			using Kvasir::Usb::Endpoint;
             auto stat = apply(read(Usb0Stat::endp, Usb0Stat::tx, Usb0Stat::odd));
             uint8_t physical = (uint8_t)stat[Usb0Stat::endp] * 2 + (unsigned)stat[Usb0Stat::tx];
             uint8_t idx = physical * 2 + (unsigned)stat[Usb0Stat::odd];
             auto & b = getBdt()[idx];
-            auto tokpid = getTokPid(b);
-            auto packet = readEndpoint(b);
-            packet.setEndpoint(Kvasir::Usb::Endpoint{physical});
+            auto tokpid = getTokPid(b);            
 
             switch (tokpid)
             {
             case Kvasir::Usb::Bdt::TokPid::setup:
             {
-                b.address = TDerived::getPacket().unsafeToBufPointer();
-                b.byteCount = 64;
-                apply(clear(Usb0Ctl::txsuspendtokenbusy));
-                TDerived::onSetupPacket(std::move(packet)); // pass the packet upstream
+	            apply(clear(Usb0Ctl::txsuspendtokenbusy));
+	            TDerived::onSetupPacket(readEndpoint(b, Endpoint{ physical }, TDerived::getPacket().unsafeToBufPointer())); // pass the packet upstream
                 break;
             }
-            case Kvasir::Usb::Bdt::TokPid::out:
-				b.address = TDerived::getPacket().unsafeToBufPointer();
-				b.byteCount = 64;
-                TDerived::onOutReceived(std::move(packet));
-                break;
+            case Kvasir::Usb::Bdt::TokPid::out: 
+	            TDerived::onOutReceived(readEndpoint(b, Endpoint{ physical }, TDerived::getPacket().unsafeToBufPointer()));
+	            if (physical != 0)
+	            {
+		            giveBdtToSie(b, !isSet(b, Bdt::InfoBits::data1));
+	            }
+	            break;
             case Kvasir::Usb::Bdt::TokPid::in:
-                TDerived::onInSent(std::move(packet));
+	            TDerived::onInSent(readEndpoint(b, Endpoint{ physical }));
                 break;
             }
         }
@@ -244,6 +250,7 @@ namespace Usb
 
                 if (status[Usb0Istat::softok])
                 {
+					TDerived::onSof();
                     apply(reset(Usb0Istat::softok));
                 }
 

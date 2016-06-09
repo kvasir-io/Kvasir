@@ -57,13 +57,26 @@ namespace Usb
                     return false;
                 }
             }
-	        static typename TDevice::PacketType onIn(typename TDevice::PacketType && p)
+	        static void onIn(typename TDevice::PacketType && p)
 	        {
-		        return TSettings::BufferPolicy::onIn(move(p));
+		        auto p_ =  TSettings::BufferPolicy::pop(move(p));
+		        if (p_.getSize() == 0) {
+			        TDevice::AllocatorType::deallocate(std::move(p_));
+		        }
+		        else {
+			        TDevice::sendPacket(std::move(p_));
+		        }
 	        }
 	        static void onOut(typename TDevice::PacketType && p)
 	        {
-		        TSettings::BufferPolicy::onOut(move(p));
+		        TSettings::BufferPolicy::push(move(p));
+	        }
+	        static void onSof()
+	        {
+		        if (!TSettings::BufferPolicy::empty())
+		        {
+			        onIn(TDevice::AllocatorType::allocate());
+		        }
 	        }
         };
 

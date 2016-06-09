@@ -48,12 +48,14 @@ namespace Usb
         template <typename PacketType, int Size>
         struct Allocator
         {
+	        static int inUse;
             using DataType = PacketType;
             using ImplType = typename PacketType::ImplType;
             static ImplType data_[Size];
             static Pointer<ImplType> free_;
             static DataType allocate()
             {
+	            inUse++;
                 auto n = free_->next_;
                 auto p = free_;
                 free_ = n;
@@ -64,6 +66,7 @@ namespace Usb
             }
             static void deallocate(DataType p)
             {
+	            inUse--;
                 p.setNext(free_);
                 free_ = p.unsafeToPacketPointer();
             }
@@ -73,8 +76,11 @@ namespace Usb
                 {
                     deallocate(DataType::unsafeFromBufPointer(d.buf_));
                 }
+	            inUse = 0;
             }
         };
+	    template <typename PacketType, int Size>
+		int Allocator<PacketType, Size>::inUse{0};
         template <typename PacketType, int Size>
         Pointer<typename Allocator<PacketType, Size>::ImplType> Allocator<PacketType, Size>::free_;
         template <typename PacketType, int Size>
