@@ -16,7 +16,7 @@ Kvasir introduces a seam right above the bare metal in a zero cost manner using 
 
 # Getting started with Kvasir
 We took great care to reduce dependencies, therefore Kvasir should be easy to add to an existing embedded project. To use the library simply pull the folder Lib from this repository and add it to your compilers include paths (-I directive). Be sure and set your compiler dialect to C++11 at least. It is also recommended to set optimization to -Og rather than -O0 in order to get smaller yet debugable binaries. Thats it, you're ready to go.
-`-I$(PathtoKvasir)/Lib/ -Og -std=c++11`
+`-I<PathToKvasir>/Lib/ -Og -std=c++11`
 
 # Basic concepts
 In Kvasir we view registers as tuples of BitFields, which are accessible to the user, and reserved bits which are not. The type of a BitField is not always int, as is common practice in the embedded domain, rather it is often a strongly classed enum where it is more fitting. The bool type also often represents single bits.
