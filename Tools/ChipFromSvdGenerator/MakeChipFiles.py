@@ -60,7 +60,7 @@ def parseRegister(register, baseAddress, prefix, ext):
         lsb = field.bit_offset
         fieldType = "unsigned"
         fieldName = Ft.formatVariable(field.name)
-        fieldOut += "        ///%s\n" % Ft.formatComment(field.description)
+        fieldOut += "        ///%s\n" % Ft.formatComment(Ft.getKey(ext,['field',field.name,'description']) or field.description)
         cValuesOut = ""
         if Ft.useEnumeratedValues(field.enumerated_values,field.bit_width):
             fieldType = "%sVal" % (fieldName.capitalize())
@@ -80,10 +80,18 @@ def parseRegister(register, baseAddress, prefix, ext):
             noActionIfZeroBits = Ft.clearBitsFromRange(msb,lsb,noActionIfZeroBits)
         if "zeroTo" in access: #if zeroToSet or zeroToClear then writing a 1 is a no action
             noActionIfOneBits = Ft.setBitsFromRange(msb,lsb,noActionIfOneBits)
-            
-    regType = "unsigned"
-    if register.size is not None and register.size is 8:
+    
+    size = Ft.getKey(ext,['size'])    
+    if size is not None:
+        register.size = size
+    elif register.size is None:
+        register.size = 32
+    if register.size is 8:
         regType = "unsigned char"
+    if register.size is 16:
+        regType = "unsigned short"
+    if register.size is 32:
+        regType = "unsigned"
     out = "    namespace %s{    ///<%s\n" % (Ft.formatNamespace("%s_%s" % (prefix, register.name)),Ft.formatComment(register.description))
     out += "        using Addr = Register::Address<0x%08x,0x%08x,0x%08x,%s>;\n" % (baseAddress + register.address_offset,noActionIfZeroBits,noActionIfOneBits,regType)
     out += fieldOut 

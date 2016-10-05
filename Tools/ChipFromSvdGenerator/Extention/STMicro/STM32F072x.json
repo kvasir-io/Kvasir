@@ -1,7 +1,271 @@
 {
 	"device":{
 		"cpu":{
-			"name":"CM0+"
+			"name":"CM0"
 		}
+	},
+	".USB":{
+		"register":{
+			"CNTR":{
+				"size":16
+			},
+			"ISTR":{
+				"size":16,
+				"field" : {
+					"CTR" : {
+						"description" : "Correct transfer: This bit is set by the hardware to indicate that an endpoint has successfully completed a transaction; using DIR and EP_ID bits software can determine which endpoint requested the interrupt. This bit is read-only."
+					},
+					"PMAOVR" : {
+						"modifiedWriteValues" : "zeroToClear",
+						"description" : "Packet memory area over / underrun: "
+					},
+					"ERR" : {
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"WKUP" : {
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"SUSP" : {
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"RESET" : {
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"SOF" : {
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"ESOF" : {
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"L1REQ" : {
+						"modifiedWriteValues" : "zeroToClear"
+					}
+				}
+			},
+			"FNR":{
+				"size":16
+			},
+			"DADDR":{
+				"size":16
+			},
+			"BTABLE":{
+				"size":16
+			},
+			"LPMCSR":{
+				"size":16
+			},
+			"BCDR":{
+				"size":16
+			},
+			"EP0R":{
+				"size":16,
+				"field":{
+					"CTR_RX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"SETUP":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"CTR_TX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					}
+				}
+			},
+			"EP1R":{
+				"size":16,
+				"field":{
+					"CTR_RX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"SETUP":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"CTR_TX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					}
+				}
+			},
+			"EP2R":{
+				"size":16,
+				"field":{
+					"CTR_RX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"SETUP":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"CTR_TX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					}
+				}
+			},
+			"EP3R":{
+				"size":16,
+				"field":{
+					"CTR_RX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"SETUP":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"CTR_TX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					}
+				}
+			},
+			"EP4R":{
+				"size":16,
+				"field":{
+					"CTR_RX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"SETUP":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"CTR_TX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					}
+				}
+			},
+			"EP5R":{
+				"size":16,
+				"field":{
+					"CTR_RX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"SETUP":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"CTR_TX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					}
+				}
+			},
+			"EP6R":{
+				"size":16,
+				"field":{
+					"CTR_RX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"SETUP":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"CTR_TX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					}
+				}
+			},
+			"EP7R":{
+				"size":16,
+				"field":{
+					"CTR_RX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_RX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"SETUP":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"CTR_TX":{
+						"modifiedWriteValues" : "zeroToClear"
+					},
+					"DTOG_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					},
+					"START_TX":{
+						"modifiedWriteValues" : "oneToToggle"
+					}
+				}
+			}
+		}
+	    
 	}
 }
