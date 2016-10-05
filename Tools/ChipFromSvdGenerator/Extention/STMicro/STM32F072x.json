@@ -66,7 +66,7 @@
 					"DTOG_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_RX":{
+					"STAT_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
 					"SETUP":{
@@ -78,7 +78,7 @@
 					"DTOG_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_TX":{
+					"STAT_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					}
 				}
@@ -92,7 +92,7 @@
 					"DTOG_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_RX":{
+					"STAT_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
 					"SETUP":{
@@ -104,7 +104,7 @@
 					"DTOG_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_TX":{
+					"STAT_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					}
 				}
@@ -118,7 +118,7 @@
 					"DTOG_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_RX":{
+					"STAT_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
 					"SETUP":{
@@ -130,7 +130,7 @@
 					"DTOG_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_TX":{
+					"STAT_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					}
 				}
@@ -144,7 +144,7 @@
 					"DTOG_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_RX":{
+					"STAT_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
 					"SETUP":{
@@ -156,7 +156,7 @@
 					"DTOG_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_TX":{
+					"STAT_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					}
 				}
@@ -170,7 +170,7 @@
 					"DTOG_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_RX":{
+					"STAT_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
 					"SETUP":{
@@ -182,7 +182,7 @@
 					"DTOG_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_TX":{
+					"STAT_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					}
 				}
@@ -196,7 +196,7 @@
 					"DTOG_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_RX":{
+					"STAT_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
 					"SETUP":{
@@ -208,7 +208,7 @@
 					"DTOG_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_TX":{
+					"STAT_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					}
 				}
@@ -222,7 +222,7 @@
 					"DTOG_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_RX":{
+					"STAT_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
 					"SETUP":{
@@ -234,7 +234,7 @@
 					"DTOG_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_TX":{
+					"STAT_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					}
 				}
@@ -248,7 +248,7 @@
 					"DTOG_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_RX":{
+					"STAT_RX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
 					"SETUP":{
@@ -260,7 +260,7 @@
 					"DTOG_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					},
-					"START_TX":{
+					"STAT_TX":{
 						"modifiedWriteValues" : "oneToToggle"
 					}
 				}

@@ -3,11 +3,11 @@
 namespace Kvasir {
 //Universal serial bus full-speed device      interface
     namespace UsbEp0r{    ///<endpoint 0 register
-        using Addr = Register::Address<0x40005c00,0xffff4840,0x00008080,unsigned short>;
+        using Addr = Register::Address<0x40005c00,0xffff7870,0x00008080,unsigned short>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statTx{}; 
         ///Data Toggle, for transmission              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogTx{}; 
         ///Correct Transfer for              transmission
@@ -19,18 +19,18 @@ namespace Kvasir {
         ///Setup transaction              completed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> setup{}; 
         ///Status bits, for reception              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statRx{}; 
         ///Data Toggle, for reception              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogRx{}; 
         ///Correct transfer for              reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::zeroToClear>,unsigned> ctrRx{}; 
     }
     namespace UsbEp1r{    ///<endpoint 1 register
-        using Addr = Register::Address<0x40005c04,0xffff4840,0x00008080,unsigned short>;
+        using Addr = Register::Address<0x40005c04,0xffff7870,0x00008080,unsigned short>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statTx{}; 
         ///Data Toggle, for transmission              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogTx{}; 
         ///Correct Transfer for              transmission
@@ -42,18 +42,18 @@ namespace Kvasir {
         ///Setup transaction              completed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> setup{}; 
         ///Status bits, for reception              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statRx{}; 
         ///Data Toggle, for reception              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogRx{}; 
         ///Correct transfer for              reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::zeroToClear>,unsigned> ctrRx{}; 
     }
     namespace UsbEp2r{    ///<endpoint 2 register
-        using Addr = Register::Address<0x40005c08,0xffff4840,0x00008080,unsigned short>;
+        using Addr = Register::Address<0x40005c08,0xffff7870,0x00008080,unsigned short>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statTx{}; 
         ///Data Toggle, for transmission              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogTx{}; 
         ///Correct Transfer for              transmission
@@ -65,18 +65,18 @@ namespace Kvasir {
         ///Setup transaction              completed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> setup{}; 
         ///Status bits, for reception              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statRx{}; 
         ///Data Toggle, for reception              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogRx{}; 
         ///Correct transfer for              reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::zeroToClear>,unsigned> ctrRx{}; 
     }
     namespace UsbEp3r{    ///<endpoint 3 register
-        using Addr = Register::Address<0x40005c0c,0xffff4840,0x00008080,unsigned short>;
+        using Addr = Register::Address<0x40005c0c,0xffff7870,0x00008080,unsigned short>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statTx{}; 
         ///Data Toggle, for transmission              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogTx{}; 
         ///Correct Transfer for              transmission
@@ -88,18 +88,18 @@ namespace Kvasir {
         ///Setup transaction              completed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> setup{}; 
         ///Status bits, for reception              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statRx{}; 
         ///Data Toggle, for reception              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogRx{}; 
         ///Correct transfer for              reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::zeroToClear>,unsigned> ctrRx{}; 
     }
     namespace UsbEp4r{    ///<endpoint 4 register
-        using Addr = Register::Address<0x40005c10,0xffff4840,0x00008080,unsigned short>;
+        using Addr = Register::Address<0x40005c10,0xffff7870,0x00008080,unsigned short>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statTx{}; 
         ///Data Toggle, for transmission              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogTx{}; 
         ///Correct Transfer for              transmission
@@ -111,18 +111,18 @@ namespace Kvasir {
         ///Setup transaction              completed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> setup{}; 
         ///Status bits, for reception              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statRx{}; 
         ///Data Toggle, for reception              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogRx{}; 
         ///Correct transfer for              reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::zeroToClear>,unsigned> ctrRx{}; 
     }
     namespace UsbEp5r{    ///<endpoint 5 register
-        using Addr = Register::Address<0x40005c14,0xffff4840,0x00008080,unsigned short>;
+        using Addr = Register::Address<0x40005c14,0xffff7870,0x00008080,unsigned short>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statTx{}; 
         ///Data Toggle, for transmission              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogTx{}; 
         ///Correct Transfer for              transmission
@@ -134,18 +134,18 @@ namespace Kvasir {
         ///Setup transaction              completed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> setup{}; 
         ///Status bits, for reception              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statRx{}; 
         ///Data Toggle, for reception              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogRx{}; 
         ///Correct transfer for              reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::zeroToClear>,unsigned> ctrRx{}; 
     }
     namespace UsbEp6r{    ///<endpoint 6 register
-        using Addr = Register::Address<0x40005c18,0xffff4840,0x00008080,unsigned short>;
+        using Addr = Register::Address<0x40005c18,0xffff7870,0x00008080,unsigned short>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statTx{}; 
         ///Data Toggle, for transmission              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogTx{}; 
         ///Correct Transfer for              transmission
@@ -157,18 +157,18 @@ namespace Kvasir {
         ///Setup transaction              completed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> setup{}; 
         ///Status bits, for reception              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statRx{}; 
         ///Data Toggle, for reception              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogRx{}; 
         ///Correct transfer for              reception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::zeroToClear>,unsigned> ctrRx{}; 
     }
     namespace UsbEp7r{    ///<endpoint 7 register
-        using Addr = Register::Address<0x40005c1c,0xffff4840,0x00008080,unsigned short>;
+        using Addr = Register::Address<0x40005c1c,0xffff7870,0x00008080,unsigned short>;
         ///Endpoint address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
         ///Status bits, for transmission              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statTx{}; 
         ///Data Toggle, for transmission              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogTx{}; 
         ///Correct Transfer for              transmission
@@ -180,7 +180,7 @@ namespace Kvasir {
         ///Setup transaction              completed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> setup{}; 
         ///Status bits, for reception              transfers
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> statRx{}; 
         ///Data Toggle, for reception              transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readWrite,Register::ReadActionType::normal,Register::ModifiedWriteValueType::oneToToggle>,unsigned> dtogRx{}; 
         ///Correct transfer for              reception
