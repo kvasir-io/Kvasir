@@ -39,9 +39,16 @@ namespace Register
         {
             DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0)
             {
-                auto i = GetAddress<TLocation>::read();
-                i &= ~ClearMask;
-                i |= SetMask | in;
+	            using Address = GetAddress<TLocation>;
+	            constexpr auto clearMask = ClearMask | Address::writeIgnoredIfZeroMask;
+	            constexpr auto setMask = (Address::writeIgnoredIfOneMask & ~ClearMask) | SetMask;
+	            decltype(Address::read()) i = 0;
+	            if (clearMask != 0xFFFFFFFF) //no sense reading if we are going to clear the whole thing any way
+	            {
+		            i = Address::read();
+		            i &= ~(clearMask);
+	            }
+                i |= setMask | in;
                 GetAddress<TLocation>::write(i);
                 return i;
             }

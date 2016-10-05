@@ -133,9 +133,11 @@ namespace Register{
 		//getters for specific parameters of an Action
 		template<typename T>
 			struct GetAddress;
-		template<unsigned A, unsigned WIIZ, unsigned SOTC, typename TRegType, typename TMode>
-			struct GetAddress<Address<A, WIIZ, SOTC, TRegType, TMode>> {
+		template<unsigned A, unsigned WIIZ, unsigned WIIO, typename TRegType, typename TMode>
+			struct GetAddress<Address<A, WIIZ, WIIO, TRegType, TMode>> {
 				static constexpr unsigned value = A;
+				static constexpr unsigned writeIgnoredIfZeroMask = WIIZ;
+				static constexpr unsigned writeIgnoredIfOneMask = WIIO;
 				static unsigned read() {
 					volatile TRegType& reg = *reinterpret_cast<volatile TRegType*>(value);
 					return reg;
