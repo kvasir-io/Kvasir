@@ -64,22 +64,41 @@ namespace Register{
 		template<typename TLocation>
 		struct Clear;
 		template<typename TAddress, unsigned Mask, typename Access, typename TFieldType>
-		struct Clear<
-			FieldLocation<
-				TAddress,
-				Mask,
-				Access,
-				TFieldType>> :
-			Action<
+			struct Clear<
 				FieldLocation<
 					TAddress,
 					Mask,
 					Access,
-					TFieldType>,
+					TFieldType>> :
+				Action<
+					FieldLocation<
+						TAddress,
+				Mask,
+				Access,
+				TFieldType>,
 				WriteLiteralAction<0>>
-		{
-			static_assert(onlyOneBitSet(Mask),"Register::clear only works on single bits. Use Register::write to write values to wider bit fields");
-		};
+			{
+				static_assert(onlyOneBitSet(Mask), "Register::clear only works on single bits. Use Register::write to write values to wider bit fields");
+			};
+		
+		//special case for clearing toggle bits. Writing the value back will clear these, therefore using a xor of 0 will clear.
+		template<typename TAddress, unsigned Mask, AccessType AT, ReadActionType RAT, typename TFieldType>
+			struct Clear<
+				FieldLocation<
+					TAddress,
+					Mask,
+					Access<AT, RAT, ModifiedWriteValueType::oneToToggle>,
+					TFieldType>> :
+				Action<
+					FieldLocation<
+						TAddress,
+				Mask,
+				Access<AT,RAT,ModifiedWriteValueType::oneToToggle>,
+				TFieldType>,
+				XorLiteralAction<0>>
+			{
+
+			};
 
 		template<typename TLocation>
 		using ClearT = typename Clear<TLocation>::Type;
