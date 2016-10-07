@@ -40,15 +40,16 @@ namespace Register
             DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0)
             {
 	            using Address = GetAddress<TLocation>;
-	            constexpr auto clearMask = ClearMask | Address::writeIgnoredIfZeroMask;
-	            constexpr auto setMask = (Address::writeIgnoredIfOneMask & ~ClearMask) | SetMask;
+	            constexpr auto clearOrZeroIsNoChangeMask = ClearMask | Address::writeIgnoredIfZeroMask;
+	            constexpr auto oneIsNoChangeMask = (Address::writeIgnoredIfOneMask & ~ClearMask); //remove the bits we are working on
+	            constexpr auto bitsWithFixedValues = oneIsNoChangeMask | clearOrZeroIsNoChangeMask;
 	            decltype(Address::read()) i = 0;
-	            if (clearMask != 0xFFFFFFFF) //no sense reading if we are going to clear the whole thing any way
+	            if (bitsWithFixedValues != 0xFFFFFFFF) //no sense reading if we are going to clear the whole thing any way
 	            {
 		            i = Address::read();
-		            i &= ~(clearMask);
+		            i &= ~(clearOrZeroIsNoChangeMask);
 	            }
-                i |= setMask | in;
+	            i |= SetMask | oneIsNoChangeMask | in;
                 GetAddress<TLocation>::write(i);
                 return i;
             }
@@ -59,11 +60,20 @@ namespace Register
         {
             DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0)
             {
-                auto i = GetAddress<TLocation>::read();
-                i &= ~ClearMask;
-                i ^= (XorMask | in);
-                GetAddress<TLocation>::write(i);
-                return i;
+	            using Address = GetAddress<TLocation>;
+	            constexpr auto clearOrZeroIsNoChangeMask = ClearMask | Address::writeIgnoredIfZeroMask;
+	            constexpr auto oneIsNoChangeMask = (Address::writeIgnoredIfOneMask & ~ClearMask); //remove the bits we are working on
+	            constexpr auto bitsWithFixedValues = oneIsNoChangeMask | clearOrZeroIsNoChangeMask;
+	            decltype(Address::read()) i = 0;
+	            if (bitsWithFixedValues != 0xFFFFFFFF) //no sense reading if we are going to clear the whole thing any way
+	            {
+		            i = Address::read();
+		            i &= ~(clearOrZeroIsNoChangeMask);
+	            }
+	            i |= oneIsNoChangeMask;
+	            i ^= XorMask | in;
+	            GetAddress<TLocation>::write(i);
+	            return i;
             }
         };
 
@@ -97,16 +107,9 @@ namespace Register
                   unsigned Data>
         struct RegisterExec<Register::Action<FieldLocation<TAddress, Mask, Access, FieldType>,
                                              XorLiteralAction<Data>>>
-            : GenericReadMaskOrWrite<FieldLocation<TAddress, Mask, Access, FieldType>, Mask, Data>
+            : GenericReadMaskXorWrite<FieldLocation<TAddress, Mask, Access, FieldType>, Mask, Data>
         {
             static_assert((Data & (~Mask)) == 0, "bad mask");
-            DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0)
-            {
-                auto i = GetAddress<TAddress>::read();
-                i ^= Data;
-                GetAddress<TAddress>::write(i);
-                return 0;
-            }
         };
     }
 
