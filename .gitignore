@@ -12,3 +12,6 @@ build/*
 *.suo
 *.sln
 *.pyc
+CMakeLists.txt.user
+CMakeLists.txt.autosave
+
