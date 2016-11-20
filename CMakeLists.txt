@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.11)
 
 project(Kvasir)
 
@@ -9,12 +9,11 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
   # using Clang
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   # using GCC
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pedantic -Wold-style-cast -I ${CMAKE_CURRENT_SOURCE_DIR}/Lib/")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pedantic -Wold-style-cast")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
   # using Intel C++
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
   # using Visual Studio C++
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /I\"${CMAKE_CURRENT_SOURCE_DIR}/Lib\"")
 endif()
 
 
@@ -47,6 +46,7 @@ add_library(Kvasir
     ${REGISTER_GROUP}
     )
 SET_TARGET_PROPERTIES(Kvasir PROPERTIES LINKER_LANGUAGE CXX)
+target_include_directories(Kvasir PUBLIC Lib)
 
 set(TestFiles
     test/apply.cpp
@@ -55,6 +55,7 @@ set(TestFiles
   )
 
 add_executable(KvasirTest ${TestFiles})
+target_link_libraries(KvasirTest Kvasir)
 
 add_test(Kvasir KvasirTest)
 
