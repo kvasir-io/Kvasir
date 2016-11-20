@@ -21,10 +21,6 @@ elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     # using Visual Studio C++
 endif()
 
-
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DBRIGAND_NO_BOOST_SUPPORT ")
-
 set(CMAKE_DEBUG_POSTFIX "d")
 
 set(MPL_GROUP

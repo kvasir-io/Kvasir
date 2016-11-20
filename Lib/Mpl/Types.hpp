@@ -12,7 +12,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #pragma once
-#define BRIGAND_NO_BOOST_SUPPORT 1
 #include "brigand.hpp"
 
 #ifndef NDEBUG
