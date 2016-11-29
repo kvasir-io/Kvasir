@@ -22,7 +22,7 @@ namespace Kvasir {
     namespace UicrNfcpins{    ///<Setting of pins dedicated to NFC functionality: NFC antenna or GPIO
         using Addr = Register::Address<0x1000120c,0xfffffffe,0x00000000,unsigned>;
         ///Setting of pins dedicated to NFC functionality
-        enum class ProtectVal {
+        enum class ProtectVal : unsigned {
             disabled=0x00000000,     ///<Operation as GPIO pins. Same protection as normal GPIO pins
             nfc=0x00000001,     ///<Operation as NFC antenna pins. Configures the protection for NFC operation
         };
@@ -332,7 +332,7 @@ namespace Kvasir {
         ///GPIO number P0.n onto which Reset is exposed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> pin{}; 
         ///Connection
-        enum class ConnectVal {
+        enum class ConnectVal : unsigned {
             disconnected=0x00000001,     ///<Disconnect
             connected=0x00000000,     ///<Connect
         };
@@ -347,7 +347,7 @@ namespace Kvasir {
         ///GPIO number P0.n onto which Reset is exposed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> pin{}; 
         ///Connection
-        enum class ConnectVal {
+        enum class ConnectVal : unsigned {
             disconnected=0x00000001,     ///<Disconnect
             connected=0x00000000,     ///<Connect
         };

@@ -26,7 +26,7 @@ namespace Kvasir {
     namespace LpcompShorts{    ///<Shortcut register
         using Addr = Register::Address<0x40013200,0xffffffe0,0x00000000,unsigned>;
         ///Shortcut between EVENTS_READY event and TASKS_SAMPLE task
-        enum class ReadysampleVal {
+        enum class ReadysampleVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -36,7 +36,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(readySample)::Type,ReadysampleVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_READY event and TASKS_STOP task
-        enum class ReadystopVal {
+        enum class ReadystopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -46,7 +46,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(readyStop)::Type,ReadystopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_DOWN event and TASKS_STOP task
-        enum class DownstopVal {
+        enum class DownstopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -56,7 +56,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(downStop)::Type,DownstopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_UP event and TASKS_STOP task
-        enum class UpstopVal {
+        enum class UpstopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -66,7 +66,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(upStop)::Type,UpstopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_CROSS event and TASKS_STOP task
-        enum class CrossstopVal {
+        enum class CrossstopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -79,7 +79,7 @@ namespace Kvasir {
     namespace LpcompIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40013304,0xfffffff0,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_READY event
-        enum class ReadyVal {
+        enum class ReadyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -91,7 +91,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_DOWN event
-        enum class DownVal {
+        enum class DownVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -103,7 +103,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(down)::Type,DownVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_UP event
-        enum class UpVal {
+        enum class UpVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -115,7 +115,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(up)::Type,UpVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_CROSS event
-        enum class CrossVal {
+        enum class CrossVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -130,7 +130,7 @@ namespace Kvasir {
     namespace LpcompIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40013308,0xfffffff0,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_READY event
-        enum class ReadyVal {
+        enum class ReadyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -142,7 +142,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_DOWN event
-        enum class DownVal {
+        enum class DownVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -154,7 +154,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(down)::Type,DownVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_UP event
-        enum class UpVal {
+        enum class UpVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -166,7 +166,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(up)::Type,UpVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_CROSS event
-        enum class CrossVal {
+        enum class CrossVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -181,7 +181,7 @@ namespace Kvasir {
     namespace LpcompResult{    ///<Compare result
         using Addr = Register::Address<0x40013400,0xfffffffe,0x00000000,unsigned>;
         ///Result of last compare. Decision point SAMPLE task.
-        enum class ResultVal {
+        enum class ResultVal : unsigned {
             bellow=0x00000000,     ///<Input voltage is below the reference threshold (VIN+ < VIN-).
             above=0x00000001,     ///<Input voltage is above the reference threshold (VIN+ > VIN-).
         };
@@ -194,7 +194,7 @@ namespace Kvasir {
     namespace LpcompEnable{    ///<Enable LPCOMP
         using Addr = Register::Address<0x40013500,0xfffffffc,0x00000000,unsigned>;
         ///Enable or disable LPCOMP
-        enum class EnableVal {
+        enum class EnableVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -207,7 +207,7 @@ namespace Kvasir {
     namespace LpcompPsel{    ///<Input pin select
         using Addr = Register::Address<0x40013504,0xfffffff8,0x00000000,unsigned>;
         ///Analog pin select
-        enum class PselVal {
+        enum class PselVal : unsigned {
             analoginput0=0x00000000,     ///<AIN0 selected as analog input
             analoginput1=0x00000001,     ///<AIN1 selected as analog input
             analoginput2=0x00000002,     ///<AIN2 selected as analog input
@@ -232,7 +232,7 @@ namespace Kvasir {
     namespace LpcompRefsel{    ///<Reference select
         using Addr = Register::Address<0x40013508,0xfffffff0,0x00000000,unsigned>;
         ///Reference select
-        enum class RefselVal {
+        enum class RefselVal : unsigned {
             ref18vdd=0x00000000,     ///<VDD * 1/8 selected as reference
             ref28vdd=0x00000001,     ///<VDD * 2/8 selected as reference
             ref38vdd=0x00000002,     ///<VDD * 3/8 selected as reference
@@ -273,7 +273,7 @@ namespace Kvasir {
     namespace LpcompExtrefsel{    ///<External reference select
         using Addr = Register::Address<0x4001350c,0xfffffffe,0x00000000,unsigned>;
         ///External analog reference select
-        enum class ExtrefselVal {
+        enum class ExtrefselVal : unsigned {
             analogreference0=0x00000000,     ///<Use AIN0 as external analog reference
             analogreference1=0x00000001,     ///<Use AIN1 as external analog reference
         };
@@ -286,7 +286,7 @@ namespace Kvasir {
     namespace LpcompAnadetect{    ///<Analog detect configuration
         using Addr = Register::Address<0x40013520,0xfffffffc,0x00000000,unsigned>;
         ///Analog detect configuration
-        enum class AnadetectVal {
+        enum class AnadetectVal : unsigned {
             cross=0x00000000,     ///<Generate ANADETECT on crossing, both upward crossing and downward crossing
             up=0x00000001,     ///<Generate ANADETECT on upward crossing only
             down=0x00000002,     ///<Generate ANADETECT on downward crossing only
@@ -301,7 +301,7 @@ namespace Kvasir {
     namespace LpcompHyst{    ///<Comparator hysteresis enable
         using Addr = Register::Address<0x40013538,0xfffffffe,0x00000000,unsigned>;
         ///Comparator hysteresis enable
-        enum class HystVal {
+        enum class HystVal : unsigned {
             nohyst=0x00000000,     ///<Comparator hysteresis disabled
             hyst50mv=0x00000001,     ///<Comparator hysteresis disabled (typ. 50 mV)
         };

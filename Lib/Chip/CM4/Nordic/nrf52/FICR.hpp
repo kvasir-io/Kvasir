@@ -22,7 +22,7 @@ namespace Kvasir {
     namespace FicrDeviceaddrtype{    ///<Device address type
         using Addr = Register::Address<0x100000a0,0xfffffffe,0x00000000,unsigned>;
         ///Device address type
-        enum class DeviceaddrtypeVal {
+        enum class DeviceaddrtypeVal : unsigned {
             public_=0x00000000,     ///<Public address
             random=0x00000001,     ///<Random address
         };

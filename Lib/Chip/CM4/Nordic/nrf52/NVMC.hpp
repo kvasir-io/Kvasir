@@ -5,7 +5,7 @@ namespace Kvasir {
     namespace NvmcReady{    ///<Ready flag
         using Addr = Register::Address<0x4001e400,0xfffffffe,0x00000000,unsigned>;
         ///NVMC is ready or busy
-        enum class ReadyVal {
+        enum class ReadyVal : unsigned {
             busy=0x00000000,     ///<NVMC is busy (on-going write or erase operation)
             ready=0x00000001,     ///<NVMC is ready
         };
@@ -18,7 +18,7 @@ namespace Kvasir {
     namespace NvmcConfig{    ///<Configuration register
         using Addr = Register::Address<0x4001e504,0xfffffffc,0x00000000,unsigned>;
         ///Program memory access mode. It is strongly recommended to only activate erase and write modes when they are actively used. Enabling write or erase will invalidate the cache and keep it invalidated.
-        enum class WenVal {
+        enum class WenVal : unsigned {
             ren=0x00000000,     ///<Read only access
             wen=0x00000001,     ///<Write Enabled
             een=0x00000002,     ///<Erase enabled
@@ -43,7 +43,7 @@ namespace Kvasir {
     namespace NvmcEraseall{    ///<Register for erasing all non-volatile user memory
         using Addr = Register::Address<0x4001e50c,0xfffffffe,0x00000000,unsigned>;
         ///Erase all non-volatile memory including UICR registers. Note that code erase has to be enabled by CONFIG.EEN before the UICR can be erased.
-        enum class EraseallVal {
+        enum class EraseallVal : unsigned {
             nooperation=0x00000000,     ///<No operation
             erase=0x00000001,     ///<Start chip erase
         };
@@ -61,7 +61,7 @@ namespace Kvasir {
     namespace NvmcEraseuicr{    ///<Register for erasing User Information Configuration Registers
         using Addr = Register::Address<0x4001e514,0xfffffffe,0x00000000,unsigned>;
         ///Register starting erase of all User Information Configuration Registers. Note that code erase has to be enabled by CONFIG.EEN before the UICR can be erased.
-        enum class EraseuicrVal {
+        enum class EraseuicrVal : unsigned {
             nooperation=0x00000000,     ///<No operation
             erase=0x00000001,     ///<Start erase of UICR
         };
@@ -74,7 +74,7 @@ namespace Kvasir {
     namespace NvmcIcachecnf{    ///<I-Code cache configuration register.
         using Addr = Register::Address<0x4001e540,0xfffffefe,0x00000000,unsigned>;
         ///Cache enable
-        enum class CacheenVal {
+        enum class CacheenVal : unsigned {
             disabled=0x00000000,     ///<Disable cache. Invalidates all cache entries.
             enabled=0x00000001,     ///<Enable cache
         };
@@ -84,7 +84,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cacheen)::Type,CacheenVal::enabled> enabled{};
         }
         ///Cache profiling enable
-        enum class CacheprofenVal {
+        enum class CacheprofenVal : unsigned {
             disabled=0x00000000,     ///<Disable cache profiling
             enabled=0x00000001,     ///<Enable cache profiling
         };

@@ -17,7 +17,7 @@ namespace Kvasir {
     namespace EcbIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x4000e304,0xfffffffc,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_ENDECB event
-        enum class EndecbVal {
+        enum class EndecbVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -29,7 +29,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_ERRORECB event
-        enum class ErrorecbVal {
+        enum class ErrorecbVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -44,7 +44,7 @@ namespace Kvasir {
     namespace EcbIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x4000e308,0xfffffffc,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_ENDECB event
-        enum class EndecbVal {
+        enum class EndecbVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -56,7 +56,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_ERRORECB event
-        enum class ErrorecbVal {
+        enum class ErrorecbVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable

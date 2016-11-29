@@ -38,7 +38,7 @@ namespace Kvasir {
     namespace Twi0Shorts{    ///<Shortcut register
         using Addr = Register::Address<0x40003200,0xfffffffc,0x00000000,unsigned>;
         ///Shortcut between EVENTS_BB event and TASKS_SUSPEND task
-        enum class BbsuspendVal {
+        enum class BbsuspendVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -48,7 +48,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bbSuspend)::Type,BbsuspendVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_BB event and TASKS_STOP task
-        enum class BbstopVal {
+        enum class BbstopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -61,7 +61,7 @@ namespace Kvasir {
     namespace Twi0Intenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40003304,0xfffbbd79,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -73,7 +73,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_RXDREADY event
-        enum class RxdreadyVal {
+        enum class RxdreadyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -85,7 +85,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdready)::Type,RxdreadyVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TXDSENT event
-        enum class TxdsentVal {
+        enum class TxdsentVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -97,7 +97,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdsent)::Type,TxdsentVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_ERROR event
-        enum class ErrorVal {
+        enum class ErrorVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -109,7 +109,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_BB event
-        enum class BbVal {
+        enum class BbVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -121,7 +121,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bb)::Type,BbVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_SUSPENDED event
-        enum class SuspendedVal {
+        enum class SuspendedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -136,7 +136,7 @@ namespace Kvasir {
     namespace Twi0Intenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40003308,0xfffbbd79,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -148,7 +148,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_RXDREADY event
-        enum class RxdreadyVal {
+        enum class RxdreadyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -160,7 +160,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdready)::Type,RxdreadyVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TXDSENT event
-        enum class TxdsentVal {
+        enum class TxdsentVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -172,7 +172,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdsent)::Type,TxdsentVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_ERROR event
-        enum class ErrorVal {
+        enum class ErrorVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -184,7 +184,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_BB event
-        enum class BbVal {
+        enum class BbVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -196,7 +196,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bb)::Type,BbVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_SUSPENDED event
-        enum class SuspendedVal {
+        enum class SuspendedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -211,7 +211,7 @@ namespace Kvasir {
     namespace Twi0Errorsrc{    ///<Error source
         using Addr = Register::Address<0x400034c4,0xfffffff8,0x00000000,unsigned>;
         ///Overrun error
-        enum class OverrunVal {
+        enum class OverrunVal : unsigned {
             notpresent=0x00000000,     ///<Read: no overrun occured
             present=0x00000001,     ///<Read: overrun occured
         };
@@ -221,7 +221,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overrun)::Type,OverrunVal::present> present{};
         }
         ///NACK received after sending the address (write '1' to clear)
-        enum class AnackVal {
+        enum class AnackVal : unsigned {
             notpresent=0x00000000,     ///<Read: error not present
             present=0x00000001,     ///<Read: error present
         };
@@ -231,7 +231,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(anack)::Type,AnackVal::present> present{};
         }
         ///NACK received after sending a data byte (write '1' to clear)
-        enum class DnackVal {
+        enum class DnackVal : unsigned {
             notpresent=0x00000000,     ///<Read: error not present
             present=0x00000001,     ///<Read: error present
         };

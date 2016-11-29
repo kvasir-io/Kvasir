@@ -11,7 +11,7 @@ namespace Kvasir {
     namespace WdtIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40010304,0xfffffffe,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_TIMEOUT event
-        enum class TimeoutVal {
+        enum class TimeoutVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -26,7 +26,7 @@ namespace Kvasir {
     namespace WdtIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40010308,0xfffffffe,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_TIMEOUT event
-        enum class TimeoutVal {
+        enum class TimeoutVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -41,7 +41,7 @@ namespace Kvasir {
     namespace WdtRunstatus{    ///<Run status
         using Addr = Register::Address<0x40010400,0xfffffffe,0x00000000,unsigned>;
         ///Indicates whether or not the watchdog is running
-        enum class RunstatusVal {
+        enum class RunstatusVal : unsigned {
             notrunning=0x00000000,     ///<Watchdog not running
             running=0x00000001,     ///<Watchdog is running
         };
@@ -54,7 +54,7 @@ namespace Kvasir {
     namespace WdtReqstatus{    ///<Request status
         using Addr = Register::Address<0x40010404,0xffffff00,0x00000000,unsigned>;
         ///Request status for RR[0] register
-        enum class Rr0Val {
+        enum class Rr0Val : unsigned {
             disabledorrequested=0x00000000,     ///<RR[0] register is not enabled, or are already requesting reload
             enabledandunrequested=0x00000001,     ///<RR[0] register is enabled, and are not yet requesting reload
         };
@@ -64,7 +64,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr0)::Type,Rr0Val::enabledandunrequested> enabledandunrequested{};
         }
         ///Request status for RR[1] register
-        enum class Rr1Val {
+        enum class Rr1Val : unsigned {
             disabledorrequested=0x00000000,     ///<RR[1] register is not enabled, or are already requesting reload
             enabledandunrequested=0x00000001,     ///<RR[1] register is enabled, and are not yet requesting reload
         };
@@ -74,7 +74,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr1)::Type,Rr1Val::enabledandunrequested> enabledandunrequested{};
         }
         ///Request status for RR[2] register
-        enum class Rr2Val {
+        enum class Rr2Val : unsigned {
             disabledorrequested=0x00000000,     ///<RR[2] register is not enabled, or are already requesting reload
             enabledandunrequested=0x00000001,     ///<RR[2] register is enabled, and are not yet requesting reload
         };
@@ -84,7 +84,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr2)::Type,Rr2Val::enabledandunrequested> enabledandunrequested{};
         }
         ///Request status for RR[3] register
-        enum class Rr3Val {
+        enum class Rr3Val : unsigned {
             disabledorrequested=0x00000000,     ///<RR[3] register is not enabled, or are already requesting reload
             enabledandunrequested=0x00000001,     ///<RR[3] register is enabled, and are not yet requesting reload
         };
@@ -94,7 +94,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr3)::Type,Rr3Val::enabledandunrequested> enabledandunrequested{};
         }
         ///Request status for RR[4] register
-        enum class Rr4Val {
+        enum class Rr4Val : unsigned {
             disabledorrequested=0x00000000,     ///<RR[4] register is not enabled, or are already requesting reload
             enabledandunrequested=0x00000001,     ///<RR[4] register is enabled, and are not yet requesting reload
         };
@@ -104,7 +104,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr4)::Type,Rr4Val::enabledandunrequested> enabledandunrequested{};
         }
         ///Request status for RR[5] register
-        enum class Rr5Val {
+        enum class Rr5Val : unsigned {
             disabledorrequested=0x00000000,     ///<RR[5] register is not enabled, or are already requesting reload
             enabledandunrequested=0x00000001,     ///<RR[5] register is enabled, and are not yet requesting reload
         };
@@ -114,7 +114,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr5)::Type,Rr5Val::enabledandunrequested> enabledandunrequested{};
         }
         ///Request status for RR[6] register
-        enum class Rr6Val {
+        enum class Rr6Val : unsigned {
             disabledorrequested=0x00000000,     ///<RR[6] register is not enabled, or are already requesting reload
             enabledandunrequested=0x00000001,     ///<RR[6] register is enabled, and are not yet requesting reload
         };
@@ -124,7 +124,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr6)::Type,Rr6Val::enabledandunrequested> enabledandunrequested{};
         }
         ///Request status for RR[7] register
-        enum class Rr7Val {
+        enum class Rr7Val : unsigned {
             disabledorrequested=0x00000000,     ///<RR[7] register is not enabled, or are already requesting reload
             enabledandunrequested=0x00000001,     ///<RR[7] register is enabled, and are not yet requesting reload
         };
@@ -142,7 +142,7 @@ namespace Kvasir {
     namespace WdtRren{    ///<Enable register for reload request registers
         using Addr = Register::Address<0x40010508,0xffffff00,0x00000000,unsigned>;
         ///Enable or disable RR[0] register
-        enum class Rr0Val {
+        enum class Rr0Val : unsigned {
             disabled=0x00000000,     ///<Disable RR[0] register
             enabled=0x00000001,     ///<Enable RR[0] register
         };
@@ -152,7 +152,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr0)::Type,Rr0Val::enabled> enabled{};
         }
         ///Enable or disable RR[1] register
-        enum class Rr1Val {
+        enum class Rr1Val : unsigned {
             disabled=0x00000000,     ///<Disable RR[1] register
             enabled=0x00000001,     ///<Enable RR[1] register
         };
@@ -162,7 +162,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr1)::Type,Rr1Val::enabled> enabled{};
         }
         ///Enable or disable RR[2] register
-        enum class Rr2Val {
+        enum class Rr2Val : unsigned {
             disabled=0x00000000,     ///<Disable RR[2] register
             enabled=0x00000001,     ///<Enable RR[2] register
         };
@@ -172,7 +172,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr2)::Type,Rr2Val::enabled> enabled{};
         }
         ///Enable or disable RR[3] register
-        enum class Rr3Val {
+        enum class Rr3Val : unsigned {
             disabled=0x00000000,     ///<Disable RR[3] register
             enabled=0x00000001,     ///<Enable RR[3] register
         };
@@ -182,7 +182,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr3)::Type,Rr3Val::enabled> enabled{};
         }
         ///Enable or disable RR[4] register
-        enum class Rr4Val {
+        enum class Rr4Val : unsigned {
             disabled=0x00000000,     ///<Disable RR[4] register
             enabled=0x00000001,     ///<Enable RR[4] register
         };
@@ -192,7 +192,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr4)::Type,Rr4Val::enabled> enabled{};
         }
         ///Enable or disable RR[5] register
-        enum class Rr5Val {
+        enum class Rr5Val : unsigned {
             disabled=0x00000000,     ///<Disable RR[5] register
             enabled=0x00000001,     ///<Enable RR[5] register
         };
@@ -202,7 +202,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr5)::Type,Rr5Val::enabled> enabled{};
         }
         ///Enable or disable RR[6] register
-        enum class Rr6Val {
+        enum class Rr6Val : unsigned {
             disabled=0x00000000,     ///<Disable RR[6] register
             enabled=0x00000001,     ///<Enable RR[6] register
         };
@@ -212,7 +212,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rr6)::Type,Rr6Val::enabled> enabled{};
         }
         ///Enable or disable RR[7] register
-        enum class Rr7Val {
+        enum class Rr7Val : unsigned {
             disabled=0x00000000,     ///<Disable RR[7] register
             enabled=0x00000001,     ///<Enable RR[7] register
         };
@@ -225,7 +225,7 @@ namespace Kvasir {
     namespace WdtConfig{    ///<Configuration register
         using Addr = Register::Address<0x4001050c,0xfffffff6,0x00000000,unsigned>;
         ///Configure the watchdog to either be paused, or kept running, while the CPU is sleeping
-        enum class SleepVal {
+        enum class SleepVal : unsigned {
             pause=0x00000000,     ///<Pause watchdog while the CPU is sleeping
             run=0x00000001,     ///<Keep the watchdog running while the CPU is sleeping
         };
@@ -235,7 +235,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleep)::Type,SleepVal::run> run{};
         }
         ///Configure the watchdog to either be paused, or kept running, while the CPU is halted by the debugger
-        enum class HaltVal {
+        enum class HaltVal : unsigned {
             pause=0x00000000,     ///<Pause watchdog while the CPU is halted by the debugger
             run=0x00000001,     ///<Keep the watchdog running while the CPU is halted by the debugger
         };

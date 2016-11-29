@@ -64,7 +64,7 @@ def parseRegister(register, baseAddress, prefix, ext):
         cValuesOut = ""
         if Ft.useEnumeratedValues(field.enumerated_values,field.bit_width):
             fieldType = "%sVal" % (fieldName.capitalize())
-            fieldOut += "        enum class %s {\n" % fieldType
+            fieldOut += "        enum class %s : unsigned {\n" % fieldType
             cValuesOut = "        namespace %sC{\n" % fieldType
             for v in field.enumerated_values:
                 if v.value is not None and v.is_default is None:     #some value are defaults, we ignore them
