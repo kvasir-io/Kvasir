@@ -17,7 +17,7 @@ namespace Kvasir {
     namespace Spis0Shorts{    ///<Shortcut register
         using Addr = Register::Address<0x40003200,0xfffffffb,0x00000000,unsigned>;
         ///Shortcut between EVENTS_END event and TASKS_ACQUIRE task
-        enum class EndacquireVal {
+        enum class EndacquireVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -30,7 +30,7 @@ namespace Kvasir {
     namespace Spis0Intenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40003304,0xfffffbfd,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_END event
-        enum class EndVal {
+        enum class EndVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -42,7 +42,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_ACQUIRED event
-        enum class AcquiredVal {
+        enum class AcquiredVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -57,7 +57,7 @@ namespace Kvasir {
     namespace Spis0Intenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40003308,0xfffffbfd,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_END event
-        enum class EndVal {
+        enum class EndVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -69,7 +69,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_ACQUIRED event
-        enum class AcquiredVal {
+        enum class AcquiredVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -84,7 +84,7 @@ namespace Kvasir {
     namespace Spis0Semstat{    ///<Semaphore status register
         using Addr = Register::Address<0x40003400,0xfffffffc,0x00000000,unsigned>;
         ///Semaphore status
-        enum class SemstatVal {
+        enum class SemstatVal : unsigned {
             free=0x00000000,     ///<Semaphore is free
             cpu=0x00000001,     ///<Semaphore is assigned to CPU
             spis=0x00000002,     ///<Semaphore is assigned to SPI slave
@@ -101,7 +101,7 @@ namespace Kvasir {
     namespace Spis0Status{    ///<Status from last transaction
         using Addr = Register::Address<0x40003440,0xfffffffc,0x00000000,unsigned>;
         ///TX buffer over-read detected, and prevented
-        enum class OverreadVal {
+        enum class OverreadVal : unsigned {
             notpresent=0x00000000,     ///<Read: error not present
             present=0x00000001,     ///<Read: error present
             clear=0x00000001,     ///<Write: clear error on writing '1'
@@ -113,7 +113,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overread)::Type,OverreadVal::clear> clear{};
         }
         ///RX buffer overflow detected, and prevented
-        enum class OverflowVal {
+        enum class OverflowVal : unsigned {
             notpresent=0x00000000,     ///<Read: error not present
             present=0x00000001,     ///<Read: error present
             clear=0x00000001,     ///<Write: clear error on writing '1'
@@ -133,7 +133,7 @@ namespace Kvasir {
     namespace Spis0Config{    ///<Configuration register
         using Addr = Register::Address<0x40003554,0xfffffff8,0x00000000,unsigned>;
         ///Bit order
-        enum class OrderVal {
+        enum class OrderVal : unsigned {
             msbfirst=0x00000000,     ///<Most significant bit shifted out first
             lsbfirst=0x00000001,     ///<Least significant bit shifted out first
         };
@@ -143,7 +143,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::lsbfirst> lsbfirst{};
         }
         ///Serial clock (SCK) phase
-        enum class CphaVal {
+        enum class CphaVal : unsigned {
             leading=0x00000000,     ///<Sample on leading edge of clock, shift serial data on trailing edge
             trailing=0x00000001,     ///<Sample on trailing edge of clock, shift serial data on leading edge
         };
@@ -153,7 +153,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::trailing> trailing{};
         }
         ///Serial clock (SCK) polarity
-        enum class CpolVal {
+        enum class CpolVal : unsigned {
             activehigh=0x00000000,     ///<Active high
             activelow=0x00000001,     ///<Active low
         };

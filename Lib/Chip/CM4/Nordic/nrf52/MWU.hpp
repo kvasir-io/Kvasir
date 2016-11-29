@@ -5,7 +5,7 @@ namespace Kvasir {
     namespace MwuInten{    ///<Enable or disable interrupt
         using Addr = Register::Address<0x40020300,0xf0ffff00,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_REGION[0].WA event
-        enum class Region0waVal {
+        enum class Region0waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -15,7 +15,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0wa)::Type,Region0waVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_REGION[0].RA event
-        enum class Region0raVal {
+        enum class Region0raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -25,7 +25,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0ra)::Type,Region0raVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_REGION[1].WA event
-        enum class Region1waVal {
+        enum class Region1waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -35,7 +35,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1wa)::Type,Region1waVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_REGION[1].RA event
-        enum class Region1raVal {
+        enum class Region1raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -45,7 +45,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1ra)::Type,Region1raVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_REGION[2].WA event
-        enum class Region2waVal {
+        enum class Region2waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -55,7 +55,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2wa)::Type,Region2waVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_REGION[2].RA event
-        enum class Region2raVal {
+        enum class Region2raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -65,7 +65,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2ra)::Type,Region2raVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_REGION[3].WA event
-        enum class Region3waVal {
+        enum class Region3waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -75,7 +75,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3wa)::Type,Region3waVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_REGION[3].RA event
-        enum class Region3raVal {
+        enum class Region3raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -85,7 +85,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3ra)::Type,Region3raVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_PREGION[0].WA event
-        enum class Pregion0waVal {
+        enum class Pregion0waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -95,7 +95,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0wa)::Type,Pregion0waVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_PREGION[0].RA event
-        enum class Pregion0raVal {
+        enum class Pregion0raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -105,7 +105,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0ra)::Type,Pregion0raVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_PREGION[1].WA event
-        enum class Pregion1waVal {
+        enum class Pregion1waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -115,7 +115,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1wa)::Type,Pregion1waVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_PREGION[1].RA event
-        enum class Pregion1raVal {
+        enum class Pregion1raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -128,7 +128,7 @@ namespace Kvasir {
     namespace MwuIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40020304,0xf0ffff00,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_REGION[0].WA event
-        enum class Region0waVal {
+        enum class Region0waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -140,7 +140,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0wa)::Type,Region0waVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_REGION[0].RA event
-        enum class Region0raVal {
+        enum class Region0raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -152,7 +152,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0ra)::Type,Region0raVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_REGION[1].WA event
-        enum class Region1waVal {
+        enum class Region1waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -164,7 +164,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1wa)::Type,Region1waVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_REGION[1].RA event
-        enum class Region1raVal {
+        enum class Region1raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -176,7 +176,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1ra)::Type,Region1raVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_REGION[2].WA event
-        enum class Region2waVal {
+        enum class Region2waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -188,7 +188,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2wa)::Type,Region2waVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_REGION[2].RA event
-        enum class Region2raVal {
+        enum class Region2raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -200,7 +200,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2ra)::Type,Region2raVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_REGION[3].WA event
-        enum class Region3waVal {
+        enum class Region3waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -212,7 +212,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3wa)::Type,Region3waVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_REGION[3].RA event
-        enum class Region3raVal {
+        enum class Region3raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -224,7 +224,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3ra)::Type,Region3raVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_PREGION[0].WA event
-        enum class Pregion0waVal {
+        enum class Pregion0waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -236,7 +236,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0wa)::Type,Pregion0waVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_PREGION[0].RA event
-        enum class Pregion0raVal {
+        enum class Pregion0raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -248,7 +248,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0ra)::Type,Pregion0raVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_PREGION[1].WA event
-        enum class Pregion1waVal {
+        enum class Pregion1waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -260,7 +260,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1wa)::Type,Pregion1waVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_PREGION[1].RA event
-        enum class Pregion1raVal {
+        enum class Pregion1raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -275,7 +275,7 @@ namespace Kvasir {
     namespace MwuIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40020308,0xf0ffff00,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_REGION[0].WA event
-        enum class Region0waVal {
+        enum class Region0waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -287,7 +287,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0wa)::Type,Region0waVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_REGION[0].RA event
-        enum class Region0raVal {
+        enum class Region0raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -299,7 +299,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0ra)::Type,Region0raVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_REGION[1].WA event
-        enum class Region1waVal {
+        enum class Region1waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -311,7 +311,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1wa)::Type,Region1waVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_REGION[1].RA event
-        enum class Region1raVal {
+        enum class Region1raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -323,7 +323,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1ra)::Type,Region1raVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_REGION[2].WA event
-        enum class Region2waVal {
+        enum class Region2waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -335,7 +335,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2wa)::Type,Region2waVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_REGION[2].RA event
-        enum class Region2raVal {
+        enum class Region2raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -347,7 +347,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2ra)::Type,Region2raVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_REGION[3].WA event
-        enum class Region3waVal {
+        enum class Region3waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -359,7 +359,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3wa)::Type,Region3waVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_REGION[3].RA event
-        enum class Region3raVal {
+        enum class Region3raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -371,7 +371,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3ra)::Type,Region3raVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_PREGION[0].WA event
-        enum class Pregion0waVal {
+        enum class Pregion0waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -383,7 +383,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0wa)::Type,Pregion0waVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_PREGION[0].RA event
-        enum class Pregion0raVal {
+        enum class Pregion0raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -395,7 +395,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0ra)::Type,Pregion0raVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_PREGION[1].WA event
-        enum class Pregion1waVal {
+        enum class Pregion1waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -407,7 +407,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1wa)::Type,Pregion1waVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_PREGION[1].RA event
-        enum class Pregion1raVal {
+        enum class Pregion1raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -422,7 +422,7 @@ namespace Kvasir {
     namespace MwuNmien{    ///<Enable or disable non-maskable interrupt
         using Addr = Register::Address<0x40020320,0xf0ffff00,0x00000000,unsigned>;
         ///Enable or disable non-maskable interrupt on EVENTS_REGION[0].WA event
-        enum class Region0waVal {
+        enum class Region0waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -432,7 +432,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0wa)::Type,Region0waVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_REGION[0].RA event
-        enum class Region0raVal {
+        enum class Region0raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -442,7 +442,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0ra)::Type,Region0raVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_REGION[1].WA event
-        enum class Region1waVal {
+        enum class Region1waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -452,7 +452,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1wa)::Type,Region1waVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_REGION[1].RA event
-        enum class Region1raVal {
+        enum class Region1raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -462,7 +462,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1ra)::Type,Region1raVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_REGION[2].WA event
-        enum class Region2waVal {
+        enum class Region2waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -472,7 +472,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2wa)::Type,Region2waVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_REGION[2].RA event
-        enum class Region2raVal {
+        enum class Region2raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -482,7 +482,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2ra)::Type,Region2raVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_REGION[3].WA event
-        enum class Region3waVal {
+        enum class Region3waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -492,7 +492,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3wa)::Type,Region3waVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_REGION[3].RA event
-        enum class Region3raVal {
+        enum class Region3raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -502,7 +502,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3ra)::Type,Region3raVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_PREGION[0].WA event
-        enum class Pregion0waVal {
+        enum class Pregion0waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -512,7 +512,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0wa)::Type,Pregion0waVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_PREGION[0].RA event
-        enum class Pregion0raVal {
+        enum class Pregion0raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -522,7 +522,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0ra)::Type,Pregion0raVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_PREGION[1].WA event
-        enum class Pregion1waVal {
+        enum class Pregion1waVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -532,7 +532,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1wa)::Type,Pregion1waVal::enabled> enabled{};
         }
         ///Enable or disable non-maskable interrupt on EVENTS_PREGION[1].RA event
-        enum class Pregion1raVal {
+        enum class Pregion1raVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -545,7 +545,7 @@ namespace Kvasir {
     namespace MwuNmienset{    ///<Enable non-maskable interrupt
         using Addr = Register::Address<0x40020324,0xf0ffff00,0x00000000,unsigned>;
         ///Write '1' to Enable non-maskable interrupt on EVENTS_REGION[0].WA event
-        enum class Region0waVal {
+        enum class Region0waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -557,7 +557,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0wa)::Type,Region0waVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_REGION[0].RA event
-        enum class Region0raVal {
+        enum class Region0raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -569,7 +569,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0ra)::Type,Region0raVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_REGION[1].WA event
-        enum class Region1waVal {
+        enum class Region1waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -581,7 +581,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1wa)::Type,Region1waVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_REGION[1].RA event
-        enum class Region1raVal {
+        enum class Region1raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -593,7 +593,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1ra)::Type,Region1raVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_REGION[2].WA event
-        enum class Region2waVal {
+        enum class Region2waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -605,7 +605,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2wa)::Type,Region2waVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_REGION[2].RA event
-        enum class Region2raVal {
+        enum class Region2raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -617,7 +617,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2ra)::Type,Region2raVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_REGION[3].WA event
-        enum class Region3waVal {
+        enum class Region3waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -629,7 +629,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3wa)::Type,Region3waVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_REGION[3].RA event
-        enum class Region3raVal {
+        enum class Region3raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -641,7 +641,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3ra)::Type,Region3raVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_PREGION[0].WA event
-        enum class Pregion0waVal {
+        enum class Pregion0waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -653,7 +653,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0wa)::Type,Pregion0waVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_PREGION[0].RA event
-        enum class Pregion0raVal {
+        enum class Pregion0raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -665,7 +665,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0ra)::Type,Pregion0raVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_PREGION[1].WA event
-        enum class Pregion1waVal {
+        enum class Pregion1waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -677,7 +677,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1wa)::Type,Pregion1waVal::set> set{};
         }
         ///Write '1' to Enable non-maskable interrupt on EVENTS_PREGION[1].RA event
-        enum class Pregion1raVal {
+        enum class Pregion1raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -692,7 +692,7 @@ namespace Kvasir {
     namespace MwuNmienclr{    ///<Disable non-maskable interrupt
         using Addr = Register::Address<0x40020328,0xf0ffff00,0x00000000,unsigned>;
         ///Write '1' to Clear non-maskable interrupt on EVENTS_REGION[0].WA event
-        enum class Region0waVal {
+        enum class Region0waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -704,7 +704,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0wa)::Type,Region0waVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_REGION[0].RA event
-        enum class Region0raVal {
+        enum class Region0raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -716,7 +716,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0ra)::Type,Region0raVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_REGION[1].WA event
-        enum class Region1waVal {
+        enum class Region1waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -728,7 +728,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1wa)::Type,Region1waVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_REGION[1].RA event
-        enum class Region1raVal {
+        enum class Region1raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -740,7 +740,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region1ra)::Type,Region1raVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_REGION[2].WA event
-        enum class Region2waVal {
+        enum class Region2waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -752,7 +752,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2wa)::Type,Region2waVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_REGION[2].RA event
-        enum class Region2raVal {
+        enum class Region2raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -764,7 +764,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2ra)::Type,Region2raVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_REGION[3].WA event
-        enum class Region3waVal {
+        enum class Region3waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -776,7 +776,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3wa)::Type,Region3waVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_REGION[3].RA event
-        enum class Region3raVal {
+        enum class Region3raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -788,7 +788,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region3ra)::Type,Region3raVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_PREGION[0].WA event
-        enum class Pregion0waVal {
+        enum class Pregion0waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -800,7 +800,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0wa)::Type,Pregion0waVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_PREGION[0].RA event
-        enum class Pregion0raVal {
+        enum class Pregion0raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -812,7 +812,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion0ra)::Type,Pregion0raVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_PREGION[1].WA event
-        enum class Pregion1waVal {
+        enum class Pregion1waVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -824,7 +824,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pregion1wa)::Type,Pregion1waVal::clear> clear{};
         }
         ///Write '1' to Clear non-maskable interrupt on EVENTS_PREGION[1].RA event
-        enum class Pregion1raVal {
+        enum class Pregion1raVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -839,7 +839,7 @@ namespace Kvasir {
     namespace MwuRegionen{    ///<Enable/disable regions watch
         using Addr = Register::Address<0x40020510,0xf0ffff00,0x00000000,unsigned>;
         ///Enable/disable write access watch in region[0]
-        enum class Rgn0waVal {
+        enum class Rgn0waVal : unsigned {
             disable=0x00000000,     ///<Disable write access watch in this region
             enable=0x00000001,     ///<Enable write access watch in this region
         };
@@ -849,7 +849,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn0wa)::Type,Rgn0waVal::enable> enable{};
         }
         ///Enable/disable read access watch in region[0]
-        enum class Rgn0raVal {
+        enum class Rgn0raVal : unsigned {
             disable=0x00000000,     ///<Disable read access watch in this region
             enable=0x00000001,     ///<Enable read access watch in this region
         };
@@ -859,7 +859,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn0ra)::Type,Rgn0raVal::enable> enable{};
         }
         ///Enable/disable write access watch in region[1]
-        enum class Rgn1waVal {
+        enum class Rgn1waVal : unsigned {
             disable=0x00000000,     ///<Disable write access watch in this region
             enable=0x00000001,     ///<Enable write access watch in this region
         };
@@ -869,7 +869,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn1wa)::Type,Rgn1waVal::enable> enable{};
         }
         ///Enable/disable read access watch in region[1]
-        enum class Rgn1raVal {
+        enum class Rgn1raVal : unsigned {
             disable=0x00000000,     ///<Disable read access watch in this region
             enable=0x00000001,     ///<Enable read access watch in this region
         };
@@ -879,7 +879,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn1ra)::Type,Rgn1raVal::enable> enable{};
         }
         ///Enable/disable write access watch in region[2]
-        enum class Rgn2waVal {
+        enum class Rgn2waVal : unsigned {
             disable=0x00000000,     ///<Disable write access watch in this region
             enable=0x00000001,     ///<Enable write access watch in this region
         };
@@ -889,7 +889,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn2wa)::Type,Rgn2waVal::enable> enable{};
         }
         ///Enable/disable read access watch in region[2]
-        enum class Rgn2raVal {
+        enum class Rgn2raVal : unsigned {
             disable=0x00000000,     ///<Disable read access watch in this region
             enable=0x00000001,     ///<Enable read access watch in this region
         };
@@ -899,7 +899,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn2ra)::Type,Rgn2raVal::enable> enable{};
         }
         ///Enable/disable write access watch in region[3]
-        enum class Rgn3waVal {
+        enum class Rgn3waVal : unsigned {
             disable=0x00000000,     ///<Disable write access watch in this region
             enable=0x00000001,     ///<Enable write access watch in this region
         };
@@ -909,7 +909,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn3wa)::Type,Rgn3waVal::enable> enable{};
         }
         ///Enable/disable read access watch in region[3]
-        enum class Rgn3raVal {
+        enum class Rgn3raVal : unsigned {
             disable=0x00000000,     ///<Disable read access watch in this region
             enable=0x00000001,     ///<Enable read access watch in this region
         };
@@ -919,7 +919,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn3ra)::Type,Rgn3raVal::enable> enable{};
         }
         ///Enable/disable write access watch in PREGION[0]
-        enum class Prgn0waVal {
+        enum class Prgn0waVal : unsigned {
             disable=0x00000000,     ///<Disable write access watch in this PREGION
             enable=0x00000001,     ///<Enable write access watch in this PREGION
         };
@@ -929,7 +929,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn0wa)::Type,Prgn0waVal::enable> enable{};
         }
         ///Enable/disable read access watch in PREGION[0]
-        enum class Prgn0raVal {
+        enum class Prgn0raVal : unsigned {
             disable=0x00000000,     ///<Disable read access watch in this PREGION
             enable=0x00000001,     ///<Enable read access watch in this PREGION
         };
@@ -939,7 +939,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn0ra)::Type,Prgn0raVal::enable> enable{};
         }
         ///Enable/disable write access watch in PREGION[1]
-        enum class Prgn1waVal {
+        enum class Prgn1waVal : unsigned {
             disable=0x00000000,     ///<Disable write access watch in this PREGION
             enable=0x00000001,     ///<Enable write access watch in this PREGION
         };
@@ -949,7 +949,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn1wa)::Type,Prgn1waVal::enable> enable{};
         }
         ///Enable/disable read access watch in PREGION[1]
-        enum class Prgn1raVal {
+        enum class Prgn1raVal : unsigned {
             disable=0x00000000,     ///<Disable read access watch in this PREGION
             enable=0x00000001,     ///<Enable read access watch in this PREGION
         };
@@ -962,7 +962,7 @@ namespace Kvasir {
     namespace MwuRegionenset{    ///<Enable regions watch
         using Addr = Register::Address<0x40020514,0xf0ffff00,0x00000000,unsigned>;
         ///Enable write access watch in region[0]
-        enum class Rgn0waVal {
+        enum class Rgn0waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this region is disabled
             enabled=0x00000001,     ///<Write access watch in this region is enabled
             set=0x00000001,     ///<Enable write access watch in this region
@@ -974,7 +974,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn0wa)::Type,Rgn0waVal::set> set{};
         }
         ///Enable read access watch in region[0]
-        enum class Rgn0raVal {
+        enum class Rgn0raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this region is disabled
             enabled=0x00000001,     ///<Read access watch in this region is enabled
             set=0x00000001,     ///<Enable read access watch in this region
@@ -986,7 +986,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn0ra)::Type,Rgn0raVal::set> set{};
         }
         ///Enable write access watch in region[1]
-        enum class Rgn1waVal {
+        enum class Rgn1waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this region is disabled
             enabled=0x00000001,     ///<Write access watch in this region is enabled
             set=0x00000001,     ///<Enable write access watch in this region
@@ -998,7 +998,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn1wa)::Type,Rgn1waVal::set> set{};
         }
         ///Enable read access watch in region[1]
-        enum class Rgn1raVal {
+        enum class Rgn1raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this region is disabled
             enabled=0x00000001,     ///<Read access watch in this region is enabled
             set=0x00000001,     ///<Enable read access watch in this region
@@ -1010,7 +1010,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn1ra)::Type,Rgn1raVal::set> set{};
         }
         ///Enable write access watch in region[2]
-        enum class Rgn2waVal {
+        enum class Rgn2waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this region is disabled
             enabled=0x00000001,     ///<Write access watch in this region is enabled
             set=0x00000001,     ///<Enable write access watch in this region
@@ -1022,7 +1022,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn2wa)::Type,Rgn2waVal::set> set{};
         }
         ///Enable read access watch in region[2]
-        enum class Rgn2raVal {
+        enum class Rgn2raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this region is disabled
             enabled=0x00000001,     ///<Read access watch in this region is enabled
             set=0x00000001,     ///<Enable read access watch in this region
@@ -1034,7 +1034,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn2ra)::Type,Rgn2raVal::set> set{};
         }
         ///Enable write access watch in region[3]
-        enum class Rgn3waVal {
+        enum class Rgn3waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this region is disabled
             enabled=0x00000001,     ///<Write access watch in this region is enabled
             set=0x00000001,     ///<Enable write access watch in this region
@@ -1046,7 +1046,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn3wa)::Type,Rgn3waVal::set> set{};
         }
         ///Enable read access watch in region[3]
-        enum class Rgn3raVal {
+        enum class Rgn3raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this region is disabled
             enabled=0x00000001,     ///<Read access watch in this region is enabled
             set=0x00000001,     ///<Enable read access watch in this region
@@ -1058,7 +1058,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn3ra)::Type,Rgn3raVal::set> set{};
         }
         ///Enable write access watch in PREGION[0]
-        enum class Prgn0waVal {
+        enum class Prgn0waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this PREGION is disabled
             enabled=0x00000001,     ///<Write access watch in this PREGION is enabled
             set=0x00000001,     ///<Enable write access watch in this PREGION
@@ -1070,7 +1070,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn0wa)::Type,Prgn0waVal::set> set{};
         }
         ///Enable read access watch in PREGION[0]
-        enum class Prgn0raVal {
+        enum class Prgn0raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this PREGION is disabled
             enabled=0x00000001,     ///<Read access watch in this PREGION is enabled
             set=0x00000001,     ///<Enable read access watch in this PREGION
@@ -1082,7 +1082,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn0ra)::Type,Prgn0raVal::set> set{};
         }
         ///Enable write access watch in PREGION[1]
-        enum class Prgn1waVal {
+        enum class Prgn1waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this PREGION is disabled
             enabled=0x00000001,     ///<Write access watch in this PREGION is enabled
             set=0x00000001,     ///<Enable write access watch in this PREGION
@@ -1094,7 +1094,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn1wa)::Type,Prgn1waVal::set> set{};
         }
         ///Enable read access watch in PREGION[1]
-        enum class Prgn1raVal {
+        enum class Prgn1raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this PREGION is disabled
             enabled=0x00000001,     ///<Read access watch in this PREGION is enabled
             set=0x00000001,     ///<Enable read access watch in this PREGION
@@ -1109,7 +1109,7 @@ namespace Kvasir {
     namespace MwuRegionenclr{    ///<Disable regions watch
         using Addr = Register::Address<0x40020518,0xf0ffff00,0x00000000,unsigned>;
         ///Disable write access watch in region[0]
-        enum class Rgn0waVal {
+        enum class Rgn0waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this region is disabled
             enabled=0x00000001,     ///<Write access watch in this region is enabled
             clear=0x00000001,     ///<Disable write access watch in this region
@@ -1121,7 +1121,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn0wa)::Type,Rgn0waVal::clear> clear{};
         }
         ///Disable read access watch in region[0]
-        enum class Rgn0raVal {
+        enum class Rgn0raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this region is disabled
             enabled=0x00000001,     ///<Read access watch in this region is enabled
             clear=0x00000001,     ///<Disable read access watch in this region
@@ -1133,7 +1133,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn0ra)::Type,Rgn0raVal::clear> clear{};
         }
         ///Disable write access watch in region[1]
-        enum class Rgn1waVal {
+        enum class Rgn1waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this region is disabled
             enabled=0x00000001,     ///<Write access watch in this region is enabled
             clear=0x00000001,     ///<Disable write access watch in this region
@@ -1145,7 +1145,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn1wa)::Type,Rgn1waVal::clear> clear{};
         }
         ///Disable read access watch in region[1]
-        enum class Rgn1raVal {
+        enum class Rgn1raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this region is disabled
             enabled=0x00000001,     ///<Read access watch in this region is enabled
             clear=0x00000001,     ///<Disable read access watch in this region
@@ -1157,7 +1157,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn1ra)::Type,Rgn1raVal::clear> clear{};
         }
         ///Disable write access watch in region[2]
-        enum class Rgn2waVal {
+        enum class Rgn2waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this region is disabled
             enabled=0x00000001,     ///<Write access watch in this region is enabled
             clear=0x00000001,     ///<Disable write access watch in this region
@@ -1169,7 +1169,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn2wa)::Type,Rgn2waVal::clear> clear{};
         }
         ///Disable read access watch in region[2]
-        enum class Rgn2raVal {
+        enum class Rgn2raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this region is disabled
             enabled=0x00000001,     ///<Read access watch in this region is enabled
             clear=0x00000001,     ///<Disable read access watch in this region
@@ -1181,7 +1181,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn2ra)::Type,Rgn2raVal::clear> clear{};
         }
         ///Disable write access watch in region[3]
-        enum class Rgn3waVal {
+        enum class Rgn3waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this region is disabled
             enabled=0x00000001,     ///<Write access watch in this region is enabled
             clear=0x00000001,     ///<Disable write access watch in this region
@@ -1193,7 +1193,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn3wa)::Type,Rgn3waVal::clear> clear{};
         }
         ///Disable read access watch in region[3]
-        enum class Rgn3raVal {
+        enum class Rgn3raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this region is disabled
             enabled=0x00000001,     ///<Read access watch in this region is enabled
             clear=0x00000001,     ///<Disable read access watch in this region
@@ -1205,7 +1205,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgn3ra)::Type,Rgn3raVal::clear> clear{};
         }
         ///Disable write access watch in PREGION[0]
-        enum class Prgn0waVal {
+        enum class Prgn0waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this PREGION is disabled
             enabled=0x00000001,     ///<Write access watch in this PREGION is enabled
             clear=0x00000001,     ///<Disable write access watch in this PREGION
@@ -1217,7 +1217,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn0wa)::Type,Prgn0waVal::clear> clear{};
         }
         ///Disable read access watch in PREGION[0]
-        enum class Prgn0raVal {
+        enum class Prgn0raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this PREGION is disabled
             enabled=0x00000001,     ///<Read access watch in this PREGION is enabled
             clear=0x00000001,     ///<Disable read access watch in this PREGION
@@ -1229,7 +1229,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn0ra)::Type,Prgn0raVal::clear> clear{};
         }
         ///Disable write access watch in PREGION[1]
-        enum class Prgn1waVal {
+        enum class Prgn1waVal : unsigned {
             disabled=0x00000000,     ///<Write access watch in this PREGION is disabled
             enabled=0x00000001,     ///<Write access watch in this PREGION is enabled
             clear=0x00000001,     ///<Disable write access watch in this PREGION
@@ -1241,7 +1241,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prgn1wa)::Type,Prgn1waVal::clear> clear{};
         }
         ///Disable read access watch in PREGION[1]
-        enum class Prgn1raVal {
+        enum class Prgn1raVal : unsigned {
             disabled=0x00000000,     ///<Read access watch in this PREGION is disabled
             enabled=0x00000001,     ///<Read access watch in this PREGION is enabled
             clear=0x00000001,     ///<Disable read access watch in this PREGION

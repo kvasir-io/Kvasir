@@ -5,7 +5,7 @@ namespace Kvasir {
     namespace PpiChen{    ///<Channel enable register
         using Addr = Register::Address<0x4001f500,0x00000000,0x00000000,unsigned>;
         ///Enable or disable channel 0
-        enum class Ch0Val {
+        enum class Ch0Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -15,7 +15,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::enabled> enabled{};
         }
         ///Enable or disable channel 1
-        enum class Ch1Val {
+        enum class Ch1Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -25,7 +25,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::enabled> enabled{};
         }
         ///Enable or disable channel 2
-        enum class Ch2Val {
+        enum class Ch2Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -35,7 +35,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::enabled> enabled{};
         }
         ///Enable or disable channel 3
-        enum class Ch3Val {
+        enum class Ch3Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -45,7 +45,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::enabled> enabled{};
         }
         ///Enable or disable channel 4
-        enum class Ch4Val {
+        enum class Ch4Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -55,7 +55,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::enabled> enabled{};
         }
         ///Enable or disable channel 5
-        enum class Ch5Val {
+        enum class Ch5Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -65,7 +65,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::enabled> enabled{};
         }
         ///Enable or disable channel 6
-        enum class Ch6Val {
+        enum class Ch6Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -75,7 +75,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::enabled> enabled{};
         }
         ///Enable or disable channel 7
-        enum class Ch7Val {
+        enum class Ch7Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -85,7 +85,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::enabled> enabled{};
         }
         ///Enable or disable channel 8
-        enum class Ch8Val {
+        enum class Ch8Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -95,7 +95,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::enabled> enabled{};
         }
         ///Enable or disable channel 9
-        enum class Ch9Val {
+        enum class Ch9Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -105,7 +105,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::enabled> enabled{};
         }
         ///Enable or disable channel 10
-        enum class Ch10Val {
+        enum class Ch10Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -115,7 +115,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::enabled> enabled{};
         }
         ///Enable or disable channel 11
-        enum class Ch11Val {
+        enum class Ch11Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -125,7 +125,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::enabled> enabled{};
         }
         ///Enable or disable channel 12
-        enum class Ch12Val {
+        enum class Ch12Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -135,7 +135,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::enabled> enabled{};
         }
         ///Enable or disable channel 13
-        enum class Ch13Val {
+        enum class Ch13Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -145,7 +145,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::enabled> enabled{};
         }
         ///Enable or disable channel 14
-        enum class Ch14Val {
+        enum class Ch14Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -155,7 +155,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::enabled> enabled{};
         }
         ///Enable or disable channel 15
-        enum class Ch15Val {
+        enum class Ch15Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -165,7 +165,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::enabled> enabled{};
         }
         ///Enable or disable channel 16
-        enum class Ch16Val {
+        enum class Ch16Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -175,7 +175,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch16)::Type,Ch16Val::enabled> enabled{};
         }
         ///Enable or disable channel 17
-        enum class Ch17Val {
+        enum class Ch17Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -185,7 +185,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch17)::Type,Ch17Val::enabled> enabled{};
         }
         ///Enable or disable channel 18
-        enum class Ch18Val {
+        enum class Ch18Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -195,7 +195,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch18)::Type,Ch18Val::enabled> enabled{};
         }
         ///Enable or disable channel 19
-        enum class Ch19Val {
+        enum class Ch19Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -205,7 +205,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch19)::Type,Ch19Val::enabled> enabled{};
         }
         ///Enable or disable channel 20
-        enum class Ch20Val {
+        enum class Ch20Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -215,7 +215,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch20)::Type,Ch20Val::enabled> enabled{};
         }
         ///Enable or disable channel 21
-        enum class Ch21Val {
+        enum class Ch21Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -225,7 +225,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch21)::Type,Ch21Val::enabled> enabled{};
         }
         ///Enable or disable channel 22
-        enum class Ch22Val {
+        enum class Ch22Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -235,7 +235,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch22)::Type,Ch22Val::enabled> enabled{};
         }
         ///Enable or disable channel 23
-        enum class Ch23Val {
+        enum class Ch23Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -245,7 +245,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch23)::Type,Ch23Val::enabled> enabled{};
         }
         ///Enable or disable channel 24
-        enum class Ch24Val {
+        enum class Ch24Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -255,7 +255,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch24)::Type,Ch24Val::enabled> enabled{};
         }
         ///Enable or disable channel 25
-        enum class Ch25Val {
+        enum class Ch25Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -265,7 +265,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch25)::Type,Ch25Val::enabled> enabled{};
         }
         ///Enable or disable channel 26
-        enum class Ch26Val {
+        enum class Ch26Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -275,7 +275,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch26)::Type,Ch26Val::enabled> enabled{};
         }
         ///Enable or disable channel 27
-        enum class Ch27Val {
+        enum class Ch27Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -285,7 +285,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch27)::Type,Ch27Val::enabled> enabled{};
         }
         ///Enable or disable channel 28
-        enum class Ch28Val {
+        enum class Ch28Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -295,7 +295,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch28)::Type,Ch28Val::enabled> enabled{};
         }
         ///Enable or disable channel 29
-        enum class Ch29Val {
+        enum class Ch29Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -305,7 +305,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch29)::Type,Ch29Val::enabled> enabled{};
         }
         ///Enable or disable channel 30
-        enum class Ch30Val {
+        enum class Ch30Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -315,7 +315,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch30)::Type,Ch30Val::enabled> enabled{};
         }
         ///Enable or disable channel 31
-        enum class Ch31Val {
+        enum class Ch31Val : unsigned {
             disabled=0x00000000,     ///<Disable channel
             enabled=0x00000001,     ///<Enable channel
         };
@@ -328,7 +328,7 @@ namespace Kvasir {
     namespace PpiChenset{    ///<Channel enable set register
         using Addr = Register::Address<0x4001f504,0x00000000,0x00000000,unsigned>;
         ///Channel 0 enable set register.  Writing '0' has no effect
-        enum class Ch0Val {
+        enum class Ch0Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -340,7 +340,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::set> set{};
         }
         ///Channel 1 enable set register.  Writing '0' has no effect
-        enum class Ch1Val {
+        enum class Ch1Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -352,7 +352,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::set> set{};
         }
         ///Channel 2 enable set register.  Writing '0' has no effect
-        enum class Ch2Val {
+        enum class Ch2Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -364,7 +364,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::set> set{};
         }
         ///Channel 3 enable set register.  Writing '0' has no effect
-        enum class Ch3Val {
+        enum class Ch3Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -376,7 +376,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::set> set{};
         }
         ///Channel 4 enable set register.  Writing '0' has no effect
-        enum class Ch4Val {
+        enum class Ch4Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -388,7 +388,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::set> set{};
         }
         ///Channel 5 enable set register.  Writing '0' has no effect
-        enum class Ch5Val {
+        enum class Ch5Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -400,7 +400,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::set> set{};
         }
         ///Channel 6 enable set register.  Writing '0' has no effect
-        enum class Ch6Val {
+        enum class Ch6Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -412,7 +412,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::set> set{};
         }
         ///Channel 7 enable set register.  Writing '0' has no effect
-        enum class Ch7Val {
+        enum class Ch7Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -424,7 +424,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::set> set{};
         }
         ///Channel 8 enable set register.  Writing '0' has no effect
-        enum class Ch8Val {
+        enum class Ch8Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -436,7 +436,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::set> set{};
         }
         ///Channel 9 enable set register.  Writing '0' has no effect
-        enum class Ch9Val {
+        enum class Ch9Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -448,7 +448,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::set> set{};
         }
         ///Channel 10 enable set register.  Writing '0' has no effect
-        enum class Ch10Val {
+        enum class Ch10Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -460,7 +460,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::set> set{};
         }
         ///Channel 11 enable set register.  Writing '0' has no effect
-        enum class Ch11Val {
+        enum class Ch11Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -472,7 +472,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::set> set{};
         }
         ///Channel 12 enable set register.  Writing '0' has no effect
-        enum class Ch12Val {
+        enum class Ch12Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -484,7 +484,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::set> set{};
         }
         ///Channel 13 enable set register.  Writing '0' has no effect
-        enum class Ch13Val {
+        enum class Ch13Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -496,7 +496,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::set> set{};
         }
         ///Channel 14 enable set register.  Writing '0' has no effect
-        enum class Ch14Val {
+        enum class Ch14Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -508,7 +508,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::set> set{};
         }
         ///Channel 15 enable set register.  Writing '0' has no effect
-        enum class Ch15Val {
+        enum class Ch15Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -520,7 +520,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::set> set{};
         }
         ///Channel 16 enable set register.  Writing '0' has no effect
-        enum class Ch16Val {
+        enum class Ch16Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -532,7 +532,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch16)::Type,Ch16Val::set> set{};
         }
         ///Channel 17 enable set register.  Writing '0' has no effect
-        enum class Ch17Val {
+        enum class Ch17Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -544,7 +544,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch17)::Type,Ch17Val::set> set{};
         }
         ///Channel 18 enable set register.  Writing '0' has no effect
-        enum class Ch18Val {
+        enum class Ch18Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -556,7 +556,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch18)::Type,Ch18Val::set> set{};
         }
         ///Channel 19 enable set register.  Writing '0' has no effect
-        enum class Ch19Val {
+        enum class Ch19Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -568,7 +568,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch19)::Type,Ch19Val::set> set{};
         }
         ///Channel 20 enable set register.  Writing '0' has no effect
-        enum class Ch20Val {
+        enum class Ch20Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -580,7 +580,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch20)::Type,Ch20Val::set> set{};
         }
         ///Channel 21 enable set register.  Writing '0' has no effect
-        enum class Ch21Val {
+        enum class Ch21Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -592,7 +592,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch21)::Type,Ch21Val::set> set{};
         }
         ///Channel 22 enable set register.  Writing '0' has no effect
-        enum class Ch22Val {
+        enum class Ch22Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -604,7 +604,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch22)::Type,Ch22Val::set> set{};
         }
         ///Channel 23 enable set register.  Writing '0' has no effect
-        enum class Ch23Val {
+        enum class Ch23Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -616,7 +616,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch23)::Type,Ch23Val::set> set{};
         }
         ///Channel 24 enable set register.  Writing '0' has no effect
-        enum class Ch24Val {
+        enum class Ch24Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -628,7 +628,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch24)::Type,Ch24Val::set> set{};
         }
         ///Channel 25 enable set register.  Writing '0' has no effect
-        enum class Ch25Val {
+        enum class Ch25Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -640,7 +640,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch25)::Type,Ch25Val::set> set{};
         }
         ///Channel 26 enable set register.  Writing '0' has no effect
-        enum class Ch26Val {
+        enum class Ch26Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -652,7 +652,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch26)::Type,Ch26Val::set> set{};
         }
         ///Channel 27 enable set register.  Writing '0' has no effect
-        enum class Ch27Val {
+        enum class Ch27Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -664,7 +664,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch27)::Type,Ch27Val::set> set{};
         }
         ///Channel 28 enable set register.  Writing '0' has no effect
-        enum class Ch28Val {
+        enum class Ch28Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -676,7 +676,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch28)::Type,Ch28Val::set> set{};
         }
         ///Channel 29 enable set register.  Writing '0' has no effect
-        enum class Ch29Val {
+        enum class Ch29Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -688,7 +688,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch29)::Type,Ch29Val::set> set{};
         }
         ///Channel 30 enable set register.  Writing '0' has no effect
-        enum class Ch30Val {
+        enum class Ch30Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -700,7 +700,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch30)::Type,Ch30Val::set> set{};
         }
         ///Channel 31 enable set register.  Writing '0' has no effect
-        enum class Ch31Val {
+        enum class Ch31Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             set=0x00000001,     ///<Write: Enable channel
@@ -715,7 +715,7 @@ namespace Kvasir {
     namespace PpiChenclr{    ///<Channel enable clear register
         using Addr = Register::Address<0x4001f508,0x00000000,0x00000000,unsigned>;
         ///Channel 0 enable clear register.  Writing '0' has no effect
-        enum class Ch0Val {
+        enum class Ch0Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -727,7 +727,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::clear> clear{};
         }
         ///Channel 1 enable clear register.  Writing '0' has no effect
-        enum class Ch1Val {
+        enum class Ch1Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -739,7 +739,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::clear> clear{};
         }
         ///Channel 2 enable clear register.  Writing '0' has no effect
-        enum class Ch2Val {
+        enum class Ch2Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -751,7 +751,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::clear> clear{};
         }
         ///Channel 3 enable clear register.  Writing '0' has no effect
-        enum class Ch3Val {
+        enum class Ch3Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -763,7 +763,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::clear> clear{};
         }
         ///Channel 4 enable clear register.  Writing '0' has no effect
-        enum class Ch4Val {
+        enum class Ch4Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -775,7 +775,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::clear> clear{};
         }
         ///Channel 5 enable clear register.  Writing '0' has no effect
-        enum class Ch5Val {
+        enum class Ch5Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -787,7 +787,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::clear> clear{};
         }
         ///Channel 6 enable clear register.  Writing '0' has no effect
-        enum class Ch6Val {
+        enum class Ch6Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -799,7 +799,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::clear> clear{};
         }
         ///Channel 7 enable clear register.  Writing '0' has no effect
-        enum class Ch7Val {
+        enum class Ch7Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -811,7 +811,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::clear> clear{};
         }
         ///Channel 8 enable clear register.  Writing '0' has no effect
-        enum class Ch8Val {
+        enum class Ch8Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -823,7 +823,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::clear> clear{};
         }
         ///Channel 9 enable clear register.  Writing '0' has no effect
-        enum class Ch9Val {
+        enum class Ch9Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -835,7 +835,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::clear> clear{};
         }
         ///Channel 10 enable clear register.  Writing '0' has no effect
-        enum class Ch10Val {
+        enum class Ch10Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -847,7 +847,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::clear> clear{};
         }
         ///Channel 11 enable clear register.  Writing '0' has no effect
-        enum class Ch11Val {
+        enum class Ch11Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -859,7 +859,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::clear> clear{};
         }
         ///Channel 12 enable clear register.  Writing '0' has no effect
-        enum class Ch12Val {
+        enum class Ch12Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -871,7 +871,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::clear> clear{};
         }
         ///Channel 13 enable clear register.  Writing '0' has no effect
-        enum class Ch13Val {
+        enum class Ch13Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -883,7 +883,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::clear> clear{};
         }
         ///Channel 14 enable clear register.  Writing '0' has no effect
-        enum class Ch14Val {
+        enum class Ch14Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -895,7 +895,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::clear> clear{};
         }
         ///Channel 15 enable clear register.  Writing '0' has no effect
-        enum class Ch15Val {
+        enum class Ch15Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -907,7 +907,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::clear> clear{};
         }
         ///Channel 16 enable clear register.  Writing '0' has no effect
-        enum class Ch16Val {
+        enum class Ch16Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -919,7 +919,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch16)::Type,Ch16Val::clear> clear{};
         }
         ///Channel 17 enable clear register.  Writing '0' has no effect
-        enum class Ch17Val {
+        enum class Ch17Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -931,7 +931,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch17)::Type,Ch17Val::clear> clear{};
         }
         ///Channel 18 enable clear register.  Writing '0' has no effect
-        enum class Ch18Val {
+        enum class Ch18Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -943,7 +943,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch18)::Type,Ch18Val::clear> clear{};
         }
         ///Channel 19 enable clear register.  Writing '0' has no effect
-        enum class Ch19Val {
+        enum class Ch19Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -955,7 +955,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch19)::Type,Ch19Val::clear> clear{};
         }
         ///Channel 20 enable clear register.  Writing '0' has no effect
-        enum class Ch20Val {
+        enum class Ch20Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -967,7 +967,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch20)::Type,Ch20Val::clear> clear{};
         }
         ///Channel 21 enable clear register.  Writing '0' has no effect
-        enum class Ch21Val {
+        enum class Ch21Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -979,7 +979,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch21)::Type,Ch21Val::clear> clear{};
         }
         ///Channel 22 enable clear register.  Writing '0' has no effect
-        enum class Ch22Val {
+        enum class Ch22Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -991,7 +991,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch22)::Type,Ch22Val::clear> clear{};
         }
         ///Channel 23 enable clear register.  Writing '0' has no effect
-        enum class Ch23Val {
+        enum class Ch23Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -1003,7 +1003,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch23)::Type,Ch23Val::clear> clear{};
         }
         ///Channel 24 enable clear register.  Writing '0' has no effect
-        enum class Ch24Val {
+        enum class Ch24Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -1015,7 +1015,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch24)::Type,Ch24Val::clear> clear{};
         }
         ///Channel 25 enable clear register.  Writing '0' has no effect
-        enum class Ch25Val {
+        enum class Ch25Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -1027,7 +1027,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch25)::Type,Ch25Val::clear> clear{};
         }
         ///Channel 26 enable clear register.  Writing '0' has no effect
-        enum class Ch26Val {
+        enum class Ch26Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -1039,7 +1039,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch26)::Type,Ch26Val::clear> clear{};
         }
         ///Channel 27 enable clear register.  Writing '0' has no effect
-        enum class Ch27Val {
+        enum class Ch27Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -1051,7 +1051,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch27)::Type,Ch27Val::clear> clear{};
         }
         ///Channel 28 enable clear register.  Writing '0' has no effect
-        enum class Ch28Val {
+        enum class Ch28Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -1063,7 +1063,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch28)::Type,Ch28Val::clear> clear{};
         }
         ///Channel 29 enable clear register.  Writing '0' has no effect
-        enum class Ch29Val {
+        enum class Ch29Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -1075,7 +1075,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch29)::Type,Ch29Val::clear> clear{};
         }
         ///Channel 30 enable clear register.  Writing '0' has no effect
-        enum class Ch30Val {
+        enum class Ch30Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -1087,7 +1087,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch30)::Type,Ch30Val::clear> clear{};
         }
         ///Channel 31 enable clear register.  Writing '0' has no effect
-        enum class Ch31Val {
+        enum class Ch31Val : unsigned {
             disabled=0x00000000,     ///<Read: channel disabled
             enabled=0x00000001,     ///<Read: channel enabled
             clear=0x00000001,     ///<Write: disable channel
@@ -1102,7 +1102,7 @@ namespace Kvasir {
     namespace PpiChg0{    ///<Description collection[0]:  Channel group 0
         using Addr = Register::Address<0x4001f800,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
-        enum class Ch0Val {
+        enum class Ch0Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1112,7 +1112,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::included> included{};
         }
         ///Include or exclude channel 1
-        enum class Ch1Val {
+        enum class Ch1Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1122,7 +1122,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::included> included{};
         }
         ///Include or exclude channel 2
-        enum class Ch2Val {
+        enum class Ch2Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1132,7 +1132,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::included> included{};
         }
         ///Include or exclude channel 3
-        enum class Ch3Val {
+        enum class Ch3Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1142,7 +1142,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::included> included{};
         }
         ///Include or exclude channel 4
-        enum class Ch4Val {
+        enum class Ch4Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1152,7 +1152,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::included> included{};
         }
         ///Include or exclude channel 5
-        enum class Ch5Val {
+        enum class Ch5Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1162,7 +1162,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::included> included{};
         }
         ///Include or exclude channel 6
-        enum class Ch6Val {
+        enum class Ch6Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1172,7 +1172,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::included> included{};
         }
         ///Include or exclude channel 7
-        enum class Ch7Val {
+        enum class Ch7Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1182,7 +1182,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::included> included{};
         }
         ///Include or exclude channel 8
-        enum class Ch8Val {
+        enum class Ch8Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1192,7 +1192,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::included> included{};
         }
         ///Include or exclude channel 9
-        enum class Ch9Val {
+        enum class Ch9Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1202,7 +1202,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::included> included{};
         }
         ///Include or exclude channel 10
-        enum class Ch10Val {
+        enum class Ch10Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1212,7 +1212,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::included> included{};
         }
         ///Include or exclude channel 11
-        enum class Ch11Val {
+        enum class Ch11Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1222,7 +1222,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::included> included{};
         }
         ///Include or exclude channel 12
-        enum class Ch12Val {
+        enum class Ch12Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1232,7 +1232,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::included> included{};
         }
         ///Include or exclude channel 13
-        enum class Ch13Val {
+        enum class Ch13Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1242,7 +1242,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::included> included{};
         }
         ///Include or exclude channel 14
-        enum class Ch14Val {
+        enum class Ch14Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1252,7 +1252,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::included> included{};
         }
         ///Include or exclude channel 15
-        enum class Ch15Val {
+        enum class Ch15Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1262,7 +1262,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::included> included{};
         }
         ///Include or exclude channel 16
-        enum class Ch16Val {
+        enum class Ch16Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1272,7 +1272,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch16)::Type,Ch16Val::included> included{};
         }
         ///Include or exclude channel 17
-        enum class Ch17Val {
+        enum class Ch17Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1282,7 +1282,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch17)::Type,Ch17Val::included> included{};
         }
         ///Include or exclude channel 18
-        enum class Ch18Val {
+        enum class Ch18Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1292,7 +1292,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch18)::Type,Ch18Val::included> included{};
         }
         ///Include or exclude channel 19
-        enum class Ch19Val {
+        enum class Ch19Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1302,7 +1302,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch19)::Type,Ch19Val::included> included{};
         }
         ///Include or exclude channel 20
-        enum class Ch20Val {
+        enum class Ch20Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1312,7 +1312,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch20)::Type,Ch20Val::included> included{};
         }
         ///Include or exclude channel 21
-        enum class Ch21Val {
+        enum class Ch21Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1322,7 +1322,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch21)::Type,Ch21Val::included> included{};
         }
         ///Include or exclude channel 22
-        enum class Ch22Val {
+        enum class Ch22Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1332,7 +1332,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch22)::Type,Ch22Val::included> included{};
         }
         ///Include or exclude channel 23
-        enum class Ch23Val {
+        enum class Ch23Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1342,7 +1342,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch23)::Type,Ch23Val::included> included{};
         }
         ///Include or exclude channel 24
-        enum class Ch24Val {
+        enum class Ch24Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1352,7 +1352,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch24)::Type,Ch24Val::included> included{};
         }
         ///Include or exclude channel 25
-        enum class Ch25Val {
+        enum class Ch25Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1362,7 +1362,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch25)::Type,Ch25Val::included> included{};
         }
         ///Include or exclude channel 26
-        enum class Ch26Val {
+        enum class Ch26Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1372,7 +1372,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch26)::Type,Ch26Val::included> included{};
         }
         ///Include or exclude channel 27
-        enum class Ch27Val {
+        enum class Ch27Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1382,7 +1382,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch27)::Type,Ch27Val::included> included{};
         }
         ///Include or exclude channel 28
-        enum class Ch28Val {
+        enum class Ch28Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1392,7 +1392,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch28)::Type,Ch28Val::included> included{};
         }
         ///Include or exclude channel 29
-        enum class Ch29Val {
+        enum class Ch29Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1402,7 +1402,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch29)::Type,Ch29Val::included> included{};
         }
         ///Include or exclude channel 30
-        enum class Ch30Val {
+        enum class Ch30Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1412,7 +1412,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch30)::Type,Ch30Val::included> included{};
         }
         ///Include or exclude channel 31
-        enum class Ch31Val {
+        enum class Ch31Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1425,7 +1425,7 @@ namespace Kvasir {
     namespace PpiChg1{    ///<Description collection[0]:  Channel group 0
         using Addr = Register::Address<0x4001f804,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
-        enum class Ch0Val {
+        enum class Ch0Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1435,7 +1435,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::included> included{};
         }
         ///Include or exclude channel 1
-        enum class Ch1Val {
+        enum class Ch1Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1445,7 +1445,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::included> included{};
         }
         ///Include or exclude channel 2
-        enum class Ch2Val {
+        enum class Ch2Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1455,7 +1455,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::included> included{};
         }
         ///Include or exclude channel 3
-        enum class Ch3Val {
+        enum class Ch3Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1465,7 +1465,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::included> included{};
         }
         ///Include or exclude channel 4
-        enum class Ch4Val {
+        enum class Ch4Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1475,7 +1475,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::included> included{};
         }
         ///Include or exclude channel 5
-        enum class Ch5Val {
+        enum class Ch5Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1485,7 +1485,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::included> included{};
         }
         ///Include or exclude channel 6
-        enum class Ch6Val {
+        enum class Ch6Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1495,7 +1495,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::included> included{};
         }
         ///Include or exclude channel 7
-        enum class Ch7Val {
+        enum class Ch7Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1505,7 +1505,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::included> included{};
         }
         ///Include or exclude channel 8
-        enum class Ch8Val {
+        enum class Ch8Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1515,7 +1515,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::included> included{};
         }
         ///Include or exclude channel 9
-        enum class Ch9Val {
+        enum class Ch9Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1525,7 +1525,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::included> included{};
         }
         ///Include or exclude channel 10
-        enum class Ch10Val {
+        enum class Ch10Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1535,7 +1535,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::included> included{};
         }
         ///Include or exclude channel 11
-        enum class Ch11Val {
+        enum class Ch11Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1545,7 +1545,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::included> included{};
         }
         ///Include or exclude channel 12
-        enum class Ch12Val {
+        enum class Ch12Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1555,7 +1555,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::included> included{};
         }
         ///Include or exclude channel 13
-        enum class Ch13Val {
+        enum class Ch13Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1565,7 +1565,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::included> included{};
         }
         ///Include or exclude channel 14
-        enum class Ch14Val {
+        enum class Ch14Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1575,7 +1575,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::included> included{};
         }
         ///Include or exclude channel 15
-        enum class Ch15Val {
+        enum class Ch15Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1585,7 +1585,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::included> included{};
         }
         ///Include or exclude channel 16
-        enum class Ch16Val {
+        enum class Ch16Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1595,7 +1595,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch16)::Type,Ch16Val::included> included{};
         }
         ///Include or exclude channel 17
-        enum class Ch17Val {
+        enum class Ch17Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1605,7 +1605,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch17)::Type,Ch17Val::included> included{};
         }
         ///Include or exclude channel 18
-        enum class Ch18Val {
+        enum class Ch18Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1615,7 +1615,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch18)::Type,Ch18Val::included> included{};
         }
         ///Include or exclude channel 19
-        enum class Ch19Val {
+        enum class Ch19Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1625,7 +1625,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch19)::Type,Ch19Val::included> included{};
         }
         ///Include or exclude channel 20
-        enum class Ch20Val {
+        enum class Ch20Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1635,7 +1635,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch20)::Type,Ch20Val::included> included{};
         }
         ///Include or exclude channel 21
-        enum class Ch21Val {
+        enum class Ch21Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1645,7 +1645,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch21)::Type,Ch21Val::included> included{};
         }
         ///Include or exclude channel 22
-        enum class Ch22Val {
+        enum class Ch22Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1655,7 +1655,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch22)::Type,Ch22Val::included> included{};
         }
         ///Include or exclude channel 23
-        enum class Ch23Val {
+        enum class Ch23Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1665,7 +1665,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch23)::Type,Ch23Val::included> included{};
         }
         ///Include or exclude channel 24
-        enum class Ch24Val {
+        enum class Ch24Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1675,7 +1675,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch24)::Type,Ch24Val::included> included{};
         }
         ///Include or exclude channel 25
-        enum class Ch25Val {
+        enum class Ch25Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1685,7 +1685,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch25)::Type,Ch25Val::included> included{};
         }
         ///Include or exclude channel 26
-        enum class Ch26Val {
+        enum class Ch26Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1695,7 +1695,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch26)::Type,Ch26Val::included> included{};
         }
         ///Include or exclude channel 27
-        enum class Ch27Val {
+        enum class Ch27Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1705,7 +1705,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch27)::Type,Ch27Val::included> included{};
         }
         ///Include or exclude channel 28
-        enum class Ch28Val {
+        enum class Ch28Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1715,7 +1715,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch28)::Type,Ch28Val::included> included{};
         }
         ///Include or exclude channel 29
-        enum class Ch29Val {
+        enum class Ch29Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1725,7 +1725,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch29)::Type,Ch29Val::included> included{};
         }
         ///Include or exclude channel 30
-        enum class Ch30Val {
+        enum class Ch30Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1735,7 +1735,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch30)::Type,Ch30Val::included> included{};
         }
         ///Include or exclude channel 31
-        enum class Ch31Val {
+        enum class Ch31Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1748,7 +1748,7 @@ namespace Kvasir {
     namespace PpiChg2{    ///<Description collection[0]:  Channel group 0
         using Addr = Register::Address<0x4001f808,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
-        enum class Ch0Val {
+        enum class Ch0Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1758,7 +1758,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::included> included{};
         }
         ///Include or exclude channel 1
-        enum class Ch1Val {
+        enum class Ch1Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1768,7 +1768,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::included> included{};
         }
         ///Include or exclude channel 2
-        enum class Ch2Val {
+        enum class Ch2Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1778,7 +1778,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::included> included{};
         }
         ///Include or exclude channel 3
-        enum class Ch3Val {
+        enum class Ch3Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1788,7 +1788,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::included> included{};
         }
         ///Include or exclude channel 4
-        enum class Ch4Val {
+        enum class Ch4Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1798,7 +1798,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::included> included{};
         }
         ///Include or exclude channel 5
-        enum class Ch5Val {
+        enum class Ch5Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1808,7 +1808,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::included> included{};
         }
         ///Include or exclude channel 6
-        enum class Ch6Val {
+        enum class Ch6Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1818,7 +1818,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::included> included{};
         }
         ///Include or exclude channel 7
-        enum class Ch7Val {
+        enum class Ch7Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1828,7 +1828,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::included> included{};
         }
         ///Include or exclude channel 8
-        enum class Ch8Val {
+        enum class Ch8Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1838,7 +1838,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::included> included{};
         }
         ///Include or exclude channel 9
-        enum class Ch9Val {
+        enum class Ch9Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1848,7 +1848,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::included> included{};
         }
         ///Include or exclude channel 10
-        enum class Ch10Val {
+        enum class Ch10Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1858,7 +1858,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::included> included{};
         }
         ///Include or exclude channel 11
-        enum class Ch11Val {
+        enum class Ch11Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1868,7 +1868,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::included> included{};
         }
         ///Include or exclude channel 12
-        enum class Ch12Val {
+        enum class Ch12Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1878,7 +1878,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::included> included{};
         }
         ///Include or exclude channel 13
-        enum class Ch13Val {
+        enum class Ch13Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1888,7 +1888,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::included> included{};
         }
         ///Include or exclude channel 14
-        enum class Ch14Val {
+        enum class Ch14Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1898,7 +1898,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::included> included{};
         }
         ///Include or exclude channel 15
-        enum class Ch15Val {
+        enum class Ch15Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1908,7 +1908,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::included> included{};
         }
         ///Include or exclude channel 16
-        enum class Ch16Val {
+        enum class Ch16Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1918,7 +1918,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch16)::Type,Ch16Val::included> included{};
         }
         ///Include or exclude channel 17
-        enum class Ch17Val {
+        enum class Ch17Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1928,7 +1928,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch17)::Type,Ch17Val::included> included{};
         }
         ///Include or exclude channel 18
-        enum class Ch18Val {
+        enum class Ch18Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1938,7 +1938,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch18)::Type,Ch18Val::included> included{};
         }
         ///Include or exclude channel 19
-        enum class Ch19Val {
+        enum class Ch19Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1948,7 +1948,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch19)::Type,Ch19Val::included> included{};
         }
         ///Include or exclude channel 20
-        enum class Ch20Val {
+        enum class Ch20Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1958,7 +1958,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch20)::Type,Ch20Val::included> included{};
         }
         ///Include or exclude channel 21
-        enum class Ch21Val {
+        enum class Ch21Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1968,7 +1968,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch21)::Type,Ch21Val::included> included{};
         }
         ///Include or exclude channel 22
-        enum class Ch22Val {
+        enum class Ch22Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1978,7 +1978,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch22)::Type,Ch22Val::included> included{};
         }
         ///Include or exclude channel 23
-        enum class Ch23Val {
+        enum class Ch23Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1988,7 +1988,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch23)::Type,Ch23Val::included> included{};
         }
         ///Include or exclude channel 24
-        enum class Ch24Val {
+        enum class Ch24Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -1998,7 +1998,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch24)::Type,Ch24Val::included> included{};
         }
         ///Include or exclude channel 25
-        enum class Ch25Val {
+        enum class Ch25Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2008,7 +2008,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch25)::Type,Ch25Val::included> included{};
         }
         ///Include or exclude channel 26
-        enum class Ch26Val {
+        enum class Ch26Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2018,7 +2018,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch26)::Type,Ch26Val::included> included{};
         }
         ///Include or exclude channel 27
-        enum class Ch27Val {
+        enum class Ch27Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2028,7 +2028,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch27)::Type,Ch27Val::included> included{};
         }
         ///Include or exclude channel 28
-        enum class Ch28Val {
+        enum class Ch28Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2038,7 +2038,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch28)::Type,Ch28Val::included> included{};
         }
         ///Include or exclude channel 29
-        enum class Ch29Val {
+        enum class Ch29Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2048,7 +2048,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch29)::Type,Ch29Val::included> included{};
         }
         ///Include or exclude channel 30
-        enum class Ch30Val {
+        enum class Ch30Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2058,7 +2058,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch30)::Type,Ch30Val::included> included{};
         }
         ///Include or exclude channel 31
-        enum class Ch31Val {
+        enum class Ch31Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2071,7 +2071,7 @@ namespace Kvasir {
     namespace PpiChg3{    ///<Description collection[0]:  Channel group 0
         using Addr = Register::Address<0x4001f80c,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
-        enum class Ch0Val {
+        enum class Ch0Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2081,7 +2081,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::included> included{};
         }
         ///Include or exclude channel 1
-        enum class Ch1Val {
+        enum class Ch1Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2091,7 +2091,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::included> included{};
         }
         ///Include or exclude channel 2
-        enum class Ch2Val {
+        enum class Ch2Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2101,7 +2101,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::included> included{};
         }
         ///Include or exclude channel 3
-        enum class Ch3Val {
+        enum class Ch3Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2111,7 +2111,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::included> included{};
         }
         ///Include or exclude channel 4
-        enum class Ch4Val {
+        enum class Ch4Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2121,7 +2121,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::included> included{};
         }
         ///Include or exclude channel 5
-        enum class Ch5Val {
+        enum class Ch5Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2131,7 +2131,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::included> included{};
         }
         ///Include or exclude channel 6
-        enum class Ch6Val {
+        enum class Ch6Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2141,7 +2141,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::included> included{};
         }
         ///Include or exclude channel 7
-        enum class Ch7Val {
+        enum class Ch7Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2151,7 +2151,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::included> included{};
         }
         ///Include or exclude channel 8
-        enum class Ch8Val {
+        enum class Ch8Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2161,7 +2161,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::included> included{};
         }
         ///Include or exclude channel 9
-        enum class Ch9Val {
+        enum class Ch9Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2171,7 +2171,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::included> included{};
         }
         ///Include or exclude channel 10
-        enum class Ch10Val {
+        enum class Ch10Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2181,7 +2181,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::included> included{};
         }
         ///Include or exclude channel 11
-        enum class Ch11Val {
+        enum class Ch11Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2191,7 +2191,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::included> included{};
         }
         ///Include or exclude channel 12
-        enum class Ch12Val {
+        enum class Ch12Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2201,7 +2201,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::included> included{};
         }
         ///Include or exclude channel 13
-        enum class Ch13Val {
+        enum class Ch13Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2211,7 +2211,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::included> included{};
         }
         ///Include or exclude channel 14
-        enum class Ch14Val {
+        enum class Ch14Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2221,7 +2221,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::included> included{};
         }
         ///Include or exclude channel 15
-        enum class Ch15Val {
+        enum class Ch15Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2231,7 +2231,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::included> included{};
         }
         ///Include or exclude channel 16
-        enum class Ch16Val {
+        enum class Ch16Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2241,7 +2241,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch16)::Type,Ch16Val::included> included{};
         }
         ///Include or exclude channel 17
-        enum class Ch17Val {
+        enum class Ch17Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2251,7 +2251,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch17)::Type,Ch17Val::included> included{};
         }
         ///Include or exclude channel 18
-        enum class Ch18Val {
+        enum class Ch18Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2261,7 +2261,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch18)::Type,Ch18Val::included> included{};
         }
         ///Include or exclude channel 19
-        enum class Ch19Val {
+        enum class Ch19Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2271,7 +2271,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch19)::Type,Ch19Val::included> included{};
         }
         ///Include or exclude channel 20
-        enum class Ch20Val {
+        enum class Ch20Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2281,7 +2281,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch20)::Type,Ch20Val::included> included{};
         }
         ///Include or exclude channel 21
-        enum class Ch21Val {
+        enum class Ch21Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2291,7 +2291,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch21)::Type,Ch21Val::included> included{};
         }
         ///Include or exclude channel 22
-        enum class Ch22Val {
+        enum class Ch22Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2301,7 +2301,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch22)::Type,Ch22Val::included> included{};
         }
         ///Include or exclude channel 23
-        enum class Ch23Val {
+        enum class Ch23Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2311,7 +2311,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch23)::Type,Ch23Val::included> included{};
         }
         ///Include or exclude channel 24
-        enum class Ch24Val {
+        enum class Ch24Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2321,7 +2321,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch24)::Type,Ch24Val::included> included{};
         }
         ///Include or exclude channel 25
-        enum class Ch25Val {
+        enum class Ch25Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2331,7 +2331,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch25)::Type,Ch25Val::included> included{};
         }
         ///Include or exclude channel 26
-        enum class Ch26Val {
+        enum class Ch26Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2341,7 +2341,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch26)::Type,Ch26Val::included> included{};
         }
         ///Include or exclude channel 27
-        enum class Ch27Val {
+        enum class Ch27Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2351,7 +2351,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch27)::Type,Ch27Val::included> included{};
         }
         ///Include or exclude channel 28
-        enum class Ch28Val {
+        enum class Ch28Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2361,7 +2361,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch28)::Type,Ch28Val::included> included{};
         }
         ///Include or exclude channel 29
-        enum class Ch29Val {
+        enum class Ch29Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2371,7 +2371,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch29)::Type,Ch29Val::included> included{};
         }
         ///Include or exclude channel 30
-        enum class Ch30Val {
+        enum class Ch30Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2381,7 +2381,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch30)::Type,Ch30Val::included> included{};
         }
         ///Include or exclude channel 31
-        enum class Ch31Val {
+        enum class Ch31Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2394,7 +2394,7 @@ namespace Kvasir {
     namespace PpiChg4{    ///<Description collection[0]:  Channel group 0
         using Addr = Register::Address<0x4001f810,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
-        enum class Ch0Val {
+        enum class Ch0Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2404,7 +2404,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::included> included{};
         }
         ///Include or exclude channel 1
-        enum class Ch1Val {
+        enum class Ch1Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2414,7 +2414,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::included> included{};
         }
         ///Include or exclude channel 2
-        enum class Ch2Val {
+        enum class Ch2Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2424,7 +2424,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::included> included{};
         }
         ///Include or exclude channel 3
-        enum class Ch3Val {
+        enum class Ch3Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2434,7 +2434,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::included> included{};
         }
         ///Include or exclude channel 4
-        enum class Ch4Val {
+        enum class Ch4Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2444,7 +2444,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::included> included{};
         }
         ///Include or exclude channel 5
-        enum class Ch5Val {
+        enum class Ch5Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2454,7 +2454,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::included> included{};
         }
         ///Include or exclude channel 6
-        enum class Ch6Val {
+        enum class Ch6Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2464,7 +2464,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::included> included{};
         }
         ///Include or exclude channel 7
-        enum class Ch7Val {
+        enum class Ch7Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2474,7 +2474,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::included> included{};
         }
         ///Include or exclude channel 8
-        enum class Ch8Val {
+        enum class Ch8Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2484,7 +2484,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::included> included{};
         }
         ///Include or exclude channel 9
-        enum class Ch9Val {
+        enum class Ch9Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2494,7 +2494,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::included> included{};
         }
         ///Include or exclude channel 10
-        enum class Ch10Val {
+        enum class Ch10Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2504,7 +2504,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::included> included{};
         }
         ///Include or exclude channel 11
-        enum class Ch11Val {
+        enum class Ch11Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2514,7 +2514,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::included> included{};
         }
         ///Include or exclude channel 12
-        enum class Ch12Val {
+        enum class Ch12Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2524,7 +2524,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::included> included{};
         }
         ///Include or exclude channel 13
-        enum class Ch13Val {
+        enum class Ch13Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2534,7 +2534,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::included> included{};
         }
         ///Include or exclude channel 14
-        enum class Ch14Val {
+        enum class Ch14Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2544,7 +2544,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::included> included{};
         }
         ///Include or exclude channel 15
-        enum class Ch15Val {
+        enum class Ch15Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2554,7 +2554,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::included> included{};
         }
         ///Include or exclude channel 16
-        enum class Ch16Val {
+        enum class Ch16Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2564,7 +2564,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch16)::Type,Ch16Val::included> included{};
         }
         ///Include or exclude channel 17
-        enum class Ch17Val {
+        enum class Ch17Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2574,7 +2574,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch17)::Type,Ch17Val::included> included{};
         }
         ///Include or exclude channel 18
-        enum class Ch18Val {
+        enum class Ch18Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2584,7 +2584,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch18)::Type,Ch18Val::included> included{};
         }
         ///Include or exclude channel 19
-        enum class Ch19Val {
+        enum class Ch19Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2594,7 +2594,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch19)::Type,Ch19Val::included> included{};
         }
         ///Include or exclude channel 20
-        enum class Ch20Val {
+        enum class Ch20Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2604,7 +2604,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch20)::Type,Ch20Val::included> included{};
         }
         ///Include or exclude channel 21
-        enum class Ch21Val {
+        enum class Ch21Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2614,7 +2614,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch21)::Type,Ch21Val::included> included{};
         }
         ///Include or exclude channel 22
-        enum class Ch22Val {
+        enum class Ch22Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2624,7 +2624,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch22)::Type,Ch22Val::included> included{};
         }
         ///Include or exclude channel 23
-        enum class Ch23Val {
+        enum class Ch23Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2634,7 +2634,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch23)::Type,Ch23Val::included> included{};
         }
         ///Include or exclude channel 24
-        enum class Ch24Val {
+        enum class Ch24Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2644,7 +2644,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch24)::Type,Ch24Val::included> included{};
         }
         ///Include or exclude channel 25
-        enum class Ch25Val {
+        enum class Ch25Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2654,7 +2654,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch25)::Type,Ch25Val::included> included{};
         }
         ///Include or exclude channel 26
-        enum class Ch26Val {
+        enum class Ch26Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2664,7 +2664,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch26)::Type,Ch26Val::included> included{};
         }
         ///Include or exclude channel 27
-        enum class Ch27Val {
+        enum class Ch27Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2674,7 +2674,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch27)::Type,Ch27Val::included> included{};
         }
         ///Include or exclude channel 28
-        enum class Ch28Val {
+        enum class Ch28Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2684,7 +2684,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch28)::Type,Ch28Val::included> included{};
         }
         ///Include or exclude channel 29
-        enum class Ch29Val {
+        enum class Ch29Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2694,7 +2694,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch29)::Type,Ch29Val::included> included{};
         }
         ///Include or exclude channel 30
-        enum class Ch30Val {
+        enum class Ch30Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2704,7 +2704,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch30)::Type,Ch30Val::included> included{};
         }
         ///Include or exclude channel 31
-        enum class Ch31Val {
+        enum class Ch31Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2717,7 +2717,7 @@ namespace Kvasir {
     namespace PpiChg5{    ///<Description collection[0]:  Channel group 0
         using Addr = Register::Address<0x4001f814,0x00000000,0x00000000,unsigned>;
         ///Include or exclude channel 0
-        enum class Ch0Val {
+        enum class Ch0Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2727,7 +2727,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::included> included{};
         }
         ///Include or exclude channel 1
-        enum class Ch1Val {
+        enum class Ch1Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2737,7 +2737,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::included> included{};
         }
         ///Include or exclude channel 2
-        enum class Ch2Val {
+        enum class Ch2Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2747,7 +2747,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::included> included{};
         }
         ///Include or exclude channel 3
-        enum class Ch3Val {
+        enum class Ch3Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2757,7 +2757,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::included> included{};
         }
         ///Include or exclude channel 4
-        enum class Ch4Val {
+        enum class Ch4Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2767,7 +2767,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::included> included{};
         }
         ///Include or exclude channel 5
-        enum class Ch5Val {
+        enum class Ch5Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2777,7 +2777,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::included> included{};
         }
         ///Include or exclude channel 6
-        enum class Ch6Val {
+        enum class Ch6Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2787,7 +2787,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::included> included{};
         }
         ///Include or exclude channel 7
-        enum class Ch7Val {
+        enum class Ch7Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2797,7 +2797,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::included> included{};
         }
         ///Include or exclude channel 8
-        enum class Ch8Val {
+        enum class Ch8Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2807,7 +2807,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::included> included{};
         }
         ///Include or exclude channel 9
-        enum class Ch9Val {
+        enum class Ch9Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2817,7 +2817,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::included> included{};
         }
         ///Include or exclude channel 10
-        enum class Ch10Val {
+        enum class Ch10Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2827,7 +2827,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::included> included{};
         }
         ///Include or exclude channel 11
-        enum class Ch11Val {
+        enum class Ch11Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2837,7 +2837,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::included> included{};
         }
         ///Include or exclude channel 12
-        enum class Ch12Val {
+        enum class Ch12Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2847,7 +2847,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::included> included{};
         }
         ///Include or exclude channel 13
-        enum class Ch13Val {
+        enum class Ch13Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2857,7 +2857,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::included> included{};
         }
         ///Include or exclude channel 14
-        enum class Ch14Val {
+        enum class Ch14Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2867,7 +2867,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::included> included{};
         }
         ///Include or exclude channel 15
-        enum class Ch15Val {
+        enum class Ch15Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2877,7 +2877,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::included> included{};
         }
         ///Include or exclude channel 16
-        enum class Ch16Val {
+        enum class Ch16Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2887,7 +2887,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch16)::Type,Ch16Val::included> included{};
         }
         ///Include or exclude channel 17
-        enum class Ch17Val {
+        enum class Ch17Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2897,7 +2897,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch17)::Type,Ch17Val::included> included{};
         }
         ///Include or exclude channel 18
-        enum class Ch18Val {
+        enum class Ch18Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2907,7 +2907,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch18)::Type,Ch18Val::included> included{};
         }
         ///Include or exclude channel 19
-        enum class Ch19Val {
+        enum class Ch19Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2917,7 +2917,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch19)::Type,Ch19Val::included> included{};
         }
         ///Include or exclude channel 20
-        enum class Ch20Val {
+        enum class Ch20Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2927,7 +2927,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch20)::Type,Ch20Val::included> included{};
         }
         ///Include or exclude channel 21
-        enum class Ch21Val {
+        enum class Ch21Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2937,7 +2937,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch21)::Type,Ch21Val::included> included{};
         }
         ///Include or exclude channel 22
-        enum class Ch22Val {
+        enum class Ch22Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2947,7 +2947,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch22)::Type,Ch22Val::included> included{};
         }
         ///Include or exclude channel 23
-        enum class Ch23Val {
+        enum class Ch23Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2957,7 +2957,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch23)::Type,Ch23Val::included> included{};
         }
         ///Include or exclude channel 24
-        enum class Ch24Val {
+        enum class Ch24Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2967,7 +2967,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch24)::Type,Ch24Val::included> included{};
         }
         ///Include or exclude channel 25
-        enum class Ch25Val {
+        enum class Ch25Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2977,7 +2977,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch25)::Type,Ch25Val::included> included{};
         }
         ///Include or exclude channel 26
-        enum class Ch26Val {
+        enum class Ch26Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2987,7 +2987,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch26)::Type,Ch26Val::included> included{};
         }
         ///Include or exclude channel 27
-        enum class Ch27Val {
+        enum class Ch27Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -2997,7 +2997,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch27)::Type,Ch27Val::included> included{};
         }
         ///Include or exclude channel 28
-        enum class Ch28Val {
+        enum class Ch28Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -3007,7 +3007,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch28)::Type,Ch28Val::included> included{};
         }
         ///Include or exclude channel 29
-        enum class Ch29Val {
+        enum class Ch29Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -3017,7 +3017,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch29)::Type,Ch29Val::included> included{};
         }
         ///Include or exclude channel 30
-        enum class Ch30Val {
+        enum class Ch30Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };
@@ -3027,7 +3027,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch30)::Type,Ch30Val::included> included{};
         }
         ///Include or exclude channel 31
-        enum class Ch31Val {
+        enum class Ch31Val : unsigned {
             excluded=0x00000000,     ///<Exclude
             included=0x00000001,     ///<Include
         };

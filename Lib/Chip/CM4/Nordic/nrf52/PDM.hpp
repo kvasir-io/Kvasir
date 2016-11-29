@@ -20,7 +20,7 @@ namespace Kvasir {
     namespace PdmInten{    ///<Enable or disable interrupt
         using Addr = Register::Address<0x4001d300,0xfffffff8,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_STARTED event
-        enum class StartedVal {
+        enum class StartedVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -30,7 +30,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -40,7 +40,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_END event
-        enum class EndVal {
+        enum class EndVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -53,7 +53,7 @@ namespace Kvasir {
     namespace PdmIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x4001d304,0xfffffff8,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_STARTED event
-        enum class StartedVal {
+        enum class StartedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -65,7 +65,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -77,7 +77,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_END event
-        enum class EndVal {
+        enum class EndVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -92,7 +92,7 @@ namespace Kvasir {
     namespace PdmIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x4001d308,0xfffffff8,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_STARTED event
-        enum class StartedVal {
+        enum class StartedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -104,7 +104,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -116,7 +116,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_END event
-        enum class EndVal {
+        enum class EndVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -131,7 +131,7 @@ namespace Kvasir {
     namespace PdmEnable{    ///<PDM module enable register
         using Addr = Register::Address<0x4001d500,0xfffffffe,0x00000000,unsigned>;
         ///Enable or disable PDM reception
-        enum class EnableVal {
+        enum class EnableVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -149,7 +149,7 @@ namespace Kvasir {
     namespace PdmMode{    ///<Defines the routing of the connected PDM microphones' signals
         using Addr = Register::Address<0x4001d508,0xfffffffc,0x00000000,unsigned>;
         ///Mono or stereo operation
-        enum class MonoVal {
+        enum class MonoVal : unsigned {
             stereo=0x00000000,     ///<Sample and store one pair (Left + Right) of 16bit samples per RAM word R=[31:16]; L=[15:0]
             mono=0x00000001,     ///<Sample and store two successive Left samples (16 bit each) per RAM word L1=[31:16]; L0=[15:0]
         };
@@ -159,7 +159,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mono)::Type,MonoVal::mono> mono{};
         }
         ///Defines on which PDM_CLK edge Left (or mono) is sampled
-        enum class EdgeVal {
+        enum class EdgeVal : unsigned {
             leftfalling=0x00000000,     ///<Left (or mono) is sampled on falling edge of PDM_CLK
             leftrising=0x00000001,     ///<Left (or mono) is sampled on rising edge of PDM_CLK
         };
