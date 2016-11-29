@@ -26,7 +26,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,WenVal> wen{}; 
         namespace WenValC{
             constexpr Register::FieldValue<decltype(wen)::Type,WenVal::ren> ren{};
-            constexpr Register::FieldValue<decltype(wen)::Type,WenVal::wen> wen{};
+//            constexpr Register::FieldValue<decltype(wen)::Type,WenVal::wen> wen{};
             constexpr Register::FieldValue<decltype(wen)::Type,WenVal::een> een{};
         }
     }

@@ -202,11 +202,6 @@ namespace Kvasir {
             set=0x00000001,     ///<Enable
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DisabledVal> disabled{}; 
-        namespace DisabledValC{
-            constexpr Register::FieldValue<decltype(disabled)::Type,DisabledVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(disabled)::Type,DisabledVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(disabled)::Type,DisabledVal::set> set{};
-        }
         ///Write '1' to Enable interrupt on EVENTS_DEVMATCH event
         enum class DevmatchVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
@@ -337,11 +332,6 @@ namespace Kvasir {
             clear=0x00000001,     ///<Disable
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DisabledVal> disabled{}; 
-        namespace DisabledValC{
-            constexpr Register::FieldValue<decltype(disabled)::Type,DisabledVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(disabled)::Type,DisabledVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(disabled)::Type,DisabledVal::clear> clear{};
-        }
         ///Write '1' to Clear interrupt on EVENTS_DEVMATCH event
         enum class DevmatchVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled

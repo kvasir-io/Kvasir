@@ -429,34 +429,4 @@ namespace Kvasir {
     namespace Timer4EventsCompare5{    ///<Description collection[0]:  Compare event on CC[0] match
         using Addr = Register::Address<0x4001b154,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Timer4Cc0{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x4001b540,0x00000000,0x00000000,unsigned>;
-        ///Capture/Compare value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
-    }
-    namespace Timer4Cc1{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x4001b544,0x00000000,0x00000000,unsigned>;
-        ///Capture/Compare value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
-    }
-    namespace Timer4Cc2{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x4001b548,0x00000000,0x00000000,unsigned>;
-        ///Capture/Compare value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
-    }
-    namespace Timer4Cc3{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x4001b54c,0x00000000,0x00000000,unsigned>;
-        ///Capture/Compare value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
-    }
-    namespace Timer4Cc4{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x4001b550,0x00000000,0x00000000,unsigned>;
-        ///Capture/Compare value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
-    }
-    namespace Timer4Cc5{    ///<Description collection[0]:  Capture/Compare register 0
-        using Addr = Register::Address<0x4001b554,0x00000000,0x00000000,unsigned>;
-        ///Capture/Compare value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
-    }
 }

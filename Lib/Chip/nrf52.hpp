@@ -63,3 +63,4 @@
 #include <Chip/CM4/Nordic/nrf52/P0.hpp>
 #include <Chip/CM4/Nordic/nrf52/TWI1.hpp>
 #include <Chip/CM4/Nordic/nrf52/UART0.hpp>
+#include <Chip/CM4/Nordic/nrf52/Io.hpp>

@@ -437,24 +437,4 @@ namespace Kvasir {
     namespace Rtc1EventsCompare3{    ///<Description collection[0]:  Compare event on CC[0] match
         using Addr = Register::Address<0x4001114c,0xffffffff,0x00000000,unsigned>;
     }
-    namespace Rtc1Cc0{    ///<Description collection[0]:  Compare register 0
-        using Addr = Register::Address<0x40011540,0xff000000,0x00000000,unsigned>;
-        ///Compare value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
-    }
-    namespace Rtc1Cc1{    ///<Description collection[0]:  Compare register 0
-        using Addr = Register::Address<0x40011544,0xff000000,0x00000000,unsigned>;
-        ///Compare value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
-    }
-    namespace Rtc1Cc2{    ///<Description collection[0]:  Compare register 0
-        using Addr = Register::Address<0x40011548,0xff000000,0x00000000,unsigned>;
-        ///Compare value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
-    }
-    namespace Rtc1Cc3{    ///<Description collection[0]:  Compare register 0
-        using Addr = Register::Address<0x4001154c,0xff000000,0x00000000,unsigned>;
-        ///Compare value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> compare{}; 
-    }
 }

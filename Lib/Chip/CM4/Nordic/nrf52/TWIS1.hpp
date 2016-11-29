@@ -352,14 +352,5 @@ namespace Kvasir {
         ///TWI slave address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> address{}; 
     }
-    namespace Twis1Address0{    ///<Description collection[0]:  TWI slave address 0
-        using Addr = Register::Address<0x40004588,0xffffff80,0x00000000,unsigned>;
-        ///TWI slave address
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> address{}; 
-    }
-    namespace Twis1Address1{    ///<Description collection[0]:  TWI slave address 0
-        using Addr = Register::Address<0x4000458c,0xffffff80,0x00000000,unsigned>;
-        ///TWI slave address
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> address{}; 
-    }
+
 }
