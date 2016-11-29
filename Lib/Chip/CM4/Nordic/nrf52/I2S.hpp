@@ -20,7 +20,7 @@ namespace Kvasir {
     namespace I2sInten{    ///<Enable or disable interrupt
         using Addr = Register::Address<0x40025300,0xffffffd9,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_RXPTRUPD event
-        enum class RxptrupdVal {
+        enum class RxptrupdVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -30,7 +30,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -40,7 +40,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TXPTRUPD event
-        enum class TxptrupdVal {
+        enum class TxptrupdVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -53,7 +53,7 @@ namespace Kvasir {
     namespace I2sIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40025304,0xffffffd9,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_RXPTRUPD event
-        enum class RxptrupdVal {
+        enum class RxptrupdVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -65,7 +65,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -77,7 +77,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TXPTRUPD event
-        enum class TxptrupdVal {
+        enum class TxptrupdVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -92,7 +92,7 @@ namespace Kvasir {
     namespace I2sIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40025308,0xffffffd9,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_RXPTRUPD event
-        enum class RxptrupdVal {
+        enum class RxptrupdVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -104,7 +104,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -116,7 +116,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TXPTRUPD event
-        enum class TxptrupdVal {
+        enum class TxptrupdVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -131,7 +131,7 @@ namespace Kvasir {
     namespace I2sEnable{    ///<Enable I<sup>2</sup>S module.
         using Addr = Register::Address<0x40025500,0xfffffffe,0x00000000,unsigned>;
         ///Enable I<sup>2</sup>S module.
-        enum class EnableVal {
+        enum class EnableVal : unsigned {
             disable=0x00000000,     ///<Disabl
             enable=0x00000001,     ///<Enable
         };

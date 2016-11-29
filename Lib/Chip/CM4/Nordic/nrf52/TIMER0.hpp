@@ -20,7 +20,7 @@ namespace Kvasir {
     namespace Timer0Shorts{    ///<Shortcut register
         using Addr = Register::Address<0x40008200,0xffffc0c0,0x00000000,unsigned>;
         ///Shortcut between EVENTS_COMPARE[0] event and TASKS_CLEAR task
-        enum class Compare0clearVal {
+        enum class Compare0clearVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -30,7 +30,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0Clear)::Type,Compare0clearVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[1] event and TASKS_CLEAR task
-        enum class Compare1clearVal {
+        enum class Compare1clearVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -40,7 +40,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare1Clear)::Type,Compare1clearVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[2] event and TASKS_CLEAR task
-        enum class Compare2clearVal {
+        enum class Compare2clearVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -50,7 +50,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2Clear)::Type,Compare2clearVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[3] event and TASKS_CLEAR task
-        enum class Compare3clearVal {
+        enum class Compare3clearVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -60,7 +60,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3Clear)::Type,Compare3clearVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[4] event and TASKS_CLEAR task
-        enum class Compare4clearVal {
+        enum class Compare4clearVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -70,7 +70,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare4Clear)::Type,Compare4clearVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[5] event and TASKS_CLEAR task
-        enum class Compare5clearVal {
+        enum class Compare5clearVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -80,7 +80,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare5Clear)::Type,Compare5clearVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[0] event and TASKS_STOP task
-        enum class Compare0stopVal {
+        enum class Compare0stopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -90,7 +90,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0Stop)::Type,Compare0stopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[1] event and TASKS_STOP task
-        enum class Compare1stopVal {
+        enum class Compare1stopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -100,7 +100,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare1Stop)::Type,Compare1stopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[2] event and TASKS_STOP task
-        enum class Compare2stopVal {
+        enum class Compare2stopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -110,7 +110,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2Stop)::Type,Compare2stopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[3] event and TASKS_STOP task
-        enum class Compare3stopVal {
+        enum class Compare3stopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -120,7 +120,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3Stop)::Type,Compare3stopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[4] event and TASKS_STOP task
-        enum class Compare4stopVal {
+        enum class Compare4stopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -130,7 +130,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare4Stop)::Type,Compare4stopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_COMPARE[5] event and TASKS_STOP task
-        enum class Compare5stopVal {
+        enum class Compare5stopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -143,7 +143,7 @@ namespace Kvasir {
     namespace Timer0Intenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40008304,0xffc0ffff,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[0] event
-        enum class Compare0Val {
+        enum class Compare0Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -155,7 +155,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[1] event
-        enum class Compare1Val {
+        enum class Compare1Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -167,7 +167,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[2] event
-        enum class Compare2Val {
+        enum class Compare2Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -179,7 +179,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[3] event
-        enum class Compare3Val {
+        enum class Compare3Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -191,7 +191,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[4] event
-        enum class Compare4Val {
+        enum class Compare4Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -203,7 +203,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare4)::Type,Compare4Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[5] event
-        enum class Compare5Val {
+        enum class Compare5Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -218,7 +218,7 @@ namespace Kvasir {
     namespace Timer0Intenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40008308,0xffc0ffff,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[0] event
-        enum class Compare0Val {
+        enum class Compare0Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -230,7 +230,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[1] event
-        enum class Compare1Val {
+        enum class Compare1Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -242,7 +242,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[2] event
-        enum class Compare2Val {
+        enum class Compare2Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -254,7 +254,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[3] event
-        enum class Compare3Val {
+        enum class Compare3Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -266,7 +266,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[4] event
-        enum class Compare4Val {
+        enum class Compare4Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -278,7 +278,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare4)::Type,Compare4Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[5] event
-        enum class Compare5Val {
+        enum class Compare5Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -293,7 +293,7 @@ namespace Kvasir {
     namespace Timer0Mode{    ///<Timer mode selection
         using Addr = Register::Address<0x40008504,0xfffffffc,0x00000000,unsigned>;
         ///Timer mode
-        enum class ModeVal {
+        enum class ModeVal : unsigned {
             timer=0x00000000,     ///<Select Timer mode
             counter=0x00000001,     ///<Select Counter mode
             lowpowercounter=0x00000002,     ///<Select Low Power Counter mode
@@ -308,7 +308,7 @@ namespace Kvasir {
     namespace Timer0Bitmode{    ///<Configure the number of bits used by the TIMER
         using Addr = Register::Address<0x40008508,0xfffffffc,0x00000000,unsigned>;
         ///Timer bit width
-        enum class BitmodeVal {
+        enum class BitmodeVal : unsigned {
             v16bit=0x00000000,     ///<16 bit timer bit width
             v08bit=0x00000001,     ///<8 bit timer bit width
             v24bit=0x00000002,     ///<24 bit timer bit width

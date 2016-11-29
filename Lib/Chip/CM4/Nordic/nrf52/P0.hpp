@@ -5,7 +5,7 @@ namespace Kvasir {
     namespace P0Out{    ///<Write GPIO port
         using Addr = Register::Address<0x50000504,0x00000000,0x00000000,unsigned>;
         ///P0.0 pin
-        enum class Pin0Val {
+        enum class Pin0Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -15,7 +15,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin0)::Type,Pin0Val::high> high{};
         }
         ///P0.1 pin
-        enum class Pin1Val {
+        enum class Pin1Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -25,7 +25,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin1)::Type,Pin1Val::high> high{};
         }
         ///P0.2 pin
-        enum class Pin2Val {
+        enum class Pin2Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -35,7 +35,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin2)::Type,Pin2Val::high> high{};
         }
         ///P0.3 pin
-        enum class Pin3Val {
+        enum class Pin3Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -45,7 +45,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin3)::Type,Pin3Val::high> high{};
         }
         ///P0.4 pin
-        enum class Pin4Val {
+        enum class Pin4Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -55,7 +55,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin4)::Type,Pin4Val::high> high{};
         }
         ///P0.5 pin
-        enum class Pin5Val {
+        enum class Pin5Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -65,7 +65,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin5)::Type,Pin5Val::high> high{};
         }
         ///P0.6 pin
-        enum class Pin6Val {
+        enum class Pin6Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -75,7 +75,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin6)::Type,Pin6Val::high> high{};
         }
         ///P0.7 pin
-        enum class Pin7Val {
+        enum class Pin7Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -85,7 +85,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin7)::Type,Pin7Val::high> high{};
         }
         ///P0.8 pin
-        enum class Pin8Val {
+        enum class Pin8Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -95,7 +95,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin8)::Type,Pin8Val::high> high{};
         }
         ///P0.9 pin
-        enum class Pin9Val {
+        enum class Pin9Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -105,7 +105,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin9)::Type,Pin9Val::high> high{};
         }
         ///P0.10 pin
-        enum class Pin10Val {
+        enum class Pin10Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -115,7 +115,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin10)::Type,Pin10Val::high> high{};
         }
         ///P0.11 pin
-        enum class Pin11Val {
+        enum class Pin11Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -125,7 +125,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin11)::Type,Pin11Val::high> high{};
         }
         ///P0.12 pin
-        enum class Pin12Val {
+        enum class Pin12Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -135,7 +135,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin12)::Type,Pin12Val::high> high{};
         }
         ///P0.13 pin
-        enum class Pin13Val {
+        enum class Pin13Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -145,7 +145,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin13)::Type,Pin13Val::high> high{};
         }
         ///P0.14 pin
-        enum class Pin14Val {
+        enum class Pin14Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -155,7 +155,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin14)::Type,Pin14Val::high> high{};
         }
         ///P0.15 pin
-        enum class Pin15Val {
+        enum class Pin15Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -165,7 +165,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin15)::Type,Pin15Val::high> high{};
         }
         ///P0.16 pin
-        enum class Pin16Val {
+        enum class Pin16Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -175,7 +175,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin16)::Type,Pin16Val::high> high{};
         }
         ///P0.17 pin
-        enum class Pin17Val {
+        enum class Pin17Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -185,7 +185,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin17)::Type,Pin17Val::high> high{};
         }
         ///P0.18 pin
-        enum class Pin18Val {
+        enum class Pin18Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -195,7 +195,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin18)::Type,Pin18Val::high> high{};
         }
         ///P0.19 pin
-        enum class Pin19Val {
+        enum class Pin19Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -205,7 +205,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin19)::Type,Pin19Val::high> high{};
         }
         ///P0.20 pin
-        enum class Pin20Val {
+        enum class Pin20Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -215,7 +215,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin20)::Type,Pin20Val::high> high{};
         }
         ///P0.21 pin
-        enum class Pin21Val {
+        enum class Pin21Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -225,7 +225,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin21)::Type,Pin21Val::high> high{};
         }
         ///P0.22 pin
-        enum class Pin22Val {
+        enum class Pin22Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -235,7 +235,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin22)::Type,Pin22Val::high> high{};
         }
         ///P0.23 pin
-        enum class Pin23Val {
+        enum class Pin23Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -245,7 +245,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin23)::Type,Pin23Val::high> high{};
         }
         ///P0.24 pin
-        enum class Pin24Val {
+        enum class Pin24Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -255,7 +255,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin24)::Type,Pin24Val::high> high{};
         }
         ///P0.25 pin
-        enum class Pin25Val {
+        enum class Pin25Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -265,7 +265,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin25)::Type,Pin25Val::high> high{};
         }
         ///P0.26 pin
-        enum class Pin26Val {
+        enum class Pin26Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -275,7 +275,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin26)::Type,Pin26Val::high> high{};
         }
         ///P0.27 pin
-        enum class Pin27Val {
+        enum class Pin27Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -285,7 +285,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin27)::Type,Pin27Val::high> high{};
         }
         ///P0.28 pin
-        enum class Pin28Val {
+        enum class Pin28Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -295,7 +295,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin28)::Type,Pin28Val::high> high{};
         }
         ///P0.29 pin
-        enum class Pin29Val {
+        enum class Pin29Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -305,7 +305,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin29)::Type,Pin29Val::high> high{};
         }
         ///P0.30 pin
-        enum class Pin30Val {
+        enum class Pin30Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -315,7 +315,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin30)::Type,Pin30Val::high> high{};
         }
         ///P0.31 pin
-        enum class Pin31Val {
+        enum class Pin31Val : unsigned {
             low=0x00000000,     ///<Pin driver is low
             high=0x00000001,     ///<Pin driver is high
         };
@@ -328,7 +328,7 @@ namespace Kvasir {
     namespace P0Outset{    ///<Set individual bits in GPIO port
         using Addr = Register::Address<0x50000508,0x00000000,0x00000000,unsigned>;
         ///P0.0 pin
-        enum class Pin0Val {
+        enum class Pin0Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -340,7 +340,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin0)::Type,Pin0Val::set> set{};
         }
         ///P0.1 pin
-        enum class Pin1Val {
+        enum class Pin1Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -352,7 +352,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin1)::Type,Pin1Val::set> set{};
         }
         ///P0.2 pin
-        enum class Pin2Val {
+        enum class Pin2Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -364,7 +364,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin2)::Type,Pin2Val::set> set{};
         }
         ///P0.3 pin
-        enum class Pin3Val {
+        enum class Pin3Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -376,7 +376,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin3)::Type,Pin3Val::set> set{};
         }
         ///P0.4 pin
-        enum class Pin4Val {
+        enum class Pin4Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -388,7 +388,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin4)::Type,Pin4Val::set> set{};
         }
         ///P0.5 pin
-        enum class Pin5Val {
+        enum class Pin5Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -400,7 +400,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin5)::Type,Pin5Val::set> set{};
         }
         ///P0.6 pin
-        enum class Pin6Val {
+        enum class Pin6Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -412,7 +412,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin6)::Type,Pin6Val::set> set{};
         }
         ///P0.7 pin
-        enum class Pin7Val {
+        enum class Pin7Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -424,7 +424,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin7)::Type,Pin7Val::set> set{};
         }
         ///P0.8 pin
-        enum class Pin8Val {
+        enum class Pin8Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -436,7 +436,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin8)::Type,Pin8Val::set> set{};
         }
         ///P0.9 pin
-        enum class Pin9Val {
+        enum class Pin9Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -448,7 +448,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin9)::Type,Pin9Val::set> set{};
         }
         ///P0.10 pin
-        enum class Pin10Val {
+        enum class Pin10Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -460,7 +460,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin10)::Type,Pin10Val::set> set{};
         }
         ///P0.11 pin
-        enum class Pin11Val {
+        enum class Pin11Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -472,7 +472,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin11)::Type,Pin11Val::set> set{};
         }
         ///P0.12 pin
-        enum class Pin12Val {
+        enum class Pin12Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -484,7 +484,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin12)::Type,Pin12Val::set> set{};
         }
         ///P0.13 pin
-        enum class Pin13Val {
+        enum class Pin13Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -496,7 +496,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin13)::Type,Pin13Val::set> set{};
         }
         ///P0.14 pin
-        enum class Pin14Val {
+        enum class Pin14Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -508,7 +508,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin14)::Type,Pin14Val::set> set{};
         }
         ///P0.15 pin
-        enum class Pin15Val {
+        enum class Pin15Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -520,7 +520,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin15)::Type,Pin15Val::set> set{};
         }
         ///P0.16 pin
-        enum class Pin16Val {
+        enum class Pin16Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -532,7 +532,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin16)::Type,Pin16Val::set> set{};
         }
         ///P0.17 pin
-        enum class Pin17Val {
+        enum class Pin17Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -544,7 +544,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin17)::Type,Pin17Val::set> set{};
         }
         ///P0.18 pin
-        enum class Pin18Val {
+        enum class Pin18Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -556,7 +556,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin18)::Type,Pin18Val::set> set{};
         }
         ///P0.19 pin
-        enum class Pin19Val {
+        enum class Pin19Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -568,7 +568,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin19)::Type,Pin19Val::set> set{};
         }
         ///P0.20 pin
-        enum class Pin20Val {
+        enum class Pin20Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -580,7 +580,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin20)::Type,Pin20Val::set> set{};
         }
         ///P0.21 pin
-        enum class Pin21Val {
+        enum class Pin21Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -592,7 +592,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin21)::Type,Pin21Val::set> set{};
         }
         ///P0.22 pin
-        enum class Pin22Val {
+        enum class Pin22Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -604,7 +604,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin22)::Type,Pin22Val::set> set{};
         }
         ///P0.23 pin
-        enum class Pin23Val {
+        enum class Pin23Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -616,7 +616,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin23)::Type,Pin23Val::set> set{};
         }
         ///P0.24 pin
-        enum class Pin24Val {
+        enum class Pin24Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -628,7 +628,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin24)::Type,Pin24Val::set> set{};
         }
         ///P0.25 pin
-        enum class Pin25Val {
+        enum class Pin25Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -640,7 +640,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin25)::Type,Pin25Val::set> set{};
         }
         ///P0.26 pin
-        enum class Pin26Val {
+        enum class Pin26Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -652,7 +652,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin26)::Type,Pin26Val::set> set{};
         }
         ///P0.27 pin
-        enum class Pin27Val {
+        enum class Pin27Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -664,7 +664,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin27)::Type,Pin27Val::set> set{};
         }
         ///P0.28 pin
-        enum class Pin28Val {
+        enum class Pin28Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -676,7 +676,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin28)::Type,Pin28Val::set> set{};
         }
         ///P0.29 pin
-        enum class Pin29Val {
+        enum class Pin29Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -688,7 +688,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin29)::Type,Pin29Val::set> set{};
         }
         ///P0.30 pin
-        enum class Pin30Val {
+        enum class Pin30Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -700,7 +700,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin30)::Type,Pin30Val::set> set{};
         }
         ///P0.31 pin
-        enum class Pin31Val {
+        enum class Pin31Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             set=0x00000001,     ///<Write: writing a '1' sets the pin high; writing a '0' has no effect
@@ -715,7 +715,7 @@ namespace Kvasir {
     namespace P0Outclr{    ///<Clear individual bits in GPIO port
         using Addr = Register::Address<0x5000050c,0x00000000,0x00000000,unsigned>;
         ///P0.0 pin
-        enum class Pin0Val {
+        enum class Pin0Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -727,7 +727,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin0)::Type,Pin0Val::clear> clear{};
         }
         ///P0.1 pin
-        enum class Pin1Val {
+        enum class Pin1Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -739,7 +739,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin1)::Type,Pin1Val::clear> clear{};
         }
         ///P0.2 pin
-        enum class Pin2Val {
+        enum class Pin2Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -751,7 +751,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin2)::Type,Pin2Val::clear> clear{};
         }
         ///P0.3 pin
-        enum class Pin3Val {
+        enum class Pin3Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -763,7 +763,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin3)::Type,Pin3Val::clear> clear{};
         }
         ///P0.4 pin
-        enum class Pin4Val {
+        enum class Pin4Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -775,7 +775,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin4)::Type,Pin4Val::clear> clear{};
         }
         ///P0.5 pin
-        enum class Pin5Val {
+        enum class Pin5Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -787,7 +787,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin5)::Type,Pin5Val::clear> clear{};
         }
         ///P0.6 pin
-        enum class Pin6Val {
+        enum class Pin6Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -799,7 +799,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin6)::Type,Pin6Val::clear> clear{};
         }
         ///P0.7 pin
-        enum class Pin7Val {
+        enum class Pin7Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -811,7 +811,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin7)::Type,Pin7Val::clear> clear{};
         }
         ///P0.8 pin
-        enum class Pin8Val {
+        enum class Pin8Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -823,7 +823,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin8)::Type,Pin8Val::clear> clear{};
         }
         ///P0.9 pin
-        enum class Pin9Val {
+        enum class Pin9Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -835,7 +835,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin9)::Type,Pin9Val::clear> clear{};
         }
         ///P0.10 pin
-        enum class Pin10Val {
+        enum class Pin10Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -847,7 +847,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin10)::Type,Pin10Val::clear> clear{};
         }
         ///P0.11 pin
-        enum class Pin11Val {
+        enum class Pin11Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -859,7 +859,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin11)::Type,Pin11Val::clear> clear{};
         }
         ///P0.12 pin
-        enum class Pin12Val {
+        enum class Pin12Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -871,7 +871,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin12)::Type,Pin12Val::clear> clear{};
         }
         ///P0.13 pin
-        enum class Pin13Val {
+        enum class Pin13Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -883,7 +883,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin13)::Type,Pin13Val::clear> clear{};
         }
         ///P0.14 pin
-        enum class Pin14Val {
+        enum class Pin14Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -895,7 +895,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin14)::Type,Pin14Val::clear> clear{};
         }
         ///P0.15 pin
-        enum class Pin15Val {
+        enum class Pin15Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -907,7 +907,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin15)::Type,Pin15Val::clear> clear{};
         }
         ///P0.16 pin
-        enum class Pin16Val {
+        enum class Pin16Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -919,7 +919,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin16)::Type,Pin16Val::clear> clear{};
         }
         ///P0.17 pin
-        enum class Pin17Val {
+        enum class Pin17Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -931,7 +931,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin17)::Type,Pin17Val::clear> clear{};
         }
         ///P0.18 pin
-        enum class Pin18Val {
+        enum class Pin18Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -943,7 +943,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin18)::Type,Pin18Val::clear> clear{};
         }
         ///P0.19 pin
-        enum class Pin19Val {
+        enum class Pin19Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -955,7 +955,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin19)::Type,Pin19Val::clear> clear{};
         }
         ///P0.20 pin
-        enum class Pin20Val {
+        enum class Pin20Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -967,7 +967,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin20)::Type,Pin20Val::clear> clear{};
         }
         ///P0.21 pin
-        enum class Pin21Val {
+        enum class Pin21Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -979,7 +979,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin21)::Type,Pin21Val::clear> clear{};
         }
         ///P0.22 pin
-        enum class Pin22Val {
+        enum class Pin22Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -991,7 +991,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin22)::Type,Pin22Val::clear> clear{};
         }
         ///P0.23 pin
-        enum class Pin23Val {
+        enum class Pin23Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -1003,7 +1003,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin23)::Type,Pin23Val::clear> clear{};
         }
         ///P0.24 pin
-        enum class Pin24Val {
+        enum class Pin24Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -1015,7 +1015,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin24)::Type,Pin24Val::clear> clear{};
         }
         ///P0.25 pin
-        enum class Pin25Val {
+        enum class Pin25Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -1027,7 +1027,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin25)::Type,Pin25Val::clear> clear{};
         }
         ///P0.26 pin
-        enum class Pin26Val {
+        enum class Pin26Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -1039,7 +1039,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin26)::Type,Pin26Val::clear> clear{};
         }
         ///P0.27 pin
-        enum class Pin27Val {
+        enum class Pin27Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -1051,7 +1051,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin27)::Type,Pin27Val::clear> clear{};
         }
         ///P0.28 pin
-        enum class Pin28Val {
+        enum class Pin28Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -1063,7 +1063,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin28)::Type,Pin28Val::clear> clear{};
         }
         ///P0.29 pin
-        enum class Pin29Val {
+        enum class Pin29Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -1075,7 +1075,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin29)::Type,Pin29Val::clear> clear{};
         }
         ///P0.30 pin
-        enum class Pin30Val {
+        enum class Pin30Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -1087,7 +1087,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin30)::Type,Pin30Val::clear> clear{};
         }
         ///P0.31 pin
-        enum class Pin31Val {
+        enum class Pin31Val : unsigned {
             low=0x00000000,     ///<Read: pin driver is low
             high=0x00000001,     ///<Read: pin driver is high
             clear=0x00000001,     ///<Write: writing a '1' sets the pin low; writing a '0' has no effect
@@ -1102,7 +1102,7 @@ namespace Kvasir {
     namespace P0In{    ///<Read GPIO port
         using Addr = Register::Address<0x50000510,0x00000000,0x00000000,unsigned>;
         ///P0.0 pin
-        enum class Pin0Val {
+        enum class Pin0Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1112,7 +1112,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin0)::Type,Pin0Val::high> high{};
         }
         ///P0.1 pin
-        enum class Pin1Val {
+        enum class Pin1Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1122,7 +1122,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin1)::Type,Pin1Val::high> high{};
         }
         ///P0.2 pin
-        enum class Pin2Val {
+        enum class Pin2Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1132,7 +1132,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin2)::Type,Pin2Val::high> high{};
         }
         ///P0.3 pin
-        enum class Pin3Val {
+        enum class Pin3Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1142,7 +1142,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin3)::Type,Pin3Val::high> high{};
         }
         ///P0.4 pin
-        enum class Pin4Val {
+        enum class Pin4Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1152,7 +1152,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin4)::Type,Pin4Val::high> high{};
         }
         ///P0.5 pin
-        enum class Pin5Val {
+        enum class Pin5Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1162,7 +1162,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin5)::Type,Pin5Val::high> high{};
         }
         ///P0.6 pin
-        enum class Pin6Val {
+        enum class Pin6Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1172,7 +1172,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin6)::Type,Pin6Val::high> high{};
         }
         ///P0.7 pin
-        enum class Pin7Val {
+        enum class Pin7Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1182,7 +1182,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin7)::Type,Pin7Val::high> high{};
         }
         ///P0.8 pin
-        enum class Pin8Val {
+        enum class Pin8Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1192,7 +1192,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin8)::Type,Pin8Val::high> high{};
         }
         ///P0.9 pin
-        enum class Pin9Val {
+        enum class Pin9Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1202,7 +1202,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin9)::Type,Pin9Val::high> high{};
         }
         ///P0.10 pin
-        enum class Pin10Val {
+        enum class Pin10Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1212,7 +1212,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin10)::Type,Pin10Val::high> high{};
         }
         ///P0.11 pin
-        enum class Pin11Val {
+        enum class Pin11Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1222,7 +1222,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin11)::Type,Pin11Val::high> high{};
         }
         ///P0.12 pin
-        enum class Pin12Val {
+        enum class Pin12Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1232,7 +1232,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin12)::Type,Pin12Val::high> high{};
         }
         ///P0.13 pin
-        enum class Pin13Val {
+        enum class Pin13Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1242,7 +1242,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin13)::Type,Pin13Val::high> high{};
         }
         ///P0.14 pin
-        enum class Pin14Val {
+        enum class Pin14Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1252,7 +1252,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin14)::Type,Pin14Val::high> high{};
         }
         ///P0.15 pin
-        enum class Pin15Val {
+        enum class Pin15Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1262,7 +1262,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin15)::Type,Pin15Val::high> high{};
         }
         ///P0.16 pin
-        enum class Pin16Val {
+        enum class Pin16Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1272,7 +1272,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin16)::Type,Pin16Val::high> high{};
         }
         ///P0.17 pin
-        enum class Pin17Val {
+        enum class Pin17Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1282,7 +1282,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin17)::Type,Pin17Val::high> high{};
         }
         ///P0.18 pin
-        enum class Pin18Val {
+        enum class Pin18Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1292,7 +1292,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin18)::Type,Pin18Val::high> high{};
         }
         ///P0.19 pin
-        enum class Pin19Val {
+        enum class Pin19Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1302,7 +1302,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin19)::Type,Pin19Val::high> high{};
         }
         ///P0.20 pin
-        enum class Pin20Val {
+        enum class Pin20Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1312,7 +1312,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin20)::Type,Pin20Val::high> high{};
         }
         ///P0.21 pin
-        enum class Pin21Val {
+        enum class Pin21Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1322,7 +1322,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin21)::Type,Pin21Val::high> high{};
         }
         ///P0.22 pin
-        enum class Pin22Val {
+        enum class Pin22Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1332,7 +1332,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin22)::Type,Pin22Val::high> high{};
         }
         ///P0.23 pin
-        enum class Pin23Val {
+        enum class Pin23Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1342,7 +1342,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin23)::Type,Pin23Val::high> high{};
         }
         ///P0.24 pin
-        enum class Pin24Val {
+        enum class Pin24Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1352,7 +1352,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin24)::Type,Pin24Val::high> high{};
         }
         ///P0.25 pin
-        enum class Pin25Val {
+        enum class Pin25Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1362,7 +1362,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin25)::Type,Pin25Val::high> high{};
         }
         ///P0.26 pin
-        enum class Pin26Val {
+        enum class Pin26Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1372,7 +1372,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin26)::Type,Pin26Val::high> high{};
         }
         ///P0.27 pin
-        enum class Pin27Val {
+        enum class Pin27Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1382,7 +1382,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin27)::Type,Pin27Val::high> high{};
         }
         ///P0.28 pin
-        enum class Pin28Val {
+        enum class Pin28Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1392,7 +1392,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin28)::Type,Pin28Val::high> high{};
         }
         ///P0.29 pin
-        enum class Pin29Val {
+        enum class Pin29Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1402,7 +1402,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin29)::Type,Pin29Val::high> high{};
         }
         ///P0.30 pin
-        enum class Pin30Val {
+        enum class Pin30Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1412,7 +1412,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin30)::Type,Pin30Val::high> high{};
         }
         ///P0.31 pin
-        enum class Pin31Val {
+        enum class Pin31Val : unsigned {
             low=0x00000000,     ///<Pin input is low
             high=0x00000001,     ///<Pin input is high
         };
@@ -1425,7 +1425,7 @@ namespace Kvasir {
     namespace P0Dir{    ///<Direction of GPIO pins
         using Addr = Register::Address<0x50000514,0x00000000,0x00000000,unsigned>;
         ///P0.0 pin
-        enum class Pin0Val {
+        enum class Pin0Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1435,7 +1435,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin0)::Type,Pin0Val::output> output{};
         }
         ///P0.1 pin
-        enum class Pin1Val {
+        enum class Pin1Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1445,7 +1445,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin1)::Type,Pin1Val::output> output{};
         }
         ///P0.2 pin
-        enum class Pin2Val {
+        enum class Pin2Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1455,7 +1455,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin2)::Type,Pin2Val::output> output{};
         }
         ///P0.3 pin
-        enum class Pin3Val {
+        enum class Pin3Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1465,7 +1465,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin3)::Type,Pin3Val::output> output{};
         }
         ///P0.4 pin
-        enum class Pin4Val {
+        enum class Pin4Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1475,7 +1475,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin4)::Type,Pin4Val::output> output{};
         }
         ///P0.5 pin
-        enum class Pin5Val {
+        enum class Pin5Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1485,7 +1485,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin5)::Type,Pin5Val::output> output{};
         }
         ///P0.6 pin
-        enum class Pin6Val {
+        enum class Pin6Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1495,7 +1495,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin6)::Type,Pin6Val::output> output{};
         }
         ///P0.7 pin
-        enum class Pin7Val {
+        enum class Pin7Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1505,7 +1505,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin7)::Type,Pin7Val::output> output{};
         }
         ///P0.8 pin
-        enum class Pin8Val {
+        enum class Pin8Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1515,7 +1515,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin8)::Type,Pin8Val::output> output{};
         }
         ///P0.9 pin
-        enum class Pin9Val {
+        enum class Pin9Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1525,7 +1525,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin9)::Type,Pin9Val::output> output{};
         }
         ///P0.10 pin
-        enum class Pin10Val {
+        enum class Pin10Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1535,7 +1535,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin10)::Type,Pin10Val::output> output{};
         }
         ///P0.11 pin
-        enum class Pin11Val {
+        enum class Pin11Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1545,7 +1545,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin11)::Type,Pin11Val::output> output{};
         }
         ///P0.12 pin
-        enum class Pin12Val {
+        enum class Pin12Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1555,7 +1555,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin12)::Type,Pin12Val::output> output{};
         }
         ///P0.13 pin
-        enum class Pin13Val {
+        enum class Pin13Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1565,7 +1565,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin13)::Type,Pin13Val::output> output{};
         }
         ///P0.14 pin
-        enum class Pin14Val {
+        enum class Pin14Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1575,7 +1575,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin14)::Type,Pin14Val::output> output{};
         }
         ///P0.15 pin
-        enum class Pin15Val {
+        enum class Pin15Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1585,7 +1585,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin15)::Type,Pin15Val::output> output{};
         }
         ///P0.16 pin
-        enum class Pin16Val {
+        enum class Pin16Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1595,7 +1595,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin16)::Type,Pin16Val::output> output{};
         }
         ///P0.17 pin
-        enum class Pin17Val {
+        enum class Pin17Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1605,7 +1605,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin17)::Type,Pin17Val::output> output{};
         }
         ///P0.18 pin
-        enum class Pin18Val {
+        enum class Pin18Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1615,7 +1615,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin18)::Type,Pin18Val::output> output{};
         }
         ///P0.19 pin
-        enum class Pin19Val {
+        enum class Pin19Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1625,7 +1625,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin19)::Type,Pin19Val::output> output{};
         }
         ///P0.20 pin
-        enum class Pin20Val {
+        enum class Pin20Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1635,7 +1635,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin20)::Type,Pin20Val::output> output{};
         }
         ///P0.21 pin
-        enum class Pin21Val {
+        enum class Pin21Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1645,7 +1645,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin21)::Type,Pin21Val::output> output{};
         }
         ///P0.22 pin
-        enum class Pin22Val {
+        enum class Pin22Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1655,7 +1655,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin22)::Type,Pin22Val::output> output{};
         }
         ///P0.23 pin
-        enum class Pin23Val {
+        enum class Pin23Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1665,7 +1665,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin23)::Type,Pin23Val::output> output{};
         }
         ///P0.24 pin
-        enum class Pin24Val {
+        enum class Pin24Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1675,7 +1675,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin24)::Type,Pin24Val::output> output{};
         }
         ///P0.25 pin
-        enum class Pin25Val {
+        enum class Pin25Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1685,7 +1685,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin25)::Type,Pin25Val::output> output{};
         }
         ///P0.26 pin
-        enum class Pin26Val {
+        enum class Pin26Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1695,7 +1695,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin26)::Type,Pin26Val::output> output{};
         }
         ///P0.27 pin
-        enum class Pin27Val {
+        enum class Pin27Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1705,7 +1705,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin27)::Type,Pin27Val::output> output{};
         }
         ///P0.28 pin
-        enum class Pin28Val {
+        enum class Pin28Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1715,7 +1715,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin28)::Type,Pin28Val::output> output{};
         }
         ///P0.29 pin
-        enum class Pin29Val {
+        enum class Pin29Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1725,7 +1725,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin29)::Type,Pin29Val::output> output{};
         }
         ///P0.30 pin
-        enum class Pin30Val {
+        enum class Pin30Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1735,7 +1735,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin30)::Type,Pin30Val::output> output{};
         }
         ///P0.31 pin
-        enum class Pin31Val {
+        enum class Pin31Val : unsigned {
             input=0x00000000,     ///<Pin set as input
             output=0x00000001,     ///<Pin set as output
         };
@@ -1748,7 +1748,7 @@ namespace Kvasir {
     namespace P0Dirset{    ///<DIR set register
         using Addr = Register::Address<0x50000518,0x00000000,0x00000000,unsigned>;
         ///Set as output pin 0
-        enum class Pin0Val {
+        enum class Pin0Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1760,7 +1760,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin0)::Type,Pin0Val::set> set{};
         }
         ///Set as output pin 1
-        enum class Pin1Val {
+        enum class Pin1Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1772,7 +1772,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin1)::Type,Pin1Val::set> set{};
         }
         ///Set as output pin 2
-        enum class Pin2Val {
+        enum class Pin2Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1784,7 +1784,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin2)::Type,Pin2Val::set> set{};
         }
         ///Set as output pin 3
-        enum class Pin3Val {
+        enum class Pin3Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1796,7 +1796,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin3)::Type,Pin3Val::set> set{};
         }
         ///Set as output pin 4
-        enum class Pin4Val {
+        enum class Pin4Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1808,7 +1808,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin4)::Type,Pin4Val::set> set{};
         }
         ///Set as output pin 5
-        enum class Pin5Val {
+        enum class Pin5Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1820,7 +1820,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin5)::Type,Pin5Val::set> set{};
         }
         ///Set as output pin 6
-        enum class Pin6Val {
+        enum class Pin6Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1832,7 +1832,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin6)::Type,Pin6Val::set> set{};
         }
         ///Set as output pin 7
-        enum class Pin7Val {
+        enum class Pin7Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1844,7 +1844,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin7)::Type,Pin7Val::set> set{};
         }
         ///Set as output pin 8
-        enum class Pin8Val {
+        enum class Pin8Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1856,7 +1856,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin8)::Type,Pin8Val::set> set{};
         }
         ///Set as output pin 9
-        enum class Pin9Val {
+        enum class Pin9Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1868,7 +1868,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin9)::Type,Pin9Val::set> set{};
         }
         ///Set as output pin 10
-        enum class Pin10Val {
+        enum class Pin10Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1880,7 +1880,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin10)::Type,Pin10Val::set> set{};
         }
         ///Set as output pin 11
-        enum class Pin11Val {
+        enum class Pin11Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1892,7 +1892,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin11)::Type,Pin11Val::set> set{};
         }
         ///Set as output pin 12
-        enum class Pin12Val {
+        enum class Pin12Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1904,7 +1904,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin12)::Type,Pin12Val::set> set{};
         }
         ///Set as output pin 13
-        enum class Pin13Val {
+        enum class Pin13Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1916,7 +1916,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin13)::Type,Pin13Val::set> set{};
         }
         ///Set as output pin 14
-        enum class Pin14Val {
+        enum class Pin14Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1928,7 +1928,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin14)::Type,Pin14Val::set> set{};
         }
         ///Set as output pin 15
-        enum class Pin15Val {
+        enum class Pin15Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1940,7 +1940,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin15)::Type,Pin15Val::set> set{};
         }
         ///Set as output pin 16
-        enum class Pin16Val {
+        enum class Pin16Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1952,7 +1952,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin16)::Type,Pin16Val::set> set{};
         }
         ///Set as output pin 17
-        enum class Pin17Val {
+        enum class Pin17Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1964,7 +1964,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin17)::Type,Pin17Val::set> set{};
         }
         ///Set as output pin 18
-        enum class Pin18Val {
+        enum class Pin18Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1976,7 +1976,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin18)::Type,Pin18Val::set> set{};
         }
         ///Set as output pin 19
-        enum class Pin19Val {
+        enum class Pin19Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -1988,7 +1988,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin19)::Type,Pin19Val::set> set{};
         }
         ///Set as output pin 20
-        enum class Pin20Val {
+        enum class Pin20Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2000,7 +2000,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin20)::Type,Pin20Val::set> set{};
         }
         ///Set as output pin 21
-        enum class Pin21Val {
+        enum class Pin21Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2012,7 +2012,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin21)::Type,Pin21Val::set> set{};
         }
         ///Set as output pin 22
-        enum class Pin22Val {
+        enum class Pin22Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2024,7 +2024,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin22)::Type,Pin22Val::set> set{};
         }
         ///Set as output pin 23
-        enum class Pin23Val {
+        enum class Pin23Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2036,7 +2036,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin23)::Type,Pin23Val::set> set{};
         }
         ///Set as output pin 24
-        enum class Pin24Val {
+        enum class Pin24Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2048,7 +2048,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin24)::Type,Pin24Val::set> set{};
         }
         ///Set as output pin 25
-        enum class Pin25Val {
+        enum class Pin25Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2060,7 +2060,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin25)::Type,Pin25Val::set> set{};
         }
         ///Set as output pin 26
-        enum class Pin26Val {
+        enum class Pin26Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2072,7 +2072,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin26)::Type,Pin26Val::set> set{};
         }
         ///Set as output pin 27
-        enum class Pin27Val {
+        enum class Pin27Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2084,7 +2084,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin27)::Type,Pin27Val::set> set{};
         }
         ///Set as output pin 28
-        enum class Pin28Val {
+        enum class Pin28Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2096,7 +2096,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin28)::Type,Pin28Val::set> set{};
         }
         ///Set as output pin 29
-        enum class Pin29Val {
+        enum class Pin29Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2108,7 +2108,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin29)::Type,Pin29Val::set> set{};
         }
         ///Set as output pin 30
-        enum class Pin30Val {
+        enum class Pin30Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2120,7 +2120,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin30)::Type,Pin30Val::set> set{};
         }
         ///Set as output pin 31
-        enum class Pin31Val {
+        enum class Pin31Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             set=0x00000001,     ///<Write: writing a '1' sets pin to output; writing a '0' has no effect
@@ -2135,7 +2135,7 @@ namespace Kvasir {
     namespace P0Dirclr{    ///<DIR clear register
         using Addr = Register::Address<0x5000051c,0x00000000,0x00000000,unsigned>;
         ///Set as input pin 0
-        enum class Pin0Val {
+        enum class Pin0Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2147,7 +2147,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin0)::Type,Pin0Val::clear> clear{};
         }
         ///Set as input pin 1
-        enum class Pin1Val {
+        enum class Pin1Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2159,7 +2159,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin1)::Type,Pin1Val::clear> clear{};
         }
         ///Set as input pin 2
-        enum class Pin2Val {
+        enum class Pin2Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2171,7 +2171,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin2)::Type,Pin2Val::clear> clear{};
         }
         ///Set as input pin 3
-        enum class Pin3Val {
+        enum class Pin3Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2183,7 +2183,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin3)::Type,Pin3Val::clear> clear{};
         }
         ///Set as input pin 4
-        enum class Pin4Val {
+        enum class Pin4Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2195,7 +2195,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin4)::Type,Pin4Val::clear> clear{};
         }
         ///Set as input pin 5
-        enum class Pin5Val {
+        enum class Pin5Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2207,7 +2207,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin5)::Type,Pin5Val::clear> clear{};
         }
         ///Set as input pin 6
-        enum class Pin6Val {
+        enum class Pin6Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2219,7 +2219,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin6)::Type,Pin6Val::clear> clear{};
         }
         ///Set as input pin 7
-        enum class Pin7Val {
+        enum class Pin7Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2231,7 +2231,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin7)::Type,Pin7Val::clear> clear{};
         }
         ///Set as input pin 8
-        enum class Pin8Val {
+        enum class Pin8Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2243,7 +2243,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin8)::Type,Pin8Val::clear> clear{};
         }
         ///Set as input pin 9
-        enum class Pin9Val {
+        enum class Pin9Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2255,7 +2255,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin9)::Type,Pin9Val::clear> clear{};
         }
         ///Set as input pin 10
-        enum class Pin10Val {
+        enum class Pin10Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2267,7 +2267,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin10)::Type,Pin10Val::clear> clear{};
         }
         ///Set as input pin 11
-        enum class Pin11Val {
+        enum class Pin11Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2279,7 +2279,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin11)::Type,Pin11Val::clear> clear{};
         }
         ///Set as input pin 12
-        enum class Pin12Val {
+        enum class Pin12Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2291,7 +2291,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin12)::Type,Pin12Val::clear> clear{};
         }
         ///Set as input pin 13
-        enum class Pin13Val {
+        enum class Pin13Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2303,7 +2303,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin13)::Type,Pin13Val::clear> clear{};
         }
         ///Set as input pin 14
-        enum class Pin14Val {
+        enum class Pin14Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2315,7 +2315,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin14)::Type,Pin14Val::clear> clear{};
         }
         ///Set as input pin 15
-        enum class Pin15Val {
+        enum class Pin15Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2327,7 +2327,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin15)::Type,Pin15Val::clear> clear{};
         }
         ///Set as input pin 16
-        enum class Pin16Val {
+        enum class Pin16Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2339,7 +2339,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin16)::Type,Pin16Val::clear> clear{};
         }
         ///Set as input pin 17
-        enum class Pin17Val {
+        enum class Pin17Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2351,7 +2351,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin17)::Type,Pin17Val::clear> clear{};
         }
         ///Set as input pin 18
-        enum class Pin18Val {
+        enum class Pin18Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2363,7 +2363,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin18)::Type,Pin18Val::clear> clear{};
         }
         ///Set as input pin 19
-        enum class Pin19Val {
+        enum class Pin19Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2375,7 +2375,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin19)::Type,Pin19Val::clear> clear{};
         }
         ///Set as input pin 20
-        enum class Pin20Val {
+        enum class Pin20Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2387,7 +2387,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin20)::Type,Pin20Val::clear> clear{};
         }
         ///Set as input pin 21
-        enum class Pin21Val {
+        enum class Pin21Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2399,7 +2399,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin21)::Type,Pin21Val::clear> clear{};
         }
         ///Set as input pin 22
-        enum class Pin22Val {
+        enum class Pin22Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2411,7 +2411,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin22)::Type,Pin22Val::clear> clear{};
         }
         ///Set as input pin 23
-        enum class Pin23Val {
+        enum class Pin23Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2423,7 +2423,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin23)::Type,Pin23Val::clear> clear{};
         }
         ///Set as input pin 24
-        enum class Pin24Val {
+        enum class Pin24Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2435,7 +2435,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin24)::Type,Pin24Val::clear> clear{};
         }
         ///Set as input pin 25
-        enum class Pin25Val {
+        enum class Pin25Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2447,7 +2447,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin25)::Type,Pin25Val::clear> clear{};
         }
         ///Set as input pin 26
-        enum class Pin26Val {
+        enum class Pin26Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2459,7 +2459,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin26)::Type,Pin26Val::clear> clear{};
         }
         ///Set as input pin 27
-        enum class Pin27Val {
+        enum class Pin27Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2471,7 +2471,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin27)::Type,Pin27Val::clear> clear{};
         }
         ///Set as input pin 28
-        enum class Pin28Val {
+        enum class Pin28Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2483,7 +2483,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin28)::Type,Pin28Val::clear> clear{};
         }
         ///Set as input pin 29
-        enum class Pin29Val {
+        enum class Pin29Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2495,7 +2495,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin29)::Type,Pin29Val::clear> clear{};
         }
         ///Set as input pin 30
-        enum class Pin30Val {
+        enum class Pin30Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2507,7 +2507,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin30)::Type,Pin30Val::clear> clear{};
         }
         ///Set as input pin 31
-        enum class Pin31Val {
+        enum class Pin31Val : unsigned {
             input=0x00000000,     ///<Read: pin set as input
             output=0x00000001,     ///<Read: pin set as output
             clear=0x00000001,     ///<Write: writing a '1' sets pin to input; writing a '0' has no effect
@@ -2527,7 +2527,7 @@ namespace Kvasir {
     namespace P0Detectmode{    ///<Select between default DETECT signal behaviour and LDETECT mode
         using Addr = Register::Address<0x50000524,0xfffffffe,0x00000000,unsigned>;
         ///Select between default DETECT signal behaviour and LDETECT mode
-        enum class DetectmodeVal {
+        enum class DetectmodeVal : unsigned {
             default_=0x00000000,     ///<Use default behaviour
             ldetect=0x00000001,     ///<Use LDETECT behaviour
         };
@@ -2540,7 +2540,7 @@ namespace Kvasir {
     namespace P0PinCnf0{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000700,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -2550,7 +2550,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -2560,7 +2560,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -2572,7 +2572,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -2594,7 +2594,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -2609,7 +2609,7 @@ namespace Kvasir {
     namespace P0PinCnf1{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000704,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -2619,7 +2619,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -2629,7 +2629,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -2641,7 +2641,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -2663,7 +2663,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -2678,7 +2678,7 @@ namespace Kvasir {
     namespace P0PinCnf2{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000708,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -2688,7 +2688,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -2698,7 +2698,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -2710,7 +2710,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -2732,7 +2732,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -2747,7 +2747,7 @@ namespace Kvasir {
     namespace P0PinCnf3{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x5000070c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -2757,7 +2757,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -2767,7 +2767,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -2779,7 +2779,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -2801,7 +2801,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -2816,7 +2816,7 @@ namespace Kvasir {
     namespace P0PinCnf4{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000710,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -2826,7 +2826,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -2836,7 +2836,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -2848,7 +2848,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -2870,7 +2870,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -2885,7 +2885,7 @@ namespace Kvasir {
     namespace P0PinCnf5{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000714,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -2895,7 +2895,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -2905,7 +2905,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -2917,7 +2917,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -2939,7 +2939,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -2954,7 +2954,7 @@ namespace Kvasir {
     namespace P0PinCnf6{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000718,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -2964,7 +2964,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -2974,7 +2974,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -2986,7 +2986,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3008,7 +3008,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3023,7 +3023,7 @@ namespace Kvasir {
     namespace P0PinCnf7{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x5000071c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3033,7 +3033,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3043,7 +3043,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3055,7 +3055,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3077,7 +3077,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3092,7 +3092,7 @@ namespace Kvasir {
     namespace P0PinCnf8{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000720,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3102,7 +3102,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3112,7 +3112,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3124,7 +3124,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3146,7 +3146,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3161,7 +3161,7 @@ namespace Kvasir {
     namespace P0PinCnf9{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000724,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3171,7 +3171,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3181,7 +3181,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3193,7 +3193,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3215,7 +3215,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3230,7 +3230,7 @@ namespace Kvasir {
     namespace P0PinCnf10{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000728,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3240,7 +3240,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3250,7 +3250,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3262,7 +3262,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3284,7 +3284,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3299,7 +3299,7 @@ namespace Kvasir {
     namespace P0PinCnf11{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x5000072c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3309,7 +3309,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3319,7 +3319,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3331,7 +3331,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3353,7 +3353,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3368,7 +3368,7 @@ namespace Kvasir {
     namespace P0PinCnf12{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000730,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3378,7 +3378,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3388,7 +3388,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3400,7 +3400,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3422,7 +3422,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3437,7 +3437,7 @@ namespace Kvasir {
     namespace P0PinCnf13{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000734,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3447,7 +3447,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3457,7 +3457,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3469,7 +3469,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3491,7 +3491,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3506,7 +3506,7 @@ namespace Kvasir {
     namespace P0PinCnf14{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000738,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3516,7 +3516,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3526,7 +3526,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3538,7 +3538,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3560,7 +3560,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3575,7 +3575,7 @@ namespace Kvasir {
     namespace P0PinCnf15{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x5000073c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3585,7 +3585,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3595,7 +3595,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3607,7 +3607,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3629,7 +3629,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3644,7 +3644,7 @@ namespace Kvasir {
     namespace P0PinCnf16{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000740,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3654,7 +3654,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3664,7 +3664,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3676,7 +3676,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3698,7 +3698,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3713,7 +3713,7 @@ namespace Kvasir {
     namespace P0PinCnf17{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000744,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3723,7 +3723,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3733,7 +3733,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3745,7 +3745,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3767,7 +3767,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3782,7 +3782,7 @@ namespace Kvasir {
     namespace P0PinCnf18{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000748,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3792,7 +3792,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3802,7 +3802,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3814,7 +3814,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3836,7 +3836,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3851,7 +3851,7 @@ namespace Kvasir {
     namespace P0PinCnf19{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x5000074c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3861,7 +3861,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3871,7 +3871,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3883,7 +3883,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3905,7 +3905,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3920,7 +3920,7 @@ namespace Kvasir {
     namespace P0PinCnf20{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000750,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3930,7 +3930,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -3940,7 +3940,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -3952,7 +3952,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -3974,7 +3974,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -3989,7 +3989,7 @@ namespace Kvasir {
     namespace P0PinCnf21{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000754,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -3999,7 +3999,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4009,7 +4009,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4021,7 +4021,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4043,7 +4043,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -4058,7 +4058,7 @@ namespace Kvasir {
     namespace P0PinCnf22{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000758,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -4068,7 +4068,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4078,7 +4078,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4090,7 +4090,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4112,7 +4112,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -4127,7 +4127,7 @@ namespace Kvasir {
     namespace P0PinCnf23{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x5000075c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -4137,7 +4137,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4147,7 +4147,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4159,7 +4159,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4181,7 +4181,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -4196,7 +4196,7 @@ namespace Kvasir {
     namespace P0PinCnf24{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000760,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -4206,7 +4206,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4216,7 +4216,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4228,7 +4228,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4250,7 +4250,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -4265,7 +4265,7 @@ namespace Kvasir {
     namespace P0PinCnf25{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000764,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -4275,7 +4275,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4285,7 +4285,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4297,7 +4297,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4319,7 +4319,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -4334,7 +4334,7 @@ namespace Kvasir {
     namespace P0PinCnf26{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000768,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -4344,7 +4344,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4354,7 +4354,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4366,7 +4366,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4388,7 +4388,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -4403,7 +4403,7 @@ namespace Kvasir {
     namespace P0PinCnf27{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x5000076c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -4413,7 +4413,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4423,7 +4423,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4435,7 +4435,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4457,7 +4457,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -4472,7 +4472,7 @@ namespace Kvasir {
     namespace P0PinCnf28{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000770,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -4482,7 +4482,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4492,7 +4492,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4504,7 +4504,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4526,7 +4526,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -4541,7 +4541,7 @@ namespace Kvasir {
     namespace P0PinCnf29{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000774,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -4551,7 +4551,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4561,7 +4561,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4573,7 +4573,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4595,7 +4595,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -4610,7 +4610,7 @@ namespace Kvasir {
     namespace P0PinCnf30{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x50000778,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -4620,7 +4620,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4630,7 +4630,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4642,7 +4642,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4664,7 +4664,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level
@@ -4679,7 +4679,7 @@ namespace Kvasir {
     namespace P0PinCnf31{    ///<Description collection[0]:  Configuration of GPIO pins
         using Addr = Register::Address<0x5000077c,0xfffcf8f0,0x00000000,unsigned>;
         ///Pin direction
-        enum class DirVal {
+        enum class DirVal : unsigned {
             input=0x00000000,     ///<Configure pin as an input pin
             output=0x00000001,     ///<Configure pin as an output pin
         };
@@ -4689,7 +4689,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::output> output{};
         }
         ///Connect or disconnect input buffer
-        enum class InputVal {
+        enum class InputVal : unsigned {
             connect=0x00000000,     ///<Connect input buffer
             disconnect=0x00000001,     ///<Disconnect input buffer
         };
@@ -4699,7 +4699,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(input)::Type,InputVal::disconnect> disconnect{};
         }
         ///Pull configuration
-        enum class PullVal {
+        enum class PullVal : unsigned {
             disabled=0x00000000,     ///<No pull
             pulldown=0x00000001,     ///<Pull down on pin
             pullup=0x00000003,     ///<Pull up on pin
@@ -4711,7 +4711,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull)::Type,PullVal::pullup> pullup{};
         }
         ///Drive configuration
-        enum class DriveVal {
+        enum class DriveVal : unsigned {
             s0s1=0x00000000,     ///<Standard '0', standard '1'
             h0s1=0x00000001,     ///<High drive '0', standard '1'
             s0h1=0x00000002,     ///<Standard '0', high drive '1'
@@ -4733,7 +4733,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive)::Type,DriveVal::h0d1> h0d1{};
         }
         ///Pin sensing mechanism
-        enum class SenseVal {
+        enum class SenseVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             high=0x00000002,     ///<Sense for high level
             low=0x00000003,     ///<Sense for low level

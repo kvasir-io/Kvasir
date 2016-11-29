@@ -35,7 +35,7 @@ namespace Kvasir {
     namespace QdecShorts{    ///<Shortcut register
         using Addr = Register::Address<0x40012200,0xffffff80,0x00000000,unsigned>;
         ///Shortcut between EVENTS_REPORTRDY event and TASKS_READCLRACC task
-        enum class ReportrdyreadclraccVal {
+        enum class ReportrdyreadclraccVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -45,7 +45,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportrdyReadclracc)::Type,ReportrdyreadclraccVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_SAMPLERDY event and TASKS_STOP task
-        enum class SamplerdystopVal {
+        enum class SamplerdystopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -55,7 +55,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(samplerdyStop)::Type,SamplerdystopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_REPORTRDY event and TASKS_RDCLRACC task
-        enum class ReportrdyrdclraccVal {
+        enum class ReportrdyrdclraccVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -65,7 +65,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportrdyRdclracc)::Type,ReportrdyrdclraccVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_REPORTRDY event and TASKS_STOP task
-        enum class ReportrdystopVal {
+        enum class ReportrdystopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -75,7 +75,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportrdyStop)::Type,ReportrdystopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_DBLRDY event and TASKS_RDCLRDBL task
-        enum class DblrdyrdclrdblVal {
+        enum class DblrdyrdclrdblVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -85,7 +85,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblrdyRdclrdbl)::Type,DblrdyrdclrdblVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_DBLRDY event and TASKS_STOP task
-        enum class DblrdystopVal {
+        enum class DblrdystopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -95,7 +95,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblrdyStop)::Type,DblrdystopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_SAMPLERDY event and TASKS_READCLRACC task
-        enum class SamplerdyreadclraccVal {
+        enum class SamplerdyreadclraccVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -108,7 +108,7 @@ namespace Kvasir {
     namespace QdecIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40012304,0xffffffe0,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_SAMPLERDY event
-        enum class SamplerdyVal {
+        enum class SamplerdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -120,7 +120,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(samplerdy)::Type,SamplerdyVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_REPORTRDY event
-        enum class ReportrdyVal {
+        enum class ReportrdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -132,7 +132,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportrdy)::Type,ReportrdyVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_ACCOF event
-        enum class AccofVal {
+        enum class AccofVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -144,7 +144,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(accof)::Type,AccofVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_DBLRDY event
-        enum class DblrdyVal {
+        enum class DblrdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -156,7 +156,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblrdy)::Type,DblrdyVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -171,7 +171,7 @@ namespace Kvasir {
     namespace QdecIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40012308,0xffffffe0,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_SAMPLERDY event
-        enum class SamplerdyVal {
+        enum class SamplerdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -183,7 +183,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(samplerdy)::Type,SamplerdyVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_REPORTRDY event
-        enum class ReportrdyVal {
+        enum class ReportrdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -195,7 +195,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportrdy)::Type,ReportrdyVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_ACCOF event
-        enum class AccofVal {
+        enum class AccofVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -207,7 +207,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(accof)::Type,AccofVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_DBLRDY event
-        enum class DblrdyVal {
+        enum class DblrdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -219,7 +219,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblrdy)::Type,DblrdyVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -234,7 +234,7 @@ namespace Kvasir {
     namespace QdecEnable{    ///<Enable the quadrature decoder
         using Addr = Register::Address<0x40012500,0xfffffffe,0x00000000,unsigned>;
         ///Enable or disable the quadrature decoder
-        enum class EnableVal {
+        enum class EnableVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -247,7 +247,7 @@ namespace Kvasir {
     namespace QdecLedpol{    ///<LED output pin polarity
         using Addr = Register::Address<0x40012504,0xfffffffe,0x00000000,unsigned>;
         ///LED output pin polarity
-        enum class LedpolVal {
+        enum class LedpolVal : unsigned {
             activelow=0x00000000,     ///<Led active on output pin low
             activehigh=0x00000001,     ///<Led active on output pin high
         };
@@ -260,7 +260,7 @@ namespace Kvasir {
     namespace QdecSampleper{    ///<Sample period
         using Addr = Register::Address<0x40012508,0xfffffff0,0x00000000,unsigned>;
         ///Sample period. The SAMPLE register will be updated for every new sample
-        enum class SampleperVal {
+        enum class SampleperVal : unsigned {
             v128us=0x00000000,     ///<128 us
             v256us=0x00000001,     ///<256 us
             v512us=0x00000002,     ///<512 us
@@ -296,7 +296,7 @@ namespace Kvasir {
     namespace QdecReportper{    ///<Number of samples to be taken before REPORTRDY and DBLRDY events can be generated
         using Addr = Register::Address<0x40012510,0xfffffff0,0x00000000,unsigned>;
         ///Specifies the number of samples to be accumulated in the ACC register before the REPORTRDY and DBLRDY events can be generated
-        enum class ReportperVal {
+        enum class ReportperVal : unsigned {
             v10smpl=0x00000000,     ///<10 samples / report
             v40smpl=0x00000001,     ///<40 samples / report
             v80smpl=0x00000002,     ///<80 samples / report
@@ -333,7 +333,7 @@ namespace Kvasir {
     namespace QdecDbfen{    ///<Enable input debounce filters
         using Addr = Register::Address<0x40012528,0xfffffffe,0x00000000,unsigned>;
         ///Enable input debounce filters
-        enum class DbfenVal {
+        enum class DbfenVal : unsigned {
             disabled=0x00000000,     ///<Debounce input filters disabled
             enabled=0x00000001,     ///<Debounce input filters enabled
         };

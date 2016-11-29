@@ -23,7 +23,7 @@ namespace Kvasir {
     namespace CcmShorts{    ///<Shortcut register
         using Addr = Register::Address<0x4000f200,0xfffffffe,0x00000000,unsigned>;
         ///Shortcut between EVENTS_ENDKSGEN event and TASKS_CRYPT task
-        enum class EndksgencryptVal {
+        enum class EndksgencryptVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -36,7 +36,7 @@ namespace Kvasir {
     namespace CcmIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x4000f304,0xfffffff8,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_ENDKSGEN event
-        enum class EndksgenVal {
+        enum class EndksgenVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -48,7 +48,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_ENDCRYPT event
-        enum class EndcryptVal {
+        enum class EndcryptVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -60,7 +60,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_ERROR event
-        enum class ErrorVal {
+        enum class ErrorVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -75,7 +75,7 @@ namespace Kvasir {
     namespace CcmIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x4000f308,0xfffffff8,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_ENDKSGEN event
-        enum class EndksgenVal {
+        enum class EndksgenVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -87,7 +87,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_ENDCRYPT event
-        enum class EndcryptVal {
+        enum class EndcryptVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -99,7 +99,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_ERROR event
-        enum class ErrorVal {
+        enum class ErrorVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -114,7 +114,7 @@ namespace Kvasir {
     namespace CcmMicstatus{    ///<MIC check result
         using Addr = Register::Address<0x4000f400,0xfffffffe,0x00000000,unsigned>;
         ///The result of the MIC check performed during the previous decryption operation
-        enum class MicstatusVal {
+        enum class MicstatusVal : unsigned {
             checkfailed=0x00000000,     ///<MIC check failed
             checkpassed=0x00000001,     ///<MIC check passed
         };
@@ -127,7 +127,7 @@ namespace Kvasir {
     namespace CcmEnable{    ///<Enable
         using Addr = Register::Address<0x4000f500,0xfffffffc,0x00000000,unsigned>;
         ///Enable or disable CCM
-        enum class EnableVal {
+        enum class EnableVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000002,     ///<Enable
         };
@@ -140,7 +140,7 @@ namespace Kvasir {
     namespace CcmMode{    ///<Operation mode
         using Addr = Register::Address<0x4000f504,0xfefefffe,0x00000000,unsigned>;
         ///The mode of operation to be used
-        enum class ModeVal {
+        enum class ModeVal : unsigned {
             encryption=0x00000000,     ///<AES CCM packet encryption mode
             decryption=0x00000001,     ///<AES CCM packet decryption mode
         };
@@ -150,7 +150,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::decryption> decryption{};
         }
         ///Data rate that the CCM shall run in synch with
-        enum class DatarateVal {
+        enum class DatarateVal : unsigned {
             v1mbit=0x00000000,     ///<In synch with 1 Mbit data rate
             v2mbit=0x00000001,     ///<In synch with 2 Mbit data rate
         };
@@ -160,7 +160,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(datarate)::Type,DatarateVal::v2mbit> v2mbit{};
         }
         ///Packet length configuration
-        enum class LengthVal {
+        enum class LengthVal : unsigned {
             default_=0x00000000,     ///<Default length. Effective length of LENGTH field is 5-bit
             extended=0x00000001,     ///<Extended length. Effective length of LENGTH field is 8-bit
         };
