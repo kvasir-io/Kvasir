@@ -5,6 +5,7 @@ project(Kvasir)
 enable_testing()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     # using Clang
 elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
