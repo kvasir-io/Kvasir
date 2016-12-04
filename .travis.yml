@@ -1,6 +1,11 @@
 sudo: false
 language: cpp
 
+addons:
+  apt:
+    packages:
+      - curl
+
 matrix:
   include:
     - os: linux
@@ -27,12 +32,17 @@ matrix:
           packages: ['g++-5']
       env: TOOLSET=g++-5
 
-# Prepare build
+# Get newish CMake binary and prepare build
 before_script:
+  - curl https://cmake.org/files/v3.7/cmake-3.7.1-Linux-x86_64.tar.gz -o cmake.tar.gz
+  - tar xfz cmake.tar.gz
+  - rm cmake.tar.gz
+  - mv cmake-* cmake
+  - export PATH="${PWD}/cmake/bin:${PATH}"
   - mkdir build
   - cd build
   - cmake .. -DCMAKE_CXX_COMPILER=$TOOLSET
 
 script:
   - make VERBOSE=1
-  - ./KvasirTest
+  - make test

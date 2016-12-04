@@ -16,7 +16,7 @@ namespace Usb
             T & operator*() { return *me_; }
             T * operator->() { return me_; }
             const T * operator->() const { return me_; }
-            Pointer & operator=(nullptr_t)
+            Pointer & operator=(std::nullptr_t)
             {
                 me_ = nullptr;
                 return *this;
