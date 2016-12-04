@@ -13,10 +13,6 @@ elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Wold-style-cast")
 endif()
 
-
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DBRIGAND_NO_BOOST_SUPPORT ")
-
 set(CMAKE_DEBUG_POSTFIX "d")
 
 set(ATOMIC_GROUP
@@ -92,6 +88,7 @@ set_target_properties(Kvasir PROPERTIES
     CXX_STANDARD_REQUIRED YES
     )
 target_include_directories(Kvasir PUBLIC Lib)
+target_compile_definitions(Kvasir PUBLIC -DBRIGAND_NO_BOOST_SUPPORT)
 
 set(TEST_FILES
     test/apply.cpp
