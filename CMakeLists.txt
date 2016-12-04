@@ -4,6 +4,10 @@ project(Kvasir)
 
 enable_testing()
 
+#Enable C++11 per default on all targets
+set(CMAKE_CXX_STANDARD 11)
+set(CXX_STANDARD_REQUIRED TRUE)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
@@ -82,11 +86,7 @@ add_library(Kvasir
     ${REGISTER_GROUP}
     ${USB_GROUP}
     )
-set_target_properties(Kvasir PROPERTIES
-    LINKER_LANGUAGE CXX
-    CXX_STANDARD 11
-    CXX_STANDARD_REQUIRED YES
-    )
+set_target_properties(Kvasir PROPERTIES LINKER_LANGUAGE CXX)
 target_include_directories(Kvasir PUBLIC Lib)
 target_compile_definitions(Kvasir PUBLIC -DBRIGAND_NO_BOOST_SUPPORT)
 
