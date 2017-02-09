@@ -520,6 +520,11 @@ namespace brigand
   template <typename L>
   using as_pair = wrap<L, pair_wrapper>;
 }
+/*********************************************************************
+*** workaround for a bug between lwip and kvasir
+*** Removed tuple wrapper to remove redefinitions based on tuple lib
+*** was never used in Kvasir
+**********************************************************************
 #include <tuple>
 namespace brigand
 {
@@ -528,6 +533,7 @@ namespace brigand
   template <typename L>
   using as_tuple = wrap<L, tuple_wrapper>;
 }
+*/
 namespace brigand { namespace detail
 {
   struct non_null
@@ -954,7 +960,13 @@ namespace lazy
   using fold = typename ::brigand::lazy::fold<Sequence, State, Functor>::type;
 }
 #include <initializer_list>
+/*********************************************************************
+*** workaround for a bug between lwip and kvasir
+*** Removed to avoid redefinitions based on tuple lib
+*** was never used in Kvasir
+**********************************************************************
 #include <functional>
+
 namespace brigand
 {
   template<class F, class...Ts> F for_each_args(F f, Ts&&...a)
@@ -962,6 +974,7 @@ namespace brigand
     return (void)std::initializer_list<int>{((void)std::ref(f)(static_cast<Ts&&>(a)),0)...}, f;
   }
 }
+*/
 namespace brigand
 {
   namespace detail

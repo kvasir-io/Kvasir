@@ -11,3 +11,4 @@ NamespaceIndentation: Inner
 PointerAlignment: Middle
 TabWidth: 4
 UseTab: Never
+SortIncludes: false
