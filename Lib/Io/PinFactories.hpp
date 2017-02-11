@@ -52,30 +52,35 @@ namespace Kvasir {
 			return{};
 		}
 
+		//create a register::action which configures a gpio pin as input
 		template<typename T>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Input, T>
 			makeInput(T) {
 			return{};
 		}
 
+		//create a register::action which configures a gpio pin as input variadic
 		template<typename T, typename U, typename... Ts>
 		constexpr decltype(MPL::list(makeInput(T{}), makeInput(U{}), makeInput(Ts{})...))
 			makeInput(T, U, Ts...) {
 			return{};
 		}
 
+		//create a register::action which configures a gpio pin as output
 		template<typename T>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Output, T>
 			makeOutput(T) {
 			return{};
 		}
 
+		//create a register::action which configures a gpio pin as output variadic
 		template<typename T, typename U, typename... Ts>
 		constexpr decltype(MPL::list(makeOutput(T{}), makeOutput(U{}), makeOutput(Ts{})...))
 			makeOutput(T, U, Ts...) {
 			return{};
 		}
 
+		//create a register::action which sets a pins output
 		template<typename TPortPin>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Set, TPortPin>
 			set(TPortPin) {
@@ -83,20 +88,21 @@ namespace Kvasir {
 		}
 
 
-
+		//create a register::action which clears a pins output
 		template<typename TPortPin>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Clear, TPortPin>
 			clear(TPortPin) {
 			return{};
 		}
 
-
+		//create a register::action wich toggles a pins output
 		template<typename TPortPin>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Toggle, TPortPin>
 			toggle(TPortPin) {
 			return{};
 		}
 
+		//variadic toggle
 		template<typename TPP1, typename TPP2, typename... TPortPins>
 		constexpr brigand::list<Io::Detail::MakeActionIfPinLocationT<Io::Action::Toggle, TPP1>,
 			Io::Detail::MakeActionIfPinLocationT<Io::Action::Toggle, TPP2>,
@@ -105,6 +111,7 @@ namespace Kvasir {
 			return{};
 		}
 
+		//create read register::action from a gpio pin.
 		template<typename TPortPin>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Read, TPortPin>
 			read(TPortPin) {
