@@ -20,18 +20,18 @@
 
 namespace Kvasir{
 namespace Register{
-	constexpr unsigned maskFromRange(int high, int low){
-		return (0xFFFFFFFFULL >> (31-(high-low)))<<low;
+	constexpr unsigned maskFromRange(unsigned high, unsigned low){
+		return (0xFFFFFFFFULL >> (31U-(high-low)))<<low;
 	}
 	template<typename... Is>
-	constexpr unsigned maskFromRange(int high, int low, Is...args){
+	constexpr unsigned maskFromRange(unsigned high, unsigned low, Is...args){
 		return maskFromRange(high,low) | maskFromRange(args...);
 	}
 	namespace Detail{
 		using namespace MPL;
 
-		constexpr int maskStartsAt(unsigned mask, int bitNum = 0) {
-			return mask & 1 ? bitNum : maskStartsAt(mask >> 1, bitNum + 1);
+		constexpr int maskStartsAt(unsigned mask, unsigned bitNum = 0U) {
+			return mask & 1U ? bitNum : maskStartsAt(mask >> 1U, bitNum + 1U);
 		}
 
 		constexpr bool onlyOneBitSet(unsigned i){
@@ -133,9 +133,11 @@ namespace Register{
 		//getters for specific parameters of an Action
 		template<typename T>
 			struct GetAddress;
-		template<unsigned A, unsigned WIIZ, unsigned SOTC, typename TRegType, typename TMode>
-			struct GetAddress<Address<A, WIIZ, SOTC, TRegType, TMode>> {
+		template<unsigned A, unsigned WIIZ, unsigned WIIO, typename TRegType, typename TMode>
+			struct GetAddress<Address<A, WIIZ, WIIO, TRegType, TMode>> {
 				static constexpr unsigned value = A;
+				static constexpr unsigned writeIgnoredIfZeroMask = WIIZ;
+				static constexpr unsigned writeIgnoredIfOneMask = WIIO;
 				static unsigned read() {
 					volatile TRegType& reg = *reinterpret_cast<volatile TRegType*>(value);
 					return reg;

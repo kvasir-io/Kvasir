@@ -14,7 +14,7 @@ namespace Kvasir {
     namespace RngShorts{    ///<Shortcut register
         using Addr = Register::Address<0x4000d200,0xfffffffe,0x00000000,unsigned>;
         ///Shortcut between EVENTS_VALRDY event and TASKS_STOP task
-        enum class ValrdystopVal {
+        enum class ValrdystopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -27,7 +27,7 @@ namespace Kvasir {
     namespace RngIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x4000d304,0xfffffffe,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_VALRDY event
-        enum class ValrdyVal {
+        enum class ValrdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -42,7 +42,7 @@ namespace Kvasir {
     namespace RngIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x4000d308,0xfffffffe,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_VALRDY event
-        enum class ValrdyVal {
+        enum class ValrdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -57,7 +57,7 @@ namespace Kvasir {
     namespace RngConfig{    ///<Configuration register
         using Addr = Register::Address<0x4000d504,0xfffffffe,0x00000000,unsigned>;
         ///Bias correction
-        enum class DercenVal {
+        enum class DercenVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enabled
         };

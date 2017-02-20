@@ -20,7 +20,7 @@ namespace Kvasir {
     namespace AarIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x4000f304,0xfffffff8,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_END event
-        enum class EndVal {
+        enum class EndVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -32,7 +32,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_RESOLVED event
-        enum class ResolvedVal {
+        enum class ResolvedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -44,7 +44,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_NOTRESOLVED event
-        enum class NotresolvedVal {
+        enum class NotresolvedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -59,7 +59,7 @@ namespace Kvasir {
     namespace AarIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x4000f308,0xfffffff8,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_END event
-        enum class EndVal {
+        enum class EndVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -71,7 +71,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_RESOLVED event
-        enum class ResolvedVal {
+        enum class ResolvedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -83,7 +83,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_NOTRESOLVED event
-        enum class NotresolvedVal {
+        enum class NotresolvedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -103,7 +103,7 @@ namespace Kvasir {
     namespace AarEnable{    ///<Enable AAR
         using Addr = Register::Address<0x4000f500,0xfffffffc,0x00000000,unsigned>;
         ///Enable or disable AAR
-        enum class EnableVal {
+        enum class EnableVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000003,     ///<Enable
         };

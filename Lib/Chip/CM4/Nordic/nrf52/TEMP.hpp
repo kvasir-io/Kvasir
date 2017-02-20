@@ -14,7 +14,7 @@ namespace Kvasir {
     namespace TempIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x4000c304,0xfffffffe,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_DATARDY event
-        enum class DatardyVal {
+        enum class DatardyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -29,7 +29,7 @@ namespace Kvasir {
     namespace TempIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x4000c308,0xfffffffe,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_DATARDY event
-        enum class DatardyVal {
+        enum class DatardyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable

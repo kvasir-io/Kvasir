@@ -8,7 +8,7 @@ namespace Kvasir {
     namespace Spi0Intenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40003304,0xfffffffb,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_READY event
-        enum class ReadyVal {
+        enum class ReadyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -23,7 +23,7 @@ namespace Kvasir {
     namespace Spi0Intenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40003308,0xfffffffb,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_READY event
-        enum class ReadyVal {
+        enum class ReadyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -53,7 +53,7 @@ namespace Kvasir {
     namespace Spi0Frequency{    ///<SPI frequency
         using Addr = Register::Address<0x40003524,0x00000000,0x00000000,unsigned>;
         ///SPI master data rate
-        enum class FrequencyVal {
+        enum class FrequencyVal : unsigned {
             k125=0x02000000,     ///<125 kbps
             k250=0x04000000,     ///<250 kbps
             k500=0x08000000,     ///<500 kbps
@@ -76,7 +76,7 @@ namespace Kvasir {
     namespace Spi0Config{    ///<Configuration register
         using Addr = Register::Address<0x40003554,0xfffffff8,0x00000000,unsigned>;
         ///Bit order
-        enum class OrderVal {
+        enum class OrderVal : unsigned {
             msbfirst=0x00000000,     ///<Most significant bit shifted out first
             lsbfirst=0x00000001,     ///<Least significant bit shifted out first
         };
@@ -86,7 +86,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::lsbfirst> lsbfirst{};
         }
         ///Serial clock (SCK) phase
-        enum class CphaVal {
+        enum class CphaVal : unsigned {
             leading=0x00000000,     ///<Sample on leading edge of clock, shift serial data on trailing edge
             trailing=0x00000001,     ///<Sample on trailing edge of clock, shift serial data on leading edge
         };
@@ -96,7 +96,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::trailing> trailing{};
         }
         ///Serial clock (SCK) polarity
-        enum class CpolVal {
+        enum class CpolVal : unsigned {
             activehigh=0x00000000,     ///<Active high
             activelow=0x00000001,     ///<Active low
         };
