@@ -38,7 +38,7 @@ namespace Kvasir {
     namespace ClockIntenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40000304,0xffffffe4,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_HFCLKSTARTED event
-        enum class HfclkstartedVal {
+        enum class HfclkstartedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -50,7 +50,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hfclkstarted)::Type,HfclkstartedVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_LFCLKSTARTED event
-        enum class LfclkstartedVal {
+        enum class LfclkstartedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -62,7 +62,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lfclkstarted)::Type,LfclkstartedVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_DONE event
-        enum class DoneVal {
+        enum class DoneVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -74,7 +74,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_CTTO event
-        enum class CttoVal {
+        enum class CttoVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -89,7 +89,7 @@ namespace Kvasir {
     namespace ClockIntenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40000308,0xffffffe4,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_HFCLKSTARTED event
-        enum class HfclkstartedVal {
+        enum class HfclkstartedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -101,7 +101,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hfclkstarted)::Type,HfclkstartedVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_LFCLKSTARTED event
-        enum class LfclkstartedVal {
+        enum class LfclkstartedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -113,7 +113,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lfclkstarted)::Type,LfclkstartedVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_DONE event
-        enum class DoneVal {
+        enum class DoneVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -125,7 +125,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_CTTO event
-        enum class CttoVal {
+        enum class CttoVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -140,7 +140,7 @@ namespace Kvasir {
     namespace ClockHfclkrun{    ///<Status indicating that HFCLKSTART task has been triggered
         using Addr = Register::Address<0x40000408,0xfffffffe,0x00000000,unsigned>;
         ///HFCLKSTART task triggered or not
-        enum class StatusVal {
+        enum class StatusVal : unsigned {
             nottriggered=0x00000000,     ///<Task not triggered
             triggered=0x00000001,     ///<Task triggered
         };
@@ -153,7 +153,7 @@ namespace Kvasir {
     namespace ClockHfclkstat{    ///<Which HFCLK source is running
         using Addr = Register::Address<0x4000040c,0xfffefffe,0x00000000,unsigned>;
         ///Active clock source
-        enum class SrcVal {
+        enum class SrcVal : unsigned {
             rc=0x00000000,     ///<Internal oscillator (HFINT)
             xtal=0x00000001,     ///<32 MHz crystal oscillator (HFXO)
         };
@@ -163,7 +163,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::xtal> xtal{};
         }
         ///HFCLK state
-        enum class StateVal {
+        enum class StateVal : unsigned {
             notrunning=0x00000000,     ///<HFCLK not running
             running=0x00000001,     ///<HFCLK running
         };
@@ -176,7 +176,7 @@ namespace Kvasir {
     namespace ClockLfclkrun{    ///<Status indicating that LFCLKSTART task has been triggered
         using Addr = Register::Address<0x40000414,0xfffffffe,0x00000000,unsigned>;
         ///LFCLKSTART task triggered or not
-        enum class StatusVal {
+        enum class StatusVal : unsigned {
             nottriggered=0x00000000,     ///<Task not triggered
             triggered=0x00000001,     ///<Task triggered
         };
@@ -189,7 +189,7 @@ namespace Kvasir {
     namespace ClockLfclkstat{    ///<Which LFCLK source is running
         using Addr = Register::Address<0x40000418,0xfffefffc,0x00000000,unsigned>;
         ///Active clock source
-        enum class SrcVal {
+        enum class SrcVal : unsigned {
             rc=0x00000000,     ///<32.768 kHz RC oscillator
             xtal=0x00000001,     ///<32.768 kHz crystal oscillator
             synth=0x00000002,     ///<32.768 kHz synthesized from HFCLK
@@ -201,7 +201,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::synth> synth{};
         }
         ///LFCLK state
-        enum class StateVal {
+        enum class StateVal : unsigned {
             notrunning=0x00000000,     ///<LFCLK not running
             running=0x00000001,     ///<LFCLK running
         };
@@ -214,7 +214,7 @@ namespace Kvasir {
     namespace ClockLfclksrccopy{    ///<Copy of LFCLKSRC register, set when LFCLKSTART task was triggered
         using Addr = Register::Address<0x4000041c,0xfffffffc,0x00000000,unsigned>;
         ///Clock source
-        enum class SrcVal {
+        enum class SrcVal : unsigned {
             rc=0x00000000,     ///<32.768 kHz RC oscillator
             xtal=0x00000001,     ///<32.768 kHz crystal oscillator
             synth=0x00000002,     ///<32.768 kHz synthesized from HFCLK
@@ -229,7 +229,7 @@ namespace Kvasir {
     namespace ClockLfclksrc{    ///<Clock source for the LFCLK
         using Addr = Register::Address<0x40000518,0xfffffffc,0x00000000,unsigned>;
         ///Clock source
-        enum class SrcVal {
+        enum class SrcVal : unsigned {
             rc=0x00000000,     ///<32.768 kHz RC oscillator
             xtal=0x00000001,     ///<32.768 kHz crystal oscillator
             synth=0x00000002,     ///<32.768 kHz synthesized from HFCLK
@@ -249,7 +249,7 @@ namespace Kvasir {
     namespace ClockTraceconfig{    ///<Clocking options for the Trace Port debug interface
         using Addr = Register::Address<0x4000055c,0xfffcfffc,0x00000000,unsigned>;
         ///Speed of Trace Port clock. Note that the TRACECLK pin will output this clock divided by two.
-        enum class TraceportspeedVal {
+        enum class TraceportspeedVal : unsigned {
             v32mhz=0x00000000,     ///<32 MHz Trace Port clock (TRACECLK = 16 MHz)
             v16mhz=0x00000001,     ///<16 MHz Trace Port clock (TRACECLK = 8 MHz)
             v8mhz=0x00000002,     ///<8 MHz Trace Port clock (TRACECLK = 4 MHz)
@@ -263,7 +263,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(traceportspeed)::Type,TraceportspeedVal::v4mhz> v4mhz{};
         }
         ///Pin multiplexing of trace signals.
-        enum class TracemuxVal {
+        enum class TracemuxVal : unsigned {
             gpio=0x00000000,     ///<GPIOs multiplexed onto all trace-pins
             serial=0x00000001,     ///<SWO multiplexed onto P0.18, GPIO multiplexed onto other trace pins
             parallel=0x00000002,     ///<TRACECLK and TRACEDATA multiplexed onto P0.20, P0.18, P0.16, P0.15 and P0.14.

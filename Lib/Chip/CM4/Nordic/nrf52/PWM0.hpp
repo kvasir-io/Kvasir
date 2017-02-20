@@ -20,7 +20,7 @@ namespace Kvasir {
     namespace Pwm0Shorts{    ///<Shortcut register
         using Addr = Register::Address<0x4001c200,0xffffffe0,0x00000000,unsigned>;
         ///Shortcut between EVENTS_SEQEND[0] event and TASKS_STOP task
-        enum class Seqend0stopVal {
+        enum class Seqend0stopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -30,7 +30,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqend0Stop)::Type,Seqend0stopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_SEQEND[1] event and TASKS_STOP task
-        enum class Seqend1stopVal {
+        enum class Seqend1stopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -40,7 +40,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqend1Stop)::Type,Seqend1stopVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_LOOPSDONE event and TASKS_SEQSTART[0] task
-        enum class Loopsdoneseqstart0Val {
+        enum class Loopsdoneseqstart0Val : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -50,7 +50,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loopsdoneSeqstart0)::Type,Loopsdoneseqstart0Val::enabled> enabled{};
         }
         ///Shortcut between EVENTS_LOOPSDONE event and TASKS_SEQSTART[1] task
-        enum class Loopsdoneseqstart1Val {
+        enum class Loopsdoneseqstart1Val : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -60,7 +60,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loopsdoneSeqstart1)::Type,Loopsdoneseqstart1Val::enabled> enabled{};
         }
         ///Shortcut between EVENTS_LOOPSDONE event and TASKS_STOP task
-        enum class LoopsdonestopVal {
+        enum class LoopsdonestopVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -73,7 +73,7 @@ namespace Kvasir {
     namespace Pwm0Inten{    ///<Enable or disable interrupt
         using Addr = Register::Address<0x4001c300,0xffffff01,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -83,7 +83,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_SEQSTARTED[0] event
-        enum class Seqstarted0Val {
+        enum class Seqstarted0Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -93,7 +93,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqstarted0)::Type,Seqstarted0Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_SEQSTARTED[1] event
-        enum class Seqstarted1Val {
+        enum class Seqstarted1Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -103,7 +103,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqstarted1)::Type,Seqstarted1Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_SEQEND[0] event
-        enum class Seqend0Val {
+        enum class Seqend0Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -113,7 +113,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqend0)::Type,Seqend0Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_SEQEND[1] event
-        enum class Seqend1Val {
+        enum class Seqend1Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -123,7 +123,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqend1)::Type,Seqend1Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_PWMPERIODEND event
-        enum class PwmperiodendVal {
+        enum class PwmperiodendVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -133,7 +133,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmperiodend)::Type,PwmperiodendVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_LOOPSDONE event
-        enum class LoopsdoneVal {
+        enum class LoopsdoneVal : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -146,7 +146,7 @@ namespace Kvasir {
     namespace Pwm0Intenset{    ///<Enable interrupt
         using Addr = Register::Address<0x4001c304,0xffffff01,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -158,7 +158,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_SEQSTARTED[0] event
-        enum class Seqstarted0Val {
+        enum class Seqstarted0Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -170,7 +170,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqstarted0)::Type,Seqstarted0Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_SEQSTARTED[1] event
-        enum class Seqstarted1Val {
+        enum class Seqstarted1Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -182,7 +182,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqstarted1)::Type,Seqstarted1Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_SEQEND[0] event
-        enum class Seqend0Val {
+        enum class Seqend0Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -194,7 +194,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqend0)::Type,Seqend0Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_SEQEND[1] event
-        enum class Seqend1Val {
+        enum class Seqend1Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -206,7 +206,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqend1)::Type,Seqend1Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_PWMPERIODEND event
-        enum class PwmperiodendVal {
+        enum class PwmperiodendVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -218,7 +218,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmperiodend)::Type,PwmperiodendVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_LOOPSDONE event
-        enum class LoopsdoneVal {
+        enum class LoopsdoneVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -233,7 +233,7 @@ namespace Kvasir {
     namespace Pwm0Intenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x4001c308,0xffffff01,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
-        enum class StoppedVal {
+        enum class StoppedVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -245,7 +245,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_SEQSTARTED[0] event
-        enum class Seqstarted0Val {
+        enum class Seqstarted0Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -257,7 +257,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqstarted0)::Type,Seqstarted0Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_SEQSTARTED[1] event
-        enum class Seqstarted1Val {
+        enum class Seqstarted1Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -269,7 +269,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqstarted1)::Type,Seqstarted1Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_SEQEND[0] event
-        enum class Seqend0Val {
+        enum class Seqend0Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -281,7 +281,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqend0)::Type,Seqend0Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_SEQEND[1] event
-        enum class Seqend1Val {
+        enum class Seqend1Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -293,7 +293,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqend1)::Type,Seqend1Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_PWMPERIODEND event
-        enum class PwmperiodendVal {
+        enum class PwmperiodendVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -305,7 +305,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmperiodend)::Type,PwmperiodendVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_LOOPSDONE event
-        enum class LoopsdoneVal {
+        enum class LoopsdoneVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -320,7 +320,7 @@ namespace Kvasir {
     namespace Pwm0Enable{    ///<PWM module enable register
         using Addr = Register::Address<0x4001c500,0xfffffffe,0x00000000,unsigned>;
         ///Enable or disable PWM module
-        enum class EnableVal {
+        enum class EnableVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enable
         };
@@ -333,7 +333,7 @@ namespace Kvasir {
     namespace Pwm0Mode{    ///<Selects operating mode of the wave counter
         using Addr = Register::Address<0x4001c504,0xfffffffe,0x00000000,unsigned>;
         ///Selects up or up and down as wave counter mode
-        enum class UpdownVal {
+        enum class UpdownVal : unsigned {
             up=0x00000000,     ///<Up counter - edge aligned PWM duty-cycle
             upanddown=0x00000001,     ///<Up and down counter - center aligned PWM duty cycle
         };
@@ -351,7 +351,7 @@ namespace Kvasir {
     namespace Pwm0Prescaler{    ///<Configuration for PWM_CLK
         using Addr = Register::Address<0x4001c50c,0xfffffff8,0x00000000,unsigned>;
         ///Pre-scaler of PWM_CLK
-        enum class PrescalerVal {
+        enum class PrescalerVal : unsigned {
             div1=0x00000000,     ///<Divide by   1 (16MHz)
             div2=0x00000001,     ///<Divide by   2 ( 8MHz)
             div4=0x00000002,     ///<Divide by   4 ( 4MHz)
@@ -378,7 +378,7 @@ namespace Kvasir {
         ///How a sequence is read from RAM and spread to the compare register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> load{}; 
         ///Selects source for advancing the active sequence
-        enum class ModeVal {
+        enum class ModeVal : unsigned {
             refreshcount=0x00000000,     ///<SEQ[n].REFRESH is used to determine loading internal compare registers
             nextstep=0x00000001,     ///<NEXTSTEP task causes a new value to be loaded to internal compare registers
         };

@@ -5,7 +5,7 @@ namespace Kvasir {
     namespace Egu4Inten{    ///<Enable or disable interrupt
         using Addr = Register::Address<0x40018300,0xffff0000,0x00000000,unsigned>;
         ///Enable or disable interrupt on EVENTS_TRIGGERED[0] event
-        enum class Triggered0Val {
+        enum class Triggered0Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -15,7 +15,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered0)::Type,Triggered0Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[1] event
-        enum class Triggered1Val {
+        enum class Triggered1Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -25,7 +25,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered1)::Type,Triggered1Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[2] event
-        enum class Triggered2Val {
+        enum class Triggered2Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -35,7 +35,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered2)::Type,Triggered2Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[3] event
-        enum class Triggered3Val {
+        enum class Triggered3Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -45,7 +45,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered3)::Type,Triggered3Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[4] event
-        enum class Triggered4Val {
+        enum class Triggered4Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -55,7 +55,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered4)::Type,Triggered4Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[5] event
-        enum class Triggered5Val {
+        enum class Triggered5Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -65,7 +65,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered5)::Type,Triggered5Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[6] event
-        enum class Triggered6Val {
+        enum class Triggered6Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -75,7 +75,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered6)::Type,Triggered6Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[7] event
-        enum class Triggered7Val {
+        enum class Triggered7Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -85,7 +85,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered7)::Type,Triggered7Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[8] event
-        enum class Triggered8Val {
+        enum class Triggered8Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -95,7 +95,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered8)::Type,Triggered8Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[9] event
-        enum class Triggered9Val {
+        enum class Triggered9Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -105,7 +105,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered9)::Type,Triggered9Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[10] event
-        enum class Triggered10Val {
+        enum class Triggered10Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -115,7 +115,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered10)::Type,Triggered10Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[11] event
-        enum class Triggered11Val {
+        enum class Triggered11Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -125,7 +125,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered11)::Type,Triggered11Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[12] event
-        enum class Triggered12Val {
+        enum class Triggered12Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -135,7 +135,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered12)::Type,Triggered12Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[13] event
-        enum class Triggered13Val {
+        enum class Triggered13Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -145,7 +145,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered13)::Type,Triggered13Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[14] event
-        enum class Triggered14Val {
+        enum class Triggered14Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -155,7 +155,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered14)::Type,Triggered14Val::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TRIGGERED[15] event
-        enum class Triggered15Val {
+        enum class Triggered15Val : unsigned {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
@@ -168,7 +168,7 @@ namespace Kvasir {
     namespace Egu4Intenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40018304,0xffff0000,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[0] event
-        enum class Triggered0Val {
+        enum class Triggered0Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -180,7 +180,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered0)::Type,Triggered0Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[1] event
-        enum class Triggered1Val {
+        enum class Triggered1Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -192,7 +192,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered1)::Type,Triggered1Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[2] event
-        enum class Triggered2Val {
+        enum class Triggered2Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -204,7 +204,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered2)::Type,Triggered2Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[3] event
-        enum class Triggered3Val {
+        enum class Triggered3Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -216,7 +216,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered3)::Type,Triggered3Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[4] event
-        enum class Triggered4Val {
+        enum class Triggered4Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -228,7 +228,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered4)::Type,Triggered4Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[5] event
-        enum class Triggered5Val {
+        enum class Triggered5Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -240,7 +240,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered5)::Type,Triggered5Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[6] event
-        enum class Triggered6Val {
+        enum class Triggered6Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -252,7 +252,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered6)::Type,Triggered6Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[7] event
-        enum class Triggered7Val {
+        enum class Triggered7Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -264,7 +264,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered7)::Type,Triggered7Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[8] event
-        enum class Triggered8Val {
+        enum class Triggered8Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -276,7 +276,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered8)::Type,Triggered8Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[9] event
-        enum class Triggered9Val {
+        enum class Triggered9Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -288,7 +288,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered9)::Type,Triggered9Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[10] event
-        enum class Triggered10Val {
+        enum class Triggered10Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -300,7 +300,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered10)::Type,Triggered10Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[11] event
-        enum class Triggered11Val {
+        enum class Triggered11Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -312,7 +312,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered11)::Type,Triggered11Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[12] event
-        enum class Triggered12Val {
+        enum class Triggered12Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -324,7 +324,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered12)::Type,Triggered12Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[13] event
-        enum class Triggered13Val {
+        enum class Triggered13Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -336,7 +336,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered13)::Type,Triggered13Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[14] event
-        enum class Triggered14Val {
+        enum class Triggered14Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -348,7 +348,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered14)::Type,Triggered14Val::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[15] event
-        enum class Triggered15Val {
+        enum class Triggered15Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -363,7 +363,7 @@ namespace Kvasir {
     namespace Egu4Intenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40018308,0xffff0000,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[0] event
-        enum class Triggered0Val {
+        enum class Triggered0Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -375,7 +375,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered0)::Type,Triggered0Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[1] event
-        enum class Triggered1Val {
+        enum class Triggered1Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -387,7 +387,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered1)::Type,Triggered1Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[2] event
-        enum class Triggered2Val {
+        enum class Triggered2Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -399,7 +399,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered2)::Type,Triggered2Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[3] event
-        enum class Triggered3Val {
+        enum class Triggered3Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -411,7 +411,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered3)::Type,Triggered3Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[4] event
-        enum class Triggered4Val {
+        enum class Triggered4Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -423,7 +423,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered4)::Type,Triggered4Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[5] event
-        enum class Triggered5Val {
+        enum class Triggered5Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -435,7 +435,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered5)::Type,Triggered5Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[6] event
-        enum class Triggered6Val {
+        enum class Triggered6Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -447,7 +447,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered6)::Type,Triggered6Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[7] event
-        enum class Triggered7Val {
+        enum class Triggered7Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -459,7 +459,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered7)::Type,Triggered7Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[8] event
-        enum class Triggered8Val {
+        enum class Triggered8Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -471,7 +471,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered8)::Type,Triggered8Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[9] event
-        enum class Triggered9Val {
+        enum class Triggered9Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -483,7 +483,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered9)::Type,Triggered9Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[10] event
-        enum class Triggered10Val {
+        enum class Triggered10Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -495,7 +495,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered10)::Type,Triggered10Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[11] event
-        enum class Triggered11Val {
+        enum class Triggered11Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -507,7 +507,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered11)::Type,Triggered11Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[12] event
-        enum class Triggered12Val {
+        enum class Triggered12Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -519,7 +519,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered12)::Type,Triggered12Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[13] event
-        enum class Triggered13Val {
+        enum class Triggered13Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -531,7 +531,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered13)::Type,Triggered13Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[14] event
-        enum class Triggered14Val {
+        enum class Triggered14Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -543,7 +543,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triggered14)::Type,Triggered14Val::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[15] event
-        enum class Triggered15Val {
+        enum class Triggered15Val : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable

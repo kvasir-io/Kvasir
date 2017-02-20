@@ -38,7 +38,7 @@ namespace Kvasir {
     namespace Uart0Shorts{    ///<Shortcut register
         using Addr = Register::Address<0x40002200,0xffffffe7,0x00000000,unsigned>;
         ///Shortcut between EVENTS_CTS event and TASKS_STARTRX task
-        enum class CtsstartrxVal {
+        enum class CtsstartrxVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -48,7 +48,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctsStartrx)::Type,CtsstartrxVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_NCTS event and TASKS_STOPRX task
-        enum class NctsstoprxVal {
+        enum class NctsstoprxVal : unsigned {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
@@ -61,7 +61,7 @@ namespace Kvasir {
     namespace Uart0Intenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40002304,0xfffdfd78,0x00000000,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_CTS event
-        enum class CtsVal {
+        enum class CtsVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -73,7 +73,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_NCTS event
-        enum class NctsVal {
+        enum class NctsVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -85,7 +85,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_RXDRDY event
-        enum class RxdrdyVal {
+        enum class RxdrdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -97,7 +97,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TXDRDY event
-        enum class TxdrdyVal {
+        enum class TxdrdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -109,7 +109,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_ERROR event
-        enum class ErrorVal {
+        enum class ErrorVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -121,7 +121,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_RXTO event
-        enum class RxtoVal {
+        enum class RxtoVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
@@ -136,7 +136,7 @@ namespace Kvasir {
     namespace Uart0Intenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40002308,0xfffdfd78,0x00000000,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_CTS event
-        enum class CtsVal {
+        enum class CtsVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -148,7 +148,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_NCTS event
-        enum class NctsVal {
+        enum class NctsVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -160,7 +160,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_RXDRDY event
-        enum class RxdrdyVal {
+        enum class RxdrdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -172,7 +172,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TXDRDY event
-        enum class TxdrdyVal {
+        enum class TxdrdyVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -184,7 +184,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_ERROR event
-        enum class ErrorVal {
+        enum class ErrorVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -196,7 +196,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_RXTO event
-        enum class RxtoVal {
+        enum class RxtoVal : unsigned {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
@@ -211,7 +211,7 @@ namespace Kvasir {
     namespace Uart0Errorsrc{    ///<Error source
         using Addr = Register::Address<0x40002480,0xfffffff0,0x00000000,unsigned>;
         ///Overrun error
-        enum class OverrunVal {
+        enum class OverrunVal : unsigned {
             notpresent=0x00000000,     ///<Read: error not present
             present=0x00000001,     ///<Read: error present
         };
@@ -221,7 +221,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overrun)::Type,OverrunVal::present> present{};
         }
         ///Parity error
-        enum class ParityVal {
+        enum class ParityVal : unsigned {
             notpresent=0x00000000,     ///<Read: error not present
             present=0x00000001,     ///<Read: error present
         };
@@ -231,7 +231,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(parity)::Type,ParityVal::present> present{};
         }
         ///Framing error occurred
-        enum class FramingVal {
+        enum class FramingVal : unsigned {
             notpresent=0x00000000,     ///<Read: error not present
             present=0x00000001,     ///<Read: error present
         };
@@ -241,7 +241,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(framing)::Type,FramingVal::present> present{};
         }
         ///Break condition
-        enum class Break_Val {
+        enum class Break_Val : unsigned {
             notpresent=0x00000000,     ///<Read: error not present
             present=0x00000001,     ///<Read: error present
         };
@@ -289,7 +289,7 @@ namespace Kvasir {
     namespace Uart0Baudrate{    ///<Baud rate
         using Addr = Register::Address<0x40002524,0x00000000,0x00000000,unsigned>;
         ///Baud-rate
-        enum class BaudrateVal {
+        enum class BaudrateVal : unsigned {
             baud1200=0x0004f000,     ///<1200 baud (actual rate: 1205)
             baud2400=0x0009d000,     ///<2400 baud (actual rate: 2396)
             baud4800=0x0013b000,     ///<4800 baud (actual rate: 4808)
@@ -330,7 +330,7 @@ namespace Kvasir {
     namespace Uart0Config{    ///<Configuration of parity and hardware flow control
         using Addr = Register::Address<0x4000256c,0xfffffff0,0x00000000,unsigned>;
         ///Hardware flow control
-        enum class HwfcVal {
+        enum class HwfcVal : unsigned {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enabled
         };
