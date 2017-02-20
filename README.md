@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kvasir-io/Kvasir.svg?branch=master)](https://travis-ci.org/kvasir-io/kvasir) [![Join the chat at https://gitter.im/kvasir-io/Kvasir](https://badges.gitter.im/kvasir-io/Kvasir.svg)](https://gitter.im/kvasir-io/Kvasir?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Kvasir is a collection of modern C++ microcontroller libraries which share a common vision and work well together. Kind of like boost but for a different domain. The most developed library is the Kvasir::Register library which enables full static checking ans simple SFR abstraction in embedded software. Despite the fact that we use modern C++ tools under the hood the public interface is quite "C like" and familiar to most embedded developers.
+Kvasir is a collection of modern C++ microcontroller libraries which share a common vision and work well together. Kind of like boost but for a different domain. The most developed library is the Kvasir::Register library which enables full static checking and simple SFR abstraction in embedded software. Despite the fact that we use modern C++ tools under the hood the public interface is quite "C like" and familiar to most embedded developers.
 
 # Why Kvasir?
 ## Efficiency
