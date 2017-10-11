@@ -1,13 +1,13 @@
-#Tutorial
-##Generic tutorial
+# Tutorial
+## Generic tutorial
  - clone this repository 
  - create a new project in whatever tool you like (or open a existing demo)
- - add the subfolder Lib from this repository to your include paths (-I directive in GCC)
- - set your compilers dialect to C++11 (-std=c++11 directive in GCC)
+ - add the subfolder Lib from this repository to your include paths (`-I` directive in GCC)
+ - set your compilers dialect to C++11 (`-std=c++11` directive in GCC)
  - include the corresponding chip file for the chip you are using (eg. for MKL27Z256xxx include the file "Chip/MKL27Z4.hpp")
  - now you are ready to use Kvasir
  
-##Lpcxpresso
+## Lpcxpresso
  - clone repository to a folder of your choice (lets call it [root])
  - open lpcxpresso
  - select file->new->project->C/C++->c++ Project->Empty Project
