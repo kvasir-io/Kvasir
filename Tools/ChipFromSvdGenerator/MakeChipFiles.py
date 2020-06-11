@@ -1,6 +1,5 @@
-﻿import posixpath
-import os
-from posixpath import basename
+﻿import os
+from os.path import basename
 from cmsis_svd.parser import SVDParser
 import site
 import json
@@ -21,11 +20,11 @@ def formatIoPorts(input):
     else:
         return [input]
 
-def parseIo(extention,device,path):
-    outFile = open(posixpath.join(path,"Io.hpp"),'w',encoding='utf-8')
+def parseIo(extension,device,path):
+    outFile = open(os.path.join(path,"Io.hpp"),'w',encoding='utf-8')
     outFile.write('#pragma once\n#include <Io/Io.hpp>\n#include <Register/Register.hpp>\n')
     outFile.write("namespace Kvasir{\n    namespace Io{\n")
-    io = Ft.getKey(extention,['kvasir','io'])
+    io = Ft.getKey(extension,['kvasir','io'])
     for key in sorted(io):
         if key!="default":
             type = Ft.getKey(io,[key,'type'])
@@ -60,11 +59,11 @@ def parseRegister(register, baseAddress, prefix, ext):
         lsb = field.bit_offset
         fieldType = "unsigned"
         fieldName = Ft.formatVariable(field.name)
-        fieldOut += "        ///%s\n" % Ft.formatComment(Ft.getKey(ext,['field',field.name,'description']) or field.description)
+        fieldOut += "        ///%s\n" % Ft.formatComment(field.description)
         cValuesOut = ""
         if Ft.useEnumeratedValues(field.enumerated_values,field.bit_width):
             fieldType = "%sVal" % (fieldName.capitalize())
-            fieldOut += "        enum class %s : unsigned {\n" % fieldType
+            fieldOut += "        enum class %s {\n" % fieldType
             cValuesOut = "        namespace %sC{\n" % fieldType
             for v in field.enumerated_values:
                 if v.value is not None and v.is_default is None:     #some value are defaults, we ignore them
@@ -80,18 +79,13 @@ def parseRegister(register, baseAddress, prefix, ext):
             noActionIfZeroBits = Ft.clearBitsFromRange(msb,lsb,noActionIfZeroBits)
         if "zeroTo" in access: #if zeroToSet or zeroToClear then writing a 1 is a no action
             noActionIfOneBits = Ft.setBitsFromRange(msb,lsb,noActionIfOneBits)
-    
-    size = Ft.getKey(ext,['size'])    
-    if size is not None:
-        register.size = size
-    elif register.size is None:
-        register.size = 32
-    if register.size is 8:
-        regType = "unsigned char"
-    if register.size is 16:
-        regType = "unsigned short"
-    if register.size is 32:
-        regType = "unsigned"
+            
+    regType = "std::uint32_t"
+    if register.size is not None:
+        if register.size is 8:
+            regType = "std::uint8_t"
+        elif register.size is 16:
+            regType = "std::uint16_t"
     out = "    namespace %s{    ///<%s\n" % (Ft.formatNamespace("%s_%s" % (prefix, register.name)),Ft.formatComment(register.description))
     out += "        using Addr = Register::Address<0x%08x,0x%08x,0x%08x,%s>;\n" % (baseAddress + register.address_offset,noActionIfZeroBits,noActionIfOneBits,regType)
     out += fieldOut 
@@ -117,62 +111,64 @@ def parsePeripheral(peripheral, ext):
 def parseFile(company,file):
     print("Parsing %s,%s " % (company,file))
     parser = SVDParser.for_packaged_svd(company, file + ".svd",1)
-    extention = []
-    jsonPath = posixpath.join(posixpath.dirname(posixpath.abspath(__file__)),"Extention",company,file+".json")
+    extension = []
+    jsonPath = os.path.join(os.path.dirname(os.path.abspath(__file__)),"Extension",company,file+".json")
     #print(jsonPath)
     device = parser.get_device()
-    if posixpath.isfile(jsonPath):
+    if os.path.isfile(jsonPath):
         extFile = open(jsonPath,"r",encoding='utf-8')
-        extention = json.load(extFile)
-    subdir = Ft.formatCpuName(Ft.getKey(extention,["device","cpu","name"]),device)
-    chipDir = posixpath.join('..','..','Lib','Chip')
-    subdir = posixpath.join(chipDir, subdir)
-    if not posixpath.exists(subdir):
+        extension = json.load(extFile)
+    subdir = Ft.formatCpuName(Ft.getKey(extension,["device","cpu","name"]),device)
+    chipDir = os.path.join('..','..','Lib','Chip')
+    subdir = os.path.join(chipDir, subdir)
+    if not os.path.exists(subdir):
         os.makedirs(subdir)
-    subdir = posixpath.join(subdir,company)
-    if not posixpath.exists(subdir):
+    subdir = os.path.join(subdir,company)
+    if not os.path.exists(subdir):
         os.makedirs(subdir)
-    subdir = posixpath.join(subdir,file)
-    if not posixpath.exists(subdir):
+    subdir = os.path.join(subdir,file)
+    if not os.path.exists(subdir):
         os.makedirs(subdir)
     chipText = "#pragma once \n"
+    chipText += "#include <cstdint>\n"
     incDir = subdir[10:]
-    if Ft.getKey(extention,["kvasir","io"]):
-        parseIo(extention,device,subdir)
-        chipText += "#include <%s>\n" % (posixpath.join(incDir,"Io.hpp"))
+    if Ft.getKey(extension,["kvasir","io"]):
+        parseIo(extension,device,subdir)
+        chipText += "#include <%s>\n" % (os.path.join(incDir,"Io.hpp"))
     for peripheral in device.peripherals:
         if peripheral.name is not None:
-            chipText += "#include <%s>\n" % (posixpath.join(incDir,peripheral.name+".hpp"))
+            chipText += "#include <%s>\n" % (os.path.join(incDir,peripheral.name+".hpp"))
             out = "#pragma once \n#include <Register/Utility.hpp>\n"
             out += "namespace Kvasir {\n"
-            out += parsePeripheral(peripheral,Ft.getKey(extention,['.'+peripheral.name]))
+            out += parsePeripheral(peripheral,Ft.getKey(extension,['.'+peripheral.name]))
             out += "}\n"
 
-            outFile = open(posixpath.join(subdir,peripheral.name+".hpp"), 'w',encoding='utf-8')
+            outFile = open(os.path.join(subdir,peripheral.name+".hpp"), 'w',encoding='utf-8')
             outFile.write(out)
         else:
             print("error no name in %s" % (file))
-    outFile = open(posixpath.join(chipDir,file + ".hpp"), 'w',encoding='utf-8')
+    outFile = open(os.path.join(chipDir,file + ".hpp"), 'w',encoding='utf-8')
     outFile.write(chipText)
     
 def parseAll(path):
-    for root, dirs, files in os.walk(path):
+    for root, _, files in os.walk(path):
         print("processing: " + basename(root.replace('\\','/')))
         if len(files) and basename(root.replace('\\','/')) != "ARM_SAMPLE":
             for file in files:
-                filename, file_extension = posixpath.splitext(file)
+                filename, file_extension = os.path.splitext(file)
                 if file_extension == ".svd":
                     parseFile(basename(root.replace('\\','/')),filename)
+
 def parseCompany(path,company):
-    for root, dirs, files in os.walk(posixpath.join(path,company)):
+    for _, _, files in os.walk(os.path.join(path,company)):
         for file in files:
-            filename, file_extension = posixpath.splitext(file)
+            filename, file_extension = os.path.splitext(file)
             if file_extension == ".svd":
                 parseFile(company,filename)
                 
 parser = argparse.ArgumentParser(description='Generate chip files')
 parser.add_argument('-f,--file', dest='file', help='file name to parse')
-parser.add_argument('-p,--path', dest='path', default=site.getsitepackages()[1] + '\cmsis_svd\data', help='folder to parse')
+parser.add_argument('-p,--path', dest='path', default=site.getsitepackages()[1] + '/cmsis_svd/data', help='folder to parse')
 parser.add_argument('-c,--company', dest='company', help='company to parse')
 
 args = parser.parse_args()
